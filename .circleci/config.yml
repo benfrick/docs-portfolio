@@ -1,0 +1,108 @@
+version: 2
+
+references:
+  
+  container_config: &container_config
+    docker:
+      - image: nikengp/node6:v0.4
+    working_directory: /tmp/app
+
+  workspace_root: &workspace_root
+    /tmp
+    
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  persist_to_workspace: &persist_to_workspace
+    persist_to_workspace:
+      root: *workspace_root
+      paths:
+        - app
+
+  npm_cache_key: &npm_cache_key
+    v1-dependency-npm-{{ checksum "package.json" }}
+  npm_backup_cache_key: &npm_backup_cache_key
+    v1-dependency-npm
+
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      keys:
+        - *npm_cache_key
+        - *npm_backup_cache_key
+
+  branch_filter_master: &branch_filter_master
+    filters:
+      branches:
+        only: master
+        
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_staging:
+          <<: *branch_filter_master
+          context: org-global
+          requires:
+            - build
+      - hold_for_prod:
+          type: approval
+          <<: *branch_filter_master
+          requires:
+            - deploy_staging
+      - deploy_prod:
+          <<: *branch_filter_master
+          context: org-global
+          requires:
+            - hold_for_prod
+jobs:
+  build:
+    <<: *container_config
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: *npm_cache_key
+          paths:
+            - ./node_modules
+      - run:
+          name: test
+          command: /build-scripts/lib-run-tests.sh
+      - store_artifacts:
+          path: test-results
+          prefix: test-results
+      - store_test_results:
+          path: test-results
+      - run:
+          name: build
+          command: npm run build
+      - *persist_to_workspace
+  deploy_staging:
+    <<: *container_config
+    steps:
+      - *attach_workspace
+      - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_LAB}" --profile lab
+      - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_LAB}" --profile lab
+      - run: echo 'export terraform_state_bucket="ngp-terraform-remote-config"' >> $BASH_ENV
+      - run:
+          name: deploy
+          command: ./pipeline/deploy.sh staging
+      - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Deploy to dev completed for '${CIRCLE_PROJECT_REPONAME}', go to <https://circleci.nike.com/workflow-run/'${CIRCLE_WORKFLOW_WORKSPACE_ID}'|Workflow> to approve for production deploy\"}' ${NGP_APPS_PRIVATE_SLACK_HOOK}"
+  deploy_prod:
+    <<: *container_config
+    steps:
+      - *attach_workspace
+      #Change to lab until we get DNS moved
+#      - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_PROD}" --profile prod
+#      - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_PROD}" --profile prod
+#      - run: echo 'export terraform_state_bucket="ngp-prod-terraform-remote-config"' >> $BASH_ENV
+      - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_LAB}" --profile prod
+      - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_LAB}" --profile prod
+      - run: echo 'export terraform_state_bucket="ngp-terraform-remote-config"' >> $BASH_ENV
+      - run:
+          name: deploy
+          command: ./pipeline/deploy.sh prod

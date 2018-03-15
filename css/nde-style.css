@@ -1,0 +1,200 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+    padding: 20px;
+    width: 100%;
+}
+h1 {
+    font-family: "Nike TG","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: .5px;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #000000;
+}
+h2,h3,h4,h5,h6 {
+    font-family: OneNikeCurrency,"Nike TG","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: .5px;
+    padding-top: .8em;
+}
+h2{font-size:2.1em;}
+h3{font-size:1.6em;}
+h4{font-size:1.2em;}
+h5{font-size:1.0em;}
+h6{font-size:.8em;}
+table {
+    margin-top: 16px;
+    padding-top: 50px;
+    padding-bottom: 15px;
+    width:70%
+}
+table.card thead tr th {
+    background-color:#FA5400;
+    font-weight:bold;
+    color:white;
+    text-align: left;
+}
+table.card tbody tr td {
+    border-bottom-color: black;
+    border-collapse: collapse;
+    font-size: 1.1em;
+}
+p {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.714285714285714;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+code, code span {
+    font-family: Courier;
+}
+a {
+    color: #0099e5;
+}
+/* dev portal style overrides*/
+.hljs {
+    color: #000000;
+    background-color: #ffffff;
+}
+.hljs-string {
+    color: #0B7500;
+}
+.card .card-header a, .navList .navLink {
+    color: #111;
+}
+.toc-pad {
+    margin-left:25px;
+}
+
+
+article header {
+    padding-left: 8px;
+
+}
+article h1,h2,h3,h4,h5,h6 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    letter-spacing: 0px;
+}
+article h1{
+    padding-top: 8px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #f4f6f7;
+    text-transform: none;
+    font-size: 2em;
+    margin-left: 20px;
+    width: 65%;
+}
+article h2 {
+    font-size: 1.7em;
+}
+article a h3 {
+    font-size: 1.2em;
+    padding: 10px;
+    font-weight: bold;
+}
+article p {
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    line-height: 17px;
+    font-size: 1.1em;
+}
+article h2 {
+    padding-top: 0px;
+}
+.guide-container {
+    display: flex;
+}
+.header-content
+{
+    width:50%;
+    border: 2px solid #dfdfdf;
+    margin: 12px;
+    padding: 10px;
+}
+.guide-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 8px!important;
+    margin-bottom: -23px;
+}
+.guide-list li, .guide-row li {
+    flex-shrink: 0;
+    margin: 0 0 23px;
+    padding: 0;
+}
+.guide-list li a {
+    position: relative;
+    display: block;
+    height: 150px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1);
+    text-decoration: none;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 17px 30px;
+    background-size: 36px 36px;
+    transition: box-shadow .2s ease-in-out;
+    border: 2px solid #dfdfdf;
+}
+.guide-row {
+   display: flex;
+   flex-direction: column;
+   flex-flow: column wrap;
+   max-height: 250px;
+   max-width: 540px;
+   margin-left: 12px;
+}
+.guide-row li {
+    margin-bottom: 0px;
+}
+.guide-row li a {
+    position: relative;
+    display: block;
+    height: 75px;
+    width: 250px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1);
+    text-decoration: none;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 17px 30px;
+    background-size: 36px 36px;
+    transition: box-shadow .2s ease-in-out;
+    border: 2px solid #dfdfdf;
+    margin: 8px;
+}
+.guide-box {
+    padding: 10px;
+    line-height: 1.3em;
+}
+.guide-box-body {
+    color: black;
+}
+.fs32-aligntop {
+    font-size: 32px;
+    line-height: 1;
+}
+.guide-content {
+    width: 66%;
+}
+.guide-content h2{
+    padding-top: 8px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #f4f6f7;
+    margin-left: 20px;
+    color: black;
+}
+.guide-leftnav {
+    width: 33%;
+}
+a.noanchor:link,a.noanchor:visited,a.noanchor:hover,a.noanchor:active {
+    text-decoration: none;
+    color: black;
+    cursor: default;
+}
