@@ -16,4 +16,5 @@ provider "aws" {
 
 locals {
   domain_name = "nde-devportal-docs.niketech.com"
+  hosted_zone_id = "Z7OWM2GFULVOF"
 }
