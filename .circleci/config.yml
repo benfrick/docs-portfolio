@@ -20,17 +20,6 @@ references:
       paths:
         - app
 
-  npm_cache_key: &npm_cache_key
-    v1-dependency-npm-{{ checksum "package.json" }}
-  npm_backup_cache_key: &npm_backup_cache_key
-    v1-dependency-npm
-
-  restore_node_modules: &restore_node_modules
-    restore_cache:
-      keys:
-        - *npm_cache_key
-        - *npm_backup_cache_key
-
   branch_filter_master: &branch_filter_master
     filters:
       branches:
@@ -41,68 +30,27 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      - deploy_staging:
+      - deploy:
           <<: *branch_filter_master
           context: org-global
           requires:
             - build
-      - hold_for_prod:
-          type: approval
-          <<: *branch_filter_master
-          requires:
-            - deploy_staging
-      - deploy_prod:
-          <<: *branch_filter_master
-          context: org-global
-          requires:
-            - hold_for_prod
 jobs:
   build:
     <<: *container_config
     steps:
       - checkout
-      - *restore_node_modules
       - run:
-          name: Install Dependencies
-          command: npm install
-      - save_cache:
-          key: *npm_cache_key
-          paths:
-            - ./node_modules
-      - run:
-          name: test
-          command: /build-scripts/lib-run-tests.sh
-      - store_artifacts:
-          path: test-results
-          prefix: test-results
-      - store_test_results:
-          path: test-results
-      - run:
-          name: build
-          command: npm run build
-      - *persist_to_workspace
-  deploy_staging:
+          name: placeholder step
+          command: echo success
+  deploy:
     <<: *container_config
     steps:
       - *attach_workspace
-      - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_LAB}" --profile lab
-      - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_LAB}" --profile lab
+      - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_PROD}"
+      - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_PROD}"
+      - run: echo 'export terraform_state_bucket="ngp-prod-terraform-remote-config"' >> $BASH_ENV
       - run: echo 'export terraform_state_bucket="ngp-terraform-remote-config"' >> $BASH_ENV
-      - run:
-          name: deploy
-          command: ./pipeline/deploy.sh staging
-      - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Deploy to dev completed for '${CIRCLE_PROJECT_REPONAME}', go to <https://circleci.nike.com/workflow-run/'${CIRCLE_WORKFLOW_WORKSPACE_ID}'|Workflow> to approve for production deploy\"}' ${NGP_APPS_PRIVATE_SLACK_HOOK}"
-  deploy_prod:
-    <<: *container_config
-    steps:
-      - *attach_workspace
-      #Change to lab until we get DNS moved
-#      - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_PROD}" --profile prod
-#      - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_PROD}" --profile prod
-#      - run: echo 'export terraform_state_bucket="ngp-prod-terraform-remote-config"' >> $BASH_ENV
-      - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_LAB}" --profile prod
-      - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_LAB}" --profile prod
-      - run: echo 'export terraform_state_bucket="ngp-terraform-remote-config"' >> $BASH_ENV
-      - run:
-          name: deploy
-          command: ./pipeline/deploy.sh prod
+#      - run:
+#          name: deploy
+#          command: aws s3 sync build/ s3://YOURBUCKET.niketech.com/ --exclude \"*.DS_Store*\"; exit_status=$?; if [ $exit_status -eq 2 ]; then exit 0; fi; exit $exit_status
