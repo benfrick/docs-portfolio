@@ -5,6 +5,7 @@
 html {
     padding: 20px;
     width: 100%;
+    font-size: 14px;
 }
 h1 {
     font-family: "Nike TG","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -52,7 +53,7 @@ code, code span {
     font-family: Courier;
 }
 a {
-    color: #0099e5;
+    color: #3498db;
 }
 /* dev portal style overrides*/
 .hljs {
@@ -70,10 +71,6 @@ a {
 }
 
 
-article header {
-    padding-left: 8px;
-
-}
 article h1,h2,h3,h4,h5,h6 {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: bold;
@@ -85,7 +82,7 @@ article h1{
     border-bottom: 2px solid #f4f6f7;
     text-transform: none;
     font-size: 2em;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     width: 65%;
 }
 article h2 {
@@ -97,40 +94,49 @@ article a h3 {
     font-weight: bold;
 }
 article p {
-    margin-top: 15px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    line-height: 17px;
-    font-size: 1.1em;
+    margin: 15px 15px 15px 0px;
+    line-height: 1.2;
+    /*font-size: 1.1em;*/
 }
 article h2 {
     padding-top: 0px;
 }
 .guide-container {
     display: flex;
+
 }
-.header-content
+.guide-landing-content
 {
-    width:50%;
+    width:49%;
     border: 2px solid #dfdfdf;
     margin: 12px;
     padding: 10px;
 }
-.guide-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    list-style: none;
-    margin-top: 8px!important;
-    margin-bottom: -23px;
+.guide-content {
+    width: 66%;
+    margin: 20px;
 }
-.guide-list li, .guide-row li {
+.guide-content h2{
+    margin: 15px 15px 15px 0px;
+    border-bottom: 2px solid #f4f6f7;
+    color: black;
+}
+.guide-box-list {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin-top: 12px!important;
+    margin-bottom: -23px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.guide-box-list li {
     flex-shrink: 0;
     margin: 0 0 23px;
     padding: 0;
 }
-.guide-list li a {
+.guide-box-list li a {
     position: relative;
     display: block;
     height: 150px;
@@ -143,31 +149,19 @@ article h2 {
     transition: box-shadow .2s ease-in-out;
     border: 2px solid #dfdfdf;
 }
-.guide-row {
-   display: flex;
-   flex-direction: column;
-   flex-flow: column wrap;
-   max-height: 250px;
-   max-width: 540px;
+.guide-box-list-med {
+   flex-flow: row wrap;
+   max-width: 582px;
    margin-left: 12px;
+   margin-bottom: 3px;
 }
-.guide-row li {
+.guide-box-list-med li {
     margin-bottom: 0px;
 }
-.guide-row li a {
-    position: relative;
-    display: block;
+.guide-box-list-med li a {
     height: 75px;
-    width: 250px;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1);
-    text-decoration: none;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: 17px 30px;
-    background-size: 36px 36px;
-    transition: box-shadow .2s ease-in-out;
-    border: 2px solid #dfdfdf;
-    margin: 8px;
+    width: 275px;
+    margin: 8 3 3 8px;
 }
 .guide-box {
     padding: 10px;
@@ -176,25 +170,87 @@ article h2 {
 .guide-box-body {
     color: black;
 }
+.guide-box-body h3 {
+    display: inline-block;
+}
 .fs32-aligntop {
     font-size: 32px;
     line-height: 1;
 }
-.guide-content {
-    width: 66%;
+.guide-details {
+    margin: 15px 15px 15px 0px;
 }
-.guide-content h2{
-    padding-top: 8px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #f4f6f7;
-    margin-left: 20px;
+.guide-details ul {
+    list-style: disc;
+}
+.guide-details ul li {
+    color: #3498db;
+    margin-left: 15px;
+    line-height: 1.3;
+    padding-bottom: 8px;
+}
+.guide-details ul li a {
+    font-weight: bold;
+}
+.guide-details-li-text{
     color: black;
 }
-.guide-leftnav {
-    width: 33%;
+.guide-details h3 {
+    padding-top: 0;
 }
-a.noanchor:link,a.noanchor:visited,a.noanchor:hover,a.noanchor:active {
+.guide-rightnav {
+    width: 33%;
+    padding-left: 15px;
+}
+.border-left-gray {
+    border-left: 2px solid #f4f6f7;
+    height: 300px;
+    margin-top: 20px;
+}
+/*a.noanchor:link,a.noanchor:visited,a.noanchor:hover,a.noanchor:active {
     text-decoration: none;
     color: black;
     cursor: default;
+}*/
+
+a h6.guide-toc-l2 {
+    margin-left: 6px;
+    color: black;
+    font-weight: normal;
+}
+a h6.guide-toc-l2-highlight {
+    margin-left: 5px;
+    color: #3498db;
+    font-weight: normal;
+}
+a h6.guide-toc-l3 {
+    margin-left: 10px;
+    color: #8d8d8d;
+}
+.guide-menu {
+    padding: 1rem;
+}
+.guide-menu .guide-menu-nav {
+    display: block;
+}
+.guide-menu a.guide-menu-nav.menu-l1, .guide-menu a.guide-menu-nav.menu-l2, .guide-menu a.guide-menu-nav.menu-l3 {
+     text-decoration: none;
+     color: black;
+ }
+
+.guide-menu .guide-menu-nav.menu-l1 {
+    margin-left: 6px;
+    font-size: 1rem;
+}
+.guide-menu .guide-menu-nav.menu-l2 {
+    margin-left: 14px;
+    font-size: .95rem;
+}
+.guide-menu .guide-menu-nav.menu-l3 {
+    margin-left: 22px;
+    font-size: .9rem;
+    color: #8d8d8d;
+}
+.guide-menu .guide-menu-nav.menu-l1.menu-highlight, .guide-menu .guide-menu-nav.menu-l2.menu-highlight, .guide-menu .guide-menu-nav.menu-l3.menu-highlight {
+    color: #3498db;
 }

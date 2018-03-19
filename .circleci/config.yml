@@ -29,28 +29,18 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build
       - deploy:
-          <<: *branch_filter_master
-          context: org-global
-          requires:
-            - build
+        <<: *branch_filter_master
+        context: org-global
 jobs:
-  build:
-    <<: *container_config
-    steps:
-      - checkout
-      - run:
-          name: placeholder step
-          command: echo success
   deploy:
     <<: *container_config
     steps:
-      - *attach_workspace
+      - checkout
       - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_PROD}"
       - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_PROD}"
       - run: echo 'export terraform_state_bucket="ngp-prod-terraform-remote-config"' >> $BASH_ENV
       - run: echo 'export terraform_state_bucket="ngp-terraform-remote-config"' >> $BASH_ENV
-#      - run:
-#          name: deploy
-#          command: aws s3 sync build/ s3://YOURBUCKET.niketech.com/ --exclude \"*.DS_Store*\"; exit_status=$?; if [ $exit_status -eq 2 ]; then exit 0; fi; exit $exit_status
+      - run:
+          name: deploy
+          command: .circleci/deploy.sh
