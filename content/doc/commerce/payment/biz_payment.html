@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div class="content">
+<div class="page-header"><a href="#" name="wikipage" id="wikipage" title="Click here to open the file on GitHub">biz_payment.md</a></div>
+<div class="hr"></div>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
+<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<!--
+See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/biz_payment.md) for version history of this document.
+Author: Jane Moore
+-->
+<h1 id="get-started-with-payment"><a href="#get-started-with-payment" name="get-started-with-payment">GET STARTED WITH PAYMENT <i class="g72-swoosh"></i></a></h1>
+<h6 id="last-updated-262018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-262018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-262018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 2/6/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc">#nde-doc</a></a></h6>
+<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide"><strong>In this guide:</strong></a></h2>
+<p><a href="#overview">Overview</a></p>
+<p><a href="#features">Features</a></p>
+<p><a href="#considerations">Considerations</a></p>
+<p><a href="#connect">Connect</a></p>
+<p><a href="#next-steps">Next Steps</a></p>
+<h2 id="overview"><a href="#overview" name="overview"><a name="overview"></a>Overview</a></h2>
+<p>The Nike Payment APIs use the latest technologies to support payment in e-commerce while putting the consumer first. Nike is constantly improving to achieve the most stable and scalable suite of cloud payment services possible.</p>
+<br>
+<p><img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/snkrs_payment.png?at=refs%2Fheads%2Fmaster" alt="" /></p>
+<h2 id="features"><a href="#features" name="features"><a name="features"></a>Features</a></h2>
+<p><i class="g72-payment-options"></i> <strong>Support for the most popular payment methods</strong>: Pay for an order by gift card, credit card, Apple Pay, PayPal, and more.<br>
+<i class="g72-menu"></i> <strong>Payment allocation across multiple payment methods</strong>: Preview how a consumer's payment is split across multiple payment methods.<br>
+<i class="g72-play"></i> <strong>Quick and easy to use</strong>: Validate and authorize payment in one API call.<br>
+<i class="g72-lock"></i> <strong>PCI-Compliant</strong>: Ensure payment information is securely transmitted and stored.</p>
+<p/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/visa_logo.png?at=refs%2Fheads%2Fmaster" alt="Visa Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/mastercard_logo.png?at=refs%2Fheads%2Fmaster" alt="MasterCard Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:30px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/apple_pay_logo.png?at=refs%2Fheads%2Fmaster" alt="ApplePay Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:19px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/alipay_logo.png?at=refs%2Fheads%2Fmaster" alt="Alipay Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 70px; height:26px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/paypal_logo.png?at=refs%2Fheads%2Fmaster" alt="PayPal Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 70px; height:26px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/sofort_logo.png?at=refs%2Fheads%2Fmaster" alt="Sofort Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:24px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/klarna_logo.png?at=refs%2Fheads%2Fmaster" alt="Klarna Logo"/>
+<img style="display: inline-block; width: 65px; height:32px; vertical-align: middle;" src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/icons/ideal_logo.png?at=refs%2Fheads%2Fmaster" alt="iDeal Logo"/>
+<br/>
+<a name="considerations"></a>
+<h2 id="considerations"><a href="#considerations" name="considerations"><span style="display:inline;">Considerations</span></a></h2>
+<p><strong>API Registration</strong></p>
+<p>Complete a one-time registration process in order to begin using the Payment APIs. See the Registration section of the <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/api-registration.md?raw">Using NDe APIs</a> guide for more information.</p>
+<p><strong>Shipping and Billing Countries</strong></p>
+<p>Consider the countries to which your consumers will want to ship Nike products and bill their payments. This determines the payment methods the consumer can use to make a purchase.</p>
+<h2 id="connect"><a href="#connect" name="connect"><a name="connect"></a>Connect</a></h2>
+<p><strong>We're here to help.</strong></p>
+<ul>
+  <li><a href="https://nikedigital.slack.com/messages/developer-relations">#Slack</a></li>
+  <li><a href="mailto:developer.relations@nike.com">Email</a></li>
+  <li><a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/dev-portal/help.md?raw">Dev Portal FAQ</a></li>
+</ul>
+<h2 id="next-steps"><a href="#next-steps" name="next-steps"><a name="next-steps"></a>Next Steps</a></h2>
+<p><strong>Ready to get started with the Payment APIs?</strong></p>
+<p><i class="g72-plus-large"></i> <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/api_payment.md?raw">Payment Domain Developer's Guide</a></p>
+<p><i class="g72-plus-large"></i> <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870810">Supported Payment Methods by Country</a></p>
+<p><i class="g72-plus-large"></i> <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/biz_checkout.md?raw">Get Started with Checkout</a></p>
+</div>
+</body>
+</html>
