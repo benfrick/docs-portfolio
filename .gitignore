@@ -47,3 +47,4 @@ client/swagger-editor
 /.idea
 /.history/
 junit.xml
+*.iml
