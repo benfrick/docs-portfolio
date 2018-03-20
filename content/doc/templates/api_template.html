@@ -1,0 +1,270 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div class="content">
+<div class="page-header"><a href="#" name="wikipage" id="wikipage" title="Click here to open the file on GitHub">api_template.md</a></div>
+<div class="hr"></div>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
+<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<!--
+See Bitbucket (link to .md in APID repository) for version history of this document.
+Author: Your Name
+SME Consultants:
+-->
+# {API NAME API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
+<h6 id="last-updated-mmddyyyysubmit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-mmddyyyysubmit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-mmddyyyysubmit-feedback-api-doc-slack-channel-nde-doc">Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></a></h6>
+<div class="hr"null>&nbsp;</div>
+<p>If you've read <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw">Using NDe APIs</a>, this guide provides the details necessary to integrate with the {API Name} API.</p>
+<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide"><strong>In this guide:</strong></a></h2>
+<p><a href="#api-at-a-glance">API at a Glance</a></p>
+<p><a href="#terms-of-service">Terms of Service</a></p>
+<p><span class="toc-pad"><a href="#authorization">Authorization</a></p>
+<p><a href="#use-cases">Use Cases</a></p>
+<p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
+<p><a href="#high-level-concept-1">High-Level Concept 1</a></p>
+<p><a href="#high-level-concept-2">High-Level Concept 2</a></p>
+<p><a href="#making-your-first-api-request">Making Your First API Request</a></p>
+<p><a href="#using-service1">Using Service1</a></p>
+<p><a href="#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></p>
+<p><a href="#best-practices">Best Practices</a></p>
+<p><a href="#troubleshooting">Troubleshooting</a></p>
+<p><span class="toc-pad"><a href="#use-troubleshooting-tools">Use Troubleshooting Tools</a></p>
+<p><span class="toc-pad"><a href="#common-questions">Common Questions</a></p>
+<p><a href="#glossary">Glossary</a></p>
+<p><a href="#release-notes">Release Notes</a></p>
+<p><a href="#document-change-log">Document Change Log</a></p>
+<p><a href="#related-links">Related Links</a></p>
+<h2 id="api-at-a-glance"><a href="#api-at-a-glance" name="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</a></h2>
+<!--
+* What does this API do?
+* Who calls this API, and why?
+* What versions are used and who calls them?
+* What is the SLA for each endpoint?
+* What domain is this API in? Analytics, Brand, Commerce, Identity, Social, Sport
+* What do I need to do before I can use this API?
+* What is the Slack Channel, Confluence Space, and who is the Product Owner?
+-->
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Details</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>Use these APIs to</td><td><li>useful functionality<li>useful functionality</td></tr>
+    <tr class="tbody-even-child"><td>Who calls this API?</td><td>SNKRs App, Nike App etc.</td></tr>
+    <tr class="tbody-odd-child"><td>Versions</td><td>service name, version number and geography</td></tr>
+    <tr class="tbody-even-child"><td>SLA</td><td>service name, version number and time in ms.</td></tr>
+    <tr class="tbody-odd-child"><td>Domain</td><td>Analytics, Brand, Commerce, Identity, Social, Sport</td></tr>
+    <tr class="tbody-even-child"><td>Prerequisites</td><td><li>API Registration<li>JWT</td></tr>
+    <tr class="tbody-odd-child"><td>Contact Info</td><td>Slack channel, Confluence space URI, Product Owner </td></tr>
+  </tbody>
+</table>
+<h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service"><a name="terms-of-service"></a>Terms of Service</a></h2>
+<p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#authorization">Using NDe APIs</a> on how to create and register your caller ID.</p>
+<h3 id="authorization"><a href="#authorization" name="authorization"><a name="authorization"></a>Authorization</a></h3>
+<!--Discuss any authorization requirements for calling the API-->
+<h2 id="use-cases"><a href="#use-cases" name="use-cases"><a name="use-cases"></a>Use Cases</a></h2>
+<!--
+ * What are the most common use cases of this API?
+ * What endpoints are involved in each use case?
+ * What are the typical call flows of clients interacting with this API?  Use-case or context diagrams are good here!
+ -->
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>I want to...</th><th>API(s) to use</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>do something</td><td>API Name</td></tr>
+    <tr class="tbody-even-child"><td>do something else</td><td>API Name</td></tr>
+  </tbody>
+</table>
+<h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</a></h2>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>HTTP Verb</th><th>Endpoint Name</th><th>Endpoint Description</th><th>URI Format</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>GET</td><td>Endpoint Name</td><td>Description</td><td><code>endpoint URI</code></td></tr>
+    <tr class="tbody-even-child"><td>POST</td><td>Endpoint Name</td><td>Description</td><td><code>endpoint URI</code></td></tr>
+    <tr class="tbody-odd-child"><td>PUT</td><td>Endpoint Name</td><td>Description</td><td><code>endpoint URI</code></td></tr>
+    <tr class="tbody-even-child"><td>DELETE</td><td>Endpoint Name</td><td>Description</td><td><code>endpoint URI</code></td></tr>
+  </tbody>
+</table>
+<h2 id="high-level-concept-1"><a href="#high-level-concept-1" name="high-level-concept-1"><a name="high-level-concept-1"></a>High-Level Concept 1</a></h2>
+<!--Discuss foundational concepts that are crucial to understanding the API and what it does-->
+<h2 id="high-level-concept-2"><a href="#high-level-concept-2" name="high-level-concept-2"><a name="high-level-concept-2"></a>High-Level Concept 2</a></h2>
+<!--Discuss foundational concepts that are crucial to understanding the API and what it does-->
+<h2 id="making-your-first-api-request"><a href="#making-your-first-api-request" name="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making your first API request</a></h2>
+<!--
+* How do I call this API?
+* What are the parameters necessary to make a call and where do I get them?
+* What does a successful response look like?
+-->
+<p>State clearly what this first request will accomplish.</p>
+<ol>
+  <li>Gather data needed for the request</li>
+</ol>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>HTTP Method</th><th>Endpoint URI</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>GET</td><td>endpoint URI</td></tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Filter Parameter Name</th><th>Filter Value</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>filter name</strong></td><td>filter value</td></tr>
+    <tr class="tbody-even-child"><td><strong>filter name</strong></td><td>filter value</td></tr>
+  </tbody>
+</table>
+<ol start="2">
+  <li>Execute the request</li>
+</ol>
+<p>Describe the parts of the URI and show a full sample URI request with body (for POST requests)</p>
+<ol start="3">
+  <li>Parse the response</li>
+</ol>
+<p>See the output of the successful JSON 200 response below.</p>
+<pre><code>{}
+</code></pre>
+<blockquote>
+  <p>TIP: For detailed information on this service, see the <a href="#endpoint1-name">Endpoint1</a> section.</p>
+</blockquote>
+<h2 id="using-service1"><a href="#using-service1" name="using-service1"><a name="using-service1"></a>Using Service1</a></h2>
+<ul>
+  <li class="p">
+    <p class="p"><a href="#service1-overview">Service1 Overview</a></p>
+  </li>
+  <li class="p">
+    <p class="p"><a href="#endpoint1-name">Endpoint1</a></p>
+  </li>
+</ul>
+<h3 id="service1-overview"><a href="#service1-overview" name="service1-overview"><a name="service1-overview"></a>Service1 Overview</a></h3>
+<p>Describe what the service does.</p>
+<h3 id="endpoint1-name"><a href="#endpoint1-name" name="endpoint1-name"><a name="endpoint1-name"></a>Endpoint1 Name</a></h3>
+<!--Describe what the endpoint does.  Is it synchronous or asynchronous? How and why would I use this?-->
+<h4 id="endpoint-details"><a href="#endpoint-details" name="endpoint-details">Endpoint Details</a></h4>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>HTTP Method</th><th>URI Path</th><th>JWT Restricted?</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>PUT</strong></td><td><code>endpoint1 url</code></td><td><strong>Yes</strong></td></tr>
+  </tbody>
+</table>
+<h4 id="path--query-parameters"><a href="#path--query-parameters" name="path--query-parameters">Path &amp; Query Parameters</a></h4>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>parameter</strong></td><td>Path</td><td>description</td><td>String</td><td><strong>Required</strong></td></tr>
+    <tr class="tbody-even-child"><td><strong>parameter</strong></td><td>Query</td><td>description</td><td>String</td><td>Optional</td></tr>
+  </tbody>
+</table>
+<p>Let's take a look at some <em>endpoint1</em> scenarios.</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>I Want to List</th><th>Sample Query</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>scenario</td><td>endpoint URI</td></tr>
+    <tr class="tbody-even-child"><td>another scenario</td><td>endpoint URI</td></tr>
+  </tbody>
+</table>
+<h4 id="request-headers"><a href="#request-headers" name="request-headers"><a name="endpoint1-request-headers"></a>Request Headers</a></h4>
+<p>|Header Name|Description|Required?|
+|---|---|
+|<strong>headername</strong>|description|<strong>Required</strong>|
+|<strong>headername</strong>|description|Optional|</p>
+<h4 id="request-body"><a href="#request-body" name="request-body"><a name="endpoint1-request-body"></a>Request Body</a></h4>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>fieldname</strong></td><td>description</td><td><strong>Required</strong></td></tr>
+    <tr class="tbody-even-child"><td><strong>fieldname</strong></td><td>description</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>fieldname.<strong>fieldname</strong></td><td>description</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>fieldname.fieldname.<strong>fieldname</strong></td><td>description</td><td>Optional</td></tr>
+  </tbody>
+</table>
+<p>Sample <em>Endpoint1</em> request URI:</p>
+<pre><code>
+</code></pre>
+<p>Sample <em>Endpoint1</em> request body:</p>
+<pre><code>
+</code></pre>
+<h4 id="response-body"><a href="#response-body" name="response-body"><a name="endpoint1-response-body"></a>Response Body</a></h4>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>fieldname</strong></td><td>description</td><td><strong>Required</strong></td></tr>
+    <tr class="tbody-even-child"><td><strong>fieldname</strong></td><td>description</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>fieldname.<strong>fieldname</strong></td><td>description</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>fieldname.fieldname.<strong>fieldname</strong></td><td>description</td><td>Optional</td></tr>
+  </tbody>
+</table>
+<p>Sample <em>endpoint1</em> 200 response</p>
+<pre><code>
+</code></pre>
+<p>Sample <em>endpoint1</em> 400 response</p>
+<pre><code>
+</code></pre>
+<h2 id="upgrading-to-the-latest-version"><a href="#upgrading-to-the-latest-version" name="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the latest version</a></h2>
+<!--
+* Is this API nearing end of life?
+* Which version should my application call?
+* What versions are in use and by whom?
+* What are the differences between the old and new version?
+* What is the field and URI mapping?
+* When do I have to upgrade and why?
+ -->
+<h2 id="best-practices"><a href="#best-practices" name="best-practices"><a name="best-practices"></a>Best Practices</a></h2>
+<!--
+ * OPTIONAL: What are best practices in calling this API e.g. caching, retries, order of calls, error handling?
+ -->
+<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
+<!--
+* What do I need to look out for?
+* What are common questions asked of the Team about the API?
+* When do I need to contact the Team and what info do I need to provide?
+ -->
+<p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
+<h3 id="use-troubleshooting-tools"><a href="#use-troubleshooting-tools" name="use-troubleshooting-tools"><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</a></h3>
+<!--Provide some specific troubleshooting tips for this API like Splunk or New Relic dashboards/queries or similar. Link to general guide (troubleshooting section)-->
+<h3 id="common-questions"><a href="#common-questions" name="common-questions"><a name="common-questions"></a>Common Questions</a></h3>
+<!--Frequently-asked questions related to troubleshooting-->
+<h2 id="glossary"><a href="#glossary" name="glossary"><a name="glossary"></a>Glossary</a></h2>
+<!--
+* What are the terms and concepts used in this API that are not common? Add them to the master glossary at the link below.
+-->
+<p>See the <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw">Glossary</a></p>
+<h2 id="release-notes"><a href="#release-notes" name="release-notes"><a name="release-notes"></a>Release Notes</a></h2>
+<!--
+* What is the difference in functionality between the old release and most the recent release?
+-->
+<h2 id="document-change-log"><a href="#document-change-log" name="document-change-log"><a name="document-change-log"></a>Document Change Log</a></h2>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Summary </th><th>Date </th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>Initial draft</td><td>MM/DD/YYYY</td><td>Initial Draft</td></tr>
+  </tbody>
+</table>
+<h2 id="related-links"><a href="#related-links" name="related-links"><a name="related-links"></a>Related Links</a></h2>
+<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw">General Guide</a></p>
+<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw">Business Guides</a></p>
+<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw">Developer's Guides</a></p>
+</div>
+</body>
+</html>

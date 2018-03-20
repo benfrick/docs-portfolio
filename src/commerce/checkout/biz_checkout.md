@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
+<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+
+# Get Started with Checkout <i class="g72-swoosh"></i> (DRAFT)
+
+###### Last Updated: 12/07/2017<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+
+---
+
+## **In this guide:**
+
+[Overview](#overview)
+
+[Features](#features)
+
+[Considerations](#considerations)
+
+[Connect](#connect)
+
+[Next Steps](#next-steps)
+
+## <a name="overview"/>Overview
+
+**Nike gives consumers fast and easy access to make purchases**
+
+Nike builds digital experiences that showcase its premium products and tell amazing stories. Powering those experiences is Nike Checkout, built to handle the massive scale of global e-commerce.
+
+Drive traffic and engagement in your app by leveraging Nike Checkout today!
+
+<br>
+
+<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/snkrs_payment.png?at=refs%2Fheads%2Fmaster"/>
+
+## <a name="features"/>Features
+
+**Your consumer finds a Nike a product they love in your app. What happens next?**
+
+<i class="g72-cart"></i> **Shopping Cart**: Add one or more products into a cart, where it can be reviewed and edited before completing the purchase
+
+<i class="g72-plus-large"></i> **Shipping Options**: Display available shipping methods, including costs and estimated delivery dates. Collect and confirm shipping address(es)
+
+<i class="g72-plus-large"></i> **Checkout Preview**: Confirm product pricing, including sales tax/VAT, shipping fees and taxes, discounts, and value-added services (as applicable)
+
+<i class="g72-plus-large"></i> **Submit Order**: Finalize and submit an order to Nike for fulfillment.
+
+Your users will experience the joy of receiving Nike products delivered to their door!
+
+## <a name="considerations"/>Considerations
+
+**Security and Privacy are #1**
+
+The security and privacy of your consumer's data is our #1 concern. Whether in-flight or at rest, your consumer's personally-identifiable information are protected according to the latest standards.
+
+**Reliable and Scalable**
+
+Nike services are built for reliability and scalability, reaping the benefits of cloud network architecture as the backbone of our services.
+
+**The Latest Web Standards**
+
+Join the web economy by using the common language of the internet to interact with Nike services. Your developers will be familiar with issuing JSON-formatted requests to Nike's REST web services using the standard HTTP protocol.
+
+## <a name="#connect"/>Connect
+
+We're here to help.
+
+<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+
+<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+
+## <a name="next-steps"/>Next Steps
+
+**The journey begins now!**
+
+<i class="g72-plus-large"></i> [Buy Domain Developer's Guide](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md)
+
+<i class="g72-plus-large"></i> [Supported Countries and Currencies](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md)
+
+<i class="g72-plus-large"></i> [Get Started with Payment](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/biz_payment.md?raw)
+
+<i class="g72-plus-large"></i> [SLA Documentation](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md#api-at-a-glance)
