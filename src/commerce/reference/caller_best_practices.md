@@ -9,7 +9,7 @@ Author:  Jane Moore
 
 # LAUNCH BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 3/6/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 This guide discusses best practices for calling NDe commerce services during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the [Service Call Best Practices](#service-call-best-practices) section, specific performance, retry and fallback best practices are listed by service.
 
@@ -187,7 +187,7 @@ Listed below are the best practices for calling each Merchandised Product servic
 - [Merchandised Product SKUs](#merchandised-product-skus)
 - [Merchandised Product Prices](#merchandised-product-prices)
 - [Product Content](#product-content)
-- [Merchandised Value-added Service](#merchandised-value-added-service)
+- [Merchandised Value-added Services](#merchandised-value-added-services)
 
 ### <a name="merchandised-product-caching"/>Merchandised Product Caching
 
@@ -237,7 +237,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="merchandised-value-added-service"/>Merchandised Value-added Services
+### <a name="merchandised-value-added-services"/>Merchandised Value-added Services
 
 **Endpoint:** /merch/value_added_services/v1/
 
@@ -360,3 +360,13 @@ Listed below are the best practices for calling each Payment service.
 ## <a name="product-feeds-service"/>Product Feeds Service
 
 TBD
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

@@ -11,13 +11,13 @@ SME Consultants: Sree Krisna, Durai Devadoss
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 2/13/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ---
 
 Use the Payment API to allow customers to pay for Nike products.
 
-If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw) and [Get Started With Nike Payment](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/biz_payment.md?raw), this guide provides the details necessary to integrate with the Nike Payment APIs.
+If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Payment](https://nde-devportal-docs.niketech.com/doc/commerce/payment/biz_payment.html), this guide provides the details necessary to integrate with the Nike Payment APIs.
 
 ## **In this guide:**
 
@@ -162,18 +162,18 @@ If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitb
 |Version|<li>Payment Applepay v2<li>Payment Approval v2<li>Payment Credit Card Submit v1<li>Payment Deferred Payment v1<li>Payment Options v2<li>Payment Preview v2<li>Stored Payment v1<li>Payment Wallet v1|
 |SLA response time (rt) and requests per second (rps)|<li>Payment Applepay rt: 350ms rps:40<li>Payment Approval rt: 250ms rps: 200<li>Payment Credit Card Submit ?ms<li>Payment Deferred Payment ?ms<li>Payment Options rt: 250ms rps:700<li>Payment Preview rt: 250ms rps:300<li>Stored Payment ?ms<li>Payment Wallet rt: 300ms rps: 200|
 |Domain|Commerce|
-|Prerequisites|[API Registration](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#registration)|
+|Prerequisites|[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)|
 |Contact Info|Slack #cic-payment<br>Confluence space: [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook)<br> Mailing List: lst-nde.docs<br><a name="product-owner"></a>Product Owner: Sree Krishna sree.krishna@nike.com|
 
 >TIP: SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
 
 <br>
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/payment_flow.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/commerce/payment/payment_flow.png)
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#registration) guide on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
 ### <a name="authorization"></a>Authorization
 
@@ -183,11 +183,11 @@ Most calls through the Nike API gateway (api.nike.com) require an access token b
 
 Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#authorization) guide.
+To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#authorization) guide.
 
 #### JSON Web Token
 
-A few of the endpoints in the Payment APIs require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#jwt-json-web-token).
+A few of the endpoints in the Payment APIs require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#jwt-json-web-token).
 
 ## <a name="use-cases"></a>Use Cases
 
@@ -210,31 +210,31 @@ Payment API flows vary based on the payment method and the user experience. List
 
 In this Payment flow, the customer chooses to pay by Credit Card that is saved as a stored payment method.  The customer must provide the CVV for validation because the shipping address passed into the call is either new or different from previous shipping addresses on past orders.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/creditcard_seq_dgm.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/creditcard_seq_dgm.png)
 
 **Sample PayPal Express flow**
 
 In this flow, the customer is redirected to the PayPal site after choosing to pay by PayPal Express in the Nike experience.  The customer selects the shipping and billing addresses on the PayPal site.  Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/paypal_express_seq_dgm.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/paypal_express_seq_dgm.png)
 
 **Sample PayPal Mark flow**
 
 In this flow, the customer chooses to pay by PayPal Mark and provides the shipping address in the Nike experience. From order review, the customer is redirected to the PayPal site to select the billing address and pay.  Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/paypal_mark_seq_dgm.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/paypal_mark_seq_dgm.png)
 
 **Sample Apple Pay flow**
 
 In the example Payment API flow below, the customer chooses to pay by Apple Pay in a Safari web browser.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/applepay_seq_dgm.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/applepay_seq_dgm.png)
 
 **Sample Deferred Payment flow**
 
 In this flow, the customer chooses to pay by a payment method that will be authorized and captured after the Nike order has been placed.  This is a typical flow for China payment methods such as WeChat and Alipay.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/deferred_pmt_seq_dgm.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/deferred_pmt_seq_dgm.png)
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
@@ -246,7 +246,7 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[START APPLE PAY SESSION](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md?raw#!/Payment_AppleyPay/post_payment_applepay_sessions_v2)|/payment/applepay_sessions/v2/|POST|
+|[START APPLE PAY SESSION](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md?raw#!/Payment_AppleyPay/post_payment_applepay_sessions_v2)|/payment/applepay_sessions/v2/|POST|
 
 <p>&nbsp;</p>
 
@@ -254,12 +254,12 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[SUBMIT ORDER PAYMENTS FOR APPROVAL](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/post_payment_approval_v2)|/payment/approval/v2/|POST|
-|[SUBMIT ORDER PAYMENTS FOR APPROVAL](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/put_payment_approval_v2_id)|/payment/approval/v2/{id}|PUT|
-|[RETRIEVE PAYMENT APPROVAL JOB](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_v2_jobs_id)|/payment/approval/v2/jobs/{id}|GET|
-|[ORDER PAYMENTS APPROVAL RESULT](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_results_v2_id)|/payment/approval_results/v2/{id}|GET|
-|[VOID PAYMENT APPROVAL](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/delete_payment_approval_results_v2_id)|/payment/approval_results/v2/|DELETE|
-|[GET PAYMENT APPROVAL SUMMARY](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_summary_v1_id)|/payment/approval_summary/v1/{id}|GET|
+|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/post_payment_approval_v2)|/payment/approval/v2/|POST|
+|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/put_payment_approval_v2_id)|/payment/approval/v2/{id}|PUT|
+|[RETRIEVE PAYMENT APPROVAL JOB](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_v2_jobs_id)|/payment/approval/v2/jobs/{id}|GET|
+|[ORDER PAYMENTS APPROVAL RESULT](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_results_v2_id)|/payment/approval_results/v2/{id}|GET|
+|[VOID PAYMENT APPROVAL](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/delete_payment_approval_results_v2_id)|/payment/approval_results/v2/|DELETE|
+|[GET PAYMENT APPROVAL SUMMARY](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_summary_v1_id)|/payment/approval_summary/v1/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -267,14 +267,14 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[GET CREDIT CARD INFO WITH CVV](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/{id}|GET|
-[GET CREDIT CARD INFO WITHOUT CVV](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/add{?id, language}|GET|
-[GET CVV](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/cvv{?id}|GET|
-[GET EXPIRY DATE AND CVV](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/expcvv{?id}|GET|
-[VALIDATE CREDIT CARD PERSISTENCE](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/isValid{?mode}|GET|
-[STORE CREDIT CARD INFO](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/store|POST|
-[GET CREDIT CARD INFO BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}|GET|
-[VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
+[GET CREDIT CARD INFO WITH CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/{id}|GET|
+[GET CREDIT CARD INFO WITHOUT CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/add{?id, language}|GET|
+[GET CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/cvv{?id}|GET|
+[GET EXPIRY DATE AND CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/expcvv{?id}|GET|
+[VALIDATE CREDIT CARD PERSISTENCE](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/isValid{?mode}|GET|
+[STORE CREDIT CARD INFO](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/store|POST|
+[GET CREDIT CARD INFO BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}|GET|
+[VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
 
 <p>&nbsp;</p>
 
@@ -282,12 +282,12 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1)|/payment/deferred_wechat_payments/v1|POST|
-|[GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id)|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
-|[DEFERRED PAYMENT FORM](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1)|/payment/deferred_payment_forms/v1|POST|
-|[DEFERRED PAYMENT FORM JOB STATUS BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id)|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
-|[DEFERRED PAYMENT STATUS](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1)|/payment/deferred_payment_status/v1|POST|
-|[DEFERRED PAYMENT STATUS JOB STATUS BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id)|/payment/deferred_payment_status/v1/jobs/{id}|GET|
+[DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1)|/payment/deferred_wechat_payments/v1|POST|
+|[GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id)|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
+|[DEFERRED PAYMENT FORM](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1)|/payment/deferred_payment_forms/v1|POST|
+|[DEFERRED PAYMENT FORM JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id)|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
+|[DEFERRED PAYMENT STATUS](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1)|/payment/deferred_payment_status/v1|POST|
+|[DEFERRED PAYMENT STATUS JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id)|/payment/deferred_payment_status/v1/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -295,9 +295,9 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[GET PAYMENT OPTIONS FOR AN ORDER](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_options_v2)|/payment/options/v2|POST|
-[ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/get_payment_options_v2_shippingCountry)|/payment/options/v2/{shippingCountry}|GET|
-[VALIDATE PAYMENTS](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_validate_payments_v2)|/payment/validate_payments/v2|POST|
+[GET PAYMENT OPTIONS FOR AN ORDER](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_options_v2)|/payment/options/v2|POST|
+[ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/get_payment_options_v2_shippingCountry)|/payment/options/v2/{shippingCountry}|GET|
+[VALIDATE PAYMENTS](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_validate_payments_v2)|/payment/validate_payments/v2|POST|
 
 <p>&nbsp;</p>
 
@@ -305,9 +305,9 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[PAYMENT PREVIEW](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/post_payment_preview_v2)|POST|
-[PAYMENT PREVIEW RESULT BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_results_v2_id)|/payment/preview_results/v2/{id}|GET|
-[PAYMENT PREVIEW JOB STATUS BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_v2_jobs_id)|/payment/preview/v2/jobs/{id}|GET|
+[PAYMENT PREVIEW](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/post_payment_preview_v2)|POST|
+[PAYMENT PREVIEW RESULT BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_results_v2_id)|/payment/preview_results/v2/{id}|GET|
+[PAYMENT PREVIEW JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_v2_jobs_id)|/payment/preview/v2/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -315,17 +315,17 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[INITIATE PAYPAL BILLING AGREEMENT](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_paypalagreement)|/consumer/paypalagreement|GET|
-[SAVE PAYMENT BY USER PROFILE](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_savepayment)|/consumer/savepayment|POST|
-[DELETE STORED PAYMENTS BY USER PROFILE](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments)|/consumer/storedpayments|DELETE|
-[FETCH STORED PAYMENTS BY USER PROFILE](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments)|/consumer/storedpayments|POST|
-[UPDATE CREDIT CARD DETAILS](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/put_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|PUT|
-[DELETE PAYMENT BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|DELETE|
-[FETCH STORED PAYMENT BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|GET|
-[VALIDATE CVV FOR SHIPPING ADDRESS](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|POST|
-[FETCH GIFT CARD BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_storedpayments_giftcard_payment_id)|/consumer/storedpayments/giftcard/{payment_id}|GET|
-[CREATE/UPDATE ATG PAYMENT](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments_synch)|/consumer/storedpayments/synch|POST|
-[DELETE ATG PAYMENT](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments_synch_payment_token)|/consumer/storedpayments/synch/{payment_token}|DELETE|
+[INITIATE PAYPAL BILLING AGREEMENT](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_paypalagreement)|/consumer/paypalagreement|GET|
+[SAVE PAYMENT BY USER PROFILE](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_savepayment)|/consumer/savepayment|POST|
+[DELETE STORED PAYMENTS BY USER PROFILE](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments)|/consumer/storedpayments|DELETE|
+[FETCH STORED PAYMENTS BY USER PROFILE](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments)|/consumer/storedpayments|POST|
+[UPDATE CREDIT CARD DETAILS](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/put_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|PUT|
+[DELETE PAYMENT BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|DELETE|
+[FETCH STORED PAYMENT BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|GET|
+[VALIDATE CVV FOR SHIPPING ADDRESS](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|POST|
+[FETCH GIFT CARD BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_storedpayments_giftcard_payment_id)|/consumer/storedpayments/giftcard/{payment_id}|GET|
+[CREATE/UPDATE ATG PAYMENT](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments_synch)|/consumer/storedpayments/synch|POST|
+[DELETE ATG PAYMENT](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments_synch_payment_token)|/consumer/storedpayments/synch/{payment_token}|DELETE|
 
 <p>&nbsp;</p>
 
@@ -333,12 +333,12 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[PAYPAL DETAILS](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/post_payment_paypal_details_v1)|/payment/paypal_details/v1|POST|
-[PAYPAL DETAIL JOB STATUS BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id)|/payment/paypal_details/v1/jobs/{id}|GET|
-[PAYPAL EXPRESS](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/post_payment_paypal_express_v1)|/payment/paypal_express/v1|POST|
-[PAYPAL EXPRESS JOB STATUS BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id)|/payment/paypal_express/v1/jobs/{v1}|GET|
-[PAYPAL MARK](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/post_payment_paypal_mark_v1)|/payment/paypal_mark/v1|POST|
-[PAYPAL MARK JOB STATUS BY ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id)|/payment/paypal_mark/v1/jobs/{id}|GET|
+[PAYPAL DETAILS](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/post_payment_paypal_details_v1)|/payment/paypal_details/v1|POST|
+[PAYPAL DETAIL JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id)|/payment/paypal_details/v1/jobs/{id}|GET|
+[PAYPAL EXPRESS](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/post_payment_paypal_express_v1)|/payment/paypal_express/v1|POST|
+[PAYPAL EXPRESS JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id)|/payment/paypal_express/v1/jobs/{v1}|GET|
+[PAYPAL MARK](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/post_payment_paypal_mark_v1)|/payment/paypal_mark/v1|POST|
+[PAYPAL MARK JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id)|/payment/paypal_mark/v1/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -348,7 +348,7 @@ The Payment API makes use of data caching to optimize service SLAs.  The first t
 
 The PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services handle gift card balances.  Retrieving the balance of a gift card requires a call to a Third Party gift card provider, which can slow down the Payment service's response, especially in high volume traffic.  To avoid this scenario, the private gift card Service, which is responsible for retrieving gift card data and is called by the PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services, caches the gift card balance after retrieval. The cache time varies based on the balance. If the gift card has a positive balance, the gift card service caches the balance for 5 minutes; If the gift card has a 0 balance, the gift card service caches the balance for 30 minutes.
 
-The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation.  For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Prodcuts API](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw) to get the latest data.
+The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation.  For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Prodcuts API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) to get the latest data.
 
 <p>&nbsp;</p>
 
@@ -362,7 +362,7 @@ For your first API request, send a POST request to the *Get Payment Options for 
 |---|---|
 |Content-Type|application/json; charset=UTF-8|
 |Accept|application/json; charset=UTF-8|
-|Authorization|See the Authorization section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#authorization) guide on how to get this value|
+|Authorization|See the Authorization section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#authorization) guide on how to get this value|
 
 |HTTP Method|Endpoint URI|
 |---|---|
@@ -459,7 +459,7 @@ Listed in the response are the the `country` and `billingCountry` passed in the 
 
 ### Payment Options Overview
 
-Use the Payment Options service to list valid payment options or list valid billing countries based on a shipping country.  Valid payment options are calculated based on [Nike UPMID](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#authorization), shopping country, billing country, currency, (product) items and value-added services.  See the [Buy Domain Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md?raw#using-checkouts) for more information on items in Checkouts.
+Use the Payment Options service to list valid payment options or list valid billing countries based on a shipping country.  Valid payment options are calculated based on [Nike UPMID](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#authorization), shopping country, billing country, currency, (product) items and value-added services.  See the [Buy Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts) for more information on items in Checkouts.
 
 All endpoints of this service are synchronous.
 
@@ -497,7 +497,7 @@ Even though items is an optional request field, it is recommended that you pass 
 |---|---|---|
 |**country**|**Required**|ISO2 country code of customer's shopping country e.g. US|
 |**billingCountry**|**Required**|ISO2 country code of customer's billing country e.g US|
-|**currency**|**Required**|currency code the customer will pay for Checkouts in e.g. USD. [Supported currency codes](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).
+|**currency**|**Required**|currency code the customer will pay for Checkouts in e.g. USD. [Supported currency codes](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
 |**clientBrowser**|Optional|browser used by client, WECHAT or null|
 |**clickAndCollect**|Optional|true indicates this is a "click and collect" order, default is false|
 |**total**|**Optional**|order total e.g. 1999.0 (double)|
@@ -1000,8 +1000,8 @@ Let's take  a look at some *Initiate PayPal Billing Agreement* scenarios
 
 |I want to|Sample Query|
 |---|---|
-|initiate a PayPal Billing agreement on a Mobile device|https://api.nike.com/commerce/storedpayments/consumer/paypalagreement?returnUrl=http://nike.com/SNKRS/PayPalAuthenticationSucceeded&cancelUrl=http://nike.com/SNKRS/PayPalAuthenticationDidNotSucceed&design=mobile|
-|initiate a PayPal Billing agreement for EURO currency, locale en_GB, and display PayPal window as an overlay|https://api.nike.com/commerce/storedpayments/consumer/paypalagreement?returnUrl=http://nike.com/SNKRS/PayPalAuthenticationSucceeded&cancelUrl=http://nike.com/SNKRS/PayPalAuthenticationDidNotSucceed&design=inContext&locale=en_GB&currency=EUR|
+|Initiate a PayPal Billing agreement on a Mobile device|https://api.nike.com/commerce/storedpayments/consumer/paypalagreement?returnUrl=http://nike.com/SNKRS/PayPalAuthenticationSucceeded&cancelUrl=http://nike.com/SNKRS/PayPalAuthenticationDidNotSucceed&design=mobile|
+|Initiate a PayPal Billing agreement for EURO currency, locale en_GB, and display PayPal window as an overlay|https://api.nike.com/commerce/storedpayments/consumer/paypalagreement?returnUrl=http://nike.com/SNKRS/PayPalAuthenticationSucceeded&cancelUrl=http://nike.com/SNKRS/PayPalAuthenticationDidNotSucceed&design=inContext&locale=en_GB&currency=EUR|
 
 #### Request Body
 There is no request body for a GET request.
@@ -1039,12 +1039,9 @@ Sample  *Initiate PayPal Billing Agreement* 200 success response
 }
 ```
 
-
-
 Next, you need to get customer approval by redirecting the customer to the PayPal redirectURL returned in the response.  At PayPal, the customer provides payment details and both approves and subscribes to the Billing Agreement.  Once the customer accepts the PayPal Billing Agreement, PayPal redirects to the returnURL provided in the call.  If the customer cancels the transaction, PayPal redirects the customer to the cancelURL provided in the call.
 
 The next Stored Payment endpoints you might want to call for the PayPal Billing Agreement flow are `savepayment` to store the PayPal payment method once the customer authorizes the Billing Agreement, and `storedpayment` to display all of the customer's saved payment methods.
-
 
 <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
 
@@ -1088,14 +1085,14 @@ The request body varies depending upon the type of payment being saved.  The tab
 |**type**|**Required**|type of payment method|
 |**creditCardInfoId**|**Required**|id returned from the Payment Service's [Credit Card Submit](#using-credit-card-submit) endpoint. used as common id between Nike and third-party systems.|
 |**isDefault**|Optional|flag indicating this saved payment method is the default|
-|**currency**|Optional|Credit Card currency. [Supported currency codes](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md).|
+|**currency**|Optional|Credit Card currency. [Supported currency codes](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).|
 |**cybersourceRequestId**|Optional|CyberSource-generated requestId number returned from [Payment Approval Service](#using-payment-approval), required post-auth|
 |**cybersourceRequestToken**|Optional|CyberSource-generated token returned from [Payment Approval Service](#using-payment-approval),required post-auth|
 |**referenceId**|Optional|Cybersource-generated reference number returned from [Payment Approval Service](#using-payment-approval)|
 |**accountName**|Optional|Returned from [Payment Approval Service](#using-payment-approval)|
 |**billingAddress**|Optional|billing address object, required for CreditCard type|
 |billingAddress.**firstName**|**Required**|billing first name|
-|billingAddress.**lastName**|**Required**|billing last name||
+|billingAddress.**lastName**|**Required**|billing last name|
 |billingAddress.**address1**|**Required**|billing address line 1|
 |billingAddress.**address2**|Optional|billing address line 2|
 |billingAddress.**address3**|Optional|billing address line 3|
@@ -1172,7 +1169,7 @@ This is a sample *Save Payment for User Profile* POST request to save a Credit C
 |**accountNumber**|**Required**|gift card/CyberSource voucher account number|
 |**pin**|Optional|gift card personal identification number|
 |**gcExpiryDate**|Optional|gift card expiration date|
-|**currency**|Optional|gift card currency. [Supported currency codes](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).|
+|**currency**|Optional|gift card currency. [Supported currency codes](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).|
 |**isDefault**|Optional|true if this is the default saved payment method, false if not|
 
 This is a sample *Save Payment for User Profile* POST request to save a gift card, which requires accountNumber be passed in the request.
@@ -1194,7 +1191,7 @@ This is a sample *Save Payment for User Profile* POST request to save a gift car
 |---|---|---|
 |**type**|**Required**|type of payment method, always 'PayPal'|
 |**paypalToken**|**Required**|PayPal token returned from the Billing Agreement|
-|**currency**|Optional|PayPal currency. See a list of [supported currency codes](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).|
+|**currency**|Optional|PayPal currency. See a list of [supported currency codes](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).|
 |**isDefault**|Optional|true if this is the default saved payment method, false if not|
 
 This is a sample *Save Payment for User Profile* POST request to save PayPal as a stored payment, which requires paypalToken be passed in the request.
@@ -1330,10 +1327,9 @@ If not filtering by the `type` URI parameter, all stored payment types are retur
 |Header Name|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
 |**type**|Query|type of payment method used to filter results, one of CreditCard,GiftCard,Paypal|String|Optional|
-|**currency**|Query|currency code of the payment type [Supported currency codes](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw)|String|Optional|
+|**currency**|Query|currency code of the payment type [Supported currency codes](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html)|String|Optional|
 |**includebalance**|Query|flag indicating to return the balance on gift card stored payment types. default is true.|Boolean|Optional|
 |**validateshipping**|Query|flag indicating to validate billing and shipping country combination for stored payment|Boolean|Optional|
-
 
 Let's take a look at some *List Stored Payments by User Profile* scenarios.
 
@@ -2182,9 +2178,9 @@ Nike customers can pay by one or more gift cards/Vouchers and another payment ty
 
 ### <a name="payment-preview"></a>Payment Preview
 
-The paymentPreviewId returned by this service is a required key when calling [Request Checkout Submit](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md?raw#request-checkout-submit) in the BUY API to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.
+The paymentPreviewId returned by this service is a required key when calling [Request Checkout Submit](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#request-checkout-submit) in the BUY API to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 #### Endpoint Details
 
@@ -2213,9 +2209,9 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 |Element Name|**Required**|Description|
 |---|---|---|
-|**checkoutId**|**Required**|Checkout [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) payments are associated to. Typically generated by [Using Checkouts](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md?raw#using-checkouts).|
+|**checkoutId**|**Required**|Checkout [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) payments are associated to. Typically generated by [Using Checkouts](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts).|
 |**total**|**Required**|Checkout total amount, double|
-|**currency**|**Required**|See [supported currency codes](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw)|
+|**currency**|**Required**|See [supported currency codes](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html)|
 |**country**|**Required**|See [supported country codes](https://confluence.nike.com/pages/viewpage.action?pageId=162870810)|
 |**clientBrowser**|Optional|browser request was made from, `WECHAT` required for WeChat type, otherwise null|
 |**walletId**|Optional|paymentToken returned from [PayPal Mark](#paypal-mark) endpoint,required for PayPal Mark|
@@ -2891,7 +2887,7 @@ Sample Payment Preview Results response for two gift cards and a credit card
 ### Payment Approval Overview
 This service performs fraud check, validation and authorization/debit for all payment types on a customer's Checkouts.  It must be called after Payment Preview so order allocation is already calculated and the paymentPreviewId is assigned. This service uses the paymentPreviewId to look up the Checkouts payment methods so it does not require that the payments be passed in on the request.  This service also voids a previous authorization/debit.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 ### <a name="submit-order-payments-for-approval-post"></a>Submit Order Payments for Approval (POST)
 
@@ -2899,7 +2895,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 This service validates the payment allocation performed by the Payment Preview service, recalculating if necessary, and evaluates that the selected payment methods and items on Checkouts are valid.  If one or more payment type validations fail, all payment type authorizations (in the case of credit cards and PayPal)/debits (in the case of gift cards) are rolled back.  There is no need to pass in the Checkouts payment types in the body as the service looks them up using the checkoutId and paymentPreviewId in the request body.
 
-> TIP: This endpoint is intended to be a service-to-service call.  [Request Checkout Submit](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md?raw#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.  A client should not call this service directly.
+> TIP: This endpoint is intended to be a service-to-service call. [Request Checkout Submit](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.  A client should not call this service directly.
 
 #### Endpoint Details
 
@@ -3369,7 +3365,7 @@ Sample PayPal **Submit Order Payments for Approval** response body with "COMPLET
 
 This service is identical to the [Submit Order Payments for Approval (POST)](#submit-order-payments-for-approval-post) endpoint except that it allows the calling service to determine the Payment Approval id to be passed in as a path parameter.  This is helpful if the Payment Approval response times out and the calling service needs to call [Void Payment Approval](#void-payment-approval) endpoint with the paymentApprovalId to reverse the Payment Approval request.
 
-> TIP: This endpoint is intended to be a service-to-service call.  [Checkout Submit](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md?raw#response-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.  A client should not call this service directly.
+> TIP: This endpoint is intended to be a service-to-service call. [Checkout Submit](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#response-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.  A client should not call this service directly.
 
 #### Endpoint Details
 
@@ -3953,7 +3949,7 @@ https://paymentcc.nike.com/services?id=24afd5dc-b523-491c-8282-8bed57cd2029&ctx=
 #### <a name="add-credit-card-info-with-cvv-response-body"></a>Response Body
 The response body of this endpoint is the iFrame with editable credit card number, expiration date and CVV editable fields pre-populated with values looked up based on the creditCardInfoId `id` path parameter.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/number_expdate_cvv.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/number_expdate_cvv.png)
 
 <p>&nbsp;</p>
 
@@ -3994,7 +3990,7 @@ https://paymentcc.nike.com/services/add?id=0e13e71d-e952-46af-b3f5-e476befd43ce&
 #### <a name="add-credit-card-info-without-cvv-response-body"></a>Response Body
 The response body of this endpoint is the iFrame with editable credit card number and expiration date fields pre-populated with values looked up based on the creditCardInfoId `id` path parameter.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/number_expdate.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/number_expdate.png)
 
 <p>&nbsp;</p>
 
@@ -4034,7 +4030,7 @@ https://paymentcc.nike.com/services/cvv?id=0e13e71d-e952-46af-b3f5-e476befd43ce&
 #### <a name="add-credit-card-info-with-cvv-response-body"></a>Response Body
 The response body of this endpoint is the iFrame with an editable CVV field.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/cvv.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/cvv.png)
 
 <p>&nbsp;</p>
 
@@ -4074,7 +4070,7 @@ https://paymentcc.nike.com/services/expcvv?id=0e13e71d-e952-46af-b3f5-e476befd43
 #### <a name="add-cvv-and-expiration-date-response-body"></a>Response Body
 The response body of this endpoint is the iFrame with editable expiration date and CVV fields prepopulated with values looked up based on the creditCardInfoId `id` path parameter.
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/expdate_cvv.png?at=refs%2Fheads%2Fmaster)
+![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/expdate_cvv.png)
 
 <p>&nbsp;</p>
 
@@ -4493,7 +4489,7 @@ Sample response body:
 ### <a name="paypal-wallet-overview"></a>Payment Wallet Overview
 When paying with PayPal, this service initializes a PayPal session and generates a PayPal redirect URL and token.  It also retrieves and validates PayPal meta data.  There is an endpoint for PayPal Express and a separate endpoint for PayPal Mark flows.  The PayPal Express flow allows the customer to choose a saved or add a new shipping and billing address at the PayPal site rather than in the Nike experience.  The PayPal Mark flow allows the customer to choose an existing or add a new shipping address in the Nike experience and choose a saved or add a new billing address at the PayPal site.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 <p>&nbsp;</p>
 
@@ -5319,7 +5315,7 @@ Sample *PayPal Details Job by ID* 200 response body in "COMPLETED" status:
 
 When paying for a Nike Checkouts through a Third Party vendor, this service generates the values needed to open and pay at a Third Party website or app.  This service is used for experiences that support the iDeal, Sofort and/or China payment types.  The Payment API supported China payment types are Alipay, Tenpay, UnionPay and WeChat.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 ### <a name="deferred-payment-form"></a>Deferred Payment Form
 
@@ -5699,9 +5695,7 @@ Sample *Deferred Payment Status Job* response in "COMPLETED" status
 
 ---
 
-Use this endpoint to generate the necessary values to initiate a session in the WeChat Pay Browser Phone App from the browser.  See
-[JSAPI WeChat Browser)(HTTPS://CONFLUENCE.NIKE.COM/DISPLAY/OCP/JSAPI+WECHAT+BROWSER) and [WeChat Documentation]
-(HTTP://MP.WEIXIN.QQ.COM/WIKI/17/C0F37D5704F0B64713D5D2C37B468D75.HTML) for JavaScript implementation details.  Note that this endpoint should be used for the Mobile Web or Desktop/WeChat flows only. The Mobile Web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkouts; the Desktop flow generates a QR code when it is time to pay for the Nike Checkouts that when followed, opens the WeChat Payment App on the customer's Mobile device.
+Use this endpoint to generate the necessary values to initiate a session in the WeChat Pay Browser Phone App from the browser. See [JSAPI WeChat Browser](https://confluence.nike.com/display/ocp/jsapi+wechat+browser) and [WeChat Documentation](http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html) for JavaScript implementation details.  Note that this endpoint should be used for the Mobile Web or Desktop/WeChat flows only. The Mobile Web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkouts; the Desktop flow generates a QR code when it is time to pay for the Nike Checkouts that when followed, opens the WeChat Payment App on the customer's Mobile device.
 
 #### Endpoint Details
 
@@ -5967,11 +5961,14 @@ There are no release notes at this time.
 |---|---|---|
 |Initial draft|01/08/2018|Initial Draft|
 |Layout changes|02/13/2018|Updated doc layout per new API Doc standard|
+|Updated links|03/20/2018|Updated links to point to new dev portal|
 
 ## <a name="related-links"></a>Related Links
 
-[General Guide](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw)
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-[Business Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
 
-[Developer's Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw)
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

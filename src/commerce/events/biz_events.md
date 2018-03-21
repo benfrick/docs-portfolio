@@ -4,7 +4,7 @@
 
 # GET STARTED WITH ANALYTICS PIPELINE <i class="g72-swoosh"></i>
 
-###### Last Updated: 2/6/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ---
 
@@ -26,7 +26,7 @@ The <b>Analytics Pipeline v2 API</b> is your single destination to record analyt
 
 Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event.
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/analytics/events.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/analytics/events.png)
 
 Here are just a few ways in which analytics event data can be used:
 
@@ -72,4 +72,14 @@ We're here to help.
 
 **The journey begins now!**
 
-<i class="g72-plus-large"></i> [Analytics Pipeline Developer's Guide](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/events/api_eventsv2.md)
+<i class="g72-plus-large"></i> [Analytics Pipeline Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/events/api_eventsv2.html)
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

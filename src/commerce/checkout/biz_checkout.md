@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
 <link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
 
-# Get Started with Checkout <i class="g72-swoosh"></i> (DRAFT)
+# Get Started with Checkout <i class="g72-swoosh"></i>
 
-###### Last Updated: 12/07/2017<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ---
 
@@ -30,7 +30,7 @@ Drive traffic and engagement in your app by leveraging Nike Checkout today!
 
 <br>
 
-<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/payment/snkrs_payment.png?at=refs%2Fheads%2Fmaster"/>
+![](https://nde-devportal-docs.niketech.com/images/commerce/payment/snkrs_payment.png)
 
 ## <a name="features"/>Features
 
@@ -72,10 +72,20 @@ We're here to help.
 
 **The journey begins now!**
 
-<i class="g72-plus-large"></i> [Buy Domain Developer's Guide](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md)
+<i class="g72-plus-large"></i> [Buy Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html)
 
-<i class="g72-plus-large"></i> [Supported Countries and Currencies](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md)
+<i class="g72-plus-large"></i> [Supported Countries and Currencies](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html)
 
-<i class="g72-plus-large"></i> [Get Started with Payment](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/biz_payment.md?raw)
+<i class="g72-plus-large"></i> [Get Started with Payment](https://nde-devportal-docs.niketech.com/doc/commerce/payment/biz_payment.html)
 
-<i class="g72-plus-large"></i> [SLA Documentation](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md#api-at-a-glance)
+<i class="g72-plus-large"></i> [SLA Documentation](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#api-at-a-glance)
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

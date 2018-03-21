@@ -4,11 +4,11 @@
 
 # USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 2/6/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ---
 
-This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the per-API or per-domain [Developer's Guides](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw).
+This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the per-API or per-domain [Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html).
 
 >TIP: Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics) course offered by NDe Architecture team.
 
@@ -629,11 +629,11 @@ Send the **upmid** header, and for those endpoints that require it, the **appid*
 |**upmid**|Nike user profile identifier|
 |**appid**|Application identifier|
 
->TIP: To learn how to obtain an access token see the [Generating an Access Token](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md?raw) guide.
+>TIP: To learn how to obtain an access token see the [Generating an Access Token](https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md?raw) guide.
 
 ### <a name="jwt-json-web-token"></a>JWT (JSON Web Token)
 
-Some endpoints such as [*Submit Order Payments for Approval*](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/api_payment.md?raw#submit-payments-for-approval) require a [JWT](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md?raw) that is signed for a service authorized to call the endpoint.
+Some endpoints such as [*Submit Order Payments for Approval*](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html#submit-payments-for-approval) require a [JWT](https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md?raw) that is signed for a service authorized to call the endpoint.
 
 In this case, pass the JWT in the **X-Nike-Authorization** request header. Also, send the name of the application (e.g. "checkouts") that is authorized to call this endpoint in the **X-Nike-AppId** request header. This is the service name used to sign the JWT.
 
@@ -652,7 +652,7 @@ See the [Nike JWT Reference Guide](https://confluence.nike.com/display/SECDEV/Ni
 
 The standard URL pattern used for NDe APIs (v2 or later) is as follows:
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/getting_started/url_format.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/getting_started/url_format.png)
 
 <br>
 
@@ -1440,7 +1440,7 @@ For example, to follow the order of calls made when changing a shipping address 
 
 1. Right-click anywhere in browser main window, select `Inspect`.
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/getting_started/troubleshooting_chrome_inspect.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/getting_started/troubleshooting_chrome_inspect.png)
 
 2. In Inspect window, select `Network` tab.
 
@@ -1448,16 +1448,20 @@ For example, to follow the order of calls made when changing a shipping address 
 
 4. In the `Network` tab, scan through the list for any items with "api.nike.com". In this case, click to select the call to "api.nike.com/buy/shipping_options".
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/getting_started/troubleshooting_chrome_inspect_details.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/getting_started/troubleshooting_chrome_inspect_details.png)
 
 5. Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?
 
 ## <a name="glossary"></a>Glossary
 
-For a master glossary of terms for Nike APIs, see the [Glossary](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw).
+For a master glossary of terms for Nike APIs, see the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html).
 
 ## <a name="related-links"></a>Related Links
 
-[Business Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw)
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-[Developer's Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
