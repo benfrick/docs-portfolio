@@ -276,8 +276,8 @@ See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/g
 
 [NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-[General Guide](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz_guide.html)
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
 
 [Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

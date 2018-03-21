@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
 <link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
 <h1 id="using-nde-apis--draft"><a href="#using-nde-apis--draft" name="using-nde-apis--draft" class="anchor"><span class="octicon octicon-link"></span></a>USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)</h1>
-<h6 id="last-updated-262018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-262018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-262018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 2/6/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc">#nde-doc</a></h6>
+<h6 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc">#nde-doc</a></h6>
 <hr />
-<p>This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the per-API or per-domain <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw">Developer's Guides</a>.</p>
+<p>This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the per-API or per-domain <a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a>.</p>
 <blockquote>
   <p>TIP: Also check out the <a href="https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics">API Basics</a> course offered by NDe Architecture team.</p>
 </blockquote>
@@ -563,10 +563,10 @@
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: To learn how to obtain an access token see the <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md?raw">Generating an Access Token</a> guide.</p>
+  <p>TIP: To learn how to obtain an access token see the <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md?raw">Generating an Access Token</a> guide.</p>
 </blockquote>
 <h3 id="jwt-json-web-token"><a href="#jwt-json-web-token" name="jwt-json-web-token" class="anchor"><span class="octicon octicon-link"></span></a><a name="jwt-json-web-token"></a>JWT (JSON Web Token)</h3>
-<p>Some endpoints such as <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/api_payment.md?raw#submit-payments-for-approval"><em>Submit Order Payments for Approval</em></a> require a <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md?raw">JWT</a> that is signed for a service authorized to call the endpoint.</p>
+<p>Some endpoints such as <a href="https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html#submit-payments-for-approval"><em>Submit Order Payments for Approval</em></a> require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md?raw">JWT</a> that is signed for a service authorized to call the endpoint.</p>
 <p>In this case, pass the JWT in the <strong>X-Nike-Authorization</strong> request header. Also, send the name of the application (e.g. &quot;checkouts&quot;) that is authorized to call this endpoint in the <strong>X-Nike-AppId</strong> request header. This is the service name used to sign the JWT.</p>
 <p>The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.</p>
 <p>See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Reference+Guide">Nike JWT Reference Guide</a> for more information.</p>
@@ -584,7 +584,7 @@
 </blockquote>
 <h2 id="url-patterns"><a href="#url-patterns" name="url-patterns" class="anchor"><span class="octicon octicon-link"></span></a><a name="url-patterns"></a>URL Patterns</h2>
 <p>The standard URL pattern used for NDe APIs (v2 or later) is as follows:</p>
-<p><img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/getting_started/url_format.png?at=refs%2Fheads%2Fmaster" alt="" /></p>
+<p><img src="https://nde-devportal-docs.niketech.com/images/getting_started/url_format.png" alt="" /></p>
 <br>
 <p>For example, all of Checkout APIs reside under the <code>/buy</code> domain, thus the URL's will always begin with <a href="https://api.nike.com/buy/">https://api.nike.com/buy/</a>.</p>
 <p>The resource section of the URL varies depending on the endpoint, e.g. <a href="https://api.nike.com/buy/">https://api.nike.com/buy/</a><font color="green">carts</font>/ or <a href="https://api.nike.com/buy/">https://api.nike.com/buy/</a><font color="green">checkout_previews</font>/.</p>
@@ -1288,7 +1288,7 @@ x-nike-version:1.0.0.179
 <ol>
   <li>Right-click anywhere in browser main window, select <code>Inspect</code>.</li>
 </ol>
-<p><img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/getting_started/troubleshooting_chrome_inspect.png?at=refs%2Fheads%2Fmaster" alt="" /></p>
+<p><img src="https://nde-devportal-docs.niketech.com/images/getting_started/troubleshooting_chrome_inspect.png" alt="" /></p>
 <ol start="2">
   <li>
     <p>In Inspect window, select <code>Network</code> tab.</p>
@@ -1300,14 +1300,16 @@ x-nike-version:1.0.0.179
     <p>In the <code>Network</code> tab, scan through the list for any items with &quot;api.nike.com&quot;. In this case, click to select the call to &quot;api.nike.com/buy/shipping_options&quot;.</p>
   </li>
 </ol>
-<p><img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/getting_started/troubleshooting_chrome_inspect_details.png?at=refs%2Fheads%2Fmaster" alt="" /></p>
+<p><img src="https://nde-devportal-docs.niketech.com/images/getting_started/troubleshooting_chrome_inspect_details.png" alt="" /></p>
 <ol start="5">
   <li>Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?</li>
 </ol>
 <h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
-<p>For a master glossary of terms for Nike APIs, see the <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw">Glossary</a>.</p>
+<p>For a master glossary of terms for Nike APIs, see the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html">Glossary</a>.</p>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw">Business Guides</a></p>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw">Developer's Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
 </body>
 </html>

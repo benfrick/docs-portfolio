@@ -11,7 +11,7 @@ See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/co
 Author:  Jane Moore
 -->
 <h1 id="launch-best-practices-guide--draft"><a href="#launch-best-practices-guide--draft" name="launch-best-practices-guide--draft" class="anchor"><span class="octicon octicon-link"></span></a>LAUNCH BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)</h1>
-<h6 id="last-updated-362018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-362018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-362018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 3/6/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h6>
+<h6 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 03/20/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h6>
 <p>This guide discusses best practices for calling NDe commerce services during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the <a href="#service-call-best-practices">Service Call Best Practices</a> section, specific performance, retry and fallback best practices are listed by service.</p>
 <ul>
   <li><a href="#service-call-best-practices">Service Call Best Practices</a></li>
@@ -189,7 +189,7 @@ Author:  Jane Moore
   <li><a href="#merchandised-product-skus">Merchandised Product SKUs</a></li>
   <li><a href="#merchandised-product-prices">Merchandised Product Prices</a></li>
   <li><a href="#product-content">Product Content</a></li>
-  <li><a href="#merchandised-value-added-service">Merchandised Value-added Service</a></li>
+  <li><a href="#merchandised-value-added-services">Merchandised Value-added Services</a></li>
 </ul>
 <h3 id="merchandised-product-caching"><a href="#merchandised-product-caching" name="merchandised-product-caching" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-product-caching"/>Merchandised Product Caching</h3>
 <p>Because product and SKU information does not change frequently, service-to-service calls made to the Merchandised Product service should use distributed caching. Pre-loading of the cache prior to launch is recommended so no customer has a degraded shopping experience while the service loads the data into its cache. During launch, retrieve the merchandised product data from cache if available rather than calling the service.</p>
@@ -243,7 +243,7 @@ Author:  Jane Moore
     <tr><td><strong>Fallback behavior for API callers</strong></td><td>None</td></tr>
   </tbody>
 </table>
-<h3 id="merchandised-value-added-services"><a href="#merchandised-value-added-services" name="merchandised-value-added-services" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-value-added-service"/>Merchandised Value-added Services</h3>
+<h3 id="merchandised-value-added-services"><a href="#merchandised-value-added-services" name="merchandised-value-added-services" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-value-added-services"/>Merchandised Value-added Services</h3>
 <p><strong>Endpoint:</strong> /merch/value_added_services/v1/</p>
 <table>
   <thead>
@@ -377,5 +377,10 @@ Author:  Jane Moore
 </table>
 <h2 id="product-feeds-service"><a href="#product-feeds-service" name="product-feeds-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-feeds-service"/>Product Feeds Service</h2>
 <p>TBD</p>
+<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
+<p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
 </body>
 </html>

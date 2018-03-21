@@ -12,8 +12,8 @@ Author: Ben Frick, Jane Moore
 SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina Baumel
 -->
 <h1 id="analytics-pipeline-api-developers-guide-draft"><a href="#analytics-pipeline-api-developers-guide-draft" name="analytics-pipeline-api-developers-guide-draft" class="anchor"><span class="octicon octicon-link"></span></a>ANALYTICS PIPELINE API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</h1>
-<h5 id="last-updated-2272018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-2272018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-2272018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 2/27/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h5>
-<p>If you've read <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw">Using NDe APIs</a> and <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/events/biz_events.md?raw">Get Started With Nike Analytics Pipeline</a>, this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.</p>
+<h5 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 03/20/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h5>
+<p>If you've read <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="https://nde-devportal-docs.niketech.com/doc/commerce/events/biz_events.html">Get Started With Nike Analytics Pipeline</a>, this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.</p>
 <h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In This Guide:</strong></h2>
 <p><a href="#api-at-a-glance">API at a Glance</a></p>
 <p><a href="#terms-of-service">Terms of Service</a></p>
@@ -37,7 +37,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 <p>The <b>Analytics Pipeline API</b> is your single destination to record analytics events, helping both user experiences and web services to track consumer and application behavior.</p>
 <p>Because Analytics Pipeline is server-side and Nike-authored, it is much more customizable to your needs than a proprietary, client-side analytics solution.</p>
 <p>Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event. Future integrations with other partners can be done without necessarily changing the contract of this API, thus making it easier (if not completely transparent) to you.</p>
-<p><img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/analytics/events.png?at=refs%2Fheads%2Fmaster" alt="" /></p>
+<p><img src="https://nde-devportal-docs.niketech.com/images/analytics/events.png" alt="" /></p>
 <p>Here are a few ways in which analytics event data can be used:</p>
 <ul>
   <li>Track the success of marketing campaigns via tags or attribution</li>
@@ -93,8 +93,11 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 <h3 id="a-note-on-data-transformations"><a href="#a-note-on-data-transformations" name="a-note-on-data-transformations" class="anchor"><span class="octicon octicon-link"></span></a>A Note on Data Transformations</h3>
 <p>The data you send to this API is transformed (in most cases) to meet the requirements of the downstream systems to which it is ultimately sent, for example Adobe Analytics.</p>
 <p>Here are some screenshots from Adobe Analytics to illustrate what kind of insights you can gain from sending events through this API:</p>
-<p><img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/analytics/adobe1.png?at=refs%2Fheads%2Fmaster" alt="" /></p>
-<p><img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/analytics/adobe2.png?at=refs%2Fheads%2Fmaster" alt="" /></p>
+<br>
+<p><img src="https://nde-devportal-docs.niketech.com/images/analytics/adobe1.png" alt="" /></p>
+<br>
+<p><img src="https://nde-devportal-docs.niketech.com/images/analytics/adobe2.png" alt="" /></p>
+<br>
 <blockquote>
   <p>TIP: This guide does not include details of the data transformations. For more info, see <a href="">TBD</a>.</p>
 </blockquote>
@@ -105,7 +108,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md">SEND A NEW EVENT BATCH</a></td><td>/measure/uxevents/v1</td><td>POST</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md">SEND A NEW EVENT BATCH</a></td><td>/measure/uxevents/v1</td><td>POST</td></tr>
   </tbody>
 </table>
 <h2 id="making-your-first-api-request"><a href="#making-your-first-api-request" name="making-your-first-api-request" class="anchor"><span class="octicon octicon-link"></span></a><a name="making-your-first-api-request"></a>Making Your First API Request</h2>
@@ -2056,7 +2059,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </li>
 </ol>
 <h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
-<p>See the <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw">Glossary</a></p>
+<p>See the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html">Glossary</a></p>
 <h2 id="release-notes"><a href="#release-notes" name="release-notes" class="anchor"><span class="octicon octicon-link"></span></a><a name="release-notes"/>Release Notes</h2>
 <p>There are no release notes at this time.</p>
 <h2 id="document-change-log"><a href="#document-change-log" name="document-change-log" class="anchor"><span class="octicon octicon-link"></span></a><a name="document-change-log"/>Document Change Log</h2>
@@ -2066,11 +2069,13 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </thead>
   <tbody>
     <tr><td>Initial draft</td><td>2/27/2018</td><td>Initial Draft</td></tr>
+    <tr><td>Updated links</td><td>3/20/2018</td><td>Updated links to point to new dev portal</td></tr>
   </tbody>
 </table>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw">General Guide</a></p>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw">Business Guides</a></p>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw">Developer's Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
 </body>
 </html>

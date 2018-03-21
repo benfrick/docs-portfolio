@@ -12,8 +12,8 @@ Author:  Jane Moore
 SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Warren, Alex Banker
 -->
 <h1 id="merchandised-product-api-developers-guide"><a href="#merchandised-product-api-developers-guide" name="merchandised-product-api-developers-guide" class="anchor"><span class="octicon octicon-link"></span></a>MERCHANDISED PRODUCT API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE</h1>
-<h5 id="last-updated-2122018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-2122018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-2122018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 2/12/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h5>
-<p>If you've read <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw">Using NDe APIs</a> and <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/biz_merch_product.md?raw">Get Started With Nike Merchandised Products</a>, this guide provides the details necessary to integrate with the Nike Merchandised Product APIs.</p>
+<h5 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 03/20/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h5>
+<p>If you've read <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_merch_product.html">Get Started With Nike Merchandised Products</a>, this guide provides the details necessary to integrate with the Nike Merchandised Product APIs.</p>
 <h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In This Guide:</strong></h2>
 <p><a href="#api-at-a-glance">API at a Glance</a></p>
 <p><a href="#terms-of-service">Terms of Service</a></p>
@@ -61,12 +61,12 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td>Scope/Limitations</td><td><li>NIKEiD is not supported. Although NIKEiD Master products are available in the Merchandised Product API, NIKEiD Prebuild products and paths are not supported. These are required to properly render the NIKEiD experience.<li>Retail data product is available, but not supported. Contact the Product Owner for details.<li>Bulk download of all product data is not supported.<li>Nike Outfits are not supported.<li>No product data metrics are currently sent to Analytics (Business Intelligence).<li>The v2 Merchandised Product SKUs service does not determine if a SKU is in stock.  Use the Inventory API to determine if a SKU has inventory.</td></tr>
     <tr><td>SLAs</td><td> Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms</td></tr>
     <tr><td>Domain</td><td>Commerce</td></tr>
-    <tr><td>Prerequisites</td><td><a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#registration">API Registration</a></td></tr>
+    <tr><td>Prerequisites</td><td><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration">API Registration</a></td></tr>
     <tr><td>Contact Info</td><td>Slack <a href="https://nikedigital.slack.com/messages/cic-merch">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA">Merchandised Product API Team</a><br> Mailing List: Lst-digitaltech.merch.apis<br><a name="product-owner"></a>Product Owner: Jeremy Geiger </td></tr>
   </tbody>
 </table>
 <h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="terms-of-service"></a>Terms of Service</h2>
-<p>To use the Merchandised Product API, you must send a caller ID header in every API request to help troubleshoot unexpected responses.  See the Registration section of the <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#registration">Using NDe APIs</a> guide on how to create your caller ID.</p>
+<p>To use the Merchandised Product API, you must send a caller ID header in every API request to help troubleshoot unexpected responses.  See the Registration section of the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> guide on how to create your caller ID.</p>
 <h3 id="authentication-requirements"><a href="#authentication-requirements" name="authentication-requirements" class="anchor"><span class="octicon octicon-link"></span></a>Authentication Requirements</h3>
 <p>If you are retrieving products that are publicly available, no authentication or authorization is required. If you need product data that is not available to the public and you are an internal Nike team, you can contact the Product Owner for details on setting up authentication.</p>
 <h2 id="use-cases"><a href="#use-cases" name="use-cases" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-cases"></a>Use Cases</h2>
@@ -89,15 +89,15 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <ol>
   <li>
     <p>Using style-color 526628-009 (example), get the Product ID and a few product details from the Merch Product endpoint (filtered by style-color and Merch Group):
-    <a href="https://snkrs.prod.commerce.nikecloud.com/merch/products/v2?filter=merchGroup(US)&amp;filter=styleColor(526628-009)&amp;filter=merchgroup(US)">https://snkrs.prod.commerce.nikecloud.com/merch/products/v2?filter=merchGroup(US)&amp;filter=styleColor(526628-009)&amp;filter=merchgroup(US)</a></p>
+    <a href="https://api.nike.com/merch/products/v2?filter=merchGroup(US)&amp;filter=styleColor(526628-009)&amp;filter=merchgroup(US)">https://api.nike.com/merch/products/v2?filter=merchGroup(US)&amp;filter=styleColor(526628-009)&amp;filter=merchgroup(US)</a></p>
   </li>
   <li>
     <p>Using the product ID from the Merch Product response, get prices from the Merch Price endpoint (filtered by product ID and country US):
-    <a href="https://snkrs.prod.commerce.nikecloud.com/merch/prices/v2?filter=productid(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)">https://snkrs.prod.commerce.nikecloud.com/merch/prices/v2?filter=productid(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)</a></p>
+    <a href="https://api.nike.com/merch/prices/v2?filter=productid(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)">https://api.nike.com/merch/prices/v2?filter=productid(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)</a></p>
   </li>
   <li>
     <p>Using the same product ID, get the SKU data from the Merch SKUs endpoint (filtered by country US):
-    <a href="https://snkrs.prod.commerce.nikecloud.com/merch/skus/v2?filter=productId(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)">https://snkrs.prod.commerce.nikecloud.com/merch/skus/v2?filter=productId(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)</a></p>
+    <a href="https://api.nike.com/merch/skus/v2?filter=productId(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)">https://api.nike.com/merch/skus/v2?filter=productId(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&amp;filter=country(US)</a></p>
   </li>
   <li>
     <p>Using style-color 526628-009 (not product ID), get the product images from the images endpoint of the Product Content service:
@@ -122,72 +122,72 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   <li>Product Feeds responses are larger, so response times may be slightly slower - but still within SLAs.</li>
   <li>Product Feeds does not provide all of the data that is provided in every service with which it integrates. The data points in some cases are selective.</li>
 </ul>
-<p>For the full list of use cases to evaluate if that API is better suited to your product needs, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw#product-threads-list">Product Threads List</a>.</p>
+<p>For the full list of use cases to evaluate if that API is better suited to your product needs, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list">Product Threads List</a>.</p>
 <h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
 <p>For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.</p>
-<h3 id="merchandised-product-information-service"><a href="#merchandised-product-information-service" name="merchandised-product-information-service" class="anchor"><span class="octicon octicon-link"></span></a><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw">MERCHANDISED PRODUCT INFORMATION SERVICE</a></h3>
+<h3 id="merchandised-product-information-service"><a href="#merchandised-product-information-service" name="merchandised-product-information-service" class="anchor"><span class="octicon octicon-link"></span></a><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw">MERCHANDISED PRODUCT INFORMATION SERVICE</a></h3>
 <table>
   <thead>
     <tr><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2">MERCHANDISED PRODUCT LIST</a></td><td>/merch/products/v2</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id">MERCHANDISED PRODUCT BY ID</a></td><td>/merch/products/v2/{id}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/post_merch_products_v2">MERCHANDISED PRODUCT CREATE</a></td><td>/merch/product/v2</td><td>POST</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/delete_merch_products_v2_id">MERCHANDISED PRODUCT DELETE</a></td><td>/merch/products/v2/{id}</td><td>DELETE</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2">MERCHANDISED PRODUCT LIST</a></td><td>/merch/products/v2</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id">MERCHANDISED PRODUCT BY ID</a></td><td>/merch/products/v2/{id}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/post_merch_products_v2">MERCHANDISED PRODUCT CREATE</a></td><td>/merch/product/v2</td><td>POST</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/delete_merch_products_v2_id">MERCHANDISED PRODUCT DELETE</a></td><td>/merch/products/v2/{id}</td><td>DELETE</td></tr>
   </tbody>
 </table>
-<h3 id="merchandised-sku-information-service"><a href="#merchandised-sku-information-service" name="merchandised-sku-information-service" class="anchor"><span class="octicon octicon-link"></span></a><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw">MERCHANDISED SKU INFORMATION SERVICE</a></h3>
+<h3 id="merchandised-sku-information-service"><a href="#merchandised-sku-information-service" name="merchandised-sku-information-service" class="anchor"><span class="octicon octicon-link"></span></a><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw">MERCHANDISED SKU INFORMATION SERVICE</a></h3>
 <table>
   <thead>
     <tr><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2">MERCHANDISED PRODUCT SKU LIST</a></td><td>/merch/skus/v2</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id">MERCHANDISED PRODUCT SKU BY ID</a></td><td>/merch/skus/v2/{id}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/post_merch_skus_v2">MERCHANDISED PRODUCT SKU CREATE</a></td><td>/merch/skus/v2</td><td>POST</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/delete_merch_skus_v2">MERCHANDISED PRODUCT SKUS DELETE</a></td><td>/merch/skus/v2</td><td>DELETE</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id">MERCHANDISED PRODUCT SKUS DELETE</a></td><td>/merch/skus/v2/{id}</td><td>DELETE</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2">MERCHANDISED PRODUCT SKU LIST</a></td><td>/merch/skus/v2</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id">MERCHANDISED PRODUCT SKU BY ID</a></td><td>/merch/skus/v2/{id}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/post_merch_skus_v2">MERCHANDISED PRODUCT SKU CREATE</a></td><td>/merch/skus/v2</td><td>POST</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/delete_merch_skus_v2">MERCHANDISED PRODUCT SKUS DELETE</a></td><td>/merch/skus/v2</td><td>DELETE</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id">MERCHANDISED PRODUCT SKUS DELETE</a></td><td>/merch/skus/v2/{id}</td><td>DELETE</td></tr>
   </tbody>
 </table>
-<h3 id="merchandised-product-price-service"><a href="#merchandised-product-price-service" name="merchandised-product-price-service" class="anchor"><span class="octicon octicon-link"></span></a><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw">MERCHANDISED PRODUCT PRICE SERVICE</a></h3>
+<h3 id="merchandised-product-price-service"><a href="#merchandised-product-price-service" name="merchandised-product-price-service" class="anchor"><span class="octicon octicon-link"></span></a><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw">MERCHANDISED PRODUCT PRICE SERVICE</a></h3>
 <table>
   <thead>
     <tr><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2">MERCHANDISED PRICES LIST</a></td><td>/merch/prices/v2</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id">MERCHANDISED PRICES BY ID</a></td><td>/merch/prices/v2/{id}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/post_merch_prices_v2">MERCHANDISED PRICES CREATE</a></td><td>/merch/prices/v2</td><td>POST</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/delete_merch_prices_v2_id">MERCHANDISED PRICES DELETE</a></td><td>/merch/prices/v2/{id}</td><td>DELETE</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2">MERCHANDISED PRICES LIST</a></td><td>/merch/prices/v2</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id">MERCHANDISED PRICES BY ID</a></td><td>/merch/prices/v2/{id}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/post_merch_prices_v2">MERCHANDISED PRICES CREATE</a></td><td>/merch/prices/v2</td><td>POST</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/delete_merch_prices_v2_id">MERCHANDISED PRICES DELETE</a></td><td>/merch/prices/v2/{id}</td><td>DELETE</td></tr>
   </tbody>
 </table>
-<h3 id="merchandised-value-added-services"><a href="#merchandised-value-added-services" name="merchandised-value-added-services" class="anchor"><span class="octicon octicon-link"></span></a><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw">MERCHANDISED VALUE-ADDED SERVICES</a></h3>
+<h3 id="merchandised-value-added-services"><a href="#merchandised-value-added-services" name="merchandised-value-added-services" class="anchor"><span class="octicon octicon-link"></span></a><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw">MERCHANDISED VALUE-ADDED SERVICES</a></h3>
 <table>
   <thead>
     <tr><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1">MERCHANDISED VALUE ADDED SERVICES LIST</a></td><td>/merch/value_added_services/v1</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1_id">MERCHANDISED VALUE ADDED SERVICES BY ID</a></td><td>/merch/value_added_services/v1/{id}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/post_merch_value_added_services_v1">MERCHANDISED VALUE ADDED SERVICES CREATE</a></td><td>/merch/value_added_services/v1</td><td>POST</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/delete_merch_value_added_services_v1_id">MERCHANDISED VALUE ADDED SERVICES DELETE</a></td><td>/merch/value_added_services/v1/{id}</td><td>DELETE</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1">MERCHANDISED VALUE ADDED SERVICES LIST</a></td><td>/merch/value_added_services/v1</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1_id">MERCHANDISED VALUE ADDED SERVICES BY ID</a></td><td>/merch/value_added_services/v1/{id}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/post_merch_value_added_services_v1">MERCHANDISED VALUE ADDED SERVICES CREATE</a></td><td>/merch/value_added_services/v1</td><td>POST</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/delete_merch_value_added_services_v1_id">MERCHANDISED VALUE ADDED SERVICES DELETE</a></td><td>/merch/value_added_services/v1/{id}</td><td>DELETE</td></tr>
   </tbody>
 </table>
-<h3 id="product-content"><a href="#product-content" name="product-content" class="anchor"><span class="octicon octicon-link"></span></a><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw">PRODUCT CONTENT</a></h3>
+<h3 id="product-content"><a href="#product-content" name="product-content" class="anchor"><span class="octicon octicon-link"></span></a><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw">PRODUCT CONTENT</a></h3>
 <table>
   <thead>
     <tr><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_styleColor_content">PRODUCT CONTENT BY STYLE COLOR</a></td><td>/merch/contents/v1/{style-color}/content{?country,locale}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_styleColor_content_itemName">PRODUCT CONTENT ITEM BY STYLE COLOR</a></td><td>/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_content">PRODUCT CONTENT BY STYLE COLOR LIST</a></td><td>/merch/contents/v1/content{?country,locale,stylecolors}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_content">PRODUCT CONTENT FIELD BY STYLE COLOR LIST</a></td><td>/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_styleColor_images">PRODUCT IMAGE SET BY STYLE COLOR</a></td><td>/merch/contents/v1/{style-color}/images{?country}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_styleColor_content">PRODUCT CONTENT BY STYLE COLOR</a></td><td>/merch/contents/v1/{style-color}/content{?country,locale}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_styleColor_content_itemName">PRODUCT CONTENT ITEM BY STYLE COLOR</a></td><td>/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_content">PRODUCT CONTENT BY STYLE COLOR LIST</a></td><td>/merch/contents/v1/content{?country,locale,stylecolors}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_content">PRODUCT CONTENT FIELD BY STYLE COLOR LIST</a></td><td>/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_styleColor_images">PRODUCT IMAGE SET BY STYLE COLOR</a></td><td>/merch/contents/v1/{style-color}/images{?country}</td><td>GET</td></tr>
     <tr><td><a href="">PRODUCT IMAGE SET BY STYLE COLOR LIST</a></td><td>/merch/contents/v1/images{?country,stylecolors}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_styleColor_images_base">PRODUCT BASE IMAGE URL BY STYLE COLOR</a></td><td>/merch/contents/v1/{styleColor}/images/base{?country}</td><td>GET</td></tr>
-    <tr><td><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_images_base">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a></td><td>/merch/contents/v1/images/base</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_styleColor_images_base">PRODUCT BASE IMAGE URL BY STYLE COLOR</a></td><td>/merch/contents/v1/{styleColor}/images/base{?country}</td><td>GET</td></tr>
+    <tr><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_images_base">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a></td><td>/merch/contents/v1/images/base</td><td>GET</td></tr>
   </tbody>
 </table>
 <h2 id="understanding-nike-product-data"><a href="#understanding-nike-product-data" name="understanding-nike-product-data" class="anchor"><span class="octicon octicon-link"></span></a><a name="understanding-nike-product-data"></a>Understanding Nike Product Data</h2>
@@ -195,7 +195,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <h3 id="where-does-product-data-come-from"><a href="#where-does-product-data-come-from" name="where-does-product-data-come-from" class="anchor"><span class="octicon octicon-link"></span></a><a name="where-does-product-data-come-from"></a>Where Does Product Data Come From?</h3>
 <p>Product data originates from two primary upstream systems: <b>Prodigy</b> (via <b>eMerch</b>), and the cloud-based <b>Catalog</b> service. Prodigy and the Catalog service are the systems of record for product data, and are not managed within the Merchandised Product domain.</p>
 <p>The following diagram illustrates the most common patterns for data flow.</p>
-<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/merch_product/product_data_simplified_flow.png?at=refs%2Fheads%2Fmaster"/>
+<p><img src="https://nde-devportal-docs.niketech.com/images/commerce/merch_product/product_data_simplified_flow.png" alt="" /></p>
 <p>After a notification from the system of record is received, the Merchandised Product services then decorate the product data with domain-specific elements such as Product UUIDs for each service. Generally Merchandised Product does not modify the data provided by the systems of record. For more information on the IDs that are returned within the Merchandised Product domain, see <a href="#understanding-the-various-ids-returned-within-each-response">Understanding the Various IDs Returned Within Each Response</a>.</p>
 <p><b>NOTES: <b></p>
 <li>When a Merchandised Product object is created, the object remains in the application cache for 30 seconds.</li>
@@ -224,8 +224,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <br>
 <br>
 <br></p>
-<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/merch_product/relationships.png?at=refs%2Fheads%2Fmaster"/>
-<p/>
+<p><img src="https://nde-devportal-docs.niketech.com/images/commerce/merch_product/relationships.png" alt="" /></p>
 <h3 id="tip-finding-the-data-points-you-need"><a href="#tip-finding-the-data-points-you-need" name="tip-finding-the-data-points-you-need" class="anchor"><span class="octicon octicon-link"></span></a><a name="tip-finding-the-data-points-you-need"></a>TIP: Finding the Data Points You Need</h3>
 <p>Microservice architecture specifies that data should be divided into logical groupings within semantically-named resources. You can use the following general guidelines to find the data points among the Merchandised Product resources:</p>
 <ul>
@@ -266,7 +265,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <h3 id="working-with-merch-groups-countries-and-languages"><a href="#working-with-merch-groups-countries-and-languages" name="working-with-merch-groups-countries-and-languages" class="anchor"><span class="octicon octicon-link"></span></a><a name="working-with-merch-groups-countries-and-languages"></a>Working with Merch Groups, Countries, and Languages</h3>
 <p>A Merch Group is a collection of countries defined in Prodigy. Merch Groups are used to manage product information and inventory at a group level. The Merchandised Product API uses the Merch Group as a foundational element in how the data is organized and presented.</p>
 <p>Within each Merch Group, each country may include translations and size conversions for more than one language-dialect.</p>
-<p>For most API calls, Merch Group and Country are required. For the current list of supported Merch Groups, countries, and languages see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product API Reference Guide</a>.</p>
+<p>For most API calls, Merch Group and Country are required. For the current list of supported Merch Groups, countries, and languages see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product API Reference Guide</a>.</p>
 <h3 id="excluding-countries-where-a-specific-product-should-not-be-offered"><a href="#excluding-countries-where-a-specific-product-should-not-be-offered" name="excluding-countries-where-a-specific-product-should-not-be-offered" class="anchor"><span class="octicon octicon-link"></span></a><a name="excluding-countries-where-a-specific-product-should-not-be-offered"></a>Excluding Countries where a Specific Product Should Not Be Offered</h3>
 <p>In some cases, Nike does not offer a specific product in a certain country, even if it is offered in other countries within the same Merch Group. This may be for a variety of reasons, including legal implications of selling a product that is not within the trade guidelines for a given country. If you are building a public or consumer-facing experience, it is essential that you do not show that product in an excluded country.</p>
 <p>The Merchandised Product API includes two fields that are used for this purpose:</p>
@@ -419,7 +418,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 </ul>
 <h3 id="merchandised-product-list"><a href="#merchandised-product-list" name="merchandised-product-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-product-list"></a>Merchandised Product List</h3>
 <p>The Merchandised Product service returns all products matching the filter query parameter up to the value supplied in the count parameter. If no count parameter is supplied, up to 25 products are returned. When the count parameter is supplied, the maximum number of products is 25. Product results are sorted by product ID, style-color or style, depending upon the filter query parameters passed in.  If the count parameter restricts the results, a <strong>pages</strong> object is returned in the response that the caller can use for pagination.</p>
-<p>This is not a <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#jwt-json-web-token">JWT-restricted</a> service but results differ based on whether or not this header is sent in the request. If no JWT header is supplied, the response contains products matching the criteria and have an ACTIVE status. If a valid JWT header is supplied, the response contains products matching the criteria regardless of status.</p>
+<p>This is not a <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#jwt-json-web-token">JWT-restricted</a> service but results differ based on whether or not this header is sent in the request. If no JWT header is supplied, the response contains products matching the criteria and have an ACTIVE status. If a valid JWT header is supplied, the response contains products matching the criteria regardless of status.</p>
 <p>You can list product information for a specific version by ID and by Snapshot ID, which represents the version of the object. If no <strong>snapshotId</strong> parameter is supplied, the most recent version of the product is returned.</p>
 <p>Filter field names are case insensitive.</p>
 <p>The caller does not have to send an access token in the Authorization header (indicating the customer is logged in) to use this service.</p>
@@ -438,7 +437,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>filter</strong></td><td>query</td><td>fields and values used to filter the results.<br>maximum of one <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">merchgroup</a> is required.<br>id + style or style-color is required.<br>maximum of one style is supported.</td><td>String</td><td><strong>Required</strong></td></tr>
+    <tr><td><strong>filter</strong></td><td>query</td><td>fields and values used to filter the results.<br>maximum of one <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">merchgroup</a> is required.<br>id + style or style-color is required.<br>maximum of one style is supported.</td><td>String</td><td><strong>Required</strong></td></tr>
     <tr><td><strong>snapshotId</strong></td><td>query</td><td>ID representing the product version<br>Allowed in listing by product ID only</td><td>String</td><td>Optional</td></tr>
     <tr><td><strong>count</strong></td><td>query</td><td>number of results to return, default = 25, max = 25</td><td>Integer</td><td>Optional</td></tr>
     <tr><td><strong>anchor</strong></td><td>query</td><td>if the value is 10, results returned start with result 11</td><td>Integer</td><td>Optional</td></tr>
@@ -485,19 +484,19 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>id</strong></td><td>Required</td><td>ID of the product in UUID format, generated when product flows into Merch Product from Prodigy, will eventually replace <strong>pid</strong></td></tr>
     <tr><td><strong>snapshotId</strong></td><td>Required</td><td>ID of the most recent snapshot of the SKU in UUID format, generated when the product is updated</td></tr>
     <tr><td><strong>modificationDate</strong></td><td>Required</td><td>timestamp the product was last modified</td></tr>
-    <tr><td><strong>status</strong></td><td>Required</td><td>product status, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>merchGroup</strong></td><td>Required</td><td>group this product is merchandised to, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>status</strong></td><td>Required</td><td>product status, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>merchGroup</strong></td><td>Required</td><td>group this product is merchandised to, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
     <tr><td><strong>styleCode</strong></td><td>Required</td><td>code indicating Nike style</td></tr>
     <tr><td><strong>colorCode</strong></td><td>Required</td><td>code indicating Nike color</td></tr>
     <tr><td><strong>styleColor</strong></td><td>Required</td><td>concatenation of <strong>styleCode</strong>-<strong>colorCode</strong></td></tr>
     <tr><td><strong>pid</strong></td><td>Required</td><td>product ID from legacy system used to map to the product UUID</td></tr>
-    <tr><td><strong>catalogId</strong></td><td>Optional</td><td>catalog ID in UUID format from the <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md?raw">Catalog Product</a> service, will eventually replace <strong>legacyCatalogIds</strong></td></tr>
+    <tr><td><strong>catalogId</strong></td><td>Optional</td><td>catalog ID in UUID format from the <a href="https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md?raw">Catalog Product</a> service, will eventually replace <strong>legacyCatalogIds</strong></td></tr>
     <tr><td><strong>productGroupId</strong></td><td>Optional</td><td>ID used to group products together such as products with the same styleCode, from legacy system</td></tr>
     <tr><td><strong>nikeIdStyleCode</strong></td><td>Optional</td><td>Nike ID style code, only populated for products of styleType <code>NIKEID</code></td></tr>
     <tr><td><strong>brand</strong></td><td>Optional</td><td>Nike brand associated to this product such as &quot;Jordan&quot;</td></tr>
     <tr><td><strong>channels</strong></td><td>Optional</td><td>array of channels this product is sold in</td></tr>
     <tr><td><strong>legacyCatalogIds</strong></td><td>Optional</td><td>array of legacy system catalog ids the product is in, used to map to the <strong>catalogId</strong> UUID</td></tr>
-    <tr><td><strong>genders</strong></td><td>Optional</td><td>array of genders this product is associated with, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>genders</strong></td><td>Optional</td><td>array of genders this product is associated with, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
     <tr><td><strong>valueAddedServices</strong></td><td>Optional</td><td>array of value-added service objects associated with this product</td></tr>
     <tr><td>valueAddedServices.<strong>id</strong></td><td>Optional</td><td>value-added-service UUID associated with this product that can be used in the <a href="#merchandised-value-added-services-by-id">Merchandised Value Added Services by ID</a> endpoint call</td></tr>
     <tr><td>valueAddedServices.<strong>publishDate</strong></td><td>Optional</td><td>timestamp value-added service was published</td></tr>
@@ -508,7 +507,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td>customization.<strong>nikeIdSlug</strong></td><td>Optional</td><td>NIKEiD slug code associated with this product</td></tr>
     <tr><td><strong>sportTags</strong></td><td>Optional</td><td>array of sport tags associated with this product</td></tr>
     <tr><td><strong>widthGroupIds</strong></td><td>Optional</td><td>group of product IDs with same style but different width, not currently used</td></tr>
-    <tr><td><strong>classificationConcepts</strong></td><td>Optional</td><td>array of Taxonomy concept objects associated with this product. See the <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md?raw">Taxonomy Service</a>for more information.</td></tr>
+    <tr><td><strong>classificationConcepts</strong></td><td>Optional</td><td>array of Taxonomy concept objects associated with this product. See the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md?raw">Taxonomy Service</a>for more information.</td></tr>
     <tr><td>classificationConcepts.<strong>broaderConceptId</strong></td><td>Required</td><td>UUID of the broad Taxonomy concept associated with this product, e.g. <code>Platinum Tint</code></td></tr>
     <tr><td>classificationConcepts.<strong>narrowerConceptIds</strong></td><td>Required</td><td>array of narrower Taxonomy concept UUIDs associated with this product</td></tr>
     <tr><td><strong>commerceCountryInclusions</strong></td><td>Optional</td><td>array of ISO2 country codes where this product can be sold, e.g. CN,JP</td></tr>
@@ -518,9 +517,9 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td>productRollup.<strong>key</strong></td><td>Optional</td><td>key of Prodigy rollup attribute associated to the product</td></tr>
     <tr><td><strong>quantityLimit</strong></td><td>Optional</td><td>integer restricting how many of this product a customer can purchase at one time</td></tr>
     <tr><td><strong>nikeidStyleNumber</strong></td><td>Optional</td><td>Nike ID style code, only populated for products of styleType <code>NIKEID</code></td></tr>
-    <tr><td><strong>styleType</strong></td><td>Optional</td><td>type of style, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>productType</strong></td><td>Optional</td><td>type of product, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>publishType</strong></td><td>Optional</td><td>type of publishing, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>styleType</strong></td><td>Optional</td><td>type of style, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>productType</strong></td><td>Optional</td><td>type of product, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>publishType</strong></td><td>Optional</td><td>type of publishing, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
     <tr><td><strong>mainColor</strong></td><td>Optional</td><td>true or false, indicating this is the main color of the style</td></tr>
     <tr><td><strong>exclusiveAccess</strong></td><td>Required</td><td>true or false, indicating whether or not the user must have an access code to unlock the product in order to purchase it</td></tr>
     <tr><td><strong>preOrder</strong></td><td>Optional</td><td>true or false, true indicates the PDP should display in preOrder status</td></tr>
@@ -821,7 +820,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>filter</strong></td><td>query</td><td><strong>id</strong> (SKU UUID), <strong>productid</strong> (product UUID from Merch Product endpoint), 'gtin' (from Merch Product endpoint) or <strong>stockkeepingunitid</strong> (from Merch Product endpoint) is required<br/><a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> is optional</td><td>String</td><td><strong>Required</strong></td></tr>
+    <tr><td><strong>filter</strong></td><td>query</td><td><strong>id</strong> (SKU UUID), <strong>productid</strong> (product UUID from Merch Product endpoint), 'gtin' (from Merch Product endpoint) or <strong>stockkeepingunitid</strong> (from Merch Product endpoint) is required<br/><a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> is optional</td><td>String</td><td><strong>Required</strong></td></tr>
     <tr><td><strong>snapshotId</strong></td><td>query</td><td>Unique ID in UUID format indicating a version of the SKU</td><td>String</td><td>Optional</td></tr>
     <tr><td><strong>count</strong></td><td>query</td><td>Number of results to return. Max = 25</td><td>String</td><td>Optional</td></tr>
     <tr><td><strong>anchor</strong></td><td>query</td><td>If the value is 10, results returned start with result 11</td><td>Integer</td><td>Optional</td></tr>
@@ -864,9 +863,9 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>productId</strong></td><td>Required</td><td>productid passed in the query parameter</td></tr>
     <tr><td><strong>parentId</strong></td><td>Optional</td><td>same as the productId if the SKU's product has no parent</td></tr>
     <tr><td><strong>parentType</strong></td><td>Optional</td><td>type of parent product. In the current version, this is always merchProduct.</td></tr>
-    <tr><td><strong>catalogSkuId</strong></td><td>Optional</td><td>UUID of catalog product. See <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md?raw">Product Catalog Service</a> for more information.</td></tr>
+    <tr><td><strong>catalogSkuId</strong></td><td>Optional</td><td>UUID of catalog product. See <a href="https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md?raw">Product Catalog Service</a> for more information.</td></tr>
     <tr><td><strong>modificationDate</strong></td><td>Required</td><td>date the SKU was last modified</td></tr>
-    <tr><td><strong>merchGroup</strong></td><td>Optional</td><td>Merchandising group to which this SKU belongs. For more information on Merch Groups, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>merchGroup</strong></td><td>Optional</td><td>Merchandising group to which this SKU belongs. For more information on Merch Groups, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
     <tr><td><strong>stockKeepingUnitId</strong></td><td>Optional</td><td>Deprecated SKU ID that is used for historical purposes by legacy systems.</td></tr>
     <tr><td><strong>gtin</strong></td><td>Required</td><td><a href="#glossary">global trade item number</a></td></tr>
     <tr><td><strong>nikeSize</strong></td><td>Optional</td><td>internal size</td></tr>
@@ -986,7 +985,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>id</strong></td><td>path</td><td>sku ID</td><td>string</td><td><strong>Required</strong></td></tr>
     <tr><td><strong>snapshotId</strong></td><td>query</td><td>Unique ID in UUID format indicating a version of the SKU</td><td>string</td><td>Optional</td></tr>
     <tr><td><strong>fields</strong></td><td>query</td><td>list of fields to return. if not sent, all fields are returned</td><td>string</td><td>Optional</td></tr>
-    <tr><td><strong>country</strong></td><td>query</td><td><a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> used to localize results</td><td>string</td><td>Optional</td></tr>
+    <tr><td><strong>country</strong></td><td>query</td><td><a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> used to localize results</td><td>string</td><td>Optional</td></tr>
   </tbody>
 </table>
 <h4 id="request-headers-3"><a href="#request-headers-3" name="request-headers-3" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-product-sku-by-id-request-headers">Request Headers</h4>
@@ -1068,7 +1067,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 </ul>
 <p>The following sections describe each endpoint of the Merchandised Product Price API in detail.</p>
 <h3 id="merchandised-prices-list"><a href="#merchandised-prices-list" name="merchandised-prices-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-prices-list"></a>Merchandised Prices List</h3>
-<p>Use this endpoint to list price data by price ID or by product ID and <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a>.  Because price values and currency are localized, both country and productid are required parameters when searching by productid.  Country is not required when searching by price ID because the price record for a price ID is for a specific country.  To get the price ID in the results, first search by productid and country. If you do not know the product id, use the <a href="#merchandised-product-list">Merchandised Product List</a> endpoint to search by style-color or style.  Product ID is returned in the results.</p>
+<p>Use this endpoint to list price data by price ID or by product ID and <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a>.  Because price values and currency are localized, both country and productid are required parameters when searching by productid.  Country is not required when searching by price ID because the price record for a price ID is for a specific country.  To get the price ID in the results, first search by productid and country. If you do not know the product id, use the <a href="#merchandised-product-list">Merchandised Product List</a> endpoint to search by style-color or style.  Product ID is returned in the results.</p>
 <p>No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.</p>
 <h3 id="endpoint-details-3"><a href="#endpoint-details-3" name="endpoint-details-3" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h3>
 <table>
@@ -1085,7 +1084,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>filter</strong></td><td>query</td><td>productid + <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> or price ID</td><td>String</td><td><strong>Required</strong></td></tr>
+    <tr><td><strong>filter</strong></td><td>query</td><td>productid + <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> or price ID</td><td>String</td><td><strong>Required</strong></td></tr>
     <tr><td><strong>snapshotId</strong></td><td>query</td><td>ID representing the price version</td><td>String</td><td>Optional</td></tr>
     <tr><td><strong>count</strong></td><td>query</td><td>Number of results to return, default = 25, max = 25</td><td>Integer</td><td>Optional</td></tr>
     <tr><td><strong>anchor</strong></td><td>query</td><td>If the value is 10, results returned start with result 11</td><td>Integer</td><td>Optional</td></tr>
@@ -1113,7 +1112,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td>Price UUID 486d098c-a403-5fb7-8305-243d71625d4c and snapshotId 678408f9-0eea-4560-b537-e85c131e9495</td><td><a href="https://api.nike.com/merch/prices/v2/?filter=id(486d098c-a403-5fb7-8305-243d71625d4c)&amp;filter=snapshotId(85ebb452-f61c-46a2-b0ce-14a89a542816)">https://api.nike.com/merch/prices/v2/?filter=id(486d098c-a403-5fb7-8305-243d71625d4c)&amp;filter=snapshotId(85ebb452-f61c-46a2-b0ce-14a89a542816)</a></td></tr>
   </tbody>
 </table>
-<p>Note that for the <strong>productid</strong> + <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products"><strong>country</strong></a> price queries, there is a different price record for each country.  Querying by ID is for a specific country.</p>
+<p>Note that for the <strong>productid</strong> + <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products"><strong>country</strong></a> price queries, there is a different price record for each country.  Querying by ID is for a specific country.</p>
 <h3 id="response-body-4"><a href="#response-body-4" name="response-body-4" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-prices-list-response-body"></a>Response Body</h3>
 <table>
   <thead>
@@ -1129,9 +1128,9 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>parentId</strong></td><td>Optional</td><td>ID of parent product this price belongs to, alias for productId</td></tr>
     <tr><td><strong>parentType</strong></td><td>Optional</td><td>type of parent product, always merchProduct</td></tr>
     <tr><td><strong>modificationDate</strong></td><td>Required</td><td>timestamp the price was last modified</td></tr>
-    <tr><td><strong>country</strong></td><td>Required</td><td>country of this price, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>country</strong></td><td>Required</td><td>country of this price, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
     <tr><td><strong>msrp</strong></td><td>manufacturer's recommended retail price. often not provided or may be 0</td><td></td></tr>
-    <tr><td><strong>fullPrice</strong></td><td>Required</td><td> Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strikethrough (e.g. a clearance product) and used by the <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md?raw#using-checkouts">Buy API</a> to calculate the difference between current retail price and full retail price to send to fufillment system</td></tr>
+    <tr><td><strong>fullPrice</strong></td><td>Required</td><td> Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strikethrough (e.g. a clearance product) and used by the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts">Buy API</a> to calculate the difference between current retail price and full retail price to send to fufillment system</td></tr>
     <tr><td><strong>currentPrice</strong></td><td>Required</td><td>purchase price of product. if discounted, price is calculated in Prodigy/PI</td></tr>
     <tr><td><strong>employeePrice</strong></td><td>Required</td><td>employee price of product</td></tr>
     <tr><td><strong>currency</strong></td><td>Required</td><td>localized currency according to country</td></tr>
@@ -1176,7 +1175,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr />
 <h3 id="merchandised-prices-by-id"><a href="#merchandised-prices-by-id" name="merchandised-prices-by-id" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-prices-by-id"></a>Merchandised Prices by ID</h3>
-<p>Use this endpoint to list price data by price ID.  To get the price ID, search by productid and <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> using the <a href="#merchandised-prices-list">Merchandised Prices List</a> endpoint and Price ID is returned in the results. If you do not know the product id, use the <a href="#merchandised-product-list">Merchandised Product List</a> endpoint to search by style-color or style.  Product ID is returned in the results.</p>
+<p>Use this endpoint to list price data by price ID.  To get the price ID, search by productid and <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> using the <a href="#merchandised-prices-list">Merchandised Prices List</a> endpoint and Price ID is returned in the results. If you do not know the product id, use the <a href="#merchandised-product-list">Merchandised Product List</a> endpoint to search by style-color or style.  Product ID is returned in the results.</p>
 <p>Results from this endpoint are almost identical to those returned from the <a href="#merchandised-product-list">Merchandised Product List</a> endpoint.  The difference is no pagination data is returned and you can only search by one price ID at a time.</p>
 <p>No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.</p>
 <blockquote>
@@ -1336,8 +1335,8 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>id</strong></td><td>Required</td><td>ID of the VAS in UUID format, generated when VAS flows into Merchandised VAS from Prodigy</td></tr>
     <tr><td><strong>snapshotId</strong></td><td>Required</td><td>ID of the most recent snapshot of the VAS in UUID format</td></tr>
     <tr><td><strong>modificationDate</strong></td><td>Required</td><td>timestamp the VAS was last modified</td></tr>
-    <tr><td><strong>status</strong></td><td>Required</td><td>VAS status, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>merchGroup</strong></td><td>Required</td><td>merchandising group this VAS is merchandised to, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>status</strong></td><td>Required</td><td>VAS status, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
+    <tr><td><strong>merchGroup</strong></td><td>Required</td><td>merchandising group this VAS is merchandised to, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
     <tr><td><strong>pid</strong></td><td>Required</td><td>legacy product id used to map to the product UUID</td></tr>
     <tr><td><strong>type</strong></td><td>Required</td><td>VAS type</td></tr>
     <tr><td><strong>displayName</strong></td><td>Optional</td><td>VAS display name</td></tr>
@@ -1473,12 +1472,12 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   <li><a href="#product-base-image-url-by-style-color-list">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a></li>
 </ul>
 <h3 id="product-content-overview"><a href="#product-content-overview" name="product-content-overview" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-content-services-overview"></a>Product Content Overview</h3>
-<p>Use these services to list product content such as title, subtitle, description, and images by <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> and locale.</p>
+<p>Use these services to list product content such as title, subtitle, description, and images by <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> and locale.</p>
 <p>There are two sets of Product Content services, internal and external. External services go through the public router (api.nike.com and snkrs.prod.commerce.nikecloud.com) and return product information for products in the ACTIVE and CLOSEOUT status. Internal services go through the frame router (frame.prod.commerce.nikecloud.com). These services return identical fields to the external services but they return all products regardless of status.  When making service to service calls, use the internal Product Content endpoints.</p>
 <p>All endpoints are synchronous.</p>
 <p>The following sections describe each endpoint of the Product Content Services API in detail.</p>
 <h3 id="product-content-by-style-color"><a href="#product-content-by-style-color" name="product-content-by-style-color" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-content-by-style-color"></a>Product Content by Style Color</h3>
-<p>Use this endpoint to list localized product content for a style-color, <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> and locale.</p>
+<p>Use this endpoint to list localized product content for a style-color, <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> and locale.</p>
 <h3 id="endpoint-details-7"><a href="#endpoint-details-7" name="endpoint-details-7" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h3>
 <table>
   <thead>
@@ -1495,7 +1494,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   </thead>
   <tbody>
     <tr><td><strong>style-color</strong></td><td>Path</td><td>style-color code of content</td><td>String</td><td>Required</td></tr>
-    <tr><td><strong>country</strong></td><td>Query</td><td>country used to localize the content for the correct country, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td><td>String</td><td>Required</td></tr>
+    <tr><td><strong>country</strong></td><td>Query</td><td>country used to localize the content for the correct country, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td><td>String</td><td>Required</td></tr>
     <tr><td><strong>locale</strong></td><td>Query</td><td>locale used to localize the content for the correct language</td><td>String</td><td>Required</td></tr>
   </tbody>
 </table>
@@ -1632,7 +1631,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr />
 <h3 id="product-content-by-style-color-list"><a href="#product-content-by-style-color-list" name="product-content-by-style-color-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-content-by-style-color-list"></a>Product Content by Style Color List</h3>
-<p>Use this endpoint to list localized product content for a list of style-colors, <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> and locale. Only one country and locale is supported.</p>
+<p>Use this endpoint to list localized product content for a list of style-colors, <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> and locale. Only one country and locale is supported.</p>
 <h3 id="endpoint-details-8"><a href="#endpoint-details-8" name="endpoint-details-8" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h3>
 <table>
   <thead>
@@ -1800,7 +1799,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr />
 <h3 id="product-content-item-by-style-color"><a href="#product-content-item-by-style-color" name="product-content-item-by-style-color" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-content-item-by-style-color"></a>Product Content Item by Style Color</h3>
-<p>Use this endpoint to list one item (field) of product content for a style-color, <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> and locale. Only one style-color, itemName, country and locale is supported. You can use any valid itemName in the path parameter.</p>
+<p>Use this endpoint to list one item (field) of product content for a style-color, <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> and locale. Only one style-color, itemName, country and locale is supported. You can use any valid itemName in the path parameter.</p>
 <h3 id="endpoint-details-9"><a href="#endpoint-details-9" name="endpoint-details-9" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h3>
 <table>
   <thead>
@@ -1818,7 +1817,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   <tbody>
     <tr><td><strong>style-color</strong></td><td>Path</td><td>style-color code</td><td>String</td><td><strong>Required</strong></td></tr>
     <tr><td><strong>itemName</strong></td><td>Path</td><td>any product content item name e.g. colorDescription or title</td><td>String</td><td><strong>Required</strong></td></tr>
-    <tr><td><strong>country</strong></td><td>Query</td><td>country used to localize the content, see <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td><td>String</td><td><strong>Required</strong></td></tr>
+    <tr><td><strong>country</strong></td><td>Query</td><td>country used to localize the content, see <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a> for a complete list</td><td>String</td><td><strong>Required</strong></td></tr>
     <tr><td><strong>locale</strong></td><td>Query</td><td>locale used to localize the content for the correct language</td><td>String</td><td><strong>Required</strong></td></tr>
   </tbody>
 </table>
@@ -1857,7 +1856,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-item-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr />
 <h3 id="product-content-field-by-style-color-list"><a href="#product-content-field-by-style-color-list" name="product-content-field-by-style-color-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-content-field-by-style-color-list"></a>Product Content Field by Style Color List</h3>
-<p>Use this endpoint to list one item (field) of product content for a list of style-colors, <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">country</a> and locale. Only one itemName, country and locale is supported. You can use any valid itemName in the path parameter.</p>
+<p>Use this endpoint to list one item (field) of product content for a list of style-colors, <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">country</a> and locale. Only one itemName, country and locale is supported. You can use any valid itemName in the path parameter.</p>
 <h3 id="endpoint-details-10"><a href="#endpoint-details-10" name="endpoint-details-10" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h3>
 <table>
   <thead>
@@ -2257,7 +2256,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   <li>URI, headers and body (if POST request)</li>
   <li>context in which your request was executed (service-to-service, app, web)</li>
   <li>environment in which your request was executed (test, prod, performance)</li>
-  <li>Splunk <a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#query-logs-with-a-trace-id">TraceId</a></li>
+  <li>Splunk <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#query-logs-with-a-trace-id">TraceId</a></li>
 </ul>
 <h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
 <table>
@@ -2291,9 +2290,10 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   </tbody>
 </table>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
-<p><a href="http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products">Merchandised Product Field Reference Guide</a></p>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw">General Guide</a></p>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw">Business Guides</a></p>
-<p><a href="http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw">Developer's Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
+<p><a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products">Merchandised Product Field Reference Guide</a></p>
 </body>
 </html>

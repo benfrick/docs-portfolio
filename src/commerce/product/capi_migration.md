@@ -5,7 +5,7 @@
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide (DRAFT)
 
-###### Last Updated: 2/13/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.
 
@@ -35,7 +35,7 @@ If you are a current Commerce API (CAPI) client, use this guide to help with mig
 
 CAPI is a legacy API that provides access to Nike product information, including inventory availability. CAPI has been replaced by Nike's Cloud-based APIs and will be deprecated after all clients have migrated to the newer APIs.
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/capi/capi_to_cloud.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/commerce/capi/capi_to_cloud.png)
 
 ## <a name="capi-vs-cloud-comparison"></a>CAPI vs. Cloud: Comparison
 
@@ -43,7 +43,7 @@ Read on to learn more about the similarities and differences between CAPI and Cl
 
 ### Overall Considerations
 
-- CAPI is largely replaced by the [Product Feeds v2 API](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw). The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.
+- CAPI is largely replaced by the [Product Feeds v2 API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html). The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.
 
 - **Some of the search functionality of CAPI has not yet been replaced in the Cloud**. If you rely on CAPI for faceted search, you may need to continue to use CAPI for now. Contact the [Search Product Owner](mailto:david.wagner@nike.com) for more info about when this feature of Cloud Search will be available.
 
@@ -69,11 +69,11 @@ Product information is available in the Cloud in the Product Feeds v2 API. This 
 
 CAPI can be called by **productId** (PID), e.g. '1074990' (which also can be sent in **id** field for certain CAPI endpoints), the legacy identifier that is unique to a *style-color*. In general, you cannot call Cloud APIs with this same **productId**, although you might see it in certain Cloud responses, for example with Product Feeds in the **pid** field.
 
-The equivalent of **productId** in the Cloud is the **id**, e.g. '8e94a648-a232-5739-b4a6-c7d844a8bda0', a UUID generated from the [Merchandised Products API](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw). You will use this **id** when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.
+The equivalent of **productId** in the Cloud is the **id**, e.g. '8e94a648-a232-5739-b4a6-c7d844a8bda0', a UUID generated from the [Merchandised Products API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html). You will use this **id** when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.
 
 #### SKU ID
 
-Responses from several CAPI endpoints feature **skuID**, e.g. '1107974', the legacy identifier that is unique to a SKU or *style-color-size*. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to **stockKeepingUnitId**. In addition, an **id** in the form of a UUID is generated per SKU by the [Merchandised Product SKU API](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw) when it flows into the system.
+Responses from several CAPI endpoints feature **skuID**, e.g. '1107974', the legacy identifier that is unique to a SKU or *style-color-size*. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to **stockKeepingUnitId**. In addition, an **id** in the form of a UUID is generated per SKU by the [Merchandised Product SKU API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) when it flows into the system.
 
 >TIP: For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1).
 
@@ -89,7 +89,7 @@ GTIN (Global Trade Identification Number), e.g. '00675911130902' values and form
 
 #### Gender Codes
 
-CAPI uses gender codes like '1' for Mens, '2' for Womens, etc. while cloud uses the gender name as the identifier (i.e. 'Mens'). Eventually these values will be replaced by UUIDs originating in the [Taxonomy service](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md?raw).
+CAPI uses gender codes like '1' for Mens, '2' for Womens, etc. while cloud uses the gender name as the identifier (i.e. 'Mens'). Eventually these values will be replaced by UUIDs originating in the [Taxonomy service](https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md?raw).
 
 ### Prices
 
@@ -103,7 +103,7 @@ Cloud offers **msrp** (suggested price), **fullPrice** (full/regular price), **c
 
 ### Inventory
 
-CAPI provides access to both Retail store on-hand inventory quantity and Digital inventory availability (true/false) by calling with a product ID, style-color code, or GTIN. Cloud offers Retail store on-hand inventory quantity by a combination of Store UUID and one or more GTINs in the [Inventory API](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md). Cloud offers Digital inventory availability (true/false) by either Product ID or SKU ID in the [Availability API](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw) and also in the Product Feeds API.
+CAPI provides access to both Retail store on-hand inventory quantity and Digital inventory availability (true/false) by calling with a product ID, style-color code, or GTIN. Cloud offers Retail store on-hand inventory quantity by a combination of Store UUID and one or more GTINs in the [Inventory API](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md). Cloud offers Digital inventory availability (true/false) by either Product ID or SKU ID in the [Availability API](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw) and also in the Product Feeds API.
 
 >TIP: Both the Inventory API and the Product Feeds API offer Digital inventory availability as a boolean (TRUE or FALSE), but the Inventory API has one additional field for inventory **level** (HIGH, MEDIUM, or LOW).
 
@@ -135,7 +135,7 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/facets/1j7.json?client=test-c
 
 **Cloud**
 
-One option is to use the Cloud [Type Ahead Service](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLCDSB/repos/searchtypeahead/browse/API.md?raw) and the [Visual Search Service](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLCDSB/repos/visualsearchservice/browse/API.md?raw). This is a two-step process. The first step generates a list of suggested search terms based on customer input and the second step generates a list of suggested products with that search term in the name.
+One option is to use the Cloud [Type Ahead Service](https://bitbucket.nike.com/projects/PHYLCDSB/repos/searchtypeahead/browse/API.md?raw) and the [Visual Search Service](https://bitbucket.nike.com/projects/PHYLCDSB/repos/visualsearchservice/browse/API.md?raw). This is a two-step process. The first step generates a list of suggested search terms based on customer input and the second step generates a list of suggested products with that search term in the name.
 
 For example, when a customer types `vap` (enough to form a search term suggestion), call the search suggestion endpoint. The URL below requests search term suggestions with `vap` in the English name in the US. It returns `vaporfly` and `vapormax` searchTerms.
 
@@ -200,7 +200,7 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/products/details.json?client=
 
 **Cloud**
 
-The comparable Cloud endpoint is the [Product Threads List endpoint](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.
+The comparable Cloud endpoint is the [Product Threads List endpoint](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.
 
 https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&filter=publishedContent.properties.products.styleColor%28AH7282-081%29
 
@@ -214,7 +214,7 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/product/849557-202/family.jso
 
 **Cloud**
 
-The comparable Cloud endpoint is the [Product Threads List endpoint](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.
+The comparable Cloud endpoint is the [Product Threads List endpoint](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.
 
 https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&filter=productInfo.merchProduct.styleCode%28AH7246%29
 
@@ -228,7 +228,7 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/products/inventory.json?clien
 
 **Cloud**
 
-The comparable Cloud endpoint is the [Product Threads List endpoint](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw#product-threads-list) in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.
+The comparable Cloud endpoint is the [Product Threads List endpoint](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.
 
 https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&filter=publishedContent.properties.products.styleColor(847269-430,AH7238-080)
 
@@ -239,13 +239,13 @@ The response lists SKU data in the availableSkus array. The SKU is in stock if `
 
 If you have a GTIN (UPC) and need to get the style-color, here are the steps you would follow in the Cloud.
 
-1. Call the [Merchandised Product SKUs service](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw#using-merchandised-product-skus) filtering by GTIN.
+1. Call the [Merchandised Product SKUs service](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html#using-merchandised-product-skus) filtering by GTIN.
 
 > https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)
 
 > TIP: It is recommended that you call the Merchandised Sku service rather than the Product Feed service if you only need SKU information, not product, inventory, product content or price information.
 
-2. If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the `id` parameter and call the [Merchandised Product service](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw#using-merchandised-products). A 200 response lists the styleCode, colorCode and styleColor.
+2. If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the `id` parameter and call the [Merchandised Product service](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html#using-merchandised-products). A 200 response lists the styleCode, colorCode and styleColor.
 
 > https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)
 
@@ -278,14 +278,14 @@ The following table lists all of the CAPI endpoints and the equivalent Cloud end
 
 |Use Case|CAPI Endpoint Name|Equivalent Cloud Endpoint Name|
 |---|---|---|
-|**Get general product info by keyword**|[Search: Free Text](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#search-free-text)|[Product Feeds: Threads List](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#Threads_get_product_feed_threads_v2)|
-|**Get general product info by the hash of one or more facets**|[Search: Faceted Hash](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#search-faceted-hash-search)|TBD|
-|**Get top-level facets available for product searches**|[Search: Facet Discovery](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#search-facet-discovery)|TBD|
-|**Get general product info for one or more product identifiers**|[Details: Product/Multiple Products/Full Product/Family Product/Product Widths](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#details-product)|[Product Feeds: Threads List](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#Threads_get_product_feed_threads_v2)|
-|**Get product reviews, ratings, recommendations**|[Details: Full Product](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#details-full-product)|TBD|
-|**Get Nike-curated outfits**|[Outfit: Summary/Details/Full/Reviews/Highest Rated/Most Commented/Recommendations](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#outfit-outfit-summary)|None/Deprecated|
-|**Get Digital product inventory availability for one or more product identifiers**|[Inventory: Product/Multiple Products](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#inventory-product), [Product Availability](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#product-availability-availability)|[Deliver: Product Availability List/Get SKU Availability](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#sku-availability-get-sku-availability)|
-|**Get Retail product inventory quantities for one or more product identifiers**|[Inventory: Product/Multiple Products](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#inventory-product)|[Inventory: Get Inventory Info](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md?raw), [Deliver: Get GTIN Availability](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/gtins/API.MD)|
+|**Get general product info by keyword**|[Search: Free Text](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#search-free-text)|[Product Feeds: Threads List](https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#Threads_get_product_feed_threads_v2)|
+|**Get general product info by the hash of one or more facets**|[Search: Faceted Hash](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#search-faceted-hash-search)|TBD|
+|**Get top-level facets available for product searches**|[Search: Facet Discovery](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#search-facet-discovery)|TBD|
+|**Get general product info for one or more product identifiers**|[Details: Product/Multiple Products/Full Product/Family Product/Product Widths](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#details-product)|[Product Feeds: Threads List](https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#Threads_get_product_feed_threads_v2)|
+|**Get product reviews, ratings, recommendations**|[Details: Full Product](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#details-full-product)|TBD|
+|**Get Nike-curated outfits**|[Outfit: Summary/Details/Full/Reviews/Highest Rated/Most Commented/Recommendations](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#outfit-outfit-summary)|None/Deprecated|
+|**Get Digital product inventory availability for one or more product identifiers**|[Inventory: Product/Multiple Products](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#inventory-product), [Product Availability](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#product-availability-availability)|[Deliver: Product Availability List/Get SKU Availability](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#sku-availability-get-sku-availability)|
+|**Get Retail product inventory quantities for one or more product identifiers**|[Inventory: Product/Multiple Products](https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md?raw#inventory-product)|[Inventory: Get Inventory Info](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md?raw), [Deliver: Get GTIN Availability](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/gtins/API.MD)|
 
 ## <a name="field-mapping"></a>Field Mapping
 
@@ -635,7 +635,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 
 > * With CAPI, Digital inventory availability could be requested by product ID (PID), style-color code, or GTIN (i.e. size). With Cloud, the same can be requested by Product ID (i.e. style-color) or SKU ID (i.e. size).
 
-> * The **storeId** from the Cloud endpoint *Get Inventory Info* is a UUID from the [Stores API](http://developer.nikedev.com/?swag=https://bitbucket.nike.com/projects/RSTSFS/repos/stores/browse/swagger.yaml?raw#get-1).
+> * The **storeId** from the Cloud endpoint *Get Inventory Info* is a UUID from the [Stores API](https://developer.niketech.com/docs/projects/Stores).
 
 ### <a name="product-availability"></a>Product Availability
 
@@ -663,10 +663,13 @@ The following tables describe the mapping of *response body* fields between CAPI
 |---|---|---|
 |||
 -->
+
 ## <a name="related-links"></a>Related Links
 
-[General Guide](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw)
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-[Business Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
 
-[Developer's Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw)
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
