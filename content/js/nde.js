@@ -1,26 +1,27 @@
-var allowed = ['https://developer.preprod.niketech.com','https://developer.niketech.com'];
+var allowed = ['https://developer.preprod.niketech.com','https://developer.niketech.com','http://localhost:3000'];
 var parent = window.opener;
+var temp;
 
 function receiveMessage(event)
 {
   console.log('received event from origin ' + event.origin);
-  console.log('received data ' + event.data.path);
   for (i = 0; i < allowed.length; i++) {
     console.log('comparing event.origin '+ event.origin + ' to allowed ' + allowed[i]);
-      if (event.origin === allowed[i]){
-        processMessage (event);
-        break;
-      }
+    if (event.origin === allowed[i]){
+      processMessage (event);
+      break;
+    }
   }
   console.log('done receiving message');
 }
 function processMessage (event) {
   console.log('allowing origin ' + event.origin);
 
-  location.assign(event.data.path);
-
-  console.log('done processing message ' + event.data.path);
-
+  if(event.data) {
+    temp = JSON.parse(event.data);
+    location.assign(temp.path);
+    console.log('done processing message ' + temp.path);
+  }
 }
 function sendMessage (message, origin, recipient){
     recipient.postMessage(message, origin, false);
