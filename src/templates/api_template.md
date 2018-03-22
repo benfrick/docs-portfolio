@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
 <!--
 See Bitbucket (link to .md in APID repository) for version history of this document.
 Author: Your Name

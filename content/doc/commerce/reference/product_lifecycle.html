@@ -1,19 +1,14 @@
-<html>
-<head>
-<meta charset="UTF-8">
-</head>
-<body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"></link>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"></link>
+<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"></link>
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/reference/product_lifecycle.md) for version history of this document.
 Author:  Jane Moore
 -->
-<h1 id="product-life-cycle-reference-guide--draft"><a href="#product-life-cycle-reference-guide--draft" name="product-life-cycle-reference-guide--draft" class="anchor"><span class="octicon octicon-link"></span></a>PRODUCT LIFE CYCLE REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)</h1>
-<h6 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 03/20/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h6>
+<h1><a href="#product-life-cycle-reference-guide--draft" id="product-life-cycle-reference-guide--draft">PRODUCT LIFE CYCLE REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)</a></h1>
+<h6><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 03/20/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></a></h6>
 <p><img src="https://nde-devportal-docs.niketech.com/images/commerce/reference/product_life_cycle.png" alt="" /></p>
-<h2 id="where-product-data-comes-from"><a href="#where-product-data-comes-from" name="where-product-data-comes-from" class="anchor"><span class="octicon octicon-link"></span></a>Where Product Data Comes From</h2>
+<h2><a href="#where-product-data-comes-from" id="where-product-data-comes-from">Where Product Data Comes From</a></h2>
 <p>1a The Product Depot Tool provides raw product data from various upstream Nike systems to Prodigy. The Prodigy Tool provides merchandised product, sku, pricing, value-added services and localized content to the Merchandised Product Service.</p>
 <p>1b The Taxonomy Service provides taxonomy (product attribute) IDs to the Merchandised Product Service used by the Search Service.</p>
 <p>1c The Catalog Service provides catalog IDs to the Merchandised Product Service.</p>
@@ -22,14 +17,13 @@ Author:  Jane Moore
 <p>3b The Launch Service provides launch dates to the Product Feed Composer Service (for launch products only).</p>
 <p>3c CMS provides Thread, Feed, and Card data to the Product Feed Composer Service.</p>
 <p>4 Product Feed Composer Service assembles Launch, Feed, Thread, Card and Inventory data and pushes it to the Search Service.</p>
-<h2 id="how-product-data-gets-to-the-customer"><a href="#how-product-data-gets-to-the-customer" name="how-product-data-gets-to-the-customer" class="anchor"><span class="octicon octicon-link"></span></a>How Product Data Gets to the Customer</h2>
+<h2><a href="#how-product-data-gets-to-the-customer" id="how-product-data-gets-to-the-customer">How Product Data Gets to the Customer</a></h2>
 <p>a Nike experiences call the Product Feed service to get Feed and Thread data. Experience calls Scene 7/Cloudinary repository to get image and video media.</p>
 <p>b The Product Feed service gathers and returns Feed data. The Product Feed service calls the Search Service for Thread data. Scene 7/Cloudinary serve image and video media.</p>
 <p>c The Search Service gathers and returns Thread data to the Product Feed service based on the search criteria.</p>
-<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
+<h2><a href="#related-links" id="related-links"><a name="related-links"></a>Related Links</a></h2>
 <p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
-</body>
-</html>
+
