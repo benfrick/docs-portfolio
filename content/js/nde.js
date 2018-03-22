@@ -4,7 +4,7 @@ var parent = window.opener;
 function receiveMessage(event)
 {
   console.log('received event from origin ' + event.origin);
-  console.log('received data ' + event.data);
+  console.log('received data ' + event.data.path);
   for (i = 0; i < allowed.length; i++) {
     console.log('comparing event.origin '+ event.origin + ' to allowed ' + allowed[i]);
       if (event.origin === allowed[i]){
@@ -17,9 +17,9 @@ function receiveMessage(event)
 function processMessage (event) {
   console.log('allowing origin ' + event.origin);
 
-  location.assign(event.data);
+  location.assign(event.data.path);
 
-  console.log('done processing message ' + event.data);
+  console.log('done processing message ' + event.data.path);
 
 }
 function sendMessage (message, origin, recipient){
