@@ -29,17 +29,40 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - deploy:
+      - deploy_preprod:
           <<: *branch_filter_master
           context: org-global
+      - hold_for_prod:
+            type: approval
+            <<: *branch_filter_master
+            requires:
+              - deploy_preprod
+      - deploy_prod:
+            <<: *branch_filter_master
+            context: org-global
+            requires:
+                - hold_for_prod
 jobs:
-  deploy:
+  deploy_preprod:
+    <<: *container_config
+    steps:
+      - *attach_workspace
+      - run: echo 'export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID_NONPROD}"' >> $BASH_ENV
+      - run: echo 'export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY_NONPROD}"' >> $BASH_ENV
+      - run: echo 'export terraform_state_bucket="ngp-nonprod-terraform-remote-config"' >> $BASH_ENV
+      - run: echo 'export terraform_state_bucket="nde-devportal-docs.preprod.niketech.com"' >> $BASH_ENV
+      - run:
+          name: deploy
+          command: .circleci/deploy.sh preprod
+      - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Deploy to preprod completed for '${CIRCLE_PROJECT_REPONAME}', go to <https://circleci.nike.com/workflow-run/'${CIRCLE_WORKFLOW_WORKSPACE_ID}'|Workflow> to approve for production deploy\"}' ${NDE_DOCS_SLACK_WEBHOOK}"
+  deploy_prod:
     <<: *container_config
     steps:
       - checkout
       - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_PROD}"
       - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_PROD}"
       - run: echo 'export terraform_state_bucket="ngp-prod-terraform-remote-config"' >> $BASH_ENV
+      - run: echo 'export terraform_state_bucket="nde-devportal-docs.niketech.com"' >> $BASH_ENV
       - run:
           name: deploy
-          command: .circleci/deploy.sh
+          command: .circleci/deploy.sh prod
