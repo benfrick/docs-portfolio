@@ -46,7 +46,7 @@ jobs:
   deploy_preprod:
     <<: *container_config
     steps:
-      - *attach_workspace
+      - checkout
       - run: echo 'export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID_NONPROD}"' >> $BASH_ENV
       - run: echo 'export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY_NONPROD}"' >> $BASH_ENV
       - run: echo 'export terraform_state_bucket="ngp-nonprod-terraform-remote-config"' >> $BASH_ENV
