@@ -1,21 +1,16 @@
-<html>
-<head>
-<meta charset="UTF-8">
-</head>
-<body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
 <!--See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md) for version history for this document.
 
 Original Author: Benjamin Frick
 
 SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Brian Jaress, Jeremy Geiger, Andy Sun-->
-<h1 id="product-feeds-api-developers-guide"><a href="#product-feeds-api-developers-guide" name="product-feeds-api-developers-guide" class="anchor"><span class="octicon octicon-link"></span></a>PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE</h1>
-<h6 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 03/20/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></h6>
+<h1><a href="#product-feeds-api-developers-guide" id="product-feeds-api-developers-guide">PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE</a></h1>
+<h6><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 03/20/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc">Slack channel #nde-doc</a></a></h6>
 <hr />
 <p>If you've read <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_product_feeds.html">Get Started With Product Feeds</a>, this guide provides the additional details necessary to integrate with Product Feeds.</p>
-<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In this guide:</strong></h2>
+<h2><a href="#in-this-guide" id="in-this-guide"><strong>In this guide:</strong></a></h2>
 <p><a href="#api-at-a-glance">API at a Glance</a></p>
 <p><a href="#terms-of-service">Terms of Service</a></p>
 <p><span class="toc-pad"><a href="#authentication">Authentication</a></p>
@@ -47,7 +42,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p><a href="#release-notes">Release Notes</a></p>
 <p><a href="#document-change-log">Document Change Log</a></p>
 <p><a href="#related-links">Related Links</a></p>
-<h2 id="api-at-a-glance"><a href="#api-at-a-glance" name="api-at-a-glance" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-at-a-glance"></a>API at a Glance</h2>
+<h2><a href="#api-at-a-glance" id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</a></h2>
 <p>Product Feeds enables users of your app to browse a feed of relevant Nike product-related content, including details about the products with images, videos, and more.</p>
 <table>
   <thead>
@@ -67,11 +62,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.</p>
 </blockquote>
-<h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="terms-of-service"></a>Terms of Service</h2>
+<h2><a href="#terms-of-service" id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</a></h2>
 <p>It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
-<h3 id="authentication"><a href="#authentication" name="authentication" class="anchor"><span class="octicon octicon-link"></span></a><a name="authentication"></a>Authentication</h3>
+<h3><a href="#authentication" id="authentication"><a name="authentication"></a>Authentication</a></h3>
 <p>There are no authentication requirements for Product Feeds except when using the <strong>preview</strong> query parameter to preview a Feed or Thread, which is not common. See the <a href="#using-product-feeds-v2">Using Product Feeds v2</a> section for more details.</p>
-<h2 id="use-cases"><a href="#use-cases" name="use-cases" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-cases"></a>Use Cases</h2>
+<h2><a href="#use-cases" id="use-cases"><a name="use-cases"></a>Use Cases</a></h2>
 <table>
   <thead>
     <tr><th>I want to...</th><th>API(s) to use</th></tr>
@@ -86,11 +81,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: See the <a href="#product-threads-list">Threads List</a> section for the full list of use cases. After that, if you still didn't find your product use case, check out the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html">Merchandised Products API Developer's Guide</a> for more.</p>
 </blockquote>
-<h3 id="example-implementation-diagram"><a href="#example-implementation-diagram" name="example-implementation-diagram" class="anchor"><span class="octicon octicon-link"></span></a><a name="example-implementation-diagram"></a>Example Implementation Diagram</h3>
+<h3><a href="#example-implementation-diagram" id="example-implementation-diagram"><a name="example-implementation-diagram"></a>Example Implementation Diagram</a></h3>
 <p>Here is an example of a sequence of API calls to get content from Product Feeds v2:</p>
 <p><img src="https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/seq_dgm.png?" alt="" /></p>
 <br>
-<h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+<h2><a href="#api-endpoint-quick-reference" id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</a></h2>
 <p><strong>Product Feeds v2 Endpoints</strong></p>
 <table>
   <thead>
@@ -103,7 +98,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>GET</td><td>Product Thread by ID</td><td>Get a specific thread by its identifier</td><td><code>/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}</code></td></tr>
   </tbody>
 </table>
-<h2 id="what-are-cards-threads-and-feeds"><a href="#what-are-cards-threads-and-feeds" name="what-are-cards-threads-and-feeds" class="anchor"><span class="octicon octicon-link"></span></a><a name="what-are-cards-threads-and-feeds"></a>What are Cards, Threads, and Feeds?</h2>
+<h2><a href="#what-are-cards-threads-and-feeds" id="what-are-cards-threads-and-feeds"><a name="what-are-cards-threads-and-feeds"></a>What are Cards, Threads, and Feeds?</a></h2>
 <p>Use Product Feeds to get product data and content in the form of Cards, Threads, and Feeds.</p>
 <p><i class="g72-plus"></i> <strong>Cards</strong> contain Nike product information or content such as notifications about upcoming Nike events.</p>
 <p><i class="g72-plus"></i> Related Cards are organized into <strong>Threads</strong> that tell a Nike story.</p>
@@ -111,7 +106,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p>To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API">here</a>.</p>
 <p><img src="https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/nike_app_annotated.png" alt="" /></p>
 <br>
-<h2 id="where-do-cards-threads-and-feeds-come-from"><a href="#where-do-cards-threads-and-feeds-come-from" name="where-do-cards-threads-and-feeds-come-from" class="anchor"><span class="octicon octicon-link"></span></a><a name="where-do-cards-threads-and-feeds-come-from"></a>Where Do Cards, Threads, and Feeds Come From?</h2>
+<h2><a href="#where-do-cards-threads-and-feeds-come-from" id="where-do-cards-threads-and-feeds-come-from"><a name="where-do-cards-threads-and-feeds-come-from"></a>Where Do Cards, Threads, and Feeds Come From?</a></h2>
 <p>The Product Feeds API combines product information with product content into Cards, Threads, and Feeds by pulling data from the following Nike Cloud APIs:</p>
 <table>
   <thead>
@@ -131,14 +126,14 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.</p>
 </blockquote>
-<h2 id="what-are-channels-and-why-do-i-need-one"><a href="#what-are-channels-and-why-do-i-need-one" name="what-are-channels-and-why-do-i-need-one" class="anchor"><span class="octicon octicon-link"></span></a><a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?</h2>
+<h2><a href="#what-are-channels-and-why-do-i-need-one" id="what-are-channels-and-why-do-i-need-one"><a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?</a></h2>
 <p>A channel is a distinct user experience where Nike products are showcased and made available for purchase, for example in SNKRS or the Nike app. Each channel has a unique <strong>channelId</strong> (channel identifier) that is required by certain Product Feeds API endpoints. This allows the results in responses to be filtered appropriately for your experience.</p>
 <p>Each <strong>channelId</strong> value originates in Nike CMS under a different name, <strong>collectionGroupId</strong>.</p>
 <p>Each Feed can be associated with one or more channels, opening up the personalized Feed to many Nike experiences.</p>
 <blockquote>
   <p>NOTE: The channelIds used in examples in this guide are invalid. In order to submit requests successfully, you need a valid channelId. Work with the Product Feeds Product Owner to inquire about a channelId for your app.</p>
 </blockquote>
-<h2 id="terminology-differences-between-cms-and-product-feeds"><a href="#terminology-differences-between-cms-and-product-feeds" name="terminology-differences-between-cms-and-product-feeds" class="anchor"><span class="octicon octicon-link"></span></a><a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds</h2>
+<h2><a href="#terminology-differences-between-cms-and-product-feeds" id="terminology-differences-between-cms-and-product-feeds"><a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds</a></h2>
 <p>As mentioned earlier, the Product Feeds API pulls product content from Nike CMS and includes it in responses. One thing to be aware of is that Nike CMS sometimes uses different names for the same field than Product Feeds. For example, the CMS <strong>collectionGroupId</strong> that you will see in responses is synonymous with the <strong>channelId</strong> query parameter you might send to Product Feeds.</p>
 <p>Here is a terminology guide between Nike CMS and Product Feeds:</p>
 <table>
@@ -152,7 +147,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Node</td><td>Card</td></tr>
   </tbody>
 </table>
-<h2 id="making-your-first-api-request"><a href="#making-your-first-api-request" name="making-your-first-api-request" class="anchor"><span class="octicon octicon-link"></span></a><a name="making-your-first-api-request"></a>Making Your First API Request</h2>
+<h2><a href="#making-your-first-api-request" id="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making Your First API Request</a></h2>
 <p>For your first API request, call Product Feeds v2 to get a list of all Threads for a particular channel:</p>
 <p><strong>1. Gather the data</strong></p>
 <p>The Product Feeds v2 <em>Threads List</em> endpoint only supports the HTTP GET method, so you do not need to send a request body. Only the required request headers and URL query parameters should be sent.</p>
@@ -166,7 +161,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p>To build the full URL, prepend <code>https://api.nike.com</code> to the above path, then append after 'v2' with the required <strong>filter</strong> query parameter. The resulting full URL would be:</p>
 <p><code>https://api.nike.com/product_feed/feeds/v2?filter=&quot;channelId(your_channel_Id_here)&quot;</code>.</p>
 <p>Test the URL using the Postman app or your favorite browser. You should receive a response body similar to the following (note: your values will vary):</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;pages&quot;: {
       &quot;prev&quot;: &quot;&quot;,
       &quot;next&quot;: &quot;&quot;
@@ -287,7 +282,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </code></pre>
 <p><strong>3. Execute the request</strong></p>
 <p>Ultimately you will want to call this API from within your app and this is usually done with a cURL command. For example:</p>
-<pre><code class="nohighlight">curl -X GET \
+<pre><code>curl -X GET \
      'https://api.nike.com/product_feed/feeds/v2?filter=channelId(your_channel_Id_here)' \
      -H 'cache-control: no-cache'
 </code></pre>
@@ -306,7 +301,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p><strong>filter=publishedContent.properties.products.styleColor(AA0612-706)</strong></p>
 <p>Your full URL would be:</p>
 <p><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;count=50&amp;filter=publishedContent.properties.products.styleColor(AA0612-706)">https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;count=50&amp;filter=publishedContent.properties.products.styleColor(AA0612-706)</a></p>
-<h2 id="using-product-feeds-v2"><a href="#using-product-feeds-v2" name="using-product-feeds-v2" class="anchor"><span class="octicon octicon-link"></span></a><a name="using-product-feeds-v2"></a>Using Product Feeds v2</h2>
+<h2><a href="#using-product-feeds-v2" id="using-product-feeds-v2"><a name="using-product-feeds-v2"></a>Using Product Feeds v2</a></h2>
 <ul>
   <li>
     <p><a href="#all-product-feeds">All Product Feeds</a></p>
@@ -325,9 +320,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </li>
 </ul>
 <p>The following sections explain each Product Feeds endpoint in detail, concluding with a section on error handling.</p>
-<h3 id="all-product-feeds"><a href="#all-product-feeds" name="all-product-feeds" class="anchor"><span class="octicon octicon-link"></span></a><a name="all-product-feeds"></a>All Product Feeds</h3>
+<h3><a href="#all-product-feeds" id="all-product-feeds"><a name="all-product-feeds"></a>All Product Feeds</a></h3>
 <p>Get all product feeds for a particular channel by referencing its identifier in the request.</p>
-<h4 id="endpoint-details"><a href="#endpoint-details" name="endpoint-details" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h4>
+<h4><a href="#endpoint-details" id="endpoint-details">Endpoint Details</a></h4>
 <table>
   <thead>
     <tr><th>HTTP Method</th><th>URI Path</th><th>Restricted?</th></tr>
@@ -336,7 +331,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td><strong>GET</strong></td><td><code>/product_feed/feeds/v2{?filter}</code></td><td>No</td></tr>
   </tbody>
 </table>
-<h4 id="path--query-parameters"><a href="#path--query-parameters" name="path--query-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Path &amp; Query Parameters</h4>
+<h4><a href="#path--query-parameters" id="path--query-parameters">Path &amp; Query Parameters</a></h4>
 <table>
   <thead>
     <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
@@ -345,7 +340,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td><strong>filter</strong></td><td>Query</td><td>Restrict the response by filter criteria. Only <strong>channelId</strong> is supported, e.g. ?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)</td><td>String</td><td><strong>Required</strong></td></tr>
   </tbody>
 </table>
-<h4 id="example-scenarios"><a href="#example-scenarios" name="example-scenarios" class="anchor"><span class="octicon octicon-link"></span></a>Example Scenarios</h4>
+<h4><a href="#example-scenarios" id="example-scenarios">Example Scenarios</a></h4>
 <table>
   <thead>
     <tr><th>I Want to List</th><th>Sample Query</th></tr>
@@ -354,11 +349,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Feeds for a channelId</td><td><a href="https://api.nike.com/product_feed/feeds/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)">https://api.nike.com/product_feed/feeds/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)</a></td></tr>
   </tbody>
 </table>
-<h4 id="request-headers"><a href="#request-headers" name="request-headers" class="anchor"><span class="octicon octicon-link"></span></a><a name="all-product-feeds-request-headers"></a>Request Headers</h4>
+<h4><a href="#request-headers" id="request-headers"><a name="all-product-feeds-request-headers"></a>Request Headers</a></h4>
 <p>There are no required request headers.</p>
-<h4 id="request-body"><a href="#request-body" name="request-body" class="anchor"><span class="octicon octicon-link"></span></a><a name="all-product-feeds-request-body"></a>Request Body</h4>
+<h4><a href="#request-body" id="request-body"><a name="all-product-feeds-request-body"></a>Request Body</a></h4>
 <p>There is no body for a GET request.</p>
-<h4 id="response-body"><a href="#response-body" name="response-body" class="anchor"><span class="octicon octicon-link"></span></a><a name="all-product-feeds-response-body"></a>Response Body</h4>
+<h4><a href="#response-body" id="response-body"><a name="all-product-feeds-response-body"></a>Response Body</a></h4>
 <p>The important elements of the <em>All Product Feeds</em> response body are as follows:</p>
 <table>
   <thead>
@@ -378,7 +373,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <p>Sample <em>All Product Feeds</em> response body (HTTP 200):</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;pages&quot;: {
         &quot;prev&quot;: &quot;&quot;,
         &quot;next&quot;: &quot;&quot;
@@ -421,9 +416,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </code></pre>
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Feeds/get_product_feed_feeds_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr>
-<h3 id="product-feed-by-id"><a href="#product-feed-by-id" name="product-feed-by-id" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-feed-by-id"></a>Product Feed by ID</h3>
+<h3><a href="#product-feed-by-id" id="product-feed-by-id"><a name="product-feed-by-id"></a>Product Feed by ID</a></h3>
 <p>Get a specific product Feed by its unique identifier.</p>
-<h4 id="endpoint-details-1"><a href="#endpoint-details-1" name="endpoint-details-1" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h4>
+<h4><a href="#endpoint-details-1" id="endpoint-details-1">Endpoint Details</a></h4>
 <table>
   <thead>
     <tr><th>HTTP Method</th><th>URI Path</th><th>Restricted?</th></tr>
@@ -432,7 +427,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td><strong>GET</strong></td><td><code>/product_feed/feeds/v2/{id}</code></td><td>No</td></tr>
   </tbody>
 </table>
-<h4 id="path--query-parameters-1"><a href="#path--query-parameters-1" name="path--query-parameters-1" class="anchor"><span class="octicon octicon-link"></span></a>Path &amp; Query Parameters</h4>
+<h4><a href="#path--query-parameters-1" id="path--query-parameters-1">Path &amp; Query Parameters</a></h4>
 <table>
   <thead>
     <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
@@ -441,7 +436,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td><strong>id</strong></td><td>Path</td><td>Unique identifier of the feed in UUID format</td><td>String</td><td><strong>Required</strong></td></tr>
   </tbody>
 </table>
-<h4 id="example-scenarios-1"><a href="#example-scenarios-1" name="example-scenarios-1" class="anchor"><span class="octicon octicon-link"></span></a>Example Scenarios</h4>
+<h4><a href="#example-scenarios-1" id="example-scenarios-1">Example Scenarios</a></h4>
 <table>
   <thead>
     <tr><th>I Want to List</th><th>Sample Query</th></tr>
@@ -450,11 +445,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Single feed by ID</td><td><a href="https://api.nike.com/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee">https://api.nike.com/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee</a></td></tr>
   </tbody>
 </table>
-<h4 id="request-headers-1"><a href="#request-headers-1" name="request-headers-1" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-feed-by-id-request-headers"></a>Request Headers</h4>
+<h4><a href="#request-headers-1" id="request-headers-1"><a name="product-feed-by-id-request-headers"></a>Request Headers</a></h4>
 <p>There are no required request headers.</p>
-<h4 id="request-body-1"><a href="#request-body-1" name="request-body-1" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-feed-by-id-request-body"></a>Request Body</h4>
+<h4><a href="#request-body-1" id="request-body-1"><a name="product-feed-by-id-request-body"></a>Request Body</a></h4>
 <p>There is no body for a GET request.</p>
-<h4 id="response-body-1"><a href="#response-body-1" name="response-body-1" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-feed-by-id-response-body"></a>Response Body</h4>
+<h4><a href="#response-body-1" id="response-body-1"><a name="product-feed-by-id-response-body"></a>Response Body</a></h4>
 <p>The important elements of the <em>Product Feed by ID</em> response body are as follows:</p>
 <table>
   <thead>
@@ -470,7 +465,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <p>Sample <em>Product Feed by ID</em> response body (HTTP 200):</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;id&quot;: &quot;01894a4a-9f7a-4b32-b334-651afd0c35ee&quot;,
     &quot;name&quot;: &quot;Air Icarus&quot;,
     &quot;status&quot;: &quot;ACTIVE&quot;,
@@ -489,9 +484,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </code></pre>
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Feeds/get_product_feed_feeds_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr>
-<h3 id="product-threads-list"><a href="#product-threads-list" name="product-threads-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-threads-list"></a>Product Threads List</h3>
+<h3><a href="#product-threads-list" id="product-threads-list"><a name="product-threads-list"></a>Product Threads List</a></h3>
 <p>List all threads by one or more filter criteria, e.g. channel and style-color.</p>
-<h4 id="endpoint-details-2"><a href="#endpoint-details-2" name="endpoint-details-2" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h4>
+<h4><a href="#endpoint-details-2" id="endpoint-details-2">Endpoint Details</a></h4>
 <table>
   <thead>
     <tr><th>HTTP Method</th><th>URI Path</th><th>Restricted?</th></tr>
@@ -500,7 +495,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td><strong>GET</strong></td><td><code>/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}</code></td><td>No</td></tr>
   </tbody>
 </table>
-<h4 id="path--query-parameters-2"><a href="#path--query-parameters-2" name="path--query-parameters-2" class="anchor"><span class="octicon octicon-link"></span></a>Path &amp; Query Parameters</h4>
+<h4><a href="#path--query-parameters-2" id="path--query-parameters-2">Path &amp; Query Parameters</a></h4>
 <table>
   <thead>
     <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
@@ -517,7 +512,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales">here</a>.</p>
 </blockquote>
-<h5 id="allowed-sort-parameters"><a href="#allowed-sort-parameters" name="allowed-sort-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Allowed Sort Parameters</h5>
+<h5><a href="#allowed-sort-parameters" id="allowed-sort-parameters">Allowed Sort Parameters</a></h5>
 <p>The following are the allowed fields that can be send in the <strong>sort</strong> query parameter:</p>
 <ul>
   <li>
@@ -551,7 +546,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <p><strong>id.keywordDesc</strong></p>
   </li>
 </ul>
-<h4 id="allowed-filter-parameters"><a href="#allowed-filter-parameters" name="allowed-filter-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Allowed Filter Parameters</h4>
+<h4><a href="#allowed-filter-parameters" id="allowed-filter-parameters">Allowed Filter Parameters</a></h4>
 <p>The following is a list of scenarios that illustrate which <strong>filter</strong> parameters are supported:</p>
 <table>
   <thead>
@@ -595,7 +590,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <li>Most filters allow comma-separated values to retrieve multiple values at a time: <code>?filter=productInfo.merchProduct.styleCode(942198,AA1697)</code></li>
   </ul>
 </blockquote>
-<h4 id="using-search-based-queries"><a href="#using-search-based-queries" name="using-search-based-queries" class="anchor"><span class="octicon octicon-link"></span></a>Using Search-Based Queries</h4>
+<h4><a href="#using-search-based-queries" id="using-search-based-queries">Using Search-Based Queries</a></h4>
 <p>Send one or more search keywords in the <strong>searchTerms</strong> query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.</p>
 <p>The four searchable fields are:</p>
 <ul>
@@ -614,11 +609,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </ul>
 <p>For example, using <code>searchTerms=Chuck Taylor</code> would return any threads where the words 'Chuck' and 'Taylor' are found anywhere in a searchable field.</p>
 <p>The default search behavior is <em>partial match</em>. Limiting the search to only <em>full string matches</em> can be done by enclosing the keywords in double quotes, like <code>searchTerms=&quot;Chuck Taylor&quot;</code>. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.</p>
-<h4 id="request-headers-2"><a href="#request-headers-2" name="request-headers-2" class="anchor"><span class="octicon octicon-link"></span></a><a name="threads-list-request-headers"></a>Request Headers</h4>
+<h4><a href="#request-headers-2" id="request-headers-2"><a name="threads-list-request-headers"></a>Request Headers</a></h4>
 <p>There are no required request headers.</p>
-<h4 id="request-body-2"><a href="#request-body-2" name="request-body-2" class="anchor"><span class="octicon octicon-link"></span></a><a name="threads-list-request-body"></a>Request Body</h4>
+<h4><a href="#request-body-2" id="request-body-2"><a name="threads-list-request-body"></a>Request Body</a></h4>
 <p>There is no body for a GET request.</p>
-<h4 id="response-body-2"><a href="#response-body-2" name="response-body-2" class="anchor"><span class="octicon octicon-link"></span></a><a name="threads-list-response-body"></a>Response Body</h4>
+<h4><a href="#response-body-2" id="response-body-2"><a name="threads-list-response-body"></a>Response Body</a></h4>
 <p>The important elements of the <em>Threads List</em> response body are as follows:</p>
 <blockquote>
   <p>Note: The <strong>productInfo</strong> array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Rather than list out all of the elements in this table, links are provided to the relevant API.md for you to find the corresponding response schema.</p>
@@ -732,7 +727,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: Scroll to the right to see the entire code snippet.</p>
 </blockquote>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;pages&quot;: {
         &quot;prev&quot;: &quot;&quot;,
         &quot;next&quot;: &quot;&quot;
@@ -1897,9 +1892,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </code></pre>
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr>
-<h3 id="product-thread-by-id"><a href="#product-thread-by-id" name="product-thread-by-id" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-thread-by-id"></a>Product Thread by ID</h3>
+<h3><a href="#product-thread-by-id" id="product-thread-by-id"><a name="product-thread-by-id"></a>Product Thread by ID</a></h3>
 <p>Get a Thread by its unique identifier.</p>
-<h4 id="endpoint-details-3"><a href="#endpoint-details-3" name="endpoint-details-3" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h4>
+<h4><a href="#endpoint-details-3" id="endpoint-details-3">Endpoint Details</a></h4>
 <table>
   <thead>
     <tr><th>HTTP Method</th><th>URI Path</th><th>Restricted?</th></tr>
@@ -1908,7 +1903,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td><strong>GET</strong></td><td><code>/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview,includeExclusiveAccess}</code></td><td>No</td></tr>
   </tbody>
 </table>
-<h4 id="path--query-parameters-3"><a href="#path--query-parameters-3" name="path--query-parameters-3" class="anchor"><span class="octicon octicon-link"></span></a>Path &amp; Query Parameters</h4>
+<h4><a href="#path--query-parameters-3" id="path--query-parameters-3">Path &amp; Query Parameters</a></h4>
 <table>
   <thead>
     <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
@@ -1926,7 +1921,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales">here</a>.</p>
 </blockquote>
-<h4 id="example-scenarios-2"><a href="#example-scenarios-2" name="example-scenarios-2" class="anchor"><span class="octicon octicon-link"></span></a>Example Scenarios</h4>
+<h4><a href="#example-scenarios-2" id="example-scenarios-2">Example Scenarios</a></h4>
 <table>
   <thead>
     <tr><th>I Want to List</th><th>Sample Query</th></tr>
@@ -1936,11 +1931,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Single thread by ID (only selected fields returned)</td><td><a href="https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860?fields=publishedContent.properties.coverCard.properties.title,publishedContent.properties.coverCard.properties.landscapeURL">https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860?fields=publishedContent.properties.coverCard.properties.title,publishedContent.properties.coverCard.properties.landscapeURL</a></td></tr>
   </tbody>
 </table>
-<h4 id="request-headers-3"><a href="#request-headers-3" name="request-headers-3" class="anchor"><span class="octicon octicon-link"></span></a><a name="thread-by-id-request-headers"></a>Request Headers</h4>
+<h4><a href="#request-headers-3" id="request-headers-3"><a name="thread-by-id-request-headers"></a>Request Headers</a></h4>
 <p>There are no required request headers.</p>
-<h4 id="request-body-3"><a href="#request-body-3" name="request-body-3" class="anchor"><span class="octicon octicon-link"></span></a><a name="thread-by-id-request-body"></a>Request Body</h4>
+<h4><a href="#request-body-3" id="request-body-3"><a name="thread-by-id-request-body"></a>Request Body</a></h4>
 <p>There is no body for a GET request.</p>
-<h4 id="response-body-3"><a href="#response-body-3" name="response-body-3" class="anchor"><span class="octicon octicon-link"></span></a><a name="thread-by-id-response-body"></a>Response Body</h4>
+<h4><a href="#response-body-3" id="response-body-3"><a name="thread-by-id-response-body"></a>Response Body</a></h4>
 <p>The structure of the response from <em>Thread by ID</em> is the same as <em>Threads List</em> with the following exceptions:</p>
 <ul>
   <li>
@@ -1953,7 +1948,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p>See Threads List for response body details.</p>
 <p><a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a></p>
 <hr>
-<h3 id="product-feeds-error-handling"><a href="#product-feeds-error-handling" name="product-feeds-error-handling" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-feeds-error-handling"></a>Product Feeds Error Handling</h3>
+<h3><a href="#product-feeds-error-handling" id="product-feeds-error-handling"><a name="product-feeds-error-handling"></a>Product Feeds Error Handling</a></h3>
 <p>Following is a summary of the errors that can come back in responses from the Product Feeds v2 APIs:</p>
 <table>
   <thead>
@@ -1967,7 +1962,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>500</td><td>GET</td><td>Internal Server Error</td><td>Downstream service does not recognize query parameter, e.g. ?language=foo</td></tr>
   </tbody>
 </table>
-<h2 id="upgrading-to-the-latest-version"><a href="#upgrading-to-the-latest-version" name="upgrading-to-the-latest-version" class="anchor"><span class="octicon octicon-link"></span></a><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</h2>
+<h2><a href="#upgrading-to-the-latest-version" id="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</a></h2>
 <p>Ready to upgrade to the latest version of the Product Feeds API? All clients of Product Feeds v1 are expected to migrate to v2 by <strong>March 31st, 2018</strong>.</p>
 <p>First, some considerations:</p>
 <ul>
@@ -1984,7 +1979,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: Upgrading from CAPI (Commerce API)? See the <a href="https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/capi_migration.md?raw">CAPI Migration Guide</a> for detailed instructions.</p>
 </blockquote>
-<h3 id="v1x-to-v2-endpoint-mapping"><a href="#v1x-to-v2-endpoint-mapping" name="v1x-to-v2-endpoint-mapping" class="anchor"><span class="octicon octicon-link"></span></a><a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping</h3>
+<h3><a href="#v1x-to-v2-endpoint-mapping" id="v1x-to-v2-endpoint-mapping"><a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping</a></h3>
 <p>The following table lists the v1 endpoints along with the equivalent v2 endpoint for each:</p>
 <table>
   <thead>
@@ -2005,7 +2000,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Product Card by ID</td><td>None</td></tr>
   </tbody>
 </table>
-<h3 id="all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping"><a href="#all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping" name="all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping" class="anchor"><span class="octicon octicon-link"></span></a><a name="all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping"></a>All Product Feeds &amp; Product Feed by ID v1 to v2 Field Mapping</h3>
+<h3><a href="#all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping" id="all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping"><a name="all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping"></a>All Product Feeds &amp; Product Feed by ID v1 to v2 Field Mapping</a></h3>
 <p>The response structure of the v1 <em>All Product Feeds</em> and <em>Product Feed by ID</em> endpoints is the same, with a few minor exceptions, so for the purposes of upgrading to v2 they can be discussed together.</p>
 <p>The below table describes how the response body fields map from the v1 to the v2 endpoints with same name.</p>
 <table>
@@ -2035,7 +2030,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: For v2 URI format and available parameters, see <a href="#all-product-feeds">All Product Feeds</a> and <a href="#product-feed-by-id">Product Feed by ID</a> sections of this document.</p>
 </blockquote>
-<h3 id="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"><a href="#all-product-threads--product-thread-by-id-v1-to-v2-field-mapping" name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping" class="anchor"><span class="octicon octicon-link"></span></a><a name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"></a>All Product Threads &amp; Product Thread by ID v1 to v2 Field Mapping</h3>
+<h3><a href="#all-product-threads--product-thread-by-id-v1-to-v2-field-mapping" id="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"><a name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"></a>All Product Threads &amp; Product Thread by ID v1 to v2 Field Mapping</a></h3>
 <p>The response structure of the v1 <em>All Product Threads</em> and <em>Product Thread by ID</em> endpoints is the same, with a few minor exceptions, so for the purposes of upgrading to v2 they can be discussed together.</p>
 <p>The following table describes how the response body fields map from the v1 to the v2 endpoints.</p>
 <table>
@@ -2163,7 +2158,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: For the v2 URI format and available parameters, see the <a href="#product-thread-by-id">Product Thread by ID</a> and <a href="#product-threads-list">Product Threads List</a> sections of this document.</p>
 </blockquote>
-<h3 id="url-patterns-by-version"><a href="#url-patterns-by-version" name="url-patterns-by-version" class="anchor"><span class="octicon octicon-link"></span></a><a name ="url-patterns-by-version"></a>URL Patterns By Version</h3>
+<h3><a href="#url-patterns-by-version" id="url-patterns-by-version"><a name ="url-patterns-by-version"></a>URL Patterns By Version</a></h3>
 <p>The URL pattern used by the Product Feeds API's varies depending on the version, as described here:</p>
 <p><strong>v1</strong></p>
 <p><code>https://api.nike.com/commerce/productfeed/products</code> (Note: no version number indicated in path)</p>
@@ -2174,9 +2169,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#url-patterns">Using NDe APIs</a> guide for info on Nike standards.</p>
 </blockquote>
-<h2 id="best-practices"><a href="#best-practices" name="best-practices" class="anchor"><span class="octicon octicon-link"></span></a><a name="best-practices"></a>Best Practices</h2>
+<h2><a href="#best-practices" id="best-practices"><a name="best-practices"></a>Best Practices</a></h2>
 <p>Listed below are some best practices for working with Product Feeds.</p>
-<h3 id="test-environment"><a href="#test-environment" name="test-environment" class="anchor"><span class="octicon octicon-link"></span></a><a name="test-environment"></a>Test Environment</h3>
+<h3><a href="#test-environment" id="test-environment"><a name="test-environment"></a>Test Environment</a></h3>
 <p>Product Feeds v2 has a test environment available at host <a href="https://experience.test.commerce.nikecloud.com">https://experience.test.commerce.nikecloud.com</a>.</p>
 <p>Apart from the host, you can use the same URL, for example: <a href="https://experience.test.commerce.nikecloud.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(b300bc43-bf2f-4b34-8942-fdc6f95653f9)">https://experience.test.commerce.nikecloud.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(b300bc43-bf2f-4b34-8942-fdc6f95653f9)</a>.</p>
 <p>Some considerations about using the test environment:</p>
@@ -2194,9 +2189,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <p>All performance testing activities should be done in test and not in production.</p>
   </li>
 </ul>
-<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting" class="anchor"><span class="octicon octicon-link"></span></a><a name="troubleshooting"></a>Troubleshooting</h2>
+<h2><a href="#troubleshooting" id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
 <p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
-<h3 id="use-troubleshooting-tools"><a href="#use-troubleshooting-tools" name="use-troubleshooting-tools" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
+<h3><a href="#use-troubleshooting-tools" id="use-troubleshooting-tools"><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</a></h3>
 <ul>
   <li>
     <p>Use the general troubleshooting tips in the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#troubleshooting">Using NDe APIs</a> guide.</p>
@@ -2211,7 +2206,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <p>Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/C0KEN0WQG">#cic-merch</a> Slack channel for assistance.</p>
   </li>
 </ul>
-<h3 id="common-questions"><a href="#common-questions" name="common-questions" class="anchor"><span class="octicon octicon-link"></span></a>Common Questions</h3>
+<h3><a href="#common-questions" id="common-questions">Common Questions</a></h3>
 <p><strong>How do I know what product attributes are available for me to use to request Threads?</strong></p>
 <ul>
   <li>Unless you are doing a keyword search using the <strong>searchTerms</strong> query parameter, you need to know in advance which product attributes to include in your requests. The source of product attributes (e.g. slugs, 'best for', and other attributes) is Nike's Prodigy system.</li>
@@ -2249,11 +2244,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <blockquote>
   <p>TIP: Be careful not to confuse <strong>legacyCatalogId</strong>, which like <strong>catalogId</strong> is also present in the threads response under <strong>productInfo.merchProduct</strong>, but does not affect thread visibility.</p>
 </blockquote>
-<h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
+<h2><a href="#glossary" id="glossary"><a name="glossary"></a>Glossary</a></h2>
 <p>See the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html">Glossary</a></p>
-<h2 id="release-notes"><a href="#release-notes" name="release-notes" class="anchor"><span class="octicon octicon-link"></span></a><a name="release-notes"></a>Release Notes</h2>
+<h2><a href="#release-notes" id="release-notes"><a name="release-notes"></a>Release Notes</a></h2>
 <p>No release notes available</p>
-<h2 id="document-change-log"><a href="#document-change-log" name="document-change-log" class="anchor"><span class="octicon octicon-link"></span></a><a name="document-change-log"></a>Document Change Log</h2>
+<h2><a href="#document-change-log" id="document-change-log"><a name="document-change-log"></a>Document Change Log</a></h2>
 <table>
   <thead>
     <tr><th>Summary </th><th>Date </th><th>Description</th></tr>
@@ -2265,10 +2260,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Updated links</td><td>3/20/2018</td><td>Updated links to point to new dev portal</td></tr>
   </tbody>
 </table>
-<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
+<h2><a href="#related-links" id="related-links"><a name="related-links"></a>Related Links</a></h2>
 <p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
-</body>
-</html>
+
