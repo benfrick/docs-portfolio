@@ -4,7 +4,7 @@
 
 # Get Started with Product Feeds (DRAFT) <i class="g72-swoosh"></i>
 
-###### Last Updated: 2/6/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ---
 
@@ -36,7 +36,7 @@ Use Product Feeds to power compelling user experiences by accessing Nike digital
 
 <i class="g72-arrow-thick-right"></i> Multiple Threads make up **Feeds**, customized for your users based on their chosen preferences.
 
-<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/product_feeds/nike_app_annotated.png?at=refs%2Fheads%2Fmaster"/>
+![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/nike_app_annotated.png)
 
 ## <a name="#features"></a>Features
 
@@ -54,7 +54,7 @@ Common implementations of Product Feeds involve only two calls: get all threads 
 
 **Prerequisites**
 
-To get started, you need a channel identifier for your app. Contact the [Product Feeds Product Owner](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw#api-at-a-glance) to get one.
+To get started, you need a channel identifier for your app. Contact the [Product Feeds Product Owner](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#api-at-a-glance) to get one.
 
 **Reliable and Scalable**
 
@@ -76,10 +76,20 @@ We're here to help.
 
 **From here, explore the Product Feeds Developer Guide to get more details.**
 
-<i class="g72-plus-large"></i> [Product Feeds Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw)
+<i class="g72-plus-large"></i> [Product Feeds Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html)
 
-<i class="g72-plus-large></i> [Supported Countries and Languages](https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales)
+<i class="g72-plus-large"></i> [Supported Countries and Languages](https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales)
 
-<i class="g72-plus-large"></i> [SLA Documentation](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md?raw#api-at-a-glance)
+<i class="g72-plus-large"></i> [SLA Documentation](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#api-at-a-glance)
 
 **The journey begins now!**
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

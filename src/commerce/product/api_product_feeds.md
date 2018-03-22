@@ -10,11 +10,11 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 2/12/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ---
 
-If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw) and [Get Started With Product Feeds](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/biz_product_feeds.md?raw), this guide provides the additional details necessary to integrate with Product Feeds.
+If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Product Feeds](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_product_feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
 
 ## **In this guide:**
 
@@ -99,7 +99,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#registration) guide on how to create and register your caller ID.
+It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
 ### <a name="authentication"></a>Authentication
 
@@ -114,13 +114,13 @@ There are no authentication requirements for Product Feeds except when using the
 |List all Product Threads for a channel, language, marketplace, feed ID, SEO slug, style-color, gender, keywords, and more|*Threads List*|
 |Get a specific Product Thread by its ID|*Product Thread by ID*|
 
->TIP: See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/api_merch_product.md?raw) for more.
+>TIP: See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more.
 
 ### <a name="example-implementation-diagram"></a>Example Implementation Diagram
 
 Here is an example of a sequence of API calls to get content from Product Feeds v2:
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/product_feeds/seq_dgm.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/seq_dgm.png?)
 
 <br>
 
@@ -147,7 +147,7 @@ Use Product Feeds to get product data and content in the form of Cards, Threads,
 
 To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see [here](https://confluence.nike.com/display/DEN/Product+And+Feeds+API).
 
-<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/product_feeds/nike_app_annotated.png?at=refs%2Fheads%2Fmaster"/>
+![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/nike_app_annotated.png)
 
 <br>
 
@@ -759,15 +759,15 @@ The important elements of the *Threads List* response body are as follows:
 |objects.publishedContent.classifications.value.**id**|Identifier of the classification value|
 |objects.publishedContent.classifications.value.**text**|Text for the classification value|
 |objects.**productInfo**|Array of responses from other APIs with product info|
-|objects.productInfo.**merchProduct**|[API.md link](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id)|
-|objects.productInfo.**merchPrice**|[API.md link](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id)|
-|objects.productInfo.**availability**|[API.md link](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#!/Product_Inventory_Availability/get_deliver_available_products_v1_productId)|
-|objects.productInfo.**productContent**|http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw|
+|objects.productInfo.**merchProduct**|[API.md link](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id)|
+|objects.productInfo.**merchPrice**|[API.md link](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id)|
+|objects.productInfo.**availability**|[API.md link](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#!/Product_Inventory_Availability/get_deliver_available_products_v1_productId)|
+|objects.productInfo.**productContent**|https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw|
 |objects.productInfo.**imageUrls**|Object containing product image URL|
 |objects.productInfo.imageUrls.**productImageUrl**|URL for product image|
-|objects.productInfo.**skus**|[API.md link](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id)|
-|objects.productInfo.**availableSkus**|[API.md link](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#!/Sku_Availability/get_deliver_available_skus_v1_id)|
-|objects.productInfo.**launchView**|[API.md link](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md?raw#!/default/get_launch_launch_views_v2_id)|
+|objects.productInfo.**skus**|[API.md link](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id)|
+|objects.productInfo.**availableSkus**|[API.md link](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#!/Sku_Availability/get_deliver_available_skus_v1_id)|
+|objects.productInfo.**launchView**|[API.md link](https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md?raw#!/default/get_launch_launch_views_v2_id)|
 
 Sample *Threads List* response body (HTTP 200):
 
@@ -2017,9 +2017,9 @@ First, some considerations:
 
 - All endpoints of Product Feeds exclusively feature the GET method, which has no request body, so the focus of each section will be on the differences in the response body only.
 
-- For the 4 endpoints that have both a v1 and a v1.5 (see [Product Feeds v1 API.md](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeed/browse/API.md?raw) for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
+- For the 4 endpoints that have both a v1 and a v1.5 (see [Product Feeds v1 API.md](https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeed/browse/API.md?raw) for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
 
->TIP: Upgrading from CAPI (Commerce API)? See the [CAPI Migration Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/capi_migration.md?raw) for detailed instructions.
+>TIP: Upgrading from CAPI (Commerce API)? See the [CAPI Migration Guide](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/capi_migration.md?raw) for detailed instructions.
 
 ### <a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping
 
@@ -2210,7 +2210,7 @@ The URL pattern used by the Product Feeds API's varies depending on the version,
 
 `https://api.nike.com/product_feed/feeds/v2`
 
->TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#url-patterns) guide for info on Nike standards.
+>TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
 
 ## <a name="best-practices"></a>Best Practices
 
@@ -2238,7 +2238,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) such as [this](https://cdt-eng.splunkcloud.com/en-US/app/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D) to check for issues with your request.
 
@@ -2276,7 +2276,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw)
+See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 
@@ -2289,13 +2289,14 @@ No release notes available
 |Initial draft|1/23/2018|Initial Draft|
 |Updates per Jan API.md changes|2/9/2018|Added new allowed values for **sort** and **filter** query params, added new **includeExclusiveAccess** query param|
 |Layout updates|2/12/2018|Changed layout to meet new API Doc standards, added Troubleshooting content|
+|Updated links|3/20/2018|Updated links to point to new dev portal|
 
 ## <a name="related-links"></a>Related Links
 
-Need more? The Nike Developer Portal has more guides!
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-- [General Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
 
-- [Business Guides](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw)
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
 
-- [Developer's Guides](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw)
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

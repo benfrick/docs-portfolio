@@ -10,10 +10,9 @@ Author:  Jane Moore
 
 # PRODUCT LIFE CYCLE REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 1/25/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
-<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/reference/product_life_cycle.png?at=refs%2Fheads%2Fmaster"/>
-
+![](https://nde-devportal-docs.niketech.com/images/commerce/reference/product_life_cycle.png)
 
 ## Where Product Data Comes From
 
@@ -41,3 +40,12 @@ b The Product Feed service gathers and returns Feed data. The Product Feed servi
 
 c The Search Service gathers and returns Thread data to the Product Feed service based on the search criteria.
 
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

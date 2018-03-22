@@ -8,11 +8,11 @@ Original Author: Benjamin Frick
 
 SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam Nutt, Laura Kuhner, Sree Krishna-->
 
-# BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
+# BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 3/16/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
-If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw) and [Get Started With Checkout](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/biz_checkout.md?raw), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
+If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
 ## **In this guide:**
 
@@ -127,14 +127,14 @@ If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitb
 |Version|v1, v2|
 |SLA|<li> Carts v1 - Response Time: 50ms, Requests Per Second: 500<li> Carts v2 - Response Time: 1000ms, Requests Per Second: 300 <li>Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200<li>Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000 <li>Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600|
 |Domain|Commerce|
-|Prerequisites|<li>[API Registration](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#registration)<li>JWT for *Launch Checkout Submit* only|
+|Prerequisites|<li>[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)<li>JWT for *Launch Checkout Submit* only|
 |Contact Info|Slack: [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)<br>Confluence: [CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070)<br>Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)|
 
 >TIP: SLAs vary per endpoint for both the Carts (v1 and v2) and Checkouts APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. See [this SLA.json file](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse) and [that SLA.json](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/SLA.json) file to get SLA info by endpoint.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#registration) guide on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
 ### <a name="authorization"></a>Authorization
 
@@ -144,11 +144,11 @@ Most calls through the Nike API gateway (api.nike.com) require an access token b
 
 Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#authorization) guide.
+To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#authorization) guide.
 
 #### JSON Web Token
 
-Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#jwt-json-web-token).
+Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#jwt-json-web-token).
 
 ## <a name="use-cases"></a>Use Cases
 
@@ -165,7 +165,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 
 Here is an example of a sequence of API calls to execute an entire checkout:
 
-![Image](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/buy/checkout_seq_dgm.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/commerce/buy/checkout_seq_dgm.png)
 
 <br>
 
@@ -185,7 +185,7 @@ The Nike Checkout APIs support 3 distinct user types:
 
 Depending on user type, certain aspects of the calls that you make to the Checkout APIs might need to be modified. This will be called out whenever applicable in the detailed endpoint sections which follow in this guide. Also, consider that not all user types might apply to your app (e.g. you might only support Members).
 
-See the User Types section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#user-types) guide for more information.
+See the User Types section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#user-types) guide for more information.
 
 ### Idempotence
 
@@ -202,34 +202,34 @@ There are 4 possible scenarios:
 |UUID used previously, Entity is new|Client receives HTTP 409 error response (no new job processed)|
 |UUID is new, Entity previously submitted under another UUID|Client receives HTTP 202 response, request processed as new job|
 
->TIP: For more, see the Idempotence Guarantee section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#idempotence-guarantee) guide.
+>TIP: For more, see the Idempotence Guarantee section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#idempotence-guarantee) guide.
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
 |API Name|Endpoint Name|HTTP Method|URI Path|
 |---|---|---|---|
-|Carts v1|[Create or Update a Cart](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_put_buy_carts_v1_id)|PUT|/buy/carts/v1/{id}{?fields}|
-|Carts v1|[Retrieve Carts by ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_get_buy_carts_v1_id)|GET|/buy/carts/v1/{id}/{?fields}|
-|Carts v1|[Retrieve Carts by Filter](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_get_buy_carts_v1)|GET|/buy/carts/v1/{?filter,fields}|
-|Carts v1|[Delete All Items from a Cart](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_delete_buy_carts_v1_id)|DELETE|/buy/carts/v1/{id}|
-|Carts v2|[Create or Update a Cart by Cart ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart)|PUT|/buy/carts/v2/{id}|
-|Carts v2|[Modify a Cart by Cart ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-1)|PATCH|/buy/carts/v2/{id}|
-|Carts v2|[Delete All Items from a Cart by Cart ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart)|DELETE|/buy/carts/v2/{id}|
-|Carts v2|[Get a Cart by Cart ID](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-cartid)|GET|/buy/carts/v2/{id}|
-|Carts v2|[Get a Cart by Filter Criteria (Query Param)](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria)|GET|/buy/carts/v2/?filter|
-|Carts v2|[Create or Update a Cart by Filter Criteria](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-2)|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|[Modify a Cart by Filter Criteria](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-3)|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|[Get a Cart by Filter Criteria (Path Param)](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria-1)|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|[Delete all Items from a Cart by Filter Criteria](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart-1)|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
-|Cart Reviews|[Augment a Cart](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#Cart_Reviews_post_buy_cart_reviews_v1)|POST|/buy/cart_reviews/v1|
-|Shipping Options|[Shipping Options](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#default_post_buy_shipping_options_v2)|POST|/buy/shipping_options/v2|
-|Checkouts|[Request Checkout Preview](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#checkout-preview-request-checkout-preview)|PUT|/buy/checkout_previews/v2/{id}|
-|Checkouts|[Retrieve Checkout Preview Job](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_Preview_get_buy_checkout_previews_v2_jobs_id)|GET|/buy/checkout_previews/v2/jobs/{id}|
-|Checkouts|[Retrieve Checkout Preview Results](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_Preview_get_buy_checkout_preview_results_v2_id)|GET|/buy/checkout_preview_results/v2/{id}|
-|Checkouts|[Request Checkout Submit](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_put_buy_checkouts_v2_id)|PUT|/buy/checkouts/v2/{id}|
-|Checkouts|[Retrieve Checkout Submit Job](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_get_buy_checkouts_v2_jobs_id)|GET|/buy/checkouts/v2/jobs/{id}|
-|Checkouts|[Retrieve Checkout Results](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_get_buy_checkout_results_v2_id)|GET|/buy/checkout_results/v2/{id}|
-|Checkouts|[Request Checkout Submit (Launch)](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Launch_Checkout_put_buy_launch_checkouts_v2_id)|PUT|/buy/launch_checkouts/v2/{id}|
+|Carts v1|[Create or Update a Cart](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_put_buy_carts_v1_id)|PUT|/buy/carts/v1/{id}{?fields}|
+|Carts v1|[Retrieve Carts by ID](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_get_buy_carts_v1_id)|GET|/buy/carts/v1/{id}/{?fields}|
+|Carts v1|[Retrieve Carts by Filter](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_get_buy_carts_v1)|GET|/buy/carts/v1/{?filter,fields}|
+|Carts v1|[Delete All Items from a Cart](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_delete_buy_carts_v1_id)|DELETE|/buy/carts/v1/{id}|
+|Carts v2|[Create or Update a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart)|PUT|/buy/carts/v2/{id}|
+|Carts v2|[Modify a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-1)|PATCH|/buy/carts/v2/{id}|
+|Carts v2|[Delete All Items from a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart)|DELETE|/buy/carts/v2/{id}|
+|Carts v2|[Get a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-cartid)|GET|/buy/carts/v2/{id}|
+|Carts v2|[Get a Cart by Filter Criteria (Query Param)](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria)|GET|/buy/carts/v2/?filter|
+|Carts v2|[Create or Update a Cart by Filter Criteria](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-2)|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|[Modify a Cart by Filter Criteria](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-3)|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|[Get a Cart by Filter Criteria (Path Param)](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria-1)|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|[Delete all Items from a Cart by Filter Criteria](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart-1)|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
+|Cart Reviews|[Augment a Cart](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#Cart_Reviews_post_buy_cart_reviews_v1)|POST|/buy/cart_reviews/v1|
+|Shipping Options|[Shipping Options](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#default_post_buy_shipping_options_v2)|POST|/buy/shipping_options/v2|
+|Checkouts|[Request Checkout Preview](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#checkout-preview-request-checkout-preview)|PUT|/buy/checkout_previews/v2/{id}|
+|Checkouts|[Retrieve Checkout Preview Job](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_Preview_get_buy_checkout_previews_v2_jobs_id)|GET|/buy/checkout_previews/v2/jobs/{id}|
+|Checkouts|[Retrieve Checkout Preview Results](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_Preview_get_buy_checkout_preview_results_v2_id)|GET|/buy/checkout_preview_results/v2/{id}|
+|Checkouts|[Request Checkout Submit](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_put_buy_checkouts_v2_id)|PUT|/buy/checkouts/v2/{id}|
+|Checkouts|[Retrieve Checkout Submit Job](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_get_buy_checkouts_v2_jobs_id)|GET|/buy/checkouts/v2/jobs/{id}|
+|Checkouts|[Retrieve Checkout Results](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_get_buy_checkout_results_v2_id)|GET|/buy/checkout_results/v2/{id}|
+|Checkouts|[Request Checkout Submit (Launch)](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Launch_Checkout_put_buy_launch_checkouts_v2_id)|PUT|/buy/launch_checkouts/v2/{id}|
 
 ## <a name="making-your-first-api-request"></a>Making Your First API Request
 
@@ -282,7 +282,7 @@ For the request body, the following considerations apply (at miniumum):
 
 **2. Create the URL**
 
-The [API.md](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md) states that the required URL format is `/buy/carts/v2/{id}`.
+The [API.md](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md) states that the required URL format is `/buy/carts/v2/{id}`.
 
 To build the full URL, prepend `https://api.nike.com` to the above path, then append  **id** after "v2". The **id** is the cart identifier you passed in the request body.
 
@@ -483,13 +483,13 @@ Required request headers:
 
 >TIPS:
 
-> * For the list of supported country code and currency code combinations, see [here](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).
+> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
 
 > * Use the same brand value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
 
 > * Use the same channel value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
 
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw) for more information.
+> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart* Request Body:
 
@@ -627,7 +627,7 @@ Retrieve a user's cart(s) by country, brand, and (optionally) channel. The defau
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw) **Required**<li>**brand**: NIKE brand name, only NIKE is supported **Required**<li>channel: sales channel, only NIKECOM is supported, optional|string|**Required**|
+|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html) **Required**<li>**brand**: NIKE brand name, only NIKE is supported **Required**<li>channel: sales channel, only NIKECOM is supported, optional|string|**Required**|
 |**fields**|Query|Fields to be included in the response (all fields included by default)|string|Optional|
 
 #### <a name="cart-get2-request-headers"></a>Request Headers
@@ -862,11 +862,11 @@ Required request headers:
 
 >TIPS:
 
-> * For the list of supported country code and currency code combinations, see [here](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).
+> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
 
 > * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
 
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw) for more information.
+> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart by Cart ID* Request Body:
 
@@ -1221,7 +1221,7 @@ See the response body from the [*Create or Update Cart by Cart ID* endpoint](#ca
 
 Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** values sent as `?filter` query parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.
 
->TIP: For more info on how to use `?filter`, see the query parameters section of [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#query-parameters).
+>TIP: For more info on how to use `?filter`, see the query parameters section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#query-parameters).
 
 #### Endpoint Details
 
@@ -1233,7 +1233,7 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw) **Required**<li>**brand**: Brand name, e.g. 'NIKE' **Required**<li>channel: Sales channel, optional|string|**Required**|
+|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html) **Required**<li>**brand**: Brand name, e.g. 'NIKE' **Required**<li>channel: Sales channel, optional|string|**Required**|
 
 #### <a name="cart-get2-v2-request-headers"></a>Request Headers
 
@@ -1330,7 +1330,7 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**country**|Path|ISO 3166-1 [two-letter code](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw)|string|Required|
+|**country**|Path|ISO 3166-1 [two-letter code](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html)|string|Required|
 |**brand**|Path|Brand name, e.g. 'NIKE'|string|Required|
 |**channel**|Path|Sales channel|string|Optional|
 
@@ -1554,7 +1554,7 @@ Required request headers:
 
 >TIPS:
 
-> * For the list of supported country code and currency code combinations, see [here](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).
+> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
 
 > * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
 
@@ -1562,7 +1562,7 @@ Required request headers:
 
 > * Although optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.
 
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw) for more information.
+> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Cart Reviews* request body:
 
@@ -1915,9 +1915,9 @@ Required request headers:
 
 >TIPS:
 
-> * For the list of supported country code and currency code combinations, see [here](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).
+> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
 
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw) for more information.
+> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
 
 > * Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
 
@@ -2163,11 +2163,11 @@ In a typical Nike digital experience, a successful checkout preview means that t
 
 Use the response to display the final payment amount to the customer. Once the customer confirms the payment method details and clicks or taps 'Place Order', there will be a greater chance of success.
 
->TIP: For more context, see a step-by-step example of all the calls in a checkout in the diagram in the [Use Cases](#use-cases) section of this document. For more info about Payment, see the [Payment Domain Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/api_payment.md?raw).
+>TIP: For more context, see a step-by-step example of all the calls in a checkout in the diagram in the [Use Cases](#use-cases) section of this document. For more info about Payment, see the [Payment Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html).
 
 ####  Checkout Preview Operates Asynchronously
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#asynchronous-operation) guide to learn more.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more.
 
 #### Endpoint Details
 
@@ -2225,9 +2225,9 @@ Required request headers:
 
 >TIPS:
 
-> * For the list of supported country code and currency code combinations, see [here](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).
+> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
 
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw) for more information.
+> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Request a Checkout Preview* request body:
 ```
@@ -2567,7 +2567,7 @@ Call the *Request Checkout Submit* endpoint when your user is ready to complete 
 
 #### Considerations
 
-- Before calling *Request Checkout Submit*, you must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Payment Domain Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/api_payment.md?raw) for more info.
+- Before calling *Request Checkout Submit*, you must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Payment Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html) for more info.
 
 - Calling *Request Checkout Preview* is not required before calling *Request Checkout Submit*, but it is recommended in most cases.
 
@@ -2575,7 +2575,7 @@ Call the *Request Checkout Submit* endpoint when your user is ready to complete 
 
 #### Checkout Submit Operates Asynchronously
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#asynchronous-operation)
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation)
 guide to learn more.
 
 #### Endpoint Details
@@ -2623,7 +2623,7 @@ Required parts of the request body:
 |**locale**|Required|BCP 47 locale code, e.g. en_US|
 |**channel**|Required|Selling channel name associated with the checkout, e.g. 'SNKRS'|
 |**items**|Required|Array containing list of item objects|
-|**paymentToken**|Required|Unique identifier of the payment details, as obtained from the [Payment Preview API](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/api_payment.md?raw#using-payment-preview) in the **id** field at the top level|
+|**paymentToken**|Required|Unique identifier of the payment details, as obtained from the [Payment Preview API](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html#using-payment-preview) in the **id** field at the top level|
 |**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service|
 |valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
 |valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|
@@ -2632,9 +2632,9 @@ Required parts of the request body:
 
 >TIPS:
 
-> * For the list of supported country code and currency code combinations, see [here](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/checkout_country_currency.md?raw).
+> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
 
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md) for more information.
+> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
 
 > * Optionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
 
@@ -3623,7 +3623,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
@@ -3641,7 +3641,7 @@ Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of 
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw)
+See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 
@@ -3653,13 +3653,14 @@ No release notes available.
 |---|---|---|
 |Initial draft|10/02/2018|Initial Draft|
 |Added Carts v2|03/16/2018|Updates based on Carts v2 API being released|
+|Updated links|03/20/2018|Updated links to point to new dev portal|
 
 ## <a name="related-links"></a>Related Links
 
-Need more? The Nike Developer Portal has more guides!
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-- [General Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
 
-- [Business Guides](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw)
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
 
-- [Developer's Guides](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw)
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

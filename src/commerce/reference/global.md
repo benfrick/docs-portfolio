@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
 <link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"></link>
 
-
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/reference/global.md) for version history of this document.
 Author:  Jane Moore
@@ -10,14 +9,13 @@ Author:  Jane Moore
 
 # GLOBAL REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 1/18/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
 
 - [Countries, Languages and Currencies](#countries-languages-currencies)
 - [Sales Channels](#sales-channels)
 - [Brands](#brands)
-
 
 ## <a name="countries-languages-currencies">Countries, Languages and Currencies</a>
 
@@ -62,3 +60,13 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |**Hurley**|Hurley brand|
 |**Jordan**|Jordan brand|
 |**Converse**|Converse brand|
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

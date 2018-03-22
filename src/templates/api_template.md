@@ -12,7 +12,7 @@ SME Consultants:
 
 ---
 
-If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw), this guide provides the details necessary to integrate with the {API Name} API.
+If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the {API Name} API.
 
 ## **In this guide:**
 
@@ -76,7 +76,7 @@ If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitb
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw#authorization) on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) on how to create and register your caller ID.
 
 ### <a name="authorization"></a>Authorization
 
@@ -259,7 +259,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 * What are the terms and concepts used in this API that are not common? Add them to the master glossary at the link below.
 -->
 
-See the [Glossary](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw)
+See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 <!--
@@ -274,8 +274,10 @@ See the [Glossary](http://developer.nikedev.com/?guide=https://bitbucket.nike.co
 
 ## <a name="related-links"></a>Related Links
 
-[General Guide](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw)
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-[Business Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
 
-[Developer's Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw)
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

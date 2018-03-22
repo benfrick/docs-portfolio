@@ -5,7 +5,7 @@
 # GET STARTED WITH MERCHANDISED PRODUCT API <i class="g72-swoosh"></i> (DRAFT)
 <!-- Header describing title of topic) -->
 
-###### Last Updated: 2/6/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ---
 
@@ -23,8 +23,6 @@
 
 [Next Steps](#next-steps)
 
-<br>
-
 ## <a name="overview"/>Overview
 
 **Nike products drive the e-commerce and brand experience**
@@ -33,15 +31,13 @@ The Merchandised Product API provides access to product content and pricing that
 
 <br>
 
-<img src="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/commerce/merch_product/aj1_retro_es.png?at=refs%2Fheads%2Fmaster"/>
-<br>
+![](https://nde-devportal-docs.niketech.com/images/commerce/merch_product/aj1_retro_es.png)
 
 ## <a name="features"/>Features
 
 The Merchandised Product API supports the US, Japan, China and European Union geographies, allowing you to reach a wide customer base.
 
 **Here is the kind of data accessible to you by using the Merchandised Product API.**
-<br>
 
 <i class="g72-plus-large"></i> **Merchandised Products**: Provides detailed information about the product such as style, color, where it can be sold, and if it can be customized.
 
@@ -54,7 +50,6 @@ The Merchandised Product API supports the US, Japan, China and European Union ge
 <i class="g72-plus-large"></i> **Product Content**: Lists localized content for a product including title, subtitle, description and color to give customers a custom-tailored product experience.
 
 Use the Merchandised Product API to tell your Nike product story.
-<br>
 
 ## <a name="considerations"></a>Considerations
 
@@ -65,7 +60,6 @@ Nike services are built for reliability and scalability, reaping the benefits of
 **The Latest Web API Standards**
 
 Join the web API economy by using the common language of the internet to interact with Nike services. Your developers will be familiar with issuing JSON-formatted requests to Nike's REST web services using the standard HTTP protocol.
-<br>
 
 ## <a name="#connect"/>Connect
 
@@ -74,14 +68,23 @@ We're here to help.
 <i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
-<br>
 
 ## <a name="next-steps"/>Next Steps
 
 **From here, explore the Merchandised Product API in detail through the Developer Guide.  Learn more about the product data.  Read about how the Product Feeds API consumes this data**
 
-<i class="g72-plus-large"></i> [Merchandised Product API Developer's Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md?raw)
+<i class="g72-plus-large"></i> [Merchandised Product API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html)
 
-<i class="g72-plus-large"></i> [Merchandised Product Field Reference](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/merch_product_field_reference.md?raw#using-merchandised-products)
+<i class="g72-plus-large"></i> [Merchandised Product Field Reference](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)
 
-<i class="g72-plus-large"></i> [Get Started with the Product Feeds API](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/biz_product_feeds.md?raw)
+<i class="g72-plus-large"></i> [Get Started with the Product Feeds API](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_product_feeds.html)
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

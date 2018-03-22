@@ -1,3 +1,11 @@
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster">
+
+# Checkout: Supported Countries/Currencies <i class="g72-swoosh"></i>
+
+##### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+
 The following describes the shipping countries supported by the Nike Checkout API's, including the ISO country and currency codes.
 
 |Country Code|Country Name|Currency Code|
@@ -24,3 +32,13 @@ The following describes the shipping countries supported by the Nike Checkout AP
 |SE|Sweden|SEK|
 |SI|Slovenia|EUR|
 |US|United States|USD|
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

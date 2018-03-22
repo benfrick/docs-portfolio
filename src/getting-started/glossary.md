@@ -4,7 +4,7 @@
 
 # GENERAL GUIDE: GLOSSARY <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 10/09/2017<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 ## Glossary of Terms
 
@@ -49,5 +49,10 @@
 
 ## Related Links
 
-<i class="g72-link"></i> [Back to General Guides](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw)
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

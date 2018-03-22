@@ -10,11 +10,11 @@ Author:  Jane Moore
 
 # MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 1/18/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
 This guide describes the product and value-added service merchandising codes flowing from Prodigy (the system of record) to the Merchandised Product API.
 
-See the [Global Reference Guide](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/reference/global.md?raw) for the list of countries, languages, channels and brands that the NIKE APIs support.
+See the [Global Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/reference/global.html) for the list of countries, languages, channels and brands that the NIKE APIs support.
 
 - [Status Codes](#status-codes)
 - [Merchandising Groups](#merchandising-groups)
@@ -95,3 +95,13 @@ Listed below are the publish type codes.
 |---|---|
 |**FLOW**|Product that is available to all NIKE customers for purchase when merchandising is complete and inventory is available|
 |**LAUNCH**|Product that is available for purchase by certain NIKE customers for a discrete time period when merchandising is complete and inventory is available|
+
+## <a name="related-links"></a>Related Links
+
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)

@@ -10,9 +10,9 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 
 # ANALYTICS PIPELINE API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-##### Last Updated: 2/27/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
 
-If you've read [Using NDe APIs](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw) and [Get Started With Nike Analytics Pipeline](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/events/biz_events.md?raw), this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.
+If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](https://nde-devportal-docs.niketech.com/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.
 
 ## **In This Guide:**
 
@@ -60,7 +60,7 @@ Because Analytics Pipeline is server-side and Nike-authored, it is much more cus
 
 Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event. Future integrations with other partners can be done without necessarily changing the contract of this API, thus making it easier (if not completely transparent) to you.
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/analytics/events.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/analytics/events.png)
 
 Here are a few ways in which analytics event data can be used:
 
@@ -126,9 +126,15 @@ The data you send to this API is transformed (in most cases) to meet the require
 
 Here are some screenshots from Adobe Analytics to illustrate what kind of insights you can gain from sending events through this API:
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/analytics/adobe1.png?at=refs%2Fheads%2Fmaster)
+<br>
 
-![](https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/images/analytics/adobe2.png?at=refs%2Fheads%2Fmaster)
+![](https://nde-devportal-docs.niketech.com/images/analytics/adobe1.png)
+
+<br>
+
+![](https://nde-devportal-docs.niketech.com/images/analytics/adobe2.png)
+
+<br>
 
 >TIP: This guide does not include details of the data transformations. For more info, see [TBD]().
 
@@ -138,7 +144,7 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[SEND A NEW EVENT BATCH](http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md)|/measure/uxevents/v1|POST|
+[SEND A NEW EVENT BATCH](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md)|/measure/uxevents/v1|POST|
 
 ## <a name="making-your-first-api-request"></a>Making Your First API Request
 
@@ -2048,7 +2054,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/glossary.md?raw)
+See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"/>Release Notes
 
@@ -2059,11 +2065,14 @@ There are no release notes at this time.
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|2/27/2018|Initial Draft|
+|Updated links|3/20/2018|Updated links to point to new dev portal|
 
 ## <a name="related-links"></a>Related Links
 
-[General Guide](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/getting-started/using_nike_apis.md?raw)
+[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
 
-[Business Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/biz_guide.md?raw)
+[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
 
-[Developer's Guides](http://developer.nikedev.com/http://developer.nikedev.com/?guide=https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/api_guide.md?raw)
+[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+
+[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
