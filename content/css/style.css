@@ -1,3 +1,4 @@
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,16 +9,14 @@ html {
     font-size: 14px;
 }
 h1 {
-    font-family: "Nike TG","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: .5px;
     font-size: 40px;
     text-transform: uppercase;
     color: #000000;
 }
 h2,h3,h4,h5,h6 {
-    font-family: OneNikeCurrency,"Nike TG","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: .5px;
     padding-top: .8em;
 }
@@ -28,23 +27,23 @@ h5{font-size:1.0em;}
 h6{font-size:.8em;}
 table {
     margin-top: 16px;
-    padding-top: 50px;
-    padding-bottom: 15px;
+    padding-top: 50px 10px 15px 10px;
     width:70%
 }
-table.card thead tr th {
+table thead tr th {
     background-color:#FA5400;
+    /*background-color: #3498db;*/
     font-weight:bold;
     color:white;
     text-align: left;
+    padding: 5px;
 }
-table.card tbody tr td {
-    border-bottom-color: black;
+table tbody tr td {
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
     border-collapse: collapse;
-    font-size: 1.1em;
 }
 p {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 1.714285714285714;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -55,24 +54,13 @@ code, code span {
 a {
     color: #3498db;
 }
-/* dev portal style overrides*/
-.hljs {
-    color: #000000;
-    background-color: #ffffff;
-}
-.hljs-string {
-    color: #0B7500;
-}
-.card .card-header a, .navList .navLink {
-    color: #111;
-}
+
 .toc-pad {
     margin-left:25px;
 }
 
 
-article h1,h2,h3,h4,h5,h6 {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+article h1,h2,h3,h4,h5,h6 {ß
     font-weight: bold;
     letter-spacing: 0px;
 }
@@ -82,7 +70,6 @@ article h1{
     border-bottom: 2px solid #f4f6f7;
     text-transform: none;
     font-size: 2em;
-    /*margin-left: 20px;*/
     width: 65%;
 }
 article h2 {
@@ -207,12 +194,6 @@ article h2 {
     height: 300px;
     margin-top: 20px;
 }
-/*a.noanchor:link,a.noanchor:visited,a.noanchor:hover,a.noanchor:active {
-    text-decoration: none;
-    color: black;
-    cursor: default;
-}*/
-
 a h6.guide-toc-l2 {
     margin-left: 6px;
     color: black;
@@ -233,7 +214,9 @@ a h6.guide-toc-l3 {
 .guide-menu .guide-menu-nav {
     display: block;
 }
-.guide-menu a.guide-menu-nav.menu-l1, .guide-menu a.guide-menu-nav.menu-l2, .guide-menu a.guide-menu-nav.menu-l3 {
+.guide-menu a.guide-menu-nav.menu-l1,
+.guide-menu a.guide-menu-nav.menu-l2,
+.guide-menu a.guide-menu-nav.menu-l3 {
      text-decoration: none;
      color: black;
  }
@@ -251,6 +234,8 @@ a h6.guide-toc-l3 {
     font-size: .9rem;
     color: #8d8d8d;
 }
-.guide-menu .guide-menu-nav.menu-l1.menu-highlight, .guide-menu .guide-menu-nav.menu-l2.menu-highlight, .guide-menu .guide-menu-nav.menu-l3.menu-highlight {
+.guide-menu .guide-menu-nav.menu-l1.menu-highlight,
+.guide-menu .guide-menu-nav.menu-l2.menu-highlight,
+.guide-menu .guide-menu-nav.menu-l3.menu-highlight {
     color: #3498db;
 }
