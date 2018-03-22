@@ -9,14 +9,14 @@ html {
     font-size: 14px;
 }
 h1 {
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: .5px;
     font-size: 40px;
     text-transform: uppercase;
     color: #000000;
 }
 h2,h3,h4,h5,h6 {
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: .5px;
     padding-top: .8em;
 }
