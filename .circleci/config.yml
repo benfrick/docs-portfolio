@@ -50,7 +50,7 @@ jobs:
       - run: echo 'export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID_NONPROD}"' >> $BASH_ENV
       - run: echo 'export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY_NONPROD}"' >> $BASH_ENV
       - run: echo 'export terraform_state_bucket="ngp-nonprod-terraform-remote-config"' >> $BASH_ENV
-      - run: echo 'export terraform_state_bucket="nde-devportal-docs.preprod.niketech.com"' >> $BASH_ENV
+      - run: echo 'export s3_site_bucket="nde-devportal-docs.preprod.niketech.com"' >> $BASH_ENV
       - run:
           name: deploy
           command: .circleci/deploy.sh preprod
@@ -62,7 +62,7 @@ jobs:
       - run: aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_PROD}"
       - run: aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_PROD}"
       - run: echo 'export terraform_state_bucket="ngp-prod-terraform-remote-config"' >> $BASH_ENV
-      - run: echo 'export terraform_state_bucket="nde-devportal-docs.niketech.com"' >> $BASH_ENV
+      - run: echo 'export s3_site_bucket="nde-devportal-docs.niketech.com"' >> $BASH_ENV
       - run:
           name: deploy
           command: .circleci/deploy.sh prod
