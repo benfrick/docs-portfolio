@@ -1,4 +1,4 @@
-var allowed = ['https://developer.preprod.niketech.com','https://developer.niketech.com','http://localhost:3000'];
+var allowed = ['https://developer.preprod.niketech.com','https://developer.niketech.com','http://localhost:3000','*'];
 var parent = window.opener;
 var temp;
 
@@ -12,6 +12,7 @@ function receiveMessage(event)
       break;
     }
   }
+  processMessage (event);
   console.log('done receiving message');
 }
 function processMessage (event) {
@@ -30,5 +31,5 @@ function sendMessage (message, origin, recipient){
 window.addEventListener('message', receiveMessage, false);
 console.log('added event listener');
 if(parent)
-    parent.sendMessage(location.href,location.origin);
+    parent.postMessage(location.href,location.origin);
 console.log('notified parent ready to listen');
