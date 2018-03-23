@@ -1,7 +1,7 @@
 var allowed = ['https://developer.preprod.niketech.com','https://developer.niketech.com','http://localhost:3000'];
 var temp;
 
-function receiveMessage(event)
+function receiveMessage (event)
 {
   for (i = 0; i < allowed.length; i++) {
     if (event.origin === allowed[i]){
@@ -9,7 +9,6 @@ function receiveMessage(event)
       break;
     }
   }
-  processMessage (event);
 }
 function processMessage (event) {
   if(event.data) {
