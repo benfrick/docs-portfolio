@@ -1,5 +1,4 @@
 var allowed = ['https://developer.preprod.niketech.com','https://developer.niketech.com','http://localhost:3000','*'];
-var parent = window.opener;
 var temp;
 
 function receiveMessage(event)
