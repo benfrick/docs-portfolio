@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
 <link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css">
+<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
 
 # Checkout: Supported Countries/Currencies <i class="g72-swoosh"></i>
 
