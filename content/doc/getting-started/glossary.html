@@ -5,54 +5,55 @@
 <body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
-<h1 id="general-guide-glossary--draft"><a href="#general-guide-glossary--draft" name="general-guide-glossary--draft" class="anchor"><span class="octicon octicon-link"></span></a>GENERAL GUIDE: GLOSSARY <i class="g72-swoosh"></i> (DRAFT)</h1>
-<h6 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc">#nde-doc</a></h6>
-<h2 id="glossary-of-terms"><a href="#glossary-of-terms" name="glossary-of-terms" class="anchor"><span class="octicon octicon-link"></span></a>Glossary of Terms</h2>
+<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
+<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<h1 id="general-guide-glossary--draft"><a href="#general-guide-glossary--draft" name="general-guide-glossary--draft">GENERAL GUIDE: GLOSSARY <i class="g72-swoosh"></i> (DRAFT)</a></h1>
+<h6 id="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-03202018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc">#nde-doc</a></a></h6>
+<h2 id="glossary-of-terms"><a href="#glossary-of-terms" name="glossary-of-terms">Glossary of Terms</a></h2>
 <table>
   <thead>
-    <tr><th>Term</th><th>Definition</th></tr>
+    <tr class="thead-first-child"><th>Term</th><th>Definition</th></tr>
   </thead>
   <tbody>
-    <tr><td>A/B Test</td><td>In web analytics, a controlled experiment with two variants of user experience intended to measure an increase in a desired outcome based on a change to the UX (e.g. conversion)</td></tr>
-    <tr><td>API</td><td>Application Programming Interface</td></tr>
-    <tr><td>API.md</td><td>The 'contract' document of an API, which details the endpoints offered along with request and response schemas</td></tr>
-    <tr><td>Authorization (of payment)</td><td>Temporary hold on funds in a customer's account for a future charge</td></tr>
-    <tr><td>Cart</td><td>The virtual shopping cart used by shoppers to collect and compare items for purchase</td></tr>
-    <tr><td>Checkout</td><td>A collection of data describing what may become a customer order</td></tr>
-    <tr><td>CORS</td><td>Cross-Origin Resource Sharing</td></tr>
-    <tr><td>cURL</td><td>A computer software project providing a library and command-line tool for transferring data using various protocols. Can be used to execute HTTP requests from the command line</td></tr>
-    <tr><td>Deferred Payment</td><td>Third-party bank through which a customer pays for their Nike order after it is placed</td></tr>
-    <tr><td>Fapiao</td><td>Tax-related invoice offered to China customers only</td></tr>
-    <tr><td>GTIN</td><td>Global Trade Item Number.  Nike leases a block of these numbers. They are not unique, as Nike recycles them for a new season of products.</td></tr>
-    <tr><td>HTTP</td><td>HyperText Transfer Protocol, the standard language of the internet</td></tr>
-    <tr><td>Image Base</td><td>Full path to a product image in an image set.  This does not include resizing parameters.</td></tr>
-    <tr><td>Image Set</td><td>Set of product images stored in Scene 7 representing different views of the product.   Build the URI to the product image using domain + company + view from the list image results call.</td></tr>
-    <tr><td>JWT</td><td>JSON Web Token, used for authorization purposes in API requests</td></tr>
-    <tr><td>Launch</td><td>The release of a new product for sale in a Nike digital or retail experience</td></tr>
-    <tr><td>Master Product</td><td>A Nike iD product that has skus and is purchasable.</td></tr>
-    <tr><td>Merch Group</td><td>Merchandising Group representing a Nike geographical region.  See a list of supported Merchandising Groups in the Enumerations section of the Merchandised Product service.</td></tr>
-    <tr><td>Nike iD</td><td>Nike's platform for shoppers to customize the look of their products</td></tr>
-    <tr><td>Nike UPMID</td><td>Unique Universal Profile Management ID used to identify the user as a logged in, registered Nike member</td></tr>
-    <tr><td>Prebuild Product</td><td>A non-purchasable Nike iD product that has no skus.  Each Prebuild product is associated to one Master product that is purchasable.</td></tr>
-    <tr><td>Prodigy</td><td>System of record for all product data.  All products are merchandised in this system and flow into the Merchandised Product database when they are published in Prodigy.</td></tr>
-    <tr><td>Segment</td><td>Analytics API and customer data platform. One of many downstream integrations from Nike's Analytics Pipeline API</td></tr>
-    <tr><td>SEO</td><td>Search Engine Optimization. The process of maximizing visitors to a website by ensuring it appears high on the list of results returned by a search engine.</td></tr>
-    <tr><td>SEO slug</td><td>Short text for search engine optimization, e.g. &quot;tiempo-legend-6-totti-gladiator&quot;</td></tr>
-    <tr><td>SKU</td><td>Stock Keeping Unit, a unique identifier for the combination of style, color, and size of a Nike product. A product has one or more SKUs. A SKU represents one size and has inventory.</td></tr>
-    <tr><td>SLA</td><td>Service Level Agreement. The Response Time and Requests Per Second guarantees made by an API</td></tr>
-    <tr><td>SNKRS</td><td>A Nike app for web, iOS, and Android focused on making newly-launched and limited release products available for purchase</td></tr>
-    <tr><td>Splunk</td><td>Logging application used by Nike</td></tr>
-    <tr><td>Trace ID</td><td>A unique identifier passed from API to API to trace the path of a request using logging</td></tr>
-    <tr><td>URI</td><td>Universal Resource Indicator</td></tr>
-    <tr><td>URL</td><td>Univeral Resource Locator</td></tr>
-    <tr><td>UUID</td><td>Universal Unique Identifier</td></tr>
-    <tr><td>VAS</td><td>Value-Added Service associated with a product in a checkout.  Gift wrap and the ability to customize a product are examples of VAS</td></tr>
-    <tr><td><a href="https://www.pcisecuritystandards.org/pci_security/">PCI-DSS</a></td><td>Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data.  All Nike CiC payment services are PCI-DSS compliant.</td></tr>
-    <tr><td>Void (of payment)</td><td>Reverses a successful payment authorization</td></tr>
+    <tr class="tbody-first-child"><td>A/B Test</td><td>In web analytics, a controlled experiment with two variants of user experience intended to measure an increase in a desired outcome based on a change to the UX (e.g. conversion)</td></tr>
+    <tr class="tbody-even-child"><td>API</td><td>Application Programming Interface</td></tr>
+    <tr class="tbody-odd-child"><td>API.md</td><td>The 'contract' document of an API, which details the endpoints offered along with request and response schemas</td></tr>
+    <tr class="tbody-even-child"><td>Authorization (of payment)</td><td>Temporary hold on funds in a customer's account for a future charge</td></tr>
+    <tr class="tbody-odd-child"><td>Cart</td><td>The virtual shopping cart used by shoppers to collect and compare items for purchase</td></tr>
+    <tr class="tbody-even-child"><td>Checkout</td><td>A collection of data describing what may become a customer order</td></tr>
+    <tr class="tbody-odd-child"><td>CORS</td><td>Cross-Origin Resource Sharing</td></tr>
+    <tr class="tbody-even-child"><td>cURL</td><td>A computer software project providing a library and command-line tool for transferring data using various protocols. Can be used to execute HTTP requests from the command line</td></tr>
+    <tr class="tbody-odd-child"><td>Deferred Payment</td><td>Third-party bank through which a customer pays for their Nike order after it is placed</td></tr>
+    <tr class="tbody-even-child"><td>Fapiao</td><td>Tax-related invoice offered to China customers only</td></tr>
+    <tr class="tbody-odd-child"><td>GTIN</td><td>Global Trade Item Number.  Nike leases a block of these numbers. They are not unique, as Nike recycles them for a new season of products.</td></tr>
+    <tr class="tbody-even-child"><td>HTTP</td><td>HyperText Transfer Protocol, the standard language of the internet</td></tr>
+    <tr class="tbody-odd-child"><td>Image Base</td><td>Full path to a product image in an image set.  This does not include resizing parameters.</td></tr>
+    <tr class="tbody-even-child"><td>Image Set</td><td>Set of product images stored in Scene 7 representing different views of the product.   Build the URI to the product image using domain + company + view from the list image results call.</td></tr>
+    <tr class="tbody-odd-child"><td>JWT</td><td>JSON Web Token, used for authorization purposes in API requests</td></tr>
+    <tr class="tbody-even-child"><td>Launch</td><td>The release of a new product for sale in a Nike digital or retail experience</td></tr>
+    <tr class="tbody-odd-child"><td>Master Product</td><td>A Nike iD product that has skus and is purchasable.</td></tr>
+    <tr class="tbody-even-child"><td>Merch Group</td><td>Merchandising Group representing a Nike geographical region.  See a list of supported Merchandising Groups in the Enumerations section of the Merchandised Product service.</td></tr>
+    <tr class="tbody-odd-child"><td>Nike iD</td><td>Nike's platform for shoppers to customize the look of their products</td></tr>
+    <tr class="tbody-even-child"><td>Nike UPMID</td><td>Unique Universal Profile Management ID used to identify the user as a logged in, registered Nike member</td></tr>
+    <tr class="tbody-odd-child"><td>Prebuild Product</td><td>A non-purchasable Nike iD product that has no skus.  Each Prebuild product is associated to one Master product that is purchasable.</td></tr>
+    <tr class="tbody-even-child"><td>Prodigy</td><td>System of record for all product data.  All products are merchandised in this system and flow into the Merchandised Product database when they are published in Prodigy.</td></tr>
+    <tr class="tbody-odd-child"><td>Segment</td><td>Analytics API and customer data platform. One of many downstream integrations from Nike's Analytics Pipeline API</td></tr>
+    <tr class="tbody-even-child"><td>SEO</td><td>Search Engine Optimization. The process of maximizing visitors to a website by ensuring it appears high on the list of results returned by a search engine.</td></tr>
+    <tr class="tbody-odd-child"><td>SEO slug</td><td>Short text for search engine optimization, e.g. &quot;tiempo-legend-6-totti-gladiator&quot;</td></tr>
+    <tr class="tbody-even-child"><td>SKU</td><td>Stock Keeping Unit, a unique identifier for the combination of style, color, and size of a Nike product. A product has one or more SKUs. A SKU represents one size and has inventory.</td></tr>
+    <tr class="tbody-odd-child"><td>SLA</td><td>Service Level Agreement. The Response Time and Requests Per Second guarantees made by an API</td></tr>
+    <tr class="tbody-even-child"><td>SNKRS</td><td>A Nike app for web, iOS, and Android focused on making newly-launched and limited release products available for purchase</td></tr>
+    <tr class="tbody-odd-child"><td>Splunk</td><td>Logging application used by Nike</td></tr>
+    <tr class="tbody-even-child"><td>Trace ID</td><td>A unique identifier passed from API to API to trace the path of a request using logging</td></tr>
+    <tr class="tbody-odd-child"><td>URI</td><td>Universal Resource Indicator</td></tr>
+    <tr class="tbody-even-child"><td>URL</td><td>Univeral Resource Locator</td></tr>
+    <tr class="tbody-odd-child"><td>UUID</td><td>Universal Unique Identifier</td></tr>
+    <tr class="tbody-even-child"><td>VAS</td><td>Value-Added Service associated with a product in a checkout.  Gift wrap and the ability to customize a product are examples of VAS</td></tr>
+    <tr class="tbody-odd-child"><td><a href="https://www.pcisecuritystandards.org/pci_security/">PCI-DSS</a></td><td>Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data.  All Nike CiC payment services are PCI-DSS compliant.</td></tr>
+    <tr class="tbody-even-child"><td>Void (of payment)</td><td>Reverses a successful payment authorization</td></tr>
   </tbody>
 </table>
-<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a>Related Links</h2>
+<h2 id="related-links"><a href="#related-links" name="related-links">Related Links</a></h2>
 <p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
 <p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
