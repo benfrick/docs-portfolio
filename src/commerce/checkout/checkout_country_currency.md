@@ -5,7 +5,7 @@
 
 # Checkout: Supported Countries/Currencies <i class="g72-swoosh"></i>
 
-##### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 The following describes the shipping countries supported by the Nike Checkout API's, including the ISO country and currency codes.
 
