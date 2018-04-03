@@ -6,12 +6,12 @@
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/api_payment.md) for version history of this document.
 Author: Jane Moore
-SME Consultants: Sree Krisna, Durai Devadoss
+SME Consultants: Sree Krishna, Durai Devadoss
 -->
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 ---
 
@@ -163,7 +163,7 @@ If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/gett
 |SLA response time (rt) and requests per second (rps)|<li>Payment Applepay rt: 350ms rps:40<li>Payment Approval rt: 250ms rps: 200<li>Payment Credit Card Submit ?ms<li>Payment Deferred Payment ?ms<li>Payment Options rt: 250ms rps:700<li>Payment Preview rt: 250ms rps:300<li>Stored Payment ?ms<li>Payment Wallet rt: 300ms rps: 200|
 |Domain|Commerce|
 |Prerequisites|[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)|
-|Contact Info|Slack #cic-payment<br>Confluence space: [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook)<br> Mailing List: lst-nde.docs<br><a name="product-owner"></a>Product Owner: Sree Krishna sree.krishna@nike.com|
+|Contact Info|Slack #cic-payment<br>Confluence space: <a href="https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook" target="_blank">CiC Payment</a><br> Mailing List: lst-nde.docs<br><a name="product-owner"></a>Product Owner: <a href="mailto:sree.krishna@nike.com" target="_blank">Sree Krishna</a>|
 
 >TIP: SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
 
@@ -208,19 +208,19 @@ Payment API flows vary based on the payment method and the user experience. List
 
 **Sample Credit Card Payment Flow**
 
-In this Payment flow, the customer chooses to pay by Credit Card that is saved as a stored payment method.  The customer must provide the CVV for validation because the shipping address passed into the call is either new or different from previous shipping addresses on past orders.
+In this Payment flow, the customer chooses to pay by Credit Card that is saved as a stored payment method. The customer must provide the CVV for validation because the shipping address passed into the call is either new or different from previous shipping addresses on past orders.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/creditcard_seq_dgm.png)
 
 **Sample PayPal Express flow**
 
-In this flow, the customer is redirected to the PayPal site after choosing to pay by PayPal Express in the Nike experience.  The customer selects the shipping and billing addresses on the PayPal site.  Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
+In this flow, the customer is redirected to the PayPal site after choosing to pay by PayPal Express in the Nike experience. The customer selects the shipping and billing addresses on the PayPal site. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/paypal_express_seq_dgm.png)
 
 **Sample PayPal Mark flow**
 
-In this flow, the customer chooses to pay by PayPal Mark and provides the shipping address in the Nike experience. From order review, the customer is redirected to the PayPal site to select the billing address and pay.  Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
+In this flow, the customer chooses to pay by PayPal Mark and provides the shipping address in the Nike experience. From order review, the customer is redirected to the PayPal site to select the billing address and pay. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/paypal_mark_seq_dgm.png)
 
@@ -232,13 +232,13 @@ In the example Payment API flow below, the customer chooses to pay by Apple Pay 
 
 **Sample Deferred Payment flow**
 
-In this flow, the customer chooses to pay by a payment method that will be authorized and captured after the Nike order has been placed.  This is a typical flow for China payment methods such as WeChat and Alipay.
+In this flow, the customer chooses to pay by a payment method that will be authorized and captured after the Nike order has been placed. This is a typical flow for China payment methods such as WeChat and Alipay.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/deferred_pmt_seq_dgm.png)
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
-For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.com/projects/PHYLPAY)
+For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY" target="_blank">PHYLON Payment Repository</a>)
 
 <p>&nbsp;</p>
 
@@ -246,7 +246,7 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[START APPLE PAY SESSION](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md?raw#!/Payment_AppleyPay/post_payment_applepay_sessions_v2)|/payment/applepay_sessions/v2/|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" target="_blank">START APPLE PAY SESSION</a>|/payment/applepay_sessions/v2/|POST|
 
 <p>&nbsp;</p>
 
@@ -254,12 +254,12 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/post_payment_approval_v2)|/payment/approval/v2/|POST|
-|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/put_payment_approval_v2_id)|/payment/approval/v2/{id}|PUT|
-|[RETRIEVE PAYMENT APPROVAL JOB](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_v2_jobs_id)|/payment/approval/v2/jobs/{id}|GET|
-|[ORDER PAYMENTS APPROVAL RESULT](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_results_v2_id)|/payment/approval_results/v2/{id}|GET|
-|[VOID PAYMENT APPROVAL](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/delete_payment_approval_results_v2_id)|/payment/approval_results/v2/|DELETE|
-|[GET PAYMENT APPROVAL SUMMARY](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_summary_v1_id)|/payment/approval_summary/v1/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/post_payment_approval_v2" target="_blank">SUBMIT ORDER PAYMENTS FOR APPROVAL</a>|/payment/approval/v2/|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/put_payment_approval_v2_id" target="_blank">SUBMIT ORDER PAYMENTS FOR APPROVAL</a>|/payment/approval/v2/{id}|PUT|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" target="_blank">RETRIEVE PAYMENT APPROVAL JOB</a>|/payment/approval/v2/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_results_v2_id" target="_blank">ORDER PAYMENTS APPROVAL RESULT</a>|/payment/approval_results/v2/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/delete_payment_approval_results_v2_id" target="_blank">VOID PAYMENT APPROVAL</a>|/payment/approval_results/v2/|DELETE|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_summary_v1_id" target="_blank">GET PAYMENT APPROVAL SUMMARY</a>|/payment/approval_summary/v1/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -267,14 +267,14 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[GET CREDIT CARD INFO WITH CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/{id}|GET|
-[GET CREDIT CARD INFO WITHOUT CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/add{?id, language}|GET|
-[GET CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/cvv{?id}|GET|
-[GET EXPIRY DATE AND CVV](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/services/expcvv{?id}|GET|
-[VALIDATE CREDIT CARD PERSISTENCE](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/isValid{?mode}|GET|
-[STORE CREDIT CARD INFO](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/store|POST|
-[GET CREDIT CARD INFO BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}|GET|
-[VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE](https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md?raw)|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CREDIT CARD INFO WITH CVV</a>|/services/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CREDIT CARD INFO WITHOUT CVV</a>|/services/add{?id, language}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CVV</a>|/services/cvv{?id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET EXPIRY DATE AND CVV</a>|/services/expcvv{?id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">VALIDATE CREDIT CARD PERSISTENCE</a>|/creditcardsubmit/{id}/isValid{?mode}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">STORE CREDIT CARD INFO</a>|/creditcardsubmit/{id}/store|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CREDIT CARD INFO BY ID</a>|/creditcardsubmit/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE</a>|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
 
 <p>&nbsp;</p>
 
@@ -282,12 +282,12 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1)|/payment/deferred_wechat_payments/v1|POST|
-|[GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id)|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
-|[DEFERRED PAYMENT FORM](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1)|/payment/deferred_payment_forms/v1|POST|
-|[DEFERRED PAYMENT FORM JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id)|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
-|[DEFERRED PAYMENT STATUS](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1)|/payment/deferred_payment_status/v1|POST|
-|[DEFERRED PAYMENT STATUS JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id)|/payment/deferred_payment_status/v1/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" target="_blank">DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED</a>|/payment/deferred_wechat_payments/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" target="_blank">GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID</a>|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" target="_blank">DEFERRED PAYMENT FORM</a>|/payment/deferred_payment_forms/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" target="_blank">DEFERRED PAYMENT FORM JOB STATUS BY ID</a>|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" target="_blank">DEFERRED PAYMENT STATUS</a>|/payment/deferred_payment_status/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" target="_blank">DEFERRED PAYMENT STATUS JOB STATUS BY ID</a>|/payment/deferred_payment_status/v1/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -295,9 +295,9 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[GET PAYMENT OPTIONS FOR AN ORDER](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_options_v2)|/payment/options/v2|POST|
-[ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/get_payment_options_v2_shippingCountry)|/payment/options/v2/{shippingCountry}|GET|
-[VALIDATE PAYMENTS](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_validate_payments_v2)|/payment/validate_payments/v2|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" target="_blank">GET PAYMENT OPTIONS FOR AN ORDER</a>|/payment/options/v2|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/get_payment_options_v2_shippingCountry" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>|/payment/options/v2/{shippingCountry}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_validate_payments_v2" target="_blank">VALIDATE PAYMENTS</a>|/payment/validate_payments/v2|POST|
 
 <p>&nbsp;</p>
 
@@ -305,9 +305,9 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[PAYMENT PREVIEW](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/post_payment_preview_v2)|POST|
-[PAYMENT PREVIEW RESULT BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_results_v2_id)|/payment/preview_results/v2/{id}|GET|
-[PAYMENT PREVIEW JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_v2_jobs_id)|/payment/preview/v2/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/post_payment_preview_v2" target="_blank">PAYMENT PREVIEW</a>|/payment/preview/v2|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_results_v2_id" target="_blank">PAYMENT PREVIEW RESULT BY ID</a>|/payment/preview_results/v2/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" target="_blank">PAYMENT PREVIEW JOB STATUS BY ID</a>|/payment/preview/v2/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -315,17 +315,17 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[INITIATE PAYPAL BILLING AGREEMENT](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_paypalagreement)|/consumer/paypalagreement|GET|
-[SAVE PAYMENT BY USER PROFILE](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_savepayment)|/consumer/savepayment|POST|
-[DELETE STORED PAYMENTS BY USER PROFILE](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments)|/consumer/storedpayments|DELETE|
-[FETCH STORED PAYMENTS BY USER PROFILE](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments)|/consumer/storedpayments|POST|
-[UPDATE CREDIT CARD DETAILS](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/put_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|PUT|
-[DELETE PAYMENT BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|DELETE|
-[FETCH STORED PAYMENT BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|GET|
-[VALIDATE CVV FOR SHIPPING ADDRESS](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments_payment_id)|/consumer/storedpayments/{payment_id}|POST|
-[FETCH GIFT CARD BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_storedpayments_giftcard_payment_id)|/consumer/storedpayments/giftcard/{payment_id}|GET|
-[CREATE/UPDATE ATG PAYMENT](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments_synch)|/consumer/storedpayments/synch|POST|
-[DELETE ATG PAYMENT](https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments_synch_payment_token)|/consumer/storedpayments/synch/{payment_token}|DELETE|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" target="_blank">INITIATE PAYPAL BILLING AGREEMENT</a>|/consumer/paypalagreement|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_savepayment" target="_blank">SAVE PAYMENT BY USER PROFILE</a>|/consumer/savepayment|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments" target="_blank">DELETE STORED PAYMENTS BY USER PROFILE</a>|/consumer/storedpayments|DELETE|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments" target="_blank">FETCH STORED PAYMENTS BY USER PROFILE</a>|/consumer/storedpayments|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id" target="_blank">UPDATE CREDIT CARD DETAILS</a>|/consumer/storedpayments/{payment_id}|PUT|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" target="_blank">DELETE PAYMENT BY ID</a>|/consumer/storedpayments/{payment_id}|DELETE|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_payment_id" target="_blank">FETCH STORED PAYMENT BY ID</a>|/consumer/storedpayments/{payment_id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments_payment_id" target="_blank">VALIDATE CVV FOR SHIPPING ADDRESS</a>|/consumer/storedpayments/{payment_id}|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" target="_blank">FETCH GIFT CARD BY ID</a>|/consumer/storedpayments/giftcard/{payment_id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments_synch" target="_blank">CREATE/UPDATE ATG PAYMENT</a>|/consumer/storedpayments/synch|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_synch_payment_token" target="_blank">DELETE ATG PAYMENT</a>|/consumer/storedpayments/synch/{payment_token}|DELETE|
 
 <p>&nbsp;</p>
 
@@ -333,22 +333,22 @@ For source code, visit the [PHYLON Payment Repository](https://bitbucket.nike.co
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[PAYPAL DETAILS](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/post_payment_paypal_details_v1)|/payment/paypal_details/v1|POST|
-[PAYPAL DETAIL JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id)|/payment/paypal_details/v1/jobs/{id}|GET|
-[PAYPAL EXPRESS](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/post_payment_paypal_express_v1)|/payment/paypal_express/v1|POST|
-[PAYPAL EXPRESS JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id)|/payment/paypal_express/v1/jobs/{v1}|GET|
-[PAYPAL MARK](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/post_payment_paypal_mark_v1)|/payment/paypal_mark/v1|POST|
-[PAYPAL MARK JOB STATUS BY ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id)|/payment/paypal_mark/v1/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/post_payment_paypal_details_v1" target="_blank">PAYPAL DETAILS</a>|/payment/paypal_details/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" target="_blank">PAYPAL DETAIL JOB STATUS BY ID</a>|/payment/paypal_details/v1/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" target="_blank">PAYPAL EXPRESS</a>|/payment/paypal_express/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" target="_blank">PAYPAL EXPRESS JOB STATUS BY ID</a>|/payment/paypal_express/v1/jobs/{v1}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" target="_blank">PAYPAL MARK</a>|/payment/paypal_mark/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" target="_blank"PAYPAL MARK JOB STATUS BY ID</a>|/payment/paypal_mark/v1/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
 ## <a name="caching-data"></a>Caching Data
 
-The Payment API makes use of data caching to optimize service SLAs.  The first time data is fetched or when the cache expires, the Payment service makes a call to get the latest data and adds it to the cache.
+The Payment API makes use of data caching to optimize service SLAs. The first time data is fetched or when the cache expires, the Payment service makes a call to get the latest data and adds it to the cache.
 
-The PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services handle gift card balances.  Retrieving the balance of a gift card requires a call to a Third Party gift card provider, which can slow down the Payment service's response, especially in high volume traffic.  To avoid this scenario, the private gift card Service, which is responsible for retrieving gift card data and is called by the PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services, caches the gift card balance after retrieval. The cache time varies based on the balance. If the gift card has a positive balance, the gift card service caches the balance for 5 minutes; If the gift card has a 0 balance, the gift card service caches the balance for 30 minutes.
+The PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services handle gift card balances. Retrieving the balance of a gift card requires a call to a Third Party gift card provider, which can slow down the Payment service's response, especially in high volume traffic. To avoid this scenario, the private gift card Service, which is responsible for retrieving gift card data and is called by the PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services, caches the gift card balance after retrieval. The cache time varies based on the balance. If the gift card has a positive balance, the gift card service caches the balance for 5 minutes; If the gift card has a 0 balance, the gift card service caches the balance for 30 minutes.
 
-The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation.  For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Prodcuts API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) to get the latest data.
+The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation. For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Prodcuts API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) to get the latest data.
 
 <p>&nbsp;</p>
 
@@ -442,9 +442,9 @@ Assuming no errors, you will receive a response body similar to the following:
 }
 ```
 
-Listed in the response are the the `country` and `billingCountry` passed in the request, as well as the `name` and `displayName` of each payment method valid for your Nike UPMID, shopping in country and billing country.  Your user experience would display the `displayName` to the customer and pass the payment's `name` to endpoint requests requiring a payment type.
+Listed in the response are the the `country` and `billingCountry` passed in the request, as well as the `name` and `displayName` of each payment method valid for your Nike UPMID, shopping in country and billing country. Your user experience would display the `displayName` to the customer and pass the payment's `name` to endpoint requests requiring a payment type.
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -459,7 +459,7 @@ Listed in the response are the the `country` and `billingCountry` passed in the 
 
 ### Payment Options Overview
 
-Use the Payment Options service to list valid payment options or list valid billing countries based on a shipping country.  Valid payment options are calculated based on [Nike UPMID](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#authorization), shopping country, billing country, currency, (product) items and value-added services.  See the [Buy Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts) for more information on items in Checkouts.
+Use the Payment Options service to list valid payment options or list valid billing countries based on a shipping country. Valid payment options are calculated based on [Nike UPMID](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#authorization), shopping country, billing country, currency, (product) items and value-added services. See the [Buy Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts) for more information on items in Checkouts.
 
 All endpoints of this service are synchronous.
 
@@ -619,7 +619,7 @@ Sample *Get Payment Options for an Order* 400 Error Response
 |INVALID_PRODUCT|returned when one or more item ids is invalid|
 |INVALID_NUMBER|returned when amount is not in a valid number format|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -671,7 +671,7 @@ There is no request body for GET requests.
 |billingCountries.**country**|**Required**|ISO2 country code|
 |**httpStatus**|Optional|status code present when service returns in error|
 |**timestamp**|Optional|timestamp present when service returns in error|
-|**message**|Optional|error message|top level error message present when service returns in error|
+|**message**|Optional|top level error message present when service returns in error|
 |**errors**|Optional|array of error objects present when service returns in error|
 |errors.**field**|Optional|JSON field name causing error|
 |errors.**code**|Optional|error code|
@@ -789,7 +789,6 @@ Sample *Allowable Billing Countries for a Shipping Country* 400 Error response
 ---
 
 Use this endpoint to validate a list of payment options for a given shipping country.
-
 
 #### Endpoint Details
 
@@ -940,7 +939,7 @@ Sample *Validate Payments* 400 Error Response
 |INVALID_REQUEST|returned when the request contains invalid information|
 |MISSING_REQUIRED|returned when the request does not contain required information|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md?raw#!/default/post_payment_validate_payments_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_validate_payments_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -961,13 +960,13 @@ Sample *Validate Payments* 400 Error Response
 
 ### Stored Payments Overview
 
-The Stored Payment service is used to administer (add/update/delete/list) a customer's stored payments. A customer must register and log in as a Nike member to use Stored Payment. Guest customers are not supported. In a shopping flow, this service can be used to display the customer's stored payments to allow the customer to choose a payment method to pay for their order, change their default payment method, and add or delete a payment method.  This service also handles initiating a PayPal Billing Agreement so a customer can pre-authorize PayPal payments.
+The Stored Payment service is used to administer (add/update/delete/list) a customer's stored payments. A customer must register and log in as a Nike member to use Stored Payment. Guest customers are not supported. In a shopping flow, this service can be used to display the customer's stored payments to allow the customer to choose a payment method to pay for their order, change their default payment method, and add or delete a payment method. This service also handles initiating a PayPal Billing Agreement so a customer can pre-authorize PayPal payments.
 
 All endpoints of this service are synchronous.
 
 ### <a name="initiate-paypal-billing-agreement"></a>Initiate PayPal Billing Agreement
 
-Use this endpoint as a first step in creating a PayPal billing agreement for the PayPal payment type.  For instance, the Nike Web Launch experience calls this endpoint when a customer adds PayPal as a stored payment type in Payment Settings. A PayPal Billing Agreement preauthorizes Nike to charge the customer's PayPal account for a purchase without requiring the customer to visit the PayPal site to manually authorize the purchase.  Once a customer accepts the PayPal Billing Agreement and stores it, the customer does not need to authorize each payment before submitting a Nike order.  Use the requestToken and redirectURL in the response to redirect the customer to the appropriate PayPal experience to accept the PayPal Billing Agreement.  It eases the barrier to purchase by avoiding redirecting the customer to PayPal during the purchase process.
+Use this endpoint as a first step in creating a PayPal billing agreement for the PayPal payment type. For instance, the Nike Web Launch experience calls this endpoint when a customer adds PayPal as a stored payment type in Payment Settings. A PayPal Billing Agreement preauthorizes Nike to charge the customer's PayPal account for a purchase without requiring the customer to visit the PayPal site to manually authorize the purchase. Once a customer accepts the PayPal Billing Agreement and stores it, the customer does not need to authorize each payment before submitting a Nike order. Use the requestToken and redirectURL in the response to redirect the customer to the appropriate PayPal experience to accept the PayPal Billing Agreement. It eases the barrier to purchase by avoiding redirecting the customer to PayPal during the purchase process.
 
 #### Endpoint Details
 
@@ -991,7 +990,7 @@ Use this endpoint as a first step in creating a PayPal billing agreement for the
 |---|---|---|---|---|
 |**returnUrl**|Query|URL to redirect to after the customer accepts the billing agreement|String|**Required**|
 |**cancelUrl**|Query|URL to redirect to after the customer cancels accepting the billing agreement|String|**Required**|
-|**onlytoken**|Query|flag indicating to return only the paypalToken.  '1' returns only the PayPal token field. '0' or null returns all fields|String|Optional|
+|**onlytoken**|Query|flag indicating to return only the paypalToken. '1' returns only the PayPal token field. '0' or null returns all fields|String|Optional|
 |**design**|Query|determines the redirectURL to PayPal. `inContext` displays a PayPal Express window as an overlay on the Nike experience. `mobile` redirects from the Nike experience to PayPal's mobile-optimized experience. `default` redirects from the Nike experience to PayPal's web experience. `default` is the default value|String|Optional|
 |**locale**|Query|locale of shopping in country. defaults to en_US|String|Optional|
 |**currency**|Query|shopping in currency. defaults to USD|String|Optional|
@@ -1015,7 +1014,7 @@ There is no request body for a GET request.
 |**responseCode**|Optional|0 indicates success, 98 indicates failure|
 |**referenceCode**|Optional|service name initiating billing agreement call, e.g. `storedpayment**|
 |**account**|**Required**|PayPal account. USD, EUR or GBP|
-|**currency**|**Required**|currency used to look up the PayPal account.  USD, EUR, GBP, DKK, SEK or PLN|
+|**currency**|**Required**|currency used to look up the PayPal account. USD, EUR, GBP, DKK, SEK or PLN|
 |**requestToken**|**Required**|good for 15 minutes and is used to request a permanent access token (paypalToken)|
 |**paypalToken**|**Required**|permanent access token used to generate a signature and timestamp to make authorized PayPal API calls|
 |**correlationId**|Optional|unique id for PayPal response. used to query transaction in PayPal|
@@ -1039,11 +1038,11 @@ Sample  *Initiate PayPal Billing Agreement* 200 success response
 }
 ```
 
-Next, you need to get customer approval by redirecting the customer to the PayPal redirectURL returned in the response.  At PayPal, the customer provides payment details and both approves and subscribes to the Billing Agreement.  Once the customer accepts the PayPal Billing Agreement, PayPal redirects to the returnURL provided in the call.  If the customer cancels the transaction, PayPal redirects the customer to the cancelURL provided in the call.
+Next, you need to get customer approval by redirecting the customer to the PayPal redirectURL returned in the response. At PayPal, the customer provides payment details and both approves and subscribes to the Billing Agreement. Once the customer accepts the PayPal Billing Agreement, PayPal redirects to the returnURL provided in the call. If the customer cancels the transaction, PayPal redirects the customer to the cancelURL provided in the call.
 
 The next Stored Payment endpoints you might want to call for the PayPal Billing Agreement flow are `savepayment` to store the PayPal payment method once the customer authorizes the Billing Agreement, and `storedpayment` to display all of the customer's saved payment methods.
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -1051,7 +1050,7 @@ The next Stored Payment endpoints you might want to call for the PayPal Billing 
 
 ---
 
-Use this endpoint to save a payment type for a Nike UPMID.  See [Supported Stored Payment Types](#supported-stored-payment-types) to view types and storage limits.  The request body varies depending upon the payment type and whether the endpoint is called pre-authorization or post-authorization.  The typical flow for saving a Credit Card for user profile is:
+Use this endpoint to save a payment type for a Nike UPMID. See [Supported Stored Payment Types](#supported-stored-payment-types) to view types and storage limits. The request body varies depending upon the payment type and whether the endpoint is called pre-authorization or post-authorization. The typical flow for saving a Credit Card for user profile is:
 1. [`Store Credit Card Info`](#store-credit-card-info) to securely transmit credit card information to the PCI-certified Credit Cards submit service, passing a new UUID as the creditCardInfoId
 2. [`Validate Credit Card Info`](#validate-credit-card-info) to check that the credit card information was received
 3. [`Save Payment for User Profile`](#save-payment-for-user-profile), passing the creditCardInfoId to look up the credit card information and save it to long term storage
@@ -1076,7 +1075,7 @@ Use this endpoint to save a payment type for a Nike UPMID.  See [Supported Store
 
 #### Request Body
 
-The request body varies depending upon the type of payment being saved.  The table below lists all possible request fields regardless of payment type.
+The request body varies depending upon the type of payment being saved. The table below lists all possible request fields regardless of payment type.
 
 **Credit Card**
 
@@ -1252,7 +1251,7 @@ This is a sample *Save Payment for User Profile* POST request to save Alipay Def
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#default_post_consumer_savepayment" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#default_post_consumer_savepayment" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</>
 
@@ -1260,7 +1259,7 @@ This is a sample *Save Payment for User Profile* POST request to save Alipay Def
 
 ---
 
-Use this endpoint to delete all Stored Payments for a Nike UPMID.  This is a synchronous endpoint that is restricted.
+Use this endpoint to delete all Stored Payments for a Nike UPMID. This is a synchronous endpoint that is restricted.
 
 #### Endpoint Details
 
@@ -1281,6 +1280,7 @@ Use this endpoint to delete all Stored Payments for a Nike UPMID.  This is a syn
 >TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### Request Body
+
 There is no request body for a DELETE request.
 
 Sample *Delete All Stored Payments for User Profile* DELETE request
@@ -1290,6 +1290,7 @@ Sample *Delete All Stored Payments for User Profile* DELETE request
 ```
 
 #### Response Body
+
 There is no content returned for a successful response.
 
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
@@ -1300,7 +1301,7 @@ There is no content returned for a successful response.
 
 ---
 
-Use this endpoint to list the stored payment types for a Nike UPMID.  Account numbers are masked in the response.
+Use this endpoint to list the stored payment types for a Nike UPMID. Account numbers are masked in the response.
 
 If the request does not contain a shipping address or the shipping address sent does not match a shipping address in a previously placed order, the validateCVV key will be set to true in the response for Credit Card payment types. This flag indicates that the Credit Card's CVV must be provided and validated before the customer can pay for their order using the credit card in the checkout flow.
 
@@ -1370,6 +1371,7 @@ Sample *List Stored Payments by User Profile* request for credit card
 ```
 
 Sample *List Stored Payments by User Profile* request for non-credit card payment types such as PayPal or gift card:
+
 ```
 {}
 ```
@@ -1399,7 +1401,7 @@ Sample *List Stored Payments by User Profile* request for non-credit card paymen
 |**validForShippingCountry**|Optional|true if billing/shipping country combination is valid, false if not|
 |**billingAddress**|Optional|billing address of customer, required for CreditCard|
 |billingAddress.**firstName**|**Required**|billing first name|
-|billingAddress.**lastName**|**Required**|billing last name||
+|billingAddress.**lastName**|**Required**|billing last name|
 |billingAddress.**address1**|**Required**|billing address line 1|
 |billingAddress.**address2**|Optional|billing address line 2|
 |billingAddress.**address3**|Optional|billing address line 3|
@@ -1544,7 +1546,7 @@ The sample *List Stored Payments by User Profile* 400 Error Response is returned
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/post_consumer_storedpayments" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -1552,7 +1554,7 @@ The sample *List Stored Payments by User Profile* 400 Error Response is returned
 
 ---
 
-Use this endpoint to list stored payment details for a paymentId.  This endpoint is primarily for gift cards but it can be called for any type of stored payment.  When listing a gift card payment type and you don't need the balance, pass includebalance=false as a URI parameter for a quicker response.  Setting this parameter to false prevents the Stored Payments service from making a balance call to the gift card provider.  Because this endpoint returns sensitive information, it requires the JWT `X-Nike-Authorization` and `X-Nike-AppId` headers.  It is a synchronous endpoint.
+Use this endpoint to list stored payment details for a paymentId. This endpoint is primarily for gift cards but it can be called for any type of stored payment. When listing a gift card payment type and you don't need the balance, pass includebalance=false as a URI parameter for a quicker response. Setting this parameter to false prevents the Stored Payments service from making a balance call to the gift card provider. Because this endpoint returns sensitive information, it requires the JWT `X-Nike-Authorization` and `X-Nike-AppId` headers. It is a synchronous endpoint.
 
 #### Endpoint Details
 
@@ -1576,8 +1578,8 @@ Use this endpoint to list stored payment details for a paymentId.  This endpoint
 
 |Header Name|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|id of the stored payment.  If unknown, get a list of all stored payments for a Nike UPMID by calling the `/consumer/storedpayments{?currency,type,includebalance}` endpoint.  The payment_id for each saved payment type is returned in the response.|String|**Required**|
-|**includebalance**|Query|true returns the gift card balance, false does not.  Defaults to true|Boolean|Optional|
+|**payment_id**|Path|id of the stored payment. If unknown, get a list of all stored payments for a Nike UPMID by calling the `/consumer/storedpayments{?currency,type,includebalance}` endpoint. The payment_id for each saved payment type is returned in the response.|String|**Required**|
+|**includebalance**|Query|true returns the gift card balance, false does not. Defaults to true|Boolean|Optional|
 
 #### <a name="list-stored-payment-by-payment-id-request-body"></a>Request Body
 There is no body in a GET request.
@@ -1606,10 +1608,10 @@ For credit cards, the credit card account number is not returned. The paymentTok
 |**expiryYear**|**Required**|year credit card expires, required for CreditCard type|
 |**expiryMonth**|**Required**|month credit card expires, required for CreditCard type|
 |**name**|**Required**|customer's nickname for this Stored Payment|
-|**isDefault**|**Required**|true if this is the default Stored Payment, false if not.  Defaults to false.|
+|**isDefault**|**Required**|true if this is the default Stored Payment, false if not. Defaults to false.|
 |**billingAddress**|Optional|billing address of customer, required for CreditCard|
 |billingAddress.**firstName**|**Required**|billing first name|
-|billingAddress.**lastName**|**Required**|billing last name||
+|billingAddress.**lastName**|**Required**|billing last name|
 |billingAddress.**address1**|**Required**|billing address line 1|
 |billingAddress.**address2**|Optional|billing address line 2|
 |billingAddress.**address3**|Optional|billing address line 3|
@@ -1620,10 +1622,10 @@ For credit cards, the credit card account number is not returned. The paymentTok
 |billingAddress.**phoneNumber**|Optional|billing phone number|
 |billingAddress.**email**|Optional|billing email address|
 |**paymentId**|Optional|UUID passed in as a path parameter|
-|**balance**|Optional|gift card balance for GiftCard payment type.  Not returned if includebalance query parameter is false|
+|**balance**|Optional|gift card balance for GiftCard payment type. Not returned if includebalance query parameter is false|
 |**pin**|Optional|gift card pin number for GiftCard payment type|
 |**gcExpiryDate**|Optional|gift card expiration date in milliseconds|
-|**currency**|Optional|Checkouts currency ISO code.  Defaults to USD.|
+|**currency**|Optional|Checkouts currency ISO code. Defaults to USD.|
 |**payer**|Optional|customer's PayPal email address|
 |**payerId**|Optional|PayPal generated unique id|
 |**bankName**|Optional|bank name for China payments|
@@ -1712,7 +1714,7 @@ Use this endpoint to list a details for a customer's saved gift card. This is a 
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))|String|**Required**|
+|**payment_id**|Path|Unique identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>)|String|**Required**|
 |**currency**|Query|ISO currency code|String|Optional|
 
 #### <a name="list-giftcard-stored-payment-by-id-request-headers"></a>Request Headers
@@ -1731,7 +1733,7 @@ Use this endpoint to list a details for a customer's saved gift card. This is a 
 |---|---|---|
 |**paymentId**|Optional|UUID passed in as a path parameter|
 |**type**|**Required**|payment type, GiftCard only|
-|**balance**|Optional|gift card balance for GiftCard payment type.  Not returned if includebalance query parameter is false|
+|**balance**|Optional|gift card balance for GiftCard payment type. Not returned if includebalance query parameter is false|
 |**status**|Optional|one of valid or invalid|
 |**paymentToken**|**Required**|payment token|
 |**accountNumber**|Optional|masked gift card account number, last 4 digits are returned|
@@ -1746,8 +1748,8 @@ Use this endpoint to list a details for a customer's saved gift card. This is a 
 |**service**|Optional|name of service, always storedpayments|
 |**code**|Optional|error code|
 
-
 Sample *List Gift Card by Payment Id* 200 success response:
+
 ```
 {
     "paymentId": "pid3798fdd8-6e0d-4f88-bddb-5ad25eefda18",
@@ -1761,7 +1763,9 @@ Sample *List Gift Card by Payment Id* 200 success response:
 }
 
 ```
-Sample *List Gift Card by Payment Id* 400 error response
+
+Sample *List Gift Card by Payment Id* 400 error response:
+
 ```
 {
   "httpStatus": 400,
@@ -1772,7 +1776,7 @@ Sample *List Gift Card by Payment Id* 400 error response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/get_consumer_storedpayments_giftcard_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -1780,7 +1784,7 @@ Sample *List Gift Card by Payment Id* 400 error response
 
 ---
 
-Use this endpoint to update a customer's CreditCard or GiftCard type Stored Payment.  No other payment types can be updated using this endpoint. You can update the credit card expiration month, expiration year, billing address and default payment type flag.  The credit card account number cannot be changed.
+Use this endpoint to update a customer's CreditCard or GiftCard type Stored Payment. No other payment types can be updated using this endpoint. You can update the credit card expiration month, expiration year, billing address and default payment type flag. The credit card account number cannot be changed.
 
 You can update the default payment flag for a gift card.
 
@@ -1796,7 +1800,7 @@ This is a synchronous service.
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))|String|**Required**|
+|**payment_id**|Path|Unique identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>)|String|**Required**|
 
 #### <a name="update-credit-card-stored-payment-request-headers"></a>Request Headers
 
@@ -1815,7 +1819,6 @@ Let's take a look at some *Update Credit Card by User Profile Details* scenarios
 |credit card with payment ID 1686062b-4246-4c3b-ac96-e82a0efae7a0|https://api.nike.com/consumer/storedpayments/1686062b-4246-4c3b-ac96-e82a0efae7a0|
 |gift card with payment ID pid3798fdd8-6e0d-4f88-bddb-5ad25eefda18|https://api.nike.com/consumer/storedpayments/pid3798fdd8-6e0d-4f88-bddb-5ad25eefda18|
 
-
 #### <a name="update-credit-card-stored-payment-request-body"></a>Request Body
 
 |Element Name|Required?|Description|
@@ -1829,7 +1832,7 @@ Let's take a look at some *Update Credit Card by User Profile Details* scenarios
 |**isDefault**|Optional|true makes this payment the default and sets all other stored payments to false. Defaults to false|
 |**billingAddress**|Optional|billing address of customer, required for CreditCard|
 |billingAddress.**firstName**|**Required**|billing first name|
-|billingAddress.**lastName**|**Required**|billing last name||
+|billingAddress.**lastName**|**Required**|billing last name|
 |billingAddress.**address1**|**Required**|billing address line 1|
 |billingAddress.**address2**|Optional|billing address line 2|
 |billingAddress.**address3**|Optional|billing address line 3|
@@ -1842,6 +1845,7 @@ Let's take a look at some *Update Credit Card by User Profile Details* scenarios
 
 
 Sample *Update Credit Card by User Profile* credit card request body:
+
 ```
 {
   "type": "CreditCard",
@@ -1866,6 +1870,7 @@ Sample *Update Credit Card by User Profile* credit card request body:
 ```
 
 Sample *Update Credit Card by User Profile* gift card request body:
+
 ```
 {
   "type": "GiftCard",
@@ -1887,12 +1892,15 @@ The HTTP 202 response from *Update Credit Card by User Profile* contains the res
 |**code**|Optional|error code|
 
 Sample 202 success *Update Credit Card by User Profile* response body:
+
 ```
 {
   "status": "success"
 }
 ```
+
 Sample 404 error *Update Credit Card by User Profile* response body:
+
 ```
 {
   "httpStatus": 404,
@@ -1902,7 +1910,7 @@ Sample 404 error *Update Credit Card by User Profile* response body:
   "message": "No payment found for id 99051"
 }
 ```
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/put_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -1910,7 +1918,7 @@ Sample 404 error *Update Credit Card by User Profile* response body:
 
 ---
 
-Use this endpoint to set a Stored Payment to the default payment.  It removes the default flag on the current default Saved Payment and adds it to the Saved Payment matching the payment_id path parameter.  The default payment type is typically used by the client to pre-select a payment method in the shopping flow.
+Use this endpoint to set a Stored Payment to the default payment. It removes the default flag on the current default Saved Payment and adds it to the Saved Payment matching the payment_id path parameter. The default payment type is typically used by the client to pre-select a payment method in the shopping flow.
 
 This is a synchronous endpoint.
 
@@ -1924,7 +1932,7 @@ This is a synchronous endpoint.
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) of Stored Payment to make default|String|**Required**|
+|**payment_id**|Path|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> of Stored Payment to make default|String|**Required**|
 
 #### <a name="update-default-stored-payment-by-user-profile-request-headers"></a>Request Headers
 
@@ -1937,14 +1945,17 @@ This is a synchronous endpoint.
 >TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="update-default-stored-payment-by-user-profile-request-body"></a>Request Body
+
 No body is required.
 
 Sample *Update Default Stored Payment by User Profile* request URI:
+
 ```
 http://api.nike.com/consumer/storedpayments/7661aea5d-31b6-4ac4-8830-1d61d2c7b043/default
 ```
 
 #### <a name="update-default-stored-payment-by-user-profile-response-body"></a>Response Body
+
 The HTTP 202 response from *Update Default Stored Payment by User Profile* contains the results. Following are descriptions of the important fields in the response body:
 
 |Element Name|Required?|Description|
@@ -1957,12 +1968,14 @@ The HTTP 202 response from *Update Default Stored Payment by User Profile* conta
 |**code**|Optional|error code|
 
 Sample 202 success *Update Default Stored Payment by User Profile* response body:
+
 ```
 {
   "status": "success"
 }
 ```
 Sample 404 error *Update Default Stored Payment by User Profile* response body:
+
 ```
 {
   "httpStatus": 404,
@@ -1972,7 +1985,7 @@ Sample 404 error *Update Default Stored Payment by User Profile* response body:
   "message": "No payment found for id 99051"
 }
 ```
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/put_consumer_storedpayments_payment_id_default" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id_default" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -1980,7 +1993,7 @@ Sample 404 error *Update Default Stored Payment by User Profile* response body:
 
 ---
 
-Use this endpoint to delete a stored payment by id.  For example, this endpoint would be called when the customer deletes a stored payment when managing his payment information in the experience.
+Use this endpoint to delete a stored payment by id. For example, this endpoint would be called when the customer deletes a stored payment when managing his payment information in the experience.
 
 #### Endpoint Details
 
@@ -1988,12 +2001,11 @@ Use this endpoint to delete a stored payment by id.  For example, this endpoint 
 |---|---|---|
 |**DELETE**|`/consumer/storedpayments/{payment_id}`|no|
 
-
 #### Path & Query Parameters
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**payment_id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) of the Stored Payment to delete|String|**Required**|
+|**payment_id**|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> of the Stored Payment to delete|String|**Required**|
 
 #### <a name="delete-all-stored-payments-for-user-profile-request-headers"></a>Request Headers
 
@@ -2009,12 +2021,14 @@ Use this endpoint to delete a stored payment by id.  For example, this endpoint 
 
 No request body required.
 
-Sample *Delete Stored Payment by ID* URI request
+Sample *Delete Stored Payment by ID* URI request:
+
 ```
 https://api.nike.com/consumer/storedpayments/pid3798fdd8-6e0d-4f88-bddb-5ad25eefda18
 ```
 
 #### <a name="delete-all-stored-payments-for-user-profile-response-body"></a>Response Body
+
 The HTTP 204 response from *Delete Stored Payment by ID* returns no content.
 
 |Element Name|Required?|Description|
@@ -2036,7 +2050,7 @@ Sample 400 error response:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md?raw#!/default/delete_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -2044,7 +2058,7 @@ Sample 400 error response:
 
 ---
 
-This endpoint validates a CVV based on the request shipping address.  If the shipping address does not match a shipping address on a past order or is not sent, the response indicates that the CVV needs to be validated. Note that billing address is returned.
+This endpoint validates a CVV based on the request shipping address. If the shipping address does not match a shipping address on a past order or is not sent, the response indicates that the CVV needs to be validated. Note that billing address is returned.
 
 #### Endpoint Details
 
@@ -2056,7 +2070,7 @@ This endpoint validates a CVV based on the request shipping address.  If the shi
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) for this Stored Payment|String|**Required**|
+|**payment_id**|Path|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for this Stored Payment|String|**Required**|
 
 #### <a name="validate-credit-card-cvv-by-shipping-address-request-headers"></a>Request Headers
 
@@ -2071,6 +2085,7 @@ This endpoint validates a CVV based on the request shipping address.  If the shi
 >TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="validate-credit-card-cvv-by-shipping-address-request-body"></a>Request Body
+
 Shipping address is optional but if sent, the required and optional fields are listed below.
 
 |Element Name|Required?|Description|
@@ -2113,11 +2128,11 @@ Sample *Validate Credit Card CVV by Shipping Address* request body:
 |**validateCVV**|Optional|true indicates the customer needs to revalidate the credit card CVV before purchase|
 |**pin**|Optional|gift card pin|
 |**gcExpiryDate**|Optional|gift card expiration date|
-|**currency**|ISO currency code for gift card|
+|**currency**|Optional|ISO currency code for gift card|
 |**status**|Optional|status of gift card, one of valid or invalid|
 |**billingAddress**|Optional|customer's billing address object|
 |billingAddress.**firstName**|**Required**|billing first name|
-|billingAddress.**lastName**|**Required**|billing last name||
+|billingAddress.**lastName**|**Required**|billing last name|
 |billingAddress.**address1**|**Required**|billing address line 1|
 |billingAddress.**address2**|Optional|billing address line 2|
 |billingAddress.**address3**|Optional|billing address line 3|
@@ -2174,7 +2189,7 @@ This service is used to preview payment allocation across payment methods select
 
 ### Payment Preview Overview
 
-Nike customers can pay by one or more gift cards/Vouchers and another payment type such as PayPal or credit card.  The Payment Preview service allocates payment to the gift card/Voucher with the highest balance first and then to the rest of the gift cards on Checkouts in ascending balance order.  If the total balance of all gift cards/Vouchers is less than the order amount, the service allocates the balance of the order to a second payment type.
+Nike customers can pay by one or more gift cards/Vouchers and another payment type such as PayPal or credit card. The Payment Preview service allocates payment to the gift card/Voucher with the highest balance first and then to the rest of the gift cards on Checkouts in ascending balance order. If the total balance of all gift cards/Vouchers is less than the order amount, the service allocates the balance of the order to a second payment type.
 
 ### <a name="payment-preview"></a>Payment Preview
 
@@ -2209,10 +2224,10 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 |Element Name|**Required**|Description|
 |---|---|---|
-|**checkoutId**|**Required**|Checkout [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) payments are associated to. Typically generated by [Using Checkouts](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts).|
+|**checkoutId**|**Required**|Checkout <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> payments are associated to. Typically generated by [Using Checkouts](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts).|
 |**total**|**Required**|Checkout total amount, double|
 |**currency**|**Required**|See [supported currency codes](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html)|
-|**country**|**Required**|See [supported country codes](https://confluence.nike.com/pages/viewpage.action?pageId=162870810)|
+|**country**|**Required**|See <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870810" target="_blank">supported country codes</a>|
 |**clientBrowser**|Optional|browser request was made from, `WECHAT` required for WeChat type, otherwise null|
 |**walletId**|Optional|paymentToken returned from [PayPal Mark](#paypal-mark) endpoint,required for PayPal Mark|
 |**items**|**Required**|array of Checkout `items.`  Each of the `items` has a UUID `productId` and `shippingAddress` object|
@@ -2262,7 +2277,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 |paymentInfo.billingInfo.contactInfo.**phoneNumber**|**Required**|billing contact info phone number|
 |paymentInfo.billingInfo.contactInfo.**email**|**Required**|billing contact info email address|
 
-PaymentInfo for CreditCard type has a required creditCardInfoId generated from the *Stored CreditCard Info* service if payment is not stored in Stored Payment.  This is a PCI-required token used to look up credit card information.
+PaymentInfo for CreditCard type has a required creditCardInfoId generated from the *Stored CreditCard Info* service if payment is not stored in Stored Payment. This is a PCI-required token used to look up credit card information.
 
 Sample *Payment Preview* request for one gift card and one credit card that is not stored
 
@@ -2349,8 +2364,7 @@ Sample *Payment Preview* request for one gift card and one credit card that is n
 
 Sample PayPal Mark *Payment Preview* request
 
-> TIP: Request must include walletId and not include paymentInfo
-
+>TIP: Request must include walletId and not include paymentInfo
 
 ```
 {
@@ -2376,9 +2390,10 @@ Sample PayPal Mark *Payment Preview* request
   ]
 }
 ```
+
 Sample PayPal Express *Payment Preview* request
 
-> TIP: Request must not include walletId and include paymentInfo
+>TIP: Request must not include walletId and include paymentInfo
 
 ```
 {
@@ -2435,7 +2450,7 @@ Sample PayPal Express *Payment Preview* request
 
 Sample Apple Pay *Payment Preview* request
 
-> TIP: Request must include encrypted paymentData
+>TIP: Request must include encrypted paymentData
 
 ```
 {
@@ -2484,7 +2499,7 @@ Sample Apple Pay *Payment Preview* request
             "country": "US"
         },
         "contactInfo": {
-          "phoneNumber":"503-555-1234",
+          "phoneNumber":"503-555-1234", 
           "email":"test@nike.com"
         }
       }
@@ -2493,9 +2508,10 @@ Sample Apple Pay *Payment Preview* request
 }
 ```
 
-Sample WeChat *Payment Preview* request
+Sample WeChat *Payment Preview* request:
 
-> TIP: Request must include `WECHAT` clientBrowser
+>TIP: Request must include `WECHAT` clientBrowser
+
 ```
 {
   "checkoutId": "05830580385038953405-r34-5r",
@@ -2547,7 +2563,8 @@ Sample WeChat *Payment Preview* request
 }
 ```
 
-Sample Klarna *Payment Preview* request
+Sample Klarna *Payment Preview* request:
+
 ```
 {
   "checkoutId": "4424253",
@@ -2605,6 +2622,7 @@ Sample Klarna *Payment Preview* request
 ```
 
 #### <a name="payment-preview-response-body"></a>Response Body
+
 The HTTP 200 response from *Payment Preview* contains information about how to retrieve the results of your job via the *Payment Preview Job* endpoint. Listed below are the response body fields.
 
 |Element Name|**Required**|Description|
@@ -2628,7 +2646,7 @@ The HTTP 200 response from *Payment Preview* contains information about how to r
 |response.payments.**charge**|Optional|additional amount charged for using this payment type, double|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -2638,7 +2656,8 @@ The HTTP 200 response from *Payment Preview* contains information about how to r
 
 >TIP: `Promotion` is an indicator that the entire order is allocated to a promotion.
 
-Sample *Payment Preview* 202 response with an IN_PROGRESS status
+Sample *Payment Preview* 202 response with an IN_PROGRESS status:
+
 ```
 {
    "id":"4dbe5dc7-6b0d-41fe-b276-b17393a3yrtd",
@@ -2655,7 +2674,8 @@ Sample *Payment Preview* 202 response with an IN_PROGRESS status
 }
 ```
 
-Sample *Payment Preview* 400 error response
+Sample *Payment Preview* 400 error response:
+
 ```
 {
     "message": "Validation Failed",
@@ -2680,6 +2700,7 @@ Sample *Payment Preview* 400 error response
 ```
 
 Sample *Payment Preview* request with "COMPLETED" status with the amount allocated across two gift cards and one credit card. Because the job is complete, the response does not contain an eta field.
+
 ```
 {
   "id": "2722be3a-0341-11e6-b512-3e1d05defe783424",
@@ -2720,13 +2741,14 @@ Sample *Payment Preview* request with "COMPLETED" status with the amount allocat
   }
 }
 ```
+
 |Error Code|Description|
 |---|---|
 |INVALID_FIELD|returned when request contains an invalid field value|
 |MISSING_REQUIRED|returned when request is missing a required field value|
 |INVALID_PAYMENT_TYPE|returned when request contains an invalid payment type|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/post_payment_preview_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/post_payment_preview_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -2755,8 +2777,8 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) for the job|String|**Required**|
-|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned|String|Optional|
+|**id**|Path|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for the job|String|**Required**|
+|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|String|Optional|
 
 #### <a name="payment-preview-job-request-headers"></a>Request Headers
 
@@ -2775,11 +2797,12 @@ Sample *Payment Preview Job by ID* request URI:
 ```
 https://api.nike.com/payment/preview/v2/jobs/2722be3a-0341-11e6-b512-3e1d05defe783424
 ```
+
 #### <a name="payment-preview-job-response-body"></a>Response Body
 
 The *Payment Preview Job Status by ID* response is identical to the [Payment Preview Response Body](#payment-preview-response-body) except that the resource type value is payment/preview/jobs.
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -2787,7 +2810,7 @@ The *Payment Preview Job Status by ID* response is identical to the [Payment Pre
 
 ---
 
-After calling the *Payment Preview* to start the job and *Payment Preview Job* to check that the status of the job is "COMPLETED", you can optionally call the *Payment Preview Result by ID* endpoint to retrieve the result of the Payment Preview job.  It is optional because the Payment Preview result is also returned in the *Payment Preview Job* when it is in "COMPLETED" status.
+After calling the *Payment Preview* to start the job and *Payment Preview Job* to check that the status of the job is "COMPLETED", you can optionally call the *Payment Preview Result by ID* endpoint to retrieve the result of the Payment Preview job. It is optional because the Payment Preview result is also returned in the *Payment Preview Job* when it is in "COMPLETED" status.
 
 #### Endpoint Details
 
@@ -2799,8 +2822,8 @@ After calling the *Payment Preview* to start the job and *Payment Preview Job* t
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) for the job|String|**Required**|
-|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned|String|Optional|
+|**id**|Path|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for the job|String|**Required**|
+|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|String|Optional|
 
 #### <a name="payment-preview-job-request-headers"></a>Request Headers
 
@@ -2869,7 +2892,7 @@ Sample Payment Preview Results response for two gift cards and a credit card
   }
 }
 ```
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md?raw#!/Payment_Preview/get_payment_preview_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -2885,7 +2908,7 @@ Sample Payment Preview Results response for two gift cards and a credit card
 - [Get Payment Approval Summary](#get-payment-approval-summary)
 
 ### Payment Approval Overview
-This service performs fraud check, validation and authorization/debit for all payment types on a customer's Checkouts.  It must be called after Payment Preview so order allocation is already calculated and the paymentPreviewId is assigned. This service uses the paymentPreviewId to look up the Checkouts payment methods so it does not require that the payments be passed in on the request.  This service also voids a previous authorization/debit.
+This service performs fraud check, validation and authorization/debit for all payment types on a customer's Checkouts. It must be called after Payment Preview so order allocation is already calculated and the paymentPreviewId is assigned. This service uses the paymentPreviewId to look up the Checkouts payment methods so it does not require that the payments be passed in on the request. This service also voids a previous authorization/debit.
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
@@ -2893,9 +2916,9 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 ---
 
-This service validates the payment allocation performed by the Payment Preview service, recalculating if necessary, and evaluates that the selected payment methods and items on Checkouts are valid.  If one or more payment type validations fail, all payment type authorizations (in the case of credit cards and PayPal)/debits (in the case of gift cards) are rolled back.  There is no need to pass in the Checkouts payment types in the body as the service looks them up using the checkoutId and paymentPreviewId in the request body.
+This service validates the payment allocation performed by the Payment Preview service, recalculating if necessary, and evaluates that the selected payment methods and items on Checkouts are valid. If one or more payment type validations fail, all payment type authorizations (in the case of credit cards and PayPal)/debits (in the case of gift cards) are rolled back. There is no need to pass in the Checkouts payment types in the body as the service looks them up using the checkoutId and paymentPreviewId in the request body.
 
-> TIP: This endpoint is intended to be a service-to-service call. [Request Checkout Submit](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.  A client should not call this service directly.
+>TIP: This endpoint is intended to be a service-to-service call. [Request Checkout Submit](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
 
 #### Endpoint Details
 
@@ -2980,7 +3003,6 @@ This service validates the payment allocation performed by the Payment Preview s
 |request.clientInfo**|**Required**|Contains information about client making the Payment Approval request|
 |request.clientInfo.**deviceId**|Optional|'fingerprint' of the device making the request
 |request.clientInfo.**ipAddress**|Optional|IP address of the client making the request
-
 
 Sample *Submit Order Payments for Approval* request body:
 ```
@@ -3071,6 +3093,7 @@ Sample *Submit Order Payments for Approval* request body:
 ```
 
 #### <a name="submit-order-payments-for-approval-response-body"></a>Response Body
+
 The HTTP 202 response from *Submit Order Payments for Approval* contains information about how to retrieve the results of your job via the *Retrieval Payment Approval Job* endpoint. The response body fields are listed below.
 
 |Element Name|**Required**|Description|
@@ -3139,7 +3162,7 @@ The HTTP 202 response from *Submit Order Payments for Approval* contains informa
 |response.payments.billingInfo.contactInfo.**email**|**Required**|shipping address contact info email address|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -3147,7 +3170,8 @@ The HTTP 202 response from *Submit Order Payments for Approval* contains informa
 |error.errors.**code**|**Required**|enum of error codes, one of "MISSING_REQUIRED","INVALID_FIELD","INVALID_JSON","INVALID_PAYMENT_TYPE"|
 |error.errors.**message**|**Required**|error message|
 
-Sample **Submit Order Payments for Approval** 202 response with an IN_PROGRESS status
+Sample **Submit Order Payments for Approval** 202 response with an IN_PROGRESS status:
+
 ```
 {
   "id": "ae6575a7-8c0e-44ef-b91b-440bdaf2070b",
@@ -3162,7 +3186,8 @@ Sample **Submit Order Payments for Approval** 202 response with an IN_PROGRESS s
 }
 ```
 
-Sample **Submit Order Payments for Approval** 400 error response
+Sample **Submit Order Payments for Approval** 400 error response:
+
 ```
 {
   "message": "Validation Failed",
@@ -3192,6 +3217,7 @@ Sample **Submit Order Payments for Approval** 400 error response
 ```
 
 Sample **Submit Order Payments for Approval** response with "COMPLETED" status with the amount allocated across one gift card and a credit card. Because the job is complete, the response does not contain an eta field.
+
 ```
 {
   "id": "ae6575a7-8c0e-44ef-b91b-440bdaf2070b",
@@ -3282,6 +3308,7 @@ Sample **Submit Order Payments for Approval** response with "COMPLETED" status w
 ```
 
 Sample PayPal **Submit Order Payments for Approval** response body with "COMPLETED" status:
+
 ```
 {
   "id": "ae6575a7-8c0e-44ef-b91b-440bdaf2070b",
@@ -3363,9 +3390,9 @@ Sample PayPal **Submit Order Payments for Approval** response body with "COMPLET
 
 ---
 
-This service is identical to the [Submit Order Payments for Approval (POST)](#submit-order-payments-for-approval-post) endpoint except that it allows the calling service to determine the Payment Approval id to be passed in as a path parameter.  This is helpful if the Payment Approval response times out and the calling service needs to call [Void Payment Approval](#void-payment-approval) endpoint with the paymentApprovalId to reverse the Payment Approval request.
+This service is identical to the [Submit Order Payments for Approval (POST)](#submit-order-payments-for-approval-post) endpoint except that it allows the calling service to determine the Payment Approval id to be passed in as a path parameter. This is helpful if the Payment Approval response times out and the calling service needs to call [Void Payment Approval](#void-payment-approval) endpoint with the paymentApprovalId to reverse the Payment Approval request.
 
-> TIP: This endpoint is intended to be a service-to-service call. [Checkout Submit](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#response-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.  A client should not call this service directly.
+>TIP: This endpoint is intended to be a service-to-service call. [Checkout Submit](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#response-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
 
 #### Endpoint Details
 
@@ -3382,7 +3409,6 @@ This service is identical to the [Submit Order Payments for Approval (POST)](#su
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 |**X-Nike-AppId**|**Required**|Client application id calling this service (as listed in Eureka) used to verify endpoint access|
 |**X-Nike-Authorization**|**Required**|JWT signed by client application|
-
 
 #### Request and Response
 
@@ -3417,7 +3443,7 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) for the job|String|**Required**|
+|**id**|Path|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for the job|String|**Required**|
 
 #### <a name="retrieval-payment-approval-job-request-headers"></a>Request Headers
 
@@ -3436,11 +3462,13 @@ Sample *Retrieval Payment Approval Job* request URI:
 ```
 https://api.nike.com/payment/preview/v2/jobs/2722be3a-0341-11e6-b512-3e1d05defe783424
 ```
+
 #### <a name="retrieval-payment-approval-job-response-body"></a>Response Body
 
 The *Retrieval Payment Approval Job* response is identical to the [Submit Order Payments for Approval Response Body](#submit-order-payments-for-approval-response-body).
 
 Sample *Retrieval Payment Approval Job* response body with "IN_PROGRESS" status:
+
 ```
 {
   "id": "ae6575a7-8c0e-44ef-b91b-440bdaf2070b",
@@ -3456,7 +3484,7 @@ Sample *Retrieval Payment Approval Job* response body with "IN_PROGRESS" status:
   }
 }
 ```
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -3464,7 +3492,7 @@ Sample *Retrieval Payment Approval Job* response body with "IN_PROGRESS" status:
 
 ---
 
-After calling *Submit Checkouts Payment for Approval* to start the job and *Retrieve Payment Approval Job* to verify the status of the job is "COMPLETED", you can optionally call this endpoint to retrieve the result of your Payment Approval job. This step is optional because the Payment Approval result is also returned in the *Retrieve Payment Approval Job* when it is in `COMPLETED` status.  The Document Order Management System (DOMS) is currently the only service that calls this endpoint.
+After calling *Submit Checkouts Payment for Approval* to start the job and *Retrieve Payment Approval Job* to verify the status of the job is "COMPLETED", you can optionally call this endpoint to retrieve the result of your Payment Approval job. This step is optional because the Payment Approval result is also returned in the *Retrieve Payment Approval Job* when it is in `COMPLETED` status. The Document Order Management System (DOMS) is currently the only service that calls this endpoint.
 
 #### Endpoint Details
 
@@ -3476,7 +3504,7 @@ After calling *Submit Checkouts Payment for Approval* to start the job and *Retr
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))|String|**Required**|
+|**id**|Path|Unique identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>)|String|**Required**|
 
 #### <a name="order-payments-approval-result-request-headers"></a>Request Headers
 
@@ -3491,13 +3519,14 @@ After calling *Submit Checkouts Payment for Approval* to start the job and *Retr
 #### <a name="order-payments-approval-result-request-body"></a>Request URI
 
 Sample *Order Payments Approval Result* request URI:
+
 ```
 https://api.nike.com/payment/approval_results/v2/ae6575a7-8c0e-44ef-b91b-440bdaf2070b
 ```
 
 #### Response Body
-The response is identical to the *Retrieval Payment Approval Job* endpoint except that the results are not wrapped in a response object.
 
+The response is identical to the *Retrieval Payment Approval Job* endpoint except that the results are not wrapped in a response object.
 
 |Element Name|**Required**|Description|
 |---|---|---|
@@ -3560,7 +3589,7 @@ The response is identical to the *Retrieval Payment Approval Job* endpoint excep
 |links.self.**ref**|**Required**|link to this resource|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -3568,7 +3597,7 @@ The response is identical to the *Retrieval Payment Approval Job* endpoint excep
 |error.errors.**code**|**Required**|enum of error codes, one of "MISSING_REQUIRED","INVALID_FIELD","INVALID_JSON","INVALID_PAYMENT_TYPE"|
 |error.errors.**message**|**Required**|error message|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -3576,7 +3605,7 @@ The response is identical to the *Retrieval Payment Approval Job* endpoint excep
 
 ---
 
-This endpoint voids a Payment Approval request.  If a credit card was used in the original Payment Approval request, this endpoint reverses the authorization.  If a gift card was used in the original Payment Approval request, it reverses the debit.
+This endpoint voids a Payment Approval request. If a credit card was used in the original Payment Approval request, this endpoint reverses the authorization. If a gift card was used in the original Payment Approval request, it reverses the debit.
 
 #### Endpoint Details
 
@@ -3588,7 +3617,7 @@ This endpoint voids a Payment Approval request.  If a credit card was used in th
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|payment approval Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))|String|**Required**|
+|**id**|Path|payment approval Unique identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>)|String|**Required**|
 
 #### <a name="void-payment-approval-request-headers"></a>Request Headers
 
@@ -3607,11 +3636,13 @@ This endpoint voids a Payment Approval request.  If a credit card was used in th
 There is no request body for the Void Payment Approval endpoint.
 
 Sample *Void Payment Approval* request URI:
+
 ```
 https://api.nike.com/payment/approval_results/v2/ae6575a7-8c0e-44ef-b91b-440bdaf2070b
 ```
 
 #### <a name="void-payment-approval-response-body"></a>Response Body
+
 The HTTP 204 response from *Void Payment Approval* has no response body.
 
 **This endpoint is not available to Try It Out because it is JWT-restricted**
@@ -3622,7 +3653,7 @@ The HTTP 204 response from *Void Payment Approval* has no response body.
 
 ---
 
-Use this endpoint to retrieve a summary of a Payment Approval call that completed successfully.  It returns masked account numbers and is available for 30 minutes.  Unlike the [Payment Approval](#using-payment-approval) endpoint, this endpoint can be called by either a client or another service. The results of this endpoint can be used to display payment approval results on an order confirmation page.
+Use this endpoint to retrieve a summary of a Payment Approval call that completed successfully. It returns masked account numbers and is available for 30 minutes. Unlike the [Payment Approval](#using-payment-approval) endpoint, this endpoint can be called by either a client or another service. The results of this endpoint can be used to display payment approval results on an order confirmation page.
 
 It is a synchronous endpoint so the results are returned in the response and does not require polling a separate endpoint.
 
@@ -3638,7 +3669,7 @@ If the Payment Approval result is not either in `ACCEPT` or `PENDING_PAYMENT` st
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|payment approval Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))|String|**Required**|
+|**id**|Path|payment approval Unique identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>)|String|**Required**|
 
 #### <a name="payment-approval-summary-request-headers"></a>Request Headers
 
@@ -3655,12 +3686,15 @@ If the Payment Approval result is not either in `ACCEPT` or `PENDING_PAYMENT` st
 This is a GET request so there is no request body.
 
 Sample *Payment Approval Summary* request URI:
+
 ```
 https://api.nike.com/payment/approval_summary/v1/ae6575a7-8c0e-44ef-b91b-440bdaf2070b
 ```
+
 >TIP: Note that this is a v1 service
 
 #### <a name="payment-approval-summary-response-body"></a>Response Body
+
 The HTTP 200 response from *Payment Approval Summary* contains the results. Following are descriptions of the important fields in the response body:
 
 |Element Name|**Required**|Description|
@@ -3698,7 +3732,8 @@ The HTTP 200 response from *Payment Approval Summary* contains the results. Foll
 |payments.billingInfo.contactInfo.**email**|**Required**|shipping address contact info email address|
 |links.self.**ref**|**Required**|link to this resource|
 
-Below is a sample response body for a Payment Approval Summary request.  It contains masked payment information for GiftCard and CreditCard payment types.
+Below is a sample response body for a Payment Approval Summary request. It contains masked payment information for GiftCard and CreditCard payment types.
+
 ```
 {
   "id": "ae6575a7-8c0e-44ef-b91b-440bdaf2070b",
@@ -3802,6 +3837,7 @@ Below is a sample response body for a Payment Approval Summary request.  It cont
 ```
 
 Below is a sample Payment Approval Summary response for the PayPal payment type:
+
 ```
 {
   "id": "ae6575a7-8c0e-44ef-b91b-440bdaf2070b",
@@ -3846,6 +3882,7 @@ Below is a sample Payment Approval Summary response for the PayPal payment type:
 ```
 
 #### Error Codes
+
 Listed below are the error codes returned from Payment Approval service:
 
 Error Code                           | Error Message                                                                                      |
@@ -3861,39 +3898,38 @@ Error Code                           | Error Message                            
 | INVALID_PAYMENT_TYPE                 | The selected payment type is invalid for the order                                                 |
 | INVALID_SHIPPING_BILLING_COMBINATION | The shipping and billing country combination is supported                                          |
 | UNSUPPORTED_PAYMENT_FOR_COUNTRY      | The selected payment type is not supported in the selected billing country. (Ex. PayPal in Poland) |
-| INVALID_CVV                          | The security code is invalid.                                                                      |
+| INVALID_CVV                          | The security code is invalid.                                                                     |
 | INVALID_CREDIT_CARD_NUMBER           | The credit card number is invalid                                                                  |
 | INVALID_BANK_COUNTRY                 | Check the billing country value to make sure they are set to the correct country                   |
-| MORE_PAYMENT_REQUIRED                | Unable to allocate the order total across all payment types.  Need more payment.                   |
+| MORE_PAYMENT_REQUIRED                | Unable to allocate the order total across all payment types. Need more payment.                  |
 | PAYPAL_AUTH_FAILURE_10411            | Inform the customer that the Express Checkout transaction has expired and they need to restart the transaction |
 | PAYPAL_AUTH_FAILURE_10417            | Instruct the customer to retry the transaction using an alternative payment method from the customers PayPal wallet. The transaction did not complete with the customers selected payment method. |
 | PAYPAL_AUTH_FAILURE_10422            | Instruct the customer to use a different funding source                                            |
 | PAYPAL_AUTH_FAILURE_10445            | Inform the customer an error occurred and to retry the transaction                                 |
-| PAYPAL_AUTH_FAILURE_10486            | Redirect the customer back to PayPal to select a different funding source or to add a new funding source.  |
+| PAYPAL_AUTH_FAILURE_10486            | Redirect the customer back to PayPal to select a different funding source or to add a new funding source. |
 | PAYPAL_AUTH_FAILURE_11084            | Inform the customer that PayPal declined the transaction and to contact PayPal Customer Service    |
 | PAYPAL_AUTH_FAILURE_13113            | Inform the buyer that PayPal declined the transaction and to contact PayPal Customer Service       |
-| PAYMENT_AUTH_FAILURE_236             | Wait a few minutes and resend the request.                                                         |
+| PAYMENT_AUTH_FAILURE_236             | Wait a few minutes and resend the request.                                                        |
 | INVALID_GC_OR_PIN                    | Inform the customer the gift card and/or pin is not valid. |
 | GC_EXPIRED                           | Inform the customer the gift card is expired. |
 | GC_BALANCE_EXCEEDED                  | Inform the customer the gift card balance has been exceeded. |
-|KLARNA_ERROR_2102|AMOUNT.  Inform the customer to choose an alternative payment method.|
+|KLARNA_ERROR_2102|AMOUNT. Inform the customer to choose an alternative payment method.|
 |KLARNA_ERROR_2105|UNPAID_BILLS. Inform the customer to pay their unpaid Klarna invoices before shopping with Klarna|
 |KLARNA_ERROR_2201|PNO. Inform the customer that the personal number they entered is not the correct format|
-|KLARNA_ERROR_2205|UNDER_AGED.  Inform the customer that he/she must be 18 years old or older to pay with Klarna|
-|KLARNA_ERROR_3107|ADDRESS.  Inform the customer that the address could not be verified.  Edit the address and try again.|
-|KLARNA_ERROR_3111|ZIP.  Inform the customer that the postal code they entered is not in the correct format.  Edit the postal code and try again.|
-|KLARNA_ERROR_3201|CELLNO. Inform the customer that the mobile phone number they entered is not in the correct format.  Edit the mobile phone number and try again.|
-|KLARNA_ERROR_3203|EMAIL. Inform the customer that the email address they entered is not in the correct format.  Edit the email address and try again.|
-|KLARNA_ERROR_3205|CITY. Inform the customer that the city is incorrect.  Edit the city and try again.|
-|KLARNA_ERROR_3215|DATE_OF_BIRTH. Inform the customer that the date of birth is not in the correct format.  Edit the date of birth and try again. |
-|KLARNA_ERROR_3218|HOUSE_NUMBER. Inform the customer that the house number is incorrect.  Edit the house number and try again.|
-|KLARNA_ERROR_3302|BAD_LAST_NAME.  Inform the customer that the last name is incorrect.  Edit the last name and try again.|
-|KLARNA_ERROR_3303|BAD_FIRST_NAME. Inform the customer that the first name is incorrect.  Edit the first name and try again.|
+|KLARNA_ERROR_2205|UNDER_AGED. Inform the customer that he/she must be 18 years old or older to pay with Klarna|
+|KLARNA_ERROR_3107|ADDRESS. Inform the customer that the address could not be verified. Edit the address and try again.|
+|KLARNA_ERROR_3111|ZIP. Inform the customer that the postal code they entered is not in the correct format. Edit the postal code and try again.|
+|KLARNA_ERROR_3201|CELLNO. Inform the customer that the mobile phone number they entered is not in the correct format. Edit the mobile phone number and try again.|
+|KLARNA_ERROR_3203|EMAIL. Inform the customer that the email address they entered is not in the correct format. Edit the email address and try again.|
+|KLARNA_ERROR_3205|CITY. Inform the customer that the city is incorrect. Edit the city and try again.|
+|KLARNA_ERROR_3215|DATE_OF_BIRTH. Inform the customer that the date of birth is not in the correct format. Edit the date of birth and try again. |
+|KLARNA_ERROR_3218|HOUSE_NUMBER. Inform the customer that the house number is incorrect. Edit the house number and try again.|
+|KLARNA_ERROR_3302|BAD_LAST_NAME. Inform the customer that the last name is incorrect. Edit the last name and try again.|
+|KLARNA_ERROR_3303|BAD_FIRST_NAME. Inform the customer that the first name is incorrect. Edit the first name and try again.|
 |KLARNA_ERROR_9109|RESERVATION NUMBER DOES NOT EXIST. Inform the customer that the reservation number does not exist.|
 |KLARNA_ERROR_9119|TIMEOUT. Inform the customer of that a system error occurred and to either try again or choose an alternative payment method.|
 
-
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md?raw#!/Payment_Approval/get_payment_approval_summary_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_summary_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -3911,13 +3947,14 @@ Error Code                           | Error Message                            
 - [List Credit Card Info and Validate Status](#list-credit-card-info-and-validate-status)
 
 ### Credit Card Submit Overview
-This service lists, modifies, deletes and stores a customer's credit card and Apple Pay information.  This service accommodates both PCI-certified and non-PCI-certified experiences.  Endpoints for non-PCI-certified experiences render an iFrame to collect and retrieve credit card and Apple Pay information.  For PCI-certified experiences, it offers endpoints to manage a customer's credit card and Apple Pay information directly.
+
+This service lists, modifies, deletes and stores a customer's credit card and Apple Pay information. This service accommodates both PCI-certified and non-PCI-certified experiences. Endpoints for non-PCI-certified experiences render an iFrame to collect and retrieve credit card and Apple Pay information. For PCI-certified experiences, it offers endpoints to manage a customer's credit card and Apple Pay information directly.
 
 ### <a name="add-credit-card-info-with-cvv"></a>Add Credit Card Info with CVV
 
 ---
 
-This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary).  This endpoint renders an iFrame with the masked credit card number, expiration date, and CVV matching the creditCardInfoId passed in the path parameter.  If the creditCardInfoId is not found, the iFrame renders blank credit card number, date and CVV fields for editing. When each field has a value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores new or updated values. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the new or updated credit card data.
+This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with the masked credit card number, expiration date, and CVV matching the creditCardInfoId passed in the path parameter. If the creditCardInfoId is not found, the iFrame renders blank credit card number, date and CVV fields for editing. When each field has a value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores new or updated values. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the new or updated credit card data.
 
 #### Endpoint Details
 
@@ -3929,7 +3966,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
+|**id**|Query|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
 
 #### <a name="add-credit-card-info-with-cvv-request-headers"></a>Request Headers
 
@@ -3941,12 +3978,14 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 >TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
-Sample request URI
+Sample request URI:
+
 ```
 https://paymentcc.nike.com/services?id=24afd5dc-b523-491c-8282-8bed57cd2029&ctx=checkout&language=en
 ```
 
 #### <a name="add-credit-card-info-with-cvv-response-body"></a>Response Body
+
 The response body of this endpoint is the iFrame with editable credit card number, expiration date and CVV editable fields pre-populated with values looked up based on the creditCardInfoId `id` path parameter.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/number_expdate_cvv.png)
@@ -3957,7 +3996,7 @@ The response body of this endpoint is the iFrame with editable credit card numbe
 
 ---
 
-This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary).  This endpoint renders an iFrame with the masked credit card number and expiration date matching the creditCardInfoId passed in the path parameter.  If the creditCardInfoId is not found, the iFrame renders blank credit card number and date fields for editing. When each field has a value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores new or updated values. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the new or updated credit card data.
+This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with the masked credit card number and expiration date matching the creditCardInfoId passed in the path parameter. If the creditCardInfoId is not found, the iFrame renders blank credit card number and date fields for editing. When each field has a value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores new or updated values. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the new or updated credit card data.
 
 #### Endpoint Details
 
@@ -3969,7 +4008,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
+|**id**|Query|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
 |**language**|Query|BCP 47 language-country tag associated with this Checkouts, en-IE|String|Optional|
 
 #### <a name="add-credit-card-info-without-cvv-request-headers"></a>Request Headers
@@ -3982,12 +4021,14 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 >TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
-Sample request URI
+Sample request URI:
+
 ```
 https://paymentcc.nike.com/services/add?id=0e13e71d-e952-46af-b3f5-e476befd43ce&language=en
 ```
 
 #### <a name="add-credit-card-info-without-cvv-response-body"></a>Response Body
+
 The response body of this endpoint is the iFrame with editable credit card number and expiration date fields pre-populated with values looked up based on the creditCardInfoId `id` path parameter.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/number_expdate.png)
@@ -3998,7 +4039,7 @@ The response body of this endpoint is the iFrame with editable credit card numbe
 
 ---
 
-This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary).  This endpoint renders an iFrame with an editable CVV field. When the customer provides a CVV value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores the CVV if it found a credit card matching the credit card Info id path parameter. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the updated CVV.
+This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable CVV field. When the customer provides a CVV value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores the CVV if it found a credit card matching the credit card Info id path parameter. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the updated CVV.
 
 #### Endpoint Details
 
@@ -4010,7 +4051,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
+|**id**|Query|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
 
 #### <a name="add-credit-card-info-with-cvv-request-headers"></a>Request Headers
 
@@ -4022,12 +4063,14 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 >TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
-Sample request URI
+Sample request URI:
+
 ```
 https://paymentcc.nike.com/services/cvv?id=0e13e71d-e952-46af-b3f5-e476befd43ce&language=en
 ```
 
 #### <a name="add-credit-card-info-with-cvv-response-body"></a>Response Body
+
 The response body of this endpoint is the iFrame with an editable CVV field.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/cvv.png)
@@ -4038,7 +4081,7 @@ The response body of this endpoint is the iFrame with an editable CVV field.
 
 ---
 
-This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary).  This endpoint renders an iFrame with an editable credit card expiration date and CVV fields. When the customer provides the appropriate values, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores the data if it found a credit card matching the credit card Info id path parameter. As a last step, the iFrame calls the [Validate credit card Info](#validate-credit-card-info) endpoint to validate the updated expiration date and CVV values.
+This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable credit card expiration date and CVV fields. When the customer provides the appropriate values, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores the data if it found a credit card matching the credit card Info id path parameter. As a last step, the iFrame calls the [Validate credit card Info](#validate-credit-card-info) endpoint to validate the updated expiration date and CVV values.
 
 #### Endpoint Details
 
@@ -4050,7 +4093,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
+|**id**|Query|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
 
 #### <a name="add-cvv-and-expiration-date-request-headers"></a>Request Headers
 
@@ -4062,12 +4105,14 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 >TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
-Sample request URI
+Sample request URI:
+
 ```
 https://paymentcc.nike.com/services/expcvv?id=0e13e71d-e952-46af-b3f5-e476befd43ce&language=en
 ```
 
 #### <a name="add-cvv-and-expiration-date-response-body"></a>Response Body
+
 The response body of this endpoint is the iFrame with editable expiration date and CVV fields prepopulated with values looked up based on the creditCardInfoId `id` path parameter.
 
 ![Image](https://nde-devportal-docs.niketech.com/images/commerce/payment/expdate_cvv.png)
@@ -4078,7 +4123,7 @@ The response body of this endpoint is the iFrame with editable expiration date a
 
 ---
 
-This endpoint is typically called immediately after the [Store Credit Card Info](#store-credit-card-info) endpoint to validate credit card information.  The mode query parameter determines which credit card values to validate. It is a synchronous endpoint.
+This endpoint is typically called immediately after the [Store Credit Card Info](#store-credit-card-info) endpoint to validate credit card information. The mode query parameter determines which credit card values to validate. It is a synchronous endpoint.
 
 #### Endpoint Details
 
@@ -4090,9 +4135,8 @@ This endpoint is typically called immediately after the [Store Credit Card Info]
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
-|**mode**|Query|flag indicating which credit card fields to validate.  default is 1<br>1 = credit card number, expiration month and year, cvv<br>2 = credit card number, expiration month and year<br>3 = cvv<br>4 = expiration month and year, cvv|String|Optional|
-
+|**id**|Path|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
+|**mode**|Query|flag indicating which credit card fields to validate. default is 1<br>1 = credit card number, expiration month and year, cvv<br>2 = credit card number, expiration month and year<br>3 = cvv<br>4 = expiration month and year, cvv|String|Optional|
 
 #### Request Headers
 
@@ -4102,14 +4146,16 @@ This endpoint is typically called immediately after the [Store Credit Card Info]
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
-Sample *Validate Credit Card Info* URI
+Sample *Validate Credit Card Info* URI:
+
 ```
 https://paymentcc.nike.com/creditcardsubmit/24afd5dc-b523-491c-8282-8bed57cd2029/isValid?mode=3
 ```
 
 #### <a name="validate-credit-card-info-response-body"></a>Response Body
 
-Each field in the response body is flagged either true or false.  True indicates the value is valid; false indicates invalid.  The fields returned in the body are:
+Each field in the response body is flagged either true or false. True indicates the value is valid; false indicates invalid. The fields returned in the body are:
+
 |Element Name|Required?|Description|
 |---|---|---|
 |**exp**|Optional|true indicates expiration month and year are valid, false if not|
@@ -4117,7 +4163,8 @@ Each field in the response body is flagged either true or false.  True indicates
 |**cvv**|Optional|true indicates CVV is valid, false if not|
 |**isValid**|Optional|true indicates credit card is valid, false if not|
 
-Sample *Validate Credit Card Info* response body for mode=1
+Sample *Validate Credit Card Info* response body for mode=1:
+
 ```
 {
   "exp": true,
@@ -4126,7 +4173,9 @@ Sample *Validate Credit Card Info* response body for mode=1
   "isValid": true
 }
 ```
-Sample *Validate Credit Card Info* response body for mode=2
+
+Sample *Validate Credit Card Info* response body for mode=2:
+
 ```
 {
   "exp": true,
@@ -4134,15 +4183,19 @@ Sample *Validate Credit Card Info* response body for mode=2
   "isValid": true
 }
 ```
-Sample *Validate Credit Card Info* response body for mode=3
+
+Sample *Validate Credit Card Info* response body for mode=3:
+
 ```
 {
   "cvv": true,
   "isValid": true
 }
+
 ```
-Sample *Validate Credit Card Info* response body for mode=4
+Sample *Validate Credit Card Info* response body for mode=4:
 ```
+
 {
   "exp": true,
   "cvv": true,
@@ -4167,7 +4220,7 @@ This endpoint temporarily stores credit card information for validation and purc
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
+|**id**|Path|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
 
 #### Request Headers
 
@@ -4194,6 +4247,7 @@ This endpoint temporarily stores credit card information for validation and purc
 |**paymentData**|Optional|encrypted payment data, for Apple Pay only|
 
 Sample *Credit Card Submit Store* Request headers and body:
+
 https://paymentcc.nike.com/services/creditcardsubmit/0e13e71d-e952-46af-b3f5-e476befd43ce/store
 
 ```
@@ -4206,6 +4260,7 @@ https://paymentcc.nike.com/services/creditcardsubmit/0e13e71d-e952-46af-b3f5-e47
     expirationYear:"2020"
 }
 ```
+
 #### Response Body
 
 This endpoint returns no response body.
@@ -4228,7 +4283,7 @@ This endpoint updates and retrieves masked credit card information for a creditC
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
+|**id**|Path|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
 
 #### Request Headers
 
@@ -4238,7 +4293,7 @@ This endpoint updates and retrieves masked credit card information for a creditC
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
-Sample request URI
+Sample request URI:
 https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555
 
 #### <a name="ccinfo2-response-body"></a>Response Body
@@ -4249,7 +4304,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555
 |**paymentInfoType**|Optional|type of payment, CreditCard or ApplePay|
 |**accountNumber**|Optional|masked credit card number|
 |**cardType**|Optional|type of credit card, required when not paying by Apple Pay|
-|**cvNumber**|masked credit card CVV number|
+|**cvNumber**||masked credit card CVV number|
 |**startMonth**|Optional|month credit card begins|
 |**startYear**|Optional|year credit card begins|
 |**expirationMonth**|Optional|month credit card expires|
@@ -4258,6 +4313,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555
 |**paymentType**|Optional|credit card type stored in Apple Pay, required when paying by Apple Pay|
 
 Sample *List Credit Card Info* credit card response body:
+
 ```
 {
   "paymentInfoId": "CCTESTINFOID-ABCDEFG-HIJKLMNOP",
@@ -4275,6 +4331,7 @@ Sample *List Credit Card Info* credit card response body:
   "paymentType": null
 }
 ```
+
 Sample *List Credit Card Info* Apple Pay response body:
 
 ```
@@ -4304,12 +4361,12 @@ This endpoint retrieves masked credit card information and validation status of 
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
-|mode|Query|flag indicating which credit card fields to validate.  default is 1<br>1 = credit card number, expiration month and year, cvv<br>2 = credit card number, expiration month and year<br>3 = cvv<br>4 = expiration month and year, cvv|String|Optional|
+|**id**|Path|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
+|mode|Query|flag indicating which credit card fields to validate. default is 1<br>1 = credit card number, expiration month and year, cvv<br>2 = credit card number, expiration month and year<br>3 = cvv<br>4 = expiration month and year, cvv|String|Optional|
 
 #### <a name="ccinfo2-request-headers"></a>Request URI
 
-Sample request URI
+Sample request URI:
 https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/isValidData?mode=3
 
 #### <a name="list-ccinfo-validate-response-body"></a>Response Body
@@ -4353,6 +4410,7 @@ Sample *List Credit Card Info and Validate Status* credit card response body:
 "isValid": true
 }
 ```
+
 Sample *List Credit Card Info and Validate Status* Apple Pay response body:
 
 ```
@@ -4364,6 +4422,7 @@ Sample *List Credit Card Info and Validate Status* Apple Pay response body:
    "paymentType": "visa"
 }
 ```
+
 |Error Code|Description|
 |---|---|
 |INTERNAL_ERROR|returned when there was an unspecified error processing the request|
@@ -4373,8 +4432,8 @@ Sample *List Credit Card Info and Validate Status* Apple Pay response body:
 |CARD_NUMBER_DOESNT_MATCH_TYPE|returned when the credit card number does not match the credit card type|
 |CARD_LENGTH_NOT_VALID|returned when the credit card number length is invalid|
 |CARD_NUMBER_NOT_VALIDV|returned when the credit card number is not valid|
-|CARD_EXPIRED|returned when the credit card number has expired
-|CVV_NUMBER_HAS_INVALID_CHARS("999160", "CVV has invalid characters"),
+|CARD_EXPIRED|returned when the credit card number has expired|
+|CVV_NUMBER_HAS_INVALID_CHARS|returned when the credit card CVV has invalid characters|
 |CVV_NUMBER_LENGTH_INVALID|returned when the credit card CVV length is invalid|
 |CARD_EXPIRY_HAS_INVALID_MONTH|returned when the credit card expiration month is invalid|
 |CARD_EXPIRY_HAS_INVALID_YEAR|returned when the credit card expiration year is invalid|
@@ -4392,9 +4451,10 @@ Sample *List Credit Card Info and Validate Status* Apple Pay response body:
 
 When paying with Apple Pay on a Safari Web browser, this service initializes an Apple Pay payment session through the Apple gateway. When you pass in a validationURL to the *Start Apple Pay Session* endpoint, the service provides the necessary information to Apple Pay to identify Nike as a merchant that accepts Apple Pay payments, and starts a new Apple Pay session.
 
-For example, the SNKRs Web experience calls this endpoint after calling Apple Pay's Javascript library to verify that the Apple Pay button can be displayed as a payment type.  SNKRs Web sends the encrypted response data from this endpoint to Apple.  Apple in turn notifies the customer on her iPhone, iWatch or iPad to verify her purchase on that device.  Once the customer verifies the payment on the device, the purchase process flow continues very similarly to the credit card flow.
+For example, the SNKRs Web experience calls this endpoint after calling Apple Pay's Javascript library to verify that the Apple Pay button can be displayed as a payment type. SNKRs Web sends the encrypted response data from this endpoint to Apple. Apple in turn notifies the customer on her iPhone, iWatch or iPad to verify her purchase on that device. Once the customer verifies the payment on the device, the purchase process flow continues very similarly to the credit card flow.
 
 Prerequisites for the customer who wishes to pay by ApplePay on a Safari Web Browser assumes the customer has:
+
 <li>access to a Mac and either an iPhone, iWatch, or iPad
 <li>installed latest macOS Sierra on Mac
 <li>installed iOS 10 on iPhone, iWatch, or iPad
@@ -4429,9 +4489,10 @@ Use this endpoint to initiate an ApplePay session.
 |---|---|---|
 |**valididationURL**|**Required**|URL to call to validate you as a merchant and initiate an Apple Pay payment session|
 
->TIP: See the Apple Pay Developer's site for the list of supported domain names for Apple Test and Production environments for the [validationURL](https://developer.apple.com/documentation/applepayjs#2539292)
+>TIP: See the Apple Pay Developer's site for the list of supported domain names for Apple Test and Production environments for the <a href="https://developer.apple.com/documentation/applepayjs#2539292" target="_blank">validationURL</a>
 
 Sample *Start Apple Pay Session* request body:
+
 ```
 {
   "validationURL":"https://apple-pay-gateway-pr-pod1.apple.com/paymentservices/startSession"
@@ -4439,6 +4500,7 @@ Sample *Start Apple Pay Session* request body:
 ```
 
 #### <a name="start-applepay-session-response-body"></a>Response Body
+
 The HTTP 200 response from *Start Apple Pay Session* contains the merchant session object with key/value pairs needed by Apple Pay to complete the customer's Apple Pay purchase. Following are descriptions of the important fields in the response body:
 
 |Element Name|Required?|Description|
@@ -4452,6 +4514,7 @@ The HTTP 200 response from *Start Apple Pay Session* contains the merchant sessi
 |**signature**|Optional|encrypted signature|
 
 Sample response body:
+
 ```
 {
   "epochTimestamp":1502822443275,  
@@ -4471,7 +4534,7 @@ Sample response body:
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md?raw#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -4487,7 +4550,8 @@ Sample response body:
 - [PayPal Details Job Status by ID](#paypal-details-job-by-id)
 
 ### <a name="paypal-wallet-overview"></a>Payment Wallet Overview
-When paying with PayPal, this service initializes a PayPal session and generates a PayPal redirect URL and token.  It also retrieves and validates PayPal meta data.  There is an endpoint for PayPal Express and a separate endpoint for PayPal Mark flows.  The PayPal Express flow allows the customer to choose a saved or add a new shipping and billing address at the PayPal site rather than in the Nike experience.  The PayPal Mark flow allows the customer to choose an existing or add a new shipping address in the Nike experience and choose a saved or add a new billing address at the PayPal site.
+
+When paying with PayPal, this service initializes a PayPal session and generates a PayPal redirect URL and token. It also retrieves and validates PayPal meta data. There is an endpoint for PayPal Express and a separate endpoint for PayPal Mark flows. The PayPal Express flow allows the customer to choose a saved or add a new shipping and billing address at the PayPal site rather than in the Nike experience. The PayPal Mark flow allows the customer to choose an existing or add a new shipping address in the Nike experience and choose a saved or add a new billing address at the PayPal site.
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
@@ -4497,7 +4561,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 ---
 
-This endpoint passes in Checkouts information including totals, items, pricing and other information so a session can be initiated at PayPal. The service returns a paypalToken and redirectURL in the response.  When the customer is ready to Pay, the experience redirects to the PayPal redirectURL passing the paypalToken. PayPal uses the token to look up the session and permits the customer to pay.  When the customer successfully pays or cancels the payment on the PayPal site, PayPal redirects the customer to either the returnURL or cancelURL passed in the request body.
+This endpoint passes in Checkouts information including totals, items, pricing and other information so a session can be initiated at PayPal. The service returns a paypalToken and redirectURL in the response. When the customer is ready to Pay, the experience redirects to the PayPal redirectURL passing the paypalToken. PayPal uses the token to look up the session and permits the customer to pay. When the customer successfully pays or cancels the payment on the PayPal site, PayPal redirects the customer to either the returnURL or cancelURL passed in the request body.
 
 #### Endpoint Details
 
@@ -4509,7 +4573,7 @@ This endpoint passes in Checkouts information including totals, items, pricing a
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**fields**|comma-separated list of fields to return in response.  If null, all fields are returned.|String|Optional|
+|**fields**|comma-separated list of fields to return in response. If null, all fields are returned.|String|Optional|
 
 #### <a name="paypalexpress-request-headers"></a>Request Headers
 
@@ -4558,8 +4622,8 @@ This endpoint passes in Checkouts information including totals, items, pricing a
 |request.items.priceInfo.**total**|**Required**|total item/service price after discount is applied (price - discount)|
 |request.items.priceInfo.**taxTotal**|**Required**|total tax amount item/service|
 
-
 Sample *PayPal Express* request body:
+
 ```
 {
   "request": {
@@ -4598,6 +4662,7 @@ Sample *PayPal Express* request body:
 ```
 
 #### <a name="paypalexpress-response-body"></a>Response Body
+
 The HTTP 202 response from *PayPal Express* contains information about how to retrieve the results of your job via the *PayPal Express Job by ID* endpoint. Following are descriptions of the important fields in the response body:
 
 |Element Name|Required?|Description|
@@ -4610,7 +4675,7 @@ The HTTP 202 response from *PayPal Express* contains information about how to re
 |links.self.**ref**|**Required**|relative link to job|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -4621,7 +4686,6 @@ The HTTP 202 response from *PayPal Express* contains information about how to re
 |response.**resourceType**|**Required**|resource type, always payment/paypal_express|
 |response.**paypalToken**|**Required**|Paypal express token|
 |response.**redirectURL**|**Required**|PayPal redirect URL customer follows to pay|
-
 
 Sample response body:
 
@@ -4639,7 +4703,7 @@ Sample response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/post_payment_paypal_express_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -4650,6 +4714,7 @@ Sample response body:
 Use this endpoint to check the status of the *PayPal Express* job. After receiving a HTTP 202 from the *PayPal Express* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
 To know if the job is done, check the value of the status field in the response body as follows:
+
 - "status": "PENDING": job processing has not started
 - "status": "IN_PROGRESS": job processing in progress
 - "status": "COMPLETED": job has completed
@@ -4668,8 +4733,8 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
-|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned|Optional|
+|**id**|Path|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
+|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned||Optional|
 
 #### <a name="paypalexpressjob-request-headers"></a>Request Headers
 
@@ -4688,6 +4753,7 @@ Sample *PayPal Express Job by ID* request URI
 ```
 https://api.nike.com/payment/paypal_express/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe783424
 ```
+
 #### <a name="paypalexpressjob-response-body"></a>Response Body
 
 The HTTP 200 response from *PayPal Express* contains information about how to retrieve the results of your job via the 'PayPal Express Job' endpoint. Following are descriptions of the important fields in the response body:
@@ -4703,7 +4769,7 @@ Sample *PayPal Express Job by ID* response body:
 |links.self.**ref**|**Required**|relative link to job|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -4733,7 +4799,7 @@ Sample *PayPal Express Job by ID* response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -4741,7 +4807,7 @@ Sample *PayPal Express Job by ID* response body:
 
 ---
 
-Similar to the [PayPal Express](#paypal-express) endpoint, the PayPal Mark endpoint passes in Checkouts information including totals, items, pricing, shipping address and other information so a Mark session can be initiated at PayPal. The service returns a paypalToken and redirectURL in the response.  When the customer is ready to Pay, the experience redirects to the PayPal redirectURL passing the paypalToken. PayPal uses the token to look up the session and permits the customer to pay.  When the customer successfully pays or cancels the payment on the PayPal site, PayPal redirects the customer to either the returnURL or cancelURL passed in the request body.
+Similar to the [PayPal Express](#paypal-express) endpoint, the PayPal Mark endpoint passes in Checkouts information including totals, items, pricing, shipping address and other information so a Mark session can be initiated at PayPal. The service returns a paypalToken and redirectURL in the response. When the customer is ready to Pay, the experience redirects to the PayPal redirectURL passing the paypalToken. PayPal uses the token to look up the session and permits the customer to pay. When the customer successfully pays or cancels the payment on the PayPal site, PayPal redirects the customer to either the returnURL or cancelURL passed in the request body.
 
 #### Endpoint Details
 
@@ -4753,7 +4819,7 @@ Similar to the [PayPal Express](#paypal-express) endpoint, the PayPal Mark endpo
 
 |Name|Description|Required?|
 |---|---|---|
-|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned|Optional|
+|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|Optional|
 
 #### <a name="paypal-mark-request-headers"></a>Request Headers
 
@@ -4820,6 +4886,7 @@ Similar to the [PayPal Express](#paypal-express) endpoint, the PayPal Mark endpo
 |request.items.priceInfo.**taxTotal**|**Required**|Total tax amount for item/service|
 
 Sample *PayPal Mark* request body:
+
 ```
 {
   "request": {
@@ -4899,7 +4966,7 @@ The HTTP 202 response from *PayPal Mark* contains information about how to retri
 |links.self.**ref**|**Required**|relative link to job|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -4912,6 +4979,7 @@ The HTTP 202 response from *PayPal Mark* contains information about how to retri
 |response.**redirectURL**|**Required**|PayPal redirect URL customer follows to pay|
 
 Sample response body in "PENDING" status:
+
 ```
 {
   "id": "2722be3a-0341-11e6-b512-3e1d05defe78",
@@ -4926,7 +4994,7 @@ Sample response body in "PENDING" status:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/post_payment_paypal_mark_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -4935,7 +5003,6 @@ Sample response body in "PENDING" status:
 ---
 
 Use this endpoint to check the status of the *PayPal Mark* job. After receiving a HTTP 202 from the *PayPal Mark* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
-
 
 #### Endpoint Details
 
@@ -4958,8 +5025,8 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
-|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned|Optional|
+|**id**|Path|creditCardInfoId in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
+|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned||Optional|
 
 #### <a name="paypal-mark-job-by-id-request-headers"></a>Request Headers
 
@@ -4992,7 +5059,7 @@ The HTTP 200 response from *PayPal Mark* contains information about how to retri
 |links.self.**ref**|**Required**|relative link to job|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -5024,7 +5091,7 @@ Sample *PayPal Mark Job by ID* response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5032,7 +5099,7 @@ Sample *PayPal Mark Job by ID* response body:
 
 ---
 
-This endpoint retrieves and validates PayPal data, including shipping and billing information and the PayPal token.  Call this endpoint after calling either the *PayPal Mark* or *PayPal Express* endpoint.
+This endpoint retrieves and validates PayPal data, including shipping and billing information and the PayPal token. Call this endpoint after calling either the *PayPal Mark* or *PayPal Express* endpoint.
 
 #### Endpoint Details
 
@@ -5044,7 +5111,7 @@ This endpoint retrieves and validates PayPal data, including shipping and billin
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|Optional|
+|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned||Optional|
 
 #### <a name="paypal-details-request-headers"></a>Request Headers
 
@@ -5065,6 +5132,7 @@ This endpoint retrieves and validates PayPal data, including shipping and billin
 |request.**shoppingCountry**|**Required**|shopping in country. defaults to en_US|
 
 Sample *PayPal Details* request body:
+
 ```
 {
   "request": {
@@ -5087,7 +5155,7 @@ The HTTP 202 response from *PayPal Details* contains information about how to re
 |links.self.**ref**|**Required**|relative link to job to poll the jobs endpoint|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -5151,6 +5219,7 @@ Sample *Paypal Details* 202 response body in "PENDING" status:
 ```
 
 Sample *Paypal Details* 400 response body:
+
 ```
 {
   "message": "Validation Failed",
@@ -5169,7 +5238,7 @@ Sample *Paypal Details* 400 response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/post_payment_paypal_details_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/post_payment_paypal_details_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5179,10 +5248,10 @@ Sample *Paypal Details* 400 response body:
 
 Use this endpoint to check the status of the *PayPal Details* job. After receiving a HTTP 202 from the *PayPal Details* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
-
 #### Endpoint Details
 
 To know if the job is done, check the value of the status field in the response body as follows:
+
 - "status": "PENDING": job processing has not started
 - "status": "IN_PROGRESS": job processing in progress
 - "status": "COMPLETED": job has completed
@@ -5201,8 +5270,8 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Job ID in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format generated by the client|String|**Required**|
-|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned|String|Optional|
+|**id**|Path|Job ID in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format generated by the client|String|**Required**|
+|**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|String|Optional|
 
 ##### <a name="paypal-details-job-by-id-request-headers"></a>Request Headers
 
@@ -5221,14 +5290,15 @@ Sample PayPal Details Job by ID request URI
 ```
 https://api.nike.com/payment/paypal_details/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 ```
+
 #### <a name="paypal-mark-job-by-id-response-body"></a>Response Body
 
-The response body is the same as is returned in the *Paypal Details* response body.  See the detailed response field list in the [Paypal Details Response Body](#paypal-details-response-body)
+The response body is the same as is returned in the *Paypal Details* response body. See the detailed response field list in the [Paypal Details Response Body](#paypal-details-response-body)
 
 The HTTP 200 response from *PayPal Details* contains information about how to retrieve the results of your job via the 'PayPal Details Job' endpoint. Following are descriptions of the important fields in the response body:
 
-
 Sample *PayPal Details Job by ID* 200 response body in "COMPLETED" status:
+
 ```
 {
   "id": "2722be3a-0341-11e6-b512-3e1d05defe783424",
@@ -5296,7 +5366,7 @@ Sample *PayPal Details Job by ID* 200 response body in "COMPLETED" status:
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md?raw#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5313,7 +5383,7 @@ Sample *PayPal Details Job by ID* 200 response body in "COMPLETED" status:
 
 ### Deferred Payment Overview
 
-When paying for a Nike Checkouts through a Third Party vendor, this service generates the values needed to open and pay at a Third Party website or app.  This service is used for experiences that support the iDeal, Sofort and/or China payment types.  The Payment API supported China payment types are Alipay, Tenpay, UnionPay and WeChat.
+When paying for a Nike Checkouts through a Third Party vendor, this service generates the values needed to open and pay at a Third Party website or app. This service is used for experiences that support the iDeal, Sofort and/or China payment types. The Payment API supported China payment types are Alipay, Tenpay, UnionPay and WeChat.
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
@@ -5321,7 +5391,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 ---
 
-Use this endpoint to generate a signed link used to redirect the customer to pay at a Third Party site or app.  In the case of WeChat, see the [Deferred Payment WeChat](#deferred-payment-wechat) endpoint.
+Use this endpoint to generate a signed link used to redirect the customer to pay at a Third Party site or app. In the case of WeChat, see the [Deferred Payment WeChat](#deferred-payment-wechat) endpoint.
 
 #### Endpoint Details
 
@@ -5349,7 +5419,8 @@ Use this endpoint to generate a signed link used to redirect the customer to pay
 |**returnURL**|**Required**|URL to redirect to after successful payment is made at the Third Party site|
 |**experienceType**|**Required**|one of `DESKTOP`,`MOBILE`,`APP**|
 
-Sample Deferred Payment request
+Sample Deferred Payment request:
+
 ```
   {
     "request": {
@@ -5359,9 +5430,10 @@ Sample Deferred Payment request
       "experienceType": "DESKTOP"
     }
   }
-  ```
+```
 
 #### <a name="deferred-payment-response-body"></a>Response Body
+
 The HTTP 202 response from *Deferred Payment Form* contains information about how to retrieve the results of your job via the 'Deferred Payment Form Job' endpoint. Listed below are the response body fields.
 
 |Element Name|Required?|Description|
@@ -5373,7 +5445,7 @@ The HTTP 202 response from *Deferred Payment Form* contains information about ho
 |links.self.**ref**|**Required**|relative link to job to poll the jobs endpoint|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -5432,7 +5504,7 @@ Sample *Deferred Payment Form* 400 response:
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5462,8 +5534,8 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) for the job|String|**Required**|
-|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned.|String|**Optional**|
+|**id**|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for the job|String|**Required**|
+|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|**Optional**|
 
 #### <a name="deferred-payment-job-request-headers"></a>Request Headers
 
@@ -5482,10 +5554,12 @@ Sample *Deferred Payment Form Job* request URI:
 ```
 https://api.nike.com/payment/deferred_payment_forms/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 ```
+
 #### <a name="deferred-payment-job-response-body"></a>Response Body
+
 The HTTP 202 response from *Deferred Payment Form Job* contains information about how to retrieve the results of your job via the 'Deferred Payment Form Job' endpoint. The response body is the same as is returned in the [Deferred Payment Form](#deferred-payment-response-body) except that the resourceType is payment/deferred_payment_forms.
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5505,7 +5579,7 @@ Use this endpoint to validate the Deferred Payment with the Third Party Vendor.
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned.|String|Optional|
+|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|Optional|
 
 #### <a name="deferred-payment-request-headers"></a>Request Headers
 
@@ -5528,7 +5602,8 @@ Use this endpoint to validate the Deferred Payment with the Third Party Vendor.
 |request.vendorData.parameters.**name**|Optional|request parameter name|
 |request.vendorData.parameters.**value**|Optional|request parameter value|
 
-Sample *Deferred Payment Status* request
+Sample *Deferred Payment Status* request:
+
 ```
 {
   "request": {
@@ -5551,9 +5626,10 @@ Sample *Deferred Payment Status* request
     }
   }
 }
-  ```
+```
 
 #### <a name="deferred-payment-job-response-body"></a>Response Body
+
 The HTTP 200 response from *Deferred Payment Status* contains information about how to retrieve the results of your job via the *Deferred Payment Status Job* endpoint. Listed below are the response body fields:
 
 |Element Name|Required?|Description|
@@ -5565,7 +5641,7 @@ The HTTP 200 response from *Deferred Payment Status* contains information about 
 |links.self.**ref**|**Required**|relative link to job to poll the jobs endpoint|
 |**error**|Optional|error object containing details of the cause(s) of error, present when service returns in error|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -5577,8 +5653,8 @@ The HTTP 200 response from *Deferred Payment Status* contains information about 
 |response.**status**|**Required**|payment status in third party system, enum one of "UNKNOWN", "PAYMENT_SUCCESSFUL", "PAYMENT_PENDING", "PAYMENT_FAILED", "PAYMENT_REFUNDED", "PAYMENT_REFUND_FAILED", "PAYMENT_CANCELLED"|
 |response.**amount**|**Required**|amount paid|
 
+Sample *Deferred Payment Status* response in "PENDING" status:
 
-Sample *Deferred Payment Status* response in "PENDING" status
 ```
 {
   "id": "2722be3a-0341-11e6-b512-3e1d05defe78",
@@ -5599,7 +5675,7 @@ Sample *Deferred Payment Status* response in "PENDING" status
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5609,17 +5685,17 @@ Sample *Deferred Payment Status* response in "PENDING" status
 
 Use this endpoint to check the status of the *Deferred Payment Status* job. After receiving a HTTP 202 from the *Deferred Payment Status* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
-
 #### Endpoint Details
 
 To know if the job is done, check the value of the status field in the response body as follows:
+
 - "status": "PENDING": job processing has not started
 - "status": "IN_PROGRESS": job processing in progress
 - "status": "COMPLETED": job has completed
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 |HTTP Method|URI Path|JWT Restricted|
 |---|---|---|
@@ -5629,8 +5705,8 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) for the job|String|**Required**|
-|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned.|String|**Optional**|
+|**id**|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for the job|String|**Required**|
+|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|**Optional**|
 
 #### <a name="deferred-payment-status-job-status-by-id-request-headers"></a>Request Headers
 
@@ -5644,16 +5720,18 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 >TIP: Get the {id} path parameter from the `id` job UUID in the Deferred Payment Status response.
 
-Sample Deferred Payment Status Job request URI
+Sample Deferred Payment Status Job request URI:
 
 ```
 https://api.nike.com/payment/deferred_payment_status/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 ```
+
 #### <a name="deferred-payment-status-job-status-by-id-response-body"></a>Response Body
+
 The HTTP 200 response from *Deferred Payment Status Job* contains information about how to retrieve the results of your job via the 'Deferred Payment Status Job' endpoint. The fields in the response are the same as those returned from the [Deferred Payment Status](#deferred-payment-job-response-body) except the resourceType is payment/deferred_payment_status/jobs.
 
+Sample Deferred Payment Status Job response in "IN_PROGRESS" status with header:
 
-Sample Deferred Payment Status Job response in "IN_PROGRESS" status with header
 ```
 {
   "id": "2722be3a-0341-11e6-b512-3e1d05defe783424",
@@ -5665,9 +5743,9 @@ Sample Deferred Payment Status Job response in "IN_PROGRESS" status with header
     }
   }
 }
-  ```
+```
 
-Sample *Deferred Payment Status Job* response in "COMPLETED" status
+Sample *Deferred Payment Status Job* response in "COMPLETED" status:
 
 ```
 {
@@ -5687,7 +5765,7 @@ Sample *Deferred Payment Status Job* response in "COMPLETED" status
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5695,7 +5773,7 @@ Sample *Deferred Payment Status Job* response in "COMPLETED" status
 
 ---
 
-Use this endpoint to generate the necessary values to initiate a session in the WeChat Pay Browser Phone App from the browser. See [JSAPI WeChat Browser](https://confluence.nike.com/display/ocp/jsapi+wechat+browser) and [WeChat Documentation](http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html) for JavaScript implementation details.  Note that this endpoint should be used for the Mobile Web or Desktop/WeChat flows only. The Mobile Web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkouts; the Desktop flow generates a QR code when it is time to pay for the Nike Checkouts that when followed, opens the WeChat Payment App on the customer's Mobile device.
+Use this endpoint to generate the necessary values to initiate a session in the WeChat Pay Browser Phone App from the browser. See <a href="https://confluence.nike.com/display/ocp/jsapi+wechat+browser" target="_blank">JSAPI WeChat Browser</a> and <a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html" target="_blank">WeChat Documentation</a> for JavaScript implementation details. Note that this endpoint should be used for the Mobile Web or Desktop/WeChat flows only. The Mobile Web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkouts; the Desktop flow generates a QR code when it is time to pay for the Nike Checkouts that when followed, opens the WeChat Payment App on the customer's Mobile device.
 
 #### Endpoint Details
 
@@ -5707,7 +5785,7 @@ Use this endpoint to generate the necessary values to initiate a session in the 
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned.|String|**Optional**|
+|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|**Optional**|
 
 #### <a name="deferred-wechat-request-headers"></a>Request Headers
 
@@ -5728,7 +5806,8 @@ Use this endpoint to generate the necessary values to initiate a session in the 
 |request.**orderNumber**|**Required**|Checkouts order number|
 |request.**code**|**Required**|code returned by the [Payment Approval](#using-payment-approval) service|
 
-Sample Payment WeChat Request
+Sample Payment WeChat Request:
+
 ```
 {
   "request": {
@@ -5752,7 +5831,7 @@ The HTTP 200 response from *Deferred WeChat Payment* contains information about 
 |links.self.**ref**|**Required**|relative link to job to poll the jobs endpoint|
 |**error**|Optional|present when service throws 5xx error and cannot complete the request|
 |error.**httpStatus**|Optional|status code present when service returns in error|
-|error.**message**|Optional|error message|top level error message present when service returns in error|
+|error.**message**|Optional|top level error message present when service returns in error|
 |error.**code**|Optional|enum of JOB_TIME or SYSTEM_ERROR|
 |error.**id**|Optional|error id|
 |**errors**|Optional|array of error objects present when service returns in error|
@@ -5768,7 +5847,8 @@ The HTTP 200 response from *Deferred WeChat Payment* contains information about 
 |response.**package**|**Required**|WeChat-generated prepay id assigned to this transaction|
 |response.**timestamp**|**Required**|timestamp of transaction|
 
-Sample *Deferred Payment WeChat* response in "PENDING" status
+Sample *Deferred Payment WeChat* response in "PENDING" status:
+
 ```
 {
   "id": "2722be3a-0341-11e6-b512-3e1d05defe78",
@@ -5783,7 +5863,7 @@ Sample *Deferred Payment WeChat* response in "PENDING" status
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5793,17 +5873,17 @@ Sample *Deferred Payment WeChat* response in "PENDING" status
 
 Use this endpoint to check the status of the *Deferred WeChat Payment* job. After receiving a HTTP 202 from the *Deferred WeChat Payment* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
-
 #### Endpoint Details
 
 To know if the job is done, check the value of the status field in the response body as follows:
+
 - "status": "PENDING": job processing has not started
 - "status": "IN_PROGRESS": job processing in progress
 - "status": "COMPLETED": job has completed
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 |HTTP Method|URI Path|JWT Restricted|
 |---|---|---|
@@ -5813,8 +5893,8 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) for the job|String|**Required**|
-|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status.  If null, all response fields are returned.|String|**Optional**|
+|**id**|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for the job|String|**Required**|
+|**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|**Optional**|
 
 #### <a name="deferred-wechat-payment-job-request-headers"></a>Request Headers
 
@@ -5828,15 +5908,18 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 
 >TIP: Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
-Sample Deferred WeChat Payment Job request URI
+Sample Deferred WeChat Payment Job request URI:
 
 ```
 https://api.nike.com/payment/deferred_wechat_payments/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 ```
+
 #### <a name="deferred-payment-job-response-body"></a>Response Body
+
 The HTTP 200 response from *Deferred WeChat Payment Job* contains information about how to retrieve the results of your job via the 'Deferred WeChat Payment Job' endpoint. The response body fields are the same as those returned in the [Deferred Payment WeChat](#deferred-payment-response-body) response except the resourceType is payment/deferred_wechat_payments/jobs.
 
-Sample *Deferred Payment Form Job* response in "IN_PROGRESS" status
+Sample *Deferred Payment Form Job* response in "IN_PROGRESS" status:
+
 ```
 {
   "id": "2722be3a-0341-11e6-b512-3e1d05defe78",
@@ -5848,9 +5931,9 @@ Sample *Deferred Payment Form Job* response in "IN_PROGRESS" status
     }
   }
 }
-  ```
+```
 
-Sample *Deferred WeChat Payment Job* response in "COMPLETED" status
+Sample *Deferred WeChat Payment Job* response in "COMPLETED" status:
 
 ```
 {
@@ -5879,7 +5962,7 @@ Sample *Deferred WeChat Payment Job* response in "COMPLETED" status
 |MISSING_REQUIRED|returned when the request is missing a required field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md?raw#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -5895,7 +5978,7 @@ To avoid excessive job polling of asynchronous endpoints, wait the number of mil
 
 ### Retry Conditions
 
-For all Payment APIs, the general rule is that requests resulting in a HTTP 4XX response should not be retried without modification to the request data, but HTTP 5XX errors can be retried as is. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode) on Confluence.
+For all Payment APIs, the general rule is that requests resulting in a HTTP 4XX response should not be retried without modification to the request data, but HTTP 5XX errors can be retried as is. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.
 
 The exception to the 4xx response rule is the 429 response, indicating that there are too many requests coming in for the service to handle. When a service returns a 429, the call should be retried a maximum of two times, using the value returned in the `Retry-After` header to determine when to make the follow-up call.
 
@@ -5905,7 +5988,7 @@ Listed below are some techniques to troubleshoot problems using the Payment API.
 
 ### Query Splunk With a Trace ID
 
-In order to abide by PCI-compliance rules, payment logging requires special Splunk access. As a result, you can not query Splunk by Trace ID as a trouble-shooting tool to track down why a payment request failed. If need help from the Payment Team, post your problem to the [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook) Slack channel with details such as:
+In order to abide by PCI-compliance rules, payment logging requires special Splunk access. As a result, you can not query Splunk by Trace ID as a trouble-shooting tool to track down why a payment request failed. If need help from the Payment Team, post your problem to the <a href="https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook" target="_blank">CiC Payment</a> Slack channel with details such as:
 
 - experience in which you encountered the error, iOS SNKRS app, nike.com web, Android SNKRS app, direct endpoint call etc.
 - time request failed
@@ -5915,7 +5998,7 @@ In order to abide by PCI-compliance rules, payment logging requires special Splu
 
 ### Inspect Browser Activity in a Live Experience
 
-Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as [SNKRS Web](http://www.nike.com/launch).  Or, set up Charles and your favorite device to proxy service calls made from the Nike SNKRS or Nike+ Apps. Sometimes seeing what other experiences are doing might address your question or concern.
+Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as <a href="http://www.nike.com/launch" target="_blank">SNKRS Web</a>. Or, set up Charles and your favorite device to proxy service calls made from the Nike SNKRS or Nike+ Apps. Sometimes seeing what other experiences are doing might address your question or concern.
 
 >TIP: While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
 
@@ -5925,7 +6008,7 @@ Try using your browser's built-in tools for inspecting web service calls made fr
 |---|---|
 |Authorization (of payment)|Temporary hold on funds in a customer's account for a future charge|
 |Deferred Payment|Third-party bank through which a customer pays for their Nike order after it is placed|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/)|Payment Card Industry Data Security Standard provides secure standards for handling credit card data.  All Nike CiC payment services are PCI-DSS compliant.|
+|<a href="https://www.pcisecuritystandards.org/pci_security/" target="_blank">PCI-DSS</a>|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
 |Void (of payment)|reverses a successful Authorization|
 
 **<a name="supported-stored-payment-types"></a>Supported Stored Payment Types**
@@ -5945,7 +6028,7 @@ The Stored Payment Service supports storing these types of payment:
 
 **<a name="pay-options-by-country"></a>Payment Options by Country**
 
-See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810) for a list of supported payment types by shipping and billing country.
+See the <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870810" target="_blank">Global Payment Options</a> for a list of supported payment types by shipping and billing country.
 
 <p>&nbsp;</p>
 
@@ -5962,6 +6045,7 @@ There are no release notes at this time.
 |Initial draft|01/08/2018|Initial Draft|
 |Layout changes|02/13/2018|Updated doc layout per new API Doc standard|
 |Updated links|03/20/2018|Updated links to point to new dev portal|
+|Updated external links|04/03/2018|Updated external links to open in new browser window|
 
 ## <a name="related-links"></a>Related Links
 

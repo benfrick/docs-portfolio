@@ -11,7 +11,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 
 # ANALYTICS PIPELINE API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-##### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](https://nde-devportal-docs.niketech.com/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.
 
@@ -87,13 +87,13 @@ The following table describes the key details of the API:
 |SLAs|Response time (RT) and requests per second (RPS): <br>RT: 500 ms <br>RPS: 500|
 |Domain|Commerce|
 |Prerequisites|None|
-|Contact Info|Slack: [#cic-nexus](https://nikedigital.slack.com/messages/cic-nexus)<br>Confluence space: [Analytics Pipeline API Team](https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home)<br> Mailing List: [Lst-Nexus.Devops](mailto:Lst-Nexus.DevOps)<br><a name="product-owner"></a>Product Owner: [Randy Davis](mailto:randall.davis@nike.com)|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br>Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br> Mailing List: <a href="mailto:Lst-Nexus.DevOps" target="_blank">Lst-Nexus.Devops</a><br><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a>|
 
 ### A Note about Segment
 
 Segment is an analytics API and customer data platform which Nike utilizes. As you saw in the above diagram, it is one of several downstream integrations from the Analytics Pipeline API. By integrating with Segment once, Nike unlocks additional downstream integrations like Optimizely for A/B Testing, Kochava for mobile analytics, and several digital marketing integrations.
 
-Reach out to the Analytics API Product Owner, [Randall Davis](mailto:randall.davis@nike.com), for information on the analytics opportunities available via Segment.
+Reach out to the Analytics API Product Owner, <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a>, for information on the analytics opportunities available via Segment.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -145,7 +145,7 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[SEND A NEW EVENT BATCH](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md)|/measure/uxevents/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a>|/measure/uxevents/v1|POST|
 
 ## <a name="making-your-first-api-request"></a>Making Your First API Request
 
@@ -185,7 +185,7 @@ The event type **mouse** is described in the API.md as 'a mouse or touch event' 
 
 - What are the required fields in the schema which apply to all events AND what are the additional fields are required for this specific event type?
 
-For any request to the Analytics Pipeline API, you will need to combine the required fields from the [Event Batch](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json) and [Base Event Schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseEvent.json) along with an event-type schema, in this case the [Mouse Event Schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/events/nexus/mouse.json).
+For any request to the Analytics Pipeline API, you will need to combine the required fields from the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json" target="_blank">Event Batch Schema</a> and <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseEvent.json" target="_blank">Base Event Schema</a> along with an event-type schema, in this case the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/events/nexus/mouse.json" target="_blank">Mouse Event Schema</a>.
 
 >Note: some event-type schemas specify additional required elements from the Base Event schema.
 
@@ -312,7 +312,7 @@ Put another way, every request must include at minimum the required fields from 
 
 #### Event Batch & Base Event
 
-The fields in the base event are described in the below table, by combining the [Event Batch](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json) and [Base Event](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseEvent.json) schemas:
+The fields in the base event are described in the below table, by combining the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json" target="_blank">Event Batch</a> and <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseEvent.json" target="_blank">Base Event</a> schemas:
 
 |Element Name|Description|Required?|
 |---|---|---|
@@ -331,20 +331,20 @@ The fields in the base event are described in the below table, by combining the 
 |events.application.**name**|App name|Required|
 |events.application.**version**|Semver style or build number of app|Required|
 |events.application.**environment**|App environment, one of "development", "test", or "production"|Required|
-|events.application.**domain**|Experience domain of app, see list [here](https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences)|Required|
+|events.application.**domain**|Experience domain of app, see list <a href="https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences" target="_blank">here</a>|Required|
 |events.application.**division**|Organization which the app domain falls under, e.g. "commerce"|Required|
 |events.application.**platform**|Technology platform of the app, e.g. "cloud", "tesla"|Required|
-|events.application.**other**|Other application data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.application.**other**|Other application data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.**locale**|Object describing the locale of event|Required|
 |events.locale.**country**|ISO 3166 country code|Required|
 |events.locale.**language**|BCP47 language code|Required|
-|events.locale.**other**|Other locale data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.locale.**other**|Other locale data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.**privacy**||Required|
 |events.privacy.**isFunctional**|Boolean specifying if event is categorized as functional|Required|
 |events.privacy.**isMarketing**|Boolean specifying if event is categorized as marketing|Required|
 |events.privacy.**isPerformance**|Boolean specifying if event is categorized as performance|Required|
-|events.privacy.**other**|Other privacy data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
-|events.**platform**|Object describing app platform. Schema one of /webContext, /serviceContext, /mobileContext from [Base Event](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseEvent.json)|Required|
+|events.privacy.**other**|Other privacy data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
+|events.**platform**|Object describing app platform. Schema one of /webContext, /serviceContext, /mobileContext from <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseEvent.json" target="_blank">Base Event</a>|Required|
 |events.platform.**type**|Platform type, "web"|Required|
 |events.platform.**pageTitle**||Required|
 |events.platform.**adobeVisitorId**||Optional|
@@ -367,8 +367,8 @@ The fields in the base event are described in the below table, by combining the 
 |events.platform.os.**idfa**||Optional|
 |events.platform.os.**idfv**||Optional|
 |events.platform.os.**adid**||Optional|
-|events.platform.os.**other**|Other OS data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
-|events.platform.**other**|Other platform data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.platform.os.**other**|Other OS data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
+|events.platform.**other**|Other platform data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.**consumer**|Object describing the consumer/user context|Optional|
 |events.consumer.**anonymousId**|A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier|Optional|
 |events.consumer.**upmId**|Nike user profile identifier|Optional|
@@ -379,7 +379,7 @@ The fields in the base event are described in the below table, by combining the 
 |events.consumer.**isSwoosh**|Boolean where if true the user is a Nike employee|Required|
 |events.consumer.**allowsMarketing**|Boolean where if true the user has opted into marketing events being collected|Required|
 |events.consumer.**allowsPerformance**|Boolean where if true the user has opted into performance events being collected |Required|
-|events.consumer.**other**|Other consumer data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.consumer.**other**|Other consumer data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.**marketing**|Object containing tracking parameters that tie to the Ad campaign|Optional|
 |events.marketing.**campaignKey**|The campaign key for a specific Ad vendor|Required|
 |events.marketing.**campaignValue**|The value for a specific Ad vendors campaign|Required|
@@ -388,7 +388,7 @@ The fields in the base event are described in the below table, by combining the 
 |events.marketing.**vendorKey**|The query parameter key for vendor identification|Required|
 |events.marketing.**vendorValue**|The query parameter value for vendor identification|Required|
 |events.marketing.**siteSource**|The query parameter value for SITESRC|Optional|
-|events.marketing.**other**|Other campaign data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.marketing.**other**|Other campaign data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.**abTest**|Object containing the A/B testing context|Optional|
 |events.abTest.**neo**|Object containing A/B test data for Neo|Optional|
 |events.abTest.neo.**swimlane**|String|Optional|
@@ -397,15 +397,15 @@ The fields in the base event are described in the below table, by combining the 
 |events.abTest.neo.profiles.**experiments**|Array of experiment data|Required|
 |events.abTest.neo.profiles.experiments.**id**|String|Required|
 |events.abTest.neo.profiles.experiments.**variation**|String|Required|
-|events.abTest.neo.profiles.experiments.**other**|Other experiment data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
-|events.abTest.neo.profiles.**other**|Other profile data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
-|events.abTest.neo.**other**|Other Neo data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.abTest.neo.profiles.experiments.**other**|Other experiment data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
+|events.abTest.neo.profiles.**other**|Other profile data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
+|events.abTest.neo.**other**|Other Neo data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.abTest.**optimizely**|Array of A/B test data for Optimizely|Optional|
 |events.abTest.optimizely.**experimentId**|Experiment identifier, string|Optional|
 |events.abTest.optimizely.**experimentName**|Experiment name, string|Optional|
 |events.abTest.optimizely.**variationId**|Variation identifier, string|Optional|
 |events.abTest.optimizely.**variationName**|Variation name, string|Optional|
-|events.abTest.**other**|Other A/B Test data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.abTest.**other**|Other A/B Test data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.**order**|Object containing the consumer order context. Cannot be combined with "products" context in same request|Optional|
 |events.order.**checkoutId**|Generated id of a submitted checkout|Required|
 |events.order.**orderId**|Id of a submitted order|Optional|
@@ -422,7 +422,7 @@ The fields in the base event are described in the below table, by combining the 
 |events.order.**payments**|Array of at least one payment on order|Optional|
 |events.order.payments.**paymentType**|Type of payment|Required|
 |events.order.payments.**stored**|Boolean that is true if payment is a stored payment|Required|
-|events.order.payments.**other**|Other payment data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.order.payments.**other**|Other payment data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 |events.**products**|Object containing product  context. Cannot be combined with "order" context in same request|Optional|
 |events.products.**productId**|Product UUID|Required|
 |events.products.**brand**|Brand of the product|Optional|
@@ -441,8 +441,8 @@ The fields in the base event are described in the below table, by combining the 
 |events.products.**styleColor**|Style-color code of product|Optional|
 |events.products.**styleType**|Style type of product|Optional|
 |events.products.**subtitle**|Subtitle of product|Optional|
-|events.products.**other**|Other product data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
-|events.**other**|A non-validated name-spaced region where domain-specific data can be added, per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.products.**other**|Other product data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
+|events.**other**|A non-validated name-spaced region where domain-specific data can be added, per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 #### Event Types
 
@@ -474,12 +474,12 @@ Next, each event type will be described in detail and a sample request body will
 |---|---|---|
 |events.**eventType**|Type of event, only "action" is allowed|Required|
 |events.**properties**|Object|Optional|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Required|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Required|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other event data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other event data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 ```
@@ -612,17 +612,17 @@ Sample request body:
 |---|---|---|
 |events.**eventType**|Type of event, only "changeView" is allowed|Required|
 |events.**properties**|Object|Required|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Required|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Required|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**previousView**|Object representing the user previously viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Required|
+|events.properties.**previousView**|Object representing the user previously viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Required|
 |events.properties.previousView.**channel**||Required|
 |events.properties.previousView.**name**||Optional|
 |events.properties.previousView.**viewType**||Optional|
 |events.properties.previousView.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other event data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other event data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 ```
@@ -716,7 +716,7 @@ Sample request body:
 |events.properties.totals.**discountTotal**|Total of all discounts applied to the checkout|Required|
 |events.properties.totals.**shippingTotal**|Total of all shipping costs (less shipping discounts) on the checkout|Required|
 |events.properties.totals.**total**|Total price of the entire checkout, item costs + shipping costs + taxes (excluding 'VALUEADDEDTAX') less any discounts|Required|
-|events.properties.totals.**other**|Other totals data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.totals.**other**|Other totals data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 ```
@@ -785,12 +785,12 @@ Sample request body:
 |events.properties.errors.**code**|Error code, string|Optional|
 |events.properties.errors.**message**|Error message, string|Optional|
 |events.properties.errors.**field**|Error field, string|Optional|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Optional|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Optional|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other error data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other error data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 ```
@@ -981,7 +981,7 @@ Sample request body:
 |events.properties.**metricType**|Metric type, one of "gauge", "counter", "cumulative_counter"|Required|
 |events.properties.**dimensions**|Object|Required|
 |events.properties.**metricValue**|Metric value, number|Required|
-|events.properties.**other**|Other metric data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other metric data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 
@@ -1079,12 +1079,12 @@ The fields for the **mouse** event type are:
 |events.**properties**|Object|Required|
 |events.properties.**interactionType**|Type of interaction (e.g. "click", "touch", "drag", etc.)|Required|
 |events.properties.**mouseTarget**|Description of target of interaction, e.g. "change billing country"|Required|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Required|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Required|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other mouse data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other mouse data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 
@@ -1201,7 +1201,7 @@ Sample request body:
 |events.properties.**domCompleteInMS**||Required|
 |events.properties.**firstPaintInMS**||Required|
 |events.properties.**pageLoadInMS**||Required|
-|events.properties.**other**|Other page data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other page data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 ```
@@ -1384,12 +1384,12 @@ The above must be combined with one of the following:
 |events.properties.**itemIndex**|Integer index of the search item as it's presented to the user in the list of search items|Optional|
 |events.properties.**searchItem**|A type-ahead or autocomplete item the user selects|Optional|
 |events.properties.**searchText**|The search text the user entered|Required|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Optional|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Optional|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other search data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other search data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 **OR**
 
@@ -1397,12 +1397,12 @@ The above must be combined with one of the following:
 |---|---|---|
 |events.properties.**searchText**|The search text the user entered|Required|
 |events.properties.**searchType**|The type of search used, "userEntered" allowed only|Required|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Optional|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Optional|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other search data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other search data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 **OR**
 
@@ -1412,12 +1412,12 @@ The above must be combined with one of the following:
 |events.properties.**searchItem**|A type-ahead or autocomplete item the user selects|Required|
 |events.properties.**searchText**|The search text the user entered|Required|
 |events.properties.**searchType**|The type of search used, "typeahead" or "visualSearch" allowed only|Required|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Optional|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Optional|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other search data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other search data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 
@@ -1490,12 +1490,12 @@ Sample request body:
 |events.**properties**|Object|Required|
 |events.properties.**selectionTarget**|String|Required|
 |events.properties.**selectionValue**|String|Required|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Optional|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Optional|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other selection data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other selection data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 
@@ -1608,12 +1608,12 @@ Sample request body:
 |events.**properties**|Object|Required|
 |events.properties.**inputTarget**|String|Required|
 |events.properties.**inputValue**|String|Required|
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)|Optional|
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>|Optional|
 |events.properties.view.**channel**||Required|
 |events.properties.view.**name**||Optional|
 |events.properties.view.**viewType**||Optional|
 |events.properties.view.**contentBoostTags**|List of tags describing the enhanced content of the view, e.g. "video", "music", "game"|Optional|
-|events.properties.**other**|Other text input data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|Optional|
+|events.properties.**other**|Other text input data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|Optional|
 
 Sample request body:
 ```
@@ -1690,7 +1690,7 @@ The response body format is described below.
 |Element Name|Description|Required?|
 |---|---|---|
 |**message**|Response message|Required|
-|message.**eventBatchErrors**|Optional|
+|message.**eventBatchErrors**|Optional||
 
 Sample HTTP 200 success response:
 
@@ -1755,7 +1755,7 @@ Scenario: the API is having an issue taking the request.
 }
 ```
 
-<a href="http://nikeweb-test.private.static.s3-website-us-east-1.amazonaws.com/fat/event-validator-ui/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://nikeweb-test.private.static.s3-website-us-east-1.amazonaws.com/fat/event-validator-ui/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1782,7 +1782,7 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.application.**name**|App name|events.context.app.**name**|(same)||
 |events.application.**version**|Semver style or build number of app|events.context.app.**version**|(same)||
 |events.application.**environment**|App environment, one of "development", "test", or "production"|events.context.app.**environment**|(same)||
-|events.application.**domain**|Experience domain of app, see list [here](https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences)|events.context.app.**domain**|(same)||
+|events.application.**domain**|Experience domain of app, see list <a href="https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences" target="_blank">here</a>|events.context.app.**domain**|(same)||
 |events.application.**division**|Organization which the app domain falls under, e.g. "commerce"|events.context.app.**division**|(same)||
 |events.application.**platform**|Technology platform of the app, e.g. "cloud", "tesla"|events.context.app.**platform**|(same)||
 |events.locale.**country**|ISO 3166 country code|events.context.**locale**|(same)||
@@ -1811,8 +1811,8 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.platform.os.**idfa**||events.context.device.**id**|||
 |events.platform.os.**idfv**||events.context.device.**id**|||
 |events.platform.os.**adid**||events.context.device.**id**|||
-|events.platform.os.**other**|Other OS data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
-|events.platform.**other**|Other platform data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.platform.os.**other**|Other OS data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
+|events.platform.**other**|Other platform data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 |events.consumer.**anonymousId**|A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier|events.**anonymousId**|(same)||
 |events.consumer.**upmId**|Nike user profile identifier|events.**userId**|A unique identifier for the user in your database||
 |events.consumer.**visitorId**|Unite visitor identifier|N/A (deprecated)|N/A||
@@ -1822,7 +1822,7 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.consumer.**isSwoosh**|Boolean where if true the user is a Nike employee|events.context.consumer.**isSwoosh**|(same)||
 |events.consumer.**allowsMarketing**|Boolean where if true the user has opted into marketing events being collected|events.context.consumer.**allowsMarketing**|(same)||
 |events.consumer.**allowsPerformance**|Boolean where if true the user has opted into performance events being collected |events.context.consumer.**allowsPerformance**|(same)||
-|events.consumer.**other**|Other consumer data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.consumer.**other**|Other consumer data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 |events.marketing.**campaignKey**|The campaign key for a specific Ad vendor|events.context.campaign.**source**|(same)||
 |events.marketing.**campaignValue**|The value for a specific Ad vendors campaign|events.context.campaign.**value**|(same)||
 |events.marketing.**clickIdKey**|The click identifier for a specific Ad vendors campaign|N/A (deprecated)|N/A||
@@ -1830,19 +1830,19 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.marketing.**vendorKey**|The query parameter key for vendor identification|N/A (deprecated)|N/A||
 |events.marketing.**vendorValue**|The query parameter value for vendor identification|N/A (deprecated)|N/A||
 |events.marketing.**siteSource**|The query parameter value for SITESRC|N/A (deprecated)|N/A||
-|events.marketing.**other**|Other campaign data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.marketing.**other**|Other campaign data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 |events.abTest.neo.**swimlane**|String|events.**swimlane**|(same)||
 |events.abTest.neo.profiles.**name**|Experiment name, string|events.**experimentName**|(same)||
 |events.abTest.neo.profiles.experiments.**id**|Experiment identifier, string|events.**experimentId**|(same)||
 |events.abTest.neo.profiles.experiments.**variation**|Variation identifier, string|events.**variationId**|(same)||
-|events.abTest.neo.profiles.experiments.**other**|Other experiment data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)||||
-|events.abTest.neo.profiles.**other**|Other profile data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)||||
-|events.abTest.neo.**other**|Other Neo data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.abTest.neo.profiles.experiments.**other**|Other experiment data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>||||
+|events.abTest.neo.profiles.**other**|Other profile data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>||||
+|events.abTest.neo.**other**|Other Neo data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 |events.abTest.optimizely.**experimentId**|Experiment identifier, string|events.**experimentId**|(same)||
 |events.abTest.optimizely.**experimentName**|Experiment name, string|events.**experimentName**|(same)||
 |events.abTest.optimizely.**variationId**|Variation identifier, string|events.**variationId**|(same)||
 |events.abTest.optimizely.**variationName**|Variation name, string|N/A (deprecated)|N/A||
-|events.abTest.**other**|Other A/B Test data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.abTest.**other**|Other A/B Test data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 |events.order.**checkoutId**|Generated id of a submitted checkout|events.**checkoutId**|(same)||
 |events.order.**orderId**|Id of a submitted order|events.**orderId**|(same)||
 |events.order.**promoCode**|Promo code applied to checkout|events.**coupon**|(same)||
@@ -1857,7 +1857,7 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.order.**products**|Array of at least one product, see 'events.products' in this table for mapping|N/A|||
 |events.order.payments.**paymentType**|Type of payment|events.**paymentMethod**|(same)||
 |events.order.payments.**stored**|Boolean that is true if payment is a stored payment|events.**paymentStored**|(same)||
-|events.order.payments.**other**|Other payment data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.order.payments.**other**|Other payment data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 |events.products.**productId**|Product UUID|events.**productId**|(same)||
 |events.products.**brand**|Brand of the product|events.**brand**|(same)||
 |events.products.**category**|Category of the product|events.**category**|(same)||
@@ -1875,16 +1875,16 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.products.**styleColor**|Style-color code of product|events.**variant**|Variant of the product||
 |events.products.**styleType**|Style type of product|events.**style**|Style of the product||
 |events.products.**subtitle**|Subtitle of product|events.**subtitle**|(same)||
-|events.products.**other**|Other product data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
-|events.**other**|A non-validated name-spaced region where domain-specific data can be added, per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.products.**other**|Other product data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
+|events.**other**|A non-validated name-spaced region where domain-specific data can be added, per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Action: Event Type Mapping
 
 |V1 Field Name|Description|V2 Field Name|Description|Notes|
 |---|---|---|---|---|
 |events.**eventType**|Type of event, only "action" is allowed|events.**eventType**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other event data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other event data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### App Launch: Event Type Mapping
 
@@ -1901,9 +1901,9 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |V1 Field Name|Description|V2 Field Name|Description|Notes|
 |---|---|---|---|---|
 |events.**eventType**|Type of event, only "changeView" is allowed|events.**eventType**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**previousView**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other event data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**previousView**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other event data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Checkout Confirmation: Event Type Mapping
 
@@ -1920,7 +1920,7 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.properties.totals.**discountTotal**|Total of all discounts applied to the checkout|events.**discount**|(same)||
 |events.properties.totals.**shippingTotal**|Total of all shipping costs (less shipping discounts) on the checkout|events.**shipping**|(same)||
 |events.properties.totals.**total**|Total price of the entire checkout, item costs + shipping costs + taxes (excluding 'VALUEADDEDTAX') less any discounts|events.**totals**|(same)||
-|events.properties.totals.**other**|Other totals data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.totals.**other**|Other totals data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Error: Event Type Mapping
 
@@ -1930,8 +1930,8 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.properties.errors.**code**|Error code, string|events.properties.errors.**code**|(same)||
 |events.properties.errors.**message**|Error message, string|events.properties.errors.**message**|(same)||
 |events.properties.errors.**field**|Error field, string|events.properties.errors.**field**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other error data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other error data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Login Complete: Event Type Mapping
 
@@ -1950,7 +1950,7 @@ The first table shows the v1-v2 mapping for the fields in the Event Batch & Base
 |events.properties.**metricType**|Metric type, one of "gauge", "counter", "cumulative_counter"|events.properties.metric.**type**|(same)||
 |events.properties.**dimensions**|Object|events.properties.metric.**dimensions**|(same)||
 |events.properties.**metricValue**|Metric value, number|events.properties.metric.**value**|(same)||
-|events.properties.**other**|Other metric data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**other**|Other metric data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Mouse: Event Type Mapping
 
@@ -1961,8 +1961,8 @@ The fields for the **mouse** event type are:
 |events.**eventType**|Type of event, only "mouse" is allowed|events.**eventType**|(same)||
 |events.properties.**interactionType**|Type of interaction (e.g. "click", "touch", "drag", etc.)|events.properties.**interactionType**|(same)||
 |events.properties.**mouseTarget**|Description of target of interaction, e.g. "change billing country"|events.properties.**mouseTarget**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other mouse data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other mouse data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Page Load: Event Type Mapping
 
@@ -1975,7 +1975,7 @@ The fields for the **mouse** event type are:
 |events.properties.**domCompleteInMS**||events.properties.**domCompleteInMS**|(same)||
 |events.properties.**firstPaintInMS**||events.properties.**firstPaintInMS**|(same)||
 |events.properties.**pageLoadInMS**||events.properties.**pageLoadInMS**|(same)||
-|events.properties.**other**|Other page data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**other**|Other page data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Registration Complete: Event Type Mapping
 
@@ -2000,8 +2000,8 @@ The above must be combined with one of the following:
 |events.properties.**itemIndex**|Integer index of the search item as it's presented to the user in the list of search items|N/A (deprecated)|N/A||
 |events.properties.**searchItem**|A type-ahead or autocomplete item the user selects|events.query.**item**|(same)||
 |events.properties.**searchText**|The search text the user entered|events.query.**text**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other search data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other search data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 **OR**
 
@@ -2009,8 +2009,8 @@ The above must be combined with one of the following:
 |---|---|---|---|---|
 |events.properties.**searchText**|The search text the user entered|events.query.**text**|(same)||
 |events.properties.**searchType**|The type of search used, "userEntered" allowed only|events.query.**type**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other search data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other search data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 **OR**
 
@@ -2020,8 +2020,8 @@ The above must be combined with one of the following:
 |events.properties.**searchItem**|A type-ahead or autocomplete item the user selects|events.query.**item**|(same)||
 |events.properties.**searchText**|The search text the user entered|events.query.**text**|(same)||
 |events.properties.**searchType**|The type of search used, "typeahead" or "visualSearch" allowed only|events.query.**type**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other search data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other search data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Selection: Event Type Mapping
 
@@ -2030,8 +2030,8 @@ The above must be combined with one of the following:
 |events.**eventType**|Type of event, only "selection" is allowed|events.**eventType**|(same)||
 |events.properties.**selectionTarget**|String|events.**selectionTarget**|(same)||
 |events.properties.**selectionValue**|String|events.**selectionValue**|(same)||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other selection data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other selection data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ### Text Input: Event Type Mapping
 
@@ -2040,8 +2040,8 @@ The above must be combined with one of the following:
 |events.**eventType**|Type of event, only "textInput" is allowed|events.**eventType**|(same)||
 |events.properties.**inputTarget**|String|TBD|||
 |events.properties.**inputValue**|String|TBD|||
-|events.properties.**view**|Object representing the user viewing part of an application per the [baseView schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json)||||
-|events.properties.**other**|Other text input data per [otherContext schema](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json)|N/A (deprecated)|N/A||
+|events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
+|events.properties.**other**|Other text input data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
@@ -2049,9 +2049,9 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-1. Check for validation errors logged in Splunk [here](https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda)
+1. Check for validation errors logged in Splunk <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda" target="_blank">here</a>
 
-2. Use the sample requests in this document or those provided [here](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events) as a guide to forming valid requests for each event type.
+2. Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.
 
 ## <a name="glossary"></a>Glossary
 
@@ -2065,8 +2065,9 @@ There are no release notes at this time.
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|2/27/2018|Initial Draft|
-|Updated links|3/20/2018|Updated links to point to new dev portal|
+|Initial draft|02/27/2018|Initial Draft|
+|Updated links|03/20/2018|Updated links to point to new dev portal|
+|Updated external links|04/03/2018|Updated external links to open in new browser window|
 
 ## <a name="related-links"></a>Related Links
 
