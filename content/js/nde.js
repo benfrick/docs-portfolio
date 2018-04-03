@@ -31,13 +31,7 @@ var clickmessage = {
 
 window.addEventListener('message', clickmessage.receiveMessage, false);
 parent.postMessage(location.href,'*');
-//console.log('posting message ', location.href);
 
 window.onclick = function(event) {
-
-  var targeturl = clickmessage.getClosest(event.target,'a');
-  console.log('tracking click event ', targeturl);
-  //if (clickmessage.allowMessage(targeturl)) {
-    parent.postMessage(targeturl, '*');
-  //}
+  parent.postMessage(clickmessage.getClosest(event.target,'a'), '*');
 };
