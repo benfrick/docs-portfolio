@@ -1,24 +1,43 @@
-var allowed = ['https://developer.preprod.niketech.com','https://developer.niketech.com','http://localhost:3000'];
-var temp;
+var allowed = ['//developer.preprod.niketech.com','//developer.niketech.com','//localhost'];
 
-function receiveMessage (event)
-{
-  for (i = 0; i < allowed.length; i++) {
-    if (event.origin === allowed[i]){
-      processMessage (event);
-      break;
+var clickmessage = {
+
+    receiveMessage: function(event) {
+        if(event.type != 'message'){
+            return;
+        }
+        if (clickmessage.allowMessage(event.origin) && event.data) {
+            location.assign((JSON.parse(event.data)).path);
+        }
+    },
+
+    allowMessage: function(messageorigin) {
+        for (i = 0; i < allowed.length; i++) {
+            if (messageorigin.includes(allowed[i])) {
+                return true;
+            }
+        }
+    return false;
+    },
+
+    getClosest: function (elem, selector) {
+        for ( ; elem && elem !== document; elem = elem.parentNode ) {
+		    if ( elem.matches( selector ) ) return elem.href;
+	    }
+	    return null;
     }
-  }
-}
-function processMessage (event) {
-  if(event.data) {
-    temp = JSON.parse(event.data);
-    location.assign(temp.path);
-  }
-}
-function sendMessage (message, origin, recipient){
-    recipient.postMessage(message, origin, false);
-}
-window.addEventListener('message', receiveMessage, false);
-if(parent)
-    parent.postMessage(location.href,'*');
+
+};
+
+window.addEventListener('message', clickmessage.receiveMessage, false);
+parent.postMessage(location.href,'*');
+//console.log('posting message ', location.href);
+
+window.onclick = function(event) {
+
+  var targeturl = clickmessage.getClosest(event.target,'a');
+  console.log('tracking click event ', targeturl);
+  //if (clickmessage.allowMessage(targeturl)) {
+    parent.postMessage(targeturl, '*');
+  //}
+};
