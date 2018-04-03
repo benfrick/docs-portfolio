@@ -33,5 +33,7 @@ window.addEventListener('message', clickmessage.receiveMessage, false);
 parent.postMessage(location.href,'*');
 
 window.onclick = function(event) {
-  parent.postMessage(clickmessage.getClosest(event.target,'a'), '*');
+  let path = clickmessage.getClosest(event.target,'a');
+  if (!path) return;
+  parent.postMessage(JSON.stringify({ path }), '*');
 };
