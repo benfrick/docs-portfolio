@@ -10,7 +10,7 @@ Author:  Jane Moore
 
 # LAUNCH BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 This guide discusses best practices for calling NDe commerce services during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the [Service Call Best Practices](#service-call-best-practices) section, specific performance, retry and fallback best practices are listed by service.
 
@@ -28,12 +28,12 @@ Many factors can affect microservice performance and availability such as heavy 
 
 ### Use the Circuit Breaker Pattern
 
-Use the [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html) when calling other services (either internal or external) to avoid waiting indefinitely for a response from a non-responsive service and to provide fallback behavior for a service failure. [Hystrix](https://github.com/Netflix/Hystrix) and [FastBreak](https://github.com/Nike-Inc/fastbreak) are examples of Circuit Breaker libraries currently used by Nike microservices.
+Use the <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank">Circuit Breaker Pattern</a> when calling other services (either internal or external) to avoid waiting indefinitely for a response from a non-responsive service and to provide fallback behavior for a service failure. <a href="https://github.com/Netflix/Hystrix" target="_blank">Hystrix</a> and <a href="https://github.com/Nike-Inc/fastbreak" target="_blank">FastBreak</a> are examples of Circuit Breaker libraries currently used by Nike microservices.
 
 
 ### Use the Exponential Backoff Retry Pattern
 
-Unless otherwise noted, callers should follow the [Exponential Backoff Retry Pattern](https://dzone.com/articles/understanding-retry-pattern-with-exponential-back) to determine how long to wait in between retries without modifying the request when the service returns a 429 or 5xx error. To use this pattern, a backoff increment value is used to calculate the wait time between retries. Wait time is calculated by wait time + backoff increment. For example, when the backoff increment is 100ms, the first four retry wait times are listed below.
+Unless otherwise noted, callers should follow the <a href="https://dzone.com/articles/understanding-retry-pattern-with-exponential-back" target="_blank">Exponential Backoff Retry Pattern</a> to determine how long to wait in between retries without modifying the request when the service returns a 429 or 5xx error. To use this pattern, a backoff increment value is used to calculate the wait time between retries. Wait time is calculated by wait time + backoff increment. For example, when the backoff increment is 100ms, the first four retry wait times are listed below.
 
 - 1st retry: 100ms
 - 2nd retry: 200ms
@@ -42,17 +42,17 @@ Unless otherwise noted, callers should follow the [Exponential Backoff Retry Pat
 
 ### Use Jitter
 
-Clients should consider using [Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) to more randomly distribute retry calls to decrease load on the service.
+Clients should consider using <a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/" target="_blank">Jitter</a> to more randomly distribute retry calls to decrease load on the service.
 
-Visit [API Error Patterns](https://confluence.nike.com/display/DAHP/API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode) for more information on retry recommendations.
+Visit <a href="https://confluence.nike.com/display/DAHP/API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> for more information on retry recommendations.
 
 ### Use Distributed Tracing
 
-Many of Nike's microservices make calls to other services, quickly fanning out processing control. This complexity can make it difficult to troubleshoot bottlenecks and debug problems. Distributed tracing can help this situation by stepping through the round trip of a request and illuminating problems. [Wingtips](https://github.com/Nike-Inc/wingtips) is the recommended distributed tracing tool.
+Many of Nike's microservices make calls to other services, quickly fanning out processing control. This complexity can make it difficult to troubleshoot bottlenecks and debug problems. Distributed tracing can help this situation by stepping through the round trip of a request and illuminating problems. <a href="https://github.com/Nike-Inc/wingtips" target="_blank">Wingtips</a> is the recommended distributed tracing tool.
 
 ### Be Aware of Bot Rules
 
-Bot rules are in place that block calls to these APIs by IP and upmid for a period of time when more than 300 calls per minute come through the public and edge routers. Service-to-service calls are not affected by these limits. For more information visit [Bot Monitoring and Mitigation](https://confluence.nike.com/pages/viewpage.action?pageId=154879250).
+Bot rules are in place that block calls to these APIs by IP and upmid for a period of time when more than 300 calls per minute come through the public and edge routers. Service-to-service calls are not affected by these limits. For more information visit <a href="https://confluence.nike.com/pages/viewpage.action?pageId=154879250" target="_blank">Bot Monitoring and Mitigation</a>.
 
 ## <a name="buy-service"/>Buy Service
 
@@ -174,7 +174,6 @@ Listed below are the best practices for calling each Availability service.
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern, waiting 100ms between calls. The caller should determine the retry limit.|
 |**Fallback behavior for API callers**|Caller should default availability to false.|
 
-
 ## <a name="launch-service"/>Launch Service
 
 TBD
@@ -206,7 +205,6 @@ Experiences calling the Merchandised Product services directly should not cache 
 |**Performance**|<li>If you have one product UUID, call the `Merchandised Product by ID` endpoint.<li>If you have a list of product UUIDs, call the `Merchandised Product List` endpoint with the id filter to list the products in batch.<li>When filtering by id, request 25 ids or less at a time.|
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
-
 
 ### <a name="merchandised-product-skus"/>Merchandised Product SKUs
 
@@ -274,7 +272,6 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|When a caller reaches the retry limit, it can default to a non-stored credit card as a payment option in all countries except China. However if Payment Options is not responding, Payment Preview and Payment Approval will fail and Checkout cannot be completed.|
 
-
 ### <a name="payment-stored-payments"/>Payment Stored Payments
 
 **Endpoint:** /consumer/storedpayments/
@@ -287,7 +284,6 @@ Listed below are the best practices for calling each Payment service.
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
-
 
 ### <a name="payment-preview"/>Payment Preview
 
@@ -312,7 +308,6 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-
 ### <a name="payment-credit-card-submit"/>Payment Credit Card Submit
 
 **Endpoint:** /services/, /creditcardsubmit/
@@ -334,7 +329,6 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-
 ### <a name="payment-wallet"/>Payment Wallet
 
 **Endpoint:** /payment/paypal_details/, /payment/paypal_express/v1/, /payment/paypal_mark/v1/
@@ -345,7 +339,6 @@ Listed below are the best practices for calling each Payment service.
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
-
 
 ### <a name="payment-deferred-payment"/>Payment Deferred Payment
 
