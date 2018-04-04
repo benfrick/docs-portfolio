@@ -5,7 +5,7 @@
 
 # Get Started with Product Feeds (DRAFT) <i class="g72-swoosh"></i>
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 ---
 
@@ -69,9 +69,9 @@ Join the web economy by using the common language of the internet to interact wi
 
 We're here to help.
 
-<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
-<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com" target="_blank">Email</a>
 
 ## <a name="next-steps"></a>Next Steps
 

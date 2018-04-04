@@ -10,15 +10,15 @@ Author:  Jane Moore
 
 # GLOBAL REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
 
-- [Countries, Languages and Currencies](#countries-languages-currencies)
+- [Countries, Languages and Currencies](#countries-languages-and-currencies)
 - [Sales Channels](#sales-channels)
 - [Brands](#brands)
 
-## <a name="countries-languages-currencies">Countries, Languages and Currencies</a>
+## <a name="countries-languages-and-currencies">Countries, Languages and Currencies</a>
 
 |Country|ISO2 Country Code|Locale|Language|Currency|
 |---|---|---|---|---|

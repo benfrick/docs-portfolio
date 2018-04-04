@@ -10,7 +10,7 @@ Author:  Jane Moore
 
 # MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 This guide describes the product and value-added service merchandising codes flowing from Prodigy (the system of record) to the Merchandised Product API.
 
@@ -43,7 +43,6 @@ Listed below are the merchandising group codes and the countries included within
 |---|---|---|---|---|
 |China|Austria<br>Belgium<br>Czech Republic<br>Denmark<br>Finland<br>France<br>Germany<br>Greece<br>Hungary<br>Ireland<br>Italy<br>Luxembourg<br>Netherlands<br>Poland<br>Portugal<br>Slovenia<br>Spain<br>Sweden<br>United Kingdom|Japan|United States|for future use|
 
-
 ## <a name="genders">Genders</a>
 
 Listed below are the gender codes.  Adult unisex products are merchandised with both "MEN" and "WOMEN" gender codes.
@@ -73,7 +72,6 @@ Listed below are the product type codes.
 |**GIFT_MESSAGE**|Value-added service where a gift message is packaged with the product|
 |**JERSEY_ID**|Team jersey product bought in bulk for a team with customizable team number, emblem and name. This is not a NIKEiD product.|
 
-
 ## <a name="style-types">Style Types</a>
 
 Listed below are the product style codes.
@@ -85,7 +83,6 @@ Listed below are the product style codes.
 |**VALUE_ADDED_SERVICE**|Saleable service customer purchases as a product add-on such as custom embroidering, gift wrap and gift messaging|
 |**GIFT_CARD**|Physical or electronic debit card customer uses to purchase products and services|
 |**VOUCHER**|Credit given to a customer after returning a product that the customer uses to purchase other products and services|
-
 
 ## <a name="publish-types">Publish Types</a>
 

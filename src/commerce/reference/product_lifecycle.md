@@ -10,7 +10,7 @@ Author:  Jane Moore
 
 # PRODUCT LIFE CYCLE REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 ![](https://nde-devportal-docs.niketech.com/images/commerce/reference/product_life_cycle.png)
 

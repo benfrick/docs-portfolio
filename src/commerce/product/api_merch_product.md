@@ -11,7 +11,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 
 # MERCHANDISED PRODUCT API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Product APIs.
 
@@ -92,15 +92,15 @@ The following table describe the key details of the API:
 |Use this API to|List product and SKU details, pricing, value-added services|
 |Who calls this API|Examples include Product Feed API, SNKRs App, CMS, and the Inventory domain|
 |Current Version|Merchandised Product Service v2<br>Merchandised SKUs Service v2<br>Merchandised Prices Service v2<br>Merchandised Value-Added Services v1<br>Product Content Service v1|
-|Scope/Limitations|<li>NIKEiD is not supported. Although NIKEiD Master products are available in the Merchandised Product API, NIKEiD Prebuild products and paths are not supported. These are required to properly render the NIKEiD experience.<li>Retail data product is available, but not supported. Contact the Product Owner for details.<li>Bulk download of all product data is not supported.<li>Nike Outfits are not supported.<li>No product data metrics are currently sent to Analytics (Business Intelligence).<li>The v2 Merchandised Product SKUs service does not determine if a SKU is in stock.  Use the Inventory API to determine if a SKU has inventory.|
-|SLAs| Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms|
+|Scope/Limitations|<li>NIKEiD is not supported. Although NIKEiD Master products are available in the Merchandised Product API, NIKEiD Prebuild products and paths are not supported. These are required to properly render the NIKEiD experience.<li>Retail data product is available, but not supported. Contact the Product Owner for details.<li>Bulk download of all product data is not supported.<li>Nike Outfits are not supported.<li>No product data metrics are currently sent to Analytics (Business Intelligence).<li>The v2 Merchandised Product SKUs service does not determine if a SKU is in stock. Use the Inventory API to determine if a SKU has inventory.|
+|SLAs|Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms|
 |Domain|Commerce|
 |Prerequisites|[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)|
-|Contact Info|Slack [#cic-merch](https://nikedigital.slack.com/messages/cic-merch)<br>Confluence space: [Merchandised Product API Team](https://confluence.nike.com/collector/pages.action?key=MPA)<br> Mailing List: Lst-digitaltech.merch.apis<br><a name="product-owner"></a>Product Owner: Jeremy Geiger | jeremy.geiger@nike.com|
+|Contact Info|Slack <a href="https://nikedigital.slack.com/messages/cic-merch" target="_blank">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: Lst-digitaltech.merch.apis<br><a name="product-owner"></a>Product Owner: <a href="mailto:jeremy.geiger@nike.com" target="blank">Jeremy Geiger</a>|
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-To use the Merchandised Product API, you must send a caller ID header in every API request to help troubleshoot unexpected responses.  See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create your caller ID.
+To use the Merchandised Product API, you must send a caller ID header in every API request to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create your caller ID.
 
 ### Authentication Requirements
 
@@ -161,55 +161,55 @@ For the full list of use cases to evaluate if that API is better suited to your 
 
 For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.
 
-### [MERCHANDISED PRODUCT INFORMATION SERVICE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw)
+### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md" target="_blank">MERCHANDISED PRODUCT INFORMATION SERVICE</a>
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[MERCHANDISED PRODUCT LIST](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2)|/merch/products/v2|GET|
-[MERCHANDISED PRODUCT BY ID](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id)|/merch/products/v2/{id}|GET|
-[MERCHANDISED PRODUCT CREATE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/post_merch_products_v2)|/merch/product/v2|POST|
-[MERCHANDISED PRODUCT DELETE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/delete_merch_products_v2_id)|/merch/products/v2/{id}|DELETE|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/get_merch_products_v2" target="_blank">MERCHANDISED PRODUCT LIST</a>|/merch/products/v2|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/get_merch_products_v2_id" target="_blank">MERCHANDISED PRODUCT BY ID</a>|/merch/products/v2/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/post_merch_products_v2" target="_blank">MERCHANDISED PRODUCT CREATE</a>|/merch/product/v2|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/delete_merch_products_v2_id" target="_blank">MERCHANDISED PRODUCT DELETE</a>|/merch/products/v2/{id}|DELETE|
 
-### [MERCHANDISED SKU INFORMATION SERVICE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw)
-
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|[MERCHANDISED PRODUCT SKU LIST](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2)|/merch/skus/v2|GET|
-|[MERCHANDISED PRODUCT SKU BY ID](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id)|/merch/skus/v2/{id}|GET|
-|[MERCHANDISED PRODUCT SKU CREATE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/post_merch_skus_v2)|/merch/skus/v2|POST|
-|[MERCHANDISED PRODUCT SKUS DELETE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/delete_merch_skus_v2)|/merch/skus/v2|DELETE|
-|[MERCHANDISED PRODUCT SKUS DELETE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id)|/merch/skus/v2/{id}|DELETE|
-
-### [MERCHANDISED PRODUCT PRICE SERVICE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw)
+### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md" target="_blank">MERCHANDISED SKU INFORMATION SERVICE</a>
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[MERCHANDISED PRICES LIST](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2)|/merch/prices/v2|GET|
-|[MERCHANDISED PRICES BY ID](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id)|/merch/prices/v2/{id}|GET|
-|[MERCHANDISED PRICES CREATE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/post_merch_prices_v2)|/merch/prices/v2|POST|
-|[MERCHANDISED PRICES DELETE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/delete_merch_prices_v2_id)|/merch/prices/v2/{id}|DELETE|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2" target="_blank">MERCHANDISED PRODUCT SKU LIST</a>|/merch/skus/v2|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2_id" target="_blank">MERCHANDISED PRODUCT SKU BY ID</a>|/merch/skus/v2/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/post_merch_skus_v2" target="_blank">MERCHANDISED PRODUCT SKU CREATE</a>|/merch/skus/v2|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/delete_merch_skus_v2" target="_blank">MERCHANDISED PRODUCT SKUS DELETE</a>|/merch/skus/v2|DELETE|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2_id" target="_blank">MERCHANDISED PRODUCT SKUS DELETE</a>|/merch/skus/v2/{id}|DELETE|
 
-### [MERCHANDISED VALUE-ADDED SERVICES](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw)
-
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|[MERCHANDISED VALUE ADDED SERVICES LIST](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1)|/merch/value_added_services/v1|GET|
-|[MERCHANDISED VALUE ADDED SERVICES BY ID](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1_id)|/merch/value_added_services/v1/{id}|GET|
-|[MERCHANDISED VALUE ADDED SERVICES CREATE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/post_merch_value_added_services_v1)|/merch/value_added_services/v1|POST|
-|[MERCHANDISED VALUE ADDED SERVICES DELETE](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/delete_merch_value_added_services_v1_id)|/merch/value_added_services/v1/{id}|DELETE|
-
-### [PRODUCT CONTENT](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw)
+### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md" target="_blank">MERCHANDISED PRODUCT PRICE SERVICE</a>
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[PRODUCT CONTENT BY STYLE COLOR](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_styleColor_content)|/merch/contents/v1/{style-color}/content{?country,locale}|GET|
-|[PRODUCT CONTENT ITEM BY STYLE COLOR](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_styleColor_content_itemName)|/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}|GET|
-|[PRODUCT CONTENT BY STYLE COLOR LIST](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_content)|/merch/contents/v1/content{?country,locale,stylecolors}|GET|
-|[PRODUCT CONTENT FIELD BY STYLE COLOR LIST](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Content/get_merch_contents_v1_content)|/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}|GET|
-|[PRODUCT IMAGE SET BY STYLE COLOR](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_styleColor_images)|/merch/contents/v1/{style-color}/images{?country}|GET|
-|[PRODUCT IMAGE SET BY STYLE COLOR LIST]()|/merch/contents/v1/images{?country,stylecolors}|GET|
-|[PRODUCT BASE IMAGE URL BY STYLE COLOR](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_styleColor_images_base)|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
-|[PRODUCT BASE IMAGE URL BY STYLE COLOR LIST](https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#!/Public_Product_Images/get_merch_contents_v1_images_base)|/merch/contents/v1/images/base|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/get_merch_prices_v2" target="_blank">MERCHANDISED PRICES LIST</a>|/merch/prices/v2|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/get_merch_prices_v2_id" target="_blank">MERCHANDISED PRICES BY ID</a>|/merch/prices/v2/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/post_merch_prices_v2" target="_blank">MERCHANDISED PRICES CREATE</a>|/merch/prices/v2|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/delete_merch_prices_v2_id" target="_blank">MERCHANDISED PRICES DELETE</a>|/merch/prices/v2/{id}|DELETE|
+
+### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md" target="_blank">MERCHANDISED VALUE-ADDED SERVICES</a>
+
+|Endpoint Name|Path|HTTP Method|
+|---|---|---|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/get_merch_value_added_services_v1" target="_blank">MERCHANDISED VALUE ADDED SERVICES LIST</a>|/merch/value_added_services/v1|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/get_merch_value_added_services_v1_id" target="_blank">MERCHANDISED VALUE ADDED SERVICES BY ID</a>|/merch/value_added_services/v1/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/post_merch_value_added_services_v1" target="_blank">MERCHANDISED VALUE ADDED SERVICES CREATE</a>|/merch/value_added_services/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/delete_merch_value_added_services_v1_id" target="_blank">MERCHANDISED VALUE ADDED SERVICES DELETE</a>|/merch/value_added_services/v1/{id}|DELETE|
+
+### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md" target="_blank">PRODUCT CONTENT</a>
+
+|Endpoint Name|Path|HTTP Method|
+|---|---|---|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_styleColor_content" target="_blank">PRODUCT CONTENT BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/content{?country,locale}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_styleColor_content_itemName" target="_blank">PRODUCT CONTENT ITEM BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_content" target="_blank">PRODUCT CONTENT BY STYLE COLOR LIST</a>|/merch/contents/v1/content{?country,locale,stylecolors}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_content" target="_blank">PRODUCT CONTENT FIELD BY STYLE COLOR LIST</a>|/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Images/get_merch_contents_v1_styleColor_images" target="_blank">PRODUCT IMAGE SET BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/images{?country}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#public-product-images-product-image-set-by-stylecolor-list-1" target="_blank">PRODUCT IMAGE SET BY STYLE COLOR LIST</a>|/merch/contents/v1/images{?country,stylecolors}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Images/get_merch_contents_v1_styleColor_images_base" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR</a>|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Images/get_merch_contents_v1_images_base" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a>|/merch/contents/v1/images/base|GET|
 
 ## <a name="understanding-nike-product-data"></a>Understanding Nike Product Data
 
@@ -300,9 +300,9 @@ The resources provided by the <b>Merchandised Product API</b> include a wide ran
 
 The Merchandised Product API caching strategy includes three layers: application, Akamai and experience.
 
-The first cache layer is at the application level where each instance of the Merchandised Product application has its own cache.  There is no distributed caching, so the service instances do not share cache information with one another.  Application cache times vary between services.
+The first cache layer is at the application level where each instance of the Merchandised Product application has its own cache. There is no distributed caching, so the service instances do not share cache information with one another. Application cache times vary between services.
 
-The second cache layer is Akamai caching, utilized when the client calls the services through the public router.  There is no caching performed when an application calls the application directly.
+The second cache layer is Akamai caching, utilized when the client calls the services through the public router. There is no caching performed when an application calls the application directly.
 
 The third type of caching should occur within the client experience, depending on the client's architectural patterns. Caching client-side is recommended to reduce network calls and unnecessary load on the system.
 
@@ -335,7 +335,7 @@ The two data points reflect two views of essentially the same data. You should u
 
 ## <a name="making-your-first-api-request"></a>Making Your First API Request
 
-To try out the following examples, you need a valid style-color, style number, or ID, depending upon the service.  If you find that the data in any of these examples is no longer available, go to a product page on the [store.nike.com](https://store.nike.com) to get the style-color of an active, in-stock product.
+To try out the following examples, you need a valid style-color, style number, or ID, depending upon the service. If you find that the data in any of these examples is no longer available, go to a product page on the [store.nike.com](https://store.nike.com) to get the style-color of an active, in-stock product.
 
 For your first Merchandised Product API request, you will list the product details for style-colors SX7037-657 and SX5593-010.
 
@@ -353,6 +353,7 @@ For your first Merchandised Product API request, you will list the product detai
 2. Execute the request
 
 The complete URI is:
+
 https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=stylecolor(SX7037-657,SX5593-010)
 
 This GET request does not require special headers and can be executed in any browser.
@@ -361,7 +362,7 @@ This GET request does not require special headers and can be executed in any bro
 
 See the output of the successful JSON 200 response below.
 
-> **id** is the UUID assigned when the product first flowed into the Merchandising Product API. **pid** is a legacy ID that maps to the product UUID and will eventually be deprecated.
+>TIP: **id** is the UUID assigned when the product first flowed into the Merchandising Product API. **pid** is a legacy ID that maps to the product UUID and will eventually be deprecated.
 
 ```
 {
@@ -447,7 +448,7 @@ See the output of the successful JSON 200 response below.
 }
 ```
 
-><b>TIP:</b> For detailed information on this service, see [Merchandised Product List](#merchandised-product-list).
+>TIP: For detailed information on this service, see [Merchandised Product List](#merchandised-product-list).
 
 ## <a name="using-merchandised-products"></a>Using Merchandised Products
 
@@ -469,7 +470,7 @@ Use the Merchandised Products service to list, create, update, and delete mercha
 
 ### <a name="merchandised-product-list"></a>Merchandised Product List
 
-The Merchandised Product service returns all products matching the filter query parameter up to the value supplied in the count parameter. If no count parameter is supplied, up to 25 products are returned. When the count parameter is supplied, the maximum number of products is 25. Product results are sorted by product ID, style-color or style, depending upon the filter query parameters passed in.  If the count parameter restricts the results, a **pages** object is returned in the response that the caller can use for pagination.
+The Merchandised Product service returns all products matching the filter query parameter up to the value supplied in the count parameter. If no count parameter is supplied, up to 25 products are returned. When the count parameter is supplied, the maximum number of products is 25. Product results are sorted by product ID, style-color or style, depending upon the filter query parameters passed in. If the count parameter restricts the results, a **pages** object is returned in the response that the caller can use for pagination.
 
 This is not a [JWT-restricted](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#jwt-json-web-token) service but results differ based on whether or not this header is sent in the request. If no JWT header is supplied, the response contains products matching the criteria and have an ACTIVE status. If a valid JWT header is supplied, the response contains products matching the criteria regardless of status.
 
@@ -536,7 +537,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**colorCode**|Required|code indicating Nike color|required|
 |**styleColor**|Required|concatenation of **styleCode**-**colorCode**|required|
 |**pid**|Required|product ID from legacy system used to map to the product UUID|
-|**catalogId**|Optional|catalog ID in UUID format from the [Catalog Product](https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md?raw) service, will eventually replace **legacyCatalogIds**|
+|**catalogId**|Optional|catalog ID in UUID format from the <a href="https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md" target="_blank">Catalog Product</a> service, will eventually replace **legacyCatalogIds**|
 |**productGroupId**|Optional|ID used to group products together such as products with the same styleCode, from legacy system|
 |**nikeIdStyleCode**|Optional|Nike ID style code, only populated for products of styleType `NIKEID`|
 |**brand**|Optional|Nike brand associated to this product such as "Jordan"|
@@ -553,7 +554,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |customization.**nikeIdSlug**|Optional|NIKEiD slug code associated with this product|
 |**sportTags**|Optional|array of sport tags associated with this product|
 |**widthGroupIds**|Optional|group of product IDs with same style but different width, not currently used|
-|**classificationConcepts**|Optional|array of Taxonomy concept objects associated with this product. See the [Taxonomy Service](https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md?raw)for more information.|
+|**classificationConcepts**|Optional|array of Taxonomy concept objects associated with this product. See the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy Service</a> for more information.|
 |classificationConcepts.**broaderConceptId**|Required|UUID of the broad Taxonomy concept associated with this product, e.g. `Platinum Tint`|
 |classificationConcepts.**narrowerConceptIds**|Required|array of narrower Taxonomy concept UUIDs associated with this product|
 |**commerceCountryInclusions**|Optional|array of ISO2 country codes where this product can be sold, e.g. CN,JP|
@@ -571,7 +572,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**preOrder**|Optional|true or false, true indicates the PDP should display in preOrder status|
 |**hardLaunch**|Optional|true or false, true indicates the PDP should not display before the commerceStartDate or after the commerceEndDate regardless of inventory|
 |**hidePayment**|Optional|true or false, true indicates certain payment types are not allowed to purchase the product, such as COD in China|
-|**commercePublishDate**|Optional|timestamp indicating when this product was published.  e.g. if date is within 30 days of current date, product is considered a New Release|optional|
+|**commercePublishDate**|Optional|timestamp indicating when this product was published. e.g. if date is within 30 days of current date, product is considered a New Release|optional|
 |**commerceStartDate**|Optional|timestamp indicating when the product product can be sold|
 |**commerceEndDate**|Optional|timestamp indicating when the product can no longer be sold|
 |**preorderAvailabilityDate**|Optional|timestamp indicating when the product can be pre-ordered|
@@ -732,7 +733,7 @@ Sample *Merchandised Product List* 400 error response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <p>&nbsp;</p>
 
@@ -770,12 +771,14 @@ The caller does not have to send an access token in the **Authorization** header
 
 No body is required for GET requests.
 
-Sample request URI to list product information for ID 58aaa694-5889-5965-a781-6abcc3e4ff68 and Snapshot ID 34cec674-4200-4001-8632-1f4f3cec5078
+Sample request URI to list product information for ID 58aaa694-5889-5965-a781-6abcc3e4ff68 and Snapshot ID 34cec674-4200-4001-8632-1f4f3cec5078:
+
 ```
 https://api.nike.com/merch/products/v2/58aaa694-5889-5965-a781-6abcc3e4ff68?snapshotId=34cec674-4200-4001-8632-1f4f3cec5078 
 ```
 
-Sample request URI to list product information for ID 30e88273-bc07-5a51-bb8a-9c58a789c504
+Sample request URI to list product information for ID 30e88273-bc07-5a51-bb8a-9c58a789c504:
+
 ```
 https://api.nike.com/merch/products/v2/30e88273-bc07-5a51-bb8a-9c58a789c504
 ```
@@ -784,7 +787,7 @@ https://api.nike.com/merch/products/v2/30e88273-bc07-5a51-bb8a-9c58a789c504
 
 See the [Merchandised Product List](#merchandised-product-list) endpoint to view the list of response body field definitions.
 
-Sample *Merchandised Product By ID* 200 successful response
+Sample *Merchandised Product By ID* 200 successful response:
 
 ```
 {
@@ -835,7 +838,8 @@ Sample *Merchandised Product By ID* 200 successful response
 }
 ```
 
-Sample 404 response
+Sample 404 response:
+
 ```
 {
     "httpStatus": 404,
@@ -845,7 +849,7 @@ Sample 404 response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -905,7 +909,8 @@ Let's take a look at some sample *Merchandised Product SKU* scenarios.
 |GTIN 00887225865153|https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)|
 |Legacy SKU (**stockkeepingunitid**) 18925450|https://api.nike.com/merch/skus/v2/?filter=stockkeepingunitid(18925450)|
 
-Sample Merchandised Product SKU List request URI
+Sample Merchandised Product SKU List request URI:
+
 ```
 https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a745c35df8)&filter=country(US)
 ```
@@ -919,10 +924,10 @@ https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a
 |**productId**|Required|productid passed in the query parameter|
 |**parentId**|Optional|same as the productId if the SKU's product has no parent|
 |**parentType**|Optional|type of parent product. In the current version, this is always merchProduct.|
-|**catalogSkuId**|Optional|UUID of catalog product. See [Product Catalog Service](https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md?raw) for more information.|
+|**catalogSkuId**|Optional|UUID of catalog product. See [Product Catalog Service](https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md) for more information.|
 |**modificationDate**|Required|date the SKU was last modified|
 |**merchGroup**|Optional|Merchandising group to which this SKU belongs. For more information on Merch Groups, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**stockKeepingUnitId**|Optional|Deprecated SKU ID that is used for historical purposes by legacy systems.|[legacy SKUID](#glossary)|
+|**stockKeepingUnitId**|Optional|Deprecated SKU ID that is used for historical purposes by legacy systems.[legacy SKUID](#glossary)|
 |**gtin**|Required|[global trade item number](#glossary)|
 |**nikeSize**|Optional|internal size|
 |**countrySpecifcations**|Required|array of specifications based on country parameter|
@@ -930,13 +935,14 @@ https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a
 |countrySpecifications.**localizedSize**|Optional|localized SKU size based on country filter|
 |countrySpecifications.taxInfo.**commodityCode**|Optional|category code of SKU|
 |countrySpecifications.taxtInfo.**vat**|Optional|value-added tax based on the country filter, 0 if none|
-|**resourceType**|Optional|Required|type of resource, always merchSku|
+|**resourceType**|Required|type of resource, always merchSku|
 |links.self.**ref**|Required|referrer link to result|
 |errors.**requested**|Optional|error message indicating which field caused the error|
 |errors.**httpStatus**|Optional|HTTP error response code|
 |errors.**message**|Optional|detailed error message|
 
 Sample HTTP 200 success response from *Merchandised Product SKU List*:
+
 ```
 {
     "pages": {},
@@ -1005,6 +1011,7 @@ Sample HTTP 200 success response from *Merchandised Product SKU List*:
 ```
 
 Sample 404 error response from *Merchandised Product SKU List*:
+
 ```
 {
     "pages": {},
@@ -1019,12 +1026,13 @@ Sample 404 error response from *Merchandised Product SKU List*:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
 ### <a name="merchandised-product-sku-by-id"></a>Merchandised Product SKU by ID
-Use this service to search for SKU information by SKU ID.  This service returns the same data as the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint returns except for the pages object because the endpoint only returns one result. In order to get a SKU ID, you can query the *Merchandised Product SKU List* endpoint filtering by productid.
+
+Use this service to search for SKU information by SKU ID. This service returns the same data as the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint returns except for the pages object because the endpoint only returns one result. In order to get a SKU ID, you can query the *Merchandised Product SKU List* endpoint filtering by productid.
 
 >TIP: If you know the SKU ID, this endpoint yields faster results than the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint does because it locates the SKU record directly by ID rather than filtering the results.
 
@@ -1061,16 +1069,17 @@ No body is required for a GET request.
 |036006d4-fdb7-55f6-9430-9eaf239ce22f|https://api.nike.com/merch/skus/v2/036006d4-fdb7-55f6-9430-9eaf239ce22f|
 |036006d4-fdb7-55f6-9430-9eaf239ce22f in Finland|https://api.nike.com/merch/skus/v2/036006d4-fdb7-55f6-9430-9eaf239ce22f?country=FI|
 
-Sample Product SKU by ID request URI
+Sample Product SKU by ID request URI:
+
 ```
 https://api.nike.com/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13
 ```
 
 #### <a name="merchandised-product-sku-by-id-response-body">Response Body
 
-Sample *Merchandised Product SKU By ID* 200 successful response
+Sample *Merchandised Product SKU By ID* 200 successful response:
 
-See the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint to view the list of field definitions.
+>TIP: See the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint to view the list of field definitions.
 
 ```
 {
@@ -1104,7 +1113,7 @@ See the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1127,7 +1136,7 @@ The following sections describe each endpoint of the Merchandised Product Price 
 
 ### <a name="merchandised-prices-list"></a>Merchandised Prices List
 
-Use this endpoint to list price data by price ID or by product ID and [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products).  Because price values and currency are localized, both country and productid are required parameters when searching by productid.  Country is not required when searching by price ID because the price record for a price ID is for a specific country.  To get the price ID in the results, first search by productid and country. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style.  Product ID is returned in the results.
+Use this endpoint to list price data by price ID or by product ID and [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products). Because price values and currency are localized, both country and productid are required parameters when searching by productid. Country is not required when searching by price ID because the price record for a price ID is for a specific country. To get the price ID in the results, first search by productid and country. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
 
 No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.
 
@@ -1164,7 +1173,7 @@ Let's take a look at *Merchandised Price List* scenarios.
 |Product UUID and a specific location (e.g. Ireland)|https://api.nike.com/merch/prices/v2/?filter=productid(58aaa694-5889-5965-a781-6abcc3e4ff68)&filter=country(IE)|
 |Price UUID 486d098c-a403-5fb7-8305-243d71625d4c and snapshotId 678408f9-0eea-4560-b537-e85c131e9495|https://api.nike.com/merch/prices/v2/?filter=id(486d098c-a403-5fb7-8305-243d71625d4c)&filter=snapshotId(85ebb452-f61c-46a2-b0ce-14a89a542816)|
 
-Note that for the **productid** + [**country**](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) price queries, there is a different price record for each country.  Querying by ID is for a specific country.
+Note that for the **productid** + [**country**](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) price queries, there is a different price record for each country. Querying by ID is for a specific country.
 
 ### <a name="merchandised-prices-list-response-body"></a>Response Body
 
@@ -1179,8 +1188,8 @@ Note that for the **productid** + [**country**](https://nde-devportal-docs.niket
 |**parentId**|Optional|ID of parent product this price belongs to, alias for productId|
 |**parentType**|Optional|type of parent product, always merchProduct|
 |**modificationDate**|Required|timestamp the price was last modified|
-|**country**|Required|country of this price, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|optional|
-|**msrp**|manufacturer's recommended retail price. often not provided or may be 0|
+|**country**|Required|country of this price, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**msrp**||manufacturer's recommended retail price. often not provided or may be 0|
 |**fullPrice**|Required| Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strikethrough (e.g. a clearance product) and used by the [Buy API](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts) to calculate the difference between current retail price and full retail price to send to fufillment system|
 |**currentPrice**|Required|purchase price of product. if discounted, price is calculated in Prodigy/PI|
 |**employeePrice**|Required|employee price of product|
@@ -1194,7 +1203,7 @@ Note that for the **productid** + [**country**](https://nde-devportal-docs.niket
 |errors.**httpStatus**|Required|HTTP error response code|
 |errors.**message**|Required|detailed error message|
 
-Sample *Merchandised Prices List* 200 successful response
+Sample *Merchandised Prices List* 200 successful response:
 
 ```
 {
@@ -1225,15 +1234,15 @@ Sample *Merchandised Prices List* 200 successful response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
 ### <a name="merchandised-prices-by-id"></a>Merchandised Prices by ID
 
-Use this endpoint to list price data by price ID.  To get the price ID, search by productid and [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) using the [Merchandised Prices List](#merchandised-prices-list) endpoint and Price ID is returned in the results. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style.  Product ID is returned in the results.
+Use this endpoint to list price data by price ID. To get the price ID, search by productid and [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) using the [Merchandised Prices List](#merchandised-prices-list) endpoint and Price ID is returned in the results. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
 
-Results from this endpoint are almost identical to those returned from the [Merchandised Product List](#merchandised-product-list) endpoint.  The difference is no pagination data is returned and you can only search by one price ID at a time.
+Results from this endpoint are almost identical to those returned from the [Merchandised Product List](#merchandised-product-list) endpoint. The difference is no pagination data is returned and you can only search by one price ID at a time.
 
 No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.
 
@@ -1271,6 +1280,7 @@ Let's take a look at some *Merchandised Price by ID* scenarios.
 |price ID 486d098c-a403-5fb7-8305-243d71625d4c and snapshotId 85ebb452-f61c-46a2-b0ce-14a89a542816|https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c?filter=snapshotId(85ebb452-f61c-46a2-b0ce-14a89a542816)
 
 Sample *Merchandised Price by ID* request URI:
+
 ```
 https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c
 ```
@@ -1279,7 +1289,8 @@ https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c
 
 See the [Merchandised Prices List](#merchandised-product-list) endpoint for a description of response body field descriptions.
 
-Sample 200 success response
+Sample 200 success response:
+
 ```
 {
   "id" : "486d098c-a403-5fb7-8305-243d71625d4c",
@@ -1305,7 +1316,7 @@ Sample 200 success response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ----
 
@@ -1317,22 +1328,22 @@ Sample 200 success response
 
 ### <a name="merchandised-value-added-services-overview"></a>Merchandised Value Added Services Overview
 
-Products can be merchandised with one or more Value Added Services (VAS) such as gift wrap or personalization. Digital and physical gift cards are another example of VAS as customers can personalize the gift message and configure the amount.  A VAS can be merchandised to an unlimited number of products.  Use this service to list, add, and delete VAS.
+Products can be merchandised with one or more Value Added Services (VAS) such as gift wrap or personalization. Digital and physical gift cards are another example of VAS as customers can personalize the gift message and configure the amount. A VAS can be merchandised to an unlimited number of products. Use this service to list, add, and delete VAS.
 
 - You can search for a specific version of the object by searching by ID and Snapshot ID, which represents the version of the object. Searching by a filter other than **snapshotId** returns the most recent version.
 - Filter field names are case insensitive.
 - One VAS is returned if searching by VAS ID.
 - All endpoints are synchronous.
 
-Note that the VAS services return a field named pid.   Even though this field implies a one-to-one relationship between product and VAS, this field is a legacy ID used for reporting purposes in Prodigy. Products can have several Value-Added Service objects associated with them.
+Note that the VAS services return a field named pid.  Even though this field implies a one-to-one relationship between product and VAS, this field is a legacy ID used for reporting purposes in Prodigy. Products can have several Value-Added Service objects associated with them.
 
 The following sections describe each endpoint of the Merchandised Value Added Services API in detail.
 
 ### <a name="merchandised-value-added-services-list"></a>Merchandised Value Added Services List
 
-Use this endpoint to list VAS by type or by VAS ID.  Listing by multiple IDs is supported.
+Use this endpoint to list VAS by type or by VAS ID. Listing by multiple IDs is supported.
 
-If you want to search by VAS ID but do not know it, call the [Merchandised Product List](#merchandised-product-list) endpoint first.  The value_added_service ID will be returned in the search results for each product that has one or more value-added service attributes.
+If you want to search by VAS ID but do not know it, call the [Merchandised Product List](#merchandised-product-list) endpoint first. The value_added_service ID will be returned in the search results for each product that has one or more value-added service attributes.
 
 The customer does not have to be logged in to call this endpoint.
 
@@ -1394,7 +1405,8 @@ There is no body in a GET request.
 |**resourceType**|Required|type of resource, always merchValueAddedService|
 |links.self.**ref**|Required|referrer link to result|
 
-Sample *Merchandised Value Added Services List* 200 successful response
+Sample *Merchandised Value Added Services List* 200 successful response:
+
 ```
 {
   "pages" : {
@@ -1437,14 +1449,15 @@ Sample *Merchandised Value Added Services List* 200 successful response
   }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
 ### <a name="merchandised-value-added-services-by-id"></a>Merchandised Value Added Services by ID
-Use this endpoint when you want to list the fields for one VAS ID.  This endpoint returns almost identical results as the [Merchandised Value Added Services List](#merchandised-value-added-services-list) endpoint returns except that it does not return pagination information because it returns only one VAS object.  This endpoint returns a quicker response than the Merchandised Value Added Services List endpoint because it does not filter or paginate the results.
 
-If you do not know the VAS ID, call the [Merchandised Product List](#merchandised-product-list) endpoint first.  The value_added_service ID will be returned in the search results for each product that has one or more VAS attributes.
+Use this endpoint when you want to list the fields for one VAS ID. This endpoint returns almost identical results as the [Merchandised Value Added Services List](#merchandised-value-added-services-list) endpoint returns except that it does not return pagination information because it returns only one VAS object. This endpoint returns a quicker response than the Merchandised Value Added Services List endpoint because it does not filter or paginate the results.
+
+If you do not know the VAS ID, call the [Merchandised Product List](#merchandised-product-list) endpoint first. The value_added_service ID will be returned in the search results for each product that has one or more VAS attributes.
 
 The customer does not have to be logged in to call this endpoint.
 
@@ -1487,7 +1500,8 @@ There is no body in a GET request.
 
 See the [Merchandised Value Added Services List Response Body](#merchandised-value-added-services-list) endpoint for a list of VAS field descriptions returned in the response.
 
-Sample *Merchandised Value Added Services by ID* 200 successful response
+Sample *Merchandised Value Added Services by ID* 200 successful response:
+
 ```
 {
   "id" : "124ae4cb-0506-5b52-98c0-06eaf7b7ea67",
@@ -1508,7 +1522,7 @@ Sample *Merchandised Value Added Services by ID* 200 successful response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1527,7 +1541,7 @@ Sample *Merchandised Value Added Services by ID* 200 successful response
 
 Use these services to list product content such as title, subtitle, description, and images by [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale.
 
-There are two sets of Product Content services, internal and external. External services go through the public router (api.nike.com and snkrs.prod.commerce.nikecloud.com) and return product information for products in the ACTIVE and CLOSEOUT status. Internal services go through the frame router (frame.prod.commerce.nikecloud.com). These services return identical fields to the external services but they return all products regardless of status.  When making service to service calls, use the internal Product Content endpoints.
+There are two sets of Product Content services, internal and external. External services go through the public router (api.nike.com and snkrs.prod.commerce.nikecloud.com) and return product information for products in the ACTIVE and CLOSEOUT status. Internal services go through the frame router (frame.prod.commerce.nikecloud.com). These services return identical fields to the external services but they return all products regardless of status. When making service to service calls, use the internal Product Content endpoints.
 
 All endpoints are synchronous.
 
@@ -1568,7 +1582,8 @@ Let's take a look at some *Product Content by Style Color* scenarios.
 
 There is no request body for a GET request.
 
-Sample *Product Content by Style Color* URI
+Sample *Product Content by Style Color* URI:
+
 ```
 https://api.nike.com/merch/contents/v1/919704-006/content?country=ES&locale=es_ES
 ```
@@ -1679,7 +1694,7 @@ Sample *Product Content by Style Color* response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1718,7 +1733,8 @@ Let's take a look at some *Product Content by Style Color List* scenarios.
 
 There is no request body for a GET request.
 
-Sample *Product Content by Style Color List* URI
+Sample *Product Content by Style Color List* URI:
+
 ```
 https://api.nike.com/merch/contents/v1/content?stylecolors=852395-601,919704-006&country=ES&locale=es_ES
 ```
@@ -1848,7 +1864,7 @@ Sample *Product Content by Style Color List* response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1871,7 +1887,7 @@ Use this endpoint to list one item (field) of product content for a style-color,
 |**country**|Query|country used to localize the content, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|String|**Required**|
 |**locale**|Query|locale used to localize the content for the correct language|String|**Required**|
 
-Let's take a look at some *Product Content Item by Style Color* scenarios
+Let's take a look at some *Product Content Item by Style Color* scenarios.
 
 |I Want to List Product Content for|Sample Query|
 |---|---|
@@ -1888,7 +1904,8 @@ Let's take a look at some *Product Content Item by Style Color* scenarios
 
 There is no request body for a GET request.
 
-Sample *Product Content by Style Color List* URI
+Sample *Product Content by Style Color List* URI:
+
 ```
 https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&locale=es_ES
 ```
@@ -1897,7 +1914,7 @@ https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&local
 
 Sample *Product Content Item by Style Color List* response body:
 
-The response body returns the value of the itemName path parameter and the locale query parameter.
+>TIP: The response body returns the value of the itemName path parameter and the locale query parameter.
 
 ```
 {
@@ -1906,7 +1923,7 @@ The response body returns the value of the itemName path parameter and the local
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-item-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-item-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1929,7 +1946,7 @@ Use this endpoint to list one item (field) of product content for a list of styl
 |**country**|Query|country used to localize the content for the correct country|String|**Required**|
 |**locale**|Query|locale used to localize the content for the correct language|String|**Required**|
 
-Let's take a look at some *Product Content Field by Style Color List* scenarios
+Let's take a look at some *Product Content Field by Style Color List* scenarios:
 
 |I Want to List Product Content for|Sample Query|
 |---|---|
@@ -1948,7 +1965,8 @@ Required request headers:
 
 There is no request body for a GET request.
 
-Sample *Product Content Item by Style Color List* URI
+Sample *Product Content Item by Style Color List* URI:
+
 ```
 https://api.nike.com/merch/contents/v1/content/descriptionHeading?country=ES&locale=es_ES&stylecolors=852395-601,919704-006
 ```
@@ -1957,7 +1975,7 @@ https://api.nike.com/merch/contents/v1/content/descriptionHeading?country=ES&loc
 
 Sample *Product Content Item by Style Color List* response body:
 
-The response body returns the value of the itemName path parameter and the style-color query parameter.
+>TIP: The response body returns the value of the itemName path parameter and the style-color query parameter.
 
 ```
 {
@@ -1966,7 +1984,7 @@ The response body returns the value of the itemName path parameter and the style
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-field-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-field-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1974,7 +1992,7 @@ The response body returns the value of the itemName path parameter and the style
 
 Use this endpoint to list the images associated with a style-color and country.
 
-Product images are stored in Scene 7. A Nike product often has multiple images associated with it, each displaying the product from a different angle.  This group of images is called an image set in Scene 7.
+Product images are stored in Scene 7. A Nike product often has multiple images associated with it, each displaying the product from a different angle. This group of images is called an image set in Scene 7.
 
 ### Endpoint Details
 
@@ -1989,7 +2007,7 @@ Product images are stored in Scene 7. A Nike product often has multiple images a
 |**style-color**|Path|style-color code|String|**Required**|
 |**country**|Query|image country|String|**Required**|
 
-Let's take a look at some *Product Image Set by Style Color* scenarios
+Let's take a look at some *Product Image Set by Style Color* scenarios.
 
 |I Want to List Product Image Set for|Sample Query|
 |---|---|
@@ -2006,7 +2024,8 @@ Let's take a look at some *Product Image Set by Style Color* scenarios
 
 There is no request body for a GET request.
 
-Sample *Product Image Set by Style Color* URI
+Sample *Product Image Set by Style Color* URI:
+
 ```
 https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 ```
@@ -2024,7 +2043,6 @@ Sample *Product Image Set by Style Color* response body:
 |**images**|Required|array of image objects that make up the image set|
 |images.**company**|Required|image company code|
 |images.**view**|Required|key of image view of product, usually in the format stylecode_colorcode_imageletter_type|
-
 
 ```
 {
@@ -2054,13 +2072,13 @@ Sample *Product Image Set by Style Color* response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-image-set-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-image-set-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
 ### <a name="product-base-image-url-by-style-color"></a>Product Base Image URL by Style Color
 
-Use this endpoint to list the first image in the image set for a style-color.  This is also known as the base image.
+Use this endpoint to list the first image in the image set for a style-color. This is also known as the base image.
 
 ### Endpoint Details
 
@@ -2075,7 +2093,7 @@ Use this endpoint to list the first image in the image set for a style-color.  T
 |**style-color**|Path|style-color code|String|**Required**|
 |**country**|Query|image country|String|**Required**|
 
-Let's take a look at some *Product Base Image URL by Style Color* scenarios
+Let's take a look at some *Product Base Image URL by Style Color* scenarios.
 
 |I Want to List the Base Product Image for|Sample Query|
 |---|---|
@@ -2092,7 +2110,8 @@ Let's take a look at some *Product Base Image URL by Style Color* scenarios
 
 There is no request body for a GET request.
 
-Sample *Product Base Image URL by Style Color* URI
+Sample *Product Base Image URL by Style Color* URI:
+
 ```
 https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 ```
@@ -2111,13 +2130,13 @@ Sample *Product Base Image URL by Style Color* response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-base-image-url-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-base-image-url-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
 ### <a name="product-base-image-url-by-style-color-list"></a>Product Image Set by Style Color List
 
-Use this endpoint to list the image set for a list of style-color codes and country.  Only one country is supported.
+Use this endpoint to list the image set for a list of style-color codes and country. Only one country is supported.
 
 ### Endpoint Details
 
@@ -2149,7 +2168,8 @@ Let's take a look at some *Product Image Set by Style Color List* scenarios.
 
 There is no request body for a GET request.
 
-Sample *Product Image Set by Style Color List* URI
+Sample *Product Image Set by Style Color List* URI:
+
 ```
 https://api.nike.com/merch/contents/v1/images?country=ES&stylecolors=919704-006,852395-601
 ```
@@ -2218,13 +2238,13 @@ See the [Product Image Set by Style Color List Response Body](#product-image-set
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-image-set-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-image-set-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
 ### <a name="product-base-image-url-by-style-color-list"></a>Product Base Image URL by Style Color List
 
-Use this endpoint to list the base image for a list of style-color codes and country.  Only one country is supported.
+Use this endpoint to list the base image for a list of style-color codes and country. Only one country is supported.
 
 ### Endpoint Details
 
@@ -2239,7 +2259,7 @@ Use this endpoint to list the base image for a list of style-color codes and cou
 |**country**|Query|image country|String|**Required**|
 |**style-colors**|Query|list of style-color codes separated by commas|String|**Required**|
 
-Let's take a look at some *Product Base Image URL by Style Color List* scenarios
+Let's take a look at some *Product Base Image URL by Style Color List* scenarios.
 
 |I Want to List the Base Product Image URL for|Sample Query|
 |---|---|
@@ -2256,7 +2276,8 @@ Let's take a look at some *Product Base Image URL by Style Color List* scenarios
 
 There is no request body for a GET request.
 
-Sample *Product Base Image URL by Style Color List* URI
+Sample *Product Base Image URL by Style Color List* URI:
+
 ```
 https://api.nike.com/merch/contents/v1/images/base?country=ES&stylecolors=919704-006,852395-601
 ```
@@ -2272,7 +2293,7 @@ Sample *Product Image Set by Style Color List* response body:
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-base-image-url-by-style-color-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-base-image-url-by-style-color-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -2286,15 +2307,15 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-Use the [Recently Published Merch Products](https://cdt-eng.splunkcloud.com/en-US/app/search/merchproducts_) Splunk dashboard to view product and VAS data recently loaded into the Merch v2 APIs. You can query products by time, environment, Merch Group and status. This is especially useful to get fresh data for testing.
+Use the <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/merchproducts_" target="_blank">Recently Published Merch Products</a> Splunk dashboard to view product and VAS data recently loaded into the Merch v2 APIs. You can query products by time, environment, Merch Group and status. This is especially useful to get fresh data for testing.
 
-Use the [Merch Products Publish Log](https://cdt-eng.splunkcloud.com/en-US/app/search/merch_publish_debug) Splunk dashboard to view the complete publish history of a style-color and Merch Group. Click a result to view all Splunk log entries associated with that publish event for a style-color and Merch Group. The results list the TraceId, useful if you need to contact the Merch Product Team for troubleshooting.
+Use the <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/merch_publish_debug" target="_blank">Merch Products Publish Log</a> Splunk dashboard to view the complete publish history of a style-color and Merch Group. Click a result to view all Splunk log entries associated with that publish event for a style-color and Merch Group. The results list the TraceId, useful if you need to contact the Merch Product Team for troubleshooting.
 
 ### Common Questions
 
 **I published a change in Prodigy but it is not returned when using the Merch Product API**
 
-It takes approximately 30 seconds for an add/update/delete record to flow to the Merchandised Products Database once it is published in Prodigy.  If a change does not appear after 30 seconds by Merchandised Product API, it may be in the Prodigy queue behind other jobs with higher priority. Republish the change in Prodigy to push it again.  Note that Prodigy gives a higher queue priority to an individual project change than to a change made to several products at once in a bulk update.
+It takes approximately 30 seconds for an add/update/delete record to flow to the Merchandised Products Database once it is published in Prodigy. If a change does not appear after 30 seconds by Merchandised Product API, it may be in the Prodigy queue behind other jobs with higher priority. Republish the change in Prodigy to push it again. Note that Prodigy gives a higher queue priority to an individual project change than to a change made to several products at once in a bulk update.
 
 **The fields I need are not returned by the Merch Product API**
 
@@ -2321,15 +2342,15 @@ If none of these scenarios apply, contact the Merchandised Product team on the #
 
 |Term|Definition|
 |---|---|
-|Image Base|Full path to a product image in an image set in Scene 7.  Does not include resizing parameters.|
-|Image Set|Set of product images stored in Scene 7 representing different views of the product.   Build the URI to the product image using domain + company + view from the list image results call.|
-|GTIN|Global Trade Item Number.  Nike leases a block of GTINs and recycles them seasonally. GTIN is commonly called UPC code, although the technical specification is slightly different for the two.|
+|Image Base|Full path to a product image in an image set in Scene 7. Does not include resizing parameters.|
+|Image Set|Set of product images stored in Scene 7 representing different views of the product.  Build the URI to the product image using domain + company + view from the list image results call.|
+|GTIN|Global Trade Item Number. Nike leases a block of GTINs and recycles them seasonally. GTIN is commonly called UPC code, although the technical specification is slightly different for the two.|
 |Master Product|A Nike iD product that has SKUs and is purchasable.|
-|Merch Group|Merchandising Group representing a Nike geographical region.  See a list of supported Merchandising Groups in the Enumerations section of the Merchandised Product service.|
-|Prebuild Product|A non-purchasable Nike iD product that has no SKUs.  Each Prebuild product is associated to one Master product that is purchasable.|
-|Prodigy|System of record for all product data.  All products are merchandised in this system and flow into the Merchandised Product database when they are published in Prodigy.|
-|SLA|Service Level Agreement.  Commitment to caller from the service regarding service response times and service availability |
-|SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system.  A product has one or more SKUs.  A SKU represents one size and has inventory.|
+|Merch Group|Merchandising Group representing a Nike geographical region. See a list of supported Merchandising Groups in the Enumerations section of the Merchandised Product service.|
+|Prebuild Product|A non-purchasable Nike iD product that has no SKUs. Each Prebuild product is associated to one Master product that is purchasable.|
+|Prodigy|System of record for all product data. All products are merchandised in this system and flow into the Merchandised Product database when they are published in Prodigy.|
+|SLA|Service Level Agreement. Commitment to caller from the service regarding service response times and service availability |
+|SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
 |VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
 ## <a name="release-notes"/>Release Notes
@@ -2343,6 +2364,7 @@ There are no release notes at this time.
 |V1.0 Published|1 December, 2017 | The initial, reviewed version of the document was published.|
 |Edits, Internationalization, Product sections | 7 December, 2017 | Updated documentation with new content on how products flow, international considerations, and editing/formatting changes. |
 |Clarification on **count**|12 February, 2018|Clarified that when **count** query parameter is supplied that the maximum number of products returned is 25.|
+|Updated external links|3 April, 2018|Updated external links to open in new browser window|
 
 ## <a name="related-links"></a>Related Links
 
