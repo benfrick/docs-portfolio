@@ -5,7 +5,7 @@
 
 # GENERAL GUIDE: GLOSSARY <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 ## Glossary of Terms
 
@@ -45,7 +45,7 @@
 |URL|Univeral Resource Locator|
 |UUID|Universal Unique Identifier|
 |VAS|Value-Added Service associated with a product in a checkout.  Gift wrap and the ability to customize a product are examples of VAS|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/)|Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data.  All Nike CiC payment services are PCI-DSS compliant.|
+|<a href="https://www.pcisecuritystandards.org/pci_security/" target="_blank">PCI-DSS</a>|Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data.  All Nike CiC payment services are PCI-DSS compliant.|
 |Void (of payment)|Reverses a successful payment authorization|
 
 ## Related Links
