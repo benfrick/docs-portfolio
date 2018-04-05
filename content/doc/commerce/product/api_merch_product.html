@@ -63,7 +63,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td>SLAs</td><td>Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms</td></tr>
     <tr><td>Domain</td><td>Commerce</td></tr>
     <tr><td>Prerequisites</td><td><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration">API Registration</a></td></tr>
-    <tr><td>Contact Info</td><td>Slack <a href="https://nikedigital.slack.com/messages/cic-merch" target="_blank">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: Lst-digitaltech.merch.apis<br><a name="product-owner"></a>Product Owner: <a href="mailto:jeremy.geiger@nike.com" target="blank">Jeremy Geiger</a></td></tr>
+    <tr><td>Contact Info</td><td>Slack <a href="https://nikedigital.slack.com/messages/cic-merch" target="_blank">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: <a href="mailto:Lst-digitaltech.merch.apis">Lst-digitaltech.merch.apis</a><br><a name="product-owner"></a>Product Owner: <a href="mailto:scott.alvey@nike.com">Scott Alvey</a></td></tr>
   </tbody>
 </table>
 <h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="terms-of-service"></a>Terms of Service</h2>
@@ -206,7 +206,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <p>Prodigy uses a first-in-first-out queue, however an individual product update is pushed to the top of the queue so that it takes precedence over larger bulk updates. For example, the queue may contain 100k updates when a global product attribute has been applied. Since a producer who manually updates and publishes a single product likely wants that change to take place as quickly as possible, Prodigy gives preference to that manual update.</p>
 <p><b>NOTE:</b> When a Merchandised Product object is updated, the object remains in the application cache for 30 seconds.</p>
 <h3 id="where-do-i-get-inventory-information"><a href="#where-do-i-get-inventory-information" name="where-do-i-get-inventory-information" class="anchor"><span class="octicon octicon-link"></span></a><a name="where-do-i-get-inventory-information"></a>Where Do I Get Inventory Information?</h3>
-<p>Inventory is available via the Inventory domain. For example, product availability can be found here: <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD">https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD</a></p>
+<p>Inventory is available via the Inventory domain. For example, product availability can be found <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="_blank">here</a>.</p>
 <h3 id="how-to-find-a-current-product"><a href="#how-to-find-a-current-product" name="how-to-find-a-current-product" class="anchor"><span class="octicon octicon-link"></span></a><a name="how-to-find-a-current-product"></a>How To Find a Current Product</h3>
 <p>The easiest way to find a current product is to go to Nike.com and find a style-color that is offered on the site. With the exception of NIKEiD products, if the style-color is available on Nike.com, the data is available in our services.</p>
 <h2 id="merchandised-product-api-concepts"><a href="#merchandised-product-api-concepts" name="merchandised-product-api-concepts" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-product-api-concepts"></a>Merchandised Product API Concepts</h2>
@@ -540,7 +540,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td>errors.<strong>message</strong></td><td>Required</td><td>detailed error message</td></tr>
   </tbody>
 </table>
-<p>Sample <em>Merchandised Product List</em> 200 successful response</p>
+<p>Sample <em>Merchandised Product List</em> 200 successful response:</p>
 <pre><code class="nohighlight">{
   &quot;pages&quot; : { },
   &quot;objects&quot; : [ {
@@ -661,7 +661,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   &quot;errors&quot; : [ ]
 }
 </code></pre>
-<p>Sample <em>Merchandised Product List</em> 200 successful response when no products matching the filters are found</p>
+<p>Sample <em>Merchandised Product List</em> 200 successful response when no products matching the filters are found:</p>
 <pre><code class="nohighlight">{
   &quot;pages&quot; : {
     &quot;next&quot; : &quot;/merch/products/v2?count=25&amp;anchor=0&amp;filter=merchgroup(US)&amp;filter=style(111111)&quot;
@@ -670,7 +670,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
   &quot;errors&quot; : [ ]
 }
 </code></pre>
-<p>Sample <em>Merchandised Product List</em> 400 error response</p>
+<p>Sample <em>Merchandised Product List</em> 400 error response:</p>
 <pre><code class="nohighlight">{
     &quot;httpStatus&quot;: 400,
     &quot;code&quot;: &quot;40000&quot;,
@@ -1301,7 +1301,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>anchor</strong></td><td>Query</td><td>If the value is 10, results returned start with result 11</td><td>Integer</td><td>Optional</td></tr>
   </tbody>
 </table>
-<p>Let's take a look at some <em>Merchandised Value Added Services List</em> scenarios:</p>
+<p>Let's take a look at some <em>Merchandised Value Added Services List</em> scenarios.</p>
 <table>
   <thead>
     <tr><th>I Want to List VAS Details for</th><th>Sample Query</th></tr>
@@ -1417,7 +1417,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>fields</strong></td><td>Query</td><td>List of fields to return. If not supplied, all fields are returned</td><td>String</td><td>Optional</td></tr>
   </tbody>
 </table>
-<p>Let's take a look at some <em>Merchandised Value Added Services by ID</em> scenarios:</p>
+<p>Let's take a look at some <em>Merchandised Value Added Services by ID</em> scenarios.</p>
 <table>
   <thead>
     <tr><th>I Want to List VAS Details for</th><th>Sample Query</th></tr>
@@ -1883,7 +1883,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td><strong>locale</strong></td><td>Query</td><td>locale used to localize the content for the correct language</td><td>String</td><td><strong>Required</strong></td></tr>
   </tbody>
 </table>
-<p>Let's take a look at some <em>Product Content Field by Style Color List</em> scenarios:</p>
+<p>Let's take a look at some <em>Product Content Field by Style Color List</em> scenarios.</p>
 <table>
   <thead>
     <tr><th>I Want to List Product Content for</th><th>Sample Query</th></tr>

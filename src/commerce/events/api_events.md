@@ -87,13 +87,13 @@ The following table describes the key details of the API:
 |SLAs|Response time (RT) and requests per second (RPS): <br>RT: 500 ms <br>RPS: 500|
 |Domain|Commerce|
 |Prerequisites|None|
-|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br>Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br> Mailing List: <a href="mailto:Lst-Nexus.DevOps" target="_blank">Lst-Nexus.Devops</a><br><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a>|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br>Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br> Mailing List: [Lst-Nexus.Devops](mailto:Lst-Nexus.DevOps)<br><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a>|
 
 ### A Note about Segment
 
 Segment is an analytics API and customer data platform which Nike utilizes. As you saw in the above diagram, it is one of several downstream integrations from the Analytics Pipeline API. By integrating with Segment once, Nike unlocks additional downstream integrations like Optimizely for A/B Testing, Kochava for mobile analytics, and several digital marketing integrations.
 
-Reach out to the Analytics API Product Owner, <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a>, for information on the analytics opportunities available via Segment.
+Reach out to the Analytics API Product Owner, [Randy Davis](mailto:randall.davis@nike.com), for information on the analytics opportunities available via Segment.
 
 ## <a name="terms-of-service"></a>Terms of Service
 

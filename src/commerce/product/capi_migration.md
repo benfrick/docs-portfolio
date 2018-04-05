@@ -45,7 +45,7 @@ Read on to learn more about the similarities and differences between CAPI and Cl
 
 - CAPI is largely replaced by the [Product Feeds v2 API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html). The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.
 
-- **Some of the search functionality of CAPI has not yet been replaced in the Cloud**. If you rely on CAPI for faceted search, you may need to continue to use CAPI for now. Contact the <a href="mailto:david.wagner@nike.com" target="_blank">Search Product Owner</a> for more info about when this feature of Cloud Search will be available.
+- **Some of the search functionality of CAPI has not yet been replaced in the Cloud**. If you rely on CAPI for faceted search, you may need to continue to use CAPI for now. Contact the [Search Product Owner](mailto:david.wagner@nike.com) for more info about when this feature of Cloud Search will be available.
 
 - CAPIs inventory capabilities are replaced by Cloud Inventory APIs, and in the case of Digital inventory availability, also by Product Feeds.
 

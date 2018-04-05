@@ -69,7 +69,7 @@ Consider the countries to which your consumers will want to ship Nike products a
 
 <i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
-<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com" target="_blank">Email</a>
+<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
 ## <a name="next-steps"></a>Next Steps
 
