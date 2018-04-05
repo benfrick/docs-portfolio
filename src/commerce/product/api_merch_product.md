@@ -532,10 +532,10 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**snapshotId**|Required|ID of the most recent snapshot of the SKU in UUID format, generated when the product is updated|
 |**modificationDate**|Required|timestamp the product was last modified|
 |**status**|Required|product status, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**merchGroup**|Required|group this product is merchandised to, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|required|
-|**styleCode**|Required|code indicating Nike style|required|
-|**colorCode**|Required|code indicating Nike color|required|
-|**styleColor**|Required|concatenation of **styleCode**-**colorCode**|required|
+|**merchGroup**|Required|group this product is merchandised to, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**styleCode**|Required|code indicating Nike style|
+|**colorCode**|Required|code indicating Nike color|
+|**styleColor**|Required|concatenation of **styleCode**-**colorCode**|
 |**pid**|Required|product ID from legacy system used to map to the product UUID|
 |**catalogId**|Optional|catalog ID in UUID format from the <a href="https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md" target="_blank">Catalog Product</a> service, will eventually replace **legacyCatalogIds**|
 |**productGroupId**|Optional|ID used to group products together such as products with the same styleCode, from legacy system|
@@ -572,7 +572,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**preOrder**|Optional|true or false, true indicates the PDP should display in preOrder status|
 |**hardLaunch**|Optional|true or false, true indicates the PDP should not display before the commerceStartDate or after the commerceEndDate regardless of inventory|
 |**hidePayment**|Optional|true or false, true indicates certain payment types are not allowed to purchase the product, such as COD in China|
-|**commercePublishDate**|Optional|timestamp indicating when this product was published. e.g. if date is within 30 days of current date, product is considered a New Release|optional|
+|**commercePublishDate**|Optional|timestamp indicating when this product was published. e.g. if date is within 30 days of current date, product is considered a New Release|
 |**commerceStartDate**|Optional|timestamp indicating when the product product can be sold|
 |**commerceEndDate**|Optional|timestamp indicating when the product can no longer be sold|
 |**preorderAvailabilityDate**|Optional|timestamp indicating when the product can be pre-ordered|
@@ -890,14 +890,14 @@ Use this service to search for multiple SKUs by filter. Search results are sorte
 |**count**|query|Number of results to return. Max = 25|String|Optional|
 |**anchor**|query|If the value is 10, results returned start with result 11|Integer|Optional|
 
-#### <a name="merchandised-product-sku-list-request-headers">Request Headers
+#### <a name="merchandised-product-sku-list-request-headers"</a>Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in the response. The only accepted value is <b>application/json</b>|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-#### <a name="merchandised-product-sku-list-request-body">Request Body
+#### <a name="merchandised-product-sku-list-request-body"</a>Request Body
 
 No request body is required for GET requests.
 
@@ -915,7 +915,7 @@ Sample Merchandised Product SKU List request URI:
 https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a745c35df8)&filter=country(US)
 ```
 
-#### <a name="merchandised-product-sku-list-response-body">Response Body
+#### <a name="merchandised-product-sku-list-response-body"</a>Response Body
 
 |Element Name|Required?|Description|
 |---|---|---|
@@ -1051,14 +1051,14 @@ Use this service to search for SKU information by SKU ID. This service returns t
 |**fields**|query|list of fields to return. if not sent, all fields are returned|string|Optional|
 |**country**|query|[country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) used to localize results|string|Optional|
 
-#### <a name="merchandised-product-sku-by-id-request-headers">Request Headers
+#### <a name="merchandised-product-sku-by-id-request-headers"</a>Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|No|
 |**Content-Type**|Content type of the request, application/json is only value allowed|No|
 
-#### <a name="merchandised-product-sku-by-id-request-body">Request Body
+#### <a name="merchandised-product-sku-by-id-request-body"</a>Request Body
 
 Required parts of the request body:
 
@@ -1075,7 +1075,7 @@ Sample Product SKU by ID request URI:
 https://api.nike.com/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13
 ```
 
-#### <a name="merchandised-product-sku-by-id-response-body">Response Body
+#### <a name="merchandised-product-sku-by-id-response-body"</a>Response Body
 
 Sample *Merchandised Product SKU By ID* 200 successful response:
 
@@ -1387,7 +1387,7 @@ There is no body in a GET request.
 
 ### <a name="merchandised-value-added-services-list-response-body"></a>Response Body
 
-|Element Name|Description|Required or Optional|
+|Element Name|Required or Optional|Description|
 |---|---|---|
 |**pages**|Optional|object with a **next** and **prev** link used to paginate results|
 |pages.**prev**|Optional|relative URL to the previous page of results|
@@ -1398,7 +1398,7 @@ There is no body in a GET request.
 |**status**|Required|VAS status, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**merchGroup**|Required|merchandising group this VAS is merchandised to, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**pid**|Required|legacy product id used to map to the product UUID|
-|**type**|Required|VAS type||
+|**type**|Required|VAS type|
 |**displayName**|Optional|VAS display name|
 |**commercePublishDate**|Optional|timestamp indicating when this VAS was published|
 |**commerceStartDate**|Optional|timestamp indicating when the VAS is available|
@@ -2353,11 +2353,11 @@ If none of these scenarios apply, contact the Merchandised Product team on the #
 |SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
 |VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
-## <a name="release-notes"/>Release Notes
+## <a name="release-notes"</a>Release Notes
 
 There are no release notes at this time.
 
-## <a name="document-change-log"/>Document Change Log
+## <a name="document-change-log"</a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
