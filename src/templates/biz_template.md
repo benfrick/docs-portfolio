@@ -6,7 +6,7 @@
 # Get Started with Nike {API Name} <i class="g72-swoosh"></i>
 <!-- Header describing title of topic) -->
 
-###### Last Updated: 10/31/2017<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
@@ -48,7 +48,7 @@ Join the web API economy by using the common language of the internet to interac
 
 We're here to help.
 
-<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
