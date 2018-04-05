@@ -859,7 +859,7 @@ Sample 404 response:
 
 - [MERCHANDISED PRODUCT SKU BY ID](#merchandised-product-sku-by-id)
 
-### <a name="merchandised-product-sku-overview"/></a>Merchandised Product SKU Overview
+### <a name="merchandised-product-sku-overview"></a>Merchandised Product SKU Overview
 
 Use this service to list, add, update and delete merchandised SKU information.
 
@@ -890,14 +890,14 @@ Use this service to search for multiple SKUs by filter. Search results are sorte
 |**count**|query|Number of results to return. Max = 25|String|Optional|
 |**anchor**|query|If the value is 10, results returned start with result 11|Integer|Optional|
 
-#### <a name="merchandised-product-sku-list-request-headers"</a>Request Headers
+#### <a name="merchandised-product-sku-list-request-headers"></a>Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in the response. The only accepted value is <b>application/json</b>|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-#### <a name="merchandised-product-sku-list-request-body"</a>Request Body
+#### <a name="merchandised-product-sku-list-request-body"></a>Request Body
 
 No request body is required for GET requests.
 
@@ -915,7 +915,7 @@ Sample Merchandised Product SKU List request URI:
 https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a745c35df8)&filter=country(US)
 ```
 
-#### <a name="merchandised-product-sku-list-response-body"</a>Response Body
+#### <a name="merchandised-product-sku-list-response-body"></a>Response Body
 
 |Element Name|Required?|Description|
 |---|---|---|
@@ -1051,14 +1051,14 @@ Use this service to search for SKU information by SKU ID. This service returns t
 |**fields**|query|list of fields to return. if not sent, all fields are returned|string|Optional|
 |**country**|query|[country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) used to localize results|string|Optional|
 
-#### <a name="merchandised-product-sku-by-id-request-headers"</a>Request Headers
+#### <a name="merchandised-product-sku-by-id-request-headers"></a>Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|No|
 |**Content-Type**|Content type of the request, application/json is only value allowed|No|
 
-#### <a name="merchandised-product-sku-by-id-request-body"</a>Request Body
+#### <a name="merchandised-product-sku-by-id-request-body"></a>Request Body
 
 Required parts of the request body:
 
@@ -1075,7 +1075,7 @@ Sample Product SKU by ID request URI:
 https://api.nike.com/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13
 ```
 
-#### <a name="merchandised-product-sku-by-id-response-body"</a>Response Body
+#### <a name="merchandised-product-sku-by-id-response-body"></a>Response Body
 
 Sample *Merchandised Product SKU By ID* 200 successful response:
 
@@ -2353,11 +2353,11 @@ If none of these scenarios apply, contact the Merchandised Product team on the #
 |SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
 |VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
-## <a name="release-notes"</a>Release Notes
+## <a name="release-notes"></a>Release Notes
 
 There are no release notes at this time.
 
-## <a name="document-change-log"</a>Document Change Log
+## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
