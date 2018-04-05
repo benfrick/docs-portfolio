@@ -8,9 +8,9 @@ See Bitbucket (link to .md in APID repository) for version history of this docum
 Author: Your Name
 SME Consultants:
 -->
-# {API NAME API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
+# {API NAME} API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-###### Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
