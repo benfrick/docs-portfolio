@@ -163,7 +163,7 @@ If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/gett
 |SLA response time (rt) and requests per second (rps)|<li>Payment Applepay rt: 350ms rps:40<li>Payment Approval rt: 250ms rps: 200<li>Payment Credit Card Submit ?ms<li>Payment Deferred Payment ?ms<li>Payment Options rt: 250ms rps:700<li>Payment Preview rt: 250ms rps:300<li>Stored Payment ?ms<li>Payment Wallet rt: 300ms rps: 200|
 |Domain|Commerce|
 |Prerequisites|[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)|
-|Contact Info|Slack #cic-payment<br>Confluence space: <a href="https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook" target="_blank">CiC Payment</a><br> Mailing List: lst-nde.docs<br><a name="product-owner"></a>Product Owner: <a href="mailto:sree.krishna@nike.com" target="_blank">Sree Krishna</a>|
+|Contact Info|Slack #cic-payment<br>Confluence space: <a href="https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook" target="_blank">CiC Payment</a><br><a name="product-owner"></a>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
 
 >TIP: SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
 

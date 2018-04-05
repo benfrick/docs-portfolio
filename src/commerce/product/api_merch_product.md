@@ -96,7 +96,7 @@ The following table describe the key details of the API:
 |SLAs|Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms|
 |Domain|Commerce|
 |Prerequisites|[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)|
-|Contact Info|Slack <a href="https://nikedigital.slack.com/messages/cic-merch" target="_blank">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: Lst-digitaltech.merch.apis<br><a name="product-owner"></a>Product Owner: <a href="mailto:jeremy.geiger@nike.com" target="blank">Jeremy Geiger</a>|
+|Contact Info|Slack <a href="https://nikedigital.slack.com/messages/cic-merch" target="_blank">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: [Lst-digitaltech.merch.apis](mailto:Lst-digitaltech.merch.apis)<br><a name="product-owner"></a>Product Owner: [Scott Alvey](mailto:scott.alvey@nike.com)|
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -241,7 +241,7 @@ Prodigy uses a first-in-first-out queue, however an individual product update is
 
 ### <a name="where-do-i-get-inventory-information"></a>Where Do I Get Inventory Information?
 
-Inventory is available via the Inventory domain. For example, product availability can be found here: https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD
+Inventory is available via the Inventory domain. For example, product availability can be found <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="_blank">here</a>.
 
 ### <a name="how-to-find-a-current-product"></a>How To Find a Current Product
 
@@ -585,7 +585,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |errors.**httpStatus**|Required|HTTP error response code|
 |errors.**message**|Required|detailed error message|
 
-Sample *Merchandised Product List* 200 successful response
+Sample *Merchandised Product List* 200 successful response:
 
 ```
 {
@@ -709,7 +709,7 @@ Sample *Merchandised Product List* 200 successful response
 }
 ```
 
-Sample *Merchandised Product List* 200 successful response when no products matching the filters are found
+Sample *Merchandised Product List* 200 successful response when no products matching the filters are found:
 
 ```
 {
@@ -721,7 +721,7 @@ Sample *Merchandised Product List* 200 successful response when no products matc
 }
 ```
 
-Sample *Merchandised Product List* 400 error response
+Sample *Merchandised Product List* 400 error response:
 
 ```
 {
@@ -1364,7 +1364,7 @@ This endpoint requires no special headers so you can execute test calls in any b
 |**count**|Query|Number of results to return, default = 25, max = 25|Integer|Optional|
 |**anchor**|Query|If the value is 10, results returned start with result 11|Integer|Optional|
 
-Let's take a look at some *Merchandised Value Added Services List* scenarios:
+Let's take a look at some *Merchandised Value Added Services List* scenarios.
 
 |I Want to List VAS Details for|Sample Query|
 |---|---|
@@ -1477,7 +1477,7 @@ This endpoint requires no special headers so you can execute test calls in any b
 |**snapshotId**|Query|ID representing the product version, allowed in listing by price ID only|String|Optional|
 |**fields**|Query|List of fields to return. If not supplied, all fields are returned|String|Optional|
 
-Let's take a look at some *Merchandised Value Added Services by ID* scenarios:
+Let's take a look at some *Merchandised Value Added Services by ID* scenarios.
 
 |I Want to List VAS Details for|Sample Query|
 |---|---|
@@ -1946,7 +1946,7 @@ Use this endpoint to list one item (field) of product content for a list of styl
 |**country**|Query|country used to localize the content for the correct country|String|**Required**|
 |**locale**|Query|locale used to localize the content for the correct language|String|**Required**|
 
-Let's take a look at some *Product Content Field by Style Color List* scenarios:
+Let's take a look at some *Product Content Field by Style Color List* scenarios.
 
 |I Want to List Product Content for|Sample Query|
 |---|---|
