@@ -1,17 +1,12 @@
-<html>
-<head>
-<meta charset="UTF-8">
-</head>
-<body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
-<h1 id="commerce-api-capi-migration-guide-draft"><a href="#commerce-api-capi-migration-guide-draft" name="commerce-api-capi-migration-guide-draft" class="anchor"><span class="octicon octicon-link"></span></a>Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide (DRAFT)</h1>
-<h5 id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></h5>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+<h1><a href="#commerce-api-capi-migration-guide-draft" id="commerce-api-capi-migration-guide-draft">Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide (DRAFT)</a></h1>
+<h5><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
 <p>If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.</p>
 <hr />
-<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In This Guide</strong></h2>
+<h2><a href="#in-this-guide" id="in-this-guide"><strong>In This Guide</strong></a></h2>
 <p><a href="#overview">Overview</a></p>
 <p><a href="#capi-vs-cloud-comparison">CAPI vs Cloud Comparison</a></p>
 <p><a href="#endpoint-mapping">Endpoint Mapping</a></p>
@@ -22,15 +17,15 @@
 [Document Change Log](#document-change-log)
 -->
 <p><a href="#related-links">Related Links</a></p>
-<h2 id="overview"><a href="#overview" name="overview" class="anchor"><span class="octicon octicon-link"></span></a><a name="overview"></a>Overview</h2>
+<h2><a href="#overview" id="overview"><a name="overview"></a>Overview</a></h2>
 <p>CAPI is a legacy API that provides access to Nike product information, including inventory availability. CAPI has been replaced by Nike's Cloud-based APIs and will be deprecated after all clients have migrated to the newer APIs.</p>
-<p><img src="https://nde-devportal-docs.niketech.com/images/commerce/capi/capi_to_cloud.png" alt="" /></p>
-<h2 id="capi-vs-cloud-comparison"><a href="#capi-vs-cloud-comparison" name="capi-vs-cloud-comparison" class="anchor"><span class="octicon octicon-link"></span></a><a name="capi-vs-cloud-comparison"></a>CAPI vs. Cloud: Comparison</h2>
+<p><img src="/images/commerce/capi/capi_to_cloud.png" alt="" class="absent" /></p>
+<h2><a href="#capi-vs-cloud-comparison" id="capi-vs-cloud-comparison"><a name="capi-vs-cloud-comparison"></a>CAPI vs. Cloud: Comparison</a></h2>
 <p>Read on to learn more about the similarities and differences between CAPI and Cloud.</p>
-<h3 id="overall-considerations"><a href="#overall-considerations" name="overall-considerations" class="anchor"><span class="octicon octicon-link"></span></a>Overall Considerations</h3>
+<h3><a href="#overall-considerations" id="overall-considerations">Overall Considerations</a></h3>
 <ul>
   <li>
-    <p>CAPI is largely replaced by the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html">Product Feeds v2 API</a>. The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.</p>
+    <p>CAPI is largely replaced by the <a href="/doc/commerce/product/api_product_feeds.html" class="absent">Product Feeds v2 API</a>. The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.</p>
   </li>
   <li>
     <p><strong>Some of the search functionality of CAPI has not yet been replaced in the Cloud</strong>. If you rely on CAPI for faceted search, you may need to continue to use CAPI for now. Contact the <a href="mailto:david.wagner@nike.com">Search Product Owner</a> for more info about when this feature of Cloud Search will be available.</p>
@@ -42,54 +37,54 @@
 <blockquote>
   <p>TIP: See the <a href="#endpoint-mapping">Endpoint Mapping</a> section for the details of how each CAPI endpoint maps to Cloud.</p>
 </blockquote>
-<h3 id="rest-and-json"><a href="#rest-and-json" name="rest-and-json" class="anchor"><span class="octicon octicon-link"></span></a>REST and JSON</h3>
+<h3><a href="#rest-and-json" id="rest-and-json">REST and JSON</a></h3>
 <p>Both CAPI and Cloud use the REST architectural style and feature JSON-formatted requests and responses.</p>
 <blockquote>
   <p>TIP: If you are using the XML version of CAPI, you will need to be able to send and receive JSON when you migrate to the Cloud.</p>
 </blockquote>
-<h3 id="country--language-support"><a href="#country--language-support" name="country--language-support" class="anchor"><span class="octicon octicon-link"></span></a>Country &amp; Language Support</h3>
+<h3><a href="#country--language-support" id="country--language-support">Country &amp; Language Support</a></h3>
 <p>All of the countries and languages supported by CAPI are also supported by Cloud, and more. For the complete list of supported languages for Product Feeds v2 (Cloud), see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.</p>
-<h3 id="product-identifiers"><a href="#product-identifiers" name="product-identifiers" class="anchor"><span class="octicon octicon-link"></span></a>Product Identifiers</h3>
+<h3><a href="#product-identifiers" id="product-identifiers">Product Identifiers</a></h3>
 <p>Product information is available in the Cloud in the Product Feeds v2 API. This section includes some specific callouts in regards to product identifiers.</p>
-<h4 id="product-id"><a href="#product-id" name="product-id" class="anchor"><span class="octicon octicon-link"></span></a>Product ID</h4>
+<h4><a href="#product-id" id="product-id">Product ID</a></h4>
 <p>CAPI can be called by <strong>productId</strong> (PID), e.g. '1074990' (which also can be sent in <strong>id</strong> field for certain CAPI endpoints), the legacy identifier that is unique to a <em>style-color</em>. In general, you cannot call Cloud APIs with this same <strong>productId</strong>, although you might see it in certain Cloud responses, for example with Product Feeds in the <strong>pid</strong> field.</p>
-<p>The equivalent of <strong>productId</strong> in the Cloud is the <strong>id</strong>, e.g. '8e94a648-a232-5739-b4a6-c7d844a8bda0', a UUID generated from the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html">Merchandised Products API</a>. You will use this <strong>id</strong> when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.</p>
-<h4 id="sku-id"><a href="#sku-id" name="sku-id" class="anchor"><span class="octicon octicon-link"></span></a>SKU ID</h4>
-<p>Responses from several CAPI endpoints feature <strong>skuID</strong>, e.g. '1107974', the legacy identifier that is unique to a SKU or <em>style-color-size</em>. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to <strong>stockKeepingUnitId</strong>. In addition, an <strong>id</strong> in the form of a UUID is generated per SKU by the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html">Merchandised Product SKU API</a> when it flows into the system.</p>
+<p>The equivalent of <strong>productId</strong> in the Cloud is the <strong>id</strong>, e.g. '8e94a648-a232-5739-b4a6-c7d844a8bda0', a UUID generated from the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Products API</a>. You will use this <strong>id</strong> when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.</p>
+<h4><a href="#sku-id" id="sku-id">SKU ID</a></h4>
+<p>Responses from several CAPI endpoints feature <strong>skuID</strong>, e.g. '1107974', the legacy identifier that is unique to a SKU or <em>style-color-size</em>. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to <strong>stockKeepingUnitId</strong>. In addition, an <strong>id</strong> in the form of a UUID is generated per SKU by the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Product SKU API</a> when it flows into the system.</p>
 <blockquote>
   <p>TIP: For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: <a href="https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1)">https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1)</a>.</p>
 </blockquote>
-<h4 id="style-color-code"><a href="#style-color-code" name="style-color-code" class="anchor"><span class="octicon octicon-link"></span></a>Style-Color Code</h4>
+<h4><a href="#style-color-code" id="style-color-code">Style-Color Code</a></h4>
 <p>Style-color codes, e.g. '870790-420', are the same values and in the same format in both CAPI and Cloud.</p>
-<h4 id="gtin"><a href="#gtin" name="gtin" class="anchor"><span class="octicon octicon-link"></span></a>GTIN</h4>
+<h4><a href="#gtin" id="gtin">GTIN</a></h4>
 <p>GTIN (Global Trade Identification Number), e.g. '00675911130902' values and format are the same in both CAPI and Cloud.</p>
 <blockquote>
   <p>TIP: For Cloud, be sure to always send a 14-digit GTIN value, including any leading zeroes as necessary.</p>
 </blockquote>
-<h4 id="gender-codes"><a href="#gender-codes" name="gender-codes" class="anchor"><span class="octicon octicon-link"></span></a>Gender Codes</h4>
+<h4><a href="#gender-codes" id="gender-codes">Gender Codes</a></h4>
 <p>CAPI uses gender codes like '1' for Mens, '2' for Womens, etc. while cloud uses the gender name as the identifier (i.e. 'Mens'). Eventually these values will be replaced by UUIDs originating in the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy service</a>.</p>
-<h3 id="prices"><a href="#prices" name="prices" class="anchor"><span class="octicon octicon-link"></span></a>Prices</h3>
+<h3><a href="#prices" id="prices">Prices</a></h3>
 <p>Product price information is available in Cloud in the Product Feeds v2 API. Like CAPI, prices are available in Cloud at the style-color level.</p>
 <p>CAPI features <strong>list</strong> (suggested price), <strong>currentRetail</strong> (current price), <strong>sale</strong> (sale price), and the <strong>currency</strong> (currency code). CAPI also includes 'formatted' versions of each price in separate fields, i.e. the same price value but with the relevant currency symbol.</p>
 <p>Cloud offers <strong>msrp</strong> (suggested price), <strong>fullPrice</strong> (full/regular price), <strong>currentPrice</strong> (current price), <strong>employeePrice</strong> (employee price), <strong>discounted</strong> (a Boolean indicating the product is on sale), and <strong>currency</strong> (currency code). Cloud does not offer 'formatted' prices.</p>
 <blockquote>
   <p>TIP: See the <a href="#field-mapping">Field Mapping</a> section for detailed field-by-field mapping between CAPI and Cloud.</p>
 </blockquote>
-<h3 id="inventory"><a href="#inventory" name="inventory" class="anchor"><span class="octicon octicon-link"></span></a>Inventory</h3>
+<h3><a href="#inventory" id="inventory">Inventory</a></h3>
 <p>CAPI provides access to both Retail store on-hand inventory quantity and Digital inventory availability (true/false) by calling with a product ID, style-color code, or GTIN. Cloud offers Retail store on-hand inventory quantity by a combination of Store UUID and one or more GTINs in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="_blank">Inventory API</a>. Cloud offers Digital inventory availability (true/false) by either Product ID or SKU ID in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="_blank">Availability API</a> and also in the Product Feeds API.</p>
 <blockquote>
   <p>TIP: Both the Inventory API and the Product Feeds API offer Digital inventory availability as a boolean (TRUE or FALSE), but the Inventory API has one additional field for inventory <strong>level</strong> (HIGH, MEDIUM, or LOW).</p>
 </blockquote>
-<h3 id="dates"><a href="#dates" name="dates" class="anchor"><span class="octicon octicon-link"></span></a>Dates</h3>
+<h3><a href="#dates" id="dates">Dates</a></h3>
 <p>All dates returned by CAPI are in GMT in the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g. '2017-06-07T19:50:00.000'. For Cloud, dates are also in GMT in the format <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>, e.g. 2017-06-07T19:50:00.000Z.</p>
-<h3 id="images"><a href="#images" name="images" class="anchor"><span class="octicon octicon-link"></span></a>Images</h3>
+<h3><a href="#images" id="images">Images</a></h3>
 <p>CAPI clients may be accustomed to adjusting the image URL's returned by CAPI to suit their needs, e.g. by adding query parameters for format, width, height, or quality before calling to retrieve the image. With Product Feeds, you can still do the same.</p>
 <p>One notable difference with Product Feeds is that it can return multiple image URL's by aspect ratio, namely the fields <strong>squarishURL</strong>, <strong>portraitURL</strong>, and <strong>landscapeURL</strong>.</p>
-<h3 id="cachingetagcors-support"><a href="#cachingetagcors-support" name="cachingetagcors-support" class="anchor"><span class="octicon octicon-link"></span></a>Caching/ETag/CORS Support</h3>
+<h3><a href="#cachingetagcors-support" id="cachingetagcors-support">Caching/ETag/CORS Support</a></h3>
 <p>CAPI supports both ETag and CORS. Product Feeds supports CORS only.</p>
 <p>Product Feeds caching is fixed at <code>cache-control:private, no-transform, max-age=30</code>.</p>
-<h2 id="migration-scenarios"><a href="#migration-scenarios" name="migration-scenarios" class="anchor"><span class="octicon octicon-link"></span></a><a name="migration-scenarios"></a>Migration Scenarios</h2>
-<h3 id="product-search-migration"><a href="#product-search-migration" name="product-search-migration" class="anchor"><span class="octicon octicon-link"></span></a>Product Search Migration</h3>
+<h2><a href="#migration-scenarios" id="migration-scenarios"><a name="migration-scenarios"></a>Migration Scenarios</a></h2>
+<h3><a href="#product-search-migration" id="product-search-migration">Product Search Migration</a></h3>
 <p><strong>CAPI</strong></p>
 <p>If your experience uses CAPI to drive free text search, it may call the CAPI Facets endpoint. For example, this CAPI URL finds all products including NIKEiD products with <code>vapor</code> in the name, sorted in ascending order.</p>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/facets/1j7.json?client=test-client&amp;includeCustomizable=true&amp;merchandisedResults=true&amp;page=1&amp;pageSize=10&amp;query=vapor&amp;rollup=product_group&amp;sortDirection=asc">https://commerce-api.nike.com/commerce/v1/US/en_US/facets/1j7.json?client=test-client&amp;includeCustomizable=true&amp;merchandisedResults=true&amp;page=1&amp;pageSize=10&amp;query=vapor&amp;rollup=product_group&amp;sortDirection=asc</a></p>
@@ -100,63 +95,63 @@
 <p>Then call the visual search endpoint passing one of the the search terms in the POST body to generate a list of suggested products. The URL below requests a list of suggested products and price data with <code>vapormax</code> in the name sold in the US marketplace in the English language.</p>
 <p><a href="https://api.nike.com/search/visual_searches/v1">https://api.nike.com/search/visual_searches/v1</a></p>
 <p>POST Body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
 	&quot;marketplace&quot;: &quot;us&quot;,
 	&quot;language&quot;: &quot;en&quot;,
 	&quot;searchTerms&quot;: &quot;vapormax&quot;
 }
 </code></pre>
-<h3 id="faceted-navigation-migration"><a href="#faceted-navigation-migration" name="faceted-navigation-migration" class="anchor"><span class="octicon octicon-link"></span></a>Faceted Navigation Migration</h3>
+<h3><a href="#faceted-navigation-migration" id="faceted-navigation-migration">Faceted Navigation Migration</a></h3>
 <p><strong>CAPI</strong></p>
 <p>If your experience uses CAPI to drive faceted navigation, it may call the CAPI Facet Discovery endpoint to derive a set of related facets. For example, this CAPI URL finds all the facets related to the Women, Shoes and Running facets using the hashed facet 7ptZ8yzZoi3.</p>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/facets/7ptZ8yzZoi3.json?client=test-client&amp;fields=facets&amp;merchandisedResults=false">https://commerce-api.nike.com/commerce/v1/US/en_US/facets/7ptZ8yzZoi3.json?client=test-client&amp;fields=facets&amp;merchandisedResults=false</a></p>
 <p><strong>Cloud</strong></p>
 <p>The equivalent Cloud API is TBD.</p>
-<h3 id="product-recommendations"><a href="#product-recommendations" name="product-recommendations" class="anchor"><span class="octicon octicon-link"></span></a>Product Recommendations</h3>
+<h3><a href="#product-recommendations" id="product-recommendations">Product Recommendations</a></h3>
 <p><strong>CAPI</strong></p>
 <p>If your experience uses CAPI to drive the Product Display Page (PDP), it may call CAPI's Recommendations endpoint to list recommended products for a style-color. For example, this CAPI URL lists product recommendations for style-color 849557-202.</p>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/product/849557-202/recommendations.json?client=test-client">https://commerce-api.nike.com/commerce/v1/US/en_US/product/849557-202/recommendations.json?client=test-client</a></p>
 <p><strong>Cloud</strong></p>
 <p>The equivalent Cloud API is TBD.</p>
-<h3 id="product-gridwall-migration"><a href="#product-gridwall-migration" name="product-gridwall-migration" class="anchor"><span class="octicon octicon-link"></span></a>Product Gridwall Migration</h3>
+<h3><a href="#product-gridwall-migration" id="product-gridwall-migration">Product Gridwall Migration</a></h3>
 <p><strong>CAPI</strong></p>
 <p>If your experience uses CAPI to drive the product gridwall, it may call CAPI's Faceted Hash search endpoint to list the products assigned to one or more facets. For example, this CAPI URL finds all products in the Women, Shoes and Running facets (including NIKEiD products) using merchandising rules and rolls them up by product group in ascending order.</p>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/facets/7ptZ8yzZoi3.json?client=test-client&amp;includeCustomizable=true&amp;merchandisedResults=true&amp;page=1&amp;pageSize=10&amp;rollup=product_group&amp;sortDirection=asc">https://commerce-api.nike.com/commerce/v1/US/en_US/facets/7ptZ8yzZoi3.json?client=test-client&amp;includeCustomizable=true&amp;merchandisedResults=true&amp;page=1&amp;pageSize=10&amp;rollup=product_group&amp;sortDirection=asc</a></p>
 <p><strong>Cloud</strong></p>
 <p>The equivalent Cloud API is TBD.</p>
-<h3 id="product-details-migration"><a href="#product-details-migration" name="product-details-migration" class="anchor"><span class="octicon octicon-link"></span></a>Product Details Migration</h3>
+<h3><a href="#product-details-migration" id="product-details-migration">Product Details Migration</a></h3>
 <p><strong>CAPI</strong></p>
 <p>If your experience uses CAPI to get product details for the PDP, it probably calls CAPI's group details endpoint for a style-color. For example, this CAPI URL lists product details for style-color 849557-202. Because the includePreLaunch flag is set to false, the service applies visibility rules to determine if the product should be returned in the results.</p>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/products/details.json?client=test-client&amp;ids=849557-202&amp;includePreLaunch=false">https://commerce-api.nike.com/commerce/v1/US/en_US/products/details.json?client=test-client&amp;ids=849557-202&amp;includePreLaunch=false</a></p>
 <p><strong>Cloud</strong></p>
-<p>The comparable Cloud endpoint is the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.</p>
+<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/api_product_feeds.html#product-threads-list" class="absent">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.</p>
 <p><a href="https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=publishedContent.properties.products.styleColor%28AH7282-081%29">https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=publishedContent.properties.products.styleColor%28AH7282-081%29</a></p>
-<h3 id="related-products-migration"><a href="#related-products-migration" name="related-products-migration" class="anchor"><span class="octicon octicon-link"></span></a>Related Products Migration</h3>
+<h3><a href="#related-products-migration" id="related-products-migration">Related Products Migration</a></h3>
 <p><strong>CAPI</strong></p>
 <p>If your experience uses CAPI to display related colorways on the PDP, it may call CAPI's Family Product endpoint. For example, this CAPI URL lists all colorways with style code 849557.</p>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/product/849557-202/family.json?client=test-client">https://commerce-api.nike.com/commerce/v1/US/en_US/product/849557-202/family.json?client=test-client</a></p>
 <p><strong>Cloud</strong></p>
-<p>The comparable Cloud endpoint is the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.</p>
+<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/api_product_feeds.html#product-threads-list" class="absent">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.</p>
 <p><a href="https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=productInfo.merchProduct.styleCode%28AH7246%29">https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=productInfo.merchProduct.styleCode%28AH7246%29</a></p>
-<h3 id="product-inventory-migration"><a href="#product-inventory-migration" name="product-inventory-migration" class="anchor"><span class="octicon octicon-link"></span></a>Product Inventory Migration</h3>
+<h3><a href="#product-inventory-migration" id="product-inventory-migration">Product Inventory Migration</a></h3>
 <p><strong>CAPI</strong></p>
 <p>If your experience uses CAPI to determine which sizes of a product are in and out of stock, it may call CAPI's Inventory endpoint. For example, this CAPI URL lists whether or not each size is in stock for a list of style-colors.</p>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/products/inventory.json?client=test-client&amp;ids=849557-202%2C849557-006%2C849557-041%2C849557-104%2C849557-004%2C849557-026%2C849557-100%2C849557-605%2C849557-007">https://commerce-api.nike.com/commerce/v1/US/en_US/products/inventory.json?client=test-client&amp;ids=849557-202%2C849557-006%2C849557-041%2C849557-104%2C849557-004%2C849557-026%2C849557-100%2C849557-605%2C849557-007</a></p>
 <p><strong>Cloud</strong></p>
-<p>The comparable Cloud endpoint is the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.</p>
+<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/api_product_feeds.html#product-threads-list" class="absent">Product Threads List endpoint</a> in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.</p>
 <p><a href="https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=publishedContent.properties.products.styleColor(847269-430,AH7238-080)">https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=publishedContent.properties.products.styleColor(847269-430,AH7238-080)</a></p>
 <p>The response lists SKU data in the availableSkus array. The SKU is in stock if <code>available</code> is true, out of stock if false.</p>
-<h3 id="looking-up-style-color-from-gtin"><a href="#looking-up-style-color-from-gtin" name="looking-up-style-color-from-gtin" class="anchor"><span class="octicon octicon-link"></span></a>Looking up style-color from GTIN</h3>
+<h3><a href="#looking-up-style-color-from-gtin" id="looking-up-style-color-from-gtin">Looking up style-color from GTIN</a></h3>
 <p>If you have a GTIN (UPC) and need to get the style-color, here are the steps you would follow in the Cloud.</p>
 <ol>
-  <li>Call the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html#using-merchandised-product-skus">Merchandised Product SKUs service</a> filtering by GTIN.</li>
+  <li>Call the <a href="/doc/commerce/product/api_merch_product.html#using-merchandised-product-skus" class="absent">Merchandised Product SKUs service</a> filtering by GTIN.</li>
 </ol>
 <p><a href="https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)">https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)</a></p>
 <blockquote>
   <p>TIP: It is recommended that you call the Merchandised Sku service rather than the Product Feed service if you only need SKU information, not product, inventory, product content or price information.</p>
 </blockquote>
 <ol start="2">
-  <li>If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the <code>id</code> parameter and call the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html#using-merchandised-products">Merchandised Product service</a>. A 200 response lists the styleCode, colorCode and styleColor.</li>
+  <li>If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the <code>id</code> parameter and call the <a href="/doc/commerce/product/api_merch_product.html#using-merchandised-products" class="absent">Merchandised Product service</a>. A 200 response lists the styleCode, colorCode and styleColor.</li>
 </ol>
 <p><a href="https://api.nike.com/merch/products/v2?filter=merchgroup(US)&amp;filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)">https://api.nike.com/merch/products/v2?filter=merchgroup(US)&amp;filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)</a></p>
 <blockquote>
@@ -166,7 +161,7 @@
   <li>If you do not receive a 200 response from the Merchandised Product Sku service, it could be because your GTIN is retail-only. Only digital SKUs are currently available in the Cloud. In this case, you will need to continue to call the CAPI Product Widths endpoint to get the style-color using the GTIN as a path parameter.</li>
 </ol>
 <p><a href="https://commerce-api.nike.com/commerce/v1/US/en_US/product/00887225865153/widths?client=test-client">https://commerce-api.nike.com/commerce/v1/US/en_US/product/00887225865153/widths?client=test-client</a></p>
-<h2 id="migration-contacts"><a href="#migration-contacts" name="migration-contacts" class="anchor"><span class="octicon octicon-link"></span></a><a name="migration-contacts"></a>Migration Contacts</h2>
+<h2><a href="#migration-contacts" id="migration-contacts"><a name="migration-contacts"></a>Migration Contacts</a></h2>
 <p>Have a question about migrating from CAPI services to Cloud services? See team contact information below.</p>
 <table>
   <thead>
@@ -183,7 +178,7 @@
     <tr><td><strong>Prodigy Tool</strong></td><td>Matt Salgado</td><td><a href="mailto:matt.salgado@nike.com">matt.salgado@nike.com</a></td><td></td></tr>
   </tbody>
 </table>
-<h2 id="endpoint-mapping"><a href="#endpoint-mapping" name="endpoint-mapping" class="anchor"><span class="octicon octicon-link"></span></a><a name="endpoint-mapping"></a>Endpoint Mapping</h2>
+<h2><a href="#endpoint-mapping" id="endpoint-mapping"><a name="endpoint-mapping"></a>Endpoint Mapping</a></h2>
 <p>The following table lists all of the CAPI endpoints and the equivalent Cloud endpoint.</p>
 <blockquote>
   <p>Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exists in the Cloud. Those are marked as 'None/Deprecated'. For other CAPI endpoints, the Cloud solution is still to be determined and those are marked as 'TBD'.</p>
@@ -203,8 +198,8 @@
     <tr><td><strong>Get Retail product inventory quantities for one or more product identifiers</strong></td><td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#inventory-product" target="_blank">Inventory: Product/Multiple Products</a></td><td><a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="_blank">Inventory: Get Inventory Info</a>, <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/gtins/API.MD" target="_blank">Deliver: Get GTIN Availability</a></td></tr>
   </tbody>
 </table>
-<h2 id="field-mapping"><a href="#field-mapping" name="field-mapping" class="anchor"><span class="octicon octicon-link"></span></a><a name="field-mapping"></a>Field Mapping</h2>
-<h3 id="in-this-section"><a href="#in-this-section" name="in-this-section" class="anchor"><span class="octicon octicon-link"></span></a>In this section:</h3>
+<h2><a href="#field-mapping" id="field-mapping"><a name="field-mapping"></a>Field Mapping</a></h2>
+<h3><a href="#in-this-section" id="in-this-section">In this section:</a></h3>
 <p><a href="#search-free-text">Search: Free Text</a></p>
 <p><a href="#search-facet-discovery">Search: Facet Discovery</a></p>
 <p><a href="#search-faceted-hash">Search: Faceted Hash</a></p>
@@ -212,7 +207,7 @@
 <p><a href="#inventory-productmultiple-products">Inventory: Product/Multiple Products</a></p>
 <p><a href="#product-availability">Product Availability</a></p>
 <p>The following tables describe the mapping of <em>response body</em> fields between CAPI and the equivalent Cloud endpoint.</p>
-<h3 id="search-free-text"><a href="#search-free-text" name="search-free-text" class="anchor"><span class="octicon octicon-link"></span></a><a name="search-free-text"><a/>Search: Free Text</h3>
+<h3><a href="#search-free-text" id="search-free-text"><a name="search-free-text"><a/>Search: Free Text</a></h3>
 <table>
   <thead>
     <tr><th>CAPI Field Name</th><th>CAPI Example</th><th>Cloud Field Name</th><th>Cloud Example</th><th>Cloud Endpoint</th></tr>
@@ -277,7 +272,7 @@
     <tr><td>pageUrls.<strong>lastUrl</strong></td><td>/commerce-api.nike.com/commerce/v1/us<br>/en_US/search?page=4554&amp;query=jordan+shoes</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
   </tbody>
 </table>
-<h3 id="search-facet-discovery"><a href="#search-facet-discovery" name="search-facet-discovery" class="anchor"><span class="octicon octicon-link"></span></a><a name="search-facet-discovery"><a/>Search: Facet Discovery</h3>
+<h3><a href="#search-facet-discovery" id="search-facet-discovery"><a name="search-facet-discovery"><a/>Search: Facet Discovery</a></h3>
 <table>
   <thead>
     <tr><th>CAPI Field Name</th><th>CAPI Example</th><th>Cloud Field Name</th><th>Cloud Example</th><th>Cloud Endpoint</th></tr>
@@ -298,7 +293,7 @@
     <tr><td>facets.facetValues.links.<strong>href</strong></td><td>/domain:port/commerce/v1/us/en_US/facets/8yz</td><td>TBD</td><td>TBD</td><td>TBD</td></tr>
   </tbody>
 </table>
-<h3 id="search-faceted-hash"><a href="#search-faceted-hash" name="search-faceted-hash" class="anchor"><span class="octicon octicon-link"></span></a><a name="search-faceted-hash"><a/>Search: Faceted Hash</h3>
+<h3><a href="#search-faceted-hash" id="search-faceted-hash"><a name="search-faceted-hash"><a/>Search: Faceted Hash</a></h3>
 <table>
   <thead>
     <tr><th>CAPI Field Name</th><th>CAPI Example</th><th>Cloud Field Name</th><th>Cloud Example</th><th>Cloud Endpoint</th></tr>
@@ -400,7 +395,7 @@
     <tr><td>pageUrls.<strong>lastUrl</strong></td><td>/domain:port/commerce/v1/us<br>/en_US/facets/9hkZbqj?page=1&amp;pageSize=10</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
   </tbody>
 </table>
-<h3 id="details-productmultiple-productsfull-productfamily-productproduct-widths"><a href="#details-productmultiple-productsfull-productfamily-productproduct-widths" name="details-productmultiple-productsfull-productfamily-productproduct-widths" class="anchor"><span class="octicon octicon-link"></span></a><a name="details-productmultiple-productsfull-productfamily-productproduct-widths"></a>Details: Product/Multiple Products/Full Product/Family Product/Product Widths</h3>
+<h3><a href="#details-productmultiple-productsfull-productfamily-productproduct-widths" id="details-productmultiple-productsfull-productfamily-productproduct-widths"><a name="details-productmultiple-productsfull-productfamily-productproduct-widths"></a>Details: Product/Multiple Products/Full Product/Family Product/Product Widths</a></h3>
 <table>
   <thead>
     <tr><th>CAPI Field Name</th><th>CAPI Example</th><th>Cloud Field Name</th><th>Cloud Example</th><th>Cloud Endpoint</th></tr>
@@ -509,7 +504,7 @@
     <tr><td>reviews.<strong>numReviews</strong></td><td>5</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
   </tbody>
 </table>
-<h3 id="inventory-productmultiple-products"><a href="#inventory-productmultiple-products" name="inventory-productmultiple-products" class="anchor"><span class="octicon octicon-link"></span></a><a name="inventory-productmultiple-products"></a>Inventory: Product/Multiple Products</h3>
+<h3><a href="#inventory-productmultiple-products" id="inventory-productmultiple-products"><a name="inventory-productmultiple-products"></a>Inventory: Product/Multiple Products</a></h3>
 <p><strong>Digital</strong></p>
 <table>
   <thead>
@@ -568,7 +563,7 @@
     <li>The <strong>storeId</strong> from the Cloud endpoint <em>Get Inventory Info</em> is a UUID from the <a href="https://developer.niketech.com/docs/projects/Stores" target="_blank">Stores API</a>.</li>
   </ul>
 </blockquote>
-<h3 id="product-availability"><a href="#product-availability" name="product-availability" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-availability"></a>Product Availability</h3>
+<h3><a href="#product-availability" id="product-availability"><a name="product-availability"></a>Product Availability</a></h3>
 <table>
   <thead>
     <tr><th>CAPI Field Name</th><th>CAPI Example</th><th>Cloud Field Name</th><th>Cloud Example</th><th>Cloud Endpoint</th></tr>
@@ -601,10 +596,9 @@
 |---|---|---|
 |||
 -->
-<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
-<p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
-</body>
-</html>
+<h2><a href="#related-links" id="related-links"><a name="related-links"></a>Related Links</a></h2>
+<p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
+<p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>
+<p><a href="/doc/portal/biz-guides.html" class="absent">Business Guides</a></p>
+<p><a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a></p>
+

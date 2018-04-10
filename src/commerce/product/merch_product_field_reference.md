@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"></link>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"></link>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"></link>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product_reference.md) for version history of this document.
@@ -14,7 +14,7 @@ Author:  Jane Moore
 
 This guide describes the product and value-added service merchandising codes flowing from Prodigy (the system of record) to the Merchandised Product API.
 
-See the [Global Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/reference/global.html) for the list of countries, languages, channels and brands that the NIKE APIs support.
+See the [Global Reference Guide](/doc/commerce/reference/global.html) for the list of countries, languages, channels and brands that the NIKE APIs support.
 
 - [Status Codes](#status-codes)
 - [Merchandising Groups](#merchandising-groups)
@@ -95,10 +95,10 @@ Listed below are the publish type codes.
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

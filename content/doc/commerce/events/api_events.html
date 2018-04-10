@@ -1,21 +1,16 @@
-<html>
-<head>
-<meta charset="UTF-8">
-</head>
-<body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css">
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/nde.js" type="text/javascript"></script>
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/events/api_events.md) for version history of this document.
 Author: Ben Frick, Jane Moore
 SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina Baumel
 -->
-<h1 id="analytics-pipeline-api-developers-guide-draft"><a href="#analytics-pipeline-api-developers-guide-draft" name="analytics-pipeline-api-developers-guide-draft" class="anchor"><span class="octicon octicon-link"></span></a>ANALYTICS PIPELINE API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</h1>
-<h5 id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></h5>
-<p>If you've read <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="https://nde-devportal-docs.niketech.com/doc/commerce/events/biz_events.html">Get Started With Nike Analytics Pipeline</a>, this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.</p>
-<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In This Guide:</strong></h2>
+<h1><a href="#analytics-pipeline-api-developers-guide-draft" id="analytics-pipeline-api-developers-guide-draft">ANALYTICS PIPELINE API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</a></h1>
+<h5><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
+<p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and <a href="/doc/commerce/events/biz_events.html" class="absent">Get Started With Nike Analytics Pipeline</a>, this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.</p>
+<h2><a href="#in-this-guide" id="in-this-guide"><strong>In This Guide:</strong></a></h2>
 <p><a href="#api-at-a-glance">API at a Glance</a></p>
 <p><a href="#terms-of-service">Terms of Service</a></p>
 <p><span class="toc-pad"><a href="#authentication">Authentication</a></p>
@@ -34,11 +29,11 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 <p><a href="#release-notes">Release Notes</a></p>
 <p><a href="#document-change-log">Document Change Log</a></p>
 <p><a href="#related-links">Related Links</a></p>
-<h2 id="api-at-a-glance"><a href="#api-at-a-glance" name="api-at-a-glance" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-at-a-glance"></a>API at a Glance</h2>
+<h2><a href="#api-at-a-glance" id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</a></h2>
 <p>The <b>Analytics Pipeline API</b> is your single destination to record analytics events, helping both user experiences and web services to track consumer and application behavior.</p>
 <p>Because Analytics Pipeline is server-side and Nike-authored, it is much more customizable to your needs than a proprietary, client-side analytics solution.</p>
 <p>Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event. Future integrations with other partners can be done without necessarily changing the contract of this API, thus making it easier (if not completely transparent) to you.</p>
-<p><img src="https://nde-devportal-docs.niketech.com/images/analytics/events.png" alt="" /></p>
+<p><img src="/images/analytics/events.png" alt="" class="absent" /></p>
 <p>Here are a few ways in which analytics event data can be used:</p>
 <ul>
   <li>Track the success of marketing campaigns via tags or attribution</li>
@@ -65,18 +60,18 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>Contact Info</td><td>Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br>Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br> Mailing List: <a href="mailto:Lst-Nexus.DevOps">Lst-Nexus.Devops</a><br><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a></td></tr>
   </tbody>
 </table>
-<h3 id="a-note-about-segment"><a href="#a-note-about-segment" name="a-note-about-segment" class="anchor"><span class="octicon octicon-link"></span></a>A Note about Segment</h3>
+<h3><a href="#a-note-about-segment" id="a-note-about-segment">A Note about Segment</a></h3>
 <p>Segment is an analytics API and customer data platform which Nike utilizes. As you saw in the above diagram, it is one of several downstream integrations from the Analytics Pipeline API. By integrating with Segment once, Nike unlocks additional downstream integrations like Optimizely for A/B Testing, Kochava for mobile analytics, and several digital marketing integrations.</p>
 <p>Reach out to the Analytics API Product Owner, <a href="mailto:randall.davis@nike.com">Randy Davis</a>, for information on the analytics opportunities available via Segment.</p>
-<h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="terms-of-service"></a>Terms of Service</h2>
+<h2><a href="#terms-of-service" id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</a></h2>
 <ul>
   <li>Clients must not use analytics data collected with the Analytics Pipeline API for sales, revenue, or available inventory data.</li>
   <li>High usage from a single IP address may be flagged by Nike bot detection and blocked.</li>
   <li>This API is not intended for application monitoring, logging, or reporting on server-side errors.</li>
 </ul>
-<h3 id="authentication"><a href="#authentication" name="authentication" class="anchor"><span class="octicon octicon-link"></span></a><a name="authentication"></a>Authentication</h3>
+<h3><a href="#authentication" id="authentication"><a name="authentication"></a>Authentication</a></h3>
 <p>No authentication or authorization is required to use the Analytics Pipeline API.</p>
-<h2 id="use-cases"><a href="#use-cases" name="use-cases" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-cases"></a>Use Cases</h2>
+<h2><a href="#use-cases" id="use-cases"><a name="use-cases"></a>Use Cases</a></h2>
 <p>With the Analytics Pipeline API you can track:</p>
 <ul>
   <li>User-generated actions like clicks, taps, selections of options from a list, text entry, changes of view</li>
@@ -91,18 +86,18 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   <li>Timings of API requests</li>
   <li>Custom events</li>
 </ul>
-<h3 id="a-note-on-data-transformations"><a href="#a-note-on-data-transformations" name="a-note-on-data-transformations" class="anchor"><span class="octicon octicon-link"></span></a>A Note on Data Transformations</h3>
+<h3><a href="#a-note-on-data-transformations" id="a-note-on-data-transformations">A Note on Data Transformations</a></h3>
 <p>The data you send to this API is transformed (in most cases) to meet the requirements of the downstream systems to which it is ultimately sent, for example Adobe Analytics.</p>
 <p>Here are some screenshots from Adobe Analytics to illustrate what kind of insights you can gain from sending events through this API:</p>
 <br>
-<p><img src="https://nde-devportal-docs.niketech.com/images/analytics/adobe1.png" alt="" /></p>
+<p><img src="/images/analytics/adobe1.png" alt="" class="absent" /></p>
 <br>
-<p><img src="https://nde-devportal-docs.niketech.com/images/analytics/adobe2.png" alt="" /></p>
+<p><img src="/images/analytics/adobe2.png" alt="" class="absent" /></p>
 <br>
 <blockquote>
   <p>TIP: This guide does not include details of the data transformations. For more info, see <a href="">TBD</a>.</p>
 </blockquote>
-<h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+<h2><a href="#api-endpoint-quick-reference" id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</a></h2>
 <p><strong>Analytics Pipeline API</strong></p>
 <table>
   <thead>
@@ -112,11 +107,11 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a></td><td>/measure/uxevents/v1</td><td>POST</td></tr>
   </tbody>
 </table>
-<h2 id="making-your-first-api-request"><a href="#making-your-first-api-request" name="making-your-first-api-request" class="anchor"><span class="octicon octicon-link"></span></a><a name="making-your-first-api-request"></a>Making Your First API Request</h2>
+<h2><a href="#making-your-first-api-request" id="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making Your First API Request</a></h2>
 <p>For your first Analytics Pipeline API request, send an event that corresponds to a user clicking 'Change Billing Country' in the context of completing checkout in a web app.</p>
-<h3 id="gather-data-needed-for-the-request"><a href="#gather-data-needed-for-the-request" name="gather-data-needed-for-the-request" class="anchor"><span class="octicon octicon-link"></span></a>Gather Data Needed for the Request</h3>
+<h3><a href="#gather-data-needed-for-the-request" id="gather-data-needed-for-the-request">Gather Data Needed for the Request</a></h3>
 <p>First, gather the data needed to make the request.</p>
-<h4 id="url"><a href="#url" name="url" class="anchor"><span class="octicon octicon-link"></span></a>URL</h4>
+<h4><a href="#url" id="url">URL</a></h4>
 <p>In production, all requests to the Analytics Pipeline API go to the same endpoint URL using the POST method:</p>
 <table>
   <thead>
@@ -128,7 +123,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 </table>
 <p>However, for your first request and anytime you are performing tests, use the Test endpoint URL:</p>
 <p><a href="https://experience.test.commerce.nikecloud.com/measure/uxevents/v1">https://experience.test.commerce.nikecloud.com/measure/uxevents/v1</a></p>
-<h4 id="headers"><a href="#headers" name="headers" class="anchor"><span class="octicon octicon-link"></span></a>Headers</h4>
+<h4><a href="#headers" id="headers">Headers</a></h4>
 <p>All requests must include the <strong>Content-Type</strong> header as follows:</p>
 <table>
   <thead>
@@ -138,7 +133,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td><strong>Content-Type</strong></td><td>Content type of the request, &quot;application/json&quot; is only value allowed</td><td>Yes</td></tr>
   </tbody>
 </table>
-<h4 id="body"><a href="#body" name="body" class="anchor"><span class="octicon octicon-link"></span></a>Body</h4>
+<h4><a href="#body" id="body">Body</a></h4>
 <p>To form the request body, answer the following questions by studying the API.md file and related JSON schema files:</p>
 <ul>
   <li>What is the event type that should be used for this event?</li>
@@ -156,7 +151,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 </ul>
 <p>This answer will depend on your reasons for tracking the event, and therefore will vary. For the sake of simplicity, only the required fields are included in the below example.</p>
 <p>Once you've addressed all of the above questions, proceed to form a JSON request body. A finalized request body could look like this:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;$schema&quot;: &quot;../../schemas/eventBatch.json&quot;,
   &quot;actorId&quot;: &quot;53449035084208179402477208077095861290&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -206,22 +201,22 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h3 id="execute-the-request"><a href="#execute-the-request" name="execute-the-request" class="anchor"><span class="octicon octicon-link"></span></a>Execute the Request</h3>
+<h3><a href="#execute-the-request" id="execute-the-request">Execute the Request</a></h3>
 <p>A cURL command can be used to execute the request from within your app. An example command is shown below (request body omitted for the sake of brevity, but you can use the example above):</p>
-<pre><code class="nohighlight">curl -X POST \
+<pre><code>curl -X POST \
   https://experience.test.commerce.nikecloud.com/measure/uxevents/v1 \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{&lt;request body goes here&gt;}'
 </code></pre>
-<h3 id="parse-the-response"><a href="#parse-the-response" name="parse-the-response" class="anchor"><span class="octicon octicon-link"></span></a>Parse the Response</h3>
+<h3><a href="#parse-the-response" id="parse-the-response">Parse the Response</a></h3>
 <p>The responses from the Analytics Pipeline API are simple to parse. If the event was successfully recorded, you will get an HTTP 200 response as shown below:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;message&quot;: &quot;Success&quot;
 }
 </code></pre>
 <p>If you receive any other response than this, something went wrong. See the <a href="#response-body">Response Body</a> section for info on error responses.</p>
-<h2 id="using-analytics-pipeline"><a href="#using-analytics-pipeline" name="using-analytics-pipeline" class="anchor"><span class="octicon octicon-link"></span></a><a name="using-analytics-pipeline"></a>Using Analytics Pipeline</h2>
+<h2><a href="#using-analytics-pipeline" id="using-analytics-pipeline"><a name="using-analytics-pipeline"></a>Using Analytics Pipeline</a></h2>
 <ul>
   <li><a href="#analytics-pipeline-overview">Analytics Pipeline Overview</a></li>
   <li><a href="#endpoint-details">Endpoint Details</a></li>
@@ -230,9 +225,9 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   <li><a href="#request-body">Request Body</a></li>
   <li><a href="#response-body">Response Body</a></li>
 </ul>
-<h3 id="analytics-pipeline-overview"><a href="#analytics-pipeline-overview" name="analytics-pipeline-overview" class="anchor"><span class="octicon octicon-link"></span></a><a name="analytics-pipeline-overview"></a>Analytics Pipeline Overview</h3>
+<h3><a href="#analytics-pipeline-overview" id="analytics-pipeline-overview"><a name="analytics-pipeline-overview"></a>Analytics Pipeline Overview</a></h3>
 <p>Use the Analytics Pipeline API as a single destination for tracking your user experience, service, or application events.</p>
-<h3 id="endpoint-details"><a href="#endpoint-details" name="endpoint-details" class="anchor"><span class="octicon octicon-link"></span></a><a name="endpoint-details"></a>Endpoint Details</h3>
+<h3><a href="#endpoint-details" id="endpoint-details"><a name="endpoint-details"></a>Endpoint Details</a></h3>
 <table>
   <thead>
     <tr><th>HTTP Method</th><th>URI Path</th><th>Restricted?</th></tr>
@@ -241,9 +236,9 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td><strong>POST</strong></td><td><code>/measure/uxevents/v1</code></td><td>No</td></tr>
   </tbody>
 </table>
-<h3 id="path--query-parameters"><a href="#path--query-parameters" name="path--query-parameters" class="anchor"><span class="octicon octicon-link"></span></a><a name="path--query-parameters"></a>Path &amp; Query Parameters</h3>
+<h3><a href="#path--query-parameters" id="path--query-parameters"><a name="path--query-parameters"></a>Path &amp; Query Parameters</a></h3>
 <p>There are no path nor query parameters to be used with the Analytics Pipeline API.</p>
-<h3 id="request-headers"><a href="#request-headers" name="request-headers" class="anchor"><span class="octicon octicon-link"></span></a><a name="request-headers"></a>Request Headers</h3>
+<h3><a href="#request-headers" id="request-headers"><a name="request-headers"></a>Request Headers</a></h3>
 <table>
   <thead>
     <tr><th>Header Name</th><th>Description</th><th>Required?</th></tr>
@@ -252,7 +247,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td><strong>Content-Type</strong></td><td>Content type of the request, <strong>application/json</strong> is only value allowed</td><td>Required</td></tr>
   </tbody>
 </table>
-<h3 id="request-body"><a href="#request-body" name="request-body" class="anchor"><span class="octicon octicon-link"></span></a><a name="request-body"></a>Request Body</h3>
+<h3><a href="#request-body" id="request-body"><a name="request-body"></a>Request Body</a></h3>
 <p>Forming a request body to the Analytics Pipeline API requires combining the following schema information:</p>
 <ul>
   <li>Event Batch: top-most level in the request structure, which is common to all event types. Includes an array of one or more events per the Base Event schema.</li>
@@ -260,7 +255,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   <li>Event Type: schema for a particular type of event, <strong>which can specify additional elements that are required from the Base Event schema</strong>.</li>
 </ul>
 <p>Put another way, every request must include at minimum the required fields from the Event Batch and Base Event schemas, plus the required fields from an Event Type, plus any additional required fields from the Base Event as specified in that particular Event Type schema.</p>
-<h4 id="event-batch--base-event"><a href="#event-batch--base-event" name="event-batch--base-event" class="anchor"><span class="octicon octicon-link"></span></a>Event Batch &amp; Base Event</h4>
+<h4><a href="#event-batch--base-event" id="event-batch--base-event">Event Batch &amp; Base Event</a></h4>
 <p>The fields in the base event are described in the below table, by combining the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json" target="_blank">Event Batch</a> and <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseEvent.json" target="_blank">Base Event</a> schemas:</p>
 <table>
   <thead>
@@ -396,7 +391,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.<strong>other</strong></td><td>A non-validated name-spaced region where domain-specific data can be added, per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>Optional</td></tr>
   </tbody>
 </table>
-<h4 id="event-types"><a href="#event-types" name="event-types" class="anchor"><span class="octicon octicon-link"></span></a>Event Types</h4>
+<h4><a href="#event-types" id="event-types">Event Types</a></h4>
 <p>The following table lists all of the event types along with a description of how they should be used.</p>
 <table>
   <thead>
@@ -422,7 +417,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   <p>TIP: Each event-type schema must be combined with the base-event schema in order to have a fully-formed request body.</p>
 </blockquote>
 <p>Next, each event type will be described in detail and a sample request body will be included for each.</p>
-<h5 id="action"><a href="#action" name="action" class="anchor"><span class="octicon octicon-link"></span></a>Action</h5>
+<h5><a href="#action" id="action">Action</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -439,7 +434,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;7894228d-5087-415f-80d0-55350568ea57&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -487,7 +482,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="app-launch"><a href="#app-launch" name="app-launch" class="anchor"><span class="octicon octicon-link"></span></a>App Launch</h5>
+<h5><a href="#app-launch" id="app-launch">App Launch</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -501,7 +496,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -562,7 +557,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="change-view"><a href="#change-view" name="change-view" class="anchor"><span class="octicon octicon-link"></span></a>Change View</h5>
+<h5><a href="#change-view" id="change-view">Change View</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -584,7 +579,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;7894228d-5087-415f-80d0-55350568ea57&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -657,7 +652,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="checkout-confirmation"><a href="#checkout-confirmation" name="checkout-confirmation" class="anchor"><span class="octicon octicon-link"></span></a>Checkout Confirmation</h5>
+<h5><a href="#checkout-confirmation" id="checkout-confirmation">Checkout Confirmation</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -679,7 +674,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;7894228d-5087-415f-80d0-55350568ea58&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -733,7 +728,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="error"><a href="#error" name="error" class="anchor"><span class="octicon octicon-link"></span></a>Error</h5>
+<h5><a href="#error" id="error">Error</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -754,7 +749,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;$schema&quot;: &quot;../../schemas/eventBatch.json&quot;,
   &quot;actorId&quot;: &quot;53449035084208179402477208077095861290&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -858,7 +853,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="login-complete"><a href="#login-complete" name="login-complete" class="anchor"><span class="octicon octicon-link"></span></a>Login Complete</h5>
+<h5><a href="#login-complete" id="login-complete">Login Complete</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -870,7 +865,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -931,7 +926,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="metric"><a href="#metric" name="metric" class="anchor"><span class="octicon octicon-link"></span></a>Metric</h5>
+<h5><a href="#metric" id="metric">Metric</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -947,7 +942,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;$schema&quot;: &quot;../../schemas/eventBatch.json&quot;,
   &quot;actorId&quot;: &quot;53449035084208179402477208077095861290&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1029,7 +1024,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="mouse"><a href="#mouse" name="mouse" class="anchor"><span class="octicon octicon-link"></span></a>Mouse</h5>
+<h5><a href="#mouse" id="mouse">Mouse</a></h5>
 <p>The fields for the <strong>mouse</strong> event type are:</p>
 <table>
   <thead>
@@ -1049,7 +1044,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;$schema&quot;: &quot;../../schemas/eventBatch.json&quot;,
   &quot;actorId&quot;: &quot;53449035084208179402477208077095861290&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1148,7 +1143,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="page-load"><a href="#page-load" name="page-load" class="anchor"><span class="octicon octicon-link"></span></a>Page Load</h5>
+<h5><a href="#page-load" id="page-load">Page Load</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -1166,7 +1161,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;$schema&quot;: &quot;../../schemas/eventBatch.json&quot;,
   &quot;actorId&quot;: &quot;53449035084208179402477208077095861290&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1256,7 +1251,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="registration-complete"><a href="#registration-complete" name="registration-complete" class="anchor"><span class="octicon octicon-link"></span></a>Registration Complete</h5>
+<h5><a href="#registration-complete" id="registration-complete">Registration Complete</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -1268,7 +1263,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -1329,7 +1324,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="search"><a href="#search" name="search" class="anchor"><span class="octicon octicon-link"></span></a>Search</h5>
+<h5><a href="#search" id="search">Search</a></h5>
 <p>The following common elements are required:</p>
 <table>
   <thead>
@@ -1392,7 +1387,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;123456789&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -1451,7 +1446,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="selection"><a href="#selection" name="selection" class="anchor"><span class="octicon octicon-link"></span></a>Selection</h5>
+<h5><a href="#selection" id="selection">Selection</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -1470,7 +1465,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;$schema&quot;: &quot;../../schemas/eventBatch.json&quot;,
   &quot;actorId&quot;: &quot;53449035084208179402477208077095861290&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1569,7 +1564,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h5 id="text-input"><a href="#text-input" name="text-input" class="anchor"><span class="octicon octicon-link"></span></a>Text Input</h5>
+<h5><a href="#text-input" id="text-input">Text Input</a></h5>
 <table>
   <thead>
     <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
@@ -1588,7 +1583,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample request body:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
   &quot;resourceVersion&quot;: &quot;v1&quot;,
@@ -1653,7 +1648,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   ]
 }
 </code></pre>
-<h3 id="response-body"><a href="#response-body" name="response-body" class="anchor"><span class="octicon octicon-link"></span></a><a name="response-body"></a>Response Body</h3>
+<h3><a href="#response-body" id="response-body"><a name="response-body"></a>Response Body</a></h3>
 <p>The response body format is described below.</p>
 <table>
   <thead>
@@ -1665,13 +1660,13 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
   </tbody>
 </table>
 <p>Sample HTTP 200 success response:</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;message&quot;: &quot;Success&quot;
 }
 </code></pre>
 <p>Sample HTTP 400 error responses:</p>
 <p>Scenario: request did not have the required <strong>events</strong> property</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;message&quot;: {
         &quot;eventBatchErrors&quot;: [
             {
@@ -1688,7 +1683,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 }
 </code></pre>
 <p>Scenario: request had blank <strong>actorId</strong> property</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;message&quot;: {
         &quot;eventBatchErrors&quot;: [
             {
@@ -1706,7 +1701,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 </code></pre>
 <p>Sample HTTP 500 error response:</p>
 <p>Scenario: the API is having an issue taking the request.</p>
-<pre><code class="nohighlight">{
+<pre><code>{
     &quot;error_id&quot;: &quot;65b35de2-9e2e-4ba5-afc2-4f687cbf33a7&quot;,
     &quot;errors&quot;: [
         {
@@ -1718,10 +1713,10 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
 </code></pre>
 <!-- <a href="http://nikeweb-test.private.static.s3-website-us-east-1.amazonaws.com/fat/event-validator-ui/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 <hr />
-<h2 id="upgrading-to-the-latest-version"><a href="#upgrading-to-the-latest-version" name="upgrading-to-the-latest-version" class="anchor"><span class="octicon octicon-link"></span></a><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</h2>
+<h2><a href="#upgrading-to-the-latest-version" id="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</a></h2>
 <p>Use the following tables to help your upgrade process from Analytics Pipeline v1 to v2.</p>
 <p>The first table shows the v1-v2 mapping for the fields in the Event Batch &amp; Base Event schema. The remaining tables show the mappings for the fields that are specific to each Event Type.</p>
-<h3 id="event-batch--base-event-schema-mapping"><a href="#event-batch--base-event-schema-mapping" name="event-batch--base-event-schema-mapping" class="anchor"><span class="octicon octicon-link"></span></a><a name="event-batch--base-event-schema-mapping"></a>Event Batch &amp; Base Event Schema Mapping</h3>
+<h3><a href="#event-batch--base-event-schema-mapping" id="event-batch--base-event-schema-mapping"><a name="event-batch--base-event-schema-mapping"></a>Event Batch &amp; Base Event Schema Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1837,7 +1832,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.<strong>other</strong></td><td>A non-validated name-spaced region where domain-specific data can be added, per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="action-event-type-mapping"><a href="#action-event-type-mapping" name="action-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Action: Event Type Mapping</h3>
+<h3><a href="#action-event-type-mapping" id="action-event-type-mapping">Action: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1848,7 +1843,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other event data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="app-launch-event-type-mapping"><a href="#app-launch-event-type-mapping" name="app-launch-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>App Launch: Event Type Mapping</h3>
+<h3><a href="#app-launch-event-type-mapping" id="app-launch-event-type-mapping">App Launch: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1861,7 +1856,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.<strong>marketing</strong></td><td>Marketing context from Base Event</td><td>See 'Event Batch &amp; Base Event' table</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="change-view-event-type-mapping"><a href="#change-view-event-type-mapping" name="change-view-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Change View: Event Type Mapping</h3>
+<h3><a href="#change-view-event-type-mapping" id="change-view-event-type-mapping">Change View: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1873,7 +1868,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other event data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="checkout-confirmation-event-type-mapping"><a href="#checkout-confirmation-event-type-mapping" name="checkout-confirmation-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Checkout Confirmation: Event Type Mapping</h3>
+<h3><a href="#checkout-confirmation-event-type-mapping" id="checkout-confirmation-event-type-mapping">Checkout Confirmation: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1893,7 +1888,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.totals.<strong>other</strong></td><td>Other totals data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="error-event-type-mapping"><a href="#error-event-type-mapping" name="error-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Error: Event Type Mapping</h3>
+<h3><a href="#error-event-type-mapping" id="error-event-type-mapping">Error: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1907,7 +1902,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other error data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="login-complete-event-type-mapping"><a href="#login-complete-event-type-mapping" name="login-complete-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Login Complete: Event Type Mapping</h3>
+<h3><a href="#login-complete-event-type-mapping" id="login-complete-event-type-mapping">Login Complete: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1918,7 +1913,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.<strong>marketing</strong></td><td>Consumer context from the Base Event</td><td>See <a href="#event-batch--base-event-schema-mapping">Event Batch &amp; Base Event</a> table</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="metric-event-type-mapping"><a href="#metric-event-type-mapping" name="metric-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Metric: Event Type Mapping</h3>
+<h3><a href="#metric-event-type-mapping" id="metric-event-type-mapping">Metric: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1932,7 +1927,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other metric data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="mouse-event-type-mapping"><a href="#mouse-event-type-mapping" name="mouse-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Mouse: Event Type Mapping</h3>
+<h3><a href="#mouse-event-type-mapping" id="mouse-event-type-mapping">Mouse: Event Type Mapping</a></h3>
 <p>The fields for the <strong>mouse</strong> event type are:</p>
 <table>
   <thead>
@@ -1946,7 +1941,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other mouse data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="page-load-event-type-mapping"><a href="#page-load-event-type-mapping" name="page-load-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Page Load: Event Type Mapping</h3>
+<h3><a href="#page-load-event-type-mapping" id="page-load-event-type-mapping">Page Load: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1962,7 +1957,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other page data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="registration-complete-event-type-mapping"><a href="#registration-complete-event-type-mapping" name="registration-complete-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Registration Complete: Event Type Mapping</h3>
+<h3><a href="#registration-complete-event-type-mapping" id="registration-complete-event-type-mapping">Registration Complete: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -1973,7 +1968,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.<strong>marketing</strong></td><td>Marketing context from Base Event</td><td>See <a href="#event-batch--base-event-schema-mapping">Event Batch &amp; Base Event</a> table</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="search-event-type-mapping"><a href="#search-event-type-mapping" name="search-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Search: Event Type Mapping</h3>
+<h3><a href="#search-event-type-mapping" id="search-event-type-mapping">Search: Event Type Mapping</a></h3>
 <p>The following common elements are required:</p>
 <table>
   <thead>
@@ -2022,7 +2017,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other search data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="selection-event-type-mapping"><a href="#selection-event-type-mapping" name="selection-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Selection: Event Type Mapping</h3>
+<h3><a href="#selection-event-type-mapping" id="selection-event-type-mapping">Selection: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -2035,7 +2030,7 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other selection data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h3 id="text-input-event-type-mapping"><a href="#text-input-event-type-mapping" name="text-input-event-type-mapping" class="anchor"><span class="octicon octicon-link"></span></a>Text Input: Event Type Mapping</h3>
+<h3><a href="#text-input-event-type-mapping" id="text-input-event-type-mapping">Text Input: Event Type Mapping</a></h3>
 <table>
   <thead>
     <tr><th>V1 Field Name</th><th>Description</th><th>V2 Field Name</th><th>Description</th><th>Notes</th></tr>
@@ -2048,9 +2043,9 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>events.properties.<strong>other</strong></td><td>Other text input data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a></td><td>N/A (deprecated)</td><td>N/A</td><td></td></tr>
   </tbody>
 </table>
-<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting" class="anchor"><span class="octicon octicon-link"></span></a><a name="troubleshooting"></a>Troubleshooting</h2>
+<h2><a href="#troubleshooting" id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
 <p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
-<h3 id="use-troubleshooting-tools"><a href="#use-troubleshooting-tools" name="use-troubleshooting-tools" class="anchor"><span class="octicon octicon-link"></span></a>Use Troubleshooting Tools</h3>
+<h3><a href="#use-troubleshooting-tools" id="use-troubleshooting-tools">Use Troubleshooting Tools</a></h3>
 <ol>
   <li>
     <p>Check for validation errors logged in Splunk <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda" target="_blank">here</a></p>
@@ -2059,11 +2054,11 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <p>Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.</p>
   </li>
 </ol>
-<h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
-<p>See the <a href="https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html">Glossary</a></p>
-<h2 id="release-notes"><a href="#release-notes" name="release-notes" class="anchor"><span class="octicon octicon-link"></span></a><a name="release-notes"/>Release Notes</h2>
+<h2><a href="#glossary" id="glossary"><a name="glossary"></a>Glossary</a></h2>
+<p>See the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a></p>
+<h2><a href="#release-notes" id="release-notes"><a name="release-notes"/>Release Notes</a></h2>
 <p>There are no release notes at this time.</p>
-<h2 id="document-change-log"><a href="#document-change-log" name="document-change-log" class="anchor"><span class="octicon octicon-link"></span></a><a name="document-change-log"/>Document Change Log</h2>
+<h2><a href="#document-change-log" id="document-change-log"><a name="document-change-log"/>Document Change Log</a></h2>
 <table>
   <thead>
     <tr><th>Summary </th><th>Date </th><th>Description</th></tr>
@@ -2074,10 +2069,9 @@ SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina
     <tr><td>Updated external links</td><td>04/03/2018</td><td>Updated external links to open in new browser window</td></tr>
   </tbody>
 </table>
-<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
-<p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
-</body>
-</html>
+<h2><a href="#related-links" id="related-links"><a name="related-links"></a>Related Links</a></h2>
+<p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
+<p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>
+<p><a href="/doc/portal/biz-guides.html" class="absent">Business Guides</a></p>
+<p><a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a></p>
+

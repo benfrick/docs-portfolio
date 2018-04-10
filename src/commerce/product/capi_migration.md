@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide (DRAFT)
 
@@ -35,7 +35,7 @@ If you are a current Commerce API (CAPI) client, use this guide to help with mig
 
 CAPI is a legacy API that provides access to Nike product information, including inventory availability. CAPI has been replaced by Nike's Cloud-based APIs and will be deprecated after all clients have migrated to the newer APIs.
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/capi/capi_to_cloud.png)
+![](/images/commerce/capi/capi_to_cloud.png)
 
 ## <a name="capi-vs-cloud-comparison"></a>CAPI vs. Cloud: Comparison
 
@@ -43,7 +43,7 @@ Read on to learn more about the similarities and differences between CAPI and Cl
 
 ### Overall Considerations
 
-- CAPI is largely replaced by the [Product Feeds v2 API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html). The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.
+- CAPI is largely replaced by the [Product Feeds v2 API](/doc/commerce/product/api_product_feeds.html). The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.
 
 - **Some of the search functionality of CAPI has not yet been replaced in the Cloud**. If you rely on CAPI for faceted search, you may need to continue to use CAPI for now. Contact the [Search Product Owner](mailto:david.wagner@nike.com) for more info about when this feature of Cloud Search will be available.
 
@@ -69,11 +69,11 @@ Product information is available in the Cloud in the Product Feeds v2 API. This 
 
 CAPI can be called by **productId** (PID), e.g. '1074990' (which also can be sent in **id** field for certain CAPI endpoints), the legacy identifier that is unique to a *style-color*. In general, you cannot call Cloud APIs with this same **productId**, although you might see it in certain Cloud responses, for example with Product Feeds in the **pid** field.
 
-The equivalent of **productId** in the Cloud is the **id**, e.g. '8e94a648-a232-5739-b4a6-c7d844a8bda0', a UUID generated from the [Merchandised Products API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html). You will use this **id** when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.
+The equivalent of **productId** in the Cloud is the **id**, e.g. '8e94a648-a232-5739-b4a6-c7d844a8bda0', a UUID generated from the [Merchandised Products API](/doc/commerce/product/api_merch_product.html). You will use this **id** when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.
 
 #### SKU ID
 
-Responses from several CAPI endpoints feature **skuID**, e.g. '1107974', the legacy identifier that is unique to a SKU or *style-color-size*. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to **stockKeepingUnitId**. In addition, an **id** in the form of a UUID is generated per SKU by the [Merchandised Product SKU API](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) when it flows into the system.
+Responses from several CAPI endpoints feature **skuID**, e.g. '1107974', the legacy identifier that is unique to a SKU or *style-color-size*. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to **stockKeepingUnitId**. In addition, an **id** in the form of a UUID is generated per SKU by the [Merchandised Product SKU API](/doc/commerce/product/api_merch_product.html) when it flows into the system.
 
 >TIP: For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1).
 
@@ -201,7 +201,7 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/products/details.json?client=
 
 **Cloud**
 
-The comparable Cloud endpoint is the [Product Threads List endpoint](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.
+The comparable Cloud endpoint is the [Product Threads List endpoint](/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.
 
 https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&filter=publishedContent.properties.products.styleColor%28AH7282-081%29
 
@@ -215,7 +215,7 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/product/849557-202/family.jso
 
 **Cloud**
 
-The comparable Cloud endpoint is the [Product Threads List endpoint](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.
+The comparable Cloud endpoint is the [Product Threads List endpoint](/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.
 
 https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&filter=productInfo.merchProduct.styleCode%28AH7246%29
 
@@ -229,7 +229,7 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/products/inventory.json?clien
 
 **Cloud**
 
-The comparable Cloud endpoint is the [Product Threads List endpoint](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.
+The comparable Cloud endpoint is the [Product Threads List endpoint](/doc/commerce/product/api_product_feeds.html#product-threads-list) in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.
 
 https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&filter=publishedContent.properties.products.styleColor(847269-430,AH7238-080)
 
@@ -239,13 +239,13 @@ The response lists SKU data in the availableSkus array. The SKU is in stock if `
 
 If you have a GTIN (UPC) and need to get the style-color, here are the steps you would follow in the Cloud.
 
-1. Call the [Merchandised Product SKUs service](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html#using-merchandised-product-skus) filtering by GTIN.
+1. Call the [Merchandised Product SKUs service](/doc/commerce/product/api_merch_product.html#using-merchandised-product-skus) filtering by GTIN.
 
 https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)
 
 >TIP: It is recommended that you call the Merchandised Sku service rather than the Product Feed service if you only need SKU information, not product, inventory, product content or price information.
 
-2. If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the `id` parameter and call the [Merchandised Product service](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html#using-merchandised-products). A 200 response lists the styleCode, colorCode and styleColor.
+2. If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the `id` parameter and call the [Merchandised Product service](/doc/commerce/product/api_merch_product.html#using-merchandised-products). A 200 response lists the styleCode, colorCode and styleColor.
 
 https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)
 
@@ -666,10 +666,10 @@ The following tables describe the mapping of *response body* fields between CAPI
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)
