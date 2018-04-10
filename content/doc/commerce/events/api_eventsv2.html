@@ -1,3 +1,8 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
 <link rel="stylesheet" href="/css/style.css">
@@ -7,10 +12,10 @@ See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/co
 Author:  Ben Frick, Jane Moore
 SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 -->
-<h1><a href="#analytics-pipeline-v2-api-developers-guide-draft" id="analytics-pipeline-v2-api-developers-guide-draft">ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</a></h1>
-<h5><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
+<h1 id="analytics-pipeline-v2-api-developers-guide-draft"><a href="#analytics-pipeline-v2-api-developers-guide-draft" name="analytics-pipeline-v2-api-developers-guide-draft">ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</a></h1>
+<h5 id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
 <p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and <a href="/doc/commerce/events/biz_events.html" class="absent">Get Started With Nike Analytics Pipeline</a>, this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.</p>
-<h2><a href="#in-this-guide" id="in-this-guide"><strong>In This Guide:</strong></a></h2>
+<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide"><strong>In This Guide:</strong></a></h2>
 <p><a href="#api-at-a-glance">API at a Glance</a></p>
 <p><a href="#terms-of-service">Terms of Service</a></p>
 <p><span class="toc-pad"><a href="#authentication">Authentication</a></p>
@@ -29,7 +34,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 <p><a href="#release-notes">Release Notes</a></p>
 <p><a href="#document-change-log">Document Change Log</a></p>
 <p><a href="#related-links">Related Links</a></p>
-<h2><a href="#api-at-a-glance" id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</a></h2>
+<h2 id="api-at-a-glance"><a href="#api-at-a-glance" name="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</a></h2>
 <p>The <b>Analytics Pipeline v2 API</b> is your single destination to record analytics events, helping both user experiences and web services to track consumer and application behavior.</p>
 <p>Because Analytics Pipeline is server-side and Nike-authored, it is much more customizable to your needs than a proprietary, client-side analytics solution.</p>
 <p>Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event. Future integrations with other partners can be done without necessarily changing the contract of this API, thus making it easier (if not completely transparent) to you.</p>
@@ -41,36 +46,36 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   <li>Track the success of new features (A/B testing)</li>
   <li>Alert on traffic anomalies</li>
 </ul>
-<h3><a href="#should-i-use-v1-or-v2-of-this-api" id="should-i-use-v1-or-v2-of-this-api">Should I Use v1 or v2 of this API?</a></h3>
+<h3 id="should-i-use-v1-or-v2-of-this-api"><a href="#should-i-use-v1-or-v2-of-this-api" name="should-i-use-v1-or-v2-of-this-api">Should I Use v1 or v2 of this API?</a></h3>
 <p>If you are integrating with Analytics Pipeline for the first time, use v2 as it is the most current version of the API.</p>
 <p>The following table describes the key details of the API:</p>
 <table>
   <thead>
-    <tr><th>Topic</th><th>Details</th></tr>
+    <tr class="thead-first-child"><th>Topic</th><th>Details</th></tr>
   </thead>
   <tbody>
-    <tr><td>Use this API to</td><td>Send all consumer and application tracking events to a single endpoint</td></tr>
-    <tr><td>Who calls this API</td><td>TBD</td></tr>
-    <tr><td>Current Version</td><td>Analytics Pipeline v2</td></tr>
-    <tr><td>Scope/Limitations</td><td>Analytics events only. All countries supported. Do not use for sales, revenue, or available inventory information</td></tr>
-    <tr><td>SLAs</td><td>Response time (RT) and requests per second (RPS): <br>RT: 500 ms <br>RPS: 500</td></tr>
-    <tr><td>Domain</td><td>Commerce</td></tr>
-    <tr><td>Prerequisites</td><td>None</td></tr>
-    <tr><td>Contact Info</td><td>Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br>Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br> Mailing List: <a href="mailto:Lst-Nexus.DevOps">Lst-Nexus.Devops</a><br><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a></td></tr>
+    <tr class="tbody-first-child"><td>Use this API to</td><td>Send all consumer and application tracking events to a single endpoint</td></tr>
+    <tr class="tbody-even-child"><td>Who calls this API</td><td>TBD</td></tr>
+    <tr class="tbody-odd-child"><td>Current Version</td><td>Analytics Pipeline v2</td></tr>
+    <tr class="tbody-even-child"><td>Scope/Limitations</td><td>Analytics events only. All countries supported. Do not use for sales, revenue, or available inventory information</td></tr>
+    <tr class="tbody-odd-child"><td>SLAs</td><td>Response time (RT) and requests per second (RPS): <br>RT: 500 ms <br>RPS: 500</td></tr>
+    <tr class="tbody-even-child"><td>Domain</td><td>Commerce</td></tr>
+    <tr class="tbody-odd-child"><td>Prerequisites</td><td>None</td></tr>
+    <tr class="tbody-even-child"><td>Contact Info</td><td>Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br>Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br> Mailing List: <a href="mailto:Lst-Nexus.DevOps">Lst-Nexus.Devops</a><br><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a></td></tr>
   </tbody>
 </table>
-<h3><a href="#a-note-about-segment" id="a-note-about-segment">A Note about Segment</a></h3>
+<h3 id="a-note-about-segment"><a href="#a-note-about-segment" name="a-note-about-segment">A Note about Segment</a></h3>
 <p>Segment is an analytics API and customer data platform which Nike utilizes. As you saw in the above diagram, it is one of several downstream integrations from the Analytics Pipeline API. By integrating with Segment once, Nike unlocks additional downstream integrations like Optimizely for A/B Testing, Kochava for mobile analytics, and several digital marketing integrations.</p>
 <p>Reach out to the Analytics API Product Owner, <a href="mailto:randall.davis@nike.com">Randy Davis</a>, for information on the analytics opportunities available via Segment.</p>
-<h2><a href="#terms-of-service" id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</a></h2>
+<h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service"><a name="terms-of-service"></a>Terms of Service</a></h2>
 <ul>
   <li>Clients must not use analytics data collected with the Analytics Pipeline v2 API for sales, revenue, or available inventory data.</li>
   <li>High usage from a single IP address may be flagged by Nike bot detection and blocked.</li>
   <li>This API is not intended for application monitoring, logging, or reporting on server-side errors.</li>
 </ul>
-<h3><a href="#authentication" id="authentication"><a name="authentication"></a>Authentication</a></h3>
+<h3 id="authentication"><a href="#authentication" name="authentication"><a name="authentication"></a>Authentication</a></h3>
 <p>No authentication or authorization is required to use the Analytics Pipeline v2 API.</p>
-<h2><a href="#use-cases" id="use-cases"><a name="use-cases"></a>Use Cases</a></h2>
+<h2 id="use-cases"><a href="#use-cases" name="use-cases"><a name="use-cases"></a>Use Cases</a></h2>
 <p>With the Analytics Pipeline v2 API you can track:</p>
 <ul>
   <li>User-generated actions like clicks, taps, selections of options from a list, text entry, changes of view</li>
@@ -85,7 +90,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   <li>Timings of API requests</li>
   <li>Custom events</li>
 </ul>
-<h3><a href="#a-note-on-data-transformations" id="a-note-on-data-transformations">A Note on Data Transformations</a></h3>
+<h3 id="a-note-on-data-transformations"><a href="#a-note-on-data-transformations" name="a-note-on-data-transformations">A Note on Data Transformations</a></h3>
 <p>The data you send to this API is transformed (in most cases) to meet the requirements of the downstream systems to which it is ultimately sent, for example Adobe Analytics.</p>
 <p>Here are some screenshots from Adobe Analytics to illustrate what kind of insights you can gain from sending events through this API:</p>
 <br>
@@ -96,29 +101,29 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 <blockquote>
   <p>TIP: This guide does not include details of the data transformations. For more info, see <a href="">TBD</a>.</p>
 </blockquote>
-<h2><a href="#api-endpoint-quick-reference" id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</a></h2>
+<h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</a></h2>
 <p>For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.</p>
-<h3><a href="#analytics-pipeline-v2-api" id="analytics-pipeline-v2-api">Analytics Pipeline v2 API</a></h3>
+<h3 id="analytics-pipeline-v2-api"><a href="#analytics-pipeline-v2-api" name="analytics-pipeline-v2-api">Analytics Pipeline v2 API</a></h3>
 <table>
   <thead>
-    <tr><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
+    <tr class="thead-first-child"><th>Endpoint Name</th><th>Path</th><th>HTTP Method</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a></td><td>/measure/uxevents/v1</td><td>POST</td></tr>
+    <tr class="tbody-first-child"><td><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a></td><td>/measure/uxevents/v1</td><td>POST</td></tr>
   </tbody>
 </table>
-<h2><a href="#making-your-first-api-request" id="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making Your First API Request</a></h2>
+<h2 id="making-your-first-api-request"><a href="#making-your-first-api-request" name="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making Your First API Request</a></h2>
 <p>For your first Analytics Pipeline v2 API request, send an event that corresponds to a user clicking 'Change Billing Country' in the context of completing checkout in a web app.</p>
-<h3><a href="#gather-data-needed-for-the-request" id="gather-data-needed-for-the-request">Gather Data Needed for the Request</a></h3>
+<h3 id="gather-data-needed-for-the-request"><a href="#gather-data-needed-for-the-request" name="gather-data-needed-for-the-request">Gather Data Needed for the Request</a></h3>
 <p>First, gather the data needed to make the request.</p>
-<h4><a href="#url" id="url">URL</a></h4>
+<h4 id="url"><a href="#url" name="url">URL</a></h4>
 <p>In production, all requests to the Analytics Pipeline v2 API go to the same endpoint URL using the POST method:</p>
 <table>
   <thead>
-    <tr><th>HTTP Method</th><th>Endpoint URL</th></tr>
+    <tr class="thead-first-child"><th>HTTP Method</th><th>Endpoint URL</th></tr>
   </thead>
   <tbody>
-    <tr><td>POST</td><td><a href="https://api.nike.com/measure/uxevents/v1">https://api.nike.com/measure/uxevents/v1</a></td></tr>
+    <tr class="tbody-first-child"><td>POST</td><td><a href="https://api.nike.com/measure/uxevents/v1">https://api.nike.com/measure/uxevents/v1</a></td></tr>
   </tbody>
 </table>
 <p>However, for your first request and anytime you are performing tests, use the Test endpoint URL:</p>
@@ -126,17 +131,17 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 <blockquote>
   <p>TIP: The URL for v2 is the same as v1.</p>
 </blockquote>
-<h4><a href="#headers" id="headers">Headers</a></h4>
+<h4 id="headers"><a href="#headers" name="headers">Headers</a></h4>
 <p>All requests must include the <strong>Content-Type</strong> header as follows:</p>
 <table>
   <thead>
-    <tr><th>Header Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Header Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>Content-Type</strong></td><td>Content type of the request, &quot;application/json&quot; is only value allowed</td><td>Yes</td></tr>
+    <tr class="tbody-first-child"><td><strong>Content-Type</strong></td><td>Content type of the request, &quot;application/json&quot; is only value allowed</td><td>Yes</td></tr>
   </tbody>
 </table>
-<h4><a href="#body" id="body">Body</a></h4>
+<h4 id="body"><a href="#body" name="body">Body</a></h4>
 <p>To form the request body, answer the following questions by studying the API.md file:</p>
 <ul>
   <li>What is the event type that should be used for this event?</li>
@@ -218,7 +223,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h3><a href="#execute-the-request" id="execute-the-request">Execute the Request</a></h3>
+<h3 id="execute-the-request"><a href="#execute-the-request" name="execute-the-request">Execute the Request</a></h3>
 <p>A cURL command can be used to execute the request from within your app. An example command is shown below (request body omitted for the sake of brevity, but you can use the example above):</p>
 <pre><code>curl -X POST \
   https://experience.test.commerce.nikecloud.com/measure/uxevents/v1 \
@@ -226,14 +231,14 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   -H 'Content-Type: application/json' \
   -d '{&lt;request body goes here&gt;}'
 </code></pre>
-<h3><a href="#parse-the-response" id="parse-the-response">Parse the Response</a></h3>
+<h3 id="parse-the-response"><a href="#parse-the-response" name="parse-the-response">Parse the Response</a></h3>
 <p>The responses from the Analytics Pipeline v2 API are simple to parse. If the event was successfully recorded, you will get an HTTP 200 response as shown below:</p>
 <pre><code>{
     &quot;message&quot;: &quot;Success&quot;
 }
 </code></pre>
 <p>If you receive any other response than this, something went wrong. See the <a href="#response-body">Response Body</a> section for info on error responses.</p>
-<h2><a href="#using-analytics-v2-pipeline" id="using-analytics-v2-pipeline"><a name="using-analytics-v2-pipeline"></a>Using Analytics v2 Pipeline</a></h2>
+<h2 id="using-analytics-v2-pipeline"><a href="#using-analytics-v2-pipeline" name="using-analytics-v2-pipeline"><a name="using-analytics-v2-pipeline"></a>Using Analytics v2 Pipeline</a></h2>
 <ul>
   <li><a href="#analytics-pipeline-overview">Analytics Pipeline Overview</a></li>
   <li><a href="#endpoint-details">Endpoint Details</a></li>
@@ -242,29 +247,29 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   <li><a href="#request-body">Request Body</a></li>
   <li><a href="#response-body">Response Body</a></li>
 </ul>
-<h3><a href="#analytics-pipeline-overview" id="analytics-pipeline-overview"><a name="analytics-pipeline-overview"></a>Analytics Pipeline Overview</a></h3>
+<h3 id="analytics-pipeline-overview"><a href="#analytics-pipeline-overview" name="analytics-pipeline-overview"><a name="analytics-pipeline-overview"></a>Analytics Pipeline Overview</a></h3>
 <p>Use the Analytics Pipeline v2 API as a single destination for tracking your user experience, service, or application events.</p>
-<h3><a href="#endpoint-details" id="endpoint-details"><a name="endpoint-details"></a>Endpoint Details</a></h3>
+<h3 id="endpoint-details"><a href="#endpoint-details" name="endpoint-details"><a name="endpoint-details"></a>Endpoint Details</a></h3>
 <table>
   <thead>
-    <tr><th>HTTP Method</th><th>URI Path</th><th>Restricted?</th></tr>
+    <tr class="thead-first-child"><th>HTTP Method</th><th>URI Path</th><th>Restricted?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>POST</strong></td><td><code>/measure/uxevents/v1</code></td><td>No</td></tr>
+    <tr class="tbody-first-child"><td><strong>POST</strong></td><td><code>/measure/uxevents/v1</code></td><td>No</td></tr>
   </tbody>
 </table>
-<h3><a href="#path--query-parameters" id="path--query-parameters"><a name="path--query-parameters"></a>Path &amp; Query Parameters</a></h3>
+<h3 id="path--query-parameters"><a href="#path--query-parameters" name="path--query-parameters"><a name="path--query-parameters"></a>Path &amp; Query Parameters</a></h3>
 <p>There are no path nor query parameters to be used with the Analytics Pipeline v2 API.</p>
-<h3><a href="#request-headers" id="request-headers"><a name="request-headers"></a>Request Headers</a></h3>
+<h3 id="request-headers"><a href="#request-headers" name="request-headers"><a name="request-headers"></a>Request Headers</a></h3>
 <table>
   <thead>
-    <tr><th>Header Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Header Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>Content-Type</strong></td><td>Content type of the request, <strong>application/json</strong> is only value allowed</td><td>Required</td></tr>
+    <tr class="tbody-first-child"><td><strong>Content-Type</strong></td><td>Content type of the request, <strong>application/json</strong> is only value allowed</td><td>Required</td></tr>
   </tbody>
 </table>
-<h3><a href="#request-body" id="request-body"><a name="request-body"></a>Request Body</a></h3>
+<h3 id="request-body"><a href="#request-body" name="request-body"><a name="request-body"></a>Request Body</a></h3>
 <p>Forming a request body to the Analytics Pipeline v2 API requires combining the following schema information:</p>
 <ul>
   <li><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json" target="_blank">Event Batch</a>: top-most level in the request structure, which is common to all event types. Includes an array of one or more events.</li>
@@ -277,259 +282,259 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   <p>Note: the Nike schema contains a field, <strong>eventType</strong>, that is a direct carryover from v1 (i.e. same exact values must be used). See more below on <a href="#event-types">Event Types</a>.</p>
 </blockquote>
 <p>Next, we will discuss the details of each of the above schemas, including which fields are required.</p>
-<h4><a href="#batch--common-fields" id="batch--common-fields">Batch &amp; Common Fields</a></h4>
+<h4 id="batch--common-fields"><a href="#batch--common-fields" name="batch--common-fields">Batch &amp; Common Fields</a></h4>
 <p>The fields in the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/batch.json" target="_blank">Batch</a> and <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json" target="_blank">Common Fields</a> schemas are described in the below table:</p>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>$schema</strong></td><td>URL for the JSON schema version used</td><td>Optional</td></tr>
-    <tr><td><strong>actorId</strong></td><td>ID representing the principal actor in this event, minimum length of 1 character, e.g. &quot;53449035084208179402477208077095861290&quot;</td><td>Required</td></tr>
-    <tr><td><strong>resourceType</strong></td><td>Constant value that describes the type of resource. &quot;dotcom/event_batch&quot; is the only allowed value</td><td>Required</td></tr>
-    <tr><td><strong>resourceVersion</strong></td><td>Constant value that describes the version of this API contract. &quot;v1&quot; is the only allowed value</td><td>Required</td></tr>
-    <tr><td><strong>events</strong></td><td>Array of analytics events, minimum of 1</td><td>Required</td></tr>
-    <tr><td>events.<strong>anonymousId</strong></td><td>A pseudo-unique substitute for a User ID, for cases when you don't have a unique identifier.</td><td>Required if <strong>userId</strong> is not present</td></tr>
-    <tr><td>events.<strong>userId</strong></td><td>A unique identifier for the user in your database</td><td>Required if <strong>anonymousId</strong> is not present</td></tr>
-    <tr><td>events.<strong>type</strong></td><td>Type of event, one of &quot;track&quot;, &quot;page&quot;, &quot;identify&quot;</td><td>Optional</td></tr>
-    <tr><td>events.<strong>event</strong></td><td>The name of the action the user performed</td><td>Optional</td></tr>
-    <tr><td>events.context.<strong>active</strong></td><td>Boolean for whether a user is active</td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>name</strong></td><td>App name</td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>version</strong></td><td>Semver style or build number of app</td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>build</strong></td><td>Semver style or build number of app</td><td>Optional</td></tr>
-    <tr><td>events.context.campaign.<strong>name</strong></td><td>The value for a specific Ad vendors campaign</td><td>Optional</td></tr>
-    <tr><td>events.context.campaign.<strong>source</strong></td><td>The campaign key for a specific Ad vendor</td><td>Optional</td></tr>
-    <tr><td>events.context.campaign.<strong>medium</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.campaign.<strong>term</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.campaign.<strong>content</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.device.<strong>id</strong></td><td>User's device identifier</td><td>Optional</td></tr>
-    <tr><td>events.context.device.<strong>manufacturer</strong></td><td>User's device manufacturer</td><td>Optional</td></tr>
-    <tr><td>events.context.device.<strong>model</strong></td><td>Device model</td><td>Optional</td></tr>
-    <tr><td>events.context.device.<strong>name</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.device.<strong>type</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.device.<strong>version</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.<strong>ip</strong></td><td>Current user's IP address</td><td>Optional</td></tr>
-    <tr><td>events.context.library.<strong>name</strong></td><td>Library name</td><td>Optional</td></tr>
-    <tr><td>events.context.library.<strong>version</strong></td><td>Library version</td><td>Optional</td></tr>
-    <tr><td>events.context.<strong>locale</strong></td><td>Locale string for the current user, e.g. &quot;en-US&quot;</td><td>Optional</td></tr>
-    <tr><td>events.context.location.<strong>city</strong></td><td>User's city name</td><td>Optional</td></tr>
-    <tr><td>events.context.location.<strong>country</strong></td><td>User's ISO-3166 country code</td><td>Optional</td></tr>
-    <tr><td>events.context.location.<strong>latitude</strong></td><td>User's latitude</td><td>Optional</td></tr>
-    <tr><td>events.context.location.<strong>longitude</strong></td><td>User's longitude</td><td>Optional</td></tr>
-    <tr><td>events.context.location.<strong>region</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.location.<strong>speed</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.network.<strong>bluetooth</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.network.<strong>carrier</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.network.<strong>cellular</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.network.<strong>wifi</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.os.<strong>name</strong></td><td>User's operating system name</td><td>Optional</td></tr>
-    <tr><td>events.context.os.<strong>version</strong></td><td>User's operating system version</td><td>Optional</td></tr>
-    <tr><td>events.context.page.<strong>hash</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.page.<strong>path</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.page.<strong>referrer</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.page.<strong>search</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.page.<strong>title</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.page.<strong>url</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.referrer.<strong>type</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.referrer.<strong>name</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.referrer.<strong>url</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.referrer.<strong>link</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.screen.<strong>density</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.screen.<strong>height</strong></td><td>Screen height in pixels</td><td>Optional</td></tr>
-    <tr><td>events.context.screen.<strong>width</strong></td><td>Screen width in pixels</td><td>Optional</td></tr>
-    <tr><td>events.context.<strong>timezone</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.traits.<strong>track</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.traits.<strong>identify</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.context.<strong>userAgent</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.integrations.<strong>All</strong></td><td>Boolean where if true the message should be sent to all destinations</td><td>Optional</td></tr>
-    <tr><td>events.<strong>originalTimeStamp</strong></td><td>Time on the client device when call was invoked</td><td>Optional</td></tr>
-    <tr><td>events.<strong>sentAt</strong></td><td>Time on client device when call was sent</td><td>Optional</td></tr>
-    <tr><td>events.<strong>receivedAt</strong></td><td>Time on Segment server clock when the call was received</td><td>Optional</td></tr>
-    <tr><td>events.<strong>timestamp</strong></td><td>Calculated by Segment to correct client-device clock skew</td><td>Optional</td></tr>
+    <tr class="tbody-first-child"><td><strong>$schema</strong></td><td>URL for the JSON schema version used</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td><strong>actorId</strong></td><td>ID representing the principal actor in this event, minimum length of 1 character, e.g. &quot;53449035084208179402477208077095861290&quot;</td><td>Required</td></tr>
+    <tr class="tbody-odd-child"><td><strong>resourceType</strong></td><td>Constant value that describes the type of resource. &quot;dotcom/event_batch&quot; is the only allowed value</td><td>Required</td></tr>
+    <tr class="tbody-even-child"><td><strong>resourceVersion</strong></td><td>Constant value that describes the version of this API contract. &quot;v1&quot; is the only allowed value</td><td>Required</td></tr>
+    <tr class="tbody-odd-child"><td><strong>events</strong></td><td>Array of analytics events, minimum of 1</td><td>Required</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>anonymousId</strong></td><td>A pseudo-unique substitute for a User ID, for cases when you don't have a unique identifier.</td><td>Required if <strong>userId</strong> is not present</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>userId</strong></td><td>A unique identifier for the user in your database</td><td>Required if <strong>anonymousId</strong> is not present</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>type</strong></td><td>Type of event, one of &quot;track&quot;, &quot;page&quot;, &quot;identify&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>event</strong></td><td>The name of the action the user performed</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.<strong>active</strong></td><td>Boolean for whether a user is active</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.app.<strong>name</strong></td><td>App name</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.app.<strong>version</strong></td><td>Semver style or build number of app</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.app.<strong>build</strong></td><td>Semver style or build number of app</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.campaign.<strong>name</strong></td><td>The value for a specific Ad vendors campaign</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.campaign.<strong>source</strong></td><td>The campaign key for a specific Ad vendor</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.campaign.<strong>medium</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.campaign.<strong>term</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.campaign.<strong>content</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.device.<strong>id</strong></td><td>User's device identifier</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.device.<strong>manufacturer</strong></td><td>User's device manufacturer</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.device.<strong>model</strong></td><td>Device model</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.device.<strong>name</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.device.<strong>type</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.device.<strong>version</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.<strong>ip</strong></td><td>Current user's IP address</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.library.<strong>name</strong></td><td>Library name</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.library.<strong>version</strong></td><td>Library version</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.<strong>locale</strong></td><td>Locale string for the current user, e.g. &quot;en-US&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.location.<strong>city</strong></td><td>User's city name</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.location.<strong>country</strong></td><td>User's ISO-3166 country code</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.location.<strong>latitude</strong></td><td>User's latitude</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.location.<strong>longitude</strong></td><td>User's longitude</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.location.<strong>region</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.location.<strong>speed</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.network.<strong>bluetooth</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.network.<strong>carrier</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.network.<strong>cellular</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.network.<strong>wifi</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.os.<strong>name</strong></td><td>User's operating system name</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.os.<strong>version</strong></td><td>User's operating system version</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.page.<strong>hash</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.page.<strong>path</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.page.<strong>referrer</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.page.<strong>search</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.page.<strong>title</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.page.<strong>url</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.referrer.<strong>type</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.referrer.<strong>name</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.referrer.<strong>url</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.referrer.<strong>link</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.screen.<strong>density</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.screen.<strong>height</strong></td><td>Screen height in pixels</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.screen.<strong>width</strong></td><td>Screen width in pixels</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.<strong>timezone</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.traits.<strong>track</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.traits.<strong>identify</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.<strong>userAgent</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.integrations.<strong>All</strong></td><td>Boolean where if true the message should be sent to all destinations</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>originalTimeStamp</strong></td><td>Time on the client device when call was invoked</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>sentAt</strong></td><td>Time on client device when call was sent</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>receivedAt</strong></td><td>Time on Segment server clock when the call was received</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>timestamp</strong></td><td>Calculated by Segment to correct client-device clock skew</td><td>Optional</td></tr>
   </tbody>
 </table>
-<h4><a href="#page-track-identify" id="page-track-identify">Page, Track, Identify</a></h4>
+<h4 id="page-track-identify"><a href="#page-track-identify" name="page-track-identify">Page, Track, Identify</a></h4>
 <p>Each request must contain <strong>ONE</strong> of the following three schemas:</p>
-<h5><a href="#page" id="page">Page</a></h5>
+<h5 id="page"><a href="#page" name="page">Page</a></h5>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>name</strong></td><td>Name of the page</td><td>Required</td></tr>
-    <tr><td>events.properties.<strong>name</strong></td><td>Name of the page - This is reserved for future use</td><td></td></tr>
-    <tr><td>events.properties.<strong>path</strong></td><td>Path portion of the URL of the page</td><td></td></tr>
-    <tr><td>events.properties.<strong>referrer</strong></td><td>Full URL of the previous page</td><td></td></tr>
-    <tr><td>events.properties.<strong>search</strong></td><td>Query string portion of the URL of the page</td><td></td></tr>
-    <tr><td>events.properties.<strong>title</strong></td><td>Title of the page</td><td></td></tr>
-    <tr><td>events.properties.<strong>url</strong></td><td>Full URL of the page</td><td></td></tr>
+    <tr class="tbody-first-child"><td><strong>name</strong></td><td>Name of the page</td><td>Required</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>name</strong></td><td>Name of the page - This is reserved for future use</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>path</strong></td><td>Path portion of the URL of the page</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>referrer</strong></td><td>Full URL of the previous page</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>search</strong></td><td>Query string portion of the URL of the page</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>title</strong></td><td>Title of the page</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>url</strong></td><td>Full URL of the page</td><td></td></tr>
   </tbody>
 </table>
-<h5><a href="#track" id="track">Track</a></h5>
+<h5 id="track"><a href="#track" name="track">Track</a></h5>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td>events.properties.<strong>revenue</strong></td><td>Amount of revenue an event result in</td><td></td></tr>
-    <tr><td>events.properties.<strong>currency</strong></td><td>Currency of the revenue an event result in</td><td></td></tr>
-    <tr><td>events.properties.<strong>currency</strong></td><td>An abstract value to associate with an event</td><td></td></tr>
+    <tr class="tbody-first-child"><td>events.properties.<strong>revenue</strong></td><td>Amount of revenue an event result in</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>currency</strong></td><td>Currency of the revenue an event result in</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>currency</strong></td><td>An abstract value to associate with an event</td><td></td></tr>
   </tbody>
 </table>
-<h5><a href="#identify" id="identify">Identify</a></h5>
+<h5 id="identify"><a href="#identify" name="identify">Identify</a></h5>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td>events.<strong>anonymousId</strong></td><td>A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier.</td><td>Required</td></tr>
-    <tr><td>events.<strong>userId</strong></td><td>A unique identifier for the user in your database</td><td></td></tr>
-    <tr><td>events.traits.address.<strong>city</strong></td><td>City of a user</td><td></td></tr>
-    <tr><td>events.traits.address.<strong>country</strong></td><td>Country of a user</td><td></td></tr>
-    <tr><td>events.traits.address.<strong>postalCode</strong></td><td>Postal code of a user</td><td></td></tr>
-    <tr><td>events.traits.address.<strong>state</strong></td><td>State of a user</td><td></td></tr>
-    <tr><td>events.traits.address.<strong>street</strong></td><td>Street of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>age</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>avatar</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>birthday</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.company.<strong>name</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.company.<strong>id</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.company.<strong>industry</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.company.<strong>employee_count</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.company.<strong>plan</strong></td><td>Street address of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>createdAt</strong></td><td>Date the user's account was first created (as string)</td><td></td></tr>
-    <tr><td>events.traits.<strong>description</strong></td><td>Description of the user</td><td></td></tr>
-    <tr><td>events.traits.<strong>email</strong></td><td>Email address of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>firstName</strong></td><td>First name of user</td><td></td></tr>
-    <tr><td>events.traits.<strong>gender</strong></td><td>Gender of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>id</strong></td><td>Unique ID in your database for a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>lastName</strong></td><td>Last name of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>name</strong></td><td>Full name of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>phone</strong></td><td>Phone number of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>title</strong></td><td>Title of a user</td><td></td></tr>
-    <tr><td>events.traits.<strong>username</strong></td><td>User's username, should be unique to each user</td><td></td></tr>
-    <tr><td>events.traits.<strong>website</strong></td><td>Website of a user</td><td></td></tr>
+    <tr class="tbody-first-child"><td>events.<strong>anonymousId</strong></td><td>A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier.</td><td>Required</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>userId</strong></td><td>A unique identifier for the user in your database</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.address.<strong>city</strong></td><td>City of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.address.<strong>country</strong></td><td>Country of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.address.<strong>postalCode</strong></td><td>Postal code of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.address.<strong>state</strong></td><td>State of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.address.<strong>street</strong></td><td>Street of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>age</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.<strong>avatar</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>birthday</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.company.<strong>name</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.company.<strong>id</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.company.<strong>industry</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.company.<strong>employee_count</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.company.<strong>plan</strong></td><td>Street address of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>createdAt</strong></td><td>Date the user's account was first created (as string)</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.<strong>description</strong></td><td>Description of the user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>email</strong></td><td>Email address of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.<strong>firstName</strong></td><td>First name of user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>gender</strong></td><td>Gender of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.<strong>id</strong></td><td>Unique ID in your database for a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>lastName</strong></td><td>Last name of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.<strong>name</strong></td><td>Full name of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>phone</strong></td><td>Phone number of a user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.<strong>title</strong></td><td>Title of a user</td><td></td></tr>
+    <tr class="tbody-even-child"><td>events.traits.<strong>username</strong></td><td>User's username, should be unique to each user</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>events.traits.<strong>website</strong></td><td>Website of a user</td><td></td></tr>
   </tbody>
 </table>
-<h4><a href="#ab-test-e-commerce-nike" id="ab-test-e-commerce-nike">A/B Test, E-Commerce, Nike</a></h4>
+<h4 id="ab-test-e-commerce-nike"><a href="#ab-test-e-commerce-nike" name="ab-test-e-commerce-nike">A/B Test, E-Commerce, Nike</a></h4>
 <p>Each request must contain <strong>ALL</strong> of the following schemas:</p>
-<h5><a href="#ab-test" id="ab-test">A/B Test</a></h5>
+<h5 id="ab-test"><a href="#ab-test" name="ab-test">A/B Test</a></h5>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td>events.<strong>swimLane</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.<strong>experimentName</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.<strong>experimentId</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.<strong>variationId</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-first-child"><td>events.<strong>swimLane</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>experimentName</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>experimentId</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>variationId</strong></td><td>TBD</td><td>Optional</td></tr>
   </tbody>
 </table>
-<h5><a href="#e-commerce" id="e-commerce">E-Commerce</a></h5>
+<h5 id="e-commerce"><a href="#e-commerce" name="e-commerce">E-Commerce</a></h5>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td>events.<strong>orderId</strong></td><td>The id of the completed order</td><td>Optional</td></tr>
-    <tr><td>events.<strong>checkoutId</strong></td><td>The generated id of a submitted order</td><td>Optional</td></tr>
-    <tr><td>events.<strong>coupon</strong></td><td>Coupon/promo code applied</td><td>Optional</td></tr>
-    <tr><td>events.<strong>tax</strong></td><td>Total tax associated with the transaction</td><td>Optional</td></tr>
-    <tr><td>events.<strong>discount</strong></td><td>Total discount associated with the transaction</td><td>Optional</td></tr>
-    <tr><td>events.<strong>total</strong></td><td>Revenue with discounts and coupons added in</td><td>Optional</td></tr>
-    <tr><td>events.<strong>subtotal</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.<strong>valueAddedServicesTotal</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.<strong>currency</strong></td><td>Currency of the transaction</td><td>Optional</td></tr>
-    <tr><td>events.<strong>shipping</strong></td><td>Shipping cost associated with the transaction</td><td>Optional</td></tr>
-    <tr><td>events.<strong>shippingMethod</strong></td><td>The chosen shipping method</td><td>Optional</td></tr>
-    <tr><td>events.<strong>productId</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.<strong>brand</strong></td><td>Brand associated with the product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>category</strong></td><td>Product category</td><td>Optional</td></tr>
-    <tr><td>events.<strong>inventoryStatus</strong></td><td>Product inventory status, one of &quot;in stock&quot;,&quot;coming soon&quot;,&quot;preorder&quot;,&quot;out of stock&quot;,&quot;locked&quot;,&quot;unlocked:profile:in stock&quot;,&quot;nikeid&quot;,&quot;gift card&quot;,&quot;NONE&quot;,null</td><td>Optional</td></tr>
-    <tr><td>events.<strong>size</strong></td><td>Product size</td><td>Optional</td></tr>
-    <tr><td>events.<strong>pid</strong></td><td>Classic integer style product id</td><td>Optional</td></tr>
-    <tr><td>events.<strong>price</strong></td><td>Price of the product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>name</strong></td><td>Name of the product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>type</strong></td><td>Type of product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>quantity</strong></td><td>Quantity of product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>sku</strong></td><td>SKU of product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>style</strong></td><td>Style of product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>subtitle</strong></td><td>Subtitle of product</td><td>Optional</td></tr>
-    <tr><td>events.<strong>paymentMethod</strong></td><td>Payment method chosen</td><td>Optional</td></tr>
-    <tr><td>events.<strong>paymentStored</strong></td><td>Boolean where if true the payment method is stored</td><td>Optional</td></tr>
-    <tr><td>events.query.<strong>type</strong></td><td>The type of search used, e.g. &quot;userEntered&quot;, &quot;typeahead&quot;, &quot;visualSearch&quot;</td><td>Optional</td></tr>
-    <tr><td>events.query.<strong>text</strong></td><td>Text the user entered to generate a search</td><td>Optional</td></tr>
-    <tr><td>events.query.<strong>item</strong></td><td>Topic of the search, either the user-entered text or the type-ahead, auto-complete or visual-search item the user selected</td><td>Optional</td></tr>
-    <tr><td>events.<strong>variant</strong></td><td>Variant of the product</td><td>Optional</td></tr>
+    <tr class="tbody-first-child"><td>events.<strong>orderId</strong></td><td>The id of the completed order</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>checkoutId</strong></td><td>The generated id of a submitted order</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>coupon</strong></td><td>Coupon/promo code applied</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>tax</strong></td><td>Total tax associated with the transaction</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>discount</strong></td><td>Total discount associated with the transaction</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>total</strong></td><td>Revenue with discounts and coupons added in</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>subtotal</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>valueAddedServicesTotal</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>currency</strong></td><td>Currency of the transaction</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>shipping</strong></td><td>Shipping cost associated with the transaction</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>shippingMethod</strong></td><td>The chosen shipping method</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>productId</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>brand</strong></td><td>Brand associated with the product</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>category</strong></td><td>Product category</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>inventoryStatus</strong></td><td>Product inventory status, one of &quot;in stock&quot;,&quot;coming soon&quot;,&quot;preorder&quot;,&quot;out of stock&quot;,&quot;locked&quot;,&quot;unlocked:profile:in stock&quot;,&quot;nikeid&quot;,&quot;gift card&quot;,&quot;NONE&quot;,null</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>size</strong></td><td>Product size</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>pid</strong></td><td>Classic integer style product id</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>price</strong></td><td>Price of the product</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>name</strong></td><td>Name of the product</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>type</strong></td><td>Type of product</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>quantity</strong></td><td>Quantity of product</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>sku</strong></td><td>SKU of product</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>style</strong></td><td>Style of product</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>subtitle</strong></td><td>Subtitle of product</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>paymentMethod</strong></td><td>Payment method chosen</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>paymentStored</strong></td><td>Boolean where if true the payment method is stored</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.query.<strong>type</strong></td><td>The type of search used, e.g. &quot;userEntered&quot;, &quot;typeahead&quot;, &quot;visualSearch&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.query.<strong>text</strong></td><td>Text the user entered to generate a search</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.query.<strong>item</strong></td><td>Topic of the search, either the user-entered text or the type-ahead, auto-complete or visual-search item the user selected</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>variant</strong></td><td>Variant of the product</td><td>Optional</td></tr>
   </tbody>
 </table>
-<h5><a href="#nike" id="nike">Nike</a></h5>
+<h5 id="nike"><a href="#nike" name="nike">Nike</a></h5>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td>events.<strong>eventType</strong></td><td>The type of event, see <a href="#event-types">Event Types</a></td><td>Optional</td></tr>
-    <tr><td>events.<strong>eventTags</strong></td><td>Array of event tags, minimum of 1</td><td>Optional</td></tr>
-    <tr><td>events.<strong>eventId</strong></td><td>A UUID v4 for this event instance</td><td>Optional</td></tr>
-    <tr><td>events.<strong>platform</strong></td><td>Platform type, one of &quot;web&quot;, &quot;domain, or &quot;mobile&quot;</td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>environment</strong></td><td>App environment, one of &quot;development&quot;, &quot;test&quot;, or &quot;production&quot;</td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>domain</strong></td><td>Experience domain of app, see list <a href="https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences" target="_blank">here</a></td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>resource</strong></td><td>Name of API resource of the </td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>division</strong></td><td>Organization which the app domain falls under, e.g. &quot;commerce&quot;</td><td>Optional</td></tr>
-    <tr><td>events.context.app.<strong>platform</strong></td><td>Technology platform of the app, e.g. &quot;cloud&quot;, &quot;tesla&quot;</td><td>Optional</td></tr>
-    <tr><td>events.context.privacy.<strong>isMarketing</strong></td><td>Boolean specifying if event is categorized as marketing-related</td><td>Optional</td></tr>
-    <tr><td>events.context.privacy.<strong>isPerformance</strong></td><td>Boolean specifying if event is categorized as performance-related</td><td>Optional</td></tr>
-    <tr><td>events.context.consumer.<strong>adobeVisitorId</strong></td><td>Adobe identifier for Adobe Analytics (Omniture)</td><td>Optional</td></tr>
-    <tr><td>events.context.consumer.<strong>visitId</strong></td><td>Unite visit identifier</td><td>Optional</td></tr>
-    <tr><td>events.context.consumer.<strong>isSwoosh</strong></td><td>Boolean where if true the user is a Nike employee</td><td>Optional</td></tr>
-    <tr><td>events.context.consumer.<strong>allowsMarketing</strong></td><td>Boolean where if true the user has opted into marketing events being collected</td><td>Optional</td></tr>
-    <tr><td>events.context.consumer.<strong>allowsPerformance</strong></td><td>Boolean where if true the user has opted into performance events being collected</td><td>Optional</td></tr>
-    <tr><td>events.context.consumer.<strong>savedAddressCount</strong></td><td>Number of addresses the consumer has saved</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>selectionTarget</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>selectionValue</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>navigationStartInMs</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>responseEndInMs</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>domContentLoadedInMs</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>firstPaintInMs</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>interactionType</strong></td><td>Type of interaction (e.g. &quot;click&quot;, &quot;touch&quot;, &quot;drag&quot;, etc.)</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>mouseTarget</strong></td><td>Description of target of interaction, e.g. &quot;change billing country&quot;</td><td>Optional</td></tr>
-    <tr><td>events.properties.<strong>channel</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.previousView.<strong>name</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.previousView.<strong>channel</strong></td><td>TBD</td><td>Optional</td></tr>
-    <tr><td>events.properties.errors.<strong>code</strong></td><td>Error code, string</td><td>Optional</td></tr>
-    <tr><td>events.properties.errors.<strong>message</strong></td><td>Error message, string</td><td>Optional</td></tr>
-    <tr><td>events.properties.errors.<strong>field</strong></td><td>Error field, string</td><td>Optional</td></tr>
-    <tr><td>events.properties.metric.<strong>name</strong></td><td>Metric name, string</td><td>Optional</td></tr>
-    <tr><td>events.properties.metric.<strong>type</strong></td><td>Metric type, one of &quot;gauge&quot;, &quot;counter&quot;, &quot;cumulative_counter&quot;</td><td>Optional</td></tr>
-    <tr><td>events.properties.metric.<strong>dimensions</strong></td><td>Object</td><td>Optional</td></tr>
-    <tr><td>events.properties.metric.<strong>value</strong></td><td>Metric value, number</td><td>Optional</td></tr>
+    <tr class="tbody-first-child"><td>events.<strong>eventType</strong></td><td>The type of event, see <a href="#event-types">Event Types</a></td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>eventTags</strong></td><td>Array of event tags, minimum of 1</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.<strong>eventId</strong></td><td>A UUID v4 for this event instance</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.<strong>platform</strong></td><td>Platform type, one of &quot;web&quot;, &quot;domain, or &quot;mobile&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.app.<strong>environment</strong></td><td>App environment, one of &quot;development&quot;, &quot;test&quot;, or &quot;production&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.app.<strong>domain</strong></td><td>Experience domain of app, see list <a href="https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences" target="_blank">here</a></td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.app.<strong>resource</strong></td><td>Name of API resource of the </td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.app.<strong>division</strong></td><td>Organization which the app domain falls under, e.g. &quot;commerce&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.app.<strong>platform</strong></td><td>Technology platform of the app, e.g. &quot;cloud&quot;, &quot;tesla&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.privacy.<strong>isMarketing</strong></td><td>Boolean specifying if event is categorized as marketing-related</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.privacy.<strong>isPerformance</strong></td><td>Boolean specifying if event is categorized as performance-related</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.consumer.<strong>adobeVisitorId</strong></td><td>Adobe identifier for Adobe Analytics (Omniture)</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.consumer.<strong>visitId</strong></td><td>Unite visit identifier</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.consumer.<strong>isSwoosh</strong></td><td>Boolean where if true the user is a Nike employee</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.consumer.<strong>allowsMarketing</strong></td><td>Boolean where if true the user has opted into marketing events being collected</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.context.consumer.<strong>allowsPerformance</strong></td><td>Boolean where if true the user has opted into performance events being collected</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.context.consumer.<strong>savedAddressCount</strong></td><td>Number of addresses the consumer has saved</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>selectionTarget</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>selectionValue</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>navigationStartInMs</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>responseEndInMs</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>domContentLoadedInMs</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>firstPaintInMs</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>interactionType</strong></td><td>Type of interaction (e.g. &quot;click&quot;, &quot;touch&quot;, &quot;drag&quot;, etc.)</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.<strong>mouseTarget</strong></td><td>Description of target of interaction, e.g. &quot;change billing country&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.<strong>channel</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.previousView.<strong>name</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.previousView.<strong>channel</strong></td><td>TBD</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.errors.<strong>code</strong></td><td>Error code, string</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.errors.<strong>message</strong></td><td>Error message, string</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.errors.<strong>field</strong></td><td>Error field, string</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.metric.<strong>name</strong></td><td>Metric name, string</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.metric.<strong>type</strong></td><td>Metric type, one of &quot;gauge&quot;, &quot;counter&quot;, &quot;cumulative_counter&quot;</td><td>Optional</td></tr>
+    <tr class="tbody-even-child"><td>events.properties.metric.<strong>dimensions</strong></td><td>Object</td><td>Optional</td></tr>
+    <tr class="tbody-odd-child"><td>events.properties.metric.<strong>value</strong></td><td>Metric value, number</td><td>Optional</td></tr>
   </tbody>
 </table>
-<h4><a href="#event-types" id="event-types">Event Types</a></h4>
+<h4 id="event-types"><a href="#event-types" name="event-types">Event Types</a></h4>
 <p>The following table lists all of the possible values that should be sent in the <strong>eventType</strong> field, along with the context in which they should be used (Note: no changes from v1):</p>
 <table>
   <thead>
-    <tr><th>Event Type</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Event Type</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>action</strong></td><td>A generic event for sending data otherwise not specified in another event type</td></tr>
-    <tr><td><strong>appLaunch</strong></td><td>An event to track the launching of an application on a mobile device</td></tr>
-    <tr><td><strong>changeView</strong></td><td>An event representing the user viewing a part of an application. It could represent a page, screen, or section</td></tr>
-    <tr><td><strong>checkoutConfirmation</strong></td><td>A checkout confirmation event from the buy domain</td></tr>
-    <tr><td><strong>error</strong></td><td>A collection of errors generated by the client or a service</td></tr>
-    <tr><td><strong>loginComplete</strong></td><td>An event for tracking a completed login</td></tr>
-    <tr><td><strong>metric</strong></td><td>An event for tracking metric data. It closely follows the Artemis/SignalFx schema</td></tr>
-    <tr><td><strong>mouse</strong></td><td>A mouse or touch event</td></tr>
-    <tr><td><strong>pageLoad</strong></td><td>Performance timings for browser page loads</td></tr>
-    <tr><td><strong>registrationComplete</strong></td><td>An event for tracking a completed registration</td></tr>
-    <tr><td><strong>search</strong></td><td>Event representing a user submitting a search</td></tr>
-    <tr><td><strong>selection</strong></td><td>Event tracking when the user makes a selection. e.g. select box, radio group or checkbox</td></tr>
-    <tr><td><strong>textInput</strong></td><td>Event representing a user entering text in an application. This should be dispatched on blur to avoid too many events</td></tr>
+    <tr class="tbody-first-child"><td><strong>action</strong></td><td>A generic event for sending data otherwise not specified in another event type</td></tr>
+    <tr class="tbody-even-child"><td><strong>appLaunch</strong></td><td>An event to track the launching of an application on a mobile device</td></tr>
+    <tr class="tbody-odd-child"><td><strong>changeView</strong></td><td>An event representing the user viewing a part of an application. It could represent a page, screen, or section</td></tr>
+    <tr class="tbody-even-child"><td><strong>checkoutConfirmation</strong></td><td>A checkout confirmation event from the buy domain</td></tr>
+    <tr class="tbody-odd-child"><td><strong>error</strong></td><td>A collection of errors generated by the client or a service</td></tr>
+    <tr class="tbody-even-child"><td><strong>loginComplete</strong></td><td>An event for tracking a completed login</td></tr>
+    <tr class="tbody-odd-child"><td><strong>metric</strong></td><td>An event for tracking metric data. It closely follows the Artemis/SignalFx schema</td></tr>
+    <tr class="tbody-even-child"><td><strong>mouse</strong></td><td>A mouse or touch event</td></tr>
+    <tr class="tbody-odd-child"><td><strong>pageLoad</strong></td><td>Performance timings for browser page loads</td></tr>
+    <tr class="tbody-even-child"><td><strong>registrationComplete</strong></td><td>An event for tracking a completed registration</td></tr>
+    <tr class="tbody-odd-child"><td><strong>search</strong></td><td>Event representing a user submitting a search</td></tr>
+    <tr class="tbody-even-child"><td><strong>selection</strong></td><td>Event tracking when the user makes a selection. e.g. select box, radio group or checkbox</td></tr>
+    <tr class="tbody-odd-child"><td><strong>textInput</strong></td><td>Event representing a user entering text in an application. This should be dispatched on blur to avoid too many events</td></tr>
   </tbody>
 </table>
-<h4><a href="#sample-requests-by-event-type" id="sample-requests-by-event-type">Sample Requests by Event Type</a></h4>
-<h5><a href="#action" id="action">Action</a></h5>
+<h4 id="sample-requests-by-event-type"><a href="#sample-requests-by-event-type" name="sample-requests-by-event-type">Sample Requests by Event Type</a></h4>
+<h5 id="action"><a href="#action" name="action">Action</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -595,9 +600,9 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#app-launch" id="app-launch">App Launch</a></h5>
+<h5 id="app-launch"><a href="#app-launch" name="app-launch">App Launch</a></h5>
 <p>N/A</p>
-<h5><a href="#change-view" id="change-view">Change View</a></h5>
+<h5 id="change-view"><a href="#change-view" name="change-view">Change View</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -667,7 +672,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#checkout-confirmation" id="checkout-confirmation">Checkout Confirmation</a></h5>
+<h5 id="checkout-confirmation"><a href="#checkout-confirmation" name="checkout-confirmation">Checkout Confirmation</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -732,7 +737,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#error" id="error">Error</a></h5>
+<h5 id="error"><a href="#error" name="error">Error</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -799,9 +804,9 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 }
 
 </code></pre>
-<h5><a href="#login-complete" id="login-complete">Login Complete</a></h5>
+<h5 id="login-complete"><a href="#login-complete" name="login-complete">Login Complete</a></h5>
 <p>N/A</p>
-<h5><a href="#metric" id="metric">Metric</a></h5>
+<h5 id="metric"><a href="#metric" name="metric">Metric</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -871,7 +876,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#mouse" id="mouse">Mouse</a></h5>
+<h5 id="mouse"><a href="#mouse" name="mouse">Mouse</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -939,7 +944,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#page-load" id="page-load">Page Load</a></h5>
+<h5 id="page-load"><a href="#page-load" name="page-load">Page Load</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1009,9 +1014,9 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#registration-complete" id="registration-complete">Registration Complete</a></h5>
+<h5 id="registration-complete"><a href="#registration-complete" name="registration-complete">Registration Complete</a></h5>
 <p>N/A</p>
-<h5><a href="#search" id="search">Search</a></h5>
+<h5 id="search"><a href="#search" name="search">Search</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1082,7 +1087,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#selection" id="selection">Selection</a></h5>
+<h5 id="selection"><a href="#selection" name="selection">Selection</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1150,7 +1155,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h5><a href="#text-input" id="text-input">Text Input</a></h5>
+<h5 id="text-input"><a href="#text-input" name="text-input">Text Input</a></h5>
 <pre><code>{
   &quot;actorId&quot;: &quot;7894225087415055350568&quot;,
   &quot;resourceType&quot;: &quot;dotcom/event_batch&quot;,
@@ -1216,13 +1221,13 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
   ]
 }
 </code></pre>
-<h3><a href="#response-body" id="response-body"><a name="response-body"></a>Response Body</a></h3>
+<h3 id="response-body"><a href="#response-body" name="response-body"><a name="response-body"></a>Response Body</a></h3>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th><th>Required?</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>message</strong></td><td>Response message</td><td>Required</td></tr>
+    <tr class="tbody-first-child"><td><strong>message</strong></td><td>Response message</td><td>Required</td></tr>
   </tbody>
 </table>
 <p>Sample HTTP 200 success response:</p>
@@ -1278,37 +1283,38 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 }
 </code></pre>
 <!-- <a href="http://nikeweb-test.private.static.s3-website-us-east-1.amazonaws.com/fat/event-validator-ui/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-<hr />
-<h2><a href="#upgrading-to-the-latest-version" id="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</a></h2>
+<div class="hr"null>&nbsp;</div>
+<h2 id="upgrading-to-the-latest-version"><a href="#upgrading-to-the-latest-version" name="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</a></h2>
 <p>If you are currently using version 1 of this API and need information for upgrading, see the <a href="/doc/commerce/events/api_events.html" class="absent">Analytics Pipeline v1 Developer's Guide</a>.</p>
-<h2><a href="#troubleshooting" id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
+<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
 <p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
-<h3><a href="#use-troubleshooting-tools" id="use-troubleshooting-tools">Use Troubleshooting Tools</a></h3>
+<h3 id="use-troubleshooting-tools"><a href="#use-troubleshooting-tools" name="use-troubleshooting-tools">Use Troubleshooting Tools</a></h3>
 <ol>
-  <li>
-    <p>Check for validation errors logged in Splunk <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda" target="_blank">here</a></p>
+  <li class="p">
+    <p class="p">Check for validation errors logged in Splunk <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda" target="_blank">here</a></p>
   </li>
-  <li>
-    <p>Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.</p>
+  <li class="p">
+    <p class="p">Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.</p>
   </li>
 </ol>
-<h2><a href="#glossary" id="glossary"><a name="glossary"></a>Glossary</a></h2>
+<h2 id="glossary"><a href="#glossary" name="glossary"><a name="glossary"></a>Glossary</a></h2>
 <p>See the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a></p>
-<h2><a href="#release-notes" id="release-notes"><a name="release-notes"/>Release Notes</a></h2>
+<h2 id="release-notes"><a href="#release-notes" name="release-notes"><a name="release-notes"/>Release Notes</a></h2>
 <p>There are no release notes at this time.</p>
-<h2><a href="#document-change-log" id="document-change-log"><a name="document-change-log"/>Document Change Log</a></h2>
+<h2 id="document-change-log"><a href="#document-change-log" name="document-change-log"><a name="document-change-log"/>Document Change Log</a></h2>
 <table>
   <thead>
-    <tr><th>Summary </th><th>Date </th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Summary </th><th>Date </th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>Initial draft</td><td>02/14/2018</td><td>Initial Draft</td></tr>
-    <tr><td>Updated external links</td><td>04/03/2018</td><td>Updated external links to open in new browser window</td></tr>
+    <tr class="tbody-first-child"><td>Initial draft</td><td>02/14/2018</td><td>Initial Draft</td></tr>
+    <tr class="tbody-even-child"><td>Updated external links</td><td>04/03/2018</td><td>Updated external links to open in new browser window</td></tr>
   </tbody>
 </table>
-<h2><a href="#related-links" id="related-links"><a name="related-links"></a>Related Links</a></h2>
+<h2 id="related-links"><a href="#related-links" name="related-links"><a name="related-links"></a>Related Links</a></h2>
 <p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
 <p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>
 <p><a href="/doc/portal/biz-guides.html" class="absent">Business Guides</a></p>
 <p><a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a></p>
-
+</body>
+</html>

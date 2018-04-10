@@ -1,15 +1,20 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
 <link rel="stylesheet" href="/css/style.css"/>
 <script src="/js/nde.js" type="text/javascript"></script>
-<h1><a href="#using-nde-apis--draft" id="using-nde-apis--draft">USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)</a></h1>
-<h5><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
-<hr />
+<h1 id="using-nde-apis--draft"><a href="#using-nde-apis--draft" name="using-nde-apis--draft">USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)</a></h1>
+<h5 id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
+<div class="hr"null>&nbsp;</div>
 <p>This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the per-API or per-domain <a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a>.</p>
 <blockquote>
   <p>TIP: Also check out the <a href="https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics" target="_blank">API Basics</a> course offered by NDe Architecture team.</p>
 </blockquote>
-<h2><a href="#in-this-guide" id="in-this-guide"><strong>In This Guide:</strong></a></h2>
+<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide"><strong>In This Guide:</strong></a></h2>
 <p><a href="#industry-standards">Industry Standards</a></p>
 <p><span class="toc-pad"><a href="#rest-architecture">REST Architecture</a></p>
 <p><span class="toc-pad"><a href="#json-formatted-http-requests-and-responses">JSON-formatted HTTP Requests and Responses</a></p>
@@ -61,9 +66,9 @@
 <p><span class="toc-pad"><a href="#inspect-browser-activity-in-a-live-experience">Inspect Browser Activity in a Live Experience</a></p>
 <p><a href="#glossary">Glossary</a></p>
 <p><a href="#related-links">Related Links</a></p>
-<h2><a href="#industry-standards" id="industry-standards"><a name="industry-standards"></a>Industry Standards</a></h2>
+<h2 id="industry-standards"><a href="#industry-standards" name="industry-standards"><a name="industry-standards"></a>Industry Standards</a></h2>
 <p>Learn how NDe APIs were designed with industry standards in mind.</p>
-<h3><a href="#rest-architecture" id="rest-architecture"><a name="rest-architecture"></a>REST Architecture</a></h3>
+<h3 id="rest-architecture"><a href="#rest-architecture" name="rest-architecture"><a name="rest-architecture"></a>REST Architecture</a></h3>
 <p>NDe uses the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (<strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses.</p>
 <p>REST is thoroughly explained on the web already (e.g. <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">here<a/>), but here are a few reasons why we use it:</p>
 <p><strong>Stateless for Improved Performance</strong></p>
@@ -71,7 +76,7 @@
 <p>Why is this desirable? Being stateless allows an API to be scaled across multiple servers and therefore serve millions of concurrent users. It also allows for easy caching, which can improve performance.</p>
 <p><strong>Easy Adoption = Wide Adoption</strong></p>
 <p>REST is widely used in the industry because the syntax and protocols used (HTTP, JSON, the URI addressing protocol) are how you already use the web. <strong>This means less work for you to to get your app up and running</strong>.</p>
-<h3><a href="#json-formatted-http-requests-and-responses" id="json-formatted-http-requests-and-responses"><a name="json-formatted-http-requests-and-responses"></a>JSON-formatted HTTP Requests and Responses</a></h3>
+<h3 id="json-formatted-http-requests-and-responses"><a href="#json-formatted-http-requests-and-responses" name="json-formatted-http-requests-and-responses"><a name="json-formatted-http-requests-and-responses"></a>JSON-formatted HTTP Requests and Responses</a></h3>
 <p>The standard format for exchanging data with NDe APIs is <a href="http://www.json.org/" target="_blank">JSON</a> (<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation).</p>
 <p>As such, all HTTP request and response payloads must be in JSON format.</p>
 <p><a href="https://en.wikipedia.org/wiki/JSON" target="_blank">Wikipedia</a> summarizes the benefits well: &quot;JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data.&quot;</p>
@@ -112,7 +117,7 @@
      ]
 }
 </code></pre>
-<h3><a href="#json-schema-helps-define-api-contracts" id="json-schema-helps-define-api-contracts"><a name="json-schema-helps-define-api-contracts"></a>JSON Schema Helps Define API Contracts</a></h3>
+<h3 id="json-schema-helps-define-api-contracts"><a href="#json-schema-helps-define-api-contracts" name="json-schema-helps-define-api-contracts"><a name="json-schema-helps-define-api-contracts"></a>JSON Schema Helps Define API Contracts</a></h3>
 <p>The structures of the request and response bodies for NDe APIs are defined in each contract (API.md file) using <a href="http://json-schema.org/" target="_blank">JSON Schema</a>.</p>
 <p>Per <a href="https://en.wikipedia.org/wiki/JSON" target="_blank">Wikipedia</a>: &quot;JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified.&quot;</p>
 <p>Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract.</p>
@@ -456,129 +461,129 @@
        &quot;additionalProperties&quot;: true
 }
 </code></pre>
-<h3><a href="#idempotence-guarantee" id="idempotence-guarantee"><a name="idempotence-guarantee"></a>Idempotence Guarantee</a></h3>
+<h3 id="idempotence-guarantee"><a href="#idempotence-guarantee" name="idempotence-guarantee"><a name="idempotence-guarantee"></a>Idempotence Guarantee</a></h3>
 <p>In complex distributed systems, guaranteeing that an API request will be received only once by an application can be very difficult to achieve and validate when that application is hosted across geographic regions.</p>
 <p>Our idempotence guarantee states that <strong>subsequent duplicate requests to mutate the data will not change the state of the system</strong>.</p>
 <p>This can simplify the design when creating an eventually-consistent system, particularly when defining recovery scenarios that may need to replay API requests.</p>
-<h3><a href="#security-and-privacy" id="security-and-privacy"><a name="security-and-privacy"></a>Security and Privacy</a></h3>
+<h3 id="security-and-privacy"><a href="#security-and-privacy" name="security-and-privacy"><a name="security-and-privacy"></a>Security and Privacy</a></h3>
 <p>The security and privacy of your consumer's data is our #1 concern. Whether in-flight or at rest, your consumer's personally-identifiable information are protected according to the latest standards.</p>
-<h2><a href="#well-defined-well-documented" id="well-defined-well-documented"><a name="well-defined-well-documented"></a>Well-Defined, Well-Documented</a></h2>
+<h2 id="well-defined-well-documented"><a href="#well-defined-well-documented" name="well-defined-well-documented"><a name="well-defined-well-documented"></a>Well-Defined, Well-Documented</a></h2>
 <p>In addition to the guides on the Developer Portal, all NDe APIs have the following documents available at the root directory of the Bitbucket repository:</p>
 <ul>
-  <li>
-    <p>Well-defined contract (API.md file) for each major version in <a href="https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md" target="_blank">API Blueprint</a> format</p>
+  <li class="p">
+    <p class="p">Well-defined contract (API.md file) for each major version in <a href="https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md" target="_blank">API Blueprint</a> format</p>
   </li>
-  <li>
-    <p>Request and response definitions in JSON Schema format within each API.md</p>
+  <li class="p">
+    <p class="p">Request and response definitions in JSON Schema format within each API.md</p>
   </li>
-  <li>
-    <p>SLA.json file for response times</p>
+  <li class="p">
+    <p class="p">SLA.json file for response times</p>
   </li>
-  <li>
-    <p>Consistency guarantee for mutating services, e.g. ACID or Eventual (within API.md file)</p>
+  <li class="p">
+    <p class="p">Consistency guarantee for mutating services, e.g. ACID or Eventual (within API.md file)</p>
   </li>
-  <li>
-    <p>A README.md file including:</p>
+  <li class="p">
+    <p class="p">A README.md file including:</p>
     <ul>
-      <li>
-        <p>High-level explanation of the purpose of the API</p>
+      <li class="p">
+        <p class="p">High-level explanation of the purpose of the API</p>
       </li>
-      <li>
-        <p>Email address for support, maintenance, and feature requests</p>
+      <li class="p">
+        <p class="p">Email address for support, maintenance, and feature requests</p>
       </li>
-      <li>
-        <p>Current version of the API (major.minor)</p>
+      <li class="p">
+        <p class="p">Current version of the API (major.minor)</p>
       </li>
-      <li>
-        <p>Change log with changes between minor versions</p>
+      <li class="p">
+        <p class="p">Change log with changes between minor versions</p>
       </li>
-      <li>
-        <p>Authentication and caching information for each endpoint</p>
+      <li class="p">
+        <p class="p">Authentication and caching information for each endpoint</p>
       </li>
-      <li>
-        <p>Description and example for each available ‘filter’ and query parameter</p>
+      <li class="p">
+        <p class="p">Description and example for each available ‘filter’ and query parameter</p>
       </li>
     </ul>
   </li>
-  <li>
-    <p>A CHANGES.md file listing the change history</p>
+  <li class="p">
+    <p class="p">A CHANGES.md file listing the change history</p>
   </li>
 </ul>
-<h2><a href="#prerequisites" id="prerequisites"><a name="prerequisites"></a>Prerequisites</a></h2>
+<h2 id="prerequisites"><a href="#prerequisites" name="prerequisites"><a name="prerequisites"></a>Prerequisites</a></h2>
 <p>Find out what you need in order to start using NDe APIs.</p>
-<h3><a href="#registration" id="registration"><a name="registration"></a>Registration</a></h3>
+<h3 id="registration"><a href="#registration" name="registration"><a name="registration"></a>Registration</a></h3>
 <p>The NDe API registration process helps identify the software (including software version and who maintains it) that is calling an API.</p>
 <p>This is useful for understanding the impact of changes to, or deprecation and removal of an API.</p>
 <p>As of the time of this document, only an optional registration process exists, which is described below.</p>
-<h4><a href="#caller-identification-process-optional" id="caller-identification-process-optional">Caller Identification Process (Optional)</a></h4>
-<h5><a href="#caveats" id="caveats">Caveats</a></h5>
+<h4 id="caller-identification-process-optional"><a href="#caller-identification-process-optional" name="caller-identification-process-optional">Caller Identification Process (Optional)</a></h4>
+<h5 id="caveats"><a href="#caveats" name="caveats">Caveats</a></h5>
 <p>For this process to work between your app and a particular NDe API, make sure that the answer is yes to all of the following questions:</p>
 <ol>
-  <li>
-    <p>Will you always call the API through api.nike.com?</p>
+  <li class="p">
+    <p class="p">Will you always call the API through api.nike.com?</p>
   </li>
-  <li>
-    <p>Will you want your app to be identified to the API with a unique caller ID that might be visible on the public internet?</p>
+  <li class="p">
+    <p class="p">Will you want your app to be identified to the API with a unique caller ID that might be visible on the public internet?</p>
   </li>
-  <li>
-    <p>Since the caller ID might be visible to third-parties, will you allow your caller ID to be used by a different caller?</p>
+  <li class="p">
+    <p class="p">Since the caller ID might be visible to third-parties, will you allow your caller ID to be used by a different caller?</p>
   </li>
 </ol>
-<h5><a href="#how-does-it-work" id="how-does-it-work">How does it work?</a></h5>
+<h5 id="how-does-it-work"><a href="#how-does-it-work" name="how-does-it-work">How does it work?</a></h5>
 <ol>
-  <li>
-    <p>Register a caller ID with the Product Owner of the API, with the format of <code>&lt;domain name&gt;:&lt;appid&gt;:&lt;majorVersionNumber&gt;.&lt;minorVersionNumber&gt;</code></p>
+  <li class="p">
+    <p class="p">Register a caller ID with the Product Owner of the API, with the format of <code>&lt;domain name&gt;:&lt;appid&gt;:&lt;majorVersionNumber&gt;.&lt;minorVersionNumber&gt;</code></p>
   </li>
-  <li>
-    <p>In requests to that API, send your caller ID in request header <strong>nike-api-caller-id</strong></p>
+  <li class="p">
+    <p class="p">In requests to that API, send your caller ID in request header <strong>nike-api-caller-id</strong></p>
   </li>
 </ol>
 <p>Example caller ID: <code>com.nike:brand.ios.ntc:2.1</code></p>
-<h3><a href="#authorization" id="authorization"><a name="authorization"></a>Authorization</a></h3>
+<h3 id="authorization"><a href="#authorization" name="authorization"><a name="authorization"></a>Authorization</a></h3>
 <p>Many endpoints require that the customer has logged into their Nike account. This requires that your app prove that it is authorized to perform the requested operation on behalf of the customer by sending certain headers.</p>
 <p>Depending on how you are calling the endpoint, the authorization-related headers you need to send will vary as follows:</p>
 <p><strong>Calls to the Nike API gateway (api.nike.com)</strong>:</p>
 <p>Send the access token in the Authorization request header that you obtained from Nike Unite/Identity, prefixed by <code>Bearer</code> (note the single space after Bearer). Do not send the <strong>upmid</strong> header.</p>
 <table>
   <thead>
-    <tr><th>Required headers for calls to api.nike.com</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Required headers for calls to api.nike.com</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>Authorization</strong></td><td>Access token</td></tr>
+    <tr class="tbody-first-child"><td><strong>Authorization</strong></td><td>Access token</td></tr>
   </tbody>
 </table>
 <p><strong>Calls direct to endpoints</strong>:</p>
 <p>Send the <strong>upmid</strong> header, and for those endpoints that require it, the <strong>appid</strong> header as well. Do not send the <strong>Authorization</strong> header.</p>
 <table>
   <thead>
-    <tr><th>Required headers for direct calls</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Required headers for direct calls</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>upmid</strong></td><td>Nike user profile identifier</td></tr>
-    <tr><td><strong>appid</strong></td><td>Application identifier</td></tr>
+    <tr class="tbody-first-child"><td><strong>upmid</strong></td><td>Nike user profile identifier</td></tr>
+    <tr class="tbody-even-child"><td><strong>appid</strong></td><td>Application identifier</td></tr>
   </tbody>
 </table>
 <blockquote>
   <p>TIP: To learn how to obtain an access token see the <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md" target="_blank">Generating an Access Token</a> guide.</p>
 </blockquote>
-<h3><a href="#jwt-json-web-token" id="jwt-json-web-token"><a name="jwt-json-web-token"></a>JWT (JSON Web Token)</a></h3>
+<h3 id="jwt-json-web-token"><a href="#jwt-json-web-token" name="jwt-json-web-token"><a name="jwt-json-web-token"></a>JWT (JSON Web Token)</a></h3>
 <p>Some endpoints such as <a href="/doc/commerce/payment/api_payment.html#submit-payments-for-approval" class="absent"><em>Submit Order Payments for Approval</em></a> require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="_blank">JWT</a> that is signed for a service authorized to call the endpoint.</p>
 <p>In this case, pass the JWT in the <strong>X-Nike-Authorization</strong> request header. Also, send the name of the application (e.g. &quot;checkouts&quot;) that is authorized to call this endpoint in the <strong>X-Nike-AppId</strong> request header. This is the service name used to sign the JWT.</p>
 <p>The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.</p>
 <p>See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Reference+Guide" target="_blank">Nike JWT Reference Guide</a> for more information.</p>
 <table>
   <thead>
-    <tr><th>Required headers for JWT</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Required headers for JWT</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>X-Nike-Authorization</strong></td><td>JWT token</td></tr>
-    <tr><td><strong>X-Nike-AppId</strong></td><td>Application identifier</td></tr>
+    <tr class="tbody-first-child"><td><strong>X-Nike-Authorization</strong></td><td>JWT token</td></tr>
+    <tr class="tbody-even-child"><td><strong>X-Nike-AppId</strong></td><td>Application identifier</td></tr>
   </tbody>
 </table>
 <blockquote>
   <p>TIP: You will need both a Production and Test JWT when calling JWT-required endpoints in those respective environments.</p>
 </blockquote>
-<h2><a href="#url-patterns" id="url-patterns"><a name="url-patterns"></a>URL Patterns</a></h2>
+<h2 id="url-patterns"><a href="#url-patterns" name="url-patterns"><a name="url-patterns"></a>URL Patterns</a></h2>
 <p>The standard URL pattern used for NDe APIs (v2 or later) is as follows:</p>
 <p><img src="/images/getting_started/url_format.png" alt="" class="absent" /></p>
 <br>
@@ -587,23 +592,23 @@
 <blockquote>
   <p>TIP: Always check the API Developer Guide to confirm the correct URL format for a particular API.</p>
 </blockquote>
-<h3><a href="#path-parameters" id="path-parameters"><a name="path-parameters"></a>Path Parameters</a></h3>
+<h3 id="path-parameters"><a href="#path-parameters" name="path-parameters"><a name="path-parameters"></a>Path Parameters</a></h3>
 <p>Path parameters are variable parts of a URL path. A URL can have one or more path parameters, each denoted with curly braces <code>{ }</code>.</p>
 <p>For example, in the path /buy/carts/v1/<font color="red">{id}</font> the id is the path parameter used to create or access a shopping cart resource.</p>
 <p>NDe API path parameters are always required.</p>
-<h3><a href="#query-parameters" id="query-parameters"><a name="query-parameters"></a>Query Parameters</a></h3>
+<h3 id="query-parameters"><a href="#query-parameters" name="query-parameters"><a name="query-parameters"></a>Query Parameters</a></h3>
 <p>Query parameters can be added to the end of the URL and they allow you to be more specific about what you are requesting.</p>
 <p>Query parameters in NDe APIs, with one exception (see Filter below), are in the format of <code>?&lt;name&gt;=&lt;value&gt;</code>. Multiple query parameters can be chained together with ampersands like <code>?&lt;name&gt;=&lt;value&gt;&amp;&lt;name&gt;=&lt;value&gt;&amp;&lt;name&gt;=&lt;value&gt;</code>.</p>
 <p>For example, the query parameter named <strong>marketplace</strong> can be added to this Product Feeds request with the value 'US' as follows:</p>
 <p><a href="https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860">https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860</a><font color="green">?marketplace=US</font>.</p>
 <p>The available query parameters vary per NDe API. They are sometimes optional, sometimes required, depending on the API. Check the Developer Guide for the API in question to confirm the query parameter requirements.</p>
-<h4><a href="#common-query-parameters" id="common-query-parameters">Common Query Parameters</a></h4>
+<h4 id="common-query-parameters"><a href="#common-query-parameters" name="common-query-parameters">Common Query Parameters</a></h4>
 <p>There are few query parameters that are intended to be common across multiple NDe APIs.</p>
 <p>The first parameter, Fields, can be applied to any NDe API which returns a response body. The remaining parameters, Anchor, Count, Filter, and Sort, only apply to APIs which return a collection (i.e. a set of multiple results, not a single result).</p>
 <blockquote>
   <p>TIP: Not all NDe APIs support all the common query parameters. Check the Developer Guide for the API in question to confirm the query parameters supported.</p>
 </blockquote>
-<h5><a href="#fields" id="fields">Fields</a></h5>
+<h5 id="fields"><a href="#fields" name="fields">Fields</a></h5>
 <p>Use the fields query parameter to select which fields will be included in the response.</p>
 <p><em>Required format: <code>?fields=field1,field2,field3</code></em></p>
 <p>Nested fields are specified by parenthesis like <code>?fields=field1(field2)</code> or with dot notation like <code>?fields=field1.field2</code>, depending on the API.</p>
@@ -612,20 +617,20 @@
 <blockquote>
   <p>TIP: See the <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+Standards#APIStandards-Formatforfilters" target="_blank">API Standards Confluence Page</a> for more info on using query parameters with NDe APIs.</p>
 </blockquote>
-<h5><a href="#anchor" id="anchor">Anchor</a></h5>
+<h5 id="anchor"><a href="#anchor" name="anchor">Anchor</a></h5>
 <p>Use the anchor query parameter to request the previous or next page of a paginated collection. The anchor is provided to the client in a prior API call, to be used as a query parameter in a later call if desired.</p>
 <p><em>Required format: <code>?anchor=&lt;number&gt;</code></em></p>
-<h5><a href="#count" id="count">Count</a></h5>
+<h5 id="count"><a href="#count" name="count">Count</a></h5>
 <p>Use the count query parameter to set the maximum number of elements to return in the response.</p>
 <p><em>Required format: <code>?count=&lt;number&gt;</code></em></p>
-<h5><a href="#filter" id="filter">Filter</a></h5>
+<h5 id="filter"><a href="#filter" name="filter">Filter</a></h5>
 <p>Use the filter query parameter to restrict the API response based on one or more criteria. The API.md specifies which filter values (if any) are supported.</p>
 <p><em>Required format: <code>?filter=filterName(filterValue)</code></em></p>
 <p>An example from the <em>Retrieve User Carts by Filter</em> endpoint of the Carts API:</p>
 <p><a href="https://api.nike.com/buy/carts/v1/">https://api.nike.com/buy/carts/v1/</a><font color="blue">?filter=country(US)</font> would return only the carts created for a particular user with a country code of 'US'.</p>
 <p>Chain more than one filter query parameter together using <code>&amp;</code> in between each one, for example:</p>
 <p><a href="https://api.nike.com/buy/carts/v1/">https://api.nike.com/buy/carts/v1/</a><font color="blue">?filter=country(US)&amp;filter=brand(NIKE)&amp;filter=channel(NIKECOM)</font> would return only the carts created for a particular user with a country code of 'US', a brand name of 'NIKE', and a channel name of 'NIKECOM'.</p>
-<h5><a href="#sort" id="sort">Sort</a></h5>
+<h5 id="sort"><a href="#sort" name="sort">Sort</a></h5>
 <p>Use the sort query parameter to determine the ordering of the results in the response based on one or more criteria.</p>
 <p><em>Required format: <code>?sort=fieldNameAsc</code> (for Ascending order) OR <code>?sort=fieldNameDesc</code> (for Descending order)</em></p>
 <p>For sorts of nested fields use dot notation like <code>?sort=fieldName.nestedFieldAsc</code>.</p>
@@ -637,23 +642,23 @@
 <blockquote>
   <p>TIP: Always check the Developer API Guide for the specific implementation of path and query parameters for a particular API.</p>
 </blockquote>
-<h2><a href="#request-components" id="request-components"><a name="request-components"></a>Request Components</a></h2>
+<h2 id="request-components"><a href="#request-components" name="request-components"><a name="request-components"></a>Request Components</a></h2>
 <p>Read about the common components of HTTP requests sent to NDe APIs. Also see the related <a href="#response-components">Response Components</a> section.</p>
-<h3><a href="#uri-universal-resource-identifier" id="uri-universal-resource-identifier"><a name="uri-universal-resource-identifier"></a>URI (Universal Resource Identifier)</a></h3>
+<h3 id="uri-universal-resource-identifier"><a href="#uri-universal-resource-identifier" name="uri-universal-resource-identifier"><a name="uri-universal-resource-identifier"></a>URI (Universal Resource Identifier)</a></h3>
 <p>By sending a request to a NDe API, you access a resource using a particular URI (<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">Universal Resource Identifier</a>) comprised of a string of characters.</p>
 <p>For more info, see the <a href="#url-patterns">URL Patterns</a> section.</p>
-<h3><a href="#http-methods" id="http-methods"><a name="http-methods"></a>HTTP Methods</a></h3>
+<h3 id="http-methods"><a href="#http-methods" name="http-methods"><a name="http-methods"></a>HTTP Methods</a></h3>
 <p>Access API resources via standard HTTP methods, noting that not all APIs support all methods.</p>
 <table>
   <thead>
-    <tr><th>Method</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Method</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>GET</td><td>Access an existing single resource or collection of resources (Idempotent)</td></tr>
-    <tr><td>POST</td><td>Create a new resource</td></tr>
-    <tr><td>PUT</td><td>Update an existing resource by passing entire resource in payload (Idempotent)</td></tr>
-    <tr><td>DELETE</td><td>Delete an existing resource (Idempotent)</td></tr>
-    <tr><td>PATCH</td><td>Update an existing resource by passing partial updates by passing only affected fields are passed in the payload</td></tr>
+    <tr class="tbody-first-child"><td>GET</td><td>Access an existing single resource or collection of resources (Idempotent)</td></tr>
+    <tr class="tbody-even-child"><td>POST</td><td>Create a new resource</td></tr>
+    <tr class="tbody-odd-child"><td>PUT</td><td>Update an existing resource by passing entire resource in payload (Idempotent)</td></tr>
+    <tr class="tbody-even-child"><td>DELETE</td><td>Delete an existing resource (Idempotent)</td></tr>
+    <tr class="tbody-odd-child"><td>PATCH</td><td>Update an existing resource by passing partial updates by passing only affected fields are passed in the payload</td></tr>
   </tbody>
 </table>
 <p>Examples:</p>
@@ -662,157 +667,157 @@ PUT /persons -- Bulk update persons
 POST /persons -- Add a new person
 DELETE /persons -- Delete all persons
 </code></pre>
-<h3><a href="#request-headers" id="request-headers"><a name="request-headers"></a>Request Headers</a></h3>
+<h3 id="request-headers"><a href="#request-headers" name="request-headers"><a name="request-headers"></a>Request Headers</a></h3>
 <p>The required request headers vary per API and are described in the detailed per-API guides.</p>
 <p>This section describes the commonly-used headers by category.</p>
-<h4><a href="#general-headers" id="general-headers">General Headers</a></h4>
+<h4 id="general-headers"><a href="#general-headers" name="general-headers">General Headers</a></h4>
 <table>
   <thead>
-    <tr><th>Header </th><th> Description</th></tr>
+    <tr class="thead-first-child"><th>Header </th><th> Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>accept</strong></td><td>Content type you will accept in response, application/json is only value allowed</td></tr>
-    <tr><td><strong>content-type</strong></td><td>Content type of the request, application/json is only value allowed</td></tr>
-    <tr><td><strong>true-client-ip</strong></td><td>IP address of the client, required if <strong>X-Forwarded-For</strong> is null</td></tr>
-    <tr><td><strong>x-forwarded-for</strong></td><td>Used to derive the IP address of the client, often required if <strong>True-Client-IP</strong> is null</td></tr>
-    <tr><td><strong>user-agent</strong></td><td>Browser and operating system of the client calling this endpoint</td></tr>
-    <tr><td><strong>upmid</strong></td><td>Nike profile ID of customer, required if <strong>x-nike-visitorid</strong> is null</td></tr>
-    <tr><td><strong>x-nike-visitorid</strong></td><td>Visitor id of a non-member, required if <strong>upmid</strong> is null</td></tr>
-    <tr><td><strong>usertype</strong></td><td>'nike:swoosh' for Nike Employees, 'nike:plus' for Nike+ Customers, otherwise do not send</td></tr>
-    <tr><td><strong>origin-order-id</strong></td><td>During v1 to v2 cutover, represents the legacy order id associated to the checkout and is used by downstream systems</td></tr>
+    <tr class="tbody-first-child"><td><strong>accept</strong></td><td>Content type you will accept in response, application/json is only value allowed</td></tr>
+    <tr class="tbody-even-child"><td><strong>content-type</strong></td><td>Content type of the request, application/json is only value allowed</td></tr>
+    <tr class="tbody-odd-child"><td><strong>true-client-ip</strong></td><td>IP address of the client, required if <strong>X-Forwarded-For</strong> is null</td></tr>
+    <tr class="tbody-even-child"><td><strong>x-forwarded-for</strong></td><td>Used to derive the IP address of the client, often required if <strong>True-Client-IP</strong> is null</td></tr>
+    <tr class="tbody-odd-child"><td><strong>user-agent</strong></td><td>Browser and operating system of the client calling this endpoint</td></tr>
+    <tr class="tbody-even-child"><td><strong>upmid</strong></td><td>Nike profile ID of customer, required if <strong>x-nike-visitorid</strong> is null</td></tr>
+    <tr class="tbody-odd-child"><td><strong>x-nike-visitorid</strong></td><td>Visitor id of a non-member, required if <strong>upmid</strong> is null</td></tr>
+    <tr class="tbody-even-child"><td><strong>usertype</strong></td><td>'nike:swoosh' for Nike Employees, 'nike:plus' for Nike+ Customers, otherwise do not send</td></tr>
+    <tr class="tbody-odd-child"><td><strong>origin-order-id</strong></td><td>During v1 to v2 cutover, represents the legacy order id associated to the checkout and is used by downstream systems</td></tr>
   </tbody>
 </table>
-<h4><a href="#authorization-headers" id="authorization-headers">Authorization Headers</a></h4>
+<h4 id="authorization-headers"><a href="#authorization-headers" name="authorization-headers">Authorization Headers</a></h4>
 <table>
   <thead>
-    <tr><th>Header</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Header</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>Authorization</td><td>Access token</td></tr>
-    <tr><td>appid</td><td>Identifier of calling application</td></tr>
-    <tr><td>X-Nike-Authorization</td><td>JWT token</td></tr>
-    <tr><td>X-Nike-AppId</td><td>Application identifier (when JWT required)</td></tr>
+    <tr class="tbody-first-child"><td>Authorization</td><td>Access token</td></tr>
+    <tr class="tbody-even-child"><td>appid</td><td>Identifier of calling application</td></tr>
+    <tr class="tbody-odd-child"><td>X-Nike-Authorization</td><td>JWT token</td></tr>
+    <tr class="tbody-even-child"><td>X-Nike-AppId</td><td>Application identifier (when JWT required)</td></tr>
   </tbody>
 </table>
 <p>See the <a href="#prerequisites">Prerequisites</a> section for more info on Authorization headers.</p>
-<h3><a href="#request-body" id="request-body"><a name="request-body"></a>Request Body</a></h3>
-<h4><a href="#format" id="format">Format</a></h4>
+<h3 id="request-body"><a href="#request-body" name="request-body"><a name="request-body"></a>Request Body</a></h3>
+<h4 id="format"><a href="#format" name="format">Format</a></h4>
 <p>The default request body format is JSON (application/json) with charset UTF-8.</p>
 <p>Detailed request formats, including required and optional fields, are described in JSON Schema in each API contract (API.md file) and in the detailed per-API guides.</p>
 <blockquote>
   <p>TIP: GET requests do not require a request body.</p>
 </blockquote>
 <p>Below are a few of the general rules, but <strong>always follow the JSON Schema mentioned in the API.md</strong>.</p>
-<h5><a href="#field-names" id="field-names">Field Names</a></h5>
+<h5 id="field-names"><a href="#field-names" name="field-names">Field Names</a></h5>
 <p>Field names are in camelCase, for example:</p>
 <ul>
   <li>firstName</li>
   <li>postalCode</li>
   <li>startTime</li>
 </ul>
-<h5><a href="#enumerations" id="enumerations">Enumerations</a></h5>
+<h5 id="enumerations"><a href="#enumerations" name="enumerations">Enumerations</a></h5>
 <p>Use SCREAMING_SNAKE values for enumerations, for example:</p>
 <table>
   <thead>
-    <tr><th>Element</th><th>Enumeration values</th></tr>
+    <tr class="thead-first-child"><th>Element</th><th>Enumeration values</th></tr>
   </thead>
   <tbody>
-    <tr><td>code</td><td>&quot;REQUEST_INVALID&quot;, &quot;MISSING_REQUIRED&quot;, &quot;FIELD_INVALID&quot;, &quot;SKU_INVALID&quot;,</td></tr>
-    <tr><td>status</td><td>&quot;PENDING&quot;, &quot;IN_PROGRESS&quot;, &quot;COMPLETED&quot;</td></tr>
+    <tr class="tbody-first-child"><td>code</td><td>&quot;REQUEST_INVALID&quot;, &quot;MISSING_REQUIRED&quot;, &quot;FIELD_INVALID&quot;, &quot;SKU_INVALID&quot;,</td></tr>
+    <tr class="tbody-even-child"><td>status</td><td>&quot;PENDING&quot;, &quot;IN_PROGRESS&quot;, &quot;COMPLETED&quot;</td></tr>
   </tbody>
 </table>
-<h4><a href="#query-parameters-1" id="query-parameters-1">Query Parameters</a></h4>
+<h4 id="query-parameters-1"><a href="#query-parameters-1" name="query-parameters-1">Query Parameters</a></h4>
 <p>Query parameters can be used in the URI as per the below table.</p>
 <p><em>Not all parameters are supported by all APIs</em>. See the API.md or the detailed per-API guide to know which are supported by that API.</p>
 <table>
   <thead>
-    <tr><th>Query Param</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Query Param</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>anchor</td><td>In a collection, return elements after the anchor at the end of the previous page</td></tr>
-    <tr><td>count</td><td>Maximum number of elements to return</td></tr>
-    <tr><td>fields</td><td>Select which fields to be included in response</td></tr>
-    <tr><td>filter</td><td>Filter results based on a provided element value</td></tr>
-    <tr><td>sort</td><td>Sort returned results</td></tr>
+    <tr class="tbody-first-child"><td>anchor</td><td>In a collection, return elements after the anchor at the end of the previous page</td></tr>
+    <tr class="tbody-even-child"><td>count</td><td>Maximum number of elements to return</td></tr>
+    <tr class="tbody-odd-child"><td>fields</td><td>Select which fields to be included in response</td></tr>
+    <tr class="tbody-even-child"><td>filter</td><td>Filter results based on a provided element value</td></tr>
+    <tr class="tbody-odd-child"><td>sort</td><td>Sort returned results</td></tr>
   </tbody>
 </table>
 <p>See the <a href="#url-patterns">URL Patterns</a> section for more info about how to use these query parameters.</p>
-<h4><a href="#making-your-first-api-request" id="making-your-first-api-request">Making Your First API Request</a></h4>
+<h4 id="making-your-first-api-request"><a href="#making-your-first-api-request" name="making-your-first-api-request">Making Your First API Request</a></h4>
 <p>See the detailed per-API guides for examples of how to make your first API request!</p>
-<h2><a href="#response-components" id="response-components"><a name="response-components"></a>Response Components</a></h2>
+<h2 id="response-components"><a href="#response-components" name="response-components"><a name="response-components"></a>Response Components</a></h2>
 <p>Learn about the common components of HTTP responses returned by NDe APIs. Also see the related <a href="#request-components">Request Components</a> section.</p>
-<h3><a href="#http-status-codes" id="http-status-codes"><a name="http-status-codes"></a>HTTP Status Codes</a></h3>
+<h3 id="http-status-codes"><a href="#http-status-codes" name="http-status-codes"><a name="http-status-codes"></a>HTTP Status Codes</a></h3>
 <p>The HTTP protocol defines status codes to clearly describe the result of an API call. Here is a sampling of standard response codes you may see in responses:</p>
 <table>
   <thead>
-    <tr><th>Code</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Code</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>200 (OK)</td><td>Standard success response, including PUT/PATCH</td></tr>
-    <tr><td>201 (Created)</td><td>Standard success response for POST (create resource)</td></tr>
-    <tr><td>202 (Accepted)</td><td>Standard response for long-running async processing</td></tr>
-    <tr><td>204 (No Content)</td><td>Successful DELETE response</td></tr>
-    <tr><td>301 (Moved Permanently)</td><td>URL for a resource was moved (different host name or even non-supported versions)</td></tr>
-    <tr><td>304 (Not Modified)</td><td>Used with ETags</td></tr>
-    <tr><td>400 (Bad Request)</td><td>Request badly-formatted or not following the correct schema</td></tr>
-    <tr><td>401 (Unauthorized)</td><td>Not a valid access token</td></tr>
-    <tr><td>403 (Forbidden)</td><td>Valid access token, but access is forbidden to requested resource</td></tr>
-    <tr><td>404 (Not Found)</td><td>Resource not found</td></tr>
-    <tr><td>406 (Not Acceptable)</td><td>Resource format/type not supported (e.g. XML)</td></tr>
-    <tr><td>409 (Conflict)</td><td>Resource could not be updated due to other updates conflicting</td></tr>
-    <tr><td>412 (Preconditioned Failed)</td><td>Request headers did not meet the requirements</td></tr>
-    <tr><td>413 (Request Entity too Large)</td><td>Request body too large, like over 1 MB</td></tr>
-    <tr><td>429 (Too Many Requests)</td><td>Number of allowed calls was exceeded per defined time interval (day or hour or minute)</td></tr>
-    <tr><td>500 (Internal Server Error)</td><td>Server error (details provided in the body)</td></tr>
-    <tr><td>503 (Service Unavailable)</td><td>Service is down</td></tr>
+    <tr class="tbody-first-child"><td>200 (OK)</td><td>Standard success response, including PUT/PATCH</td></tr>
+    <tr class="tbody-even-child"><td>201 (Created)</td><td>Standard success response for POST (create resource)</td></tr>
+    <tr class="tbody-odd-child"><td>202 (Accepted)</td><td>Standard response for long-running async processing</td></tr>
+    <tr class="tbody-even-child"><td>204 (No Content)</td><td>Successful DELETE response</td></tr>
+    <tr class="tbody-odd-child"><td>301 (Moved Permanently)</td><td>URL for a resource was moved (different host name or even non-supported versions)</td></tr>
+    <tr class="tbody-even-child"><td>304 (Not Modified)</td><td>Used with ETags</td></tr>
+    <tr class="tbody-odd-child"><td>400 (Bad Request)</td><td>Request badly-formatted or not following the correct schema</td></tr>
+    <tr class="tbody-even-child"><td>401 (Unauthorized)</td><td>Not a valid access token</td></tr>
+    <tr class="tbody-odd-child"><td>403 (Forbidden)</td><td>Valid access token, but access is forbidden to requested resource</td></tr>
+    <tr class="tbody-even-child"><td>404 (Not Found)</td><td>Resource not found</td></tr>
+    <tr class="tbody-odd-child"><td>406 (Not Acceptable)</td><td>Resource format/type not supported (e.g. XML)</td></tr>
+    <tr class="tbody-even-child"><td>409 (Conflict)</td><td>Resource could not be updated due to other updates conflicting</td></tr>
+    <tr class="tbody-odd-child"><td>412 (Preconditioned Failed)</td><td>Request headers did not meet the requirements</td></tr>
+    <tr class="tbody-even-child"><td>413 (Request Entity too Large)</td><td>Request body too large, like over 1 MB</td></tr>
+    <tr class="tbody-odd-child"><td>429 (Too Many Requests)</td><td>Number of allowed calls was exceeded per defined time interval (day or hour or minute)</td></tr>
+    <tr class="tbody-even-child"><td>500 (Internal Server Error)</td><td>Server error (details provided in the body)</td></tr>
+    <tr class="tbody-odd-child"><td>503 (Service Unavailable)</td><td>Service is down</td></tr>
   </tbody>
 </table>
-<h3><a href="#response-headers" id="response-headers"><a name="response-headers"></a>Response Headers</a></h3>
+<h3 id="response-headers"><a href="#response-headers" name="response-headers"><a name="response-headers"></a>Response Headers</a></h3>
 <p>Every API response includes headers, but the headers sent will vary. Some of the typical headers for NDe APIs are described below by category:</p>
-<h4><a href="#general-headers-1" id="general-headers-1">General Headers</a></h4>
+<h4 id="general-headers-1"><a href="#general-headers-1" name="general-headers-1">General Headers</a></h4>
 <table>
   <thead>
-    <tr><th>Header</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Header</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>cache-control</td><td>Tells caching mechanisms from server to client whether they may cache this object. Measured in seconds</td></tr>
-    <tr><td>content-encoding</td><td>Type of encoding used on the data, e.g. gzip</td></tr>
-    <tr><td>content-type</td><td>Indicates the media type of the entity-body returned</td></tr>
-    <tr><td>content-length</td><td>Length of the response body in bytes</td></tr>
-    <tr><td>date</td><td>Date/time that the message was sent</td></tr>
-    <tr><td>expires</td><td>Date/time after which the response is considered stale</td></tr>
-    <tr><td>server</td><td>Name for the server</td></tr>
-    <tr><td>set-cookie</td><td>HTTP cookie</td></tr>
-    <tr><td>status</td><td>Status of HTTP response</td></tr>
-    <tr><td>vary</td><td>Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.</td></tr>
+    <tr class="tbody-first-child"><td>cache-control</td><td>Tells caching mechanisms from server to client whether they may cache this object. Measured in seconds</td></tr>
+    <tr class="tbody-even-child"><td>content-encoding</td><td>Type of encoding used on the data, e.g. gzip</td></tr>
+    <tr class="tbody-odd-child"><td>content-type</td><td>Indicates the media type of the entity-body returned</td></tr>
+    <tr class="tbody-even-child"><td>content-length</td><td>Length of the response body in bytes</td></tr>
+    <tr class="tbody-odd-child"><td>date</td><td>Date/time that the message was sent</td></tr>
+    <tr class="tbody-even-child"><td>expires</td><td>Date/time after which the response is considered stale</td></tr>
+    <tr class="tbody-odd-child"><td>server</td><td>Name for the server</td></tr>
+    <tr class="tbody-even-child"><td>set-cookie</td><td>HTTP cookie</td></tr>
+    <tr class="tbody-odd-child"><td>status</td><td>Status of HTTP response</td></tr>
+    <tr class="tbody-even-child"><td>vary</td><td>Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.</td></tr>
   </tbody>
 </table>
-<h4><a href="#cors-cross-origin-resource-sharing-headers" id="cors-cross-origin-resource-sharing-headers">CORS (Cross-Origin Resource Sharing) Headers</a></h4>
+<h4 id="cors-cross-origin-resource-sharing-headers"><a href="#cors-cross-origin-resource-sharing-headers" name="cors-cross-origin-resource-sharing-headers">CORS (Cross-Origin Resource Sharing) Headers</a></h4>
 <p>If your API request requires a CORS pre-flight message to be sent before the actual request, you may receive the following response headers:</p>
 <table>
   <thead>
-    <tr><th>Header</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Header</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>access-control-allow-credentials</td><td>Indicates whether or not the actual request can be made using credentials</td></tr>
-    <tr><td>access-control-allow-headers</td><td>Indicate which HTTP headers can be used when making the actual request</td></tr>
-    <tr><td>access-control-allow-methods</td><td>Specifies the method or methods allowed when accessing the resource</td></tr>
-    <tr><td>access-control-allow-origin</td><td>Specifies a URI that may access the resource</td></tr>
-    <tr><td>access-control-expose-headers</td><td>Lets a server whitelist headers that browsers are allowed to access</td></tr>
+    <tr class="tbody-first-child"><td>access-control-allow-credentials</td><td>Indicates whether or not the actual request can be made using credentials</td></tr>
+    <tr class="tbody-even-child"><td>access-control-allow-headers</td><td>Indicate which HTTP headers can be used when making the actual request</td></tr>
+    <tr class="tbody-odd-child"><td>access-control-allow-methods</td><td>Specifies the method or methods allowed when accessing the resource</td></tr>
+    <tr class="tbody-even-child"><td>access-control-allow-origin</td><td>Specifies a URI that may access the resource</td></tr>
+    <tr class="tbody-odd-child"><td>access-control-expose-headers</td><td>Lets a server whitelist headers that browsers are allowed to access</td></tr>
   </tbody>
 </table>
 <p>See the <a href="#cors">CORS</a> section for more info.</p>
-<h4><a href="#custom-headers" id="custom-headers">Custom Headers</a></h4>
+<h4 id="custom-headers"><a href="#custom-headers" name="custom-headers">Custom Headers</a></h4>
 <p>NDe APIs may use the following custom headers:</p>
 <table>
   <thead>
-    <tr><th>Header</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Header</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>x-b3-traceid</td><td>TraceId that will be carried through all the distributed systems for a request, e.g. c2f80be958b69372</td></tr>
-    <tr><td>x-nike-application</td><td>Nike API application name, e.g. productfeed</td></tr>
-    <tr><td>x-nike-environment</td><td>Nike environment, e.g. prod</td></tr>
-    <tr><td>x-nike-version</td><td>Nike API version number, e.g. 1.0.0.179</td></tr>
+    <tr class="tbody-first-child"><td>x-b3-traceid</td><td>TraceId that will be carried through all the distributed systems for a request, e.g. c2f80be958b69372</td></tr>
+    <tr class="tbody-even-child"><td>x-nike-application</td><td>Nike API application name, e.g. productfeed</td></tr>
+    <tr class="tbody-odd-child"><td>x-nike-environment</td><td>Nike environment, e.g. prod</td></tr>
+    <tr class="tbody-even-child"><td>x-nike-version</td><td>Nike API version number, e.g. 1.0.0.179</td></tr>
   </tbody>
 </table>
 <blockquote>
@@ -839,112 +844,112 @@ x-nike-application:productfeed
 x-nike-environment:prod
 x-nike-version:1.0.0.179
 </code></pre>
-<h3><a href="#response-body" id="response-body"><a name="response-body"></a>Response Body</a></h3>
+<h3 id="response-body"><a href="#response-body" name="response-body"><a name="response-body"></a>Response Body</a></h3>
 <p>Your responses will usually include a body but there are certain HTTP methods that don't require response bodies to be sent.</p>
 <p>The default response body format is JSON (application/json) with charset UTF-8.</p>
 <p>Detailed response formats are described in JSON Schema in each API contract (API.md file) and in the detailed per-API guides.</p>
-<h4><a href="#error-and-warning-messages" id="error-and-warning-messages">Error and Warning Messages</a></h4>
+<h4 id="error-and-warning-messages"><a href="#error-and-warning-messages" name="error-and-warning-messages">Error and Warning Messages</a></h4>
 <p>Although NDe uses a standard formatting for error and warning messages included in a response body, the content of each is specific to an API endpoint.</p>
 <p>See the per-API guides in each endpoint section for detailed error/warning information.</p>
 <p>For additional general error handling info, see the <a href="#error-handling">Error Handling</a> section.</p>
-<h2><a href="#versioning" id="versioning"><a name="versioning"></a>Versioning</a></h2>
+<h2 id="versioning"><a href="#versioning" name="versioning"><a name="versioning"></a>Versioning</a></h2>
 <p>As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to <a href="http://semver.org/" target="_blank">Semantic Versioning</a> guidelines.</p>
 <p>Some high-level considerations:</p>
 <ul>
-  <li>
-    <p>For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URL does not change. If you are using the <a href="http://servicedesignpatterns.com/WebServiceEvolution/TolerantReader" target="_blank">Tolerant Reader Pattern</a>, you can continue to use the API without having to make changes to your app.</p>
+  <li class="p">
+    <p class="p">For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URL does not change. If you are using the <a href="http://servicedesignpatterns.com/WebServiceEvolution/TolerantReader" target="_blank">Tolerant Reader Pattern</a>, you can continue to use the API without having to make changes to your app.</p>
   </li>
-  <li>
-    <p>When moving to a new, major version of an API (e.g. a change from synchronous to asynchronous operation), expect to make some changes to your app to ensure compatibility with the new version.</p>
+  <li class="p">
+    <p class="p">When moving to a new, major version of an API (e.g. a change from synchronous to asynchronous operation), expect to make some changes to your app to ensure compatibility with the new version.</p>
   </li>
 </ul>
 <blockquote>
   <p>TIP: For more details about the versioning of NDe APIs, see the <a href="https://confluence.nike.com/display/DAHP/API+Versioning+Strategy" target="_blank">API Versioning Strategy</a> document.</p>
 </blockquote>
-<h2><a href="#caching" id="caching"><a name="caching"></a>Caching</a></h2>
+<h2 id="caching"><a href="#caching" name="caching"><a name="caching"></a>Caching</a></h2>
 <p>NDe APIs take advantage of three layers of caching in order to keep service performance optimal even in periods of high request volume. The caching layers are:</p>
 <ol>
-  <li>
-    <p>Akamai Content Delivery Network (CDN)</p>
+  <li class="p">
+    <p class="p">Akamai Content Delivery Network (CDN)</p>
   </li>
-  <li>
-    <p>Service</p>
+  <li class="p">
+    <p class="p">Service</p>
   </li>
-  <li>
-    <p>Device/browser</p>
+  <li class="p">
+    <p class="p">Device/browser</p>
   </li>
 </ol>
-<h3><a href="#akamai-caching" id="akamai-caching"><a name="akamai-caching"></a>Akamai Caching</a></h3>
+<h3 id="akamai-caching"><a href="#akamai-caching" name="akamai-caching"><a name="akamai-caching"></a>Akamai Caching</a></h3>
 <p>NDe uses the <a href="https://www.akamai.com/us/en/cdn/" target="_blank">Akamai Content Delivery Framework</a> as the Edge caching solution for public service requests. It is utilized when the client makes a request for a NDe public resource configured to go through Akamai's Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai.</p>
 <p>It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike's Edge router. Akamai operates on a set of configured rules that determine what resources are cachable, how long to cache the resource and how to determine if the resource is stale and if the origin of the resource has an updated version. Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time.</p>
 <p>Listed below are the Production domains that are routed to Akamai's Edge caching server:</p>
 <table>
   <thead>
-    <tr><th>Domain</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Domain</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><a href="http://www.nike.com">www.nike.com</a></td><td>For unauthenticated, public experiences, services and assets</td></tr>
-    <tr><td>api.nike.com</td><td>For authenticated public experiences</td></tr>
+    <tr class="tbody-first-child"><td><a href="http://www.nike.com">www.nike.com</a></td><td>For unauthenticated, public experiences, services and assets</td></tr>
+    <tr class="tbody-even-child"><td>api.nike.com</td><td>For authenticated public experiences</td></tr>
   </tbody>
 </table>
-<h3><a href="#service-caching" id="service-caching"><a name="service-caching"></a>Service Caching</a></h3>
+<h3 id="service-caching"><a href="#service-caching" name="service-caching"><a name="service-caching"></a>Service Caching</a></h3>
 <p>NDe Architecture encourages caching at the individual service level and discourages implementing custom distributed caching solutions, due to high development costs. Not all NDe Cloud services support caching and cache times vary across services. Check the Caching section of the NDe API Documentation you are interested in for cache information by service.</p>
-<h3><a href="#devicebrowser-caching" id="devicebrowser-caching"><a name="devicebrowser-caching"></a>Device/Browser Caching</a></h3>
+<h3 id="devicebrowser-caching"><a href="#devicebrowser-caching" name="devicebrowser-caching"><a name="devicebrowser-caching"></a>Device/Browser Caching</a></h3>
 <p>Caching can also be done on the Browser/Phone device itself. This type of caching is controlled by exchanging a series of request and response headers as is demonstrated in the flow below.</p>
 <ol>
-  <li>
-    <p>The client sends a service request for a URL resource.</p>
+  <li class="p">
+    <p class="p">The client sends a service request for a URL resource.</p>
   </li>
-  <li>
-    <p>The service returns the resource response with an <strong>ETag</strong> header representing the version of the data, an <strong>Expires</strong> header representing how long until the URL expires, and a <strong>Cache-Control</strong> or <strong>Pragma</strong> header indicating that the response can be cached.</p>
+  <li class="p">
+    <p class="p">The service returns the resource response with an <strong>ETag</strong> header representing the version of the data, an <strong>Expires</strong> header representing how long until the URL expires, and a <strong>Cache-Control</strong> or <strong>Pragma</strong> header indicating that the response can be cached.</p>
   </li>
-  <li>
-    <p>The client caches the response and <strong>ETag</strong> value.</p>
+  <li class="p">
+    <p class="p">The client caches the response and <strong>ETag</strong> value.</p>
   </li>
-  <li>
-    <p>If the client needs the same resource again, the client uses the <strong>Expires</strong> and <strong>Pragma</strong>/<strong>Cache-Control</strong> headers to check if the local URL cache has expired.</p>
+  <li class="p">
+    <p class="p">If the client needs the same resource again, the client uses the <strong>Expires</strong> and <strong>Pragma</strong>/<strong>Cache-Control</strong> headers to check if the local URL cache has expired.</p>
   </li>
-  <li>
-    <p>If the client cache has not expired, the client retrieves the local version from cache.</p>
+  <li class="p">
+    <p class="p">If the client cache has not expired, the client retrieves the local version from cache.</p>
   </li>
-  <li>
-    <p>If the client cache has expired, the client sends a service request for the previously requested URL resource, sending the <strong>ETag</strong> header and <strong>If-None-Match</strong> header set to the cached ETag value.</p>
+  <li class="p">
+    <p class="p">If the client cache has expired, the client sends a service request for the previously requested URL resource, sending the <strong>ETag</strong> header and <strong>If-None-Match</strong> header set to the cached ETag value.</p>
   </li>
-  <li>
-    <p>Because the <strong>If-None-Match</strong> header is present, the Service checks its <strong>ETag</strong> value with the <strong>ETag</strong> value passed in the request header to check if it has a newer version of the resource.</p>
+  <li class="p">
+    <p class="p">Because the <strong>If-None-Match</strong> header is present, the Service checks its <strong>ETag</strong> value with the <strong>ETag</strong> value passed in the request header to check if it has a newer version of the resource.</p>
   </li>
-  <li>
-    <p>If the <strong>ETag</strong> values match, the service returns a shortened response and with an HTTP 304 Not Modified status, greatly reducing network bandwidth.</p>
+  <li class="p">
+    <p class="p">If the <strong>ETag</strong> values match, the service returns a shortened response and with an HTTP 304 Not Modified status, greatly reducing network bandwidth.</p>
   </li>
-  <li>
-    <p>If the <strong>ETag</strong> value doesn't match, the service returns the full response and an updated value in the <strong>ETag</strong> header and the process restarts.</p>
+  <li class="p">
+    <p class="p">If the <strong>ETag</strong> value doesn't match, the service returns the full response and an updated value in the <strong>ETag</strong> header and the process restarts.</p>
   </li>
 </ol>
-<h3><a href="#cache-related-headers" id="cache-related-headers"><a name="cache-related-headers"></a>Cache-Related Headers</a></h3>
-<h4><a href="#request" id="request">Request</a></h4>
+<h3 id="cache-related-headers"><a href="#cache-related-headers" name="cache-related-headers"><a name="cache-related-headers"></a>Cache-Related Headers</a></h3>
+<h4 id="request"><a href="#request" name="request">Request</a></h4>
 <table>
   <thead>
-    <tr><th>Header</th><th>Description</th><th>Example</th></tr>
+    <tr class="thead-first-child"><th>Header</th><th>Description</th><th>Example</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>Cache-Control</strong></td><td>Directive indicating what and how resource can be cached</td><td></td></tr>
-    <tr><td><strong>If-None-Match</strong></td><td>Used on request with ETag (sent prior by server) to only get resource if newer than tag or 304 otherwise</td><td>If-None-Match: &quot;686897696a7c876b7e&quot;</td></tr>
-    <tr><td><strong>If-Match</strong></td><td>Used with the value from the received ETag header for PUT/PATCH to achieve optimistic locking (conditional update)</td><td></td></tr>
-    <tr><td><strong>ETag</strong></td><td>String that identifies a specific &quot;version&quot; of the requested, mutable resource.</td><td>ETag: &quot;686897696a7c876b7e&quot;</td></tr>
-    <tr><td><strong>Pragma</strong></td><td>Used to disable caching for a resource or at least let the client know this resource must not be cached</td><td>Pragma: &quot;no-cache&quot;</td></tr>
-    <tr><td><strong>Expires</strong></td><td>Date indicating when this resource is stale. Do not use the Pragma with this header</td><td>Expires: Fri, 01 Dec 2017 16:00:00 GMT</td></tr>
+    <tr class="tbody-first-child"><td><strong>Cache-Control</strong></td><td>Directive indicating what and how resource can be cached</td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>If-None-Match</strong></td><td>Used on request with ETag (sent prior by server) to only get resource if newer than tag or 304 otherwise</td><td>If-None-Match: &quot;686897696a7c876b7e&quot;</td></tr>
+    <tr class="tbody-odd-child"><td><strong>If-Match</strong></td><td>Used with the value from the received ETag header for PUT/PATCH to achieve optimistic locking (conditional update)</td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>ETag</strong></td><td>String that identifies a specific &quot;version&quot; of the requested, mutable resource.</td><td>ETag: &quot;686897696a7c876b7e&quot;</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Pragma</strong></td><td>Used to disable caching for a resource or at least let the client know this resource must not be cached</td><td>Pragma: &quot;no-cache&quot;</td></tr>
+    <tr class="tbody-even-child"><td><strong>Expires</strong></td><td>Date indicating when this resource is stale. Do not use the Pragma with this header</td><td>Expires: Fri, 01 Dec 2017 16:00:00 GMT</td></tr>
   </tbody>
 </table>
-<h4><a href="#response" id="response">Response</a></h4>
+<h4 id="response"><a href="#response" name="response">Response</a></h4>
 <table>
   <thead>
-    <tr><th>Header</th><th>Description</th><th>Example</th></tr>
+    <tr class="thead-first-child"><th>Header</th><th>Description</th><th>Example</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>ETag</strong></td><td>String that identifies a specific &quot;version&quot; of the mutable resource.</td><td>ETag: &quot;686897696a7c876b7e&quot;</td></tr>
-    <tr><td><strong>Expires</strong></td><td>Sate indicating when this resource is stale. used with <strong>Cache-Control</strong></td><td>Expires: Fri, 01 Dec 2017 16:00:00 GMT</td></tr>
-    <tr><td><strong>Cache-Control</strong></td><td>Used for enabling caching of resources and identifying what can be cached. used with Expires.</td><td>Cache-Control: private,max-age=0</td></tr>
-    <tr><td><strong>Pragma</strong></td><td>Used to disable caching for a resource or let the client know this resource must not be cached. use <strong>Cache-Control</strong> instead.</td><td>Pragma: &quot;no-cache&quot;</td></tr>
+    <tr class="tbody-first-child"><td><strong>ETag</strong></td><td>String that identifies a specific &quot;version&quot; of the mutable resource.</td><td>ETag: &quot;686897696a7c876b7e&quot;</td></tr>
+    <tr class="tbody-even-child"><td><strong>Expires</strong></td><td>Sate indicating when this resource is stale. used with <strong>Cache-Control</strong></td><td>Expires: Fri, 01 Dec 2017 16:00:00 GMT</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Cache-Control</strong></td><td>Used for enabling caching of resources and identifying what can be cached. used with Expires.</td><td>Cache-Control: private,max-age=0</td></tr>
+    <tr class="tbody-even-child"><td><strong>Pragma</strong></td><td>Used to disable caching for a resource or let the client know this resource must not be cached. use <strong>Cache-Control</strong> instead.</td><td>Pragma: &quot;no-cache&quot;</td></tr>
   </tbody>
 </table>
 <blockquote>
@@ -956,10 +961,10 @@ x-nike-version:1.0.0.179
 <blockquote>
   <p><i class="g72-link"></i> <a href="https://confluence.nike.com/display/DAHP/Akamai" target="_blank">Akamai Technical Reference</a></p>
 </blockquote>
-<h2><a href="#cors" id="cors"><a name="cors"></a>CORS</a></h2>
+<h2 id="cors"><a href="#cors" name="cors"><a name="cors"></a>CORS</a></h2>
 <p>Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error.</p>
 <p>One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. <a href="http://api.nike.com">http://api.nike.com</a>) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS" target="_blank">HTTP Access Control (CORS)</a>.</p>
-<h3><a href="#implementation-recommendations" id="implementation-recommendations"><a name="implementation-recommendations"></a>Implementation Recommendations</a></h3>
+<h3 id="implementation-recommendations"><a href="#implementation-recommendations" name="implementation-recommendations"><a name="implementation-recommendations"></a>Implementation Recommendations</a></h3>
 <p>Developers implementing Cloud Services should keep the following best practices in mind:</p>
 <ul>
   <li>Be consistent and as strict as possible in allowed CORS header values.</li>
@@ -967,13 +972,13 @@ x-nike-version:1.0.0.179
   <li>Control restriction of Access-Control-Allow-Headers, Access-Control-Expose-Headers, Access-Control-Allow-Methods, and Access-Control-Allow-Origin headers for both requests and responses at the service level, perhaps through the use of a Servlet Filter.</li>
   <li>Avoid setting Allow-Control-Allow-Credentials to true unless the service requires cookies. This value is false by default.</li>
 </ul>
-<h2><a href="#asynchronous-operation" id="asynchronous-operation"><a name="asynchronous-operation"></a>Asynchronous Operation</a></h2>
+<h2 id="asynchronous-operation"><a href="#asynchronous-operation" name="asynchronous-operation"><a name="asynchronous-operation"></a>Asynchronous Operation</a></h2>
 <p>A <strong>synchronous</strong> endpoint returns the result immediately because both the request and work performed execute in the same thread. Synchronous endpoints are quick-running.</p>
 <p>An <strong>asynchronous</strong> endpoint takes a work request and promises to return the results in an estimated time in the future. It immediately returns a status, an eta, and a result link at which the caller should poll for job results. It is best practice to wait the duration of the eta before asking for job results, also known as Planned Polling. If the job still is not finished, the caller should wait for the length returned in the job result eta before polling the job result again.</p>
 <p>It is suggested that services running longer than 250ms be an asynchronous service; it is mandated that services running longer than 500ms be an asynchronous service.</p>
 <p>Asynchronous jobs are either in PENDING, IN_PROGRESS, or COMPLETED status. PENDING indicates that the job has been accepted into the work queue. IN_PROGRESS indicates the job has been picked up from the work queue and is being actively worked on. COMPLETED indicates the job is complete and results are available.</p>
 <p>There are two or three endpoints involved in an asynchronous service: job request, job status and job result. Job status and job result endpoints are sometimes combined.</p>
-<h3><a href="#job-request" id="job-request"><a name="job-request"></a>Job Request</a></h3>
+<h3 id="job-request"><a href="#job-request" name="job-request"><a name="job-request"></a>Job Request</a></h3>
 <p>This endpoint returns a unique job id in UUID format, a status, eta of when the job will be finished and a <strong>self</strong> link to the job result to poll for job status. Notice that the <strong>self</strong> link contains the same UUID as the job id. In this case, the caller should wait 3000ms before polling the job result link.</p>
 <pre><code>{
 	&quot;id&quot;: &quot;5f650e83-ed55-44d5-9820-650e8c390c7e&quot;,
@@ -987,7 +992,7 @@ x-nike-version:1.0.0.179
 	}
 }
 </code></pre>
-<h3><a href="#job-status" id="job-status"><a name="job-status"></a>Job Status</a></h3>
+<h3 id="job-status"><a href="#job-status" name="job-status"><a name="job-status"></a>Job Status</a></h3>
 <p>This endpoint is called by passing the <strong>id</strong> returned form the Job Request response above. Because the job status is not <code>COMPLETED</code>, the calling service should wait 500ms before polling the job status again.</p>
 <pre><code>{
 	&quot;id&quot;: &quot;5f650e83-ed55-44d5-9820-650e8c390c7e&quot;,
@@ -1001,7 +1006,7 @@ x-nike-version:1.0.0.179
 	&quot;resourceType&quot;: &quot;job&quot;
 }
 </code></pre>
-<h3><a href="#job-result" id="job-result"><a name="job-result"></a>Job Result</a></h3>
+<h3 id="job-result"><a href="#job-result" name="job-result"><a name="job-result"></a>Job Result</a></h3>
 <p>The job is now <code>COMPLETED</code> and resulted in an error. The errors array lists details about each error including the error message and error code.</p>
 <pre><code>{
 	&quot;id&quot;: &quot;5f650e83-ed55-44d5-9820-650e8c390c7e&quot;,
@@ -1023,49 +1028,49 @@ x-nike-version:1.0.0.179
 	&quot;resourceType&quot;: &quot;job&quot;
 }
 </code></pre>
-<h2><a href="#error-handling" id="error-handling"><a name="error-handling"></a>Error Handling</a></h2>
+<h2 id="error-handling"><a href="#error-handling" name="error-handling"><a name="error-handling"></a>Error Handling</a></h2>
 <p>Use this guide to understand what to expect from NDe API error responses and learn some tips on how to handle them.</p>
-<h3><a href="#general-error-response-components" id="general-error-response-components"><a name="general-error-response-components"></a>General Error Response Components</a></h3>
+<h3 id="general-error-response-components"><a href="#general-error-response-components" name="general-error-response-components"><a name="general-error-response-components"></a>General Error Response Components</a></h3>
 <p>Error responses from NDe APIs contain the following:</p>
 <ul>
-  <li>
-    <p>HTTP Status Code</p>
+  <li class="p">
+    <p class="p">HTTP Status Code</p>
     <p>NDe uses standard HTTP status codes for errors. See the <a href="#common-errors">Common Errors</a> section for more details.</p>
   </li>
-  <li>
-    <p>Response Body Components</p>
+  <li class="p">
+    <p class="p">Response Body Components</p>
   </li>
 </ul>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Element Name</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>message</strong></td><td>Plain text description of the error at top level of response</td></tr>
-    <tr><td><strong>errors</strong></td><td>Array at top level of response, containing the following:</td></tr>
-    <tr><td><strong>code</strong></td><td>Code for the error, text-based used 'screaming snake case', e.g. 'FIELD_INVALID'</td></tr>
-    <tr><td><strong>message</strong></td><td>Plain text description of the error</td></tr>
-    <tr><td><strong>field</strong></td><td>Field in the request which had the error, in JSON Pointer format</td></tr>
+    <tr class="tbody-first-child"><td><strong>message</strong></td><td>Plain text description of the error at top level of response</td></tr>
+    <tr class="tbody-even-child"><td><strong>errors</strong></td><td>Array at top level of response, containing the following:</td></tr>
+    <tr class="tbody-odd-child"><td><strong>code</strong></td><td>Code for the error, text-based used 'screaming snake case', e.g. 'FIELD_INVALID'</td></tr>
+    <tr class="tbody-even-child"><td><strong>message</strong></td><td>Plain text description of the error</td></tr>
+    <tr class="tbody-odd-child"><td><strong>field</strong></td><td>Field in the request which had the error, in JSON Pointer format</td></tr>
   </tbody>
 </table>
 <p>Note: not all HTTP responses include a body, e.g. 204 or 304.</p>
 <ul>
-  <li>
-    <p>Response Header Components</p>
+  <li class="p">
+    <p class="p">Response Header Components</p>
     <p>NDe APIs return a Trace ID in the <strong>X-B3-TraceId</strong> response header. This can be used to query logs to troubleshoot the error.</p>
   </li>
 </ul>
 <blockquote>
   <p>TIP: For more about how to use Trace IDs, see the <a href="#troubleshooting">Troubleshooting</a> section.</p>
 </blockquote>
-<h3><a href="#common-errors" id="common-errors"><a name="common-errors"></a>Common Errors</a></h3>
+<h3 id="common-errors"><a href="#common-errors" name="common-errors"><a name="common-errors"></a>Common Errors</a></h3>
 <p>Examples error responses are provided below, along with the status code and scenario in which they occurred. A few considerations:</p>
 <ul>
-  <li>
-    <p>Some of the examples are API-specific and therefore cannot be assumed to be universal to all NDe APIs.</p>
+  <li class="p">
+    <p class="p">Some of the examples are API-specific and therefore cannot be assumed to be universal to all NDe APIs.</p>
   </li>
-  <li>
-    <p>Not all HTTP responses include a body, and those are indicated below.</p>
+  <li class="p">
+    <p class="p">Not all HTTP responses include a body, and those are indicated below.</p>
   </li>
 </ul>
 <ol>
@@ -1181,7 +1186,7 @@ x-nike-version:1.0.0.179
   <li><strong>503 - Service Unavailable:</strong> Service is down</li>
 </ol>
 <p>(no response available)</p>
-<h3><a href="#which-json-field-had-the-error" id="which-json-field-had-the-error"><a name="which-json-field-had-the-error"></a>Which JSON Field Had The Error?</a></h3>
+<h3 id="which-json-field-had-the-error"><a href="#which-json-field-had-the-error" name="which-json-field-had-the-error"><a name="which-json-field-had-the-error"></a>Which JSON Field Had The Error?</a></h3>
 <p>NDe uses the <a href="https://tools.ietf.org/html/rfc6901" target="_blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.</p>
 <p>For example, in the error response from the Carts API you can see the field indicated as <code>/request/items/0/contactInfo/email</code>:</p>
 <pre><code>{
@@ -1197,88 +1202,88 @@ x-nike-version:1.0.0.179
 <blockquote>
   <p>TIP: Some NDe APIs use dot notation instead of JSON Pointer, due to being built before NDe switched to the JSON Pointer standard. Check the Developer Guide for the API to confirm the error format.</p>
 </blockquote>
-<h3><a href="#retries" id="retries"><a name="retries"></a>Retries</a></h3>
+<h3 id="retries"><a href="#retries" name="retries"><a name="retries"></a>Retries</a></h3>
 <p>Depending on the returned HTTP status code, retrying an operation might make sense or not.</p>
 <p>In general, a 400-class status means a client-side issue, while a 500-class status means a server-side issue.</p>
 <p>Here are some recommendations for retries:</p>
 <table>
   <thead>
-    <tr><th>HTTP Status Code</th><th>Description</th><th>Retry?</th><th>Comments</th></tr>
+    <tr class="thead-first-child"><th>HTTP Status Code</th><th>Description</th><th>Retry?</th><th>Comments</th></tr>
   </thead>
   <tbody>
-    <tr><td>400</td><td>Bad Request</td><td>Yes - after changes</td><td>Change JSON based on response, retry operation</td></tr>
-    <tr><td>401</td><td>Unauthorized</td><td>Yes - after login</td><td>Once user logs in, retry operation</td></tr>
-    <tr><td>403</td><td>Forbidden</td><td>Yes - after changes</td><td>Once correct permissions of logged-in user are granted, retry operation</td></tr>
-    <tr><td>404</td><td>Not Found</td><td>No</td><td></td></tr>
-    <tr><td>405</td><td>Method Not Allowed</td><td>No</td><td>Change app to call API as per spec</td></tr>
-    <tr><td>406</td><td>Not Acceptable</td><td>No</td><td>Change app to call API as per spec</td></tr>
-    <tr><td>409</td><td>Conflict</td><td>No</td><td>JSON input and query params are ok but a business rule denied the operation. No need to retry</td></tr>
-    <tr><td>500</td><td>Internal Server Error</td><td>No</td><td>Server issue. No need to retry until issue is resolved</td></tr>
-    <tr><td>503</td><td>Service Unavailable</td><td>Yes</td><td>API may come back up. Retry a few times using circuit breaker pattern</td></tr>
+    <tr class="tbody-first-child"><td>400</td><td>Bad Request</td><td>Yes - after changes</td><td>Change JSON based on response, retry operation</td></tr>
+    <tr class="tbody-even-child"><td>401</td><td>Unauthorized</td><td>Yes - after login</td><td>Once user logs in, retry operation</td></tr>
+    <tr class="tbody-odd-child"><td>403</td><td>Forbidden</td><td>Yes - after changes</td><td>Once correct permissions of logged-in user are granted, retry operation</td></tr>
+    <tr class="tbody-even-child"><td>404</td><td>Not Found</td><td>No</td><td></td></tr>
+    <tr class="tbody-odd-child"><td>405</td><td>Method Not Allowed</td><td>No</td><td>Change app to call API as per spec</td></tr>
+    <tr class="tbody-even-child"><td>406</td><td>Not Acceptable</td><td>No</td><td>Change app to call API as per spec</td></tr>
+    <tr class="tbody-odd-child"><td>409</td><td>Conflict</td><td>No</td><td>JSON input and query params are ok but a business rule denied the operation. No need to retry</td></tr>
+    <tr class="tbody-even-child"><td>500</td><td>Internal Server Error</td><td>No</td><td>Server issue. No need to retry until issue is resolved</td></tr>
+    <tr class="tbody-odd-child"><td>503</td><td>Service Unavailable</td><td>Yes</td><td>API may come back up. Retry a few times using circuit breaker pattern</td></tr>
   </tbody>
 </table>
 <blockquote>
   <p>NOTE: The JSON Schemas found in the API.md file should enumerate many of the possible error messages you could receive in responses. However, JSON Schemas do not include all possible error codes or messages. Specific errors can be added by each domain and are not part of these schemas.</p>
 </blockquote>
-<h2><a href="#data-reference" id="data-reference"><a name="data-reference"></a>Data Reference</a></h2>
-<h3><a href="#user-types" id="user-types"><a name="user-types"></a>User Types</a></h3>
+<h2 id="data-reference"><a href="#data-reference" name="data-reference"><a name="data-reference"></a>Data Reference</a></h2>
+<h3 id="user-types"><a href="#user-types" name="user-types"><a name="user-types"></a>User Types</a></h3>
 <p>NDe APIs support 3 distinct user types for commerce applications. In this guide, we will define them and discuss some ways that it can affect how you interact with the APIs.</p>
-<h4><a href="#member" id="member">Member</a></h4>
+<h4 id="member"><a href="#member" name="member">Member</a></h4>
 <p>Nike members have previously registered a <a href="https://www.nike.com/us/en_us/e/nike-plus-membership" target="_blank">Nike+</a> account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout.</p>
 <p>For API calls involving members, an <em>access token</em> must be obtained from Nike Unite services and included in the <strong>Authorization</strong> request header after the user has logged in.</p>
 <p>Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on our business rules.</p>
-<h4><a href="#guest" id="guest">Guest</a></h4>
+<h4 id="guest"><a href="#guest" name="guest">Guest</a></h4>
 <p>The guest user has not logged in with their Nike+ account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would.</p>
 <p>For API calls involving guests, the <strong>nike-visitor-id</strong> and <strong>appId</strong> headers must be included with the request. The <strong>nike-visitor-id</strong> header value is a UUID that you get by calling Nike Unite's <a href="https://confluence.nike.com/display/CPC/Unite+for+Web#UniteforWeb-getVisitData" target="_blank">getVisitData</a> function in their SDK. The <strong>appId</strong> header value is the identifier for your app.</p>
-<h4><a href="#employee" id="employee">Employee</a></h4>
+<h4 id="employee"><a href="#employee" name="employee">Employee</a></h4>
 <p>The third type of user is an employee of Nike or one of it's subsidiaries (or an immediate family member of said employee) who has logged in with their <a href="http://www.swoosh.com" target="_blank">Swoosh</a> account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest.</p>
 <p>For API calls involving employees, the same <strong>Authorization</strong> request header is used like for members.</p>
-<h2><a href="#testing" id="testing"><a name="testing"></a>Testing</a></h2>
-<h3><a href="#testing-prerequisites" id="testing-prerequisites"><a name="testing-prerequisites"></a>Testing Prerequisites</a></h3>
+<h2 id="testing"><a href="#testing" name="testing"><a name="testing"></a>Testing</a></h2>
+<h3 id="testing-prerequisites"><a href="#testing-prerequisites" name="testing-prerequisites"><a name="testing-prerequisites"></a>Testing Prerequisites</a></h3>
 <p>The same prerequisites for interacting with APIs in the production environment also apply to test environments, i.e. registration, authorization, and JWT. Note that tokens are often unique to an environment, so your production tokens will not work in test and vice versa.</p>
 <p>See the <a href="#prerequisites">Prerequisites</a> section for more info.</p>
-<h3><a href="#test-environments" id="test-environments"><a name="test-environments"></a>Test Environments</a></h3>
+<h3 id="test-environments"><a href="#test-environments" name="test-environments"><a name="test-environments"></a>Test Environments</a></h3>
 <p>The ability to test in an environment other than production varies per API. For many APIs, functional test environments exist and should be used. For others that do not, testing in production may be an option.</p>
 <p>Contact the Product Owner of the API (listed in each Developer API Guide, At-a-Glance section) for recommendations on the best environment to use for testing.</p>
-<h3><a href="#testing-tips" id="testing-tips"><a name="testing-tips"></a>Testing Tips</a></h3>
+<h3 id="testing-tips"><a href="#testing-tips" name="testing-tips"><a name="testing-tips"></a>Testing Tips</a></h3>
 <p>When testing isolated API calls from your local machine, here are a few tips:</p>
 <ul>
-  <li>
-    <p>Use the Nike Developer Portal 'TRY IT NOW' feature to initiate calls from within a browser.</p>
+  <li class="p">
+    <p class="p">Use the Nike Developer Portal 'TRY IT NOW' feature to initiate calls from within a browser.</p>
   </li>
-  <li>
-    <p>Use the <a href="https://www.getpostman.com/" target="_blank">Postman</a> REST client or a similar tool to test sending HTTP requests.</p>
+  <li class="p">
+    <p class="p">Use the <a href="https://www.getpostman.com/" target="_blank">Postman</a> REST client or a similar tool to test sending HTTP requests.</p>
   </li>
-  <li>
-    <p>Locate a small set of production skuId's to use. Reuse them whenever possible.</p>
+  <li class="p">
+    <p class="p">Locate a small set of production skuId's to use. Reuse them whenever possible.</p>
   </li>
-  <li>
-    <p>For Checkout API's, use the same set of line item 'id' values for all requests. They only need to be unique with a particular request.</p>
+  <li class="p">
+    <p class="p">For Checkout API's, use the same set of line item 'id' values for all requests. They only need to be unique with a particular request.</p>
   </li>
-  <li>
-    <p>Use an <a href="https://www.uuidgenerator.net/" target="_blank">online UUID generator</a> to quickly generate UUID's.</p>
+  <li class="p">
+    <p class="p">Use an <a href="https://www.uuidgenerator.net/" target="_blank">online UUID generator</a> to quickly generate UUID's.</p>
   </li>
-  <li>
-    <p>To save time, modify the sample requests in the API guide rather than building your own.</p>
+  <li class="p">
+    <p class="p">To save time, modify the sample requests in the API guide rather than building your own.</p>
   </li>
 </ul>
-<h2><a href="#troubleshooting" id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
+<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
 <p>Stuck on something with a particular API? See the below troubleshooting tips.</p>
-<h3><a href="#query-logs-with-a-trace-id" id="query-logs-with-a-trace-id"><a name="query-logs-with-a-trace-id"></a>Query Logs With a Trace ID</a></h3>
+<h3 id="query-logs-with-a-trace-id"><a href="#query-logs-with-a-trace-id" name="query-logs-with-a-trace-id"><a name="query-logs-with-a-trace-id"></a>Query Logs With a Trace ID</a></h3>
 <p>If you get unexpected or confusing responses from an API, use the Trace ID from the response header to query the Nike CDT Splunk logs to get more information.</p>
 <ol>
-  <li>
-    <p>Find the <strong>X-B3-TraceId</strong> response header, which contains the Trace ID for the request, e.g. b2490b12cd639e7c. Copy the value to your clipboard.</p>
+  <li class="p">
+    <p class="p">Find the <strong>X-B3-TraceId</strong> response header, which contains the Trace ID for the request, e.g. b2490b12cd639e7c. Copy the value to your clipboard.</p>
   </li>
-  <li>
-    <p>Navigate to <a href="https://cdt-eng.splunkcloud.com/en-US/app/search" target="_blank">Splunk Search Page</a>.</p>
+  <li class="p">
+    <p class="p">Navigate to <a href="https://cdt-eng.splunkcloud.com/en-US/app/search" target="_blank">Splunk Search Page</a>.</p>
   </li>
-  <li>
-    <p>Paste in the Trace ID and execute the query. Once results start coming in, look for error messages or other clues as to what happened with your request.</p>
+  <li class="p">
+    <p class="p">Paste in the Trace ID and execute the query. Once results start coming in, look for error messages or other clues as to what happened with your request.</p>
   </li>
 </ol>
 <p>After looking at Splunk, if you still need assistance with troubleshooting a particular request, post a question on the relevant Slack channel (found in the Developer API Guide) and be sure to include your Trace ID.</p>
-<h3><a href="#inspect-browser-activity-in-a-live-experience" id="inspect-browser-activity-in-a-live-experience"><a name="inspect-browser-activity-in-a-live-experience"></a>Inspect Browser Activity in a Live Experience</a></h3>
+<h3 id="inspect-browser-activity-in-a-live-experience"><a href="#inspect-browser-activity-in-a-live-experience" name="inspect-browser-activity-in-a-live-experience"><a name="inspect-browser-activity-in-a-live-experience"></a>Inspect Browser Activity in a Live Experience</a></h3>
 <p>Use your browser's built-in tools for inspecting the web service calls which occur for a live Nike experience like <a href="https://www.nike.com/launch" target="_blank">Nike SNKRS Web</a>. Sometimes seeing what other experiences are doing might address your question or concern.</p>
 <p>For example, to follow the order of calls made when changing a shipping address during checkout:</p>
 <ol>
@@ -1286,25 +1291,26 @@ x-nike-version:1.0.0.179
 </ol>
 <p><img src="/images/getting_started/troubleshooting_chrome_inspect.png" alt="" class="absent" /></p>
 <ol start="2">
-  <li>
-    <p>In Inspect window, select <code>Network</code> tab.</p>
+  <li class="p">
+    <p class="p">In Inspect window, select <code>Network</code> tab.</p>
   </li>
-  <li>
-    <p>Perform the action in the main window. In this case, change the shipping address and click 'Save and Continue'.</p>
+  <li class="p">
+    <p class="p">Perform the action in the main window. In this case, change the shipping address and click 'Save and Continue'.</p>
   </li>
-  <li>
-    <p>In the <code>Network</code> tab, scan through the list for any items with &quot;api.nike.com&quot;. In this case, click to select the call to &quot;api.nike.com/buy/shipping_options&quot;.</p>
+  <li class="p">
+    <p class="p">In the <code>Network</code> tab, scan through the list for any items with &quot;api.nike.com&quot;. In this case, click to select the call to &quot;api.nike.com/buy/shipping_options&quot;.</p>
   </li>
 </ol>
 <p><img src="/images/getting_started/troubleshooting_chrome_inspect_details.png" alt="" class="absent" /></p>
 <ol start="5">
   <li>Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?</li>
 </ol>
-<h2><a href="#glossary" id="glossary"><a name="glossary"></a>Glossary</a></h2>
+<h2 id="glossary"><a href="#glossary" name="glossary"><a name="glossary"></a>Glossary</a></h2>
 <p>For a master glossary of terms for Nike APIs, see the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a>.</p>
-<h2><a href="#related-links" id="related-links"><a name="related-links"></a>Related Links</a></h2>
+<h2 id="related-links"><a href="#related-links" name="related-links"><a name="related-links"></a>Related Links</a></h2>
 <p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
 <p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>
 <p><a href="/doc/portal/biz-guides.html" class="absent">Business Guides</a></p>
 <p><a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a></p>
-
+</body>
+</html>
