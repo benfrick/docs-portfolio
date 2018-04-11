@@ -135,8 +135,6 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 <br>
 
->TIP: This guide does not include details of the data transformations. For more info, see [TBD]().
-
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
 For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.
