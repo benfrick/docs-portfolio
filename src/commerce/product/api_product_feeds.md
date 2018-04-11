@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md) for version history for this document.
 
@@ -15,7 +15,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 ---
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Product Feeds](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_product_feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Product Feeds](/doc/commerce/product/biz_product_feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
 
 ## **In this guide:**
 
@@ -100,7 +100,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
+It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
 ### <a name="authentication"></a>Authentication
 
@@ -115,13 +115,13 @@ There are no authentication requirements for Product Feeds except when using the
 |List all Product Threads for a channel, language, marketplace, feed ID, SEO slug, style-color, gender, keywords, and more|*Threads List*|
 |Get a specific Product Thread by its ID|*Product Thread by ID*|
 
->TIP: See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more.
+>TIP: See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more.
 
 ### <a name="example-implementation-diagram"></a>Example Implementation Diagram
 
 Here is an example of a sequence of API calls to get content from Product Feeds v2:
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/seq_dgm.png?)
+![](/images/commerce/product_feeds/seq_dgm.png?)
 
 <br>
 
@@ -148,7 +148,7 @@ Use Product Feeds to get product data and content in the form of Cards, Threads,
 
 To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">here</a>.
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/nike_app_annotated.png)
+![](/images/commerce/product_feeds/nike_app_annotated.png)
 
 <br>
 
@@ -2211,7 +2211,7 @@ The URL pattern used by the Product Feeds API's varies depending on the version,
 
 `https://api.nike.com/product_feed/feeds/v2`
 
->TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
+>TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
 
 ## <a name="best-practices"></a>Best Practices
 
@@ -2239,7 +2239,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) such as <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D" target="_blank">this</a> to check for issues with your request.
 
@@ -2277,7 +2277,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 
@@ -2295,10 +2295,10 @@ No release notes available
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css">
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/events/api_eventsv2.md) for version history of this document.
@@ -13,7 +13,7 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 
 ##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](https://nde-devportal-docs.niketech.com/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
 
 ## **In This Guide:**
 
@@ -61,7 +61,7 @@ Because Analytics Pipeline is server-side and Nike-authored, it is much more cus
 
 Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event. Future integrations with other partners can be done without necessarily changing the contract of this API, thus making it easier (if not completely transparent) to you.
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/events.png)
+![](/images/analytics/events.png)
 
 Here are a few ways in which analytics event data can be used:
 
@@ -127,11 +127,11 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/adobe1.png)
+![](/images/analytics/adobe1.png)
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/adobe2.png)
+![](/images/analytics/adobe2.png)
 
 <br>
 
@@ -326,7 +326,7 @@ Forming a request body to the Analytics Pipeline v2 API requires combining the f
 - One of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/page.json" target="_blank">Page</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/track.json" target="_blank">Track</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/identify.json" target="_blank">Identify</a>
 - All of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/ab-test.json" target="_blank">A-B Test</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/e-commerce.json" target="_blank">E-commerce</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/nike.json" target="_blank">Nike</a>
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/events_v2_schema.png)
+![](/images/analytics/events_v2_schema.png)
 
 >Note: the Nike schema contains a field, **eventType**, that is a direct carryover from v1 (i.e. same exact values must be used). See more below on [Event Types](#event-types).
 
@@ -1364,7 +1364,7 @@ Scenario: the API is having an issue taking the request.
 
 ## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
 
-If you are currently using version 1 of this API and need information for upgrading, see the [Analytics Pipeline v1 Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/events/api_events.html).
+If you are currently using version 1 of this API and need information for upgrading, see the [Analytics Pipeline v1 Developer's Guide](/doc/commerce/events/api_events.html).
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
@@ -1378,7 +1378,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"/>Release Notes
 
@@ -1393,10 +1393,10 @@ There are no release notes at this time.
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

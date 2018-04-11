@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css">
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product.md) for version history of this document.
@@ -13,7 +13,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 
 ##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Product APIs.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Product APIs.
 
 ## **In This Guide:**
 
@@ -95,12 +95,12 @@ The following table describe the key details of the API:
 |Scope/Limitations|<li>NIKEiD is not supported. Although NIKEiD Master products are available in the Merchandised Product API, NIKEiD Prebuild products and paths are not supported. These are required to properly render the NIKEiD experience.<li>Retail data product is available, but not supported. Contact the Product Owner for details.<li>Bulk download of all product data is not supported.<li>Nike Outfits are not supported.<li>No product data metrics are currently sent to Analytics (Business Intelligence).<li>The v2 Merchandised Product SKUs service does not determine if a SKU is in stock. Use the Inventory API to determine if a SKU has inventory.|
 |SLAs|Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms|
 |Domain|Commerce|
-|Prerequisites|[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)|
+|Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
 |Contact Info|Slack <a href="https://nikedigital.slack.com/messages/cic-merch" target="_blank">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: [Lst-digitaltech.merch.apis](mailto:Lst-digitaltech.merch.apis)<br><a name="product-owner"></a>Product Owner: [Scott Alvey](mailto:scott.alvey@nike.com)|
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-To use the Merchandised Product API, you must send a caller ID header in every API request to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create your caller ID.
+To use the Merchandised Product API, you must send a caller ID header in every API request to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create your caller ID.
 
 ### Authentication Requirements
 
@@ -155,7 +155,7 @@ There are a few caveats:
 - Product Feeds responses are larger, so response times may be slightly slower - but still within SLAs.
 - Product Feeds does not provide all of the data that is provided in every service with which it integrates. The data points in some cases are selective.
 
-For the full list of use cases to evaluate if that API is better suited to your product needs, see [Product Threads List](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#product-threads-list).
+For the full list of use cases to evaluate if that API is better suited to your product needs, see [Product Threads List](/doc/commerce/product/api_product_feeds.html#product-threads-list).
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
@@ -221,7 +221,7 @@ Product data originates from two primary upstream systems: <b>Prodigy</b> (via <
 
 The following diagram illustrates the most common patterns for data flow.
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/merch_product/product_data_simplified_flow.png)
+![](/images/commerce/merch_product/product_data_simplified_flow.png)
 
 After a notification from the system of record is received, the Merchandised Product services then decorate the product data with domain-specific elements such as Product UUIDs for each service. Generally Merchandised Product does not modify the data provided by the systems of record. For more information on the IDs that are returned within the Merchandised Product domain, see [Understanding the Various IDs Returned Within Each Response](#understanding-the-various-ids-returned-within-each-response).
 
@@ -268,7 +268,7 @@ These items are divided into a set of microservices. The relationship between th
 <br>
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/merch_product/relationships.png)
+![](/images/commerce/merch_product/relationships.png)
 
 ### <a name="tip-finding-the-data-points-you-need"></a>TIP: Finding the Data Points You Need
 
@@ -320,7 +320,7 @@ A Merch Group is a collection of countries defined in Prodigy. Merch Groups are 
 
 Within each Merch Group, each country may include translations and size conversions for more than one language-dialect.
 
-For most API calls, Merch Group and Country are required. For the current list of supported Merch Groups, countries, and languages see [Merchandised Product API Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products).
+For most API calls, Merch Group and Country are required. For the current list of supported Merch Groups, countries, and languages see [Merchandised Product API Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products).
 
 ### <a name="excluding-countries-where-a-specific-product-should-not-be-offered"></a>Excluding Countries where a Specific Product Should Not Be Offered
 
@@ -472,7 +472,7 @@ Use the Merchandised Products service to list, create, update, and delete mercha
 
 The Merchandised Product service returns all products matching the filter query parameter up to the value supplied in the count parameter. If no count parameter is supplied, up to 25 products are returned. When the count parameter is supplied, the maximum number of products is 25. Product results are sorted by product ID, style-color or style, depending upon the filter query parameters passed in. If the count parameter restricts the results, a **pages** object is returned in the response that the caller can use for pagination.
 
-This is not a [JWT-restricted](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#jwt-json-web-token) service but results differ based on whether or not this header is sent in the request. If no JWT header is supplied, the response contains products matching the criteria and have an ACTIVE status. If a valid JWT header is supplied, the response contains products matching the criteria regardless of status.
+This is not a [JWT-restricted](/doc/getting-started/using_nike_apis.html#jwt-json-web-token) service but results differ based on whether or not this header is sent in the request. If no JWT header is supplied, the response contains products matching the criteria and have an ACTIVE status. If a valid JWT header is supplied, the response contains products matching the criteria regardless of status.
 
 You can list product information for a specific version by ID and by Snapshot ID, which represents the version of the object. If no **snapshotId** parameter is supplied, the most recent version of the product is returned.
 
@@ -490,7 +490,7 @@ The caller does not have to send an access token in the Authorization header (in
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|query|fields and values used to filter the results.<br>maximum of one [merchgroup](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) is required.<br>id + style or style-color is required.<br>maximum of one style is supported.|String|**Required**|
+|**filter**|query|fields and values used to filter the results.<br>maximum of one [merchgroup](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) is required.<br>id + style or style-color is required.<br>maximum of one style is supported.|String|**Required**|
 |**snapshotId**|query|ID representing the product version<br>Allowed in listing by product ID only|String|Optional|
 |**count**|query|number of results to return, default = 25, max = 25|Integer|Optional|
 |**anchor**|query|if the value is 10, results returned start with result 11|Integer|Optional|
@@ -531,8 +531,8 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**id**|Required|ID of the product in UUID format, generated when product flows into Merch Product from Prodigy, will eventually replace **pid**|
 |**snapshotId**|Required|ID of the most recent snapshot of the SKU in UUID format, generated when the product is updated|
 |**modificationDate**|Required|timestamp the product was last modified|
-|**status**|Required|product status, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**merchGroup**|Required|group this product is merchandised to, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**status**|Required|product status, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**merchGroup**|Required|group this product is merchandised to, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**styleCode**|Required|code indicating Nike style|
 |**colorCode**|Required|code indicating Nike color|
 |**styleColor**|Required|concatenation of **styleCode**-**colorCode**|
@@ -543,7 +543,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**brand**|Optional|Nike brand associated to this product such as "Jordan"|
 |**channels**|Optional|array of channels this product is sold in|
 |**legacyCatalogIds**|Optional|array of legacy system catalog ids the product is in, used to map to the **catalogId** UUID|
-|**genders**|Optional|array of genders this product is associated with, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**genders**|Optional|array of genders this product is associated with, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**valueAddedServices**|Optional|array of value-added service objects associated with this product|
 |valueAddedServices.**id**|Optional|value-added-service UUID associated with this product that can be used in the [Merchandised Value Added Services by ID](#merchandised-value-added-services-by-id) endpoint call|
 |valueAddedServices.**publishDate**|Optional|timestamp value-added service was published|
@@ -564,9 +564,9 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |productRollup.**key**|Optional|key of Prodigy rollup attribute associated to the product|
 |**quantityLimit**|Optional|integer restricting how many of this product a customer can purchase at one time|
 |**nikeidStyleNumber**|Optional|Nike ID style code, only populated for products of styleType `NIKEID`|
-|**styleType**|Optional|type of style, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**productType**|Optional|type of product, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**publishType**|Optional|type of publishing, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**styleType**|Optional|type of style, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**productType**|Optional|type of product, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**publishType**|Optional|type of publishing, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**mainColor**|Optional|true or false, indicating this is the main color of the style|
 |**exclusiveAccess**|Required|true or false, indicating whether or not the user must have an access code to unlock the product in order to purchase it|
 |**preOrder**|Optional|true or false, true indicates the PDP should display in preOrder status|
@@ -885,7 +885,7 @@ Use this service to search for multiple SKUs by filter. Search results are sorte
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|query|**id** (SKU UUID), **productid** (product UUID from Merch Product endpoint), 'gtin' (from Merch Product endpoint) or **stockkeepingunitid** (from Merch Product endpoint) is required<br/>[country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) is optional|String|**Required**|
+|**filter**|query|**id** (SKU UUID), **productid** (product UUID from Merch Product endpoint), 'gtin' (from Merch Product endpoint) or **stockkeepingunitid** (from Merch Product endpoint) is required<br/>[country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) is optional|String|**Required**|
 |**snapshotId**|query|Unique ID in UUID format indicating a version of the SKU|String|Optional|
 |**count**|query|Number of results to return. Max = 25|String|Optional|
 |**anchor**|query|If the value is 10, results returned start with result 11|Integer|Optional|
@@ -926,7 +926,7 @@ https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a
 |**parentType**|Optional|type of parent product. In the current version, this is always merchProduct.|
 |**catalogSkuId**|Optional|UUID of catalog product. See [Product Catalog Service](https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md) for more information.|
 |**modificationDate**|Required|date the SKU was last modified|
-|**merchGroup**|Optional|Merchandising group to which this SKU belongs. For more information on Merch Groups, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**merchGroup**|Optional|Merchandising group to which this SKU belongs. For more information on Merch Groups, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**stockKeepingUnitId**|Optional|Deprecated SKU ID that is used for historical purposes by legacy systems.[legacy SKUID](#glossary)|
 |**gtin**|Required|[global trade item number](#glossary)|
 |**nikeSize**|Optional|internal size|
@@ -1049,7 +1049,7 @@ Use this service to search for SKU information by SKU ID. This service returns t
 |**id**|path|sku ID|string|**Required**|
 |**snapshotId**|query|Unique ID in UUID format indicating a version of the SKU|string|Optional|
 |**fields**|query|list of fields to return. if not sent, all fields are returned|string|Optional|
-|**country**|query|[country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) used to localize results|string|Optional|
+|**country**|query|[country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) used to localize results|string|Optional|
 
 #### <a name="merchandised-product-sku-by-id-request-headers"></a>Request Headers
 
@@ -1136,7 +1136,7 @@ The following sections describe each endpoint of the Merchandised Product Price 
 
 ### <a name="merchandised-prices-list"></a>Merchandised Prices List
 
-Use this endpoint to list price data by price ID or by product ID and [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products). Because price values and currency are localized, both country and productid are required parameters when searching by productid. Country is not required when searching by price ID because the price record for a price ID is for a specific country. To get the price ID in the results, first search by productid and country. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
+Use this endpoint to list price data by price ID or by product ID and [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products). Because price values and currency are localized, both country and productid are required parameters when searching by productid. Country is not required when searching by price ID because the price record for a price ID is for a specific country. To get the price ID in the results, first search by productid and country. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
 
 No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.
 
@@ -1150,7 +1150,7 @@ No special headers are required to use this endpoint so it can be executed in an
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|query|productid + [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) or price ID|String|**Required**|
+|**filter**|query|productid + [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) or price ID|String|**Required**|
 |**snapshotId**|query|ID representing the price version|String|Optional|
 |**count**|query|Number of results to return, default = 25, max = 25|Integer|Optional|
 |**anchor**|query|If the value is 10, results returned start with result 11|Integer|Optional|
@@ -1173,7 +1173,7 @@ Let's take a look at *Merchandised Price List* scenarios.
 |Product UUID and a specific location (e.g. Ireland)|https://api.nike.com/merch/prices/v2/?filter=productid(58aaa694-5889-5965-a781-6abcc3e4ff68)&filter=country(IE)|
 |Price UUID 486d098c-a403-5fb7-8305-243d71625d4c and snapshotId 678408f9-0eea-4560-b537-e85c131e9495|https://api.nike.com/merch/prices/v2/?filter=id(486d098c-a403-5fb7-8305-243d71625d4c)&filter=snapshotId(85ebb452-f61c-46a2-b0ce-14a89a542816)|
 
-Note that for the **productid** + [**country**](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) price queries, there is a different price record for each country. Querying by ID is for a specific country.
+Note that for the **productid** + [**country**](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) price queries, there is a different price record for each country. Querying by ID is for a specific country.
 
 ### <a name="merchandised-prices-list-response-body"></a>Response Body
 
@@ -1188,9 +1188,9 @@ Note that for the **productid** + [**country**](https://nde-devportal-docs.niket
 |**parentId**|Optional|ID of parent product this price belongs to, alias for productId|
 |**parentType**|Optional|type of parent product, always merchProduct|
 |**modificationDate**|Required|timestamp the price was last modified|
-|**country**|Required|country of this price, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**country**|Required|country of this price, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**msrp**||manufacturer's recommended retail price. often not provided or may be 0|
-|**fullPrice**|Required| Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strikethrough (e.g. a clearance product) and used by the [Buy API](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#using-checkouts) to calculate the difference between current retail price and full retail price to send to fufillment system|
+|**fullPrice**|Required| Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strikethrough (e.g. a clearance product) and used by the [Buy API](/doc/commerce/checkout/api_checkout.html#using-checkouts) to calculate the difference between current retail price and full retail price to send to fufillment system|
 |**currentPrice**|Required|purchase price of product. if discounted, price is calculated in Prodigy/PI|
 |**employeePrice**|Required|employee price of product|
 |**currency**|Required|localized currency according to country|
@@ -1240,7 +1240,7 @@ Sample *Merchandised Prices List* 200 successful response:
 
 ### <a name="merchandised-prices-by-id"></a>Merchandised Prices by ID
 
-Use this endpoint to list price data by price ID. To get the price ID, search by productid and [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) using the [Merchandised Prices List](#merchandised-prices-list) endpoint and Price ID is returned in the results. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
+Use this endpoint to list price data by price ID. To get the price ID, search by productid and [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) using the [Merchandised Prices List](#merchandised-prices-list) endpoint and Price ID is returned in the results. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
 
 Results from this endpoint are almost identical to those returned from the [Merchandised Product List](#merchandised-product-list) endpoint. The difference is no pagination data is returned and you can only search by one price ID at a time.
 
@@ -1395,8 +1395,8 @@ There is no body in a GET request.
 |**id**|Required|ID of the VAS in UUID format, generated when VAS flows into Merchandised VAS from Prodigy|
 |**snapshotId**|Required|ID of the most recent snapshot of the VAS in UUID format|
 |**modificationDate**|Required|timestamp the VAS was last modified|
-|**status**|Required|VAS status, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**merchGroup**|Required|merchandising group this VAS is merchandised to, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**status**|Required|VAS status, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
+|**merchGroup**|Required|merchandising group this VAS is merchandised to, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**pid**|Required|legacy product id used to map to the product UUID|
 |**type**|Required|VAS type|
 |**displayName**|Optional|VAS display name|
@@ -1539,7 +1539,7 @@ Sample *Merchandised Value Added Services by ID* 200 successful response:
 
 ### <a name="product-content-services-overview"></a>Product Content Overview
 
-Use these services to list product content such as title, subtitle, description, and images by [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale.
+Use these services to list product content such as title, subtitle, description, and images by [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale.
 
 There are two sets of Product Content services, internal and external. External services go through the public router (api.nike.com and snkrs.prod.commerce.nikecloud.com) and return product information for products in the ACTIVE and CLOSEOUT status. Internal services go through the frame router (frame.prod.commerce.nikecloud.com). These services return identical fields to the external services but they return all products regardless of status. When making service to service calls, use the internal Product Content endpoints.
 
@@ -1549,7 +1549,7 @@ The following sections describe each endpoint of the Product Content Services AP
 
 ### <a name="product-content-by-style-color"></a>Product Content by Style Color
 
-Use this endpoint to list localized product content for a style-color, [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale.
+Use this endpoint to list localized product content for a style-color, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale.
 
 ### Endpoint Details
 
@@ -1562,7 +1562,7 @@ Use this endpoint to list localized product content for a style-color, [country]
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
 |**style-color**|Path|style-color code of content|String|Required|
-|**country**|Query|country used to localize the content for the correct country, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|String|Required|
+|**country**|Query|country used to localize the content for the correct country, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|String|Required|
 |**locale**|Query|locale used to localize the content for the correct language|String|Required|
 
 Let's take a look at some *Product Content by Style Color* scenarios.
@@ -1700,7 +1700,7 @@ Sample *Product Content by Style Color* response body:
 
 ### <a name="product-content-by-style-color-list"></a>Product Content by Style Color List
 
-Use this endpoint to list localized product content for a list of style-colors, [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one country and locale is supported.
+Use this endpoint to list localized product content for a list of style-colors, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one country and locale is supported.
 
 ### Endpoint Details
 
@@ -1870,7 +1870,7 @@ Sample *Product Content by Style Color List* response body:
 
 ### <a name="product-content-item-by-style-color"></a>Product Content Item by Style Color
 
-Use this endpoint to list one item (field) of product content for a style-color, [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one style-color, itemName, country and locale is supported. You can use any valid itemName in the path parameter.
+Use this endpoint to list one item (field) of product content for a style-color, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one style-color, itemName, country and locale is supported. You can use any valid itemName in the path parameter.
 
 ### Endpoint Details
 
@@ -1884,7 +1884,7 @@ Use this endpoint to list one item (field) of product content for a style-color,
 |---|---|---|---|---|
 |**style-color**|Path|style-color code|String|**Required**|
 |**itemName**|Path|any product content item name e.g. colorDescription or title|String|**Required**|
-|**country**|Query|country used to localize the content, see [Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|String|**Required**|
+|**country**|Query|country used to localize the content, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|String|**Required**|
 |**locale**|Query|locale used to localize the content for the correct language|String|**Required**|
 
 Let's take a look at some *Product Content Item by Style Color* scenarios.
@@ -1929,7 +1929,7 @@ Sample *Product Content Item by Style Color List* response body:
 
 ### <a name="product-content-field-by-style-color-list"></a>Product Content Field by Style Color List
 
-Use this endpoint to list one item (field) of product content for a list of style-colors, [country](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one itemName, country and locale is supported. You can use any valid itemName in the path parameter.
+Use this endpoint to list one item (field) of product content for a list of style-colors, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one itemName, country and locale is supported. You can use any valid itemName in the path parameter.
 
 ### Endpoint Details
 
@@ -2336,7 +2336,7 @@ If none of these scenarios apply, contact the Merchandised Product team on the #
 * URI, headers and body (if POST request)
 * context in which your request was executed (service-to-service, app, web)
 * environment in which your request was executed (test, prod, performance)
-* Splunk [TraceId](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#query-logs-with-a-trace-id)
+* Splunk [TraceId](/doc/getting-started/using_nike_apis.html#query-logs-with-a-trace-id)
 
 ## <a name="glossary"></a>Glossary
 
@@ -2368,12 +2368,12 @@ There are no release notes at this time.
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)
 
-[Merchandised Product Field Reference Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)
+[Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)

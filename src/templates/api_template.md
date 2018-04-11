@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
 See Bitbucket (link to .md in APID repository) for version history of this document.
@@ -14,7 +14,7 @@ SME Consultants:
 
 ---
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the {API Name} API.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the {API Name} API.
 
 ## **In this guide:**
 
@@ -78,7 +78,7 @@ If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/gett
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) on how to create and register your caller ID.
 
 ### <a name="authorization"></a>Authorization
 
@@ -261,7 +261,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 * What are the terms and concepts used in this API that are not common? Add them to the master glossary at the link below.
 -->
 
-See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 <!--
@@ -276,10 +276,10 @@ See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/g
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

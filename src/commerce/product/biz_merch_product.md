@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 # GET STARTED WITH MERCHANDISED PRODUCT API <i class="g72-swoosh"></i> (DRAFT)
 
@@ -33,7 +33,7 @@ The Merchandised Product API provides access to product content and pricing that
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/merch_product/aj1_retro_es.png)
+![](/images/commerce/merch_product/aj1_retro_es.png)
 
 ## <a name="features"/>Features
 
@@ -75,18 +75,18 @@ We're here to help.
 
 **From here, explore the Merchandised Product API in detail through the Developer Guide.  Learn more about the product data.  Read about how the Product Feeds API consumes this data**
 
-<i class="g72-plus-large"></i> [Merchandised Product API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html)
+<i class="g72-plus-large"></i> [Merchandised Product API Developer's Guide](/doc/commerce/product/api_merch_product.html)
 
-<i class="g72-plus-large"></i> [Merchandised Product Field Reference](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)
+<i class="g72-plus-large"></i> [Merchandised Product Field Reference](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)
 
-<i class="g72-plus-large"></i> [Get Started with the Product Feeds API](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_product_feeds.html)
+<i class="g72-plus-large"></i> [Get Started with the Product Feeds API](/doc/commerce/product/biz_product_feeds.html)
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

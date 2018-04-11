@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 # Developer Portal Migration Guide <i class="g72-swoosh"></i> (DRAFT)
 
@@ -23,13 +23,13 @@ This section covers how common use cases from the legacy portal can be achieved 
 
 From the APIs A-to-Z view, which is the default view, enter search text in the prompt at the upper right of the screen:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/dev_portal_search.png)
+![](/images/portal_migration/dev_portal_search.png)
 
 #### New Portal
 
 From the Search view, which is the default view, enter search text in the prompt at the top of the screen:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/new_portal_search.png)
+![](/images/portal_migration/new_portal_search.png)
 
 ### Navigate to an API
 
@@ -37,17 +37,17 @@ From the Search view, which is the default view, enter search text in the prompt
 
 Click the Domain icon at the top of the left navigation pane, click to expand a domain, then click to select an API:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/dev_portal_left_nav.png)
+![](/images/portal_migration/dev_portal_left_nav.png)
 
 #### New Portal
 
 Option 1: from the Domains drop-down menu, select a domain, then click on an API from the displayed list:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/new_portal_nav1.png)
+![](/images/portal_migration/new_portal_nav1.png)
 
 Option 2: from the left navigation menu, click Service Catalog, then either enter search text or select from the Domains drop-down (or both):
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/new_portal_nav2.png)
+![](/images/portal_migration/new_portal_nav2.png)
 
 ### Use 'Try it Out' for an API
 
@@ -55,37 +55,37 @@ Option 2: from the left navigation menu, click Service Catalog, then either ente
 
 Select Swagger view:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/dev_portal_swagger_tab.png)
+![](/images/portal_migration/dev_portal_swagger_tab.png)
 
 Click Login icon in upper right of screen:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/dev_portal_login_icon.png)
+![](/images/portal_migration/dev_portal_login_icon.png)
 
 Log in with your Nike+ account:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/dev_portal_logIn_window.png)
+![](/images/portal_migration/dev_portal_logIn_window.png)
 
 Expand endpoint, then execute a request:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/dev_portal_try_it_out.png)
+![](/images/portal_migration/dev_portal_try_it_out.png)
 
 #### New Portal
 
 Click Login button in left navigation pane (uses Nike single sign-on):
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/new_portal_login_icon.png)
+![](/images/portal_migration/new_portal_login_icon.png)
 
 Select API tab, then click Convert to Swagger button:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/new_portal_swagger_icon.png)
+![](/images/portal_migration/new_portal_swagger_icon.png)
 
 Click Try it Out to begin:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/new_portal_try_it_out1.png)
+![](/images/portal_migration/new_portal_try_it_out1.png)
 
 Enter the info for the request, then click Execute:
 
-![](https://nde-devportal-docs.niketech.com/images/portal_migration/new_portal_try_it_out2.png)
+![](/images/portal_migration/new_portal_try_it_out2.png)
 
 ### Add/Update/Remove an API
 
