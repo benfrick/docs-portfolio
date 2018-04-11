@@ -5,16 +5,16 @@
 <body>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"></link>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"></link>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"></link>
+<script src="/js/nde.js" type="text/javascript"></script>
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product_reference.md) for version history of this document.
 Author:  Jane Moore
 -->
-<h1 id="merchandised-product-field-reference--draft"><a href="#merchandised-product-field-reference--draft" name="merchandised-product-field-reference--draft" class="anchor"><span class="octicon octicon-link"></span></a>MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i> (DRAFT)</h1>
-<h5 id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></h5>
+<h1 id="merchandised-product-field-reference--draft"><a href="#merchandised-product-field-reference--draft" name="merchandised-product-field-reference--draft">MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i> (DRAFT)</a></h1>
+<h5 id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
 <p>This guide describes the product and value-added service merchandising codes flowing from Prodigy (the system of record) to the Merchandised Product API.</p>
-<p>See the <a href="https://nde-devportal-docs.niketech.com/doc/commerce/reference/global.html">Global Reference Guide</a> for the list of countries, languages, channels and brands that the NIKE APIs support.</p>
+<p>See the <a href="/doc/commerce/reference/global.html" class="absent">Global Reference Guide</a> for the list of countries, languages, channels and brands that the NIKE APIs support.</p>
 <ul>
   <li><a href="#status-codes">Status Codes</a></li>
   <li><a href="#merchandising-groups">Merchandising Groups</a></li>
@@ -23,92 +23,92 @@ Author:  Jane Moore
   <li><a href="#style-types">Style Types</a></li>
   <li><a href="#publish-types">Publish Types</a></li>
 </ul>
-<h2 id="status-codes"><a href="#status-codes" name="status-codes" class="anchor"><span class="octicon octicon-link"></span></a><a name="status-codes">Status Codes</a></h2>
+<h2 id="status-codes"><a href="#status-codes" name="status-codes"><a name="status-codes">Status Codes</a></a></h2>
 <p>Listed below are the product and value-added service status codes.</p>
 <table>
   <thead>
-    <tr><th>Status Code</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Status Code</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>ACTIVE</strong></td><td>Fully merchandised and ready for customer purchase</td></tr>
-    <tr><td><strong>INACTIVE</strong></td><td>Incompletely merchandised and not ready for customer purchase</td></tr>
-    <tr><td><strong>HOLD</strong></td><td>Fully merchandised but not ready for customer purchase</td></tr>
-    <tr><td><strong>CANCEL</strong></td><td>No longer available for purchase</td></tr>
-    <tr><td><strong>CLOSEOUT</strong></td><td>Nearing end of purchase cycle</td></tr>
+    <tr class="tbody-first-child"><td><strong>ACTIVE</strong></td><td>Fully merchandised and ready for customer purchase</td></tr>
+    <tr class="tbody-even-child"><td><strong>INACTIVE</strong></td><td>Incompletely merchandised and not ready for customer purchase</td></tr>
+    <tr class="tbody-odd-child"><td><strong>HOLD</strong></td><td>Fully merchandised but not ready for customer purchase</td></tr>
+    <tr class="tbody-even-child"><td><strong>CANCEL</strong></td><td>No longer available for purchase</td></tr>
+    <tr class="tbody-odd-child"><td><strong>CLOSEOUT</strong></td><td>Nearing end of purchase cycle</td></tr>
   </tbody>
 </table>
-<h2 id="merchandising-groups"><a href="#merchandising-groups" name="merchandising-groups" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandising-groups">Merchandising Groups</a></h2>
+<h2 id="merchandising-groups"><a href="#merchandising-groups" name="merchandising-groups"><a name="merchandising-groups">Merchandising Groups</a></a></h2>
 <p>Listed below are the merchandising group codes and the countries included within each NIKE sales geography.</p>
 <table>
   <thead>
-    <tr><th>CN</th><th>EU</th><th>JP</th><th>US</th><th>XP</th></tr>
+    <tr class="thead-first-child"><th>CN</th><th>EU</th><th>JP</th><th>US</th><th>XP</th></tr>
   </thead>
   <tbody>
-    <tr><td>China</td><td>Austria<br>Belgium<br>Czech Republic<br>Denmark<br>Finland<br>France<br>Germany<br>Greece<br>Hungary<br>Ireland<br>Italy<br>Luxembourg<br>Netherlands<br>Poland<br>Portugal<br>Slovenia<br>Spain<br>Sweden<br>United Kingdom</td><td>Japan</td><td>United States</td><td>for future use</td></tr>
+    <tr class="tbody-first-child"><td>China</td><td>Austria<br>Belgium<br>Czech Republic<br>Denmark<br>Finland<br>France<br>Germany<br>Greece<br>Hungary<br>Ireland<br>Italy<br>Luxembourg<br>Netherlands<br>Poland<br>Portugal<br>Slovenia<br>Spain<br>Sweden<br>United Kingdom</td><td>Japan</td><td>United States</td><td>for future use</td></tr>
   </tbody>
 </table>
-<h2 id="genders"><a href="#genders" name="genders" class="anchor"><span class="octicon octicon-link"></span></a><a name="genders">Genders</a></h2>
+<h2 id="genders"><a href="#genders" name="genders"><a name="genders">Genders</a></a></h2>
 <p>Listed below are the gender codes.  Adult unisex products are merchandised with both &quot;MEN&quot; and &quot;WOMEN&quot; gender codes.</p>
 <table>
   <thead>
-    <tr><th>Gender Code</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Gender Code</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>MEN</strong></td><td>Male adult</td></tr>
-    <tr><td><strong>WOMEN</strong></td><td>Female adult</td></tr>
-    <tr><td><strong>BOYS</strong></td><td>Male child</td></tr>
-    <tr><td><strong>GIRLS</strong></td><td>Female child</td></tr>
-    <tr><td><strong>KIDS</strong></td><td>Unisex child</td></tr>
+    <tr class="tbody-first-child"><td><strong>MEN</strong></td><td>Male adult</td></tr>
+    <tr class="tbody-even-child"><td><strong>WOMEN</strong></td><td>Female adult</td></tr>
+    <tr class="tbody-odd-child"><td><strong>BOYS</strong></td><td>Male child</td></tr>
+    <tr class="tbody-even-child"><td><strong>GIRLS</strong></td><td>Female child</td></tr>
+    <tr class="tbody-odd-child"><td><strong>KIDS</strong></td><td>Unisex child</td></tr>
   </tbody>
 </table>
-<h2 id="product-types"><a href="#product-types" name="product-types" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-types">Product Types</a></h2>
+<h2 id="product-types"><a href="#product-types" name="product-types"><a name="product-types">Product Types</a></a></h2>
 <p>Listed below are the product type codes.</p>
 <table>
   <thead>
-    <tr><th>Style Code</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Style Code</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>FOOTWEAR</strong></td><td>Product that covers the foot</td></tr>
-    <tr><td><strong>APPAREL</strong></td><td>Product that covers the body </td></tr>
-    <tr><td><strong>EQUIPMENT</strong></td><td>Product that is core to playing a sport such as shin guards or soccer ball</td></tr>
-    <tr><td><strong>ACCESSORIES</strong></td><td>Product that is not core to playing a sport such as sunglasses or a water bottle</td></tr>
-    <tr><td><strong>PHYSICAL_GIFT_CARD</strong></td><td>Physical, pre-loaded debit card shipped to the customer</td></tr>
-    <tr><td><strong>DIGITAL_GIFT_CARD</strong></td><td>Electronic, pre-loaded debit card sent electronically to the customer</td></tr>
-    <tr><td><strong>VOUCHER</strong></td><td>Credit given to a customer after returning a product that the customer uses to purchase other products and services</td></tr>
-    <tr><td><strong>GIFT_WRAP</strong></td><td>Value-added service where product is wrapped for gift purposes</td></tr>
-    <tr><td><strong>GIFT_MESSAGE</strong></td><td>Value-added service where a gift message is packaged with the product</td></tr>
-    <tr><td><strong>JERSEY_ID</strong></td><td>Team jersey product bought in bulk for a team with customizable team number, emblem and name. This is not a NIKEiD product.</td></tr>
+    <tr class="tbody-first-child"><td><strong>FOOTWEAR</strong></td><td>Product that covers the foot</td></tr>
+    <tr class="tbody-even-child"><td><strong>APPAREL</strong></td><td>Product that covers the body </td></tr>
+    <tr class="tbody-odd-child"><td><strong>EQUIPMENT</strong></td><td>Product that is core to playing a sport such as shin guards or soccer ball</td></tr>
+    <tr class="tbody-even-child"><td><strong>ACCESSORIES</strong></td><td>Product that is not core to playing a sport such as sunglasses or a water bottle</td></tr>
+    <tr class="tbody-odd-child"><td><strong>PHYSICAL_GIFT_CARD</strong></td><td>Physical, pre-loaded debit card shipped to the customer</td></tr>
+    <tr class="tbody-even-child"><td><strong>DIGITAL_GIFT_CARD</strong></td><td>Electronic, pre-loaded debit card sent electronically to the customer</td></tr>
+    <tr class="tbody-odd-child"><td><strong>VOUCHER</strong></td><td>Credit given to a customer after returning a product that the customer uses to purchase other products and services</td></tr>
+    <tr class="tbody-even-child"><td><strong>GIFT_WRAP</strong></td><td>Value-added service where product is wrapped for gift purposes</td></tr>
+    <tr class="tbody-odd-child"><td><strong>GIFT_MESSAGE</strong></td><td>Value-added service where a gift message is packaged with the product</td></tr>
+    <tr class="tbody-even-child"><td><strong>JERSEY_ID</strong></td><td>Team jersey product bought in bulk for a team with customizable team number, emblem and name. This is not a NIKEiD product.</td></tr>
   </tbody>
 </table>
-<h2 id="style-types"><a href="#style-types" name="style-types" class="anchor"><span class="octicon octicon-link"></span></a><a name="style-types">Style Types</a></h2>
+<h2 id="style-types"><a href="#style-types" name="style-types"><a name="style-types">Style Types</a></a></h2>
 <p>Listed below are the product style codes.</p>
 <table>
   <thead>
-    <tr><th>Style Code</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Style Code</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>INLINE</strong></td><td>Non-customizable, saleable product</td></tr>
-    <tr><td><strong>NIKEID</strong></td><td>Customizable, saleable product built to order per customer specifications such as color, badge, material etc.</td></tr>
-    <tr><td><strong>VALUE_ADDED_SERVICE</strong></td><td>Saleable service customer purchases as a product add-on such as custom embroidering, gift wrap and gift messaging</td></tr>
-    <tr><td><strong>GIFT_CARD</strong></td><td>Physical or electronic debit card customer uses to purchase products and services</td></tr>
-    <tr><td><strong>VOUCHER</strong></td><td>Credit given to a customer after returning a product that the customer uses to purchase other products and services</td></tr>
+    <tr class="tbody-first-child"><td><strong>INLINE</strong></td><td>Non-customizable, saleable product</td></tr>
+    <tr class="tbody-even-child"><td><strong>NIKEID</strong></td><td>Customizable, saleable product built to order per customer specifications such as color, badge, material etc.</td></tr>
+    <tr class="tbody-odd-child"><td><strong>VALUE_ADDED_SERVICE</strong></td><td>Saleable service customer purchases as a product add-on such as custom embroidering, gift wrap and gift messaging</td></tr>
+    <tr class="tbody-even-child"><td><strong>GIFT_CARD</strong></td><td>Physical or electronic debit card customer uses to purchase products and services</td></tr>
+    <tr class="tbody-odd-child"><td><strong>VOUCHER</strong></td><td>Credit given to a customer after returning a product that the customer uses to purchase other products and services</td></tr>
   </tbody>
 </table>
-<h2 id="publish-types"><a href="#publish-types" name="publish-types" class="anchor"><span class="octicon octicon-link"></span></a><a name="publish-types">Publish Types</a></h2>
+<h2 id="publish-types"><a href="#publish-types" name="publish-types"><a name="publish-types">Publish Types</a></a></h2>
 <p>Listed below are the publish type codes.</p>
 <table>
   <thead>
-    <tr><th>Publish Code</th><th>Description</th></tr>
+    <tr class="thead-first-child"><th>Publish Code</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>FLOW</strong></td><td>Product that is available to all NIKE customers for purchase when merchandising is complete and inventory is available</td></tr>
-    <tr><td><strong>LAUNCH</strong></td><td>Product that is available for purchase by certain NIKE customers for a discrete time period when merchandising is complete and inventory is available</td></tr>
+    <tr class="tbody-first-child"><td><strong>FLOW</strong></td><td>Product that is available to all NIKE customers for purchase when merchandising is complete and inventory is available</td></tr>
+    <tr class="tbody-even-child"><td><strong>LAUNCH</strong></td><td>Product that is available for purchase by certain NIKE customers for a discrete time period when merchandising is complete and inventory is available</td></tr>
   </tbody>
 </table>
-<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
-<p><a href="https://nde-devportal-docs.niketech.com/index.html">NDe Documentation Home</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html">Getting Started</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/biz-guides.html">Business Guides</a></p>
-<p><a href="https://nde-devportal-docs.niketech.com/doc/dev-guides.html">Developer's Guides</a></p>
+<h2 id="related-links"><a href="#related-links" name="related-links"><a name="related-links"></a>Related Links</a></h2>
+<p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
+<p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>
+<p><a href="/doc/portal/biz-guides.html" class="absent">Business Guides</a></p>
+<p><a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a></p>
 </body>
 </html>

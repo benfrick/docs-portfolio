@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://nde-devportal-docs.niketech.com/css/style.css"/>
-<script src="https://nde-devportal-docs.niketech.com/js/nde.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 # Get Started with Checkout <i class="g72-swoosh"></i>
 
@@ -31,7 +31,7 @@ Drive traffic and engagement in your app by leveraging Nike Checkout today!
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/payment/snkrs_payment.png)
+![](/images/commerce/payment/snkrs_payment.png)
 
 ## <a name="features"/>Features
 
@@ -73,20 +73,20 @@ We're here to help.
 
 **The journey begins now!**
 
-<i class="g72-plus-large"></i> [Buy Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html)
+<i class="g72-plus-large"></i> [Buy Domain Developer's Guide](/doc/commerce/checkout/api_checkout.html)
 
-<i class="g72-plus-large"></i> [Supported Countries and Currencies](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html)
+<i class="g72-plus-large"></i> [Supported Countries and Currencies](/doc/commerce/checkout/checkout_country_currency.html)
 
-<i class="g72-plus-large"></i> [Get Started with Payment](https://nde-devportal-docs.niketech.com/doc/commerce/payment/biz_payment.html)
+<i class="g72-plus-large"></i> [Get Started with Payment](/doc/commerce/payment/biz_payment.html)
 
-<i class="g72-plus-large"></i> [SLA Documentation](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/api_checkout.html#api-at-a-glance)
+<i class="g72-plus-large"></i> [SLA Documentation](/doc/commerce/checkout/api_checkout.html#api-at-a-glance)
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)
