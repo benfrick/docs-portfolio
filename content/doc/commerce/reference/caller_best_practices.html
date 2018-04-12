@@ -11,11 +11,11 @@
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/reference/caller_best_practices.md) for version history of this document.
 Author:  Jane Moore
 -->
-<h1 id="launch-best-practices-guide--draft"><a href="#launch-best-practices-guide--draft" name="launch-best-practices-guide--draft">LAUNCH BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)</a></h1>
-<h5 id="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-04032018submit-feedback-api-doc-slack-channel-nde-doc">Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a></a></h5>
-<p>This guide discusses best practices for calling NDe commerce services during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the <a href="#service-call-best-practices">Service Call Best Practices</a> section, specific performance, retry and fallback best practices are listed by service.</p>
+<h1 id="circuit-breaker-best-practices-guide--draft"><a href="#circuit-breaker-best-practices-guide--draft" name="circuit-breaker-best-practices-guide--draft">CIRCUIT BREAKER BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)</a></h1>
+<h5 id="last-updated-04122018submit-feedback-dev-portal-slack-channel-devportal"><a href="#last-updated-04122018submit-feedback-dev-portal-slack-channel-devportal" name="last-updated-04122018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 04/12/2018<br/>Submit Feedback: Dev Portal <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">Slack channel #devportal</a></a></h5>
+<p>This guide discusses best practices for calling NDe micro services, highlighting those services called during a product launch. Heavy traffic periods such as high-heat launches put an intense load on services and system resources. The goal of this document is to provide best practices for clients to avoid putting unnecessary further stress on system health. In addition to the general recommendations listed in the <a href="#client-best-practices">Client Best Practices</a> section, specific performance, retry and fallback best practices are listed by service.</p>
 <ul>
-  <li><a href="#service-call-best-practices">Service Call Best Practices</a></li>
+  <li><a href="#client-best-practices">Client Best Practices</a></li>
   <li><a href="#availability">Availability Service</a></li>
   <li><a href="#buy-service">Buy Service</a></li>
   <li><a href="#launch-service">Launch Service</a></li>
@@ -23,12 +23,12 @@ Author:  Jane Moore
   <li><a href="#payment-service">Payment Service</a></li>
   <li><a href="#product-feeds-service">Product Feeds Service</a></li>
 </ul>
-<h2 id="service-call-best-practices"><a href="#service-call-best-practices" name="service-call-best-practices"><a name="service-call-best-practices"/>Service Call Best Practices</a></h2>
-<p>Many factors can affect microservice performance and availability such as heavy network traffic and instance and database under scaling.  Eureka instability also contributes to the problem by leaving services unable to know where to send requests. While these factors are not in the control of the service caller, there are actions that callers should take to help ensure system health.</p>
+<h2 id="client-best-practices"><a href="#client-best-practices" name="client-best-practices"><a name="client-best-practices"/>Client Best Practices</a></h2>
+<p>Many factors can affect micro service performance and availability such as heavy network traffic and instance and database under scaling.  Eureka instability also contributes to the problem by leaving services unable to know where to send requests. While these factors are not in the control of the service caller, there are actions that clients should take to help ensure system health.</p>
 <h3 id="use-the-circuit-breaker-pattern"><a href="#use-the-circuit-breaker-pattern" name="use-the-circuit-breaker-pattern">Use the Circuit Breaker Pattern</a></h3>
-<p>Use the <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank">Circuit Breaker Pattern</a> when calling other services (either internal or external) to avoid waiting indefinitely for a response from a non-responsive service and to provide fallback behavior for a service failure. <a href="https://github.com/Netflix/Hystrix" target="_blank">Hystrix</a> and <a href="https://github.com/Nike-Inc/fastbreak" target="_blank">FastBreak</a> are examples of Circuit Breaker libraries currently used by Nike microservices.</p>
+<p>Use the <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank">Circuit Breaker Pattern</a> when calling other services (either internal or external) to avoid waiting indefinitely for a response from a non-responsive service and to provide fallback behavior for a service failure. <a href="https://github.com/Netflix/Hystrix" target="_blank">Hystrix</a> and <a href="https://github.com/Nike-Inc/fastbreak" target="_blank">FastBreak</a> are examples of Circuit Breaker libraries currently used by Nike micro services.</p>
 <h3 id="use-the-exponential-backoff-retry-pattern"><a href="#use-the-exponential-backoff-retry-pattern" name="use-the-exponential-backoff-retry-pattern">Use the Exponential Backoff Retry Pattern</a></h3>
-<p>Unless otherwise noted, callers should follow the <a href="https://dzone.com/articles/understanding-retry-pattern-with-exponential-back" target="_blank">Exponential Backoff Retry Pattern</a> to determine how long to wait in between retries without modifying the request when the service returns a 429 or 5xx error. To use this pattern, a backoff increment value is used to calculate the wait time between retries. Wait time is calculated by wait time + backoff increment. For example, when the backoff increment is 100ms, the first four retry wait times are listed below.</p>
+<p>Unless otherwise noted, callers should follow the <a href="https://dzone.com/articles/understanding-retry-pattern-with-exponential-back" target="_blank">Exponential Backoff Retry Pattern</a> to determine how long to wait in between retries without modifying the request when the service returns a 429 or 5xx error. To use this pattern, a backoff increment value is used to calculate the wait time between retries. Wait time is calculated by wait time + backoff increment. For example, when the backoff increment is 100ms, the first four retry wait times are listed below. It is up to the caller to determine the number of times to retry before executing fallback behavior.</p>
 <ul>
   <li>1st retry: 100ms</li>
   <li>2nd retry: 200ms</li>
@@ -39,7 +39,7 @@ Author:  Jane Moore
 <p>Clients should consider using <a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/" target="_blank">Jitter</a> to more randomly distribute retry calls to decrease load on the service.</p>
 <p>Visit <a href="https://confluence.nike.com/display/DAHP/API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> for more information on retry recommendations.</p>
 <h3 id="use-distributed-tracing"><a href="#use-distributed-tracing" name="use-distributed-tracing">Use Distributed Tracing</a></h3>
-<p>Many of Nike's microservices make calls to other services, quickly fanning out processing control. This complexity can make it difficult to troubleshoot bottlenecks and debug problems. Distributed tracing can help this situation by stepping through the round trip of a request and illuminating problems. <a href="https://github.com/Nike-Inc/wingtips" target="_blank">Wingtips</a> is the recommended distributed tracing tool.</p>
+<p>Many of Nike's micro services make calls to other services, quickly fanning out processing control. This complexity can make it difficult to troubleshoot bottlenecks and debug problems. Distributed tracing can help this situation by stepping through the round trip of a request and illuminating problems. <a href="https://github.com/Nike-Inc/wingtips" target="_blank">Wingtips</a> is the recommended distributed tracing tool.</p>
 <h3 id="be-aware-of-bot-rules"><a href="#be-aware-of-bot-rules" name="be-aware-of-bot-rules">Be Aware of Bot Rules</a></h3>
 <p>Bot rules are in place that block calls to these APIs by IP and upmid for a period of time when more than 300 calls per minute come through the public and edge routers. Service-to-service calls are not affected by these limits. For more information visit <a href="https://confluence.nike.com/pages/viewpage.action?pageId=154879250" target="_blank">Bot Monitoring and Mitigation</a>.</p>
 <h2 id="buy-service"><a href="#buy-service" name="buy-service"><a name="buy-service"/>Buy Service</a></h2>
@@ -63,7 +63,7 @@ Author:  Jane Moore
   <tbody>
     <tr class="tbody-first-child"><td><strong>Validation</strong></td><td>Pass in all Checkout items and a valid two-digit ISO country. When updating an existing cart, ensure the request brand, channel and region matches the saved cart.</td></tr>
     <tr class="tbody-even-child"><td><strong>Performance</strong></td><td>Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.</td></tr>
-    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td>Carts repeated call failure to the Merchandised Product, Merchandised Skus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation.</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td>Carts repeated call failure to the Merchandised Product, Merchandised SKUsSkus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation.</td></tr>
     <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td></td></tr>
     <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td></td></tr>
     <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td>None</td></tr>
@@ -159,7 +159,7 @@ Author:  Jane Moore
     <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
   </thead>
   <tbody>
-    <tr class="tbody-first-child"><td><strong>Performance</strong></td><td>When calling the <code>Product Availability List</code> endpoint, send 5 productids in batch at a time.</td></tr>
+    <tr class="tbody-first-child"><td><strong>Performance</strong></td><td>When calling the <code>Product Availability List</code> endpoint, send 5 product ids in batch at a time.</td></tr>
     <tr class="tbody-even-child"><td><strong>Circuit breaker trigger</strong></td><td>Product Availability's repeated call failure to the Merchandised Product service</td></tr>
     <tr class="tbody-odd-child"><td><strong>Circuit breaker fallback behavior</strong></td><td>None</td></tr>
     <tr class="tbody-even-child"><td><strong>Retry pattern for API callers</strong></td><td>Use the Exponential Backoff Retry Pattern, waiting 100ms between calls. The caller should determine the retry limit.</td></tr>
@@ -173,7 +173,7 @@ Author:  Jane Moore
     <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
   </thead>
   <tbody>
-    <tr class="tbody-first-child"><td><strong>Performance</strong></td><td>When calling the <code>Get SKU Availability Multi</code> endpoint, send up to 25 skuids or 5 productids in batch at a time.</td></tr>
+    <tr class="tbody-first-child"><td><strong>Performance</strong></td><td>When calling the <code>Get SKU Availability Multi</code> endpoint, send up to 25 sku ids or 5 product ids in batch at a time.</td></tr>
     <tr class="tbody-even-child"><td><strong>Circuit breaker trigger</strong></td><td>Available SKUs' repeated call failure to the Merchandised Product service or Merchandised SKU service</td></tr>
     <tr class="tbody-odd-child"><td><strong>Circuit breaker fallback behavior</strong></td><td>None</td></tr>
     <tr class="tbody-even-child"><td><strong>Retry pattern for API callers</strong></td><td>Use the Exponential Backoff Retry Pattern, waiting 100ms between calls. The caller should determine the retry limit.</td></tr>
@@ -376,8 +376,74 @@ Author:  Jane Moore
     <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td>None</td></tr>
   </tbody>
 </table>
-<h2 id="product-feeds-service"><a href="#product-feeds-service" name="product-feeds-service"><a name="product-feeds-service"/>Product Feeds Service</a></h2>
-<p>TBD</p>
+<h2 id="product-feeds-service-information-coming-soon"><a href="#product-feeds-service-information-coming-soon" name="product-feeds-service-information-coming-soon"><a name="product-feeds-service"/>Product Feeds Service (Information Coming Soon)</a></h2>
+<p>Listed below are the best practices for calling each Product Feed service.</p>
+<ul>
+  <li><a href="#all-product-feeds">All Product Feeds</a></li>
+  <li><a href="#product-feed-by-id">Product Feed by ID</a></li>
+  <li><a href="#product-threads-list">Product Threads List</a></li>
+  <li><a href="#product-thread-by-id">Product Thread by ID</a></li>
+</ul>
+<h3 id="all-product-feeds"><a href="#all-product-feeds" name="all-product-feeds"><a name="all-product-feeds"/>All Product Feeds</a></h3>
+<p><strong>Endpoint:</strong> /product_feed/feeds/v2{?filter}</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>Validation</strong></td><td>Pass in a valid channel ID filter parameter.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Performance</strong></td><td>None</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td></td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td></td></tr>
+  </tbody>
+</table>
+<h3 id="product-feed-by-id"><a href="#product-feed-by-id" name="product-feed-by-id"><a name="product-feed-by-id"/>Product Feed by ID</a></h3>
+<p><strong>Endpoint:</strong> /product_feed/feeds/v2/{id}</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>Validation</strong></td><td>Pass in a valid feed ID path parameter.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Performance</strong></td><td></td></tr>
+    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td></td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td></td></tr>
+  </tbody>
+</table>
+<h3 id="product-threads-list"><a href="#product-threads-list" name="product-threads-list"><a name="product-threads-list"/>Product Threads List</a></h3>
+<p><strong>Endpoint:</strong> /product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>Validation</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Performance</strong></td><td>Restrict the count to 50 or less for best performance.</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td></td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td></td></tr>
+  </tbody>
+</table>
+<h3 id="product-thread-by-id"><a href="#product-thread-by-id" name="product-thread-by-id"><a name="product-thread-by-id"/>Product Thread by ID</a></h3>
+<p><strong>Endpoint:</strong> /product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview,includeExclusiveAccess}</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>Validation</strong></td><td>Pass in a valid thread ID path parameter.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Performance</strong></td><td></td></tr>
+    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td></td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td></td></tr>
+  </tbody>
+</table>
 <h2 id="related-links"><a href="#related-links" name="related-links"><a name="related-links"></a>Related Links</a></h2>
 <p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
 <p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>

@@ -11,7 +11,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
+##### Last Updated: 04/12/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
 
 ---
 
@@ -580,7 +580,7 @@ List all threads by one or more filter criteria, e.g. channel and style-color.
 
 ##### Allowed Sort Parameters
 
-The following are the allowed fields that can be send in the **sort** query parameter:
+The following are the allowed fields that can be sent in the **sort** query parameter:
 
 - **publishedContent.publishStartDateAsc**
 
