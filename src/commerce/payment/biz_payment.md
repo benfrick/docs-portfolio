@@ -77,13 +77,13 @@ Consider the countries to which your consumers will want to ship Nike products a
 
 <i class="g72-plus-large"></i> [Payment Domain Developer's Guide](/doc/commerce/payment/api_payment.html)
 
-<i class="g72-plus-large"></i> [Supported Payment Methods by Country](https://confluence.nike.com/pages/viewpage.action?pageId=162870810)
+<i class="g72-plus-large"></i> <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870810" target="_blank">Supported Payment Methods by Country</a>
 
 <i class="g72-plus-large"></i> [Get Started with Checkout](/doc/commerce/checkout/biz_checkout.html)
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](/index.html)
+[NDe Documentation Home](/doc/getting-started/using_nike_apis.html)
 
 [Getting Started](/doc/portal/consuming.html)
 

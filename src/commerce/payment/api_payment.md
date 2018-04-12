@@ -238,7 +238,7 @@ In this flow, the customer chooses to pay by a payment method that will be autho
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
-For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY" target="_blank">PHYLON Payment Repository</a>)
+For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY" target="_blank">PHYLON Payment Repository</a>.
 
 <p>&nbsp;</p>
 
@@ -338,7 +338,7 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" target="_blank">PAYPAL EXPRESS</a>|/payment/paypal_express/v1|POST|
 |<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" target="_blank">PAYPAL EXPRESS JOB STATUS BY ID</a>|/payment/paypal_express/v1/jobs/{v1}|GET|
 |<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" target="_blank">PAYPAL MARK</a>|/payment/paypal_mark/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" target="_blank"PAYPAL MARK JOB STATUS BY ID</a>|/payment/paypal_mark/v1/jobs/{id}|GET|
+|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" target="_blank">PAYPAL MARK JOB STATUS BY ID</a>|/payment/paypal_mark/v1/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -348,7 +348,7 @@ The Payment API makes use of data caching to optimize service SLAs. The first ti
 
 The PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services handle gift card balances. Retrieving the balance of a gift card requires a call to a Third Party gift card provider, which can slow down the Payment service's response, especially in high volume traffic. To avoid this scenario, the private gift card Service, which is responsible for retrieving gift card data and is called by the PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services, caches the gift card balance after retrieval. The cache time varies based on the balance. If the gift card has a positive balance, the gift card service caches the balance for 5 minutes; If the gift card has a 0 balance, the gift card service caches the balance for 30 minutes.
 
-The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation. For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Prodcuts API](/doc/commerce/product/api_merch_product.html) to get the latest data.
+The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation. For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Products API](/doc/commerce/product/api_merch_product.html) to get the latest data.
 
 <p>&nbsp;</p>
 
@@ -3392,7 +3392,7 @@ Sample PayPal **Submit Order Payments for Approval** response body with "COMPLET
 
 This service is identical to the [Submit Order Payments for Approval (POST)](#submit-order-payments-for-approval-post) endpoint except that it allows the calling service to determine the Payment Approval id to be passed in as a path parameter. This is helpful if the Payment Approval response times out and the calling service needs to call [Void Payment Approval](#void-payment-approval) endpoint with the paymentApprovalId to reverse the Payment Approval request.
 
->TIP: This endpoint is intended to be a service-to-service call. [Checkout Submit](/doc/commerce/checkout/api_checkout.html#response-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
+>TIP: This endpoint is intended to be a service-to-service call. [Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
 
 #### Endpoint Details
 
