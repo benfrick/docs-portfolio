@@ -767,7 +767,7 @@ The important elements of the *Threads List* response body are as follows:
 |objects.productInfo.**imageUrls**|Object containing product image URL|
 |objects.productInfo.imageUrls.**productImageUrl**|URL for product image|
 |objects.productInfo.**skus**|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2_id" target="_blank">API.md link</a>|
-|objects.productInfo.**availableSkus**|<a href=https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#!/Sku_Availability/get_deliver_available_skus_v1_id" target="_blank">API.md link</a>|
+|objects.productInfo.**availableSkus**|<a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#!/Sku_Availability/get_deliver_available_skus_v1_id" target="_blank">API.md link</a>|
 |objects.productInfo.**launchView**|<a href="https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md#!/default/get_launch_launch_views_v2_id" target="_blank">API.md link</a>|
 
 Sample *Threads List* response body (HTTP 200):
@@ -2020,7 +2020,7 @@ First, some considerations:
 
 - For the 4 endpoints that have both a v1 and a v1.5 (see <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeed/browse/API.md" target="_blank">Product Feeds v1 API.md</a> for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
 
->TIP: Upgrading from CAPI (Commerce API)? See the <a href="https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/capi_migration.md" target="_blank">CAPI Migration Guide</a> for detailed instructions.
+>TIP: Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.
 
 ### <a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping
 

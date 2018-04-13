@@ -73,7 +73,7 @@ The equivalent of **productId** in the Cloud is the **id**, e.g. '8e94a648-a232-
 
 #### SKU ID
 
-Responses from several CAPI endpoints feature **skuID**, e.g. '1107974', the legacy identifier that is unique to a SKU or *style-color-size*. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to **stockKeepingUnitId**. In addition, an **id** in the form of a UUID is generated per SKU by the [Merchandised Product SKU API](/doc/commerce/product/api_merch_product.html) when it flows into the system.
+Responses from several CAPI endpoints feature **skuID**, e.g. '1107974', the legacy identifier that is unique to a SKU or *style-color-size*. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to **stockKeepingUnitId**. In addition, an **id** in the form of a UUID is generated per SKU by the [Merchandised Product SKU API](/doc/commerce/product/api_merch_product#using-merchandised-product-skus.html) when it flows into the system.
 
 >TIP: For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1).
 
