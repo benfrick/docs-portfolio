@@ -11,7 +11,9 @@ SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 
 # ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">Slack channel #devportal</a>
+<a href="/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">Back to NDe Documentation</a>
+
+##### Last Updated: 04/03/2018<br>Submit Feedback: Dev Portal <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">Slack channel #devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
 
@@ -1398,10 +1400,3 @@ There are no release notes at this time.
 [Business Guides](/doc/portal/biz-guides.html)
 
 [Developer's Guides](/doc/portal/dev-guides.html)
-<article>
-    <div class="guide-container">
-        <div class="guide-menu border-left-gray">
-            <a href="/index.html"><h5>NDe Documentation</h5></a>
-        </div>
-    </div>
-</article>
