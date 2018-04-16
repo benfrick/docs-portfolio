@@ -48,6 +48,17 @@ p {
     padding-top: 1px;
     padding-bottom: 1px;
 }
+ol {
+  display: block;
+  list-style-type: decimal;
+  padding-left: 2em;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  padding-left: 2em;
+}
+
 code, code span {
     font-family: Courier;
 }
@@ -87,6 +98,7 @@ article p {
 article h2 {
     padding-top: 0px;
 }
+
 .guide-container {
     display: flex;
 }
