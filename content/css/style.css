@@ -156,7 +156,7 @@ article h2 {
 }
 .guide-box-list-med {
    flex-flow: row wrap;
-   max-width: 582px;
+   max-width: 620px;
    margin-left: 12px;
    margin-bottom: 3px;
 }
