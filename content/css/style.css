@@ -98,7 +98,18 @@ article p {
 article h2 {
     padding-top: 0px;
 }
-
+.guide-nav-container {
+    display: flex;
+}
+.guide-nav-column {
+     width:49%;
+}
+.guide-nav-left{
+    text-align:left;
+}
+.guide-nav-right{
+    text-align:right;
+}
 .guide-container {
     display: flex;
 }
