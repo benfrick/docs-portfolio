@@ -115,6 +115,8 @@ This guide provides general information about using NDe (Nike Digital engineerin
 
 <span class="toc-pad">[Inspect Browser Activity in a Live Experience](#inspect-browser-activity-in-a-live-experience)
 
+[Circuit Breaker Best Practices](#circuit-breaker-best-practices)
+
 [Glossary](#glossary)
 
 [Related Links](#related-links)
@@ -1454,6 +1456,10 @@ For example, to follow the order of calls made when changing a shipping address 
 ![](/images/getting_started/troubleshooting_chrome_inspect_details.png)
 
 5. Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?
+
+## <a name="circuit-breaker-best-practices"></a>Circuit Breaker Best Practices
+
+Be a good client by following these [circuit breaker best practices](/doc/commerce/reference/caller_best_practices.html) when calling Nike APIs.
 
 ## <a name="glossary"></a>Glossary
 

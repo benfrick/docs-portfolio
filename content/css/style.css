@@ -98,7 +98,18 @@ article p {
 article h2 {
     padding-top: 0px;
 }
-
+.guide-nav-container {
+    display: flex;
+}
+.guide-nav-column {
+     width:49%;
+}
+.guide-nav-left{
+    text-align:left;
+}
+.guide-nav-right{
+    text-align:right;
+}
 .guide-container {
     display: flex;
 }
@@ -156,7 +167,7 @@ article h2 {
 }
 .guide-box-list-med {
    flex-flow: row wrap;
-   max-width: 582px;
+   max-width: 620px;
    margin-left: 12px;
    margin-bottom: 3px;
 }
