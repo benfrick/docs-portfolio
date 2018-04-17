@@ -1,0 +1,10 @@
+{
+    "name": "book",
+    "version": "0.0.0",
+    "dependencies": {
+        "gitbook-plugin-page-toc": "*",
+        "gitbook-plugin-summary": "^1.0.0",
+        "gitbook-plugin-theme-gestalt": "^1.0.7",
+        "npm": "^5.8.0"
+    }
+}
