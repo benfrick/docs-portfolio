@@ -3,9 +3,11 @@
 <link rel="stylesheet" href="/css/style.css"/>
 <script src="/js/nde.js" type="text/javascript"></script>
 
+<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
+
 # USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 04/03/2018<br>Submit Feedback: API Doc <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">Slack channel #nde-doc</a>
+##### Last Updated: 04/03/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -112,6 +114,8 @@ This guide provides general information about using NDe (Nike Digital engineerin
 <span class="toc-pad">[Query Logs With a Trace ID](#query-logs-with-a-trace-id)
 
 <span class="toc-pad">[Inspect Browser Activity in a Live Experience](#inspect-browser-activity-in-a-live-experience)
+
+[Circuit Breaker Best Practices](#circuit-breaker-best-practices)
 
 [Glossary](#glossary)
 
@@ -1452,6 +1456,10 @@ For example, to follow the order of calls made when changing a shipping address 
 ![](/images/getting_started/troubleshooting_chrome_inspect_details.png)
 
 5. Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?
+
+## <a name="circuit-breaker-best-practices"></a>Circuit Breaker Best Practices
+
+Be a good client by following these [circuit breaker best practices](/doc/commerce/reference/caller_best_practices.html) when calling Nike APIs.
 
 ## <a name="glossary"></a>Glossary
 
