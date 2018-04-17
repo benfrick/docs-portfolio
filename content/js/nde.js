@@ -7,7 +7,8 @@ var clickmessage = {
             return;
         }
         if (clickmessage.allowMessage(event.origin) && event.data) {
-            location.assign((JSON.parse(event.data)).path);
+            var data = JSON.parse(event.data)
+            location.assign(data.path + data.hash);
         }
     },
 
