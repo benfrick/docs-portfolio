@@ -65,13 +65,14 @@
 <p><a href="#troubleshooting">Troubleshooting</a></p>
 <p><span class="toc-pad"><a href="#query-logs-with-a-trace-id">Query Logs With a Trace ID</a></p>
 <p><span class="toc-pad"><a href="#inspect-browser-activity-in-a-live-experience">Inspect Browser Activity in a Live Experience</a></p>
+<p><a href="#circuit-breaker-best-practices">Circuit Breaker Best Practices</a></p>
 <p><a href="#glossary">Glossary</a></p>
 <p><a href="#related-links">Related Links</a></p>
 <h2 id="industry-standards"><a href="#industry-standards" name="industry-standards" class="anchor"><span class="octicon octicon-link"></span></a><a name="industry-standards"></a>Industry Standards</h2>
 <p>Learn how NDe APIs were designed with industry standards in mind.</p>
 <h3 id="rest-architecture"><a href="#rest-architecture" name="rest-architecture" class="anchor"><span class="octicon octicon-link"></span></a><a name="rest-architecture"></a>REST Architecture</h3>
 <p>NDe uses the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (<strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses.</p>
-<p>REST is thoroughly explained on the web already (e.g. <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">here<a/>), but here are a few reasons why we use it:</p>
+<p>REST is thoroughly explained on the web already (e.g. <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">here</a>), but here are a few reasons why we use it:</p>
 <p><strong>Stateless for Improved Performance</strong></p>
 <p>REST APIs are stateless, meaning that application state is maintained on the client and not within the API itself. Each interaction with the API is done in complete isolation: your requests must always include all of the necessary information to be fulfilled by the server. In turn, the server responses must always provide all necessary information you need to create state in your app.</p>
 <p>Why is this desirable? Being stateless allows an API to be scaled across multiple servers and therefore serve millions of concurrent users. It also allows for easy caching, which can improve performance.</p>
@@ -1306,6 +1307,8 @@ x-nike-version:1.0.0.179
 <ol start="5">
   <li>Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?</li>
 </ol>
+<h2 id="circuit-breaker-best-practices"><a href="#circuit-breaker-best-practices" name="circuit-breaker-best-practices" class="anchor"><span class="octicon octicon-link"></span></a><a name="circuit-breaker-best-practices"></a>Circuit Breaker Best Practices</h2>
+<p>Be a good client by following these <a href="/doc/commerce/reference/caller_best_practices.html" class="absent">circuit breaker best practices</a> when calling Nike APIs.</p>
 <h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
 <p>For a master glossary of terms for Nike APIs, see the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a>.</p>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
