@@ -24,7 +24,7 @@ This guide discusses best practices for calling NDe commerce services during a p
 - [Payment Service](#payment-service)
 - [Product Feeds Service](#product-feeds-service)
 
-## <a name="service-call-best-practices"/>Service Call Best Practices
+## <a name="service-call-best-practices"></a>Service Call Best Practices
 
 Many factors can affect microservice performance and availability such as heavy network traffic and instance and database under scaling.  Eureka instability also contributes to the problem by leaving services unable to know where to send requests. While these factors are not in the control of the service caller, there are actions that callers should take to help ensure system health.
 
@@ -56,7 +56,7 @@ Many of Nike's microservices make calls to other services, quickly fanning out p
 
 Bot rules are in place that block calls to these APIs by IP and upmid for a period of time when more than 300 calls per minute come through the public and edge routers. Service-to-service calls are not affected by these limits. For more information visit <a href="https://confluence.nike.com/pages/viewpage.action?pageId=154879250" target="_blank">Bot Monitoring and Mitigation</a>.
 
-## <a name="buy-service"/>Buy Service
+## <a name="buy-service"></a>Buy Service
 
 Listed below are the best practices for calling each Buy service.
 
@@ -69,7 +69,7 @@ Listed below are the best practices for calling each Buy service.
 - [Checkout Submit Job](#checkout-submit-job)
 - [Launch Checkout Submit](#launch-checkout-submit)
 
-### <a name="carts"/>Carts
+### <a name="carts"></a>Carts
 
 **Endpoint**: /buy/carts/v2/
 
@@ -82,7 +82,7 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**||
 |**Fallback behavior for API callers**|None|
 
-### <a name="cart-reviews"/>Cart Reviews
+### <a name="cart-reviews"></a>Cart Reviews
 
 **Endpoint**: /buy/cart_reviews/v1/
 
@@ -91,7 +91,7 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
 |**Fallback behavior for API callers**|When the retry limit has been reached, callers can skip and proceed processing since Cart Reviews is not required for checkout.|
 
-### <a name="shipping-options"/>Shipping Options
+### <a name="shipping-options"></a>Shipping Options
 
 **Endpoint**: /buy/shipping_options/v2
 
@@ -100,7 +100,7 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="checkout-preview"/>Checkout Preview
+### <a name="checkout-preview"></a>Checkout Preview
 
 **Endpoint**: /buy/checkout_previews/v2
 
@@ -109,7 +109,7 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
 |**Fallback behavior for API callers**|When the retry limit has been reached, callers can skip and proceed to Checkout Submit since Checkout Preview is not required for checkout.|
 
-### <a name="checkout-preview-job"/>Checkout Preview Job
+### <a name="checkout-preview-job"></a>Checkout Preview Job
 
 **Endpoint**: /buy/checkout_previews/v2/jobs/
 
@@ -118,7 +118,7 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**|404, 429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
 |**Fallback behavior for API callers**|When the retry limit has been reached, callers can skip and proceed to Checkout Submit since Checkout Preview is not required for checkout.|
 
-### <a name="checkout-submit"/>Checkout Submit
+### <a name="checkout-submit"></a>Checkout Submit
 
 **Endpoint**: /buy/checkouts/v2/
 
@@ -127,7 +127,7 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="checkout-submit-job"/>Checkout Submit Job
+### <a name="checkout-submit-job"></a>Checkout Submit Job
 
 **Endpoint**: /buy/checkouts/v2/jobs/
 
@@ -136,7 +136,7 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**|404, 429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="launch-checkout-submit"/>Launch Checkout Submit
+### <a name="launch-checkout-submit"></a>Launch Checkout Submit
 
 **Endpoint**: /buy/launch_checkouts/v2/
 
@@ -145,14 +145,14 @@ Listed below are the best practices for calling each Buy service.
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
 |**Fallback behavior for API callers**|None|
 
-## <a name="availability"/>Availability
+## <a name="availability"></a>Availability
 
 Listed below are the best practices for calling each Availability service.
 
 - [Product Inventory Availability](#product-availability)
 - [SKU Availability](#sku-availability)
 
-### <a name="product-inventory-availability"/>Product Availability
+### <a name="product-inventory-availability"></a>Product Availability
 
 **Endpoint**: /deliver/available_products/v1/
 
@@ -164,7 +164,7 @@ Listed below are the best practices for calling each Availability service.
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern, waiting 100ms between calls. The caller should determine the retry limit.|
 |**Fallback behavior for API callers**|Caller should default availability to false.|
 
-### <a name="sku-availability"/>SKU Availability
+### <a name="sku-availability"></a>SKU Availability
 
 **Endpoint**: /deliver/available_skus/v1/
 
@@ -176,11 +176,11 @@ Listed below are the best practices for calling each Availability service.
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern, waiting 100ms between calls. The caller should determine the retry limit.|
 |**Fallback behavior for API callers**|Caller should default availability to false.|
 
-## <a name="launch-service"/>Launch Service
+## <a name="launch-service"></a>Launch Service
 
 TBD
 
-## <a name="merchandised-product-service"/>Merchandised Product Service
+## <a name="merchandised-product-service"></a>Merchandised Product Service
 
 Listed below are the best practices for calling each Merchandised Product service.
 
@@ -191,14 +191,14 @@ Listed below are the best practices for calling each Merchandised Product servic
 - [Product Content](#product-content)
 - [Merchandised Value-added Services](#merchandised-value-added-services)
 
-### <a name="merchandised-product-caching"/>Merchandised Product Caching
+### <a name="merchandised-product-caching"></a>Merchandised Product Caching
 
 Because product and SKU information does not change frequently, service-to-service calls made to the Merchandised Product service should use distributed caching. Pre-loading of the cache prior to launch is recommended so no customer has a degraded shopping experience while the service loads the data into its cache. During launch, retrieve the merchandised product data from cache if available rather than calling the service.
 <p/>
 
 Experiences calling the Merchandised Product services directly should not cache these endpoints. Rather, if the Cache-Control header is set, the browser will cache product data for that time period.
 
-### <a name="merchandised-product"/>Merchandised Product
+### <a name="merchandised-product"></a>Merchandised Product
 
 **Endpoint**: /merch/products/v2/
 
@@ -208,7 +208,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="merchandised-product-skus"/>Merchandised Product SKUs
+### <a name="merchandised-product-skus"></a>Merchandised Product SKUs
 
 **Endpoint**: /merch/skus/v2/
 
@@ -218,7 +218,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="merchandised-product-prices"/>Merchandised Product Prices
+### <a name="merchandised-product-prices"></a>Merchandised Product Prices
 
 **Endpoint**:  /merch/prices/v2/
 
@@ -228,7 +228,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="product-content"/>Product Content
+### <a name="product-content"></a>Product Content
 
 **Endpoint:** /merch/contents/v1/
 
@@ -238,7 +238,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="merchandised-value-added-services"/>Merchandised Value-added Services
+### <a name="merchandised-value-added-services"></a>Merchandised Value-added Services
 
 **Endpoint:** /merch/value_added_services/v1/
 
@@ -248,7 +248,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
-## <a name="payment-service"/>Payment Service
+## <a name="payment-service"></a>Payment Service
 
 Listed below are the best practices for calling each Payment service.
 
@@ -261,7 +261,7 @@ Listed below are the best practices for calling each Payment service.
 - [Payment Wallet](#payment-wallet)
 - [Payment Deferred Payment](#payment-deferred-payment)
 
-### <a name="payment-options"/>Payment Options
+### <a name="payment-options"></a>Payment Options
 
 **Endpoints:** /payment/options/v2/, /payment/validate_payments/v2/
 
@@ -274,7 +274,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|When a caller reaches the retry limit, it can default to a non-stored credit card as a payment option in all countries except China. However if Payment Options is not responding, Payment Preview and Payment Approval will fail and Checkout cannot be completed.|
 
-### <a name="payment-stored-payments"/>Payment Stored Payments
+### <a name="payment-stored-payments"></a>Payment Stored Payments
 
 **Endpoint:** /consumer/storedpayments/
 
@@ -287,7 +287,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="payment-preview"/>Payment Preview
+### <a name="payment-preview"></a>Payment Preview
 
 **Endpoint:** /payment/preview/v2
 
@@ -299,7 +299,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="payment-approval"/>Payment Approval
+### <a name="payment-approval"></a>Payment Approval
 
 **Endpoint:** /payment/approval/v2/
 
@@ -310,7 +310,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="payment-credit-card-submit"/>Payment Credit Card Submit
+### <a name="payment-credit-card-submit"></a>Payment Credit Card Submit
 
 **Endpoint:** /services/, /creditcardsubmit/
 
@@ -320,7 +320,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="payment-apple-pay"/>Payment Apple Pay
+### <a name="payment-apple-pay"></a>Payment Apple Pay
 
 **Endpoint:** /payment/applepay_sessions/v2/
 
@@ -331,7 +331,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="payment-wallet"/>Payment Wallet
+### <a name="payment-wallet"></a>Payment Wallet
 
 **Endpoint:** /payment/paypal_details/, /payment/paypal_express/v1/, /payment/paypal_mark/v1/
 
@@ -342,7 +342,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-### <a name="payment-deferred-payment"/>Payment Deferred Payment
+### <a name="payment-deferred-payment"></a>Payment Deferred Payment
 
 **Endpoint:** /payment/deferred_wechat_payments/v1/, /payment/deferred_payment_forms/v1/, /payment/deferred_payment_status/v1/
 
@@ -353,7 +353,7 @@ Listed below are the best practices for calling each Payment service.
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 
-## <a name="product-feeds-service"/>Product Feeds Service
+## <a name="product-feeds-service"></a>Product Feeds Service
 
 TBD
 
