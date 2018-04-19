@@ -58,7 +58,9 @@ ul {
   list-style-type: disc;
   padding-left: 2em;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 code, code span {
     font-family: Courier;
 }
