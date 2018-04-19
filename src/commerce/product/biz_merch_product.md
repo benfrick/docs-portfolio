@@ -27,7 +27,7 @@
 
 [Next Steps](#next-steps)
 
-## <a name="overview"/>Overview
+## <a name="overview"></a>Overview
 
 **Nike products drive the e-commerce and brand experience**
 
@@ -37,7 +37,7 @@ The Merchandised Product API provides access to product content and pricing that
 
 ![](/images/commerce/merch_product/aj1_retro_es.png)
 
-## <a name="features"/>Features
+## <a name="features"></a>Features
 
 The Merchandised Product API supports the US, Japan, China and European Union geographies, allowing you to reach a wide customer base.
 
@@ -65,7 +65,7 @@ Nike services are built for reliability and scalability, reaping the benefits of
 
 Join the web API economy by using the common language of the internet to interact with Nike services. Your developers will be familiar with issuing JSON-formatted requests to Nike's REST web services using the standard HTTP protocol.
 
-## <a name="#connect"/>Connect
+## <a name="#connect"></a>Connect
 
 We're here to help.
 
@@ -73,7 +73,7 @@ We're here to help.
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
-## <a name="next-steps"/>Next Steps
+## <a name="next-steps"></a>Next Steps
 
 **From here, explore the Merchandised Product API in detail through the Developer Guide.  Learn more about the product data.  Read about how the Product Feeds API consumes this data**
 

@@ -307,7 +307,7 @@ The following table lists all of the CAPI endpoints and the equivalent Cloud end
 
 The following tables describe the mapping of *response body* fields between CAPI and the equivalent Cloud endpoint.
 
-### <a name="search-free-text"><a/>Search: Free Text
+### <a name="search-free-text"></a>Search: Free Text
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -369,7 +369,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |pageUrls.**firstUrl**|/commerce-api.nike.com/commerce/v1/us<br>/en_US/search?page=1&query=jordan+shoes|N/A|N/A|N/A|
 |pageUrls.**lastUrl**|/commerce-api.nike.com/commerce/v1/us<br>/en_US/search?page=4554&query=jordan+shoes|N/A|N/A|N/A|
 
-### <a name="search-facet-discovery"><a/>Search: Facet Discovery
+### <a name="search-facet-discovery"></a>Search: Facet Discovery
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -387,7 +387,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |facets.facetValues.links.**rel**|search|TBD|TBD|TBD|
 |facets.facetValues.links.**href**|/domain:port/commerce/v1/us/en_US/facets/8yz|TBD|TBD|TBD|
 
-### <a name="search-faceted-hash"><a/>Search: Faceted Hash
+### <a name="search-faceted-hash"></a>Search: Faceted Hash
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -659,7 +659,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 > * With Cloud, there is no distinction between 'viewable' and 'sellable' and there is no longer a corresponding date value for both. The product is either 'available' or not based on the boolean value returned in the response.
 
 <!--
-## <a name="document-change-log"/>Document Change Log
+## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|

@@ -1380,11 +1380,11 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 See the [Glossary](/doc/getting-started/glossary.html)
 
-## <a name="release-notes"/>Release Notes
+## <a name="release-notes"></a>Release Notes
 
 There are no release notes at this time.
 
-## <a name="document-change-log"/>Document Change Log
+## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|

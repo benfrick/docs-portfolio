@@ -129,7 +129,7 @@ Learn how NDe APIs were designed with industry standards in mind.
 
 NDe uses the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses.
 
-REST is thoroughly explained on the web already (e.g. <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">here<a/>), but here are a few reasons why we use it:
+REST is thoroughly explained on the web already (e.g. <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">here</a>), but here are a few reasons why we use it:
 
 **Stateless for Improved Performance**
 
