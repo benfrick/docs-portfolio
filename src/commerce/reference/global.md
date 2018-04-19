@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"></link>
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
-<link rel="stylesheet" href="/css/style.css"></link>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
@@ -20,7 +20,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 - [Sales Channels](#sales-channels)
 - [Brands](#brands)
 
-## <a name="countries-languages-and-currencies">Countries, Languages and Currencies</a>
+## <a name="countries-languages-and-currencies">Countries, Languages and Currencies></a>
 
 |Country|ISO2 Country Code|Locale|Language|Currency|
 |---|---|---|---|---|
@@ -47,7 +47,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/gb_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United Kingdom|GB|en_GB|British English|GBP|
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/us_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United States|US|en_US|American English|USD|
 
-## <a name="sales-channels">Sales Channels</a>
+## <a name="sales-channels">Sales Channels></a>
 
 |Channel Code|Description|
 |---|---|
@@ -55,7 +55,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |**snkrs**|available in the SNKRs App and SNKRs web experience|
 |**nikeplus**|available in the NIKE+ App and Nike+ web experience|
 
-### <a name="brands">Brands</a>
+### <a name="brands">Brands></a>
 
 |Brand Code|Description|
 |---|---|
