@@ -20,7 +20,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 - [Sales Channels](#sales-channels)
 - [Brands](#brands)
 
-## <a name="countries-languages-and-currencies">Countries, Languages and Currencies></a>
+## <a name="countries-languages-and-currencies"></a>Countries, Languages and Currencies
 
 |Country|ISO2 Country Code|Locale|Language|Currency|
 |---|---|---|---|---|
@@ -47,7 +47,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/gb_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United Kingdom|GB|en_GB|British English|GBP|
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/us_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United States|US|en_US|American English|USD|
 
-## <a name="sales-channels">Sales Channels></a>
+## <a name="sales-channels"></a>Sales Channels
 
 |Channel Code|Description|
 |---|---|
