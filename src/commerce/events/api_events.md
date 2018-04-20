@@ -9,11 +9,11 @@ Author: Ben Frick, Jane Moore
 SME Consultants: Randy Davis, Jen Fong, Doug Jenkins, Sean O'Hollaren, Christina Baumel
 -->
 
-<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 
 # ANALYTICS PIPELINE API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-##### Last Updated: 04/03/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.
 
@@ -139,7 +139,7 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 <br>
 
->TIP: This guide does not include details of the data transformations. For more info, see [TBD]().
+>**TIP:** This guide does not include details of the data transformations. For more info, see [TBD]().
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
@@ -466,7 +466,7 @@ The following table lists all of the event types along with a description of how
 |**selection**|Event tracking when the user makes a selection. e.g. select box, radio group or checkbox|
 |**textInput**|Event representing a user entering text in an application. This should be dispatched on blur to avoid too many events|
 
->TIP: Each event-type schema must be combined with the base-event schema in order to have a fully-formed request body.
+>**TIP:** Each event-type schema must be combined with the base-event schema in order to have a fully-formed request body.
 
 Next, each event type will be described in detail and a sample request body will be included for each.
 
@@ -2059,11 +2059,11 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 See the [Glossary](/doc/getting-started/glossary.html)
 
-## <a name="release-notes"/>Release Notes
+## <a name="release-notes"Release Notes
 
 There are no release notes at this time.
 
-## <a name="document-change-log"/>Document Change Log
+## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|

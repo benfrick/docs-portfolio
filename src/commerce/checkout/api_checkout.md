@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../../../css/style.css">
 <script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
@@ -9,11 +9,18 @@ Original Author: Benjamin Frick
 SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam Nutt, Laura Kuhner, Sree Krishna
 -->
 
-<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
+<div class="guide-nav-container">
+    <div class="guide-nav-column guide-nav-left">
+        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
+    </div>
+    <div class="guide-nav-column guide-nav-right">
+        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+    </div>
+</div>
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 04/02/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
@@ -133,7 +140,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 |Prerequisites|<li>[API Registration](/doc/getting-started/using_nike_apis.html#registration)<li>JWT for *Launch Checkout Submit* only|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a><br>Confluence: <a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="_blank">CiC Order Capture</a><br>Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)|
 
->TIP: SLAs vary per endpoint for both the Carts (v1 and v2) and Checkouts APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. See <a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse" target="_blank">this SLA.json file</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/SLA.json" target="_blank">that SLA.json</a> file to get SLA info by endpoint.
+>**TIP:** SLAs vary per endpoint for both the Carts (v1 and v2) and Checkouts APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. See <a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse" target="_blank">this SLA.json file</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/SLA.json" target="_blank">that SLA.json</a> file to get SLA info by endpoint.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -205,7 +212,7 @@ There are 4 possible scenarios:
 |UUID used previously, Entity is new|Client receives HTTP 409 error response (no new job processed)|
 |UUID is new, Entity previously submitted under another UUID|Client receives HTTP 202 response, request processed as new job|
 
->TIP: For more, see the Idempotence Guarantee section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#idempotence-guarantee) guide.
+>**TIP:** For more, see the Idempotence Guarantee section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#idempotence-guarantee) guide.
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
@@ -428,7 +435,7 @@ The Carts API helps you manage carts. It provides storage, validation, and prici
 
 - When using the optional channel filter in GET cart requests, carts for which no channel value was included in the preceding PUT request will not be returned.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 The following sections describe each endpoint of the Carts API in detail:
 
@@ -462,7 +469,7 @@ Required request headers:
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 
->TIP: For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
+>**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
 #### <a name="cart-put-request-body"></a>Request Body
 
@@ -482,15 +489,15 @@ Required request headers:
 |valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * Use the same channel value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>Use the same channel value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart* Request Body:
 
@@ -580,7 +587,7 @@ Some of the values in the response are exactly as sent in the request, but the v
 
 Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format) that **you previously created**. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.
 
->TIP: Reads against this endpoint are <a href="https://en.wikipedia.org/wiki/Eventual_consistency" target="_blank">eventually consistent</a>. Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.
+>**TIP:** Reads against this endpoint are <a href="https://en.wikipedia.org/wiki/Eventual_consistency" target="_blank">eventually consistent</a>. Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.
 
 #### Endpoint Details
 
@@ -817,7 +824,7 @@ Required request headers:
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
->TIP: For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
+>**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
 #### <a name="cart-put-v2-request-body"></a>Request Body
 
@@ -862,13 +869,13 @@ Required request headers:
 |links.self.**ref**|string|Link to this resource, itself|Required|
 |**resourceType**|string|The type of resource the document is modeling|Optional|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart by Cart ID* Request Body:
 
@@ -1000,7 +1007,7 @@ Sample *Create or Update Cart by Cart ID* response body without errors:
 }
 ```
 
->TIP: Prices and subtotals are recalculated and returned in the response to each call.
+>**TIP:** Prices and subtotals are recalculated and returned in the response to each call.
 
 ### <a name="modify-a-cart-by-cart-id"></a>Modify a Cart by Cart ID
 
@@ -1065,9 +1072,11 @@ Element Name|Type |Description|Required?|
 |**path**|string|JSON Pointer path, only '/promotionCodes' is allowed|Required|
 |**value**|string|Promotion Code to add or remove|Required|
 
->TIPS:
-> * You can include more than one patch operation in a request.
-> * Sending "op": "remove" for a line item will delete the entire quantity previously added under that line item.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>You can include more than one patch operation in a request.
+>
+><i class="mr2-sm g72-check"></i>Sending "op": "remove" for a line item will delete the entire quantity previously added under that line item.
 
 Sample *Modify a Cart by Cart ID* Request Body:
 
@@ -1223,7 +1232,7 @@ See the response body from the [*Create or Update Cart by Cart ID* endpoint](#ca
 
 Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** values sent as `?filter` query parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.
 
->TIP: For more info on how to use `?filter`, see the query parameters section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#query-parameters).
+>**TIP:** For more info on how to use `?filter`, see the query parameters section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#query-parameters).
 
 #### Endpoint Details
 
@@ -1485,7 +1494,7 @@ After the customer has provided a shipping address and chosen a shipping method,
 
 Cart Reviews returns sales and shipping taxes, estimated delivery date(s), and shipping group information (when applicable), as well as item and subtotal information for a customer's cart.
 
->TIP: Shipping group refers to the grouping of items into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
+>**TIP:** Shipping group refers to the grouping of items into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
 
 #### More Facts About Cart Reviews:
 
@@ -1505,7 +1514,7 @@ Cart Reviews returns sales and shipping taxes, estimated delivery date(s), and s
 
 - The Cache-Control response header indicates that responses must not be cached and thus not used across multiple requests.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 The following section describes the endpoint of the Cart Reviews API in detail:
 
@@ -1555,17 +1564,17 @@ Required request headers:
 |valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * Although optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.
-
-> * Although optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>Although optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.
+>
+><i class="mr2-sm g72-check"></i>Although optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Cart Reviews* request body:
 
@@ -1874,7 +1883,7 @@ Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, 
 
 Use the Shipping Options v2 API to retrieve the customer's available shipping methods for a checkout, including associated costs and estimated delivery dates/ranges.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 ### <a name="shipping-options"></a>Shipping Options
 
@@ -1921,13 +1930,13 @@ Required request headers:
 |shippingAddress.**county**|Optional|Shipping address county. This will typically be used for non-US addresses to hold specific regional data.|
 |**promotionCodes**|Optional|Array containing promotion codes that the user has attempted to apply|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
-
-> * Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>
+><i class="mr2-sm g72-check"></i>Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
 
 Sample *Shipping Options* request body:
 
@@ -1984,7 +1993,7 @@ The HTTP 200 success response from *Shipping Options* reflects back many element
 |shippingMethods.promotionDiscounts.**amount**|Promotion discount amount|
 |shippingMethods.promotionDiscounts.**id**|Promotion unique identifier|
 
->TIP: The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> format of `yyyy-mm-ddThh:mm:ss.mssZ` and in UTC with zero offset, e.g. `2017-07-18T18:25:45.237Z`. Convert to the local date (or date/time) of the shopper as necessary.
+>**TIP:** The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> format of `yyyy-mm-ddThh:mm:ss.mssZ` and in UTC with zero offset, e.g. `2017-07-18T18:25:45.237Z`. Convert to the local date (or date/time) of the shopper as necessary.
 
 Sample *Shipping Options* response body:
 
@@ -2158,7 +2167,7 @@ A checkout consists of all data necessary for defining the following:
 
 Through calls to Checkout and other Nike APIs, you can maintain the state of the shopper's checkout in your client application and then submit the checkout to Nike for approval and fulfillment.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 ### <a name="request-checkout-preview"></a>Request Checkout Preview
 
@@ -2172,7 +2181,7 @@ In a typical Nike digital experience, a successful checkout preview means that t
 
 Use the response to display the final payment amount to the customer. Once the customer confirms the payment method details and clicks or taps 'Place Order', there will be a greater chance of success.
 
->TIP: For more context, see a step-by-step example of all the calls in a checkout in the diagram in the [Use Cases](#use-cases) section of this document. For more info about Payment, see the [Payment Domain Developer's Guide](/doc/commerce/payment/api_payment.html).
+>**TIP:** For more context, see a step-by-step example of all the calls in a checkout in the diagram in the [Use Cases](#use-cases) section of this document. For more info about Payment, see the [Payment Domain Developer's Guide](/doc/commerce/payment/api_payment.html).
 
 ####  Checkout Preview Operates Asynchronously
 
@@ -2232,11 +2241,11 @@ Required request headers:
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
 |**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Request a Checkout Preview* request body:
 ```
@@ -2346,7 +2355,7 @@ To know if the job is done, check the value of the **status** field in the respo
 
 Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the **response** object from this endpoint. Alternatively, follow the link to the *Retrieve Checkout Preview Results* endpoint which is provided in the response body (see **links** object).
 
->TIP: Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
+>**TIP:** Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
 
 #### Endpoint Details
 
@@ -2639,15 +2648,16 @@ Required parts of the request body:
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
 |**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
 
->TIPS:
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>
+><i class="mr2-sm g72-check"></i>Optionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
+>
+><i class="mr2-sm g72-check"></i>For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an **invoiceInfo** array in the request body, similar to the below example (see the request schema for this endpoint for more details):
 
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
-
-> * Optionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
-
->* For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an **invoiceInfo** array in the request body, similar to the below example (see the request schema for this endpoint for more details):
 ```
 "invoiceInfo": {
     "type": "ELECTRONIC_FAPIAO",
@@ -2743,7 +2753,7 @@ To know if the job is done, check the value of the **status** field in the respo
 
 Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object from this endpoint. Alternatively, follow the link to the *Retrieve Checkout Results* endpoint which is provided in the response body (see **links** object).
 
->TIP: Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
+>**TIP:** Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
 
 #### Endpoint Details
 
@@ -3572,7 +3582,7 @@ Here is an example list of test scenarios for a user experience that is integrat
 
 Additionally, it's useful to add scenarios for multi-quantity (i.e. quantity > 1) for Inline items, as well as scenarios with multiple Nike iD items in same checkout.
 
->TIP: While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
+>**TIP:** While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
 
 ### Test Environment
 

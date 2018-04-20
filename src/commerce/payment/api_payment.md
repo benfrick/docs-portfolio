@@ -9,11 +9,11 @@ Author: Jane Moore
 SME Consultants: Sree Krishna, Durai Devadoss
 -->
 
-<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 04/03/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -167,7 +167,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 |Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
 |Contact Info|Slack #cic-payment<br>Confluence space: <a href="https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook" target="_blank">CiC Payment</a><br><a name="product-owner"></a>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
 
->TIP: SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
+>**TIP:** SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
 
 <br>
 
@@ -489,9 +489,11 @@ Even though items is an optional request field, it is recommended that you pass 
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i> It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
 
 #### Request Body
 
@@ -505,7 +507,7 @@ Even though items is an optional request field, it is recommended that you pass 
 |**total**|**Optional**|order total e.g. 1999.0 (double)|
 |**items**|Optional|array of product ids in the customer's Checkouts items, UUID format|
 
->TIP: It is a best practice to send all of the optional request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request body fields, if the data is available, to avoid unexpected responses.
 
 Sample *Get Payment Options for an Order* Request Body
 ```
@@ -631,7 +633,7 @@ Sample *Get Payment Options for an Order* 400 Error Response
 - lists supported billing countries for a shipping country
 - results are unsorted
 
->TIP: The customer's billing address country must be in the billing country result list in order to purchase.
+>**TIP:** The customer's billing address country must be in the billing country result list in order to purchase.
 
 #### Endpoint Details
 
@@ -659,7 +661,7 @@ Let's take a look at some *Allowable Billing Countries for a Shipping Country* s
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### Request Body
 There is no request body for GET requests.
@@ -806,9 +808,11 @@ Use this endpoint to validate a list of payment options for a given shipping cou
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
 
 #### Request Body
 
@@ -821,7 +825,7 @@ Use this endpoint to validate a list of payment options for a given shipping cou
 |payments.**type**|Required|type of payment, one of CreditCard, ApplePay, GiftCard, PayPal|
 |payments.**cardType**|Optional|type of credit card, e.g. Visa|
 
->TIP: It is a best practice to send all of the optional request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request body fields, if the data is available, to avoid unexpected responses.
 
 Sample *Validate Payments* Request Body
 ```
@@ -984,7 +988,7 @@ Use this endpoint as a first step in creating a PayPal billing agreement for the
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### Path & Query Parameters
 
@@ -1072,7 +1076,7 @@ Use this endpoint to save a payment type for a Nike UPMID. See [Supported Stored
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 
 #### Request Body
@@ -1279,7 +1283,7 @@ Use this endpoint to delete all Stored Payments for a Nike UPMID. This is a sync
 |**X-Nike-AppId**|**Required**|Client application id calling this service (as listed in Eureka) used to verify endpoint access|
 |**X-Nike-Authorization**|**Required**|JWT signed by client application|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### Request Body
 
@@ -1323,7 +1327,7 @@ If not filtering by the `type` URI parameter, all stored payment types are retur
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### Query & Path Parameters
 
@@ -1574,7 +1578,7 @@ Use this endpoint to list stored payment details for a paymentId. This endpoint 
 |**X-Nike-AppId**|**Required**|Client application id calling this service (as listed in Eureka) used to verify endpoint access|
 |**X-Nike-Authorization**|**Required**|JWT signed by client application|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="list-stored-payment-by-payment-id-request-parameters"></a>Query & Path Parameters
 
@@ -1727,7 +1731,7 @@ Use this endpoint to list a details for a customer's saved gift card. This is a 
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="list-giftcard-stored-payment-by-id-response-body"></a>Response Body
 
@@ -1812,7 +1816,7 @@ This is a synchronous service.
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Let's take a look at some *Update Credit Card by User Profile Details* scenarios:
 
@@ -1944,7 +1948,7 @@ This is a synchronous endpoint.
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="update-default-stored-payment-by-user-profile-request-body"></a>Request Body
 
@@ -2017,7 +2021,7 @@ Use this endpoint to delete a stored payment by id. For example, this endpoint w
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="delete-all-stored-payments-for-user-profile-request-body"></a>Request Body
 
@@ -2084,7 +2088,7 @@ This endpoint validates a CVV based on the request shipping address. If the ship
 |**X-Nike-AppId**|**Required**|Client application id calling this service (as listed in Eureka) used to verify endpoint access|
 |**X-Nike-Authorization**|**Required**|JWT signed by client application|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="validate-credit-card-cvv-by-shipping-address-request-body"></a>Request Body
 
@@ -2213,7 +2217,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### Path & Query Parameters
 
@@ -2366,7 +2370,7 @@ Sample *Payment Preview* request for one gift card and one credit card that is n
 
 Sample PayPal Mark *Payment Preview* request
 
->TIP: Request must include walletId and not include paymentInfo
+>**TIP:** Request must include walletId and not include paymentInfo
 
 ```
 {
@@ -2395,7 +2399,7 @@ Sample PayPal Mark *Payment Preview* request
 
 Sample PayPal Express *Payment Preview* request
 
->TIP: Request must not include walletId and include paymentInfo
+>**TIP:** Request must not include walletId and include paymentInfo
 
 ```
 {
@@ -2452,7 +2456,7 @@ Sample PayPal Express *Payment Preview* request
 
 Sample Apple Pay *Payment Preview* request
 
->TIP: Request must include encrypted paymentData
+>**TIP:** Request must include encrypted paymentData
 
 ```
 {
@@ -2512,7 +2516,7 @@ Sample Apple Pay *Payment Preview* request
 
 Sample WeChat *Payment Preview* request:
 
->TIP: Request must include `WECHAT` clientBrowser
+>**TIP:** Request must include `WECHAT` clientBrowser
 
 ```
 {
@@ -2656,7 +2660,7 @@ The HTTP 200 response from *Payment Preview* contains information about how to r
 |error.errors.**code**|**Required**|enum of error codes, one of "MISSING_REQUIRED","INVALID_FIELD","INVALID_JSON","INVALID_PAYMENT_TYPE"|
 |error.errors.**message**|**Required**|error message|
 
->TIP: `Promotion` is an indicator that the entire order is allocated to a promotion.
+>**TIP:** `Promotion` is an indicator that the entire order is allocated to a promotion.
 
 Sample *Payment Preview* 202 response with an IN_PROGRESS status:
 
@@ -2767,7 +2771,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint. Alternatively, follow the link to the *Payment Preview Job Status by ID* endpoint which is provided in the links object response body.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -2790,9 +2794,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
 
 Sample *Payment Preview Job by ID* request URI:
 
@@ -2835,9 +2841,11 @@ After calling the *Payment Preview* to start the job and *Payment Preview Job* t
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
 
 Sample Payment Preview Results request
 https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05defe783424
@@ -2861,7 +2869,7 @@ The HTTP 200 response from *Payment Preview Job Results* contains information ab
 |payments.**charge**|Optional|additional amount charged for using this payment type, double|
 |**links**|**Required**|relative URL path to poll the jobs endpoint (see nested `ref` field)|
 
->TIP: `Promotion` is an indicator that the entire order is allocated to a promotion.
+>**TIP:** `Promotion` is an indicator that the entire order is allocated to a promotion.
 
 Sample Payment Preview Results response for two gift cards and a credit card
 ```
@@ -2920,7 +2928,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 This service validates the payment allocation performed by the Payment Preview service, recalculating if necessary, and evaluates that the selected payment methods and items on Checkouts are valid. If one or more payment type validations fail, all payment type authorizations (in the case of credit cards and PayPal)/debits (in the case of gift cards) are rolled back. There is no need to pass in the Checkouts payment types in the body as the service looks them up using the checkoutId and paymentPreviewId in the request body.
 
->TIP: This endpoint is intended to be a service-to-service call. [Request Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
+>**TIP:** This endpoint is intended to be a service-to-service call. [Request Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
 
 #### Endpoint Details
 
@@ -2938,7 +2946,7 @@ This service validates the payment allocation performed by the Payment Preview s
 |**X-Nike-AppId**|**Required**|Client application id calling this service (as listed in Eureka) used to verify endpoint access|
 |**X-Nike-Authorization**|**Required**|JWT signed by client application|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### Request Body
 
@@ -3394,7 +3402,7 @@ Sample PayPal **Submit Order Payments for Approval** response body with "COMPLET
 
 This service is identical to the [Submit Order Payments for Approval (POST)](#submit-order-payments-for-approval-post) endpoint except that it allows the calling service to determine the Payment Approval id to be passed in as a path parameter. This is helpful if the Payment Approval response times out and the calling service needs to call [Void Payment Approval](#void-payment-approval) endpoint with the paymentApprovalId to reverse the Payment Approval request.
 
->TIP: This endpoint is intended to be a service-to-service call. [Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
+>**TIP:** This endpoint is intended to be a service-to-service call. [Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
 
 #### Endpoint Details
 
@@ -3433,7 +3441,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint. Alternatively, follow the link to the *Retrieval Payment Approval Job* endpoint which is provided in the links object response body.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -3455,9 +3463,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the *Submit Checkouts Payment for Approval* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Submit Checkouts Payment for Approval* response.
 
 Sample *Retrieval Payment Approval Job* request URI:
 
@@ -3516,7 +3526,7 @@ After calling *Submit Checkouts Payment for Approval* to start the job and *Retr
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="order-payments-approval-result-request-body"></a>Request URI
 
@@ -3631,7 +3641,7 @@ This endpoint voids a Payment Approval request. If a credit card was used in the
 |**X-Nike-AppId**|**Required**|Client application id calling this service (as listed in Eureka) used to verify endpoint access|
 |**X-Nike-Authorization**|**Required**|JWT signed by client application|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="void-payment-approval-request-body"></a>Request Body
 
@@ -3681,7 +3691,7 @@ If the Payment Approval result is not either in `ACCEPT` or `PENDING_PAYMENT` st
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="payment-approval-summary-request-body"></a>Request Body
 
@@ -3693,7 +3703,7 @@ Sample *Payment Approval Summary* request URI:
 https://api.nike.com/payment/approval_summary/v1/ae6575a7-8c0e-44ef-b91b-440bdaf2070b
 ```
 
->TIP: Note that this is a v1 service
+>**TIP:** Note that this is a v1 service
 
 #### <a name="payment-approval-summary-response-body"></a>Response Body
 
@@ -3978,7 +3988,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Sample request URI:
 
@@ -4021,7 +4031,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Sample request URI:
 
@@ -4063,7 +4073,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Sample request URI:
 
@@ -4105,7 +4115,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Sample request URI:
 
@@ -4483,7 +4493,7 @@ Use this endpoint to initiate an ApplePay session.
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="start-applepay-session-request-body"></a>Request Body
 
@@ -4491,7 +4501,7 @@ Use this endpoint to initiate an ApplePay session.
 |---|---|---|
 |**valididationURL**|**Required**|URL to call to validate you as a merchant and initiate an Apple Pay payment session|
 
->TIP: See the Apple Pay Developer's site for the list of supported domain names for Apple Test and Production environments for the <a href="https://developer.apple.com/documentation/applepayjs#2539292" target="_blank">validationURL</a>
+>**TIP:** See the Apple Pay Developer's site for the list of supported domain names for Apple Test and Production environments for the <a href="https://developer.apple.com/documentation/applepayjs#2539292" target="_blank">validationURL</a>
 
 Sample *Start Apple Pay Session* request body:
 
@@ -4585,7 +4595,7 @@ This endpoint passes in Checkouts information including totals, items, pricing a
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="paypalexpress-request-body"></a>Request Body
 
@@ -4723,7 +4733,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 ####  Endpoint Details
 
@@ -4746,9 +4756,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the PayPal Express response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the PayPal Express response.
 
 Sample *PayPal Express Job by ID* request URI
 
@@ -4831,7 +4843,7 @@ Similar to the [PayPal Express](#paypal-express) endpoint, the PayPal Mark endpo
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="paypal-mark-request-body"></a>Request Body
 
@@ -5015,7 +5027,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -5038,9 +5050,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the PayPal Mark response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the PayPal Mark response.
 
 Sample PayPal Mark Job by ID request URI
 
@@ -5123,7 +5137,7 @@ This endpoint retrieves and validates PayPal data, including shipping and billin
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="paypal-details-request-body"></a>Request Body
 
@@ -5260,7 +5274,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -5283,9 +5297,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the *PayPal Details* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *PayPal Details* response.
 
 Sample PayPal Details Job by ID request URI
 
@@ -5409,7 +5425,7 @@ Use this endpoint to generate a signed link used to redirect the customer to pay
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="deferred-payment-request-body"></a>Request Body
 
@@ -5524,7 +5540,7 @@ To know if the job is done, check the value of the `status` field in the respons
 
 Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the `response` object from this endpoint. Alternatively, follow the link to the *Deferred Payment Form Job* endpoint which is provided in the `links` object response body.
 
->TIP: Parsing the 'COMPLETED' job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the 'COMPLETED' job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -5547,9 +5563,11 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
 Sample *Deferred Payment Form Job* request URI:
 
@@ -5591,7 +5609,7 @@ Use this endpoint to validate the Deferred Payment with the Third Party Vendor.
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="deferred-payment-request-body"></a>Request Body
 
@@ -5697,7 +5715,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
->TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 |HTTP Method|URI Path|JWT Restricted|
 |---|---|---|
@@ -5718,9 +5736,11 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the Deferred Payment Status response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Status response.
 
 Sample Deferred Payment Status Job request URI:
 
@@ -5797,7 +5817,7 @@ Use this endpoint to generate the necessary values to initiate a session in the 
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 #### <a name="deferred-payment-request-body"></a>Request Body
 
@@ -5885,7 +5905,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
->TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 |HTTP Method|URI Path|JWT Restricted|
 |---|---|---|
@@ -5906,9 +5926,11 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->TIP: When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->TIP: Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
 Sample Deferred WeChat Payment Job request URI:
 
@@ -6002,7 +6024,7 @@ In order to abide by PCI-compliance rules, payment logging requires special Splu
 
 Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as <a href="http://www.nike.com/launch" target="_blank">SNKRS Web</a>. Or, set up Charles and your favorite device to proxy service calls made from the Nike SNKRS or Nike+ Apps. Sometimes seeing what other experiences are doing might address your question or concern.
 
->TIP: While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
+>**TIP:** While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
 
 ## <a name="glossary"></a>Glossary
 

@@ -3,11 +3,11 @@
 <link rel="stylesheet" href="/css/style.css"/>
 <script src="/js/nde.js" type="text/javascript"></script>
 
-<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 
 # Get Started with Checkout <i class="g72-swoosh"></i>
 
-###### Last Updated: 04/02/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -23,7 +23,7 @@
 
 [Next Steps](#next-steps)
 
-## <a name="overview"/>Overview
+## <a name="overview"></a>Overview
 
 **Nike gives consumers fast and easy access to make purchases**
 
@@ -35,7 +35,7 @@ Drive traffic and engagement in your app by leveraging Nike Checkout today!
 
 ![](/images/commerce/payment/snkrs_payment.png)
 
-## <a name="features"/>Features
+## <a name="features"></a>Features
 
 **Your consumer finds a Nike a product they love in your app. What happens next?**
 
@@ -49,7 +49,7 @@ Drive traffic and engagement in your app by leveraging Nike Checkout today!
 
 Your users will experience the joy of receiving Nike products delivered to their door!
 
-## <a name="considerations"/>Considerations
+## <a name="considerations"></a>Considerations
 
 **Security and Privacy are #1**
 
@@ -63,7 +63,7 @@ Nike services are built for reliability and scalability, reaping the benefits of
 
 Join the web economy by using the common language of the internet to interact with Nike services. Your developers will be familiar with issuing JSON-formatted requests to Nike's REST web services using the standard HTTP protocol.
 
-## <a name="#connect"/>Connect
+## <a name="#connect"></a>Connect
 
 We're here to help.
 
@@ -71,7 +71,7 @@ We're here to help.
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
-## <a name="next-steps"/>Next Steps
+## <a name="next-steps"></a>Next Steps
 
 **The journey begins now!**
 

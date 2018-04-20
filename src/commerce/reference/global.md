@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"></link>
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
-<link rel="stylesheet" href="/css/style.css"></link>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
@@ -8,11 +8,11 @@ See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/co
 Author:  Jane Moore
 -->
 
-<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 
 # GLOBAL REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 04/03/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
 
@@ -20,7 +20,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 - [Sales Channels](#sales-channels)
 - [Brands](#brands)
 
-## <a name="countries-languages-and-currencies">Countries, Languages and Currencies</a>
+## <a name="countries-languages-and-currencies"></a>Countries, Languages and Currencies
 
 |Country|ISO2 Country Code|Locale|Language|Currency|
 |---|---|---|---|---|
@@ -47,7 +47,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/gb_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United Kingdom|GB|en_GB|British English|GBP|
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/us_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United States|US|en_US|American English|USD|
 
-## <a name="sales-channels">Sales Channels</a>
+## <a name="sales-channels"></a>Sales Channels
 
 |Channel Code|Description|
 |---|---|
@@ -55,7 +55,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |**snkrs**|available in the SNKRs App and SNKRs web experience|
 |**nikeplus**|available in the NIKE+ App and Nike+ web experience|
 
-### <a name="brands">Brands</a>
+### <a name="brands">Brands></a>
 
 |Brand Code|Description|
 |---|---|
