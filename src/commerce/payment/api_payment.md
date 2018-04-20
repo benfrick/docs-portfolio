@@ -2767,7 +2767,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint. Alternatively, follow the link to the *Payment Preview Job Status by ID* endpoint which is provided in the links object response body.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -2790,9 +2790,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
 
 Sample *Payment Preview Job by ID* request URI:
 
@@ -2835,9 +2837,11 @@ After calling the *Payment Preview* to start the job and *Payment Preview Job* t
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Payment Preview* response.
 
 Sample Payment Preview Results request
 https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05defe783424
@@ -3433,7 +3437,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint. Alternatively, follow the link to the *Retrieval Payment Approval Job* endpoint which is provided in the links object response body.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -3455,9 +3459,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the *Submit Checkouts Payment for Approval* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Submit Checkouts Payment for Approval* response.
 
 Sample *Retrieval Payment Approval Job* request URI:
 
@@ -4723,7 +4729,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 ####  Endpoint Details
 
@@ -4746,9 +4752,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the PayPal Express response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the PayPal Express response.
 
 Sample *PayPal Express Job by ID* request URI
 
@@ -5015,7 +5023,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -5038,9 +5046,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the PayPal Mark response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the PayPal Mark response.
 
 Sample PayPal Mark Job by ID request URI
 
@@ -5260,7 +5270,7 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
-TIP: Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
+>**TIP:** Parsing the "COMPLETED" job result directly is a best practice because it eliminates making another service call.
 
 #### Endpoint Details
 
@@ -5283,9 +5293,11 @@ TIP: Parsing the "COMPLETED" job result directly is a best practice because it e
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the *PayPal Details* response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *PayPal Details* response.
 
 Sample PayPal Details Job by ID request URI
 
@@ -5547,9 +5559,11 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
 Sample *Deferred Payment Form Job* request URI:
 
@@ -5718,9 +5732,11 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the Deferred Payment Status response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Status response.
 
 Sample Deferred Payment Status Job request URI:
 
@@ -5906,9 +5922,11 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 |**Content-Type**|Content type of the request, application/json is only value allowed|**Required**|
 |**Authorization**|Your access token in the format of Bearer {token}|**Required**|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
 Sample Deferred WeChat Payment Job request URI:
 
