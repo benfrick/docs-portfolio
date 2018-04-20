@@ -139,7 +139,7 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 <br>
 
->TIP: This guide does not include details of the data transformations. For more info, see [TBD]().
+>**TIP:** This guide does not include details of the data transformations. For more info, see [TBD]().
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
@@ -466,7 +466,7 @@ The following table lists all of the event types along with a description of how
 |**selection**|Event tracking when the user makes a selection. e.g. select box, radio group or checkbox|
 |**textInput**|Event representing a user entering text in an application. This should be dispatched on blur to avoid too many events|
 
->TIP: Each event-type schema must be combined with the base-event schema in order to have a fully-formed request body.
+>**TIP:** Each event-type schema must be combined with the base-event schema in order to have a fully-formed request body.
 
 Next, each event type will be described in detail and a sample request body will be included for each.
 

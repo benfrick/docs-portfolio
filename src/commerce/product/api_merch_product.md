@@ -272,7 +272,7 @@ These items are divided into a set of microservices. The relationship between th
 
 ![](/images/commerce/merch_product/relationships.png)
 
-### <a name="tip-finding-the-data-points-you-need"></a>TIP: Finding the Data Points You Need
+### <a name="tip-finding-the-data-points-you-need"></a>**TIP:** Finding the Data Points You Need
 
 Microservice architecture specifies that data should be divided into logical groupings within semantically-named resources. You can use the following general guidelines to find the data points among the Merchandised Product resources:
 - If the data can be localized, it is typically in the Content API.
@@ -364,7 +364,7 @@ This GET request does not require special headers and can be executed in any bro
 
 See the output of the successful JSON 200 response below.
 
->TIP: **id** is the UUID assigned when the product first flowed into the Merchandising Product API. **pid** is a legacy ID that maps to the product UUID and will eventually be deprecated.
+>**TIP:** **id** is the UUID assigned when the product first flowed into the Merchandising Product API. **pid** is a legacy ID that maps to the product UUID and will eventually be deprecated.
 
 ```
 {
@@ -450,7 +450,7 @@ See the output of the successful JSON 200 response below.
 }
 ```
 
->TIP: For detailed information on this service, see [Merchandised Product List](#merchandised-product-list).
+>**TIP:** For detailed information on this service, see [Merchandised Product List](#merchandised-product-list).
 
 ## <a name="using-merchandised-products"></a>Using Merchandised Products
 
@@ -747,7 +747,7 @@ This service returns product information for the **id** path parameter and **sna
 
 The caller does not have to send an access token in the **Authorization** header (indicating the customer is logged in) to use this service.
 
->TIP: If you know the product ID, this endpoint yields faster results than the [Merchandised Product List](#merchandised-product-list) endpoint does because it locates the product record directly by ID rather than filtering the results.
+>**TIP:** If you know the product ID, this endpoint yields faster results than the [Merchandised Product List](#merchandised-product-list) endpoint does because it locates the product record directly by ID rather than filtering the results.
 
 ### Endpoint Details
 
@@ -1036,7 +1036,7 @@ Sample 404 error response from *Merchandised Product SKU List*:
 
 Use this service to search for SKU information by SKU ID. This service returns the same data as the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint returns except for the pages object because the endpoint only returns one result. In order to get a SKU ID, you can query the *Merchandised Product SKU List* endpoint filtering by productid.
 
->TIP: If you know the SKU ID, this endpoint yields faster results than the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint does because it locates the SKU record directly by ID rather than filtering the results.
+>**TIP:** If you know the SKU ID, this endpoint yields faster results than the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint does because it locates the SKU record directly by ID rather than filtering the results.
 
 ### Merchandised Product SKU by ID Details
 
@@ -1081,7 +1081,7 @@ https://api.nike.com/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13
 
 Sample *Merchandised Product SKU By ID* 200 successful response:
 
->TIP: See the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint to view the list of field definitions.
+>**TIP:** See the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint to view the list of field definitions.
 
 ```
 {
@@ -1248,7 +1248,7 @@ Results from this endpoint are almost identical to those returned from the [Merc
 
 No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.
 
->TIP: If you know the price ID, this endpoint yields faster results than the [Merchandised Prices List](#merchandised-prices-list) endpoint does because it locates the price record directly by ID rather than filtering the results.
+>**TIP:** If you know the price ID, this endpoint yields faster results than the [Merchandised Prices List](#merchandised-prices-list) endpoint does because it locates the price record directly by ID rather than filtering the results.
 
 ### Endpoint Details
 
@@ -1916,7 +1916,7 @@ https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&local
 
 Sample *Product Content Item by Style Color List* response body:
 
->TIP: The response body returns the value of the itemName path parameter and the locale query parameter.
+>**TIP:** The response body returns the value of the itemName path parameter and the locale query parameter.
 
 ```
 {
@@ -1977,7 +1977,7 @@ https://api.nike.com/merch/contents/v1/content/descriptionHeading?country=ES&loc
 
 Sample *Product Content Item by Style Color List* response body:
 
->TIP: The response body returns the value of the itemName path parameter and the style-color query parameter.
+>**TIP:** The response body returns the value of the itemName path parameter and the style-color query parameter.
 
 ```
 {

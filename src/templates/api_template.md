@@ -145,7 +145,7 @@ See the output of the successful JSON 200 response below.
 {}
 ```
 
->TIP: For detailed information on this service, see the [Endpoint1](#endpoint1-name) section.
+>**TIP:** For detailed information on this service, see the [Endpoint1](#endpoint1-name) section.
 
 ## <a name="using-service1"></a>Using Service1
 

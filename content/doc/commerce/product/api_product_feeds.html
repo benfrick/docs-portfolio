@@ -67,7 +67,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.</p>
+  <p><strong>TIP:</strong> This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.</p>
 </blockquote>
 <h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service"><a name="terms-of-service"></a>Terms of Service</a></h2>
 <p>It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the <a href="/doc/getting-started/using_nike_apis.html#registration" class="absent">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
@@ -86,7 +86,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: See the <a href="#product-threads-list">Threads List</a> section for the full list of use cases. After that, if you still didn't find your product use case, check out the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Products API Developer's Guide</a> for more.</p>
+  <p><strong>TIP:</strong> See the <a href="#product-threads-list">Threads List</a> section for the full list of use cases. After that, if you still didn't find your product use case, check out the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Products API Developer's Guide</a> for more.</p>
 </blockquote>
 <h3 id="example-implementation-diagram"><a href="#example-implementation-diagram" name="example-implementation-diagram"><a name="example-implementation-diagram"></a>Example Implementation Diagram</a></h3>
 <p>Here is an example of a sequence of API calls to get content from Product Feeds v2:</p>
@@ -131,7 +131,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.</p>
+  <p><strong>TIP:</strong> The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.</p>
 </blockquote>
 <h2 id="what-are-channels-and-why-do-i-need-one"><a href="#what-are-channels-and-why-do-i-need-one" name="what-are-channels-and-why-do-i-need-one"><a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?</a></h2>
 <p>A channel is a distinct user experience where Nike products are showcased and made available for purchase, for example in SNKRS or the Nike app. Each channel has a unique <strong>channelId</strong> (channel identifier) that is required by certain Product Feeds API endpoints. This allows the results in responses to be filtered appropriately for your experience.</p>
@@ -160,7 +160,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p>The Product Feeds v2 <em>Threads List</em> endpoint only supports the HTTP GET method, so you do not need to send a request body. Only the required request headers and URL query parameters should be sent.</p>
 <p>The <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md" target="_blank">API.md</a> states that there are <em>no</em> required request headers and the only required query parameter is <strong>filter</strong> in the format of <strong>?filter=channelId(your_channel_Id_here)</strong>.</p>
 <blockquote>
-  <p>TIP: The channelId value is in UUID format</p>
+  <p><strong>TIP:</strong> The channelId value is in UUID format</p>
 </blockquote>
 <p><em>Don't have a channelId yet? Request that the <a href="#api-at-a-glance">Product Owner</a> assign one for your app.</em></p>
 <p><strong>2. Create the URL</strong></p>
@@ -517,7 +517,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.</p>
+  <p><strong>TIP:</strong> For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.</p>
 </blockquote>
 <h5 id="allowed-sort-parameters"><a href="#allowed-sort-parameters" name="allowed-sort-parameters">Allowed Sort Parameters</a></h5>
 <p>The following are the allowed fields that can be send in the <strong>sort</strong> query parameter:</p>
@@ -724,7 +724,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </table>
 <p>Sample <em>Threads List</em> response body (HTTP 200):</p>
 <blockquote>
-  <p>TIP: Scroll to the right to see the entire code snippet.</p>
+  <p><strong>TIP:</strong> Scroll to the right to see the entire code snippet.</p>
 </blockquote>
 <pre><code>{
     &quot;pages&quot;: {
@@ -1918,7 +1918,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.</p>
+  <p><strong>TIP:</strong> For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.</p>
 </blockquote>
 <h4 id="example-scenarios-2"><a href="#example-scenarios-2" name="example-scenarios-2">Example Scenarios</a></h4>
 <table>
@@ -1976,7 +1976,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </li>
 </ul>
 <blockquote>
-  <p>TIP: Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.</p>
+  <p><strong>TIP:</strong> Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.</p>
 </blockquote>
 <h3 id="v1x-to-v2-endpoint-mapping"><a href="#v1x-to-v2-endpoint-mapping" name="v1x-to-v2-endpoint-mapping"><a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping</a></h3>
 <p>The following table lists the v1 endpoints along with the equivalent v2 endpoint for each:</p>
@@ -2027,7 +2027,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: For v2 URI format and available parameters, see <a href="#all-product-feeds">All Product Feeds</a> and <a href="#product-feed-by-id">Product Feed by ID</a> sections of this document.</p>
+  <p><strong>TIP:</strong> For v2 URI format and available parameters, see <a href="#all-product-feeds">All Product Feeds</a> and <a href="#product-feed-by-id">Product Feed by ID</a> sections of this document.</p>
 </blockquote>
 <h3 id="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"><a href="#all-product-threads--product-thread-by-id-v1-to-v2-field-mapping" name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"><a name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"></a>All Product Threads &amp; Product Thread by ID v1 to v2 Field Mapping</a></h3>
 <p>The response structure of the v1 <em>All Product Threads</em> and <em>Product Thread by ID</em> endpoints is the same, with a few minor exceptions, so for the purposes of upgrading to v2 they can be discussed together.</p>
@@ -2155,7 +2155,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: For the v2 URI format and available parameters, see the <a href="#product-thread-by-id">Product Thread by ID</a> and <a href="#product-threads-list">Product Threads List</a> sections of this document.</p>
+  <p><strong>TIP:</strong> For the v2 URI format and available parameters, see the <a href="#product-thread-by-id">Product Thread by ID</a> and <a href="#product-threads-list">Product Threads List</a> sections of this document.</p>
 </blockquote>
 <h3 id="url-patterns-by-version"><a href="#url-patterns-by-version" name="url-patterns-by-version"><a name ="url-patterns-by-version"></a>URL Patterns By Version</a></h3>
 <p>The URL pattern used by the Product Feeds API's varies depending on the version, as described here:</p>
@@ -2166,7 +2166,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p><strong>v2</strong></p>
 <p><code>https://api.nike.com/product_feed/feeds/v2</code></p>
 <blockquote>
-  <p>TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the <a href="/doc/getting-started/using_nike_apis.html#url-patterns" class="absent">Using NDe APIs</a> guide for info on Nike standards.</p>
+  <p><strong>TIP:</strong> Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the <a href="/doc/getting-started/using_nike_apis.html#url-patterns" class="absent">Using NDe APIs</a> guide for info on Nike standards.</p>
 </blockquote>
 <h2 id="best-practices"><a href="#best-practices" name="best-practices"><a name="best-practices"></a>Best Practices</a></h2>
 <p>Listed below are some best practices for working with Product Feeds.</p>
@@ -2241,7 +2241,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
   </li>
 </ul>
 <blockquote>
-  <p>TIP: Be careful not to confuse <strong>legacyCatalogId</strong>, which like <strong>catalogId</strong> is also present in the threads response under <strong>productInfo.merchProduct</strong>, but does not affect thread visibility.</p>
+  <p><strong>TIP:</strong> Be careful not to confuse <strong>legacyCatalogId</strong>, which like <strong>catalogId</strong> is also present in the threads response under <strong>productInfo.merchProduct</strong>, but does not affect thread visibility.</p>
 </blockquote>
 <h2 id="glossary"><a href="#glossary" name="glossary"><a name="glossary"></a>Glossary</a></h2>
 <p>See the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a></p>

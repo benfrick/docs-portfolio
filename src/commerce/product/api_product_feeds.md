@@ -98,7 +98,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 |Prerequisites|None (public API)|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
 
->TIP: This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
+>**TIP:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -117,7 +117,7 @@ There are no authentication requirements for Product Feeds except when using the
 |List all Product Threads for a channel, language, marketplace, feed ID, SEO slug, style-color, gender, keywords, and more|*Threads List*|
 |Get a specific Product Thread by its ID|*Product Thread by ID*|
 
->TIP: See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more.
+>**TIP:** See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more.
 
 ### <a name="example-implementation-diagram"></a>Example Implementation Diagram
 
@@ -169,7 +169,7 @@ The Product Feeds API combines product information with product content into Car
 |Published Content|Authored cards and threads|title, seo slug, image URL, video URL, text|Nike CMS (Content Management System)|
 |Launch Views|Launch attributes by style-color (SNKRS, Bootroom only)|method, startEntryDate, stopEntryDate|Launch Admin Tool|
 
->TIP: The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
+>**TIP:** The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
 
 ## <a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?
 
@@ -204,7 +204,7 @@ The Product Feeds v2 *Threads List* endpoint only supports the HTTP GET method, 
 
 The <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md" target="_blank">API.md</a> states that there are *no* required request headers and the only required query parameter is **filter** in the format of **?filter=channelId(your_channel_Id_here)**.
 
->TIP: The channelId value is in UUID format
+>**TIP:** The channelId value is in UUID format
 
 *Don't have a channelId yet? Request that the [Product Owner](#api-at-a-glance) assign one for your app.*
 
@@ -578,7 +578,7 @@ List all threads by one or more filter criteria, e.g. channel and style-color.
 |**sort**|Query|Field(s) by which the results are sorted. Default: **publishedContent.viewStartDateDesc**, then **id.keywordAsc**. See below for allowed sort parameters|String|Optional|
 |**searchTerms**|Query|Search for threads by one or more keywords separated with spaces. Request exact match by enclosing in double quotes. Default: partial match|String|Optional|
 
->TIP: For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.
+>**TIP:** For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.
 
 ##### Allowed Sort Parameters
 
@@ -774,7 +774,7 @@ The important elements of the *Threads List* response body are as follows:
 
 Sample *Threads List* response body (HTTP 200):
 
->TIP: Scroll to the right to see the entire code snippet.
+>**TIP:** Scroll to the right to see the entire code snippet.
 
 ```
 {
@@ -1967,7 +1967,7 @@ Get a Thread by its unique identifier.
 |**preview**|Query|Preview a thread that is not yet enabled. Requires **Authorization** header to be sent|String|Optional|
 |**includeExclusiveAccess**|Query|Include exclusive and non-exclusive access threads in the results|Boolean|Optional|
 
->TIP: For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.
+>**TIP:** For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.
 
 #### Example Scenarios
 
@@ -2022,7 +2022,7 @@ First, some considerations:
 
 - For the 4 endpoints that have both a v1 and a v1.5 (see <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeed/browse/API.md" target="_blank">Product Feeds v1 API.md</a> for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
 
->TIP: Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.
+>**TIP:** Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.
 
 ### <a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping
 
@@ -2069,7 +2069,7 @@ The below table describes how the response body fields map from the v1 to the v2
 |**listingEnabled**|This attribute is true by default.It prevents feeds from being listed when set to false|**listingEnabled**|Shows whether this collection should be listed on a target app||
 |N/A|No equivalent|**parentGroupIds**|Lists all the collection groups (i.e. channels) that this feed belongs to||
 
->TIP: For v2 URI format and available parameters, see [All Product Feeds](#all-product-feeds) and [Product Feed by ID](#product-feed-by-id) sections of this document.
+>**TIP:** For v2 URI format and available parameters, see [All Product Feeds](#all-product-feeds) and [Product Feed by ID](#product-feed-by-id) sections of this document.
 
 ### <a name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"></a>All Product Threads & Product Thread by ID v1 to v2 Field Mapping
 
@@ -2195,7 +2195,7 @@ The following table describes how the response body fields map from the v1 to th
 |**relationalId**||publishedContent.**relationalId**|The ID of the parent thread. Ties various language threads to the source version||
 |**socialPattern**||N/A|No equivalent|Deprecated|
 
->TIP: For the v2 URI format and available parameters, see the [Product Thread by ID](#product-thread-by-id) and [Product Threads List](#product-threads-list) sections of this document.
+>**TIP:** For the v2 URI format and available parameters, see the [Product Thread by ID](#product-thread-by-id) and [Product Threads List](#product-threads-list) sections of this document.
 
 ### <a name ="url-patterns-by-version"></a>URL Patterns By Version
 
@@ -2213,7 +2213,7 @@ The URL pattern used by the Product Feeds API's varies depending on the version,
 
 `https://api.nike.com/product_feed/feeds/v2`
 
->TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
+>**TIP:** Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
 
 ## <a name="best-practices"></a>Best Practices
 
@@ -2275,7 +2275,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - The **catalogId** on the product might be blank. To troubleshoot, send a request to the Merchandised Products API with the affected product ID (e.g. https://api.nike.com/merch/products/v2/c98f12d7-7dee-5775-b4a6-c83d0d2dcb9a) to see if a catalog ID is present or not. If not, that is the reason that the thread is not being returned.
 
->TIP: Be careful not to confuse **legacyCatalogId**, which like **catalogId** is also present in the threads response under **productInfo.merchProduct**, but does not affect thread visibility.
+>**TIP:** Be careful not to confuse **legacyCatalogId**, which like **catalogId** is also present in the threads response under **productInfo.merchProduct**, but does not affect thread visibility.
 
 ## <a name="glossary"></a>Glossary
 

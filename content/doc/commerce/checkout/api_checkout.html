@@ -84,7 +84,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: SLAs vary per endpoint for both the Carts (v1 and v2) and Checkouts APIs. In the figures listed above, the highest response time and lowest requests per second <em>for the API overall</em> were shown. See <a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse" target="_blank">this SLA.json file</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/SLA.json" target="_blank">that SLA.json</a> file to get SLA info by endpoint.</p>
+  <p><strong>TIP:</strong> SLAs vary per endpoint for both the Carts (v1 and v2) and Checkouts APIs. In the figures listed above, the highest response time and lowest requests per second <em>for the API overall</em> were shown. See <a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse" target="_blank">this SLA.json file</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/SLA.json" target="_blank">that SLA.json</a> file to get SLA info by endpoint.</p>
 </blockquote>
 <h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service"><a name="terms-of-service"></a>Terms of Service</a></h2>
 <p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the <a href="/doc/getting-started/using_nike_apis.html#registration" class="absent">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
@@ -146,7 +146,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: For more, see the Idempotence Guarantee section of the <a href="/doc/getting-started/using_nike_apis.html#idempotence-guarantee" class="absent">Using NDe APIs</a> guide.</p>
+  <p><strong>TIP:</strong> For more, see the Idempotence Guarantee section of the <a href="/doc/getting-started/using_nike_apis.html#idempotence-guarantee" class="absent">Using NDe APIs</a> guide.</p>
 </blockquote>
 <h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</a></h2>
 <table>
@@ -363,7 +363,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 <blockquote>
-  <p>TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
+  <p><strong>TIP:</strong> It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
 </blockquote>
 <p>The following sections describe each endpoint of the Carts API in detail:</p>
 <h3 id="create-or-update-a-cart"><a href="#create-or-update-a-cart" name="create-or-update-a-cart"><a name="create-or-update-a-cart"></a>Create or Update a Cart</a></h3>
@@ -404,7 +404,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
+  <p><strong>TIP:</strong> For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
 </blockquote>
 <h4 id="request-body"><a href="#request-body" name="request-body"><a name="cart-put-request-body"></a>Request Body</a></h4>
 <table>
@@ -514,7 +514,7 @@ Authorization: Bearer {your access token}
 <h3 id="retrieve-carts-by-id"><a href="#retrieve-carts-by-id" name="retrieve-carts-by-id"><a name="retrieve-carts-by-id"></a>Retrieve Carts by ID</a></h3>
 <p>Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format) that <strong>you previously created</strong>. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.</p>
 <blockquote>
-  <p>TIP: Reads against this endpoint are <a href="https://en.wikipedia.org/wiki/Eventual_consistency" target="_blank">eventually consistent</a>. Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.</p>
+  <p><strong>TIP:</strong> Reads against this endpoint are <a href="https://en.wikipedia.org/wiki/Eventual_consistency" target="_blank">eventually consistent</a>. Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.</p>
 </blockquote>
 <h4 id="endpoint-details-1"><a href="#endpoint-details-1" name="endpoint-details-1">Endpoint Details</a></h4>
 <table>
@@ -778,7 +778,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
+  <p><strong>TIP:</strong> For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
 </blockquote>
 <h4 id="request-body-4"><a href="#request-body-4" name="request-body-4"><a name="cart-put-v2-request-body"></a>Request Body</a></h4>
 <table>
@@ -959,7 +959,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre>
 <blockquote>
-  <p>TIP: Prices and subtotals are recalculated and returned in the response to each call.</p>
+  <p><strong>TIP:</strong> Prices and subtotals are recalculated and returned in the response to each call.</p>
 </blockquote>
 <h3 id="modify-a-cart-by-cart-id"><a href="#modify-a-cart-by-cart-id" name="modify-a-cart-by-cart-id"><a name="modify-a-cart-by-cart-id"></a>Modify a Cart by Cart ID</a></h3>
 <p>Create or update a cart by executing a HTTP PATCH request with a Cart ID. Add or remove a line item or promotion code from a user's cart, or to create or replace the entire cart contents.</p>
@@ -1194,7 +1194,7 @@ Authorization: Bearer {your access token}
 <h3 id="get-a-cart-by-filter-criteria-query-param"><a href="#get-a-cart-by-filter-criteria-query-param" name="get-a-cart-by-filter-criteria-query-param"><a name="get-a-cart-by-filter-criteria-query-param"></a>Get a Cart by Filter Criteria (Query Param)</a></h3>
 <p>Retrieve a user's cart by <strong>country</strong>, <strong>brand</strong>, and (optionally) <strong>channel</strong> values sent as <code>?filter</code> query parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.</p>
 <blockquote>
-  <p>TIP: For more info on how to use <code>?filter</code>, see the query parameters section of <a href="/doc/getting-started/using_nike_apis.html#query-parameters" class="absent">Using NDe APIs</a>.</p>
+  <p><strong>TIP:</strong> For more info on how to use <code>?filter</code>, see the query parameters section of <a href="/doc/getting-started/using_nike_apis.html#query-parameters" class="absent">Using NDe APIs</a>.</p>
 </blockquote>
 <h4 id="endpoint-details-8"><a href="#endpoint-details-8" name="endpoint-details-8">Endpoint Details</a></h4>
 <table>
@@ -1464,7 +1464,7 @@ Authorization: Bearer {your access token}
 <p>After the customer has provided a shipping address and chosen a shipping method, use this service to retrieve an enhanced cart summary before the customer proceeds to the checkout process. Use the Cart Reviews API in conjunction with the Carts API to achieve this.</p>
 <p>Cart Reviews returns sales and shipping taxes, estimated delivery date(s), and shipping group information (when applicable), as well as item and subtotal information for a customer's cart.</p>
 <blockquote>
-  <p>TIP: Shipping group refers to the grouping of items into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.</p>
+  <p><strong>TIP:</strong> Shipping group refers to the grouping of items into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.</p>
 </blockquote>
 <h4 id="more-facts-about-cart-reviews"><a href="#more-facts-about-cart-reviews" name="more-facts-about-cart-reviews">More Facts About Cart Reviews:</a></h4>
 <ul>
@@ -1494,7 +1494,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 <blockquote>
-  <p>TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
+  <p><strong>TIP:</strong> It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
 </blockquote>
 <p>The following section describes the endpoint of the Cart Reviews API in detail:</p>
 <h3 id="augment-a-cart"><a href="#augment-a-cart" name="augment-a-cart"><a name="augment-a-cart"></a>Augment a Cart</a></h3>
@@ -1863,7 +1863,7 @@ Authorization: Bearer {your access token}
 <p>Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to present to them, based on their shopping context?</p>
 <p>Use the Shipping Options v2 API to retrieve the customer's available shipping methods for a checkout, including associated costs and estimated delivery dates/ranges.</p>
 <blockquote>
-  <p>TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
+  <p><strong>TIP:</strong> It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
 </blockquote>
 <h3 id="shipping-options"><a href="#shipping-options" name="shipping-options"><a name="shipping-options"></a>Shipping Options</a></h3>
 <p>Send a request with a country code, currency code, item information and (optionally) shipping address information to this endpoint to get the list of available shipping methods, along with associated costs/taxes and estimated delivery date(s). This endpoint calculates shipping discounts such as free shipping for members.</p>
@@ -1977,7 +1977,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 <blockquote>
-  <p>TIP: The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> format of <code>yyyy-mm-ddThh:mm:ss.mssZ</code> and in UTC with zero offset, e.g. <code>2017-07-18T18:25:45.237Z</code>. Convert to the local date (or date/time) of the shopper as necessary.</p>
+  <p><strong>TIP:</strong> The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> format of <code>yyyy-mm-ddThh:mm:ss.mssZ</code> and in UTC with zero offset, e.g. <code>2017-07-18T18:25:45.237Z</code>. Convert to the local date (or date/time) of the shopper as necessary.</p>
 </blockquote>
 <p>Sample <em>Shipping Options</em> response body:</p>
 <pre><code>{
@@ -2163,7 +2163,7 @@ Authorization: Bearer {your access token}
 </ul>
 <p>Through calls to Checkout and other Nike APIs, you can maintain the state of the shopper's checkout in your client application and then submit the checkout to Nike for approval and fulfillment.</p>
 <blockquote>
-  <p>TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
+  <p><strong>TIP:</strong> It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
 </blockquote>
 <h3 id="request-checkout-preview"><a href="#request-checkout-preview" name="request-checkout-preview"><a name="request-checkout-preview"></a>Request Checkout Preview</a></h3>
 <p>The <em>Request a Checkout Preview</em> endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you'll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.</p>
@@ -2172,7 +2172,7 @@ Authorization: Bearer {your access token}
 <p>In a typical Nike digital experience, a successful checkout preview means that the checkout details are accurate, including shipping fees and taxes, and that the checkout process can proceed to the payment steps.</p>
 <p>Use the response to display the final payment amount to the customer. Once the customer confirms the payment method details and clicks or taps 'Place Order', there will be a greater chance of success.</p>
 <blockquote>
-  <p>TIP: For more context, see a step-by-step example of all the calls in a checkout in the diagram in the <a href="#use-cases">Use Cases</a> section of this document. For more info about Payment, see the <a href="/doc/commerce/payment/api_payment.html" class="absent">Payment Domain Developer's Guide</a>.</p>
+  <p><strong>TIP:</strong> For more context, see a step-by-step example of all the calls in a checkout in the diagram in the <a href="#use-cases">Use Cases</a> section of this document. For more info about Payment, see the <a href="/doc/commerce/payment/api_payment.html" class="absent">Payment Domain Developer's Guide</a>.</p>
 </blockquote>
 <h4 id="checkout-preview-operates-asynchronously"><a href="#checkout-preview-operates-asynchronously" name="checkout-preview-operates-asynchronously">Checkout Preview Operates Asynchronously</a></h4>
 <p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation" class="absent">Using NDe APIs</a> guide to learn more.</p>
@@ -2355,7 +2355,7 @@ Authorization: Bearer {your access token}
 </ul>
 <p>Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Preview Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
 <blockquote>
-  <p>TIP: Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.</p>
+  <p><strong>TIP:</strong> Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.</p>
 </blockquote>
 <h4 id="endpoint-details-16"><a href="#endpoint-details-16" name="endpoint-details-16">Endpoint Details</a></h4>
 <table>
@@ -2771,7 +2771,7 @@ guide to learn more.</p>
 </ul>
 <p>Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
 <blockquote>
-  <p>TIP: Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.</p>
+  <p><strong>TIP:</strong> Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.</p>
 </blockquote>
 <h4 id="endpoint-details-19"><a href="#endpoint-details-19" name="endpoint-details-19">Endpoint Details</a></h4>
 <table>
@@ -3614,7 +3614,7 @@ guide to learn more.</p>
 </ul>
 <p>Additionally, it's useful to add scenarios for multi-quantity (i.e. quantity &gt; 1) for Inline items, as well as scenarios with multiple Nike iD items in same checkout.</p>
 <blockquote>
-  <p>TIP: While inspecting browser activity on <a href="http://www.nike.com/launch">www.nike.com/launch</a>, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.</p>
+  <p><strong>TIP:</strong> While inspecting browser activity on <a href="http://www.nike.com/launch">www.nike.com/launch</a>, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.</p>
 </blockquote>
 <h3 id="test-environment"><a href="#test-environment" name="test-environment">Test Environment</a></h3>
 <p>It is recommended to test all Checkout endpoints in the production environment as opposed to the test environment. Using the test environment can have unpredictable results due to the many downstream services which these endpoints are reliant upon in order to provide typical 'production-like' responses.</p>
