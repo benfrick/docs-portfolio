@@ -493,7 +493,7 @@ Even though items is an optional request field, it is recommended that you pass 
 >
 ><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
-><i class="mr2-sm g72-check"></i>**TIP:** It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
+><i class="mr2-sm g72-check"></i> It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
 
 #### Request Body
 
