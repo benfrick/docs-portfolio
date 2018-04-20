@@ -41,12 +41,12 @@
   </li>
 </ul>
 <blockquote>
-  <p>TIP: See the <a href="#endpoint-mapping">Endpoint Mapping</a> section for the details of how each CAPI endpoint maps to Cloud.</p>
+  <p><strong>TIP:</strong> See the <a href="#endpoint-mapping">Endpoint Mapping</a> section for the details of how each CAPI endpoint maps to Cloud.</p>
 </blockquote>
 <h3 id="rest-and-json"><a href="#rest-and-json" name="rest-and-json">REST and JSON</a></h3>
 <p>Both CAPI and Cloud use the REST architectural style and feature JSON-formatted requests and responses.</p>
 <blockquote>
-  <p>TIP: If you are using the XML version of CAPI, you will need to be able to send and receive JSON when you migrate to the Cloud.</p>
+  <p><strong>TIP:</strong> If you are using the XML version of CAPI, you will need to be able to send and receive JSON when you migrate to the Cloud.</p>
 </blockquote>
 <h3 id="country--language-support"><a href="#country--language-support" name="country--language-support">Country &amp; Language Support</a></h3>
 <p>All of the countries and languages supported by CAPI are also supported by Cloud, and more. For the complete list of supported languages for Product Feeds v2 (Cloud), see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.</p>
@@ -58,14 +58,14 @@
 <h4 id="sku-id"><a href="#sku-id" name="sku-id">SKU ID</a></h4>
 <p>Responses from several CAPI endpoints feature <strong>skuID</strong>, e.g. '1107974', the legacy identifier that is unique to a SKU or <em>style-color-size</em>. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to <strong>stockKeepingUnitId</strong>. In addition, an <strong>id</strong> in the form of a UUID is generated per SKU by the <a href="/doc/commerce/product/api_merch_product#using-merchandised-product-skus.html" class="absent">Merchandised Product SKU API</a> when it flows into the system.</p>
 <blockquote>
-  <p>TIP: For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: <a href="https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1)">https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1)</a>.</p>
+  <p><strong>TIP:</strong> For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: <a href="https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1)">https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1)</a>.</p>
 </blockquote>
 <h4 id="style-color-code"><a href="#style-color-code" name="style-color-code">Style-Color Code</a></h4>
 <p>Style-color codes, e.g. '870790-420', are the same values and in the same format in both CAPI and Cloud.</p>
 <h4 id="gtin"><a href="#gtin" name="gtin">GTIN</a></h4>
 <p>GTIN (Global Trade Identification Number), e.g. '00675911130902' values and format are the same in both CAPI and Cloud.</p>
 <blockquote>
-  <p>TIP: For Cloud, be sure to always send a 14-digit GTIN value, including any leading zeroes as necessary.</p>
+  <p><strong>TIP:</strong> For Cloud, be sure to always send a 14-digit GTIN value, including any leading zeroes as necessary.</p>
 </blockquote>
 <h4 id="gender-codes"><a href="#gender-codes" name="gender-codes">Gender Codes</a></h4>
 <p>CAPI uses gender codes like '1' for Mens, '2' for Womens, etc. while cloud uses the gender name as the identifier (i.e. 'Mens'). Eventually these values will be replaced by UUIDs originating in the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy service</a>.</p>
@@ -74,12 +74,12 @@
 <p>CAPI features <strong>list</strong> (suggested price), <strong>currentRetail</strong> (current price), <strong>sale</strong> (sale price), and the <strong>currency</strong> (currency code). CAPI also includes 'formatted' versions of each price in separate fields, i.e. the same price value but with the relevant currency symbol.</p>
 <p>Cloud offers <strong>msrp</strong> (suggested price), <strong>fullPrice</strong> (full/regular price), <strong>currentPrice</strong> (current price), <strong>employeePrice</strong> (employee price), <strong>discounted</strong> (a Boolean indicating the product is on sale), and <strong>currency</strong> (currency code). Cloud does not offer 'formatted' prices.</p>
 <blockquote>
-  <p>TIP: See the <a href="#field-mapping">Field Mapping</a> section for detailed field-by-field mapping between CAPI and Cloud.</p>
+  <p><strong>TIP:</strong> See the <a href="#field-mapping">Field Mapping</a> section for detailed field-by-field mapping between CAPI and Cloud.</p>
 </blockquote>
 <h3 id="inventory"><a href="#inventory" name="inventory">Inventory</a></h3>
 <p>CAPI provides access to both Retail store on-hand inventory quantity and Digital inventory availability (true/false) by calling with a product ID, style-color code, or GTIN. Cloud offers Retail store on-hand inventory quantity by a combination of Store UUID and one or more GTINs in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="_blank">Inventory API</a>. Cloud offers Digital inventory availability (true/false) by either Product ID or SKU ID in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="_blank">Availability API</a> and also in the Product Feeds API.</p>
 <blockquote>
-  <p>TIP: Both the Inventory API and the Product Feeds API offer Digital inventory availability as a boolean (TRUE or FALSE), but the Inventory API has one additional field for inventory <strong>level</strong> (HIGH, MEDIUM, or LOW).</p>
+  <p><strong>TIP:</strong> Both the Inventory API and the Product Feeds API offer Digital inventory availability as a boolean (TRUE or FALSE), but the Inventory API has one additional field for inventory <strong>level</strong> (HIGH, MEDIUM, or LOW).</p>
 </blockquote>
 <h3 id="dates"><a href="#dates" name="dates">Dates</a></h3>
 <p>All dates returned by CAPI are in GMT in the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g. '2017-06-07T19:50:00.000'. For Cloud, dates are also in GMT in the format <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>, e.g. 2017-06-07T19:50:00.000Z.</p>
@@ -154,14 +154,14 @@
 </ol>
 <p><a href="https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)">https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)</a></p>
 <blockquote>
-  <p>TIP: It is recommended that you call the Merchandised Sku service rather than the Product Feed service if you only need SKU information, not product, inventory, product content or price information.</p>
+  <p><strong>TIP:</strong> It is recommended that you call the Merchandised Sku service rather than the Product Feed service if you only need SKU information, not product, inventory, product content or price information.</p>
 </blockquote>
 <ol start="2">
   <li>If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the <code>id</code> parameter and call the <a href="/doc/commerce/product/api_merch_product.html#using-merchandised-products" class="absent">Merchandised Product service</a>. A 200 response lists the styleCode, colorCode and styleColor.</li>
 </ol>
 <p><a href="https://api.nike.com/merch/products/v2?filter=merchgroup(US)&amp;filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)">https://api.nike.com/merch/products/v2?filter=merchgroup(US)&amp;filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)</a></p>
 <blockquote>
-  <p>TIP: It is recommended that you call the Merchandised Product service rather than the Product Feeds service if you only need product information, not inventory, product content, price or SKU information.</p>
+  <p><strong>TIP:</strong> It is recommended that you call the Merchandised Product service rather than the Product Feeds service if you only need product information, not inventory, product content, price or SKU information.</p>
 </blockquote>
 <ol start="3">
   <li>If you do not receive a 200 response from the Merchandised Product Sku service, it could be because your GTIN is retail-only. Only digital SKUs are currently available in the Cloud. In this case, you will need to continue to call the CAPI Product Widths endpoint to get the style-color using the GTIN as a path parameter.</li>

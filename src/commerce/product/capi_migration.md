@@ -51,13 +51,13 @@ Read on to learn more about the similarities and differences between CAPI and Cl
 
 - CAPIs inventory capabilities are replaced by Cloud Inventory APIs, and in the case of Digital inventory availability, also by Product Feeds.
 
->TIP: See the [Endpoint Mapping](#endpoint-mapping) section for the details of how each CAPI endpoint maps to Cloud.
+>**TIP:** See the [Endpoint Mapping](#endpoint-mapping) section for the details of how each CAPI endpoint maps to Cloud.
 
 ### REST and JSON
 
 Both CAPI and Cloud use the REST architectural style and feature JSON-formatted requests and responses.
 
->TIP: If you are using the XML version of CAPI, you will need to be able to send and receive JSON when you migrate to the Cloud.
+>**TIP:** If you are using the XML version of CAPI, you will need to be able to send and receive JSON when you migrate to the Cloud.
 
 ### Country & Language Support
 
@@ -77,7 +77,7 @@ The equivalent of **productId** in the Cloud is the **id**, e.g. '8e94a648-a232-
 
 Responses from several CAPI endpoints feature **skuID**, e.g. '1107974', the legacy identifier that is unique to a SKU or *style-color-size*. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to **stockKeepingUnitId**. In addition, an **id** in the form of a UUID is generated per SKU by the [Merchandised Product SKU API](/doc/commerce/product/api_merch_product#using-merchandised-product-skus.html) when it flows into the system.
 
->TIP: For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1).
+>**TIP:** For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1).
 
 #### Style-Color Code
 
@@ -87,7 +87,7 @@ Style-color codes, e.g. '870790-420', are the same values and in the same format
 
 GTIN (Global Trade Identification Number), e.g. '00675911130902' values and format are the same in both CAPI and Cloud.
 
->TIP: For Cloud, be sure to always send a 14-digit GTIN value, including any leading zeroes as necessary.
+>**TIP:** For Cloud, be sure to always send a 14-digit GTIN value, including any leading zeroes as necessary.
 
 #### Gender Codes
 
@@ -101,13 +101,13 @@ CAPI features **list** (suggested price), **currentRetail** (current price), **s
 
 Cloud offers **msrp** (suggested price), **fullPrice** (full/regular price), **currentPrice** (current price), **employeePrice** (employee price), **discounted** (a Boolean indicating the product is on sale), and **currency** (currency code). Cloud does not offer 'formatted' prices.
 
->TIP: See the [Field Mapping](#field-mapping) section for detailed field-by-field mapping between CAPI and Cloud.
+>**TIP:** See the [Field Mapping](#field-mapping) section for detailed field-by-field mapping between CAPI and Cloud.
 
 ### Inventory
 
 CAPI provides access to both Retail store on-hand inventory quantity and Digital inventory availability (true/false) by calling with a product ID, style-color code, or GTIN. Cloud offers Retail store on-hand inventory quantity by a combination of Store UUID and one or more GTINs in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="_blank">Inventory API</a>. Cloud offers Digital inventory availability (true/false) by either Product ID or SKU ID in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="_blank">Availability API</a> and also in the Product Feeds API.
 
->TIP: Both the Inventory API and the Product Feeds API offer Digital inventory availability as a boolean (TRUE or FALSE), but the Inventory API has one additional field for inventory **level** (HIGH, MEDIUM, or LOW).
+>**TIP:** Both the Inventory API and the Product Feeds API offer Digital inventory availability as a boolean (TRUE or FALSE), but the Inventory API has one additional field for inventory **level** (HIGH, MEDIUM, or LOW).
 
 ### Dates
 
@@ -245,13 +245,13 @@ If you have a GTIN (UPC) and need to get the style-color, here are the steps you
 
 https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)
 
->TIP: It is recommended that you call the Merchandised Sku service rather than the Product Feed service if you only need SKU information, not product, inventory, product content or price information.
+>**TIP:** It is recommended that you call the Merchandised Sku service rather than the Product Feed service if you only need SKU information, not product, inventory, product content or price information.
 
 2. If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the `id` parameter and call the [Merchandised Product service](/doc/commerce/product/api_merch_product.html#using-merchandised-products). A 200 response lists the styleCode, colorCode and styleColor.
 
 https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)
 
->TIP: It is recommended that you call the Merchandised Product service rather than the Product Feeds service if you only need product information, not inventory, product content, price or SKU information.
+>**TIP:** It is recommended that you call the Merchandised Product service rather than the Product Feeds service if you only need product information, not inventory, product content, price or SKU information.
 
 3. If you do not receive a 200 response from the Merchandised Product Sku service, it could be because your GTIN is retail-only. Only digital SKUs are currently available in the Cloud. In this case, you will need to continue to call the CAPI Product Widths endpoint to get the style-color using the GTIN as a path parameter.
 

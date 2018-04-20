@@ -167,7 +167,7 @@ However, for your first request and anytime you are performing tests, use the Te
 
 https://experience.test.commerce.nikecloud.com/measure/uxevents/v1.
 
->TIP: The URL for v2 is the same as v1.
+>**TIP:** The URL for v2 is the same as v1.
 
 #### Headers
 
