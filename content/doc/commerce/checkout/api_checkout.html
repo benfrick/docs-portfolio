@@ -1556,10 +1556,10 @@ Authorization: Bearer {your access token}
 <blockquote>
   <p><strong>TIPS:</strong></p>
   <p><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see <a href="/doc/commerce/checkout/checkout_country_currency.html" class="absent">here</a>.</p>
-  <p><i class="mr2-sm g72-check">&lt;/iUse the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.</p>
-  <p><i class="mr2-sm g72-check">&lt;/iAlthough optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.</p>
-  <p><i class="mr2-sm g72-check">&lt;/iAlthough optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.</p>
-  <p><i class="mr2-sm g72-check">&lt;/iTo retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Products API Developer's Guide</a> for more information.</p>
+  <p><i class="mr2-sm g72-check"></i>Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.</p>
+  <p><i class="mr2-sm g72-check"></i>Although optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.</p>
+  <p><i class="mr2-sm g72-check"></i>Although optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.</p>
+  <p><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Products API Developer's Guide</a> for more information.</p>
 </blockquote>
 <p>Sample <em>Cart Reviews</em> request body:</p>
 <pre><code>{
@@ -2674,9 +2674,9 @@ guide to learn more.</p>
 <blockquote>
   <p><strong>TIPS:</strong></p>
   <p><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see <a href="/doc/commerce/checkout/checkout_country_currency.html" class="absent">here</a>.</p>
-  <p><i class="mr2-sm g72-check">&lt;/iTo retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Products API Developer's Guide</a> for more information.</p>
-  <p><i class="mr2-sm g72-check">&lt;/iOptionally you can send the priceChecksum value you got from the <em>Request Checkout Preview</em> endpoint in the <strong>priceChecksum</strong> field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.</p>
-  <p><i class="mr2-sm g72-check">&lt;/iFor China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an <strong>invoiceInfo</strong> array in the request body, similar to the below example (see the request schema for this endpoint for more details):</p>
+  <p><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Products API Developer's Guide</a> for more information.</p>
+  <p><i class="mr2-sm g72-check"></i>Optionally you can send the priceChecksum value you got from the <em>Request Checkout Preview</em> endpoint in the <strong>priceChecksum</strong> field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.</p>
+  <p><i class="mr2-sm g72-check"></i>For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an <strong>invoiceInfo</strong> array in the request body, similar to the below example (see the request schema for this endpoint for more details):</p>
 </blockquote>
 <pre><code>&quot;invoiceInfo&quot;: {
     &quot;type&quot;: &quot;ELECTRONIC_FAPIAO&quot;,
