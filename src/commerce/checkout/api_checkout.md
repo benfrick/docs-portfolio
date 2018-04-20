@@ -482,15 +482,15 @@ Required request headers:
 |valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * Use the same channel value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>Use the same channel value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart* Request Body:
 
@@ -862,13 +862,13 @@ Required request headers:
 |links.self.**ref**|string|Link to this resource, itself|Required|
 |**resourceType**|string|The type of resource the document is modeling|Optional|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart by Cart ID* Request Body:
 
@@ -1065,9 +1065,11 @@ Element Name|Type |Description|Required?|
 |**path**|string|JSON Pointer path, only '/promotionCodes' is allowed|Required|
 |**value**|string|Promotion Code to add or remove|Required|
 
->TIPS:
-> * You can include more than one patch operation in a request.
-> * Sending "op": "remove" for a line item will delete the entire quantity previously added under that line item.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>You can include more than one patch operation in a request.
+>
+><i class="mr2-sm g72-check"></i>Sending "op": "remove" for a line item will delete the entire quantity previously added under that line item.
 
 Sample *Modify a Cart by Cart ID* Request Body:
 
@@ -1555,17 +1557,17 @@ Required request headers:
 |valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * Although optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.
-
-> * Although optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></iUse the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></iAlthough optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.
+>
+><i class="mr2-sm g72-check"></iAlthough optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.
+>
+><i class="mr2-sm g72-check"></iTo retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Cart Reviews* request body:
 
@@ -1921,13 +1923,13 @@ Required request headers:
 |shippingAddress.**county**|Optional|Shipping address county. This will typically be used for non-US addresses to hold specific regional data.|
 |**promotionCodes**|Optional|Array containing promotion codes that the user has attempted to apply|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
-
-> * Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>
+><i class="mr2-sm g72-check"></i>Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
 
 Sample *Shipping Options* request body:
 
@@ -2232,11 +2234,11 @@ Required request headers:
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
 |**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Request a Checkout Preview* request body:
 ```
@@ -2639,15 +2641,16 @@ Required parts of the request body:
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
 |**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
 
->TIPS:
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></iTo retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>
+><i class="mr2-sm g72-check"></iOptionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
+>
+><i class="mr2-sm g72-check"></iFor China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an **invoiceInfo** array in the request body, similar to the below example (see the request schema for this endpoint for more details):
 
-> * For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
-
-> * Optionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
-
->* For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an **invoiceInfo** array in the request body, similar to the below example (see the request schema for this endpoint for more details):
 ```
 "invoiceInfo": {
     "type": "ELECTRONIC_FAPIAO",

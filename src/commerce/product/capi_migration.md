@@ -633,11 +633,11 @@ The following tables describe the mapping of *response body* fields between CAPI
 |skuInventories.storeInventories.**storeId**|368|**storeId**|9C659645-36E8-4B8D-AF29-573B48C75E38|Inventory: Get Inventory Info|
 |**pageUrls**|N/A|N/A|N/A|N/A|
 
->TIPS:
-
-> * With CAPI, Digital inventory availability could be requested by product ID (PID), style-color code, or GTIN (i.e. size). With Cloud, the same can be requested by Product ID (i.e. style-color) or SKU ID (i.e. size).
-
-> * The **storeId** from the Cloud endpoint *Get Inventory Info* is a UUID from the <a href="https://developer.niketech.com/docs/projects/Stores" target="_blank">Stores API</a>.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>With CAPI, Digital inventory availability could be requested by product ID (PID), style-color code, or GTIN (i.e. size). With Cloud, the same can be requested by Product ID (i.e. style-color) or SKU ID (i.e. size).
+>
+><i class="mr2-sm g72-check"></i>The **storeId** from the Cloud endpoint *Get Inventory Info* is a UUID from the <a href="https://developer.niketech.com/docs/projects/Stores" target="_blank">Stores API</a>.
 
 ### <a name="product-availability"></a>Product Availability
 

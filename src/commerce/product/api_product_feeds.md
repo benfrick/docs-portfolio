@@ -633,11 +633,11 @@ The following is a list of scenarios that illustrate which **filter** parameters
 |Threads for Exclusive Access products|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=exclusiveAccess(true,false)|
 |Threads for a Global Trade Identification Number (GTIN)|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=productInfo.skus.gtin(00884500634190)|
 
->TIPS:
-
-> * Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure, so rather than **objects.id** use **id**, for example.
-
-> * Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure, so rather than **objects.id** use **id**, for example.
+>
+><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
 
 #### Using Search-Based Queries
 
