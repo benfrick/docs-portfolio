@@ -257,3 +257,9 @@ a h6.guide-toc-l3 {
 .guide-menu .guide-menu-nav.menu-l3.menu-highlight {
     color: #3498db;
 }
+iframe#nde-docs-frame > html {
+  padding:0
+}
+.app-container.m12-sm {
+	margin:0;
+}
