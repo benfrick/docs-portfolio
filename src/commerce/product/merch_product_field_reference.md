@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"></link>
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
-<link rel="stylesheet" href="/css/style.css"></link>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
@@ -8,7 +8,7 @@ See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/co
 Author:  Jane Moore
 -->
 
-<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
+<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!></a>
 
 # MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i> (DRAFT)
 
@@ -25,7 +25,7 @@ See the [Global Reference Guide](/doc/commerce/reference/global.html) for the li
 - [Style Types](#style-types)
 - [Publish Types](#publish-types)
 
-## <a name="status-codes">Status Codes</a>
+## <a name="status-codes"></a>Status Codes
 
 Listed below are the product and value-added service status codes.
 
@@ -37,7 +37,7 @@ Listed below are the product and value-added service status codes.
 |**CANCEL**|No longer available for purchase|
 |**CLOSEOUT**|Nearing end of purchase cycle|
 
-## <a name="merchandising-groups">Merchandising Groups</a>
+## <a name="merchandising-groups"></a>Merchandising Groups
 
 Listed below are the merchandising group codes and the countries included within each NIKE sales geography.
 
@@ -45,7 +45,7 @@ Listed below are the merchandising group codes and the countries included within
 |---|---|---|---|---|
 |China|Austria<br>Belgium<br>Czech Republic<br>Denmark<br>Finland<br>France<br>Germany<br>Greece<br>Hungary<br>Ireland<br>Italy<br>Luxembourg<br>Netherlands<br>Poland<br>Portugal<br>Slovenia<br>Spain<br>Sweden<br>United Kingdom|Japan|United States|for future use|
 
-## <a name="genders">Genders</a>
+## <a name="genders"></a>Genders
 
 Listed below are the gender codes.  Adult unisex products are merchandised with both "MEN" and "WOMEN" gender codes.
 
@@ -57,7 +57,7 @@ Listed below are the gender codes.  Adult unisex products are merchandised with 
 |**GIRLS**|Female child|
 |**KIDS**|Unisex child|
 
-## <a name="product-types">Product Types</a>
+## <a name="product-types"></a>Product Types
 
 Listed below are the product type codes.
 
@@ -74,7 +74,7 @@ Listed below are the product type codes.
 |**GIFT_MESSAGE**|Value-added service where a gift message is packaged with the product|
 |**JERSEY_ID**|Team jersey product bought in bulk for a team with customizable team number, emblem and name. This is not a NIKEiD product.|
 
-## <a name="style-types">Style Types</a>
+## <a name="style-types"></a>Style Types
 
 Listed below are the product style codes.
 
@@ -86,7 +86,7 @@ Listed below are the product style codes.
 |**GIFT_CARD**|Physical or electronic debit card customer uses to purchase products and services|
 |**VOUCHER**|Credit given to a customer after returning a product that the customer uses to purchase other products and services|
 
-## <a name="publish-types">Publish Types</a>
+## <a name="publish-types"></a>Publish Types
 
 Listed below are the publish type codes.
 
