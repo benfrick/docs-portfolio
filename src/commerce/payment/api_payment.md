@@ -489,9 +489,11 @@ Even though items is an optional request field, it is recommended that you pass 
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>**TIP:** It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
 
 #### Request Body
 
@@ -806,9 +808,11 @@ Use this endpoint to validate a list of payment options for a given shipping cou
 |**Content-Type**|**Required**|Content type of the request, application/json is only value allowed|
 |**Authorization**|**Required**|Your access token in the format of Bearer {token}|
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
-
->**TIP:** It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the `upmid` (for logged in customers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>
+><i class="mr2-sm g72-check"></i>It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
 
 #### Request Body
 
