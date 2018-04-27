@@ -9,7 +9,7 @@ This project provides Nike Digital Engineering (NDe) API documentation for the f
 
 ## Using
 
-Visit the Nike Developer Portal for the full documentation set at https://developer.niketech.com/nde-doc.
+Visit the Nike Developer Portal for the full documentation set at https://developer.niketech.com/nde-docs.
 
 ## Contributing
 
