@@ -20,7 +20,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 04/27/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 04/30/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
@@ -152,7 +152,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 |Topic|Details|
 |---|---|
-|Use these APIs to|<li>Add Nike products or gift cards to a shopping cart or Wish Lists and get pricing <li>Get available shipping options with pricing <li>Preview & validate a checkout <li>Submit a checkout for fulfillment <li> More...|
+|Use these APIs to|<li>Add Nike products or gift cards to a shopping cart or Wish List and get pricing <li>Get available shipping options with pricing <li>Preview & validate a checkout <li>Submit a checkout for fulfillment <li> More...|
 |Who calls this API|SNKRS app (Web/iOS/Android), Nike+ app (iOS/Android), Nike.com|
 |Version|v1, v2|
 |SLA|<li> Carts v1 - Response Time: 50ms, Requests Per Second: 500<li> Carts v2 - Response Time: 1000ms, Requests Per Second: 300 <li>Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200<li>Wish Lists - Response Time: 160 ms, Requests Per Second: 80<li>Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000 <li>Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600|
@@ -187,7 +187,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 |Manage a user's shopping cart, get product pricing|Carts API|
 |Check the 'buyability' of a product|Carts API|
 |Augment a cart with estimated taxes and delivery dates|Cart Reviews API|
-|Manage a user's Wish Lists, get product pricing|Wish Lists API|
+|Manage a user's Wish Lists (member/employee only), get product pricing|Wish Lists API|
 |Get available shipping methods, estimated delivery dates|Shipping Options API|
 |Validate product and shipping info. Get product, tax, and shipping prices|Checkouts API|
 |Submit a checkout for fulfillment|Checkouts API|
@@ -1903,6 +1903,8 @@ Following is a summary of the errors and warnings that can come back in response
 
 ## <a name="using-wish-lists"></a>Using Wish Lists
 
+Manage a Nike member/employee's Wish Lists using the Wish Lists API.
+
 - [Wish Lists Overview](#wish-lists-overview)
 
 - [Create or Update a List](#create-or-update-a-list)
@@ -1923,7 +1925,7 @@ Following is a summary of the errors and warnings that can come back in response
 
 ### <a name="wish-lists-overview"></a>Wish Lists Overview
 
-The Wish List API allows Nike member or employee shoppers to save one or more products to consider for purchase.
+The Wish Lists API allows Nike members and employees to save lists of products to consider for purchase.
 
 Features:
 
@@ -1931,21 +1933,21 @@ Features:
 - Get product pricing and availability for items added to the list
 - Create, read, update and delete support
 - Pagination support
-- Member and employee support only, guest users may not save Wish Lists
+- Member and employee support only. **Guest users may not save Wish Lists**
 
-An overview of the ways you can call the Wish Lists API:
+#### Life Cycle of Wish List
 
-![](/images/commerce/buy/wishlist_seq_dgm.png)
-
->TIP: You generate the unique list and list item identifiers and send them in the request in UUID format. See individual endpoint sections for details.
+![](/images/commerce/buy/wishlists_flow.png)
 
 ### <a name="create-or-update-a-list"></a>Create or Update a List
 
-Create or update a Wish List using this endpoint.
+Create or update header-level information for a Wish List using this endpoint.
 
-- Only header-level info can be created with this endpoint. Use the other endpoints to add or remove items from a list.
+- Only **header-level** info, such as the list identifier and name, can be created with this endpoint. Use the other endpoints to add or remove items from a list.
 - Up to 25 lists per user are allowed, and each list name must be unique within a user's lists for a given country.
-- Updating lists is currently limited to changing the list name.
+- Updating lists is currently limited to changing the list name only.
+
+>TIP: You generate the unique list and list item identifiers and send them in the request in UUID format. See individual endpoint sections for details.
 
 #### Endpoint Details
 
@@ -3216,7 +3218,7 @@ The structure of the **response** object is similar in structure to the request 
 |totals.**subtotal**|Subtotal of the item costs for all items|
 |totals.**valueAddedServicesTotal**|Total of value-added services on the items|
 |totals.**taxTotal**|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
-|totals.**discountTotal**|Total of all discoutns (excluding shipping discounts) applied to the checkout|
+|totals.**discountTotal**|Total of all discounts (excluding shipping discounts) applied to the checkout|
 |totals.**shippingTotal**|Total of all shipping costs, less any shipping discounts, on the checkout|
 |totals.**total**|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
 |**priceChecksum**|Found under **response**, provides checksum for price details. Optionally, you can send it in the request body to *Request Checkout Submit* (see related section in this guide)|
@@ -3612,7 +3614,7 @@ For a job that is in "COMPLETED" status and had no errors, the response also con
 |totals.**subtotal**|Subtotal of the item costs for all items|
 |totals.**valueAddedServicesTotal**|Total of value-added services on the items|
 |totals.**taxTotal**|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
-|totals.**discountTotal**|Total of all discoutns (excluding shipping discounts) applied to the checkout|
+|totals.**discountTotal**|Total of all discounts (excluding shipping discounts) applied to the checkout|
 |totals.**shippingTotal**|Total of all shipping costs, less any shipping discounts, on the checkout|
 |totals.**total**|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
 |**paymentToken**|Found under **resource**, the unique identifier of the payment details in the payment domain|
@@ -4440,6 +4442,7 @@ No release notes available.
 |Added Carts v2|03/16/2018|Updates based on Carts v2 API being released|
 |Updated links|03/20/2018|Updated links to point to new dev portal|
 |Updated external links|04/02/2018|Updated external links to open in new browser window, commented out 'Try It Now' buttons|
+|Added Wish Lists API|04/30/2018|Added new Wish Lists API content|
 
 ## <a name="related-links"></a>Related Links
 
