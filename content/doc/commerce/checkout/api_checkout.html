@@ -21,7 +21,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
     </div>
 </div>
 <h1 id="buy-domain-developers-guide"><a href="#buy-domain-developers-guide" name="buy-domain-developers-guide" class="anchor"><span class="octicon octicon-link"></span></a>BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE</h1>
-<h6 id="last-updated-04272018submit-feedback-dev-portal-slack-channeldevportal"><a href="#last-updated-04272018submit-feedback-dev-portal-slack-channeldevportal" name="last-updated-04272018submit-feedback-dev-portal-slack-channeldevportal" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 04/27/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
+<h6 id="last-updated-04302018submit-feedback-dev-portal-slack-channeldevportal"><a href="#last-updated-04302018submit-feedback-dev-portal-slack-channeldevportal" name="last-updated-04302018submit-feedback-dev-portal-slack-channeldevportal" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 04/30/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
 <p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and <a href="/doc/commerce/checkout/biz_checkout.html" class="absent">Get Started With Checkout</a>, this guide provides the additional details necessary to integrate with the Buy Domain APIs.</p>
 <h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In this guide:</strong></h2>
 <p><a href="#api-at-a-glance">API at a Glance</a></p>
@@ -91,7 +91,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
     <tr><th>Topic</th><th>Details</th></tr>
   </thead>
   <tbody>
-    <tr><td>Use these APIs to</td><td><li>Add Nike products or gift cards to a shopping cart or Wish Lists and get pricing <li>Get available shipping options with pricing <li>Preview &amp; validate a checkout <li>Submit a checkout for fulfillment <li> More...</td></tr>
+    <tr><td>Use these APIs to</td><td><li>Add Nike products or gift cards to a shopping cart or Wish List and get pricing <li>Get available shipping options with pricing <li>Preview &amp; validate a checkout <li>Submit a checkout for fulfillment <li> More...</td></tr>
     <tr><td>Who calls this API</td><td>SNKRS app (Web/iOS/Android), Nike+ app (iOS/Android), Nike.com</td></tr>
     <tr><td>Version</td><td>v1, v2</td></tr>
     <tr><td>SLA</td><td><li> Carts v1 - Response Time: 50ms, Requests Per Second: 500<li> Carts v2 - Response Time: 1000ms, Requests Per Second: 300 <li>Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200<li>Wish Lists - Response Time: 160 ms, Requests Per Second: 80<li>Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000 <li>Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600</td></tr>
@@ -121,7 +121,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
     <tr><td>Manage a user's shopping cart, get product pricing</td><td>Carts API</td></tr>
     <tr><td>Check the 'buyability' of a product</td><td>Carts API</td></tr>
     <tr><td>Augment a cart with estimated taxes and delivery dates</td><td>Cart Reviews API</td></tr>
-    <tr><td>Manage a user's Wish Lists, get product pricing</td><td>Wish Lists API</td></tr>
+    <tr><td>Manage a user's Wish Lists (member/employee only), get product pricing</td><td>Wish Lists API</td></tr>
     <tr><td>Get available shipping methods, estimated delivery dates</td><td>Shipping Options API</td></tr>
     <tr><td>Validate product and shipping info. Get product, tax, and shipping prices</td><td>Checkouts API</td></tr>
     <tr><td>Submit a checkout for fulfillment</td><td>Checkouts API</td></tr>
@@ -1877,6 +1877,7 @@ Authorization: Bearer {your access token}
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#!/Cart_Reviews/post_buy_cart_reviews_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 <hr />
 <h2 id="using-wish-lists"><a href="#using-wish-lists" name="using-wish-lists" class="anchor"><span class="octicon octicon-link"></span></a><a name="using-wish-lists"></a>Using Wish Lists</h2>
+<p>Manage a Nike member/employee's Wish Lists using the Wish Lists API.</p>
 <ul>
   <li>
     <p><a href="#wish-lists-overview">Wish Lists Overview</a></p>
@@ -1907,27 +1908,27 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 <h3 id="wish-lists-overview"><a href="#wish-lists-overview" name="wish-lists-overview" class="anchor"><span class="octicon octicon-link"></span></a><a name="wish-lists-overview"></a>Wish Lists Overview</h3>
-<p>The Wish List API allows Nike member or employee shoppers to save one or more products to consider for purchase.</p>
+<p>The Wish Lists API allows Nike members and employees to save lists of products to consider for purchase.</p>
 <p>Features:</p>
 <ul>
   <li>Store up to 25 Wish Lists per user with a maximum of 100 items per list</li>
   <li>Get product pricing and availability for items added to the list</li>
   <li>Create, read, update and delete support</li>
   <li>Pagination support</li>
-  <li>Member and employee support only, guest users may not save Wish Lists</li>
+  <li>Member and employee support only. <strong>Guest users may not save Wish Lists</strong></li>
 </ul>
-<p>An overview of the ways you can call the Wish Lists API:</p>
-<p><img src="/images/commerce/buy/wishlist_seq_dgm.png" alt="" class="absent" /></p>
+<h4 id="life-cycle-of-wish-list"><a href="#life-cycle-of-wish-list" name="life-cycle-of-wish-list" class="anchor"><span class="octicon octicon-link"></span></a>Life Cycle of Wish List</h4>
+<p><img src="/images/commerce/buy/wishlists_flow.png" alt="" class="absent" /></p>
+<h3 id="create-or-update-a-list"><a href="#create-or-update-a-list" name="create-or-update-a-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="create-or-update-a-list"></a>Create or Update a List</h3>
+<p>Create or update header-level information for a Wish List using this endpoint.</p>
+<ul>
+  <li>Only <strong>header-level</strong> info, such as the list identifier and name, can be created with this endpoint. Use the other endpoints to add or remove items from a list.</li>
+  <li>Up to 25 lists per user are allowed, and each list name must be unique within a user's lists for a given country.</li>
+  <li>Updating lists is currently limited to changing the list name only.</li>
+</ul>
 <blockquote>
   <p>TIP: You generate the unique list and list item identifiers and send them in the request in UUID format. See individual endpoint sections for details.</p>
 </blockquote>
-<h3 id="create-or-update-a-list"><a href="#create-or-update-a-list" name="create-or-update-a-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="create-or-update-a-list"></a>Create or Update a List</h3>
-<p>Create or update a Wish List using this endpoint.</p>
-<ul>
-  <li>Only header-level info can be created with this endpoint. Use the other endpoints to add or remove items from a list.</li>
-  <li>Up to 25 lists per user are allowed, and each list name must be unique within a user's lists for a given country.</li>
-  <li>Updating lists is currently limited to changing the list name.</li>
-</ul>
 <h4 id="endpoint-details-14"><a href="#endpoint-details-14" name="endpoint-details-14" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h4>
 <table>
   <thead>
@@ -3252,7 +3253,7 @@ Authorization: Bearer {your access token}
     <tr><td>totals.<strong>subtotal</strong></td><td>Subtotal of the item costs for all items</td></tr>
     <tr><td>totals.<strong>valueAddedServicesTotal</strong></td><td>Total of value-added services on the items</td></tr>
     <tr><td>totals.<strong>taxTotal</strong></td><td>Total of all taxes applied to the checkout, including VALUEADDEDTAX</td></tr>
-    <tr><td>totals.<strong>discountTotal</strong></td><td>Total of all discoutns (excluding shipping discounts) applied to the checkout</td></tr>
+    <tr><td>totals.<strong>discountTotal</strong></td><td>Total of all discounts (excluding shipping discounts) applied to the checkout</td></tr>
     <tr><td>totals.<strong>shippingTotal</strong></td><td>Total of all shipping costs, less any shipping discounts, on the checkout</td></tr>
     <tr><td>totals.<strong>total</strong></td><td>Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts</td></tr>
     <tr><td><strong>priceChecksum</strong></td><td>Found under <strong>response</strong>, provides checksum for price details. Optionally, you can send it in the request body to <em>Request Checkout Submit</em> (see related section in this guide)</td></tr>
@@ -3667,7 +3668,7 @@ guide to learn more.</p>
     <tr><td>totals.<strong>subtotal</strong></td><td>Subtotal of the item costs for all items</td></tr>
     <tr><td>totals.<strong>valueAddedServicesTotal</strong></td><td>Total of value-added services on the items</td></tr>
     <tr><td>totals.<strong>taxTotal</strong></td><td>Total of all taxes applied to the checkout, including VALUEADDEDTAX</td></tr>
-    <tr><td>totals.<strong>discountTotal</strong></td><td>Total of all discoutns (excluding shipping discounts) applied to the checkout</td></tr>
+    <tr><td>totals.<strong>discountTotal</strong></td><td>Total of all discounts (excluding shipping discounts) applied to the checkout</td></tr>
     <tr><td>totals.<strong>shippingTotal</strong></td><td>Total of all shipping costs, less any shipping discounts, on the checkout</td></tr>
     <tr><td>totals.<strong>total</strong></td><td>Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts</td></tr>
     <tr><td><strong>paymentToken</strong></td><td>Found under <strong>resource</strong>, the unique identifier of the payment details in the payment domain</td></tr>
@@ -4484,6 +4485,7 @@ guide to learn more.</p>
     <tr><td>Added Carts v2</td><td>03/16/2018</td><td>Updates based on Carts v2 API being released</td></tr>
     <tr><td>Updated links</td><td>03/20/2018</td><td>Updated links to point to new dev portal</td></tr>
     <tr><td>Updated external links</td><td>04/02/2018</td><td>Updated external links to open in new browser window, commented out 'Try It Now' buttons</td></tr>
+    <tr><td>Added Wish Lists API</td><td>04/30/2018</td><td>Added new Wish Lists API content</td></tr>
   </tbody>
 </table>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
