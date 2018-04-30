@@ -1929,7 +1929,7 @@ The Wish Lists API allows Nike members and employees to save lists of products t
 
 Features:
 
-- Store up to 25 Wish Lists per user with a maximum of 100 items per list
+- Store unlimited Wish Lists per user
 - Get product pricing and availability for items added to the list
 - Create, read, update and delete support
 - Pagination support
@@ -1944,7 +1944,7 @@ Features:
 Create or update header-level information for a Wish List using this endpoint.
 
 - Only **header-level** info, such as the list identifier and name, can be created with this endpoint. Use the other endpoints to add or remove items from a list.
-- Up to 25 lists per user are allowed, and each list name must be unique within a user's lists for a given country.
+- List name must be unique within a user's lists for a given country.
 - Updating lists is currently limited to changing the list name only.
 
 >TIP: You generate the unique list and list item identifiers and send them in the request in UUID format. See individual endpoint sections for details.
@@ -2241,7 +2241,6 @@ Sample *Retrieve Lists for Authenticated User* 400 response:
 
 Add an item to an existing list using the list identifier and get current product pricing in the response.
 
-- Up to 100 items per list are allowed.
 - If you add an item that is already on the list, the item will be replaced.
 - Only the item being added are included in the response, not all items in the list.
 

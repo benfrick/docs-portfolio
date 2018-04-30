@@ -1911,7 +1911,7 @@ Authorization: Bearer {your access token}
 <p>The Wish Lists API allows Nike members and employees to save lists of products to consider for purchase.</p>
 <p>Features:</p>
 <ul>
-  <li>Store up to 25 Wish Lists per user with a maximum of 100 items per list</li>
+  <li>Store unlimited Wish Lists per user</li>
   <li>Get product pricing and availability for items added to the list</li>
   <li>Create, read, update and delete support</li>
   <li>Pagination support</li>
@@ -1923,7 +1923,7 @@ Authorization: Bearer {your access token}
 <p>Create or update header-level information for a Wish List using this endpoint.</p>
 <ul>
   <li>Only <strong>header-level</strong> info, such as the list identifier and name, can be created with this endpoint. Use the other endpoints to add or remove items from a list.</li>
-  <li>Up to 25 lists per user are allowed, and each list name must be unique within a user's lists for a given country.</li>
+  <li>List name must be unique within a user's lists for a given country.</li>
   <li>Updating lists is currently limited to changing the list name only.</li>
 </ul>
 <blockquote>
@@ -2234,7 +2234,6 @@ Authorization: Bearer {your access token}
 <h3 id="add-item-to-list"><a href="#add-item-to-list" name="add-item-to-list" class="anchor"><span class="octicon octicon-link"></span></a><a name="add-item-to-list"></a>Add Item to List</h3>
 <p>Add an item to an existing list using the list identifier and get current product pricing in the response.</p>
 <ul>
-  <li>Up to 100 items per list are allowed.</li>
   <li>If you add an item that is already on the list, the item will be replaced.</li>
   <li>Only the item being added are included in the response, not all items in the list.</li>
 </ul>
