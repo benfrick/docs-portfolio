@@ -20,7 +20,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 04/27/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
@@ -86,6 +86,26 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 <span class="toc-pad">[Cart Reviews Error Handling](#cart-reviews-error-handling)
 
+[Using Wish Lists](#using-wish-lists)
+
+<span class="toc-pad">[Wish Lists Overview](#wish-lists-overview)
+
+<span class="toc-pad">[Create or Update a List](#create-or-update-a-list)
+
+<span class="toc-pad">[Delete a List](#delete-a-list)
+
+<span class="toc-pad">[Retrieve a List by ID](#retrieve-a-list-by-id)
+
+<span class="toc-pad">[Retrieve Lists for Authenticated User](#retrieve-lists-for-authenticated-user)
+
+<span class="toc-pad">[Add Item to List](#add-item-to-list)
+
+<span class="toc-pad">[Remove Item from List](#remove-item-from-list)
+
+<span class="toc-pad">[Retrieve Items by List](#remove-item-from-list)
+
+<span class="toc-pad">[Retrieve Item by ID](#retrieve-item-by-id)
+
 [Using Shipping Options](#using-shipping-options)
 
 <span class="toc-pad">[Shipping Options Overview](#shipping-options-overview)
@@ -132,15 +152,15 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 |Topic|Details|
 |---|---|
-|Use these APIs to|<li>Add Nike products or gift cards to a shopping cart and get pricing <li>Get available shipping options with pricing <li>Preview & validate a checkout <li>Submit a checkout for fulfillment <li> More...|
+|Use these APIs to|<li>Add Nike products or gift cards to a shopping cart or Wish Lists and get pricing <li>Get available shipping options with pricing <li>Preview & validate a checkout <li>Submit a checkout for fulfillment <li> More...|
 |Who calls this API|SNKRS app (Web/iOS/Android), Nike+ app (iOS/Android), Nike.com|
 |Version|v1, v2|
-|SLA|<li> Carts v1 - Response Time: 50ms, Requests Per Second: 500<li> Carts v2 - Response Time: 1000ms, Requests Per Second: 300 <li>Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200<li>Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000 <li>Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600|
+|SLA|<li> Carts v1 - Response Time: 50ms, Requests Per Second: 500<li> Carts v2 - Response Time: 1000ms, Requests Per Second: 300 <li>Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200<li>Wish Lists - Response Time: 160 ms, Requests Per Second: 80<li>Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000 <li>Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600|
 |Domain|Commerce|
 |Prerequisites|<li>[API Registration](/doc/getting-started/using_nike_apis.html#registration)<li>JWT for *Launch Checkout Submit* only|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a><br>Confluence: <a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="_blank">CiC Order Capture</a><br>Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)|
 
->**TIP:** SLAs vary per endpoint for both the Carts (v1 and v2) and Checkouts APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. See <a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse" target="_blank">this SLA.json file</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/SLA.json" target="_blank">that SLA.json</a> file to get SLA info by endpoint.
+>**TIP:** SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. Ask the Product Owner to get specific SLA info for each endpoint.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -167,6 +187,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 |Manage a user's shopping cart, get product pricing|Carts API|
 |Check the 'buyability' of a product|Carts API|
 |Augment a cart with estimated taxes and delivery dates|Cart Reviews API|
+|Manage a user's Wish Lists, get product pricing|Wish Lists API|
 |Get available shipping methods, estimated delivery dates|Shipping Options API|
 |Validate product and shipping info. Get product, tax, and shipping prices|Checkouts API|
 |Submit a checkout for fulfillment|Checkouts API|
@@ -222,16 +243,24 @@ There are 4 possible scenarios:
 |Carts v1|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md#Cart_Operations_get_buy_carts_v1_id" target="_blank">Retrieve Carts by ID</a>|GET|/buy/carts/v1/{id}/{?fields}|
 |Carts v1|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md#Cart_Operations_get_buy_carts_v1" target="_blank">Retrieve Carts by Filter</a>|GET|/buy/carts/v1/{?filter,fields}|
 |Carts v1|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md#Cart_Operations_delete_buy_carts_v1_id" target="_blank">Delete All Items from a Cart</a>|DELETE|/buy/carts/v1/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart" target="_blank">Create or Update a Cart by Cart ID</a>|PUT|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-1" target="_blank">Modify a Cart by Cart ID</a>|PATCH|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart" target="_blank">Delete All Items from a Cart by Cart ID</a>|DELETE|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-cartid" target="_blank">Get a Cart by Cart ID</a>|GET|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>|GET|/buy/carts/v2/?filter|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-2" target="_blank">Create or Update a Cart by Filter Criteria</a>|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-3" target="_blank">Modify a Cart by Filter Criteria</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria-1" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart-1" target="_blank">Delete all Items from a Cart by Filter Criteria</a>|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart" target="_blank">Create or Update a Cart by Cart ID</a>|PUT|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart-1" target="_blank">Modify a Cart by Cart ID</a>|PATCH|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-delete-all-items-from-a-cart" target="_blank">Delete All Items from a Cart by Cart ID</a>|DELETE|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-get-a-cart-for-a-cartid" target="_blank">Get a Cart by Cart ID</a>|GET|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>|GET|/buy/carts/v2/?filter|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart-2" target="_blank">Create or Update a Cart by Filter Criteria</a>|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart-3" target="_blank">Modify a Cart by Filter Criteria</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria-1" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-delete-all-items-from-a-cart-1" target="_blank">Delete all Items from a Cart by Filter Criteria</a>|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
 |Cart Reviews|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md#Cart_Reviews_post_buy_cart_reviews_v1" target="_blank">Augment a Cart</a>|POST|/buy/cart_reviews/v1|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>|PUT|/buy/lists/v1/{id}{?fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>|DELETE|/buy/lists/v1/{id}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a>|GET|/buy/lists/v1/{id}{?fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Lists for Authenticated User</a>|GET|/buy/lists/v1{?filter,fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Add Item to List</a>|PUT|/buy/list_items/v1/{id}{?fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>|DELETE|/buy/list_items/v1/{id}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>|GET|/buy/list_items/v1{?filter, anchor, count, fields, sort}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a>|GET|/buy/list_items/v1/{id}{?fields}|
 |Shipping Options|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md#default_post_buy_shipping_options_v2" target="_blank">Shipping Options</a>|POST|/buy/shipping_options/v2|
 |Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#checkout-preview-request-checkout-preview" target="_blank">Request Checkout Preview</a>|PUT|/buy/checkout_previews/v2/{id}|
 |Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#Checkout_Preview_get_buy_checkout_previews_v2_jobs_id" target="_blank">Retrieve Checkout Preview Job</a>|GET|/buy/checkout_previews/v2/jobs/{id}|
@@ -766,6 +795,7 @@ Following is a summary of the errors and warnings that can come back in response
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#!/Cart_Operations/get_buy_carts_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
 
 ## <a name="using-carts-v2"></a>Using Carts v2
 
@@ -1479,6 +1509,7 @@ Following is a summary of the errors and warnings that can come back in response
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md?raw" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
 
 ## <a name="using-cart-reviews"></a>Using Cart Reviews
 
@@ -1868,6 +1899,741 @@ Following is a summary of the errors and warnings that can come back in response
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#!/Cart_Reviews/post_buy_cart_reviews_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
+
+## <a name="using-wish-lists"></a>Using Wish Lists
+
+- [Wish Lists Overview](#wish-lists-overview)
+
+- [Create or Update a List](#create-or-update-a-list)
+
+- [Delete a List](#delete-a-list)
+
+- [Retrieve a List by ID](#retrieve-a-list-by-id)
+
+- [Retrieve Lists for Authenticated User](#retrieve-lists-for-authenticated-user)
+
+- [Add Item to List](#add-item-to-list)
+
+- [Remove Item from List](#remove-item-from-list)
+
+- [Retrieve Items by List](#retrieve-items-by-list)
+
+- [Retrieve Item by ID](#retrieve-item-by-id)
+
+### <a name="wish-lists-overview"></a>Wish Lists Overview
+
+The Wish List API allows Nike member or employee shoppers to save one or more products to consider for purchase.
+
+Features:
+
+- Store up to 25 Wish Lists per user with a maximum of 100 items per list
+- Get product pricing and availability for items added to the list
+- Create, read, update and delete support
+- Pagination support
+- Member and employee support only, guest users may not save Wish Lists
+
+An overview of the ways you can call the Wish Lists API:
+
+![](/images/commerce/buy/wishlist_seq_dgm.png)
+
+>TIP: You generate the unique list and list item identifiers and send them in the request in UUID format. See individual endpoint sections for details.
+
+### <a name="create-or-update-a-list"></a>Create or Update a List
+
+Create or update a Wish List using this endpoint.
+
+- Only header-level info can be created with this endpoint. Use the other endpoints to add or remove items from a list.
+- Up to 25 lists per user are allowed, and each list name must be unique within a user's lists for a given country.
+- Updating lists is currently limited to changing the list name.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**PUT**|`/buy/lists/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="create-list-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="create-list-request-body"></a>Request Body
+
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List UUID assigned by the client|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|**name**|string|Name of the list|Required|
+|**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|**isPublished**|boolean|Specifies if the list is viewable|Optional|
+
+Sample *Create or Update a List* request URI:
+```
+https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+Sample *Create or Update a List* request body:
+```
+{
+    "id": "93a333a2-907b-46f1-b9ac-469489909057",
+    "country": "US",
+    "name": "Winter Running",
+    "brand": "NIKE"
+}
+
+```
+
+#### <a name="create-list-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List UUID assigned by the client|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|**name**|string|Name of the list|Required|
+|**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|**isPublished**|boolean|Specifies if the list is viewable|Optional|
+|**modificationDate**|string|ISO 8601 of the date when the resource was last updated, added or removed from|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+
+Sample *Create or Update a List* 200 response:
+```
+{
+    "id": "93a333a2-907b-46f1-b9ac-469489909057",
+    "country": "US",
+    "name": "Winter Running",
+    "brand": "NIKE",
+    "modificationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057"
+      }
+    }
+}
+```
+
+Sample *Create or Update a List* 400 response:
+```
+{
+    "message": "Validation Failed",
+    "errors": [
+      {
+        "field":"/country",
+        "code":"FIELD_INVALID",
+        "message": "Invalid country"
+      }
+    ]
+}
+```
+
+### <a name="delete-a-list"></a>Delete a List
+
+Delete a Wish List using this endpoint. Note that **all** of the items on the list will be removed.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**DELETE**|`/buy/lists/v1/{id}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+
+#### <a name="delete-list-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="delete-list-request-body"></a>Request Body
+
+There is no request body for a DELETE request.
+
+Sample *Delete a List* request URI:
+```
+https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="delete-list-response-body"></a>Response Body
+
+There is no response body for a successful HTTP response to a DELETE request.
+
+### <a name="retrieve-a-list-by-id"></a>Retrieve a List by ID
+
+Call this endpoint to retrieve header info for a single list using the list identifier that you previously created. The list items are **not** included in the response. To get the list items, separately call the *Retrieve Items by List* endpoint with the appropriate list identifier.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/lists/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="retrieve-id-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-id-request-body"></a>Request Body
+
+There is no request body on a GET request.
+
+Sample *Retrieve a List by ID* request URI:
+```
+https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="retrieve-id-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List UUID assigned by the client|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|**name**|string|Name of the list|Required|
+|**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|**isPublished**|boolean|Specifies if the list is viewable|Optional|
+|**modificationDate**|string|ISO 8601 of the date when the resource was last updated, added or removed from|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+
+Sample *Retrieve a List by ID* 200 response:
+```
+{
+    "id": "93a333a2-907b-46f1-b9ac-469489909057",
+    "country": "US",
+    "name": "Winter Running",
+    "brand": "NIKE",
+    "modificationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057"
+      }
+    }
+}
+```
+
+### <a name="retrieve-lists-for-authenticated-user"></a>Retrieve Lists for Authenticated User
+
+Retrieve header info for all lists for a single authenticated user with this endpoint. The list items are **not** included in the response. To get the list items, separately call the *Retrieve Items by List* endpoint with the appropriate list identifier.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/lists/v1{?filter,fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**filter**|Query|Limit the results to those matching the specified filters<li> country (string, required) - ISO 3166 country code(s)</li><li> name (string, optional) - List name </li>|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="retrieve-auth-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-auth-request-body"></a>Request Body
+
+There is no request body on a GET request.
+
+Sample *Retrieve Lists for Authenticated User* request URI:
+```
+https://www.api.nike.com/buy/lists/v1?filter=country(US)
+```
+
+#### <a name="retrieve-auth-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**objects**|object|List resources|Required|
+|objects.**id**|string|List UUID assigned by the client|Required|
+|objects.**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|objects.**name**|string|Name of the list|Required|
+|objects.**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|objects.**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|objects.**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|objects.**isPublished**|boolean|Specifies if the list is viewable|Optional|
+|objects.**modificationDate**|string|ISO 8601 of the date when the resource was last updated, added or removed from|Optional|
+|objects.links.**self**|object|Object containing self-link|Optional|
+|objects.links.self.**ref**|string|Link to this resource, itself|Required|
+
+Sample *Retrieve Lists for Authenticated User* 200 response:
+```
+{
+    "objects": [
+      {
+        "id": "93a333a2-907b-46f1-b9ac-469489909057",
+        "country": "US",
+        "name": "Winter Running",
+        "brand": "NIKE",
+        "modificationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057"
+          }
+        }
+      },
+      {
+        "id": "7b1d5327-58e6-054f-8492-60150b8caafb",
+        "country": "US",
+        "name": "Summer Basketball",
+        "brand": "NIKE",
+        "modificationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/lists/v1/7b1d5327-58e6-054f-8492-60150b8caafb"
+          }
+        }
+      }
+    ]
+}
+```
+
+Sample *Retrieve Lists for Authenticated User* 400 response:
+```
+{
+        "message": "Validation Failed",
+        "errors": [
+          {
+            "field": "filter",
+            "code": "QUERY_PARAMETER_INVALID",
+            "message": "Invalid filter"
+          }
+        ]
+      }
+```
+
+### <a name="add-item-to-list"></a>Add Item to List
+
+Add an item to an existing list using the list identifier and get current product pricing in the response.
+
+- Up to 100 items per list are allowed.
+- If you add an item that is already on the list, the item will be replaced.
+- Only the item being added are included in the response, not all items in the list.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**PUT**|`/buy/list_items/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="add-item-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="add-item-request-body"></a>Request Body
+
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List item UUID assigned by the client|Required|
+|**wishlistId**|string|List UUID assigned by the client|Required|
+|**skuId**|string|SKU UUID from the merchandising services|Optional|
+|**productId**|string|Product UUID from the merchandising services|Optional|
+|**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+
+Sample *Add Item to List* request URI:
+```
+https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+Sample *Add Item to List* request body:
+```
+{
+    "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+    "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+    "productId": "82ec699b-7855-7a29-1a94-6a1eaf2807d1",
+    "valueAddedServices": [
+      {
+        "id": "1905b205-0908-4f8e-a716-7b1695c38995",
+        "instruction": {
+          "id": "0123456789",
+          "type": "NIKEID"
+        }
+      }
+    ]
+}
+```
+
+#### <a name="add-item-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List item UUID assigned by the client|Required|
+|**wishlistId**|string|List UUID assigned by the client|Required|
+|**skuId**|string|SKU UUID from the merchandising services|Optional|
+|**productId**|string|Product UUID from the merchandising services|Optional|
+|**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+|**msrp**|string|Suggested retail price of the product|Optional|
+|**currentPrice**|string|Current price of the product|Optional|
+|**fullPrice**|string|Full price of the product|Optional|
+|**employeePrice**|string|Employee price of the product|Optional|
+|**currency**|string|Currency of the product prices|Optional|
+|**creationDate**|string|ISO 8601 of the date when the resource was created|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+|**error**|object|Error information|Optional|
+|error.**field**|string|JSON Pointer to the erroneous field|Required|
+|error.**code**|string|Error code for the error, text-based, 'screaming snake-case', one of "INVALID_FIELD", "UNAVAILABLE", "NOT_FOUND"|Required|
+
+Sample *Add Item to List* 200 response:
+```
+{
+    "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+    "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+    "productId": "a05846b0-fef4-e113-94dc-7bad08547709",
+    "country": "US",
+    "msrp": 34.22,
+    "currentPrice": 34.22,
+    "fullPrice": 34.22,
+    "employeePrice": 34.22,
+    "currency": "USD",
+    "creationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/list_items/v1/bf69a7c9-55c5-f643-ffb1-c6f1eaadde21"
+      }
+    },
+    "error": {
+      "field": "/productId",
+      "code": "UNAVAILABLE"
+    }
+}
+```
+
+Sample *Add Item to List* 400 response:
+```
+{
+    "message": "Validation Failed",
+    "errors": [
+      {
+        "field":"/country",
+        "code":"FIELD_INVALID",
+        "message": "Invalid country"
+      }
+    ]
+}
+```
+
+### <a name="remove-item-from-list"></a>Remove Item from List
+
+Delete a single item from a list using the list **item** identifier that you previously created, and get a HTTP 200 response if successful.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**DELETE**|`/buy/list_items/v1/{id}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List item identifier, **client-generated UUID**|String|**Required**|
+
+#### <a name="remove-item-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="remove-item-request-body"></a>Request Body
+
+There is no request body on a DELETE request.
+
+Sample *Remove Item from List* request URI:
+
+```
+https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="remove-item-response-body"></a>Response Body
+
+There is no response body for a successful HTTP response to a DELETE request.
+
+### <a name="retrieve-items-by-list"></a>Retrieve Items by List
+
+Retrieve all items in a list by its list identifier, which you previously created. Add optional filter, sort, count, or anchor criteria query parameters to further manipulate the data in the response.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/list_items/v1{?filter, anchor, count, fields, sort}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**filter**|Query|Limit the results to those matching the specified filters <li> wishlistId (required) List identifier, e.g. `93a333a2-907b-46f1-b9ac-469489909057` </li>|String|Required|
+|**anchor**|Query|Return elements after this anchor|String|Optional|
+|**count**|Query|Number of items to return per response|String|Optional|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list item contents.|String|Optional|
+|**sort**|Query|To sort the items in the list, indicate the field to be sorted on along with the sort order(field+order)|String|Optional|
+
+#### <a name="retrieve-items-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-items-request-body"></a>Request Body
+
+There is no request body for a GET request.
+
+Sample *Retrieve Items by List* request URI:
+```
+https://www.api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
+```
+
+#### <a name="retrieve-items-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**pages**|object|Pagination links|Optional|
+|pages.**prev**|string|Link to previous set of results|Optional|
+|pages.**next**|string|Link to next set of results|Optional|
+|**objects**|array|List item resources|Required|
+|objects.**id**|string|List item UUID assigned by the client|Required|
+|objects.**wishlistId**|string|List UUID assigned by the client|Required|
+|objects.**skuId**|string|SKU UUID from the merchandising services|Optional|
+|objects.**productId**|string|Product UUID from the merchandising services|Optional|
+|objects.**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|objects.**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|objects.valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|objects.valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|objects.valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|objects.valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+|objects.**msrp**|string|Suggested retail price of the product|Optional|
+|objects.**currentPrice**|string|Current price of the product|Optional|
+|objects.**fullPrice**|string|Full price of the product|Optional|
+|objects.**employeePrice**|string|Employee price of the product|Optional|
+|objects.**currency**|string|Currency of the product prices|Optional|
+|objects.**isAvailable**|boolean|Indicates if the product is available|Optional|
+|objects.**creationDate**|string|ISO 8601 of the date when the resource was created|Optional|
+|objects.**isCurrentPriceChanged**|boolean|Indicates if currentPrice has changed since the item was saved|Optional|
+|objects.links.**self**|object|Object containing self-link|Required|
+|objects.links.self.**ref**|string|Link to this resource, itself|Required|
+|objects.**error**|object|Error information|Optional|
+|objects.error.**field**|string|JSON Pointer to the erroneous field|Required|
+|objects.error.**code**|string|Error code for the error, text-based, 'screaming snake-case', one of "INVALID_FIELD", "UNAVAILABLE", "NOT_FOUND"|Required|
+
+Sample *Retrieve Items by List* 200 response:
+```
+{
+    "pages": {
+      "prev": "/buy/list_items/v1?filter=wishlistId(93a333a2-907b-46f1-b9ac-469489909057)&anchor=0&count=25",
+      "next": "/buy/list_items/v1?filter=wishlistId(93a333a2-907b-46f1-b9ac-469489909057)&anchor=2&count=25"
+    },
+    "objects": [
+      {
+        "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+        "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+        "productId": "a05846b0-fef4-e113-94dc-7bad08547709",
+        "country": "US",
+        "msrp": 34.22,
+        "currentPrice": 34.22,
+        "fullPrice": 34.22,
+        "employeePrice": 34.22,
+        "currency": "USD",
+        "creationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/list_items/v1/bf69a7c9-55c5-f643-ffb1-c6f1eaadde21"
+          }
+        },
+        "error": {
+          "field": "/productId",
+          "code": "UNAVAILABLE"
+        }
+      },
+      {
+        "id": "189d2970-3d3b-854e-03c2-843c55789f48",
+        "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+        "productId": "82ec699b-7855-7a29-1a94-6a1eaf2807d1",
+        "country": "US",
+        "valueAddedServices": [
+          {
+            "id": "1905b205-0908-4f8e-a716-7b1695c38995",
+            "instruction": {
+              "id": "0123456789",
+              "type": "NIKEID"
+            }
+          }
+        ],
+        "msrp": 99.49,
+        "currentPrice": 99.49,
+        "fullPrice": 99.49,
+        "employeePrice": 99.49,
+        "currency": "USD",
+        "creationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/list_items/v1/189d2970-3d3b-854e-03c2-843c55789f48"
+          }
+        },
+        "error": {
+          "field": "/valueAddedServices/0/id",
+          "code": "UNAVAILABLE"
+        }
+      }
+    ]
+}
+```
+
+Sample *Retrieve Items from List* 400 response:
+```
+{
+    "message": "Validation Failed",
+    "errors": [
+      {
+        "field": "filter",
+        "code": "QUERY_PARAMETER_INVALID",
+        "message": "Invalid filter"
+      }
+    ]
+}
+```
+
+### <a name="retrieve-item-by-id"></a>Retrieve Item by ID
+
+Retrieve a list item by the list item identifier that you previously created.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/list_items/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="retrieve-id-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-id-request-body"></a>Request Body
+
+There is no request body for a GET request.
+
+Sample *Retrieve Item by ID* request URI:
+```
+https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="retrieve-id-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List item UUID assigned by the client|Required|
+|**wishlistId**|string|List UUID assigned by the client|Required|
+|**skuId**|string|SKU UUID from the merchandising services|Optional|
+|**productId**|string|Product UUID from the merchandising services|Optional|
+|**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+|**msrp**|string|Suggested retail price of the product|Optional|
+|**currentPrice**|string|Current price of the product|Optional|
+|**fullPrice**|string|Full price of the product|Optional|
+|**employeePrice**|string|Employee price of the product|Optional|
+|**currency**|string|Currency of the product prices|Optional|
+|**isAvailable**|boolean|Indicates if the product is available|Optional|
+|**creationDate**|string|ISO 8601 of the date when the resource was created|Optional|
+|**isCurrentPriceChanged**|boolean|Indicates if currentPrice has changed since the item was saved|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+|**error**|object|Error information|Optional|
+|error.**field**|string|JSON Pointer to the erroneous field|Required|
+|error.**code**|string|Error code for the error, text-based, 'screaming snake-case', one of "INVALID_FIELD", "UNAVAILABLE", "NOT_FOUND"|Required|
+
+Sample *Retrieve Item by ID* 200 response:
+```
+{
+    "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+    "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+    "productId": "a05846b0-fef4-e113-94dc-7bad08547709",
+    "country": "US",
+    "msrp": 34.22,
+    "currentPrice": 34.22,
+    "fullPrice": 34.22,
+    "employeePrice": 34.22,
+    "currency": "USD",
+    "creationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/list_items/v1/bf69a7c9-55c5-f643-ffb1-c6f1eaadde21"
+      }
+    },
+    "error": {
+      "field": "/productId",
+      "code": "UNAVAILABLE"
+    }
+}
+```
+---
 
 ## <a name="using-shipping-options"></a>Using Shipping Options
 
@@ -2126,6 +2892,7 @@ Following is a summary of the errors and warnings that can come back in response
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#!/default/post_buy_shipping_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
 
 ## <a name="using-checkouts"></a>Using Checkouts
 

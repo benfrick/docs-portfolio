@@ -1,0 +1,36 @@
+@startuml
+title Ways to Call the <font color =orange>Wish Lists API</font>
+
+participant Client
+participant "Wish Lists"
+
+group Create/Update/Delete Operations
+Client->"Wish Lists": PUT ///buy/lists/v1/{id}//: Create Wish List
+"Wish Lists"-[#blue]->Client: Wish List Header
+
+Client->"Wish Lists": PUT ///buy/list_items/v1/{id}: Add Item to Wish List
+"Wish Lists"-[#blue]->Client: Wish List Item w/ Product Pricing
+
+Client->"Wish Lists": DELETE ///buy/list_items/v1/{id}: Remove Product from Wish List
+"Wish Lists"-[#blue]->Client: Confirmation
+
+Client->"Wish Lists": DELETE ///buy/lists/v1/{id}: Delete a Wish List
+"Wish Lists"-[#blue]->Client: Confirmation
+end
+
+group Read Operations
+Client->"Wish Lists": GET ///buy/lists/v1/{id}//: Get Wish List Header by ID
+"Wish Lists"-[#blue]->Client: Wish List Header
+
+Client->"Wish Lists": GET ///buy/lists/v1{?filter,fields}//: Get all Wish List Headers for a User
+"Wish Lists"-[#blue]->Client: Wish List Header
+
+Client->"Wish Lists": GET ///buy/list_items/v1{?filter, anchor, count, fields, sort}//: Get List Items for a List
+"Wish Lists"-[#blue]->Client: Wish List Items w/ Product Pricing and Availability
+
+Client->"Wish Lists": GET ///buy/list_items/v1/{id}//: Get a List Item by ID
+"Wish Lists"-[#blue]->Client: Wish List Item w/ Product Pricing and Availability
+
+end
+
+@enduml
