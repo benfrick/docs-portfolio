@@ -1,0 +1,1939 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+<!--
+Author: Benjamin Frick
+SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
+-->
+<div class="guide-nav-container">
+    <div class="guide-nav-column guide-nav-left">
+        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
+    </div>
+    <div class="guide-nav-column guide-nav-right">
+        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+    </div>
+</div>
+<h1 id="product-feed-rollup-threads-v2-api-developers-guide-draft"><a href="#product-feed-rollup-threads-v2-api-developers-guide-draft" name="product-feed-rollup-threads-v2-api-developers-guide-draft" class="anchor"><span class="octicon octicon-link"></span></a>PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</h1>
+<h6 id="last-updated-05042018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-05042018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-05042018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 05/04/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a></h6>
+<hr />
+<p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and the <a href="/doc/commerce/product/api_product_feeds.html" class="absent">Product Feeds Developer's Guide</a>, this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.</p>
+<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In this guide:</strong></h2>
+<p><a href="#api-at-a-glance">API at a Glance</a></p>
+<p><a href="#terms-of-service">Terms of Service</a></p>
+<p><span class="toc-pad"><a href="#authorization">Authorization</a></p>
+<p><span class="toc-pad"><a href="#prerequisites">Prerequisites</a></p>
+<p><a href="#use-cases">Use Cases</a></p>
+<p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
+<p><a href="#what-is-a-rollup-thread">What is a Rollup Thread?</a></p>
+<p><a href="#making-your-first-api-request">Making Your First API Request</a></p>
+<p><a href="#using-product-feed-rollup-threads-v2">Using Product Feed Rollup Threads v2</a></p>
+<p><a href="#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></p>
+<p><a href="#best-practices">Best Practices</a></p>
+<p><a href="#troubleshooting">Troubleshooting</a></p>
+<p><span class="toc-pad"><a href="#use-troubleshooting-tools">Use Troubleshooting Tools</a></p>
+<p><span class="toc-pad"><a href="#common-questions">Common Questions</a></p>
+<p><a href="#glossary">Glossary</a></p>
+<p><a href="#release-notes">Release Notes</a></p>
+<p><a href="#document-change-log">Document Change Log</a></p>
+<p><a href="#related-links">Related Links</a></p>
+<h2 id="api-at-a-glance"><a href="#api-at-a-glance" name="api-at-a-glance" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-at-a-glance"></a>API at a Glance</h2>
+<table>
+  <thead>
+    <tr><th>Topic</th><th>Details</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Use these APIs to</td><td>Display a product grid wall in a digital experience</td></tr>
+    <tr><td>Who calls this API?</td><td>Nike.com, Nike App</td></tr>
+    <tr><td>Versions</td><td>v2</td></tr>
+    <tr><td>Supported Languages</td><td>See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales</td></tr>
+    <tr><td>SLA</td><td>service name, version number and time in ms.</td></tr>
+    <tr><td>Domain</td><td>Commerce</td></tr>
+    <tr><td>Prerequisites</td><td>API Registration</td></tr>
+    <tr><td>Contact Info</td><td>Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: <a href="mailto:andy.sun@nike.com">Andy Sun</a></td></tr>
+  </tbody>
+</table>
+<h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="terms-of-service"></a>Terms of Service</h2>
+<p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of <a href="/doc/getting-started/using_nike_apis.html#registration" class="absent">Using NDe APIs</a> on how to create and register your caller ID.</p>
+<h3 id="authorization"><a href="#authorization" name="authorization" class="anchor"><span class="octicon octicon-link"></span></a><a name="authorization"></a>Authorization</h3>
+<p>No authentication or authorization is required to use this API.</p>
+<h3 id="prerequisites"><a href="#prerequisites" name="prerequisites" class="anchor"><span class="octicon octicon-link"></span></a><a name="prerequisites"></a>Prerequisites</h3>
+<p>In order to use the Product Feed Rollup Threads v2 API, you need to:</p>
+<ul>
+  <li>
+    <p>Obtain a Consumer Channel ID -- REQUIRED</p>
+    <p>Contact the Product Feeds Product Owner <a href="mailto:andy.sun@nike.com">Andy Sun</a> to get a unique Consumer Channel ID for your app.</p>
+  </li>
+  <li>
+    <p>Configure Custom Search Rules -- OPTIONAL</p>
+    <p>The default key used for rolling up threads is <strong>productInfo.merchProduct.productRollup.key</strong>. If you require any custom search rules to refine how threads are rolled up, you can work with the Search team to create them. Contact <a href="mailto:patricia.cousins@nike.com">Patti Cousins</a> for assistance.</p>
+  </li>
+</ul>
+<h2 id="use-cases"><a href="#use-cases" name="use-cases" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-cases"></a>Use Cases</h2>
+<table>
+  <thead>
+    <tr><th>I want to...</th><th>API(s) to use</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Display a Product Grid Wall</td><td>Product Feed Rollup Threads v2 API</td></tr>
+  </tbody>
+</table>
+<h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+<table>
+  <thead>
+    <tr><th>HTTP Verb</th><th>Endpoint Name</th><th>Endpoint Description</th><th>URI Format</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>GET</td><td>Rollup Threads</td><td>Get a product Thread with a nested list of other Threads related by a rollup field</td><td><code>/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}</code></td></tr>
+  </tbody>
+</table>
+<h2 id="what-is-a-rollup-thread"><a href="#what-is-a-rollup-thread" name="what-is-a-rollup-thread" class="anchor"><span class="octicon octicon-link"></span></a><a name="what-is-a-rollup-thread"></a>What is a Rollup Thread?</h2>
+<p>The endpoint of this API is closely related to the <em>Threads List</em> endpoint of the Product Feeds v2 API. First, read the <a href="/doc/commerce/product/api_product_feeds.html" class="absent">Product Feeds v2 Developer's Guide</a> to understand the basic concepts of working with Threads.</p>
+<p>Now, let's talk about what this API offers that is unique: Rollup Threads.</p>
+<p>A Rollup Thread is a Thread that is related to, and nested within a parent Thread. For example, there might be seven Rollup Threads nested within a given parent Thread, representing the other colors of a particular Nike shoe.</p>
+<p>Having Rollup Threads makes it much simpler for you to build a product grid wall experience like this:</p>
+<p><img src="/images/commerce/product_feeds/gridwall.png" alt="" class="absent" /></p>
+<h3 id="how-can-i-control-the-rollup"><a href="#how-can-i-control-the-rollup" name="how-can-i-control-the-rollup" class="anchor"><span class="octicon octicon-link"></span></a>How Can I Control the Rollup?</h3>
+<p>By default, the relationship between the Rollup Thread(s) to the parent Thread is based upon a rollup type and rollup key defined in the Nike's Prodigy product information system. This is not something that you directly control.</p>
+<p>Both fields are located in the response from this API in the <strong>productInfo.merchProduct.productRollup</strong> object, field names <strong>type</strong> and <strong>key</strong>.</p>
+<ul>
+  <li>rollup <strong>type</strong>: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Examples values are &quot;Standard&quot;, &quot;WidthGroup&quot;, &quot;NFL, or &quot;NBA&quot;.</li>
+  <li>rollup <strong>key</strong>: a specific instance of a rollup type, e.g. a value representing a particular style number rollup. Example value is &quot;xqTPKlqE&quot;.</li>
+</ul>
+<p>However, you also have the ability to configure additional rules in the Apollo search administration tool that will override the default rollup behavior described above.</p>
+<p>For example, if you wanted to rollup by something other than style number (&quot;type&quot;: &quot;Standard&quot;), you could define that as one or more rules in Apollo. But you could also, for example, create a rule in Apollo to exclude customized Nike ID products or gift cards from your results.</p>
+<p>Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.</p>
+<blockquote>
+  <p><strong>TIP</strong>: Reach out to the Apollo Product Owner <a href="mailto:patricia.cousins@nike.com">Patti Cousins</a> for more information on how to use the Apollo tool.</p>
+</blockquote>
+<h3 id="i-already-use-product-feeds-v2-how-is-the-response-different"><a href="#i-already-use-product-feeds-v2-how-is-the-response-different" name="i-already-use-product-feeds-v2-how-is-the-response-different" class="anchor"><span class="octicon octicon-link"></span></a>I Already Use Product Feeds v2. How is the Response Different?</h3>
+<p>The following diagram describes the how the structure of the response from the Rollup Threads API differs from Product Feeds v2:</p>
+<p><img src="/images/commerce/product_feeds/rollup_threads_response.png" alt="" class="absent" /></p>
+<h2 id="making-your-first-api-request"><a href="#making-your-first-api-request" name="making-your-first-api-request" class="anchor"><span class="octicon octicon-link"></span></a><a name="making-your-first-api-request"></a>Making your first API request</h2>
+<!--
+* How do I call this API?
+* What are the parameters necessary to make a call and where do I get them?
+* What does a successful response look like?
+-->
+<p>For your first request, send a request to get all the Rollup Threads for a particular consumerChannelId, marketplace, and language combination. These are the minimum required query parameters for calling this API.</p>
+<ol>
+  <li>Gather data needed for the request</li>
+</ol>
+<p>Study the <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedrollupsv2/browse/API.md" target="_blank">API.md</a> or the <a href="#using-product-feed-rollup-threads-v2">Using Product Feed Rollup Threads v2</a> section of this document.</p>
+<p>-Only the HTTP GET method is supported, which means no request body is required
+-No request headers are required
+-The URL and query parameters required are as follows:</p>
+<table>
+  <thead>
+    <tr><th>HTTP Method</th><th>Endpoint URI</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>GET</td><td><a href="https://api.nike.com/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}">https://api.nike.com/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}</a></td></tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr><th>Query Parameter Name</th><th>Format/Value</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>filter</strong></td><td>?filter=language(en)</td></tr>
+    <tr><td><strong>filter</strong></td><td>?filter=marketplace(US)</td></tr>
+    <tr><td><strong>consumerChannelId</strong></td><td>?consumerChannelId=(d9a5bc42-4b9c-4976-858a-f159cf99c647)</td></tr>
+  </tbody>
+</table>
+<blockquote>
+  <p><strong>TIP</strong>: Don't have a consumerChannelId yet? Request that the <a href="#api-at-a-glance">Product Owner</a> assign one for your app.</p>
+</blockquote>
+<ol start="2">
+  <li>Execute the request</li>
+</ol>
+<p>Putting together the pieces from Step 1, the full URL you will use is <a href="https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)">https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)</a>.</p>
+<p>Use your favorite REST client to send the request. Alternatively, execute the following cURL command:</p>
+<pre><code class="nohighlight">curl -X GET \
+  'https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language%28en%29,marketplace%28US%29' \
+  -H 'Cache-Control: no-cache'
+</code></pre>
+<ol start="3">
+  <li>Parse the response</li>
+</ol>
+<p>See the output of the successful HTTP 200 response below. The response has been truncated for brevity, but shows one parent Thread with two nested Rollup Threads:</p>
+<pre><code class="nohighlight">{
+  &quot;pages&quot;: {
+    &quot;prev&quot;: &quot;&quot;,
+    &quot;next&quot;: &quot;/product_feed/rollup_threads/v2?filter=language%28en%29&amp;filter=marketplace%28US%29&amp;consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;anchor=10&quot;,
+    &quot;totalPages&quot;: 773,
+    &quot;totalResources&quot;: 7721
+  },
+  &quot;objects&quot;: [
+    {
+      &quot;id&quot;: &quot;5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3&quot;,
+      &quot;channelId&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+      &quot;channelName&quot;: &quot;NIKE.COM&quot;,
+      &quot;marketplace&quot;: &quot;US&quot;,
+      &quot;language&quot;: &quot;en&quot;,
+      &quot;lastFetchTime&quot;: &quot;2018-05-02T22:25:16.639Z&quot;,
+      &quot;active&quot;: true,
+      &quot;publishedContent&quot;: {
+        &quot;publishStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+        &quot;createdDateTime&quot;: &quot;2018-03-06T16:49:05.702Z&quot;,
+        &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+        &quot;viewStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+        &quot;properties&quot;: {
+          &quot;productCard&quot;: {
+            &quot;transforms&quot;: [],
+            &quot;language&quot;: &quot;en&quot;,
+            &quot;type&quot;: &quot;card&quot;,
+            &quot;creationDate&quot;: &quot;2018-03-06T16:49:03.647Z&quot;,
+            &quot;version&quot;: &quot;1520354943647&quot;,
+            &quot;translate&quot;: {},
+            &quot;classifications&quot;: [],
+            &quot;targetLanguages&quot;: [],
+            &quot;modificationDate&quot;: &quot;2018-03-06T16:49:03.647Z&quot;,
+            &quot;nodes&quot;: [],
+            &quot;subType&quot;: &quot;image&quot;,
+            &quot;id&quot;: &quot;b815f55c-2696-4e0c-8221-8f77fa23f8d3&quot;,
+            &quot;properties&quot;: {
+              &quot;squarishURL&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;,
+              &quot;altText&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+              &quot;squarish&quot;: {
+                &quot;id&quot;: &quot;nqrpl3dacns1civdnpix&quot;,
+                &quot;type&quot;: &quot;product&quot;,
+                &quot;url&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;
+              },
+              &quot;squarishId&quot;: &quot;nqrpl3dacns1civdnpix&quot;
+            }
+          },
+          &quot;custom&quot;: {},
+          &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+          &quot;publish&quot;: {
+            &quot;collectionGroups&quot;: [
+              &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;
+            ],
+            &quot;collections&quot;: [
+              &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+            ],
+            &quot;countries&quot;: [
+              &quot;US&quot;
+            ]
+          },
+          &quot;consumerLabels&quot;: [],
+          &quot;threadType&quot;: &quot;soldier&quot;,
+          &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+          &quot;seo&quot;: {
+            &quot;slug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;
+          },
+          &quot;products&quot;: [
+            {
+              &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+              &quot;styleColor&quot;: &quot;SX5090-014&quot;
+            }
+          ]
+        }
+      },
+      &quot;productInfo&quot;: [
+        {
+          &quot;merchProduct&quot;: {
+            &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+            &quot;snapshotId&quot;: &quot;ebfbd4f9-5f19-40d8-b605-c1570e402b31&quot;,
+            &quot;modificationDate&quot;: &quot;2018-05-02T00:03:26.553Z&quot;,
+            &quot;status&quot;: &quot;ACTIVE&quot;,
+            &quot;merchGroup&quot;: &quot;US&quot;,
+            &quot;styleCode&quot;: &quot;SX5090&quot;,
+            &quot;colorCode&quot;: &quot;014&quot;,
+            &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+            &quot;pid&quot;: &quot;11231271&quot;,
+            &quot;catalogId&quot;: &quot;996366d0-271f-3370-9c78-37afb629785a&quot;,
+            &quot;productGroupId&quot;: &quot;11619046&quot;,
+            &quot;brand&quot;: &quot;Nike&quot;,
+            &quot;channels&quot;: [
+              &quot;Nike.com&quot;,
+              &quot;.com&quot;
+            ],
+            &quot;consumerChannels&quot;: [
+              {
+                &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+              }
+            ],
+            &quot;legacyCatalogIds&quot;: [
+              &quot;100701&quot;
+            ],
+            &quot;genders&quot;: [
+              &quot;KIDS&quot;,
+              &quot;WOMEN&quot;,
+              &quot;MEN&quot;,
+              &quot;GIRLS&quot;,
+              &quot;BOYS&quot;
+            ],
+            &quot;valueAddedServices&quot;: [
+              {
+                &quot;id&quot;: &quot;3d62c037-56f3-59d5-81d3-88ce17f7fb99&quot;
+              }
+            ],
+            &quot;sportTags&quot;: [
+              &quot;Soccer/Football&quot;
+            ],
+            &quot;classificationConcepts&quot;: [],
+            &quot;taxonomyAttributes&quot;: [
+              {
+                &quot;resourceType&quot;: &quot;merch/taxonomy_attributes&quot;,
+                &quot;ids&quot;: [
+                  &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+                  &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                  &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                  &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                  &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                  &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+                  &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+                  &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                  &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+                  &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+                  &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+                  &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                  &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+                  &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+                  &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+                ]
+              }
+            ],
+            &quot;commerceCountryInclusions&quot;: [],
+            &quot;commerceCountryExclusions&quot;: [],
+            &quot;productRollup&quot;: {
+              &quot;type&quot;: &quot;Standard&quot;,
+              &quot;key&quot;: &quot;pNznrv&quot;
+            },
+            &quot;quantityLimit&quot;: 10,
+            &quot;styleType&quot;: &quot;INLINE&quot;,
+            &quot;productType&quot;: &quot;EQUIPMENT&quot;,
+            &quot;mainColor&quot;: true,
+            &quot;exclusiveAccess&quot;: false,
+            &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+            &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+            &quot;resourceType&quot;: &quot;merchProduct&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+              }
+            }
+          },
+          &quot;merchPrice&quot;: {
+            &quot;fullPrice&quot;: 28,
+            &quot;currentPrice&quot;: 19.97,
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;discounted&quot;: true,
+            &quot;resourceType&quot;: &quot;merchPrice&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb&quot;
+              }
+            }
+          },
+          &quot;availability&quot;: {
+            &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+            &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+            &quot;resourceType&quot;: &quot;availableProducts&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+              }
+            },
+            &quot;available&quot;: true
+          },
+          &quot;productContent&quot;: {
+            &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+            &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+            &quot;colors&quot;: [
+              {
+                &quot;type&quot;: &quot;SIMPLE&quot;,
+                &quot;name&quot;: &quot;Black&quot;,
+                &quot;hex&quot;: &quot;13161A&quot;
+              },
+              {
+                &quot;type&quot;: &quot;PRIMARY&quot;,
+                &quot;name&quot;: &quot;Black&quot;,
+                &quot;hex&quot;: &quot;13161A&quot;
+              },
+              {
+                &quot;type&quot;: &quot;LOGO&quot;,
+                &quot;name&quot;: &quot;White&quot;,
+                &quot;hex&quot;: &quot;FFFFFF&quot;
+              }
+            ]
+          },
+          &quot;imageUrls&quot;: {
+            &quot;productImageUrl&quot;: &quot;https://secure-images.nike.com/is/image/DotCom/SX5090_014&quot;
+          }
+        }
+      ],
+      &quot;resourceType&quot;: &quot;thread&quot;,
+      &quot;rollup&quot;: {
+        &quot;totalThreads&quot;: 2,
+        &quot;threads&quot;: [
+          {
+            &quot;id&quot;: &quot;996366d0-271f-3370-9c78-37afb629785a&quot;,
+            &quot;channelId&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+            &quot;channelName&quot;: &quot;NIKE.COM&quot;,
+            &quot;marketplace&quot;: &quot;US&quot;,
+            &quot;language&quot;: &quot;en&quot;,
+            &quot;lastFetchTime&quot;: &quot;2018-05-02T01:32:34.02Z&quot;,
+            &quot;active&quot;: true,
+            &quot;publishedContent&quot;: {
+              &quot;publishStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+              &quot;createdDateTime&quot;: &quot;2018-05-02T01:32:33.721Z&quot;,
+              &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+              &quot;viewStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+              &quot;properties&quot;: {
+                &quot;productCard&quot;: {
+                  &quot;transforms&quot;: [],
+                  &quot;language&quot;: &quot;en&quot;,
+                  &quot;type&quot;: &quot;card&quot;,
+                  &quot;creationDate&quot;: &quot;2018-05-02T01:32:33.715Z&quot;,
+                  &quot;version&quot;: &quot;1525224753715&quot;,
+                  &quot;translate&quot;: {},
+                  &quot;classifications&quot;: [],
+                  &quot;targetLanguages&quot;: [],
+                  &quot;modificationDate&quot;: &quot;2018-05-02T01:32:33.715Z&quot;,
+                  &quot;nodes&quot;: [],
+                  &quot;subType&quot;: &quot;image&quot;,
+                  &quot;id&quot;: &quot;ee7b53be-6cc5-4a42-931e-333bee6b0914&quot;,
+                  &quot;properties&quot;: {
+                    &quot;squarishURL&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;,
+                    &quot;altText&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                    &quot;squarish&quot;: {
+                      &quot;id&quot;: &quot;nqrpl3dacns1civdnpix&quot;,
+                      &quot;type&quot;: &quot;product&quot;,
+                      &quot;url&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;
+                    },
+                    &quot;squarishId&quot;: &quot;nqrpl3dacns1civdnpix&quot;
+                  }
+                },
+                &quot;custom&quot;: {},
+                &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+                &quot;publish&quot;: {
+                  &quot;collectionGroups&quot;: [
+                    &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;
+                  ],
+                  &quot;collections&quot;: [
+                    &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+                  ],
+                  &quot;countries&quot;: [
+                    &quot;US&quot;
+                  ]
+                },
+                &quot;consumerLabels&quot;: [],
+                &quot;threadType&quot;: &quot;soldier&quot;,
+                &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                &quot;seo&quot;: {
+                  &quot;slug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;
+                },
+                &quot;products&quot;: [
+                  {
+                    &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                    &quot;styleColor&quot;: &quot;SX5090-014&quot;
+                  }
+                ]
+              }
+            },
+            &quot;productInfo&quot;: [
+              {
+                &quot;merchProduct&quot;: {
+                  &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                  &quot;snapshotId&quot;: &quot;ebfbd4f9-5f19-40d8-b605-c1570e402b31&quot;,
+                  &quot;modificationDate&quot;: &quot;2018-05-02T00:03:26.553Z&quot;,
+                  &quot;status&quot;: &quot;ACTIVE&quot;,
+                  &quot;merchGroup&quot;: &quot;US&quot;,
+                  &quot;styleCode&quot;: &quot;SX5090&quot;,
+                  &quot;colorCode&quot;: &quot;014&quot;,
+                  &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+                  &quot;pid&quot;: &quot;11231271&quot;,
+                  &quot;catalogId&quot;: &quot;996366d0-271f-3370-9c78-37afb629785a&quot;,
+                  &quot;productGroupId&quot;: &quot;11619046&quot;,
+                  &quot;brand&quot;: &quot;Nike&quot;,
+                  &quot;channels&quot;: [
+                    &quot;Nike.com&quot;,
+                    &quot;.com&quot;
+                  ],
+                  &quot;consumerChannels&quot;: [
+                    {
+                      &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                      &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+                    }
+                  ],
+                  &quot;legacyCatalogIds&quot;: [
+                    &quot;100701&quot;
+                  ],
+                  &quot;genders&quot;: [
+                    &quot;KIDS&quot;,
+                    &quot;WOMEN&quot;,
+                    &quot;MEN&quot;,
+                    &quot;GIRLS&quot;,
+                    &quot;BOYS&quot;
+                  ],
+                  &quot;valueAddedServices&quot;: [
+                    {
+                      &quot;id&quot;: &quot;3d62c037-56f3-59d5-81d3-88ce17f7fb99&quot;
+                    }
+                  ],
+                  &quot;sportTags&quot;: [
+                    &quot;Soccer/Football&quot;
+                  ],
+                  &quot;classificationConcepts&quot;: [],
+                  &quot;taxonomyAttributes&quot;: [
+                    {
+                      &quot;resourceType&quot;: &quot;merch/taxonomy_attributes&quot;,
+                      &quot;ids&quot;: [
+                        &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+                        &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                        &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                        &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                        &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                        &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+                        &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+                        &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                        &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+                        &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+                        &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+                        &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                        &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+                        &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+                        &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+                      ]
+                    }
+                  ],
+                  &quot;commerceCountryInclusions&quot;: [],
+                  &quot;commerceCountryExclusions&quot;: [],
+                  &quot;productRollup&quot;: {
+                    &quot;type&quot;: &quot;Standard&quot;,
+                    &quot;key&quot;: &quot;pNznrv&quot;
+                  },
+                  &quot;quantityLimit&quot;: 10,
+                  &quot;styleType&quot;: &quot;INLINE&quot;,
+                  &quot;productType&quot;: &quot;EQUIPMENT&quot;,
+                  &quot;mainColor&quot;: true,
+                  &quot;exclusiveAccess&quot;: false,
+                  &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+                  &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+                  &quot;resourceType&quot;: &quot;merchProduct&quot;,
+                  &quot;links&quot;: {
+                    &quot;self&quot;: {
+                      &quot;ref&quot;: &quot;/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+                    }
+                  }
+                },
+                &quot;merchPrice&quot;: {
+                  &quot;fullPrice&quot;: 28,
+                  &quot;currentPrice&quot;: 19.97,
+                  &quot;currency&quot;: &quot;USD&quot;,
+                  &quot;discounted&quot;: true,
+                  &quot;resourceType&quot;: &quot;merchPrice&quot;,
+                  &quot;links&quot;: {
+                    &quot;self&quot;: {
+                      &quot;ref&quot;: &quot;/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb&quot;
+                    }
+                  }
+                },
+                &quot;availability&quot;: {
+                  &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                  &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                  &quot;resourceType&quot;: &quot;availableProducts&quot;,
+                  &quot;links&quot;: {
+                    &quot;self&quot;: {
+                      &quot;ref&quot;: &quot;/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+                    }
+                  },
+                  &quot;available&quot;: true
+                },
+                &quot;productContent&quot;: {
+                  &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                  &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+                  &quot;colors&quot;: [
+                    {
+                      &quot;type&quot;: &quot;SIMPLE&quot;,
+                      &quot;name&quot;: &quot;Black&quot;,
+                      &quot;hex&quot;: &quot;13161A&quot;
+                    },
+                    {
+                      &quot;type&quot;: &quot;PRIMARY&quot;,
+                      &quot;name&quot;: &quot;Black&quot;,
+                      &quot;hex&quot;: &quot;13161A&quot;
+                    },
+                    {
+                      &quot;type&quot;: &quot;LOGO&quot;,
+                      &quot;name&quot;: &quot;White&quot;,
+                      &quot;hex&quot;: &quot;FFFFFF&quot;
+                    }
+                  ]
+                },
+                &quot;imageUrls&quot;: {
+                  &quot;productImageUrl&quot;: &quot;https://secure-images.nike.com/is/image/DotCom/SX5090_014&quot;
+                }
+              }
+            ],
+            &quot;resourceType&quot;: &quot;thread&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/product_feed/threads/v2/996366d0-271f-3370-9c78-37afb629785a?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;language=en&quot;
+              }
+            },
+            &quot;searchMetaData&quot;: {
+              &quot;exclusiveAccess&quot;: false,
+              &quot;effectiveInStockStartSellDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+              &quot;effectiveInStockStopSellDate&quot;: &quot;2099-12-31T00:00:00.000Z&quot;,
+              &quot;availableSizes&quot;: [
+                &quot;4-5.5&quot;,
+                &quot;6-7.5&quot;,
+                &quot;14-16&quot;
+              ],
+              &quot;availableLocalizedSizes&quot;: [
+                &quot;W 5.5-7&quot;,
+                &quot;W 7.5-9 / M 6-7.5&quot;,
+                &quot;M 14-16&quot;
+              ],
+              &quot;gtins&quot;: [
+                &quot;00659658090224&quot;,
+                &quot;00659658090965&quot;,
+                &quot;00659658090972&quot;,
+                &quot;00659658090989&quot;,
+                &quot;00659658090996&quot;,
+                &quot;00659658091009&quot;
+              ],
+              &quot;publishedContent&quot;: {
+                &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+                &quot;publishStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+                &quot;propertiesSeoSlug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;,
+                &quot;propertiesProductsStyleColor&quot;: [
+                  &quot;SX5090-014&quot;
+                ],
+                &quot;propertiesPublishCollections&quot;: [
+                  &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+                ],
+                &quot;propertiesConsumerLabelsClassificationText&quot;: [],
+                &quot;viewStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+                &quot;threadType&quot;: &quot;soldier&quot;
+              },
+              &quot;productInfo&quot;: [
+                {
+                  &quot;merchProduct&quot;: {
+                    &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                    &quot;status&quot;: &quot;ACTIVE&quot;,
+                    &quot;styleCode&quot;: &quot;SX5090&quot;,
+                    &quot;colorCode&quot;: &quot;014&quot;,
+                    &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+                    &quot;channels&quot;: [
+                      &quot;Nike.com&quot;,
+                      &quot;.com&quot;
+                    ],
+                    &quot;consumerChannels&quot;: [
+                      {
+                        &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                        &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+                      }
+                    ],
+                    &quot;genders&quot;: [
+                      &quot;KIDS&quot;,
+                      &quot;WOMEN&quot;,
+                      &quot;MEN&quot;,
+                      &quot;GIRLS&quot;,
+                      &quot;BOYS&quot;
+                    ],
+                    &quot;productRollup&quot;: {
+                      &quot;type&quot;: &quot;Standard&quot;,
+                      &quot;key&quot;: &quot;pNznrv&quot;
+                    },
+                    &quot;mainColor&quot;: true,
+                    &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+                    &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;
+                  },
+                  &quot;merchPrice&quot;: {
+                    &quot;msrp&quot;: 28,
+                    &quot;fullPrice&quot;: 28,
+                    &quot;currentPrice&quot;: 19.97,
+                    &quot;employeePrice&quot;: 11.98,
+                    &quot;discounted&quot;: true
+                  },
+                  &quot;productContent&quot;: {
+                    &quot;fullTitle&quot;: &quot;NikeGrip Strike Cushioned Crew Soccer Socks&quot;,
+                    &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                    &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+                    &quot;bestFor&quot;: [],
+                    &quot;athletes&quot;: []
+                  },
+                  &quot;available&quot;: true,
+                  &quot;skus&quot;: [
+                    {
+                      &quot;id&quot;: &quot;2852f714-361b-5ce4-a8bf-a33cb0a7240a&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;2511ed77-9505-5a9e-b4b1-94acb6249014&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;9eb9705a-ef13-5802-a283-3e355d980da8&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;7cf5dc89-f5cb-5101-8292-d8fa4691f0c6&quot;
+                    }
+                  ]
+                }
+              ],
+              &quot;productRollup&quot;: {
+                &quot;type&quot;: &quot;Standard&quot;,
+                &quot;key&quot;: &quot;pNznrv&quot;
+              },
+              &quot;taxonomyAttributeValues&quot;: {
+                &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;: [
+                  &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                  &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+                  &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;
+                ],
+                &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;: [
+                  &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                  &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;
+                ],
+                &quot;99314eb1-af99-4825-87ea-96871973c437&quot;: [
+                  &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                  &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+                ],
+                &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;: [
+                  &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;
+                ],
+                &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;: [
+                  &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;
+                ],
+                &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;: [
+                  &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                  &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                  &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                  &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;
+                ],
+                &quot;974671bf-03b7-499e-994e-ac098841370a&quot;: [
+                  &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;
+                ],
+                &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;: [
+                  &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;
+                ],
+                &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;: [
+                  &quot;974671bf-03b7-499e-994e-ac098841370a&quot;
+                ],
+                &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;: [
+                  &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;
+                ]
+              },
+              &quot;taxonomyAttributeSearchIds&quot;: [
+                &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+                &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+                &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+                &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+                &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+                &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+                &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+                &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+                &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;,
+                &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;,
+                &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;,
+                &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;,
+                &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;,
+                &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+                &quot;974671bf-03b7-499e-994e-ac098841370a&quot;,
+                &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;,
+                &quot;99314eb1-af99-4825-87ea-96871973c437&quot;,
+                &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;,
+                &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;
+              ]
+            }
+          }
+        ]
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: {
+          &quot;ref&quot;: &quot;/product_feed/threads/v2/5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;language=en&quot;
+        }
+      },
+      &quot;searchMetaData&quot;: {
+        &quot;exclusiveAccess&quot;: false,
+        &quot;effectiveInStockStartSellDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+        &quot;effectiveInStockStopSellDate&quot;: &quot;2099-12-31T00:00:00.000Z&quot;,
+        &quot;availableSizes&quot;: [
+          &quot;4-5.5&quot;,
+          &quot;6-7.5&quot;,
+          &quot;14-16&quot;
+        ],
+        &quot;availableLocalizedSizes&quot;: [
+          &quot;W 5.5-7&quot;,
+          &quot;W 7.5-9 / M 6-7.5&quot;,
+          &quot;M 14-16&quot;
+        ],
+        &quot;gtins&quot;: [
+          &quot;00659658090224&quot;,
+          &quot;00659658090965&quot;,
+          &quot;00659658090972&quot;,
+          &quot;00659658090989&quot;,
+          &quot;00659658090996&quot;,
+          &quot;00659658091009&quot;
+        ],
+        &quot;publishedContent&quot;: {
+          &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+          &quot;publishStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+          &quot;propertiesSeoSlug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;,
+          &quot;propertiesProductsStyleColor&quot;: [
+            &quot;SX5090-014&quot;
+          ],
+          &quot;propertiesPublishCollections&quot;: [
+            &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+          ],
+          &quot;propertiesConsumerLabelsClassificationText&quot;: [],
+          &quot;viewStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+          &quot;threadType&quot;: &quot;soldier&quot;
+        },
+        &quot;productInfo&quot;: [
+          {
+            &quot;merchProduct&quot;: {
+              &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+              &quot;status&quot;: &quot;ACTIVE&quot;,
+              &quot;styleCode&quot;: &quot;SX5090&quot;,
+              &quot;colorCode&quot;: &quot;014&quot;,
+              &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+              &quot;channels&quot;: [
+                &quot;Nike.com&quot;,
+                &quot;.com&quot;
+              ],
+              &quot;consumerChannels&quot;: [
+                {
+                  &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                  &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+                }
+              ],
+              &quot;genders&quot;: [
+                &quot;KIDS&quot;,
+                &quot;WOMEN&quot;,
+                &quot;MEN&quot;,
+                &quot;GIRLS&quot;,
+                &quot;BOYS&quot;
+              ],
+              &quot;productRollup&quot;: {
+                &quot;type&quot;: &quot;Standard&quot;,
+                &quot;key&quot;: &quot;pNznrv&quot;
+              },
+              &quot;mainColor&quot;: true,
+              &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+              &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;
+            },
+            &quot;merchPrice&quot;: {
+              &quot;msrp&quot;: 28,
+              &quot;fullPrice&quot;: 28,
+              &quot;currentPrice&quot;: 19.97,
+              &quot;employeePrice&quot;: 11.98,
+              &quot;discounted&quot;: true
+            },
+            &quot;productContent&quot;: {
+              &quot;fullTitle&quot;: &quot;NikeGrip Strike Cushioned Crew Soccer Socks&quot;,
+              &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+              &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+              &quot;bestFor&quot;: [],
+              &quot;athletes&quot;: []
+            },
+            &quot;available&quot;: true,
+            &quot;skus&quot;: [
+              {
+                &quot;id&quot;: &quot;2852f714-361b-5ce4-a8bf-a33cb0a7240a&quot;
+              },
+              {
+                &quot;id&quot;: &quot;2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c&quot;
+              },
+              {
+                &quot;id&quot;: &quot;2511ed77-9505-5a9e-b4b1-94acb6249014&quot;
+              },
+              {
+                &quot;id&quot;: &quot;9eb9705a-ef13-5802-a283-3e355d980da8&quot;
+              },
+              {
+                &quot;id&quot;: &quot;d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310&quot;
+              },
+              {
+                &quot;id&quot;: &quot;7cf5dc89-f5cb-5101-8292-d8fa4691f0c6&quot;
+              }
+            ]
+          }
+        ],
+        &quot;productRollup&quot;: {
+          &quot;type&quot;: &quot;Standard&quot;,
+          &quot;key&quot;: &quot;pNznrv&quot;
+        },
+        &quot;taxonomyAttributeValues&quot;: {
+          &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;: [
+            &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+            &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+            &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;
+          ],
+          &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;: [
+            &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+            &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;
+          ],
+          &quot;99314eb1-af99-4825-87ea-96871973c437&quot;: [
+            &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+            &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+          ],
+          &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;: [
+            &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;
+          ],
+          &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;: [
+            &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;
+          ],
+          &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;: [
+            &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+            &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+            &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+            &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;
+          ],
+          &quot;974671bf-03b7-499e-994e-ac098841370a&quot;: [
+            &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;
+          ],
+          &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;: [
+            &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;
+          ],
+          &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;: [
+            &quot;974671bf-03b7-499e-994e-ac098841370a&quot;
+          ],
+          &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;: [
+            &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;
+          ]
+        },
+        &quot;taxonomyAttributeSearchIds&quot;: [
+          &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+          &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+          &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+          &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+          &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+          &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+          &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+          &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+          &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+          &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+          &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+          &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+          &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+          &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+          &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;,
+          &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;,
+          &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;,
+          &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;,
+          &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;,
+          &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+          &quot;974671bf-03b7-499e-994e-ac098841370a&quot;,
+          &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;,
+          &quot;99314eb1-af99-4825-87ea-96871973c437&quot;,
+          &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;,
+          &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;
+        ]
+      }
+    }
+  ]
+}
+</code></pre>
+<blockquote>
+  <p><strong>TIP:</strong> For detailed information about the contents of the response, see the <a href="#using-product-feed-rollup-threads-v2">Using Product Feed Rollup Threads v2</a> section.</p>
+</blockquote>
+<h2 id="using-product-feed-rollup-threads-v2"><a href="#using-product-feed-rollup-threads-v2" name="using-product-feed-rollup-threads-v2" class="anchor"><span class="octicon octicon-link"></span></a><a name="using-rollup-threads-v2"></a>Using Product Feed Rollup Threads v2</h2>
+<ul>
+  <li>
+    <p><a href="#product-feed-rollup-threads-v2-overview">Product Feed Rollup Threads v2 Overview</a></p>
+  </li>
+  <li>
+    <p><a href="#rollup-threads">Rollup Threads</a></p>
+  </li>
+</ul>
+<h3 id="product-feed-rollup-threads-v2-overview"><a href="#product-feed-rollup-threads-v2-overview" name="product-feed-rollup-threads-v2-overview" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-feed-rollup-threads-v2-overview"></a>Product Feed Rollup Threads v2 Overview</h3>
+<p>Use the Product Feed Rollup Threads v2 API to produce a grid wall of related products.</p>
+<h3 id="rollup-threads"><a href="#rollup-threads" name="rollup-threads" class="anchor"><span class="octicon octicon-link"></span></a><a name="rollup-threads"></a>Rollup Threads</h3>
+<p>Get a list of product Threads with nested Rollup Threads of related products.</p>
+<h4 id="endpoint-details"><a href="#endpoint-details" name="endpoint-details" class="anchor"><span class="octicon octicon-link"></span></a>Endpoint Details</h4>
+<table>
+  <thead>
+    <tr><th>HTTP Method</th><th>URI Path</th><th>JWT Restricted?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>GET</strong></td><td><code>/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}</code></td><td><strong>No</strong></td></tr>
+  </tbody>
+</table>
+<h4 id="path--query-parameters"><a href="#path--query-parameters" name="path--query-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Path &amp; Query Parameters</h4>
+<table>
+  <thead>
+    <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Data Type</th><th>Required?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>filter</strong></td><td>Query</td><td>Restrict the response by one or more criteria, <strong>language</strong>, <strong>marketplace</strong> required</td><td>String</td><td><strong>Required</strong></td></tr>
+    <tr><td><strong>consumerChannelId</strong></td><td>Query</td><td>Consumer channel ID of the experience (UUID)</td><td>String</td><td><strong>Required</strong></td></tr>
+    <tr><td><strong>anchor</strong></td><td>Query</td><td>Return elements after this anchor</td><td>String</td><td>Optional</td></tr>
+    <tr><td><strong>count</strong></td><td>Query</td><td>Maximum number of objects to return. Default: 10, Max: 60</td><td>String</td><td>Optional</td></tr>
+    <tr><td><strong>sort</strong></td><td>Query</td><td>Field(s) by which the results are sorted. Default: <strong>publishedContent.viewStartDateDesc</strong>, then <strong>id.keywordAsc</strong>.</td><td>String</td><td>Optional</td></tr>
+    <tr><td><strong>rollupField</strong></td><td>Query</td><td>Field by which to rollup the results. Default, and only supported field is <strong>productInfo.merchProduct.productRollup.key</strong></td><td>String</td><td>Optional</td></tr>
+    <tr><td><strong>rollupCount</strong></td><td>Query</td><td>Count of items that will be inside the <strong>productRollup.rollups</strong> list. Default: 10, Max: 25</td><td>String</td><td>Optional</td></tr>
+    <tr><td><strong>searchTerms</strong></td><td>Query</td><td>Search for threads by one or more keywords separated with spaces. Request exact match by enclosing in double quotes. Default: partial match</td><td>String</td><td>Optional</td></tr>
+  </tbody>
+</table>
+<h5 id="allowed-filter-parameters"><a href="#allowed-filter-parameters" name="allowed-filter-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Allowed Filter Parameters</h5>
+<p>The following is a list of scenarios that illustrate which <strong>filter</strong> parameters are supported:</p>
+<blockquote>
+  <p><strong>TIP</strong>: Filter parameters <strong>language</strong> and <strong>marketplace</strong> are always required.</p>
+</blockquote>
+<table>
+  <thead>
+    <tr><th>I Want to List</th><th>Sample Query</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Threads for a channel ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)</a></td></tr>
+    <tr><td>Threads for a taxonomy ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)&amp;filter=marketplace(US)&amp;filter=language(en)">https://api.nike.com/product_feed/threads/v2?filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)&amp;filter=marketplace(US)&amp;filter=language(en)</a></td></tr>
+  </tbody>
+</table>
+<h5 id="allowed-sort-parameters"><a href="#allowed-sort-parameters" name="allowed-sort-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Allowed Sort Parameters</h5>
+<p>The following are the allowed fields that can be sent in the <strong>sort</strong> query parameter:</p>
+<table>
+  <thead>
+    <tr><th>Sort Field</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>publishedContent.publishStartDateAsc</strong></td><td>By Content Publish Start Date, Ascending</td></tr>
+    <tr><td><strong>publishedContent.publishStartDateDesc</strong></td><td>By Content Publish Start Date, Descending</td></tr>
+    <tr><td><strong>productInfo.merchProduct.commerceStartDateAsc</strong></td><td>By Commerce Start Date, Ascending</td></tr>
+    <tr><td><strong>productInfo.merchProduct.currentPriceAsc</strong></td><td>By Current Price, Ascending</td></tr>
+    <tr><td><strong>productInfo.merchProduct.currentPriceDesc</strong></td><td>By Current Price, Descending</td></tr>
+    <tr><td><strong>productInfo.merchProduct.commercePublishDateDesc</strong></td><td>By Commerce Publish Date, Descending</td></tr>
+  </tbody>
+</table>
+<h5 id="using-the-search-terms-parameter"><a href="#using-the-search-terms-parameter" name="using-the-search-terms-parameter" class="anchor"><span class="octicon octicon-link"></span></a>Using the Search Terms Parameter</h5>
+<p>Send one or more search keywords in the <strong>searchTerms</strong> query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.</p>
+<p>The searchable fields are:</p>
+<ul>
+  <li>
+    <p>productInfo.productContent.<strong>fullTitle</strong></p>
+  </li>
+  <li>
+    <p>productInfo.productContent.<strong>title</strong></p>
+  </li>
+  <li>
+    <p>productInfo.productContent.<strong>subtitle</strong></p>
+  </li>
+  <li>
+    <p>publishedContent.properties.consumerLabels.classification.<strong>text</strong></p>
+  </li>
+  <li>
+    <p>productInfo.merchProduct.<strong>styleColor</strong></p>
+  </li>
+  <li>
+    <p>productInfo.merchProduct.<strong>styleCode</strong></p>
+  </li>
+</ul>
+<p>Search Summaries are available when using the <strong>searchTerms</strong> parameter. If any search terms are corrected for spelling (or another reason), a <strong>searchSummary</strong> section will be added to the pages section of the response. Within that section, a field for <strong>originalTerms</strong> contains the original input, while a field for <strong>correctedTerms</strong> contains the corrections for the original terms.</p>
+<p>For example, using <code>searchTerms=Chuck Taylor</code> would return any threads where the words 'Chuck' and 'Taylor' are found anywhere in a searchable field.</p>
+<p>The default search behavior is <em>partial match</em>. Limiting the search to only <em>full string matches</em> can be done by enclosing the keywords in double quotes, like <code>searchTerms=&quot;Chuck Taylor&quot;</code>. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.</p>
+<p>Let's take a look at some <em>Rollup Threads</em> scenarios.</p>
+<table>
+  <thead>
+    <tr><th>I Want to List</th><th>Sample Query</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>TBD</td><td>TBD</td></tr>
+    <tr><td>TBD</td><td>TBD</td></tr>
+  </tbody>
+</table>
+<h4 id="request-headers"><a href="#request-headers" name="request-headers" class="anchor"><span class="octicon octicon-link"></span></a><a name="rollup-threads-request-headers"></a>Request Headers</h4>
+<p>There are no required request headers.</p>
+<h4 id="request-body"><a href="#request-body" name="request-body" class="anchor"><span class="octicon octicon-link"></span></a><a name="rollup-threads-request-body"></a>Request Body</h4>
+<p>There is no request body required for a GET request.</p>
+<p>Sample <em>Rollup Threads List</em> request URI:</p>
+<pre><code class="nohighlight">https://api.nike.com/commerce/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)
+</code></pre>
+<h4 id="response-body"><a href="#response-body" name="response-body" class="anchor"><span class="octicon octicon-link"></span></a><a name="rollup-threads-response-body"></a>Response Body</h4>
+<table>
+  <thead>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>pages</strong></td><td>object</td><td>Object at top level containing link to previous and next pages of results</td><td>Required</td></tr>
+    <tr><td>pages.<strong>prev</strong></td><td>string</td><td>Link to previous page of results</td><td>Required</td></tr>
+    <tr><td>pages.<strong>next</strong></td><td>string</td><td>Link to next page of results</td><td>Required</td></tr>
+    <tr><td>pages.<strong>totalPages</strong></td><td>integer</td><td>Total number of pages</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>totalResources</strong></td><td>integer</td><td>Total number of resources</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>searchSummary</strong></td><td>object</td><td>Context for the user's keyword query and what was decomposed from it</td><td>Optional</td></tr>
+    <tr><td>pages.searchSummary.<strong>originalTerms</strong></td><td>string</td><td>The original search terms input by the user</td><td>Optional</td></tr>
+    <tr><td>pages.searchSummary.<strong>correctedTerms</strong></td><td>array</td><td>A list of key/value pairs, mapping individual, incorrect search terms from the user with the correct ones</td><td>Optional</td></tr>
+    <tr><td>pages.searchSummary.<strong>synonymTerms</strong></td><td>object</td><td>A mapping of search terms that were successfully mapped to synonyms; the search term is the key, and the value is the list of synonyms</td><td>Optional</td></tr>
+    <tr><td>pages.searchSummary.<strong>concepts</strong></td><td>array</td><td>A list of concepts that matched the user's searchTerms query</td><td>Optional</td></tr>
+    <tr><td><strong>objects</strong></td><td>object</td><td>Array at top level containing feed data</td><td>Required</td></tr>
+    <tr><td>objects.<strong>id</strong></td><td>string</td><td>Unique identifier for the feed in UUID format</td><td>Required</td></tr>
+    <tr><td>objects.<strong>channelId</strong></td><td>string</td><td>UUID for the channel (collectionGroupId)</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>channelName</strong></td><td>string</td><td>Human-readable name for the channel</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>marketplace</strong></td><td>string</td><td>ISO 3166 two-letter country code for the user's current location</td><td>Required</td></tr>
+    <tr><td>objects.<strong>language</strong></td><td>string</td><td>BCP-47 language code</td><td>Required</td></tr>
+    <tr><td>objects.<strong>lastFetchTime</strong></td><td>string</td><td>Time when the data was aggregated in ISO-8601 compliant format: <code>yyyy-MM-ddTHH:mm:ss.SSSZZ</code></td><td>Required</td></tr>
+    <tr><td>objects.<strong>active</strong></td><td>boolean</td><td>Indicator for whether or not this thread is currently available for general use</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>publishedContent</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLCONT/repos/publishedv2/browse/API.md" target="_blank">API.md link</a></td><td>Required</td></tr>
+    <tr><td>objects.<strong>productInfo</strong></td><td>array</td><td>Array of responses from other APIs with product info</td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>merchProduct</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/get_merch_products_v2_id" target="_blank">API.md link</a></td><td>Required</td></tr>
+    <tr><td>objects.productInfo.<strong>merchPrice</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/get_merch_prices_v2_id" target="_blank">API.md link</a></td><td>Required</td></tr>
+    <tr><td>objects.productInfo.<strong>availability</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#!/Product_Inventory_Availability/get_deliver_available_products_v1_productId" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>productContent</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>launchView</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md#!/default/get_launch_launch_views_v2_id" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>imageUrls</strong></td><td>object</td><td>Object containing product image URL</td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.imageUrls.<strong>productImageUrl</strong></td><td>string</td><td>URL for product image</td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>customizedPreBuild</strong></td><td>object</td><td>Customized PreBuild information</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>rollup</strong></td><td>object</td><td>Object containing rollup info</td><td>Optional</td></tr>
+    <tr><td>objects.rollup.<strong>totalThreads</strong></td><td>integer</td><td>The total threads available in the rollup response including the master thread</td><td>Optional</td></tr>
+    <tr><td>objects.rollup.<strong>threads</strong></td><td>array</td><td>Array of threads that are related by a rollup key</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>resourceType</strong></td><td>string</td><td>Type of resource being returned in the response</td><td>Required</td></tr>
+    <tr><td>objects.links.self.<strong>ref</strong></td><td>string</td><td>Self-link to this resource</td><td>Required</td></tr>
+  </tbody>
+</table>
+<p>Sample <em>Rollup Threads</em> 200 response:</p>
+<pre><code class="nohighlight">{
+  &quot;pages&quot;: {
+    &quot;prev&quot;: &quot;&quot;,
+    &quot;next&quot;: &quot;/product_feed/rollup_threads/v2?filter=language%28en%29&amp;filter=marketplace%28US%29&amp;consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;anchor=10&quot;,
+    &quot;totalPages&quot;: 773,
+    &quot;totalResources&quot;: 7721
+  },
+  &quot;objects&quot;: [
+    {
+      &quot;id&quot;: &quot;5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3&quot;,
+      &quot;channelId&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+      &quot;channelName&quot;: &quot;NIKE.COM&quot;,
+      &quot;marketplace&quot;: &quot;US&quot;,
+      &quot;language&quot;: &quot;en&quot;,
+      &quot;lastFetchTime&quot;: &quot;2018-05-02T22:25:16.639Z&quot;,
+      &quot;active&quot;: true,
+      &quot;publishedContent&quot;: {
+        &quot;publishStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+        &quot;createdDateTime&quot;: &quot;2018-03-06T16:49:05.702Z&quot;,
+        &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+        &quot;viewStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+        &quot;properties&quot;: {
+          &quot;productCard&quot;: {
+            &quot;transforms&quot;: [],
+            &quot;language&quot;: &quot;en&quot;,
+            &quot;type&quot;: &quot;card&quot;,
+            &quot;creationDate&quot;: &quot;2018-03-06T16:49:03.647Z&quot;,
+            &quot;version&quot;: &quot;1520354943647&quot;,
+            &quot;translate&quot;: {},
+            &quot;classifications&quot;: [],
+            &quot;targetLanguages&quot;: [],
+            &quot;modificationDate&quot;: &quot;2018-03-06T16:49:03.647Z&quot;,
+            &quot;nodes&quot;: [],
+            &quot;subType&quot;: &quot;image&quot;,
+            &quot;id&quot;: &quot;b815f55c-2696-4e0c-8221-8f77fa23f8d3&quot;,
+            &quot;properties&quot;: {
+              &quot;squarishURL&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;,
+              &quot;altText&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+              &quot;squarish&quot;: {
+                &quot;id&quot;: &quot;nqrpl3dacns1civdnpix&quot;,
+                &quot;type&quot;: &quot;product&quot;,
+                &quot;url&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;
+              },
+              &quot;squarishId&quot;: &quot;nqrpl3dacns1civdnpix&quot;
+            }
+          },
+          &quot;custom&quot;: {},
+          &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+          &quot;publish&quot;: {
+            &quot;collectionGroups&quot;: [
+              &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;
+            ],
+            &quot;collections&quot;: [
+              &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+            ],
+            &quot;countries&quot;: [
+              &quot;US&quot;
+            ]
+          },
+          &quot;consumerLabels&quot;: [],
+          &quot;threadType&quot;: &quot;soldier&quot;,
+          &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+          &quot;seo&quot;: {
+            &quot;slug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;
+          },
+          &quot;products&quot;: [
+            {
+              &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+              &quot;styleColor&quot;: &quot;SX5090-014&quot;
+            }
+          ]
+        }
+      },
+      &quot;productInfo&quot;: [
+        {
+          &quot;merchProduct&quot;: {
+            &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+            &quot;snapshotId&quot;: &quot;ebfbd4f9-5f19-40d8-b605-c1570e402b31&quot;,
+            &quot;modificationDate&quot;: &quot;2018-05-02T00:03:26.553Z&quot;,
+            &quot;status&quot;: &quot;ACTIVE&quot;,
+            &quot;merchGroup&quot;: &quot;US&quot;,
+            &quot;styleCode&quot;: &quot;SX5090&quot;,
+            &quot;colorCode&quot;: &quot;014&quot;,
+            &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+            &quot;pid&quot;: &quot;11231271&quot;,
+            &quot;catalogId&quot;: &quot;996366d0-271f-3370-9c78-37afb629785a&quot;,
+            &quot;productGroupId&quot;: &quot;11619046&quot;,
+            &quot;brand&quot;: &quot;Nike&quot;,
+            &quot;channels&quot;: [
+              &quot;Nike.com&quot;,
+              &quot;.com&quot;
+            ],
+            &quot;consumerChannels&quot;: [
+              {
+                &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+              }
+            ],
+            &quot;legacyCatalogIds&quot;: [
+              &quot;100701&quot;
+            ],
+            &quot;genders&quot;: [
+              &quot;KIDS&quot;,
+              &quot;WOMEN&quot;,
+              &quot;MEN&quot;,
+              &quot;GIRLS&quot;,
+              &quot;BOYS&quot;
+            ],
+            &quot;valueAddedServices&quot;: [
+              {
+                &quot;id&quot;: &quot;3d62c037-56f3-59d5-81d3-88ce17f7fb99&quot;
+              }
+            ],
+            &quot;sportTags&quot;: [
+              &quot;Soccer/Football&quot;
+            ],
+            &quot;classificationConcepts&quot;: [],
+            &quot;taxonomyAttributes&quot;: [
+              {
+                &quot;resourceType&quot;: &quot;merch/taxonomy_attributes&quot;,
+                &quot;ids&quot;: [
+                  &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+                  &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                  &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                  &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                  &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                  &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+                  &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+                  &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                  &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+                  &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+                  &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+                  &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                  &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+                  &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+                  &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+                ]
+              }
+            ],
+            &quot;commerceCountryInclusions&quot;: [],
+            &quot;commerceCountryExclusions&quot;: [],
+            &quot;productRollup&quot;: {
+              &quot;type&quot;: &quot;Standard&quot;,
+              &quot;key&quot;: &quot;pNznrv&quot;
+            },
+            &quot;quantityLimit&quot;: 10,
+            &quot;styleType&quot;: &quot;INLINE&quot;,
+            &quot;productType&quot;: &quot;EQUIPMENT&quot;,
+            &quot;mainColor&quot;: true,
+            &quot;exclusiveAccess&quot;: false,
+            &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+            &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+            &quot;resourceType&quot;: &quot;merchProduct&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+              }
+            }
+          },
+          &quot;merchPrice&quot;: {
+            &quot;fullPrice&quot;: 28,
+            &quot;currentPrice&quot;: 19.97,
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;discounted&quot;: true,
+            &quot;resourceType&quot;: &quot;merchPrice&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb&quot;
+              }
+            }
+          },
+          &quot;availability&quot;: {
+            &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+            &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+            &quot;resourceType&quot;: &quot;availableProducts&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+              }
+            },
+            &quot;available&quot;: true
+          },
+          &quot;productContent&quot;: {
+            &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+            &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+            &quot;colors&quot;: [
+              {
+                &quot;type&quot;: &quot;SIMPLE&quot;,
+                &quot;name&quot;: &quot;Black&quot;,
+                &quot;hex&quot;: &quot;13161A&quot;
+              },
+              {
+                &quot;type&quot;: &quot;PRIMARY&quot;,
+                &quot;name&quot;: &quot;Black&quot;,
+                &quot;hex&quot;: &quot;13161A&quot;
+              },
+              {
+                &quot;type&quot;: &quot;LOGO&quot;,
+                &quot;name&quot;: &quot;White&quot;,
+                &quot;hex&quot;: &quot;FFFFFF&quot;
+              }
+            ]
+          },
+          &quot;imageUrls&quot;: {
+            &quot;productImageUrl&quot;: &quot;https://secure-images.nike.com/is/image/DotCom/SX5090_014&quot;
+          }
+        }
+      ],
+      &quot;resourceType&quot;: &quot;thread&quot;,
+      &quot;rollup&quot;: {
+        &quot;totalThreads&quot;: 2,
+        &quot;threads&quot;: [
+          {
+            &quot;id&quot;: &quot;996366d0-271f-3370-9c78-37afb629785a&quot;,
+            &quot;channelId&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+            &quot;channelName&quot;: &quot;NIKE.COM&quot;,
+            &quot;marketplace&quot;: &quot;US&quot;,
+            &quot;language&quot;: &quot;en&quot;,
+            &quot;lastFetchTime&quot;: &quot;2018-05-02T01:32:34.02Z&quot;,
+            &quot;active&quot;: true,
+            &quot;publishedContent&quot;: {
+              &quot;publishStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+              &quot;createdDateTime&quot;: &quot;2018-05-02T01:32:33.721Z&quot;,
+              &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+              &quot;viewStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+              &quot;properties&quot;: {
+                &quot;productCard&quot;: {
+                  &quot;transforms&quot;: [],
+                  &quot;language&quot;: &quot;en&quot;,
+                  &quot;type&quot;: &quot;card&quot;,
+                  &quot;creationDate&quot;: &quot;2018-05-02T01:32:33.715Z&quot;,
+                  &quot;version&quot;: &quot;1525224753715&quot;,
+                  &quot;translate&quot;: {},
+                  &quot;classifications&quot;: [],
+                  &quot;targetLanguages&quot;: [],
+                  &quot;modificationDate&quot;: &quot;2018-05-02T01:32:33.715Z&quot;,
+                  &quot;nodes&quot;: [],
+                  &quot;subType&quot;: &quot;image&quot;,
+                  &quot;id&quot;: &quot;ee7b53be-6cc5-4a42-931e-333bee6b0914&quot;,
+                  &quot;properties&quot;: {
+                    &quot;squarishURL&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;,
+                    &quot;altText&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                    &quot;squarish&quot;: {
+                      &quot;id&quot;: &quot;nqrpl3dacns1civdnpix&quot;,
+                      &quot;type&quot;: &quot;product&quot;,
+                      &quot;url&quot;: &quot;https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg&quot;
+                    },
+                    &quot;squarishId&quot;: &quot;nqrpl3dacns1civdnpix&quot;
+                  }
+                },
+                &quot;custom&quot;: {},
+                &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+                &quot;publish&quot;: {
+                  &quot;collectionGroups&quot;: [
+                    &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;
+                  ],
+                  &quot;collections&quot;: [
+                    &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+                  ],
+                  &quot;countries&quot;: [
+                    &quot;US&quot;
+                  ]
+                },
+                &quot;consumerLabels&quot;: [],
+                &quot;threadType&quot;: &quot;soldier&quot;,
+                &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                &quot;seo&quot;: {
+                  &quot;slug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;
+                },
+                &quot;products&quot;: [
+                  {
+                    &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                    &quot;styleColor&quot;: &quot;SX5090-014&quot;
+                  }
+                ]
+              }
+            },
+            &quot;productInfo&quot;: [
+              {
+                &quot;merchProduct&quot;: {
+                  &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                  &quot;snapshotId&quot;: &quot;ebfbd4f9-5f19-40d8-b605-c1570e402b31&quot;,
+                  &quot;modificationDate&quot;: &quot;2018-05-02T00:03:26.553Z&quot;,
+                  &quot;status&quot;: &quot;ACTIVE&quot;,
+                  &quot;merchGroup&quot;: &quot;US&quot;,
+                  &quot;styleCode&quot;: &quot;SX5090&quot;,
+                  &quot;colorCode&quot;: &quot;014&quot;,
+                  &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+                  &quot;pid&quot;: &quot;11231271&quot;,
+                  &quot;catalogId&quot;: &quot;996366d0-271f-3370-9c78-37afb629785a&quot;,
+                  &quot;productGroupId&quot;: &quot;11619046&quot;,
+                  &quot;brand&quot;: &quot;Nike&quot;,
+                  &quot;channels&quot;: [
+                    &quot;Nike.com&quot;,
+                    &quot;.com&quot;
+                  ],
+                  &quot;consumerChannels&quot;: [
+                    {
+                      &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                      &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+                    }
+                  ],
+                  &quot;legacyCatalogIds&quot;: [
+                    &quot;100701&quot;
+                  ],
+                  &quot;genders&quot;: [
+                    &quot;KIDS&quot;,
+                    &quot;WOMEN&quot;,
+                    &quot;MEN&quot;,
+                    &quot;GIRLS&quot;,
+                    &quot;BOYS&quot;
+                  ],
+                  &quot;valueAddedServices&quot;: [
+                    {
+                      &quot;id&quot;: &quot;3d62c037-56f3-59d5-81d3-88ce17f7fb99&quot;
+                    }
+                  ],
+                  &quot;sportTags&quot;: [
+                    &quot;Soccer/Football&quot;
+                  ],
+                  &quot;classificationConcepts&quot;: [],
+                  &quot;taxonomyAttributes&quot;: [
+                    {
+                      &quot;resourceType&quot;: &quot;merch/taxonomy_attributes&quot;,
+                      &quot;ids&quot;: [
+                        &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+                        &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                        &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                        &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                        &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                        &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+                        &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+                        &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                        &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+                        &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+                        &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+                        &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                        &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+                        &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+                        &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+                      ]
+                    }
+                  ],
+                  &quot;commerceCountryInclusions&quot;: [],
+                  &quot;commerceCountryExclusions&quot;: [],
+                  &quot;productRollup&quot;: {
+                    &quot;type&quot;: &quot;Standard&quot;,
+                    &quot;key&quot;: &quot;pNznrv&quot;
+                  },
+                  &quot;quantityLimit&quot;: 10,
+                  &quot;styleType&quot;: &quot;INLINE&quot;,
+                  &quot;productType&quot;: &quot;EQUIPMENT&quot;,
+                  &quot;mainColor&quot;: true,
+                  &quot;exclusiveAccess&quot;: false,
+                  &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+                  &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+                  &quot;resourceType&quot;: &quot;merchProduct&quot;,
+                  &quot;links&quot;: {
+                    &quot;self&quot;: {
+                      &quot;ref&quot;: &quot;/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+                    }
+                  }
+                },
+                &quot;merchPrice&quot;: {
+                  &quot;fullPrice&quot;: 28,
+                  &quot;currentPrice&quot;: 19.97,
+                  &quot;currency&quot;: &quot;USD&quot;,
+                  &quot;discounted&quot;: true,
+                  &quot;resourceType&quot;: &quot;merchPrice&quot;,
+                  &quot;links&quot;: {
+                    &quot;self&quot;: {
+                      &quot;ref&quot;: &quot;/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb&quot;
+                    }
+                  }
+                },
+                &quot;availability&quot;: {
+                  &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                  &quot;productId&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                  &quot;resourceType&quot;: &quot;availableProducts&quot;,
+                  &quot;links&quot;: {
+                    &quot;self&quot;: {
+                      &quot;ref&quot;: &quot;/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2&quot;
+                    }
+                  },
+                  &quot;available&quot;: true
+                },
+                &quot;productContent&quot;: {
+                  &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                  &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+                  &quot;colors&quot;: [
+                    {
+                      &quot;type&quot;: &quot;SIMPLE&quot;,
+                      &quot;name&quot;: &quot;Black&quot;,
+                      &quot;hex&quot;: &quot;13161A&quot;
+                    },
+                    {
+                      &quot;type&quot;: &quot;PRIMARY&quot;,
+                      &quot;name&quot;: &quot;Black&quot;,
+                      &quot;hex&quot;: &quot;13161A&quot;
+                    },
+                    {
+                      &quot;type&quot;: &quot;LOGO&quot;,
+                      &quot;name&quot;: &quot;White&quot;,
+                      &quot;hex&quot;: &quot;FFFFFF&quot;
+                    }
+                  ]
+                },
+                &quot;imageUrls&quot;: {
+                  &quot;productImageUrl&quot;: &quot;https://secure-images.nike.com/is/image/DotCom/SX5090_014&quot;
+                }
+              }
+            ],
+            &quot;resourceType&quot;: &quot;thread&quot;,
+            &quot;links&quot;: {
+              &quot;self&quot;: {
+                &quot;ref&quot;: &quot;/product_feed/threads/v2/996366d0-271f-3370-9c78-37afb629785a?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;language=en&quot;
+              }
+            },
+            &quot;searchMetaData&quot;: {
+              &quot;exclusiveAccess&quot;: false,
+              &quot;effectiveInStockStartSellDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+              &quot;effectiveInStockStopSellDate&quot;: &quot;2099-12-31T00:00:00.000Z&quot;,
+              &quot;availableSizes&quot;: [
+                &quot;4-5.5&quot;,
+                &quot;6-7.5&quot;,
+                &quot;14-16&quot;
+              ],
+              &quot;availableLocalizedSizes&quot;: [
+                &quot;W 5.5-7&quot;,
+                &quot;W 7.5-9 / M 6-7.5&quot;,
+                &quot;M 14-16&quot;
+              ],
+              &quot;gtins&quot;: [
+                &quot;00659658090224&quot;,
+                &quot;00659658090965&quot;,
+                &quot;00659658090972&quot;,
+                &quot;00659658090989&quot;,
+                &quot;00659658090996&quot;,
+                &quot;00659658091009&quot;
+              ],
+              &quot;publishedContent&quot;: {
+                &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+                &quot;publishStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+                &quot;propertiesSeoSlug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;,
+                &quot;propertiesProductsStyleColor&quot;: [
+                  &quot;SX5090-014&quot;
+                ],
+                &quot;propertiesPublishCollections&quot;: [
+                  &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+                ],
+                &quot;propertiesConsumerLabelsClassificationText&quot;: [],
+                &quot;viewStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+                &quot;threadType&quot;: &quot;soldier&quot;
+              },
+              &quot;productInfo&quot;: [
+                {
+                  &quot;merchProduct&quot;: {
+                    &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+                    &quot;status&quot;: &quot;ACTIVE&quot;,
+                    &quot;styleCode&quot;: &quot;SX5090&quot;,
+                    &quot;colorCode&quot;: &quot;014&quot;,
+                    &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+                    &quot;channels&quot;: [
+                      &quot;Nike.com&quot;,
+                      &quot;.com&quot;
+                    ],
+                    &quot;consumerChannels&quot;: [
+                      {
+                        &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                        &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+                      }
+                    ],
+                    &quot;genders&quot;: [
+                      &quot;KIDS&quot;,
+                      &quot;WOMEN&quot;,
+                      &quot;MEN&quot;,
+                      &quot;GIRLS&quot;,
+                      &quot;BOYS&quot;
+                    ],
+                    &quot;productRollup&quot;: {
+                      &quot;type&quot;: &quot;Standard&quot;,
+                      &quot;key&quot;: &quot;pNznrv&quot;
+                    },
+                    &quot;mainColor&quot;: true,
+                    &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+                    &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;
+                  },
+                  &quot;merchPrice&quot;: {
+                    &quot;msrp&quot;: 28,
+                    &quot;fullPrice&quot;: 28,
+                    &quot;currentPrice&quot;: 19.97,
+                    &quot;employeePrice&quot;: 11.98,
+                    &quot;discounted&quot;: true
+                  },
+                  &quot;productContent&quot;: {
+                    &quot;fullTitle&quot;: &quot;NikeGrip Strike Cushioned Crew Soccer Socks&quot;,
+                    &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+                    &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+                    &quot;bestFor&quot;: [],
+                    &quot;athletes&quot;: []
+                  },
+                  &quot;available&quot;: true,
+                  &quot;skus&quot;: [
+                    {
+                      &quot;id&quot;: &quot;2852f714-361b-5ce4-a8bf-a33cb0a7240a&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;2511ed77-9505-5a9e-b4b1-94acb6249014&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;9eb9705a-ef13-5802-a283-3e355d980da8&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310&quot;
+                    },
+                    {
+                      &quot;id&quot;: &quot;7cf5dc89-f5cb-5101-8292-d8fa4691f0c6&quot;
+                    }
+                  ]
+                }
+              ],
+              &quot;productRollup&quot;: {
+                &quot;type&quot;: &quot;Standard&quot;,
+                &quot;key&quot;: &quot;pNznrv&quot;
+              },
+              &quot;taxonomyAttributeValues&quot;: {
+                &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;: [
+                  &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                  &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+                  &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;
+                ],
+                &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;: [
+                  &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                  &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;
+                ],
+                &quot;99314eb1-af99-4825-87ea-96871973c437&quot;: [
+                  &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                  &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+                ],
+                &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;: [
+                  &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;
+                ],
+                &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;: [
+                  &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;
+                ],
+                &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;: [
+                  &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                  &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                  &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                  &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;
+                ],
+                &quot;974671bf-03b7-499e-994e-ac098841370a&quot;: [
+                  &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;
+                ],
+                &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;: [
+                  &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;
+                ],
+                &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;: [
+                  &quot;974671bf-03b7-499e-994e-ac098841370a&quot;
+                ],
+                &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;: [
+                  &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;
+                ]
+              },
+              &quot;taxonomyAttributeSearchIds&quot;: [
+                &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+                &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+                &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+                &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+                &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+                &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+                &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+                &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+                &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+                &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+                &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+                &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+                &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+                &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+                &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;,
+                &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;,
+                &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;,
+                &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;,
+                &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;,
+                &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+                &quot;974671bf-03b7-499e-994e-ac098841370a&quot;,
+                &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;,
+                &quot;99314eb1-af99-4825-87ea-96871973c437&quot;,
+                &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;,
+                &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;
+              ]
+            }
+          }
+        ]
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: {
+          &quot;ref&quot;: &quot;/product_feed/threads/v2/5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;language=en&quot;
+        }
+      },
+      &quot;searchMetaData&quot;: {
+        &quot;exclusiveAccess&quot;: false,
+        &quot;effectiveInStockStartSellDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;,
+        &quot;effectiveInStockStopSellDate&quot;: &quot;2099-12-31T00:00:00.000Z&quot;,
+        &quot;availableSizes&quot;: [
+          &quot;4-5.5&quot;,
+          &quot;6-7.5&quot;,
+          &quot;14-16&quot;
+        ],
+        &quot;availableLocalizedSizes&quot;: [
+          &quot;W 5.5-7&quot;,
+          &quot;W 7.5-9 / M 6-7.5&quot;,
+          &quot;M 14-16&quot;
+        ],
+        &quot;gtins&quot;: [
+          &quot;00659658090224&quot;,
+          &quot;00659658090965&quot;,
+          &quot;00659658090972&quot;,
+          &quot;00659658090989&quot;,
+          &quot;00659658090996&quot;,
+          &quot;00659658091009&quot;
+        ],
+        &quot;publishedContent&quot;: {
+          &quot;publishEndDate&quot;: &quot;3000-01-01T19:00:00.000Z&quot;,
+          &quot;publishStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+          &quot;propertiesSeoSlug&quot;: &quot;nikegrip-strike-cushioned-crew-soccer-socks-pNznrv&quot;,
+          &quot;propertiesProductsStyleColor&quot;: [
+            &quot;SX5090-014&quot;
+          ],
+          &quot;propertiesPublishCollections&quot;: [
+            &quot;11a0e33d-fb1c-4595-be74-2455b7a11cff&quot;
+          ],
+          &quot;propertiesConsumerLabelsClassificationText&quot;: [],
+          &quot;viewStartDate&quot;: &quot;3000-01-01T08:00:00.000Z&quot;,
+          &quot;threadType&quot;: &quot;soldier&quot;
+        },
+        &quot;productInfo&quot;: [
+          {
+            &quot;merchProduct&quot;: {
+              &quot;id&quot;: &quot;10e46d2c-9a1d-58c2-b714-642154a109c2&quot;,
+              &quot;status&quot;: &quot;ACTIVE&quot;,
+              &quot;styleCode&quot;: &quot;SX5090&quot;,
+              &quot;colorCode&quot;: &quot;014&quot;,
+              &quot;styleColor&quot;: &quot;SX5090-014&quot;,
+              &quot;channels&quot;: [
+                &quot;Nike.com&quot;,
+                &quot;.com&quot;
+              ],
+              &quot;consumerChannels&quot;: [
+                {
+                  &quot;id&quot;: &quot;d9a5bc42-4b9c-4976-858a-f159cf99c647&quot;,
+                  &quot;resourceType&quot;: &quot;globalization/consumer_channels&quot;
+                }
+              ],
+              &quot;genders&quot;: [
+                &quot;KIDS&quot;,
+                &quot;WOMEN&quot;,
+                &quot;MEN&quot;,
+                &quot;GIRLS&quot;,
+                &quot;BOYS&quot;
+              ],
+              &quot;productRollup&quot;: {
+                &quot;type&quot;: &quot;Standard&quot;,
+                &quot;key&quot;: &quot;pNznrv&quot;
+              },
+              &quot;mainColor&quot;: true,
+              &quot;commercePublishDate&quot;: &quot;2018-04-14T00:00:16.000Z&quot;,
+              &quot;commerceStartDate&quot;: &quot;2017-01-01T08:00:00.000Z&quot;
+            },
+            &quot;merchPrice&quot;: {
+              &quot;msrp&quot;: 28,
+              &quot;fullPrice&quot;: 28,
+              &quot;currentPrice&quot;: 19.97,
+              &quot;employeePrice&quot;: 11.98,
+              &quot;discounted&quot;: true
+            },
+            &quot;productContent&quot;: {
+              &quot;fullTitle&quot;: &quot;NikeGrip Strike Cushioned Crew Soccer Socks&quot;,
+              &quot;title&quot;: &quot;NikeGrip Strike Cushioned Crew&quot;,
+              &quot;subtitle&quot;: &quot;Soccer Socks&quot;,
+              &quot;bestFor&quot;: [],
+              &quot;athletes&quot;: []
+            },
+            &quot;available&quot;: true,
+            &quot;skus&quot;: [
+              {
+                &quot;id&quot;: &quot;2852f714-361b-5ce4-a8bf-a33cb0a7240a&quot;
+              },
+              {
+                &quot;id&quot;: &quot;2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c&quot;
+              },
+              {
+                &quot;id&quot;: &quot;2511ed77-9505-5a9e-b4b1-94acb6249014&quot;
+              },
+              {
+                &quot;id&quot;: &quot;9eb9705a-ef13-5802-a283-3e355d980da8&quot;
+              },
+              {
+                &quot;id&quot;: &quot;d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310&quot;
+              },
+              {
+                &quot;id&quot;: &quot;7cf5dc89-f5cb-5101-8292-d8fa4691f0c6&quot;
+              }
+            ]
+          }
+        ],
+        &quot;productRollup&quot;: {
+          &quot;type&quot;: &quot;Standard&quot;,
+          &quot;key&quot;: &quot;pNznrv&quot;
+        },
+        &quot;taxonomyAttributeValues&quot;: {
+          &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;: [
+            &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+            &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+            &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;
+          ],
+          &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;: [
+            &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+            &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;
+          ],
+          &quot;99314eb1-af99-4825-87ea-96871973c437&quot;: [
+            &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+            &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;
+          ],
+          &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;: [
+            &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;
+          ],
+          &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;: [
+            &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;
+          ],
+          &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;: [
+            &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+            &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+            &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+            &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;
+          ],
+          &quot;974671bf-03b7-499e-994e-ac098841370a&quot;: [
+            &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;
+          ],
+          &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;: [
+            &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;
+          ],
+          &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;: [
+            &quot;974671bf-03b7-499e-994e-ac098841370a&quot;
+          ],
+          &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;: [
+            &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;
+          ]
+        },
+        &quot;taxonomyAttributeSearchIds&quot;: [
+          &quot;219e4fa3-73ef-427b-8f93-9d8f51b93443&quot;,
+          &quot;ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc&quot;,
+          &quot;7baf216c-acc6-4452-9e07-39c2ca77ba32&quot;,
+          &quot;0f64ecc7-d624-4e91-b171-b83a03dd8550&quot;,
+          &quot;91064b0a-0ee6-441b-8b09-de2105660311&quot;,
+          &quot;5e3a7953-7afc-4afc-8de0-af5cee16b3a3&quot;,
+          &quot;6631b5c3-937a-4174-942e-3ab3c5b16642&quot;,
+          &quot;dadd7a2e-d974-499c-9e3e-88c0b19adfcc&quot;,
+          &quot;4ceb2400-4c27-4422-a01d-e803e7005524&quot;,
+          &quot;05392778-fff6-4fa0-a375-2506d27f009e&quot;,
+          &quot;143d3eff-40cb-46cd-b579-14462aa828a3&quot;,
+          &quot;5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89&quot;,
+          &quot;9973f6c5-f562-4a35-871c-b91f07f59e71&quot;,
+          &quot;84c36690-b7a6-400e-8643-c573ddaa18ea&quot;,
+          &quot;a2da685c-4187-4af8-8dda-c9d35bb8867f&quot;,
+          &quot;6de391eb-ab3d-4625-a5e7-d537e87f2bfa&quot;,
+          &quot;67063381-90eb-4763-8f87-acc30b392f38&quot;,
+          &quot;527f2d29-89bd-422d-a53a-cdb52784a8a9&quot;,
+          &quot;a00f0bb2-648b-4853-9559-4cd943b7d6c6&quot;,
+          &quot;7e0d88b7-b082-4fee-aa65-d8af260c158d&quot;,
+          &quot;974671bf-03b7-499e-994e-ac098841370a&quot;,
+          &quot;758f6b44-e5a7-46be-b288-bac9c3ebe83f&quot;,
+          &quot;99314eb1-af99-4825-87ea-96871973c437&quot;,
+          &quot;c1c607b9-11f3-4375-a50b-47677cdd8595&quot;,
+          &quot;6e7e4809-fccb-4e82-8a7b-047125398076&quot;
+        ]
+      }
+    }
+  ]
+}
+</code></pre>
+<p>Sample <em>Rollup Threads</em> 400 response:</p>
+<pre><code class="nohighlight">{
+    &quot;message&quot;: &quot;Validation Failed&quot;,
+    &quot;errors&quot;: [
+        {
+            &quot;code&quot;: &quot;MISSING_REQUIRED&quot;,
+            &quot;field&quot;: &quot;/consumerChannelId&quot;,
+            &quot;message&quot;: &quot;Required field is missing&quot;
+        }
+    ]
+}
+</code></pre>
+<h2 id="upgrading-to-the-latest-version"><a href="#upgrading-to-the-latest-version" name="upgrading-to-the-latest-version" class="anchor"><span class="octicon octicon-link"></span></a><a name="upgrading-to-the-latest-version"></a>Upgrading to the latest version</h2>
+<p>Version 2 (v2) is the current and only version of this API.</p>
+<h2 id="best-practices"><a href="#best-practices" name="best-practices" class="anchor"><span class="octicon octicon-link"></span></a><a name="best-practices"></a>Best Practices</h2>
+<!--
+ * OPTIONAL: What are best practices in calling this API e.g. caching, retries, order of calls, error handling?
+-->
+<p>TBD</p>
+<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting" class="anchor"><span class="octicon octicon-link"></span></a><a name="troubleshooting"></a>Troubleshooting</h2>
+<!--
+* What do I need to look out for?
+* What are common questions asked of the Team about the API?
+* When do I need to contact the Team and what info do I need to provide?
+-->
+<p>TBD</p>
+<h3 id="use-troubleshooting-tools"><a href="#use-troubleshooting-tools" name="use-troubleshooting-tools" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
+<!--Provide some specific troubleshooting tips for this API like Splunk or New Relic dashboards/queries or similar. Link to general guide (troubleshooting section)-->
+<p>TBD</p>
+<h3 id="common-questions"><a href="#common-questions" name="common-questions" class="anchor"><span class="octicon octicon-link"></span></a><a name="common-questions"></a>Common Questions</h3>
+<!--Frequently-asked questions related to troubleshooting-->
+<p>TBD</p>
+<h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
+<p>See the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a>.</p>
+<h2 id="release-notes"><a href="#release-notes" name="release-notes" class="anchor"><span class="octicon octicon-link"></span></a><a name="release-notes"></a>Release Notes</h2>
+<p>There are no release notes at this time.</p>
+<h2 id="document-change-log"><a href="#document-change-log" name="document-change-log" class="anchor"><span class="octicon octicon-link"></span></a><a name="document-change-log"></a>Document Change Log</h2>
+<table>
+  <thead>
+    <tr><th>Summary </th><th>Date </th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Initial draft</td><td>05/04/2018</td><td>Initial Draft</td></tr>
+  </tbody>
+</table>
+<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
+<p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
+<p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>
+<p><a href="/doc/portal/biz-guides.html" class="absent">Business Guides</a></p>
+<p><a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a></p>
+</body>
+</html>
