@@ -102,7 +102,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
+It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
 ### <a name="authentication"></a>Authentication
 
@@ -123,7 +123,7 @@ There are no authentication requirements for Product Feeds except when using the
 
 Here is an example of a sequence of API calls to get content from Product Feeds v2:
 
-![](/images/commerce/product_feeds/seq_dgm.png?)
+![](/images/commerce/product_feeds/seq_dgm.png)
 
 <br>
 
@@ -168,6 +168,7 @@ The Product Feeds API combines product information with product content into Car
 |SKU Inventory Availability|Inventory availability by style-color-size|true/false|Sterling|
 |Published Content|Authored cards and threads|title, seo slug, image URL, video URL, text|Nike CMS (Content Management System)|
 |Launch Views|Launch attributes by style-color (SNKRS, Bootroom only)|method, startEntryDate, stopEntryDate|Launch Admin Tool|
+|Customized PreBuilds|Customized prebuild (e.g. suggested NikeID shoe design)|designId, status, merchGroup|Consumer experiences, Prodigy|
 
 >**TIP:** The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
 
@@ -582,7 +583,7 @@ List all threads by one or more filter criteria, e.g. channel and style-color.
 
 ##### Allowed Sort Parameters
 
-The following are the allowed fields that can be send in the **sort** query parameter:
+The following are the allowed fields that can be sent in the **sort** query parameter:
 
 - **publishedContent.publishStartDateAsc**
 
@@ -604,7 +605,7 @@ The following are the allowed fields that can be send in the **sort** query para
 
 - **id.keywordDesc**
 
-#### Allowed Filter Parameters
+##### Allowed Filter Parameters
 
 The following is a list of scenarios that illustrate which **filter** parameters are supported:
 
@@ -639,7 +640,7 @@ The following is a list of scenarios that illustrate which **filter** parameters
 >
 ><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
 
-#### Using Search-Based Queries
+##### Using Search-Based Queries
 
 Send one or more search keywords in the **searchTerms** query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.
 
@@ -657,6 +658,17 @@ For example, using `searchTerms=Chuck Taylor` would return any threads where the
 
 The default search behavior is *partial match*. Limiting the search to only *full string matches* can be done by enclosing the keywords in double quotes, like `searchTerms="Chuck Taylor"`. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.
 
+##### Pagination and Limits
+
+When a call is made to the Threads list endpoint a paginated response will be returned if the number of items exceeds either:
+
+1. The value in the count query parameter (note: max allowed is 50)
+2. The default count of 50 if the count parameter is omitted.
+
+A 'next' link will be provided in the pages section of the response for paginated results. The next link includes all the parameters originally passed to the endpoint along with an anchor parameter that marks the number of item to start the next page.
+
+If the query results contain 1000s of items, the max limit that can be paged through is 10,000. When the anchor exceeds 10,000 items you should expect to get an error. This is an intentional limitation imposed on the backend data store for performance reasons. If you make a request whose response would contain the 10,000th item, the next link returned will be empty.
+
 #### <a name="threads-list-request-headers"></a>Request Headers
 
 There are no required request headers.
@@ -669,7 +681,7 @@ There is no body for a GET request.
 
 The important elements of the *Threads List* response body are as follows:
 
->Note: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Rather than list out all of the elements in this table, links are provided to the relevant API.md for you to find the corresponding response schema.
+>Note: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
 
 |Element Name|Description|
 |---|---|
@@ -771,6 +783,15 @@ The important elements of the *Threads List* response body are as follows:
 |objects.productInfo.**skus**|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2_id" target="_blank">API.md link</a>|
 |objects.productInfo.**availableSkus**|<a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#!/Sku_Availability/get_deliver_available_skus_v1_id" target="_blank">API.md link</a>|
 |objects.productInfo.**launchView**|<a href="https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md#!/default/get_launch_launch_views_v2_id" target="_blank">API.md link</a>|
+|objects.productInfo.**customizedPreBuild**|<a href="https://bitbucket.nike.com/projects/CCS/repos/ccs/browse/services/design/API_full.md" target="_blank">API.md link</a>|
+
+##### What is the Customized PreBuild Section of the Response?
+
+If you are getting data in the **objects.productInfo.customizedPreBuild** section of the response, then one of the threads that you've requested contains a customizable prebuild product.
+
+A prebuild is pre-designed, customizable (e.g., NIKEiD) product design, setup by business operations/designers, as an example of what could be designed for a specific customizable product. These "inspiration" designs are merchandised within specific merchandising groups and used many places, including in product walls, product display pages, and marketing materials.
+
+You will be able to identify the presence of prebuilds when **objects.publishedContent.properties.threadType** field contains the value **nikeid_soldier**.
 
 Sample *Threads List* response body (HTTP 200):
 
