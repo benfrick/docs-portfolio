@@ -585,25 +585,22 @@ List all threads by one or more filter criteria, e.g. channel and style-color.
 
 The following are the allowed fields that can be sent in the **sort** query parameter:
 
-- **publishedContent.publishStartDateAsc**
-
-- **publishedContent.publishStartDateDesc**
-
-- **publishedContent.viewStartDateAsc**
-
-- **publishedContent.viewStartDateDesc**
-
-- **productInfo.merchProduct.commerceStartDateAsc**
-
-- **productInfo.merchProduct.currentPriceAsc**
-
-- **productInfo.merchProduct.currentPriceDesc**
-
-- **productInfo.merchProduct.commercePublishDateDesc**
-
-- **id.keywordAsc**
-
-- **id.keywordDesc**
+|Sort Field|Description|
+|---|---|
+|**publishedContent.publishStartDateAsc**|By Content Publish Start Date, Ascending|
+|**publishedContent.publishStartDateDesc**|By Content Publish Start Date, Descending|
+|**publishedContent.viewStartDateAsc**|By Content View Start Date, Ascending|
+|**publishedContent.viewStartDateDesc**|By Content View Start Date, Descending|
+|**productInfo.merchProduct.commerceStartDateAsc**|By Commerce Start Date, Ascending|
+|**productInfo.merchPrice.currentPriceAsc**|By Current Price, Ascending|
+|**productInfo.merchPrice.currentPriceDesc**|By Current Price, Descending|
+|**productInfo.merchProduct.commercePublishDateDesc**|By Commerce Publish Date, Descending|
+|**effectiveStartSellDateAsc**|By Effective Start Sell Date, Ascending|
+|**effectiveStartSellDateDesc**|By Effective Start Sell Date, Descending|
+|**lastFetchTimeAsc**|By Last Fetch Time, Ascending|
+|**lastFetchTimeDesc**|By Last Fetch Time, Descending|
+|**idAsc**|By Thread Id, Ascending|
+|**idDesc**|By Thread Id, Descending|
 
 ##### Allowed Filter Parameters
 
@@ -617,7 +614,9 @@ The following is a list of scenarios that illustrate which **filter** parameters
 |Threads for a style-color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.products.styleColor(942198-700)|
 |Threads for a style code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.styleCode(942198)|
 |Threads for a color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.colorCode(001)|
-|Threads for a product ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)|
+|Threads for a product ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)|
+|Threads for a SKU ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=skuIds(2852f714-361b-5ce4-a8bf-a33cb0a7240a,fc42d40e-dad8-522f-bd5b-b59890ca2f53)|
+|Threads for a Taxonomy ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=taxonomyIds(c2ec05f1-f18f-4bf7-8d39-7788feb46ff2)|
 |Threads for a gender name|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.genders(WOMEN)|
 |Threads for a Merch Product channel name|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.channels(SNKRS)|
 |Threads Merch Product main color|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.mainColor(true)|
@@ -630,7 +629,7 @@ The following is a list of scenarios that illustrate which **filter** parameters
 |Threads for keywords 'Chuck Taylor'|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&searchTerms=Chuck%20Taylor|
 |Threads for a product rollup key|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=productInfo.merchProduct.productRollup.key(YPTArgON)|
 |Threads for upcoming products|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=upcoming(true)&sort=productInfo.merchProduct.commerceStartDateAsc|
-|Thread for a thread ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5))|
+|Thread for a thread ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5))|
 |Threads for Exclusive Access products|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=exclusiveAccess(true,false)|
 |Threads for a Global Trade Identification Number (GTIN)|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=productInfo.skus.gtin(00884500634190)|
 
@@ -647,12 +646,11 @@ Send one or more search keywords in the **searchTerms** query parameter to list 
 The four searchable fields are:
 
 - productInfo.productContent.**fullTitle**
-
 - productInfo.productContent.**title**
-
 - productInfo.productContent.**subtitle**
-
 - publishedContent.properties.consumerLabels.classification.**text**
+- productInfo.merchProduct.**styleColor**
+- productInfo.merchProduct.**styleCode**
 
 For example, using `searchTerms=Chuck Taylor` would return any threads where the words 'Chuck' and 'Taylor' are found anywhere in a searchable field.
 

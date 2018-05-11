@@ -522,38 +522,27 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </blockquote>
 <h5 id="allowed-sort-parameters"><a href="#allowed-sort-parameters" name="allowed-sort-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Allowed Sort Parameters</h5>
 <p>The following are the allowed fields that can be sent in the <strong>sort</strong> query parameter:</p>
-<ul>
-  <li>
-    <p><strong>publishedContent.publishStartDateAsc</strong></p>
-  </li>
-  <li>
-    <p><strong>publishedContent.publishStartDateDesc</strong></p>
-  </li>
-  <li>
-    <p><strong>publishedContent.viewStartDateAsc</strong></p>
-  </li>
-  <li>
-    <p><strong>publishedContent.viewStartDateDesc</strong></p>
-  </li>
-  <li>
-    <p><strong>productInfo.merchProduct.commerceStartDateAsc</strong></p>
-  </li>
-  <li>
-    <p><strong>productInfo.merchProduct.currentPriceAsc</strong></p>
-  </li>
-  <li>
-    <p><strong>productInfo.merchProduct.currentPriceDesc</strong></p>
-  </li>
-  <li>
-    <p><strong>productInfo.merchProduct.commercePublishDateDesc</strong></p>
-  </li>
-  <li>
-    <p><strong>id.keywordAsc</strong></p>
-  </li>
-  <li>
-    <p><strong>id.keywordDesc</strong></p>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr><th>Sort Field</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>publishedContent.publishStartDateAsc</strong></td><td>By Content Publish Start Date, Ascending</td></tr>
+    <tr><td><strong>publishedContent.publishStartDateDesc</strong></td><td>By Content Publish Start Date, Descending</td></tr>
+    <tr><td><strong>publishedContent.viewStartDateAsc</strong></td><td>By Content View Start Date, Ascending</td></tr>
+    <tr><td><strong>publishedContent.viewStartDateDesc</strong></td><td>By Content View Start Date, Descending</td></tr>
+    <tr><td><strong>productInfo.merchProduct.commerceStartDateAsc</strong></td><td>By Commerce Start Date, Ascending</td></tr>
+    <tr><td><strong>productInfo.merchPrice.currentPriceAsc</strong></td><td>By Current Price, Ascending</td></tr>
+    <tr><td><strong>productInfo.merchPrice.currentPriceDesc</strong></td><td>By Current Price, Descending</td></tr>
+    <tr><td><strong>productInfo.merchProduct.commercePublishDateDesc</strong></td><td>By Commerce Publish Date, Descending</td></tr>
+    <tr><td><strong>effectiveStartSellDateAsc</strong></td><td>By Effective Start Sell Date, Ascending</td></tr>
+    <tr><td><strong>effectiveStartSellDateDesc</strong></td><td>By Effective Start Sell Date, Descending</td></tr>
+    <tr><td><strong>lastFetchTimeAsc</strong></td><td>By Last Fetch Time, Ascending</td></tr>
+    <tr><td><strong>lastFetchTimeDesc</strong></td><td>By Last Fetch Time, Descending</td></tr>
+    <tr><td><strong>idAsc</strong></td><td>By Thread Id, Ascending</td></tr>
+    <tr><td><strong>idDesc</strong></td><td>By Thread Id, Descending</td></tr>
+  </tbody>
+</table>
 <h5 id="allowed-filter-parameters"><a href="#allowed-filter-parameters" name="allowed-filter-parameters" class="anchor"><span class="octicon octicon-link"></span></a>Allowed Filter Parameters</h5>
 <p>The following is a list of scenarios that illustrate which <strong>filter</strong> parameters are supported:</p>
 <table>
@@ -567,7 +556,9 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Threads for a style-color code</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=publishedContent.properties.products.styleColor(942198-700)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=publishedContent.properties.products.styleColor(942198-700)</a></td></tr>
     <tr><td>Threads for a style code</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.styleCode(942198)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.styleCode(942198)</a></td></tr>
     <tr><td>Threads for a color code</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.colorCode(001)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.colorCode(001)</a></td></tr>
-    <tr><td>Threads for a product ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)</a></td></tr>
+    <tr><td>Threads for a product ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)</a></td></tr>
+    <tr><td>Threads for a SKU ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=skuIds(2852f714-361b-5ce4-a8bf-a33cb0a7240a,fc42d40e-dad8-522f-bd5b-b59890ca2f53)">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=skuIds(2852f714-361b-5ce4-a8bf-a33cb0a7240a,fc42d40e-dad8-522f-bd5b-b59890ca2f53)</a></td></tr>
+    <tr><td>Threads for a Taxonomy ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=taxonomyIds(c2ec05f1-f18f-4bf7-8d39-7788feb46ff2)">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=taxonomyIds(c2ec05f1-f18f-4bf7-8d39-7788feb46ff2)</a></td></tr>
     <tr><td>Threads for a gender name</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.genders(WOMEN)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.genders(WOMEN)</a></td></tr>
     <tr><td>Threads for a Merch Product channel name</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.channels(SNKRS)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.channels(SNKRS)</a></td></tr>
     <tr><td>Threads Merch Product main color</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.mainColor(true)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=productInfo.merchProduct.mainColor(true)</a></td></tr>
@@ -580,7 +571,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Threads for keywords 'Chuck Taylor'</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;searchTerms=Chuck%20Taylor">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;searchTerms=Chuck%20Taylor</a></td></tr>
     <tr><td>Threads for a product rollup key</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=productInfo.merchProduct.productRollup.key(YPTArgON)">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=productInfo.merchProduct.productRollup.key(YPTArgON)</a></td></tr>
     <tr><td>Threads for upcoming products</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=upcoming(true)&amp;sort=productInfo.merchProduct.commerceStartDateAsc">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=upcoming(true)&amp;sort=productInfo.merchProduct.commerceStartDateAsc</a></td></tr>
-    <tr><td>Thread for a thread ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5)">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5)</a>)</td></tr>
+    <tr><td>Thread for a thread ID</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5)">https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&amp;filter=language(en)&amp;filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5)</a>)</td></tr>
     <tr><td>Threads for Exclusive Access products</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=language(en)&amp;filter=marketplace(US)&amp;filter=exclusiveAccess(true,false)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=language(en)&amp;filter=marketplace(US)&amp;filter=exclusiveAccess(true,false)</a></td></tr>
     <tr><td>Threads for a Global Trade Identification Number (GTIN)</td><td><a href="https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=language(en)&amp;filter=marketplace(US)&amp;filter=productInfo.skus.gtin(00884500634190)">https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&amp;filter=language(en)&amp;filter=marketplace(US)&amp;filter=productInfo.skus.gtin(00884500634190)</a></td></tr>
   </tbody>
@@ -594,18 +585,12 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 <p>Send one or more search keywords in the <strong>searchTerms</strong> query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.</p>
 <p>The four searchable fields are:</p>
 <ul>
-  <li>
-    <p>productInfo.productContent.<strong>fullTitle</strong></p>
-  </li>
-  <li>
-    <p>productInfo.productContent.<strong>title</strong></p>
-  </li>
-  <li>
-    <p>productInfo.productContent.<strong>subtitle</strong></p>
-  </li>
-  <li>
-    <p>publishedContent.properties.consumerLabels.classification.<strong>text</strong></p>
-  </li>
+  <li>productInfo.productContent.<strong>fullTitle</strong></li>
+  <li>productInfo.productContent.<strong>title</strong></li>
+  <li>productInfo.productContent.<strong>subtitle</strong></li>
+  <li>publishedContent.properties.consumerLabels.classification.<strong>text</strong></li>
+  <li>productInfo.merchProduct.<strong>styleColor</strong></li>
+  <li>productInfo.merchProduct.<strong>styleCode</strong></li>
 </ul>
 <p>For example, using <code>searchTerms=Chuck Taylor</code> would return any threads where the words 'Chuck' and 'Taylor' are found anywhere in a searchable field.</p>
 <p>The default search behavior is <em>partial match</em>. Limiting the search to only <em>full string matches</em> can be done by enclosing the keywords in double quotes, like <code>searchTerms=&quot;Chuck Taylor&quot;</code>. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.</p>

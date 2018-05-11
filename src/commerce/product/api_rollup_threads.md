@@ -19,7 +19,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-###### Last Updated: 05/04/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
+###### Last Updated: 05/11/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
@@ -68,7 +68,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |Topic|Details|
 |---|---|
 |Use these APIs to|Display a product grid wall in a digital experience|
-|Who calls this API?|Nike.com, Nike App|
+|Who calls this API?|Nike.com, Nike Running Club app (future)|
 |Versions|v2|
 |Supported Languages|See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales|
 |SLA|service name, version number and time in ms.|
@@ -88,13 +88,13 @@ No authentication or authorization is required to use this API.
 
 In order to use the Product Feed Rollup Threads v2 API, you need to:
 
-- Obtain a Consumer Channel ID -- REQUIRED
+- **Obtain a Consumer Channel ID -- REQUIRED**
 
   Contact the Product Feeds Product Owner [Andy Sun](mailto:andy.sun@nike.com) to get a unique Consumer Channel ID for your app.
 
-- Configure Custom Search Rules -- OPTIONAL
+- **Configure Custom Search Rules -- OPTIONAL**
 
-  The default key used for rolling up threads is **productInfo.merchProduct.productRollup.key**. If you require any custom search rules to refine how threads are rolled up, you can work with the Search team to create them. Contact [Patti Cousins](mailto:patricia.cousins@nike.com) for assistance.
+  The default key used for rolling up Threads is **productInfo.merchProduct.productRollup.key**. If you require any custom search rules to refine how Threads are rolled up, you can work with the Search team to create them. Contact [Patti Cousins](mailto:patricia.cousins@nike.com) for assistance.
 
 ## <a name="use-cases"></a>Use Cases
 
@@ -106,59 +106,66 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|Rollup Threads|Get a product Thread with a nested list of other Threads related by a rollup field|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
+|GET|Rollup Threads|Get a product Thread with related Threads nested within|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
 
 ## <a name="what-is-a-rollup-thread"></a>What is a Rollup Thread?
 
 The endpoint of this API is closely related to the *Threads List* endpoint of the Product Feeds v2 API. First, read the [Product Feeds v2 Developer's Guide](/doc/commerce/product/api_product_feeds.html) to understand the basic concepts of working with Threads.
 
-Now, let's talk about what this API offers that is unique: Rollup Threads.
+Next, let's talk about what this API offers that is unique: Rollup Threads. A Rollup Thread is a Thread that is related to, and nested within a parent Thread. For example, there might be seven Rollup Threads nested within a given parent Thread, representing the other colors of a particular Nike shoe. Using Rollup Threads makes it much simpler for you to build a product grid wall experience like this:
 
-A Rollup Thread is a Thread that is related to, and nested within a parent Thread. For example, there might be seven Rollup Threads nested within a given parent Thread, representing the other colors of a particular Nike shoe.
-
-Having Rollup Threads makes it much simpler for you to build a product grid wall experience like this:
+<br>
 
 ![](/images/commerce/product_feeds/gridwall.png)
 
 ### How Can I Control the Rollup?
 
-By default, the relationship between the Rollup Thread(s) to the parent Thread is based upon a rollup type and rollup key defined in the Nike's Prodigy product information system. This is not something that you directly control.
+By default, the relationship between the Rollup Thread(s) to the parent Thread is based upon a rollup type and rollup key defined in the Nike's Prodigy product information system. As the client of the API, you do not have direct control over those values.
 
-Both fields are located in the response from this API in the **productInfo.merchProduct.productRollup** object, field names **type** and **key**.
+Both of these fields are located in the API response in the **productInfo.merchProduct.productRollup** object, field names **type** and **key**.
 
 - rollup **type**: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Examples values are "Standard", "WidthGroup", "NFL, or "NBA".
 - rollup **key**: a specific instance of a rollup type, e.g. a value representing a particular style number rollup. Example value is "xqTPKlqE".
 
-However, you also have the ability to configure additional rules in the Apollo search administration tool that will override the default rollup behavior described above.
+#### Custom Search Rules
 
-For example, if you wanted to rollup by something other than style number ("type": "Standard"), you could define that as one or more rules in Apollo. But you could also, for example, create a rule in Apollo to exclude customized Nike ID products or gift cards from your results.
+You also have the ability to configure additional rules in the Apollo search administration tool that will **override the default rollup behavior described above, exclusively for your consumerChannelId**.
 
-Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.
+For example, if you wanted to rollup by something other than style number (i.e. "type": "Standard"), you could define that as one or more rules in Apollo. You could also, for example, create a rule in Apollo to exclude customized Nike ID products or gift cards from your results, if desired.
+
+**Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.**
 
 >**TIP**: Reach out to the Apollo Product Owner [Patti Cousins](mailto:patricia.cousins@nike.com) for more information on how to use the Apollo tool.
 
-### I Already Use Product Feeds v2. How is the Response Different?
+### Relationship of Consumer Channel ID to Channel ID
+
+Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds v2 API?
+
+Consumer Channel ID and Channel ID are not directly related and are not used together in either API. They serve a similar purpose in that they are unique IDs that help you to get only the data you need from each API.
+
+**So when calling the Product Feed Rollup Threads API, Consumer Channel ID is required and Channel ID is not allowed.**
+
+>**NOTE**: Threads returned by the Product Feed Rollup Threads API are pre-filtered for the Channel ID for Nike.com.
+
+### I Already Use Product Feeds v2. How is This API Response Different?
 
 The following diagram describes the how the structure of the response from the Rollup Threads API differs from Product Feeds v2:
+
+<br>
 
 ![](/images/commerce/product_feeds/rollup_threads_response.png)
 
 ## <a name="making-your-first-api-request"></a>Making your first API request
-<!--
-* How do I call this API?
-* What are the parameters necessary to make a call and where do I get them?
-* What does a successful response look like?
--->
 
 For your first request, send a request to get all the Rollup Threads for a particular consumerChannelId, marketplace, and language combination. These are the minimum required query parameters for calling this API.
 
-1. Gather data needed for the request
+1. **Gather Data Needed for the Request**
 
-Study the <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedrollupsv2/browse/API.md" target="_blank">API.md</a> or the [Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2) section of this document.
+    Study the <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedrollupsv2/browse/API.md" target="_blank">API.md</a> or the [Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2) section of this document.
 
--Only the HTTP GET method is supported, which means no request body is required
--No request headers are required
--The URL and query parameters required are as follows:
+    - Only the HTTP GET method is supported, which means no request body is required
+    - No request headers are required
+    - The URL and query parameters required are as follows:
 
 |HTTP Method|Endpoint URI|
 |---|---|
@@ -172,11 +179,11 @@ Study the <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfee
 
 >**TIP**: Don't have a consumerChannelId yet? Request that the [Product Owner](#api-at-a-glance) assign one for your app.
 
-2. Execute the request
+2. **Execute the Request**
 
-Putting together the pieces from Step 1, the full URL you will use is https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language(en)&filter=marketplace(US).
+    Putting together the pieces from Step 1, the full URL you will use is https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language(en)&filter=marketplace(US).
 
-Use your favorite REST client to send the request. Alternatively, execute the following cURL command:
+    Use your favorite REST client to send the request. Alternatively, execute the following cURL command:
 
 ```
 curl -X GET \
@@ -184,9 +191,9 @@ curl -X GET \
   -H 'Cache-Control: no-cache'
 ```
 
-3. Parse the response
+3. **Parse the Response**
 
-See the output of the successful HTTP 200 response below. The response has been truncated for brevity, but shows one parent Thread with two nested Rollup Threads:
+    See the output of the successful HTTP 200 response below. The response has been truncated for brevity, but shows one parent Thread with two nested Rollup Threads:
 
 ```
 {
@@ -311,20 +318,7 @@ See the output of the successful HTTP 200 response below. The response has been 
                 "resourceType": "merch/taxonomy_attributes",
                 "ids": [
                   "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                  "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                  "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                  "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                  "91064b0a-0ee6-441b-8b09-de2105660311",
-                  "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-                  "6631b5c3-937a-4174-942e-3ab3c5b16642",
-                  "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-                  "4ceb2400-4c27-4422-a01d-e803e7005524",
-                  "05392778-fff6-4fa0-a375-2506d27f009e",
-                  "143d3eff-40cb-46cd-b579-14462aa828a3",
-                  "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                  "9973f6c5-f562-4a35-871c-b91f07f59e71",
-                  "84c36690-b7a6-400e-8643-c573ddaa18ea",
-                  "a2da685c-4187-4af8-8dda-c9d35bb8867f"
+                  "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc"
                 ]
               }
             ],
@@ -515,19 +509,6 @@ See the output of the successful HTTP 200 response below. The response has been 
                       "resourceType": "merch/taxonomy_attributes",
                       "ids": [
                         "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                        "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                        "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                        "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                        "91064b0a-0ee6-441b-8b09-de2105660311",
-                        "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-                        "6631b5c3-937a-4174-942e-3ab3c5b16642",
-                        "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-                        "4ceb2400-4c27-4422-a01d-e803e7005524",
-                        "05392778-fff6-4fa0-a375-2506d27f009e",
-                        "143d3eff-40cb-46cd-b579-14462aa828a3",
-                        "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                        "9973f6c5-f562-4a35-871c-b91f07f59e71",
-                        "84c36690-b7a6-400e-8643-c573ddaa18ea",
                         "a2da685c-4187-4af8-8dda-c9d35bb8867f"
                       ]
                     }
@@ -723,64 +704,12 @@ See the output of the successful HTTP 200 response below. The response has been 
                   "7e0d88b7-b082-4fee-aa65-d8af260c158d",
                   "143d3eff-40cb-46cd-b579-14462aa828a3"
                 ],
-                "67063381-90eb-4763-8f87-acc30b392f38": [
-                  "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                  "6631b5c3-937a-4174-942e-3ab3c5b16642"
-                ],
-                "99314eb1-af99-4825-87ea-96871973c437": [
-                  "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                  "a2da685c-4187-4af8-8dda-c9d35bb8867f"
-                ],
-                "c1c607b9-11f3-4375-a50b-47677cdd8595": [
-                  "9973f6c5-f562-4a35-871c-b91f07f59e71"
-                ],
-                "6e7e4809-fccb-4e82-8a7b-047125398076": [
-                  "84c36690-b7a6-400e-8643-c573ddaa18ea"
-                ],
-                "527f2d29-89bd-422d-a53a-cdb52784a8a9": [
-                  "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                  "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                  "91064b0a-0ee6-441b-8b09-de2105660311",
-                  "5e3a7953-7afc-4afc-8de0-af5cee16b3a3"
-                ],
-                "974671bf-03b7-499e-994e-ac098841370a": [
-                  "4ceb2400-4c27-4422-a01d-e803e7005524"
-                ],
-                "6de391eb-ab3d-4625-a5e7-d537e87f2bfa": [
-                  "219e4fa3-73ef-427b-8f93-9d8f51b93443"
-                ],
-                "7e0d88b7-b082-4fee-aa65-d8af260c158d": [
-                  "974671bf-03b7-499e-994e-ac098841370a"
-                ],
                 "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
                   "05392778-fff6-4fa0-a375-2506d27f009e"
                 ]
               },
               "taxonomyAttributeSearchIds": [
                 "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                "91064b0a-0ee6-441b-8b09-de2105660311",
-                "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-                "6631b5c3-937a-4174-942e-3ab3c5b16642",
-                "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-                "4ceb2400-4c27-4422-a01d-e803e7005524",
-                "05392778-fff6-4fa0-a375-2506d27f009e",
-                "143d3eff-40cb-46cd-b579-14462aa828a3",
-                "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                "9973f6c5-f562-4a35-871c-b91f07f59e71",
-                "84c36690-b7a6-400e-8643-c573ddaa18ea",
-                "a2da685c-4187-4af8-8dda-c9d35bb8867f",
-                "6de391eb-ab3d-4625-a5e7-d537e87f2bfa",
-                "67063381-90eb-4763-8f87-acc30b392f38",
-                "527f2d29-89bd-422d-a53a-cdb52784a8a9",
-                "a00f0bb2-648b-4853-9559-4cd943b7d6c6",
-                "7e0d88b7-b082-4fee-aa65-d8af260c158d",
-                "974671bf-03b7-499e-994e-ac098841370a",
-                "758f6b44-e5a7-46be-b288-bac9c3ebe83f",
-                "99314eb1-af99-4825-87ea-96871973c437",
-                "c1c607b9-11f3-4375-a50b-47677cdd8595",
                 "6e7e4809-fccb-4e82-8a7b-047125398076"
               ]
             }
@@ -908,64 +837,12 @@ See the output of the successful HTTP 200 response below. The response has been 
             "7e0d88b7-b082-4fee-aa65-d8af260c158d",
             "143d3eff-40cb-46cd-b579-14462aa828a3"
           ],
-          "67063381-90eb-4763-8f87-acc30b392f38": [
-            "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-            "6631b5c3-937a-4174-942e-3ab3c5b16642"
-          ],
-          "99314eb1-af99-4825-87ea-96871973c437": [
-            "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-            "a2da685c-4187-4af8-8dda-c9d35bb8867f"
-          ],
-          "c1c607b9-11f3-4375-a50b-47677cdd8595": [
-            "9973f6c5-f562-4a35-871c-b91f07f59e71"
-          ],
-          "6e7e4809-fccb-4e82-8a7b-047125398076": [
-            "84c36690-b7a6-400e-8643-c573ddaa18ea"
-          ],
-          "527f2d29-89bd-422d-a53a-cdb52784a8a9": [
-            "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-            "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-            "91064b0a-0ee6-441b-8b09-de2105660311",
-            "5e3a7953-7afc-4afc-8de0-af5cee16b3a3"
-          ],
-          "974671bf-03b7-499e-994e-ac098841370a": [
-            "4ceb2400-4c27-4422-a01d-e803e7005524"
-          ],
-          "6de391eb-ab3d-4625-a5e7-d537e87f2bfa": [
-            "219e4fa3-73ef-427b-8f93-9d8f51b93443"
-          ],
-          "7e0d88b7-b082-4fee-aa65-d8af260c158d": [
-            "974671bf-03b7-499e-994e-ac098841370a"
-          ],
           "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
             "05392778-fff6-4fa0-a375-2506d27f009e"
           ]
         },
         "taxonomyAttributeSearchIds": [
           "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-          "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-          "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-          "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-          "91064b0a-0ee6-441b-8b09-de2105660311",
-          "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-          "6631b5c3-937a-4174-942e-3ab3c5b16642",
-          "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-          "4ceb2400-4c27-4422-a01d-e803e7005524",
-          "05392778-fff6-4fa0-a375-2506d27f009e",
-          "143d3eff-40cb-46cd-b579-14462aa828a3",
-          "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-          "9973f6c5-f562-4a35-871c-b91f07f59e71",
-          "84c36690-b7a6-400e-8643-c573ddaa18ea",
-          "a2da685c-4187-4af8-8dda-c9d35bb8867f",
-          "6de391eb-ab3d-4625-a5e7-d537e87f2bfa",
-          "67063381-90eb-4763-8f87-acc30b392f38",
-          "527f2d29-89bd-422d-a53a-cdb52784a8a9",
-          "a00f0bb2-648b-4853-9559-4cd943b7d6c6",
-          "7e0d88b7-b082-4fee-aa65-d8af260c158d",
-          "974671bf-03b7-499e-994e-ac098841370a",
-          "758f6b44-e5a7-46be-b288-bac9c3ebe83f",
-          "99314eb1-af99-4825-87ea-96871973c437",
-          "c1c607b9-11f3-4375-a50b-47677cdd8595",
           "6e7e4809-fccb-4e82-8a7b-047125398076"
         ]
       }
@@ -978,17 +855,11 @@ See the output of the successful HTTP 200 response below. The response has been 
 
 ## <a name="using-rollup-threads-v2"></a>Using Product Feed Rollup Threads v2
 
-- [Product Feed Rollup Threads v2 Overview](#product-feed-rollup-threads-v2-overview)
-
-- [Rollup Threads](#rollup-threads)
-
-### <a name="product-feed-rollup-threads-v2-overview"></a>Product Feed Rollup Threads v2 Overview
-
 Use the Product Feed Rollup Threads v2 API to produce a grid wall of related products.
 
-### <a name="rollup-threads"></a>Rollup Threads
+### <a name="rollup-threads"></a>Rollup Threads List
 
-Get a list of product Threads with nested Rollup Threads of related products.
+Get a list of product Threads with related Rollup Threads using the *Rollup Threads List* endpoint.
 
 #### Endpoint Details
 
@@ -1017,8 +888,7 @@ The following is a list of scenarios that illustrate which **filter** parameters
 
 |I Want to List|Sample Query|
 |---|---|
-|Threads for a channel ID|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)|
-|Threads for a taxonomy ID|https://api.nike.com/product_feed/threads/v2?filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)&filter=marketplace(US)&filter=language(en)|
+|Threads for a taxonomy ID|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=marketplace(US)&filter=language(en)&filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)|
 
 ##### Allowed Sort Parameters
 
@@ -1029,9 +899,15 @@ The following are the allowed fields that can be sent in the **sort** query para
 |**publishedContent.publishStartDateAsc**|By Content Publish Start Date, Ascending|
 |**publishedContent.publishStartDateDesc**|By Content Publish Start Date, Descending|
 |**productInfo.merchProduct.commerceStartDateAsc**|By Commerce Start Date, Ascending|
-|**productInfo.merchProduct.currentPriceAsc**|By Current Price, Ascending|
-|**productInfo.merchProduct.currentPriceDesc**|By Current Price, Descending|
+|**productInfo.merchProduct.commerceStartDateDesc**|By Commerce Start Date, Descending|
+|**productInfo.merchPrice.currentPriceAsc**|By Current Price, Ascending|
+|**productInfo.merchPrice.currentPriceDesc**|By Current Price, Descending|
+|**productInfo.merchProduct.commercePublishDateAsc**|By Commerce Publish Date, Ascending|
 |**productInfo.merchProduct.commercePublishDateDesc**|By Commerce Publish Date, Descending|
+|**effectiveStartSellDateAsc**|By Effective Start Sell Date, Ascending|
+|**effectiveStartSellDateDesc**|By Effective Start Sell Date, Descending|
+|**lastFetchTimeAsc**|By Last Fetch Time, Ascending|
+|**lastFetchTimeDesc**|By Last Fetch Time, Descending|
 
 ##### Using the Search Terms Parameter
 
@@ -1040,15 +916,10 @@ Send one or more search keywords in the **searchTerms** query parameter to list 
 The searchable fields are:
 
 - productInfo.productContent.**fullTitle**
-
 - productInfo.productContent.**title**
-
 - productInfo.productContent.**subtitle**
-
 - publishedContent.properties.consumerLabels.classification.**text**
-
 - productInfo.merchProduct.**styleColor**
-
 - productInfo.merchProduct.**styleCode**
 
 Search Summaries are available when using the **searchTerms** parameter. If any search terms are corrected for spelling (or another reason), a **searchSummary** section will be added to the pages section of the response. Within that section, a field for **originalTerms** contains the original input, while a field for **correctedTerms** contains the corrections for the original terms.
@@ -1057,11 +928,13 @@ For example, using `searchTerms=Chuck Taylor` would return any threads where the
 
 The default search behavior is *partial match*. Limiting the search to only *full string matches* can be done by enclosing the keywords in double quotes, like `searchTerms="Chuck Taylor"`. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.
 
-Let's take a look at some *Rollup Threads* scenarios.
+#### Example Scenarios
+
+Let's take a look at a few *Rollup Threads List* scenarios.
 
 |I Want to List|Sample Query|
 |---|---|
-|TBD|TBD|
+|Search all on Nike.com products in US by "Men's Jordan", sorted by newest first|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language(en)&filter=marketplace(US)&searchTerms=Men's%20Jordan&sort=effectiveStartSellDateDesc|
 |TBD|TBD|
 
 #### <a name="rollup-threads-request-headers"></a>Request Headers
@@ -1079,6 +952,8 @@ https://api.nike.com/commerce/product_feed/rollup_threads/v2?consumerChannelId=d
 ```
 
 #### <a name="rollup-threads-response-body"></a>Response Body
+
+>Note: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1240,19 +1115,6 @@ Sample *Rollup Threads* 200 response:
                 "resourceType": "merch/taxonomy_attributes",
                 "ids": [
                   "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                  "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                  "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                  "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                  "91064b0a-0ee6-441b-8b09-de2105660311",
-                  "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-                  "6631b5c3-937a-4174-942e-3ab3c5b16642",
-                  "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-                  "4ceb2400-4c27-4422-a01d-e803e7005524",
-                  "05392778-fff6-4fa0-a375-2506d27f009e",
-                  "143d3eff-40cb-46cd-b579-14462aa828a3",
-                  "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                  "9973f6c5-f562-4a35-871c-b91f07f59e71",
-                  "84c36690-b7a6-400e-8643-c573ddaa18ea",
                   "a2da685c-4187-4af8-8dda-c9d35bb8867f"
                 ]
               }
@@ -1444,19 +1306,6 @@ Sample *Rollup Threads* 200 response:
                       "resourceType": "merch/taxonomy_attributes",
                       "ids": [
                         "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                        "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                        "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                        "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                        "91064b0a-0ee6-441b-8b09-de2105660311",
-                        "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-                        "6631b5c3-937a-4174-942e-3ab3c5b16642",
-                        "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-                        "4ceb2400-4c27-4422-a01d-e803e7005524",
-                        "05392778-fff6-4fa0-a375-2506d27f009e",
-                        "143d3eff-40cb-46cd-b579-14462aa828a3",
-                        "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                        "9973f6c5-f562-4a35-871c-b91f07f59e71",
-                        "84c36690-b7a6-400e-8643-c573ddaa18ea",
                         "a2da685c-4187-4af8-8dda-c9d35bb8867f"
                       ]
                     }
@@ -1652,64 +1501,12 @@ Sample *Rollup Threads* 200 response:
                   "7e0d88b7-b082-4fee-aa65-d8af260c158d",
                   "143d3eff-40cb-46cd-b579-14462aa828a3"
                 ],
-                "67063381-90eb-4763-8f87-acc30b392f38": [
-                  "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                  "6631b5c3-937a-4174-942e-3ab3c5b16642"
-                ],
-                "99314eb1-af99-4825-87ea-96871973c437": [
-                  "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                  "a2da685c-4187-4af8-8dda-c9d35bb8867f"
-                ],
-                "c1c607b9-11f3-4375-a50b-47677cdd8595": [
-                  "9973f6c5-f562-4a35-871c-b91f07f59e71"
-                ],
-                "6e7e4809-fccb-4e82-8a7b-047125398076": [
-                  "84c36690-b7a6-400e-8643-c573ddaa18ea"
-                ],
-                "527f2d29-89bd-422d-a53a-cdb52784a8a9": [
-                  "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                  "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                  "91064b0a-0ee6-441b-8b09-de2105660311",
-                  "5e3a7953-7afc-4afc-8de0-af5cee16b3a3"
-                ],
-                "974671bf-03b7-499e-994e-ac098841370a": [
-                  "4ceb2400-4c27-4422-a01d-e803e7005524"
-                ],
-                "6de391eb-ab3d-4625-a5e7-d537e87f2bfa": [
-                  "219e4fa3-73ef-427b-8f93-9d8f51b93443"
-                ],
-                "7e0d88b7-b082-4fee-aa65-d8af260c158d": [
-                  "974671bf-03b7-499e-994e-ac098841370a"
-                ],
                 "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
                   "05392778-fff6-4fa0-a375-2506d27f009e"
                 ]
               },
               "taxonomyAttributeSearchIds": [
                 "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-                "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-                "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-                "91064b0a-0ee6-441b-8b09-de2105660311",
-                "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-                "6631b5c3-937a-4174-942e-3ab3c5b16642",
-                "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-                "4ceb2400-4c27-4422-a01d-e803e7005524",
-                "05392778-fff6-4fa0-a375-2506d27f009e",
-                "143d3eff-40cb-46cd-b579-14462aa828a3",
-                "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-                "9973f6c5-f562-4a35-871c-b91f07f59e71",
-                "84c36690-b7a6-400e-8643-c573ddaa18ea",
-                "a2da685c-4187-4af8-8dda-c9d35bb8867f",
-                "6de391eb-ab3d-4625-a5e7-d537e87f2bfa",
-                "67063381-90eb-4763-8f87-acc30b392f38",
-                "527f2d29-89bd-422d-a53a-cdb52784a8a9",
-                "a00f0bb2-648b-4853-9559-4cd943b7d6c6",
-                "7e0d88b7-b082-4fee-aa65-d8af260c158d",
-                "974671bf-03b7-499e-994e-ac098841370a",
-                "758f6b44-e5a7-46be-b288-bac9c3ebe83f",
-                "99314eb1-af99-4825-87ea-96871973c437",
-                "c1c607b9-11f3-4375-a50b-47677cdd8595",
                 "6e7e4809-fccb-4e82-8a7b-047125398076"
               ]
             }
@@ -1837,64 +1634,12 @@ Sample *Rollup Threads* 200 response:
             "7e0d88b7-b082-4fee-aa65-d8af260c158d",
             "143d3eff-40cb-46cd-b579-14462aa828a3"
           ],
-          "67063381-90eb-4763-8f87-acc30b392f38": [
-            "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-            "6631b5c3-937a-4174-942e-3ab3c5b16642"
-          ],
-          "99314eb1-af99-4825-87ea-96871973c437": [
-            "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-            "a2da685c-4187-4af8-8dda-c9d35bb8867f"
-          ],
-          "c1c607b9-11f3-4375-a50b-47677cdd8595": [
-            "9973f6c5-f562-4a35-871c-b91f07f59e71"
-          ],
-          "6e7e4809-fccb-4e82-8a7b-047125398076": [
-            "84c36690-b7a6-400e-8643-c573ddaa18ea"
-          ],
-          "527f2d29-89bd-422d-a53a-cdb52784a8a9": [
-            "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-            "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-            "91064b0a-0ee6-441b-8b09-de2105660311",
-            "5e3a7953-7afc-4afc-8de0-af5cee16b3a3"
-          ],
-          "974671bf-03b7-499e-994e-ac098841370a": [
-            "4ceb2400-4c27-4422-a01d-e803e7005524"
-          ],
-          "6de391eb-ab3d-4625-a5e7-d537e87f2bfa": [
-            "219e4fa3-73ef-427b-8f93-9d8f51b93443"
-          ],
-          "7e0d88b7-b082-4fee-aa65-d8af260c158d": [
-            "974671bf-03b7-499e-994e-ac098841370a"
-          ],
           "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
             "05392778-fff6-4fa0-a375-2506d27f009e"
           ]
         },
         "taxonomyAttributeSearchIds": [
           "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-          "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc",
-          "7baf216c-acc6-4452-9e07-39c2ca77ba32",
-          "0f64ecc7-d624-4e91-b171-b83a03dd8550",
-          "91064b0a-0ee6-441b-8b09-de2105660311",
-          "5e3a7953-7afc-4afc-8de0-af5cee16b3a3",
-          "6631b5c3-937a-4174-942e-3ab3c5b16642",
-          "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-          "4ceb2400-4c27-4422-a01d-e803e7005524",
-          "05392778-fff6-4fa0-a375-2506d27f009e",
-          "143d3eff-40cb-46cd-b579-14462aa828a3",
-          "5fc40b27-c9cb-4b7d-84e2-4ce3b48aac89",
-          "9973f6c5-f562-4a35-871c-b91f07f59e71",
-          "84c36690-b7a6-400e-8643-c573ddaa18ea",
-          "a2da685c-4187-4af8-8dda-c9d35bb8867f",
-          "6de391eb-ab3d-4625-a5e7-d537e87f2bfa",
-          "67063381-90eb-4763-8f87-acc30b392f38",
-          "527f2d29-89bd-422d-a53a-cdb52784a8a9",
-          "a00f0bb2-648b-4853-9559-4cd943b7d6c6",
-          "7e0d88b7-b082-4fee-aa65-d8af260c158d",
-          "974671bf-03b7-499e-994e-ac098841370a",
-          "758f6b44-e5a7-46be-b288-bac9c3ebe83f",
-          "99314eb1-af99-4825-87ea-96871973c437",
-          "c1c607b9-11f3-4375-a50b-47677cdd8595",
           "6e7e4809-fccb-4e82-8a7b-047125398076"
         ]
       }
@@ -1955,7 +1700,7 @@ There are no release notes at this time.
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|05/04/2018|Initial Draft|
+|Initial draft|05/11/2018|Initial Draft|
 
 ## <a name="related-links"></a>Related Links
 
