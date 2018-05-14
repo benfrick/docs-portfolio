@@ -51,10 +51,6 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 
 [Troubleshooting](#troubleshooting)
 
-<span class="toc-pad">[Use Troubleshooting Tools](#use-troubleshooting-tools)
-
-<span class="toc-pad">[Common Questions](#common-questions)
-
 [Glossary](#glossary)
 
 [Release Notes](#release-notes)
@@ -1675,14 +1671,6 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 ## <a name="troubleshooting"></a>Troubleshooting
 
 See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html#troubleshooting).
-
-### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
-<!--Provide some specific troubleshooting tips for this API like Splunk or New Relic dashboards/queries or similar. Link to general guide (troubleshooting section)-->
-TBD
-
-### <a name="common-questions"></a>Common Questions
-<!--Frequently-asked questions related to troubleshooting-->
-TBD
 
 ## <a name="glossary"></a>Glossary
 
