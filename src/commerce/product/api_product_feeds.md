@@ -2298,7 +2298,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html).
 
 ## <a name="release-notes"></a>Release Notes
 
