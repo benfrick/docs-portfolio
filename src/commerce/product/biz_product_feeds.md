@@ -7,7 +7,7 @@
 
 # Get Started with Product Feeds (DRAFT) <i class="g72-swoosh"></i>
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/03/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -48,6 +48,8 @@ Product Feeds is simple and easy to use: it does all the heavy lifting of gather
 <i class="g72-plus-large"></i> Get all product feeds for your app, or a specific feed by its ID.
 
 <i class="g72-plus-large"></i> Get all product threads for your app, or a specific thread by its ID. Since each thread includes its cards, no additional calls are required!
+
+<i class="g72-plus-large"></i> Product Grid Wall: Get product threads along related 'rollup' threads, e.g. a style-color accompanied by all other colors for same style.
 
 ## <a name="#considerations"></a>Considerations
 

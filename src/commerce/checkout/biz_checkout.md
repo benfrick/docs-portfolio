@@ -7,7 +7,7 @@
 
 # Get Started with Checkout <i class="g72-swoosh"></i>
 
-###### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 04/30/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -39,7 +39,7 @@ Drive traffic and engagement in your app by leveraging Nike Checkout today!
 
 **Your consumer finds a Nike a product they love in your app. What happens next?**
 
-<i class="g72-cart"></i> **Shopping Cart**: Add one or more products into a cart, where it can be reviewed and edited before completing the purchase
+<i class="g72-cart"></i> **Shopping Cart & Wish Lists**: Add one or more products into a cart or Wish List, where it can be reviewed and edited before completing the purchase
 
 <i class="g72-plus-large"></i> **Shipping Options**: Display available shipping methods, including costs and estimated delivery dates. Collect and confirm shipping address(es)
 

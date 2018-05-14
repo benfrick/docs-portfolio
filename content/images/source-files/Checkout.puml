@@ -1,5 +1,5 @@
 @startuml
-title Example of API Calls to <font color =orange>Nike Checkout</font> (Web App)
+title Example of API Calls to <font color =orange>Nike Checkout</font>
 
 participant Client
 participant Carts
@@ -11,7 +11,7 @@ participant "Stored Payments"
 participant "Payment Preview"
 participant "Checkout Submit"
 
-group Cart
+group Carts
 note over Carts, "Cart Reviews" #3F7FBF: Cart optional for checkout
 Client->Carts: PUT ///buy/carts/v2/{id}//: Cart items and quantities
 Carts-[#blue]->Client: Validated cart with item prices and subtotals

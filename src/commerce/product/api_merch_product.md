@@ -364,7 +364,7 @@ This GET request does not require special headers and can be executed in any bro
 
 See the output of the successful JSON 200 response below.
 
->**TIP:** **id** is the UUID assigned when the product first flowed into the Merchandising Product API. **pid** is a legacy ID that maps to the product UUID and will eventually be deprecated.
+>**What id to use:** **id** is the UUID assigned when the product first flowed into the Merchandising Product API. **pid** is a legacy ID that maps to the product UUID and will eventually be deprecated.
 
 ```
 {
