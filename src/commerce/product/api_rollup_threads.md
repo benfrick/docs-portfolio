@@ -19,7 +19,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-###### Last Updated: 05/11/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
+###### Last Updated: 05/14/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
@@ -71,7 +71,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |Who calls this API?|Nike.com, Nike Running Club app (future)|
 |Versions|v2|
 |Supported Languages|See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales|
-|SLA|service name, version number and time in ms.|
+|SLA|<li>Response time: 250ms <li>Requests per second: 5 max (via edge router constraint)|
 |Domain|Commerce|
 |Prerequisites|API Registration|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
@@ -975,16 +975,18 @@ https://api.nike.com/commerce/product_feed/rollup_threads/v2?consumerChannelId=d
 |objects.**language**|string|BCP-47 language code|Required|
 |objects.**lastFetchTime**|string|Time when the data was aggregated in ISO-8601 compliant format: `yyyy-MM-ddTHH:mm:ss.SSSZZ`|Required|
 |objects.**active**|boolean|Indicator for whether or not this thread is currently available for general use|Optional|
-|objects.**publishedContent**|object|<a href="https://bitbucket.nike.com/projects/PHYLCONT/repos/publishedv2/browse/API.md" target="_blank">API.md link</a>|Required|
+|objects.**publishedContent**|object|<a href="https://developer.niketech.com/docs/projects/CMS%20Published%20Content%20API?tab=api" target="_blank">API.md link</a>|Required|
 |objects.**productInfo**|array|Array of responses from other APIs with product info|Optional|
-|objects.productInfo.**merchProduct**|object|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/get_merch_products_v2_id" target="_blank">API.md link</a>|Required|
-|objects.productInfo.**merchPrice**|object|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/get_merch_prices_v2_id" target="_blank">API.md link</a>|Required|
-|objects.productInfo.**availability**|object|<a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#!/Product_Inventory_Availability/get_deliver_available_products_v1_productId" target="_blank">API.md link</a>|Optional|
-|objects.productInfo.**productContent**|object|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md" target="_blank">API.md link</a>|Optional|
-|objects.productInfo.**launchView**|object|<a href="https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md#!/default/get_launch_launch_views_v2_id" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**merchProduct**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a>|Required|
+|objects.productInfo.**merchPrice**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a>|Required|
+|objects.productInfo.**skus**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**availability**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**availableSkus**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**productContent**|object|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**launchView**|object|<a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a>|Optional|
 |objects.productInfo.**imageUrls**|object|Object containing product image URL|Optional|
 |objects.productInfo.imageUrls.**productImageUrl**|string|URL for product image|Optional|
-|objects.productInfo.**customizedPreBuild**|object|Customized PreBuild information|Optional|
+|objects.productInfo.**customizedPreBuild**|object|<a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a>|Optional|
 |objects.**rollup**|object|Object containing rollup info|Optional|
 |objects.rollup.**totalThreads**|integer|The total threads available in the rollup response including the master thread|Optional|
 |objects.rollup.**threads**|array|Array of threads that are related by a rollup key|Optional|
@@ -1667,18 +1669,12 @@ Sample *Rollup Threads* 400 response:
 Version 2 (v2) is the current and only version of this API.
 
 ## <a name="best-practices"></a>Best Practices
-<!--
- * OPTIONAL: What are best practices in calling this API e.g. caching, retries, order of calls, error handling?
--->
-TBD
+
+See the Best Practices section of the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html#best-practices).
 
 ## <a name="troubleshooting"></a>Troubleshooting
-<!--
-* What do I need to look out for?
-* What are common questions asked of the Team about the API?
-* When do I need to contact the Team and what info do I need to provide?
--->
-TBD
+
+See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html#troubleshooting).
 
 ### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
 <!--Provide some specific troubleshooting tips for this API like Splunk or New Relic dashboards/queries or similar. Link to general guide (troubleshooting section)-->
@@ -1700,7 +1696,7 @@ There are no release notes at this time.
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|05/11/2018|Initial Draft|
+|Initial draft|05/14/2018|Initial Draft|
 
 ## <a name="related-links"></a>Related Links
 
