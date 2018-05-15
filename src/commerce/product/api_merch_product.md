@@ -13,7 +13,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 
 # MERCHANDISED PRODUCT API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/14/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Product APIs.
 
@@ -163,55 +163,55 @@ For the full list of use cases to evaluate if that API is better suited to your 
 
 For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.
 
-### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md" target="_blank">MERCHANDISED PRODUCT INFORMATION SERVICE</a>
+### <a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT INFORMATION SERVICE</a>
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/get_merch_products_v2" target="_blank">MERCHANDISED PRODUCT LIST</a>|/merch/products/v2|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/get_merch_products_v2_id" target="_blank">MERCHANDISED PRODUCT BY ID</a>|/merch/products/v2/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/post_merch_products_v2" target="_blank">MERCHANDISED PRODUCT CREATE</a>|/merch/product/v2|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/delete_merch_products_v2_id" target="_blank">MERCHANDISED PRODUCT DELETE</a>|/merch/products/v2/{id}|DELETE|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT LIST</a>|/merch/products/v2|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT BY ID</a>|/merch/products/v2/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT CREATE</a>|/merch/product/v2|POST|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT DELETE</a>|/merch/products/v2/{id}|DELETE|
 
-### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md" target="_blank">MERCHANDISED SKU INFORMATION SERVICE</a>
-
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2" target="_blank">MERCHANDISED PRODUCT SKU LIST</a>|/merch/skus/v2|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2_id" target="_blank">MERCHANDISED PRODUCT SKU BY ID</a>|/merch/skus/v2/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/post_merch_skus_v2" target="_blank">MERCHANDISED PRODUCT SKU CREATE</a>|/merch/skus/v2|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/delete_merch_skus_v2" target="_blank">MERCHANDISED PRODUCT SKUS DELETE</a>|/merch/skus/v2|DELETE|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md#!/Sku/get_merch_skus_v2_id" target="_blank">MERCHANDISED PRODUCT SKUS DELETE</a>|/merch/skus/v2/{id}|DELETE|
-
-### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md" target="_blank">MERCHANDISED PRODUCT PRICE SERVICE</a>
+### <a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">MERCHANDISED SKU INFORMATION SERVICE</a>
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/get_merch_prices_v2" target="_blank">MERCHANDISED PRICES LIST</a>|/merch/prices/v2|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/get_merch_prices_v2_id" target="_blank">MERCHANDISED PRICES BY ID</a>|/merch/prices/v2/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/post_merch_prices_v2" target="_blank">MERCHANDISED PRICES CREATE</a>|/merch/prices/v2|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/delete_merch_prices_v2_id" target="_blank">MERCHANDISED PRICES DELETE</a>|/merch/prices/v2/{id}|DELETE|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT SKU LIST</a>|/merch/skus/v2|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT SKU BY ID</a>|/merch/skus/v2/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT SKU CREATE</a>|/merch/skus/v2|POST|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT SKUS DELETE</a>|/merch/skus/v2|DELETE|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT SKUS DELETE</a>|/merch/skus/v2/{id}|DELETE|
 
-### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md" target="_blank">MERCHANDISED VALUE-ADDED SERVICES</a>
-
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/get_merch_value_added_services_v1" target="_blank">MERCHANDISED VALUE ADDED SERVICES LIST</a>|/merch/value_added_services/v1|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/get_merch_value_added_services_v1_id" target="_blank">MERCHANDISED VALUE ADDED SERVICES BY ID</a>|/merch/value_added_services/v1/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/post_merch_value_added_services_v1" target="_blank">MERCHANDISED VALUE ADDED SERVICES CREATE</a>|/merch/value_added_services/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md#!/Value_Added_Services/delete_merch_value_added_services_v1_id" target="_blank">MERCHANDISED VALUE ADDED SERVICES DELETE</a>|/merch/value_added_services/v1/{id}|DELETE|
-
-### <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md" target="_blank">PRODUCT CONTENT</a>
+### <a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">MERCHANDISED PRODUCT PRICE SERVICE</a>
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_styleColor_content" target="_blank">PRODUCT CONTENT BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/content{?country,locale}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_styleColor_content_itemName" target="_blank">PRODUCT CONTENT ITEM BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_content" target="_blank">PRODUCT CONTENT BY STYLE COLOR LIST</a>|/merch/contents/v1/content{?country,locale,stylecolors}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Content/get_merch_contents_v1_content" target="_blank">PRODUCT CONTENT FIELD BY STYLE COLOR LIST</a>|/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Images/get_merch_contents_v1_styleColor_images" target="_blank">PRODUCT IMAGE SET BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/images{?country}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#public-product-images-product-image-set-by-stylecolor-list-1" target="_blank">PRODUCT IMAGE SET BY STYLE COLOR LIST</a>|/merch/contents/v1/images{?country,stylecolors}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Images/get_merch_contents_v1_styleColor_images_base" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR</a>|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md#!/Public_Product_Images/get_merch_contents_v1_images_base" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a>|/merch/contents/v1/images/base|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">MERCHANDISED PRICES LIST</a>|/merch/prices/v2|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">MERCHANDISED PRICES BY ID</a>|/merch/prices/v2/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">MERCHANDISED PRICES CREATE</a>|/merch/prices/v2|POST|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">MERCHANDISED PRICES DELETE</a>|/merch/prices/v2/{id}|DELETE|
+
+### <a href="https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api" target="_blank">MERCHANDISED VALUE-ADDED SERVICES</a>
+
+|Endpoint Name|Path|HTTP Method|
+|---|---|---|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api" target="_blank">MERCHANDISED VALUE ADDED SERVICES LIST</a>|/merch/value_added_services/v1|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api" target="_blank">MERCHANDISED VALUE ADDED SERVICES BY ID</a>|/merch/value_added_services/v1/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api" target="_blank">MERCHANDISED VALUE ADDED SERVICES CREATE</a>|/merch/value_added_services/v1|POST|
+|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api" target="_blank">MERCHANDISED VALUE ADDED SERVICES DELETE</a>|/merch/value_added_services/v1/{id}|DELETE|
+
+### <a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT CONTENT</a>
+
+|Endpoint Name|Path|HTTP Method|
+|---|---|---|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT CONTENT BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/content{?country,locale}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT CONTENT ITEM BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT CONTENT BY STYLE COLOR LIST</a>|/merch/contents/v1/content{?country,locale,stylecolors}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT CONTENT FIELD BY STYLE COLOR LIST</a>|/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT IMAGE SET BY STYLE COLOR</a>|/merch/contents/v1/{style-color}/images{?country}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT IMAGE SET BY STYLE COLOR LIST</a>|/merch/contents/v1/images{?country,stylecolors}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR</a>|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a>|/merch/contents/v1/images/base|GET|
 
 ## <a name="understanding-nike-product-data"></a>Understanding Nike Product Data
 
@@ -243,7 +243,7 @@ Prodigy uses a first-in-first-out queue, however an individual product update is
 
 ### <a name="where-do-i-get-inventory-information"></a>Where Do I Get Inventory Information?
 
-Inventory is available via the Inventory domain. For example, product availability can be found <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="_blank">here</a>.
+Inventory is available via the Inventory domain. For example, product availability can be found <a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">here</a>.
 
 ### <a name="how-to-find-a-current-product"></a>How To Find a Current Product
 
@@ -539,7 +539,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**colorCode**|Required|code indicating Nike color|
 |**styleColor**|Required|concatenation of **styleCode**-**colorCode**|
 |**pid**|Required|product ID from legacy system used to map to the product UUID|
-|**catalogId**|Optional|catalog ID in UUID format from the <a href="https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md" target="_blank">Catalog Product</a> service, will eventually replace **legacyCatalogIds**|
+|**catalogId**|Optional|catalog ID in UUID format from the <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Catalog Product</a> service, will eventually replace **legacyCatalogIds**|
 |**productGroupId**|Optional|ID used to group products together such as products with the same styleCode, from legacy system|
 |**nikeIdStyleCode**|Optional|Nike ID style code, only populated for products of styleType `NIKEID`|
 |**brand**|Optional|Nike brand associated to this product such as "Jordan"|
@@ -926,7 +926,7 @@ https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a
 |**productId**|Required|productid passed in the query parameter|
 |**parentId**|Optional|same as the productId if the SKU's product has no parent|
 |**parentType**|Optional|type of parent product. In the current version, this is always merchProduct.|
-|**catalogSkuId**|Optional|UUID of catalog product. See [Product Catalog Service](https://bitbucket.nike.com/projects/CAPS/repos/catalogv3/browse/API.md) for more information.|
+|**catalogSkuId**|Optional|UUID of catalog product. See <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Product Catalog Service</a> for more information.|
 |**modificationDate**|Required|date the SKU was last modified|
 |**merchGroup**|Optional|Merchandising group to which this SKU belongs. For more information on Merch Groups, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
 |**stockKeepingUnitId**|Optional|Deprecated SKU ID that is used for historical purposes by legacy systems.[legacy SKUID](#glossary)|
@@ -2367,6 +2367,7 @@ There are no release notes at this time.
 |Edits, Internationalization, Product sections | 7 December, 2017 | Updated documentation with new content on how products flow, international considerations, and editing/formatting changes. |
 |Clarification on **count**|12 February, 2018|Clarified that when **count** query parameter is supplied that the maximum number of products returned is 25.|
 |Updated external links|3 April, 2018|Updated external links to open in new browser window|
+|Updated API.md links|14 May, 2018|Updated API.md links to point to new dev portal|
 
 ## <a name="related-links"></a>Related Links
 

@@ -20,7 +20,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     </div>
 </div>
 <h1 id="product-feed-rollup-threads-v2-api-developers-guide-draft"><a href="#product-feed-rollup-threads-v2-api-developers-guide-draft" name="product-feed-rollup-threads-v2-api-developers-guide-draft" class="anchor"><span class="octicon octicon-link"></span></a>PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</h1>
-<h6 id="last-updated-05112018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-05112018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-05112018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 05/11/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a></h6>
+<h6 id="last-updated-05142018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-05142018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-05142018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 05/14/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a></h6>
 <hr />
 <p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and the <a href="/doc/commerce/product/api_product_feeds.html" class="absent">Product Feeds Developer's Guide</a>, this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.</p>
 <h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In this guide:</strong></h2>
@@ -36,8 +36,6 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 <p><a href="#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></p>
 <p><a href="#best-practices">Best Practices</a></p>
 <p><a href="#troubleshooting">Troubleshooting</a></p>
-<p><span class="toc-pad"><a href="#use-troubleshooting-tools">Use Troubleshooting Tools</a></p>
-<p><span class="toc-pad"><a href="#common-questions">Common Questions</a></p>
 <p><a href="#glossary">Glossary</a></p>
 <p><a href="#release-notes">Release Notes</a></p>
 <p><a href="#document-change-log">Document Change Log</a></p>
@@ -52,7 +50,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     <tr><td>Who calls this API?</td><td>Nike.com, Nike Running Club app (future)</td></tr>
     <tr><td>Versions</td><td>v2</td></tr>
     <tr><td>Supported Languages</td><td>See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales</td></tr>
-    <tr><td>SLA</td><td>service name, version number and time in ms.</td></tr>
+    <tr><td>SLA</td><td><li>Response time: 250ms <li>Requests per second: 5 max (via edge router constraint)</td></tr>
     <tr><td>Domain</td><td>Commerce</td></tr>
     <tr><td>Prerequisites</td><td>API Registration</td></tr>
     <tr><td>Contact Info</td><td>Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: <a href="mailto:andy.sun@nike.com">Andy Sun</a></td></tr>
@@ -952,16 +950,18 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     <tr><td>objects.<strong>language</strong></td><td>string</td><td>BCP-47 language code</td><td>Required</td></tr>
     <tr><td>objects.<strong>lastFetchTime</strong></td><td>string</td><td>Time when the data was aggregated in ISO-8601 compliant format: <code>yyyy-MM-ddTHH:mm:ss.SSSZZ</code></td><td>Required</td></tr>
     <tr><td>objects.<strong>active</strong></td><td>boolean</td><td>Indicator for whether or not this thread is currently available for general use</td><td>Optional</td></tr>
-    <tr><td>objects.<strong>publishedContent</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLCONT/repos/publishedv2/browse/API.md" target="_blank">API.md link</a></td><td>Required</td></tr>
+    <tr><td>objects.<strong>publishedContent</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/CMS%20Published%20Content%20API?tab=api" target="_blank">API.md link</a></td><td>Required</td></tr>
     <tr><td>objects.<strong>productInfo</strong></td><td>array</td><td>Array of responses from other APIs with product info</td><td>Optional</td></tr>
-    <tr><td>objects.productInfo.<strong>merchProduct</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md#!/Merchandised_Product/get_merch_products_v2_id" target="_blank">API.md link</a></td><td>Required</td></tr>
-    <tr><td>objects.productInfo.<strong>merchPrice</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md#!/Prices/get_merch_prices_v2_id" target="_blank">API.md link</a></td><td>Required</td></tr>
-    <tr><td>objects.productInfo.<strong>availability</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#!/Product_Inventory_Availability/get_deliver_available_products_v1_productId" target="_blank">API.md link</a></td><td>Optional</td></tr>
-    <tr><td>objects.productInfo.<strong>productContent</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md" target="_blank">API.md link</a></td><td>Optional</td></tr>
-    <tr><td>objects.productInfo.<strong>launchView</strong></td><td>object</td><td><a href="https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md#!/default/get_launch_launch_views_v2_id" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>merchProduct</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Required</td></tr>
+    <tr><td>objects.productInfo.<strong>merchPrice</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Required</td></tr>
+    <tr><td>objects.productInfo.<strong>skus</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>availability</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>availableSkus</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>productContent</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>launchView</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
     <tr><td>objects.productInfo.<strong>imageUrls</strong></td><td>object</td><td>Object containing product image URL</td><td>Optional</td></tr>
     <tr><td>objects.productInfo.imageUrls.<strong>productImageUrl</strong></td><td>string</td><td>URL for product image</td><td>Optional</td></tr>
-    <tr><td>objects.productInfo.<strong>customizedPreBuild</strong></td><td>object</td><td>Customized PreBuild information</td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>customizedPreBuild</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
     <tr><td>objects.<strong>rollup</strong></td><td>object</td><td>Object containing rollup info</td><td>Optional</td></tr>
     <tr><td>objects.rollup.<strong>totalThreads</strong></td><td>integer</td><td>The total threads available in the rollup response including the master thread</td><td>Optional</td></tr>
     <tr><td>objects.rollup.<strong>threads</strong></td><td>array</td><td>Array of threads that are related by a rollup key</td><td>Optional</td></tr>
@@ -1639,23 +1639,9 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 <h2 id="upgrading-to-the-latest-version"><a href="#upgrading-to-the-latest-version" name="upgrading-to-the-latest-version" class="anchor"><span class="octicon octicon-link"></span></a><a name="upgrading-to-the-latest-version"></a>Upgrading to the latest version</h2>
 <p>Version 2 (v2) is the current and only version of this API.</p>
 <h2 id="best-practices"><a href="#best-practices" name="best-practices" class="anchor"><span class="octicon octicon-link"></span></a><a name="best-practices"></a>Best Practices</h2>
-<!--
- * OPTIONAL: What are best practices in calling this API e.g. caching, retries, order of calls, error handling?
--->
-<p>TBD</p>
+<p>See the Best Practices section of the <a href="/doc/commerce/product/api_product_feeds.html#best-practices" class="absent">Product Feeds Developer's Guide</a>.</p>
 <h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting" class="anchor"><span class="octicon octicon-link"></span></a><a name="troubleshooting"></a>Troubleshooting</h2>
-<!--
-* What do I need to look out for?
-* What are common questions asked of the Team about the API?
-* When do I need to contact the Team and what info do I need to provide?
--->
-<p>TBD</p>
-<h3 id="use-troubleshooting-tools"><a href="#use-troubleshooting-tools" name="use-troubleshooting-tools" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
-<!--Provide some specific troubleshooting tips for this API like Splunk or New Relic dashboards/queries or similar. Link to general guide (troubleshooting section)-->
-<p>TBD</p>
-<h3 id="common-questions"><a href="#common-questions" name="common-questions" class="anchor"><span class="octicon octicon-link"></span></a><a name="common-questions"></a>Common Questions</h3>
-<!--Frequently-asked questions related to troubleshooting-->
-<p>TBD</p>
+<p>See the Troubleshooting section of the <a href="/doc/commerce/product/api_product_feeds.html#troubleshooting" class="absent">Product Feeds Developer's Guide</a>.</p>
 <h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
 <p>See the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a>.</p>
 <h2 id="release-notes"><a href="#release-notes" name="release-notes" class="anchor"><span class="octicon octicon-link"></span></a><a name="release-notes"></a>Release Notes</h2>
@@ -1666,7 +1652,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     <tr><th>Summary </th><th>Date </th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>Initial draft</td><td>05/11/2018</td><td>Initial Draft</td></tr>
+    <tr><td>Initial draft</td><td>05/14/2018</td><td>Initial Draft</td></tr>
   </tbody>
 </table>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
