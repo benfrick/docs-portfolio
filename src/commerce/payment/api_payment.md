@@ -13,7 +13,7 @@ SME Consultants: Sree Krishna, Durai Devadoss
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/14/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -248,7 +248,7 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" target="_blank">START APPLE PAY SESSION</a>|/payment/applepay_sessions/v2/|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="_blank">START APPLE PAY SESSION</a>|/payment/applepay_sessions/v2/|POST|
 
 <p>&nbsp;</p>
 
@@ -256,12 +256,12 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/post_payment_approval_v2" target="_blank">SUBMIT ORDER PAYMENTS FOR APPROVAL</a>|/payment/approval/v2/|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/put_payment_approval_v2_id" target="_blank">SUBMIT ORDER PAYMENTS FOR APPROVAL</a>|/payment/approval/v2/{id}|PUT|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" target="_blank">RETRIEVE PAYMENT APPROVAL JOB</a>|/payment/approval/v2/jobs/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_results_v2_id" target="_blank">ORDER PAYMENTS APPROVAL RESULT</a>|/payment/approval_results/v2/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/delete_payment_approval_results_v2_id" target="_blank">VOID PAYMENT APPROVAL</a>|/payment/approval_results/v2/|DELETE|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_summary_v1_id" target="_blank">GET PAYMENT APPROVAL SUMMARY</a>|/payment/approval_summary/v1/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">SUBMIT ORDER PAYMENTS FOR APPROVAL</a>|/payment/approval/v2/|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">SUBMIT ORDER PAYMENTS FOR APPROVAL</a>|/payment/approval/v2/{id}|PUT|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">RETRIEVE PAYMENT APPROVAL JOB</a>|/payment/approval/v2/jobs/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">ORDER PAYMENTS APPROVAL RESULT</a>|/payment/approval_results/v2/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">VOID PAYMENT APPROVAL</a>|/payment/approval_results/v2/|DELETE|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">GET PAYMENT APPROVAL SUMMARY</a>|/payment/approval_summary/v1/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -269,14 +269,14 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CREDIT CARD INFO WITH CVV</a>|/services/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CREDIT CARD INFO WITHOUT CVV</a>|/services/add{?id, language}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CVV</a>|/services/cvv{?id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET EXPIRY DATE AND CVV</a>|/services/expcvv{?id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">VALIDATE CREDIT CARD PERSISTENCE</a>|/creditcardsubmit/{id}/isValid{?mode}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">STORE CREDIT CARD INFO</a>|/creditcardsubmit/{id}/store|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">GET CREDIT CARD INFO BY ID</a>|/creditcardsubmit/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/creditcardsubmit/browse/API.md" target="_blank">VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE</a>|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">GET CREDIT CARD INFO WITH CVV</a>|/services/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">GET CREDIT CARD INFO WITHOUT CVV</a>|/services/add{?id, language}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">GET CVV</a>|/services/cvv{?id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">GET EXPIRY DATE AND CVV</a>|/services/expcvv{?id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">VALIDATE CREDIT CARD PERSISTENCE</a>|/creditcardsubmit/{id}/isValid{?mode}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">STORE CREDIT CARD INFO</a>|/creditcardsubmit/{id}/store|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">GET CREDIT CARD INFO BY ID</a>|/creditcardsubmit/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE</a>|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
 
 <p>&nbsp;</p>
 
@@ -284,12 +284,12 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" target="_blank">DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED</a>|/payment/deferred_wechat_payments/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" target="_blank">GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID</a>|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" target="_blank">DEFERRED PAYMENT FORM</a>|/payment/deferred_payment_forms/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" target="_blank">DEFERRED PAYMENT FORM JOB STATUS BY ID</a>|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" target="_blank">DEFERRED PAYMENT STATUS</a>|/payment/deferred_payment_status/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" target="_blank">DEFERRED PAYMENT STATUS JOB STATUS BY ID</a>|/payment/deferred_payment_status/v1/jobs/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED</a>|/payment/deferred_wechat_payments/v1|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID</a>|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">DEFERRED PAYMENT FORM</a>|/payment/deferred_payment_forms/v1|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">DEFERRED PAYMENT FORM JOB STATUS BY ID</a>|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">DEFERRED PAYMENT STATUS</a>|/payment/deferred_payment_status/v1|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">DEFERRED PAYMENT STATUS JOB STATUS BY ID</a>|/payment/deferred_payment_status/v1/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -297,9 +297,9 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" target="_blank">GET PAYMENT OPTIONS FOR AN ORDER</a>|/payment/options/v2|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/get_payment_options_v2_shippingCountry" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>|/payment/options/v2/{shippingCountry}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_validate_payments_v2" target="_blank">VALIDATE PAYMENTS</a>|/payment/validate_payments/v2|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">GET PAYMENT OPTIONS FOR AN ORDER</a>|/payment/options/v2|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>|/payment/options/v2/{shippingCountry}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">VALIDATE PAYMENTS</a>|/payment/validate_payments/v2|POST|
 
 <p>&nbsp;</p>
 
@@ -307,9 +307,9 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/post_payment_preview_v2" target="_blank">PAYMENT PREVIEW</a>|/payment/preview/v2|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_results_v2_id" target="_blank">PAYMENT PREVIEW RESULT BY ID</a>|/payment/preview_results/v2/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" target="_blank">PAYMENT PREVIEW JOB STATUS BY ID</a>|/payment/preview/v2/jobs/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="_blank">PAYMENT PREVIEW</a>|/payment/preview/v2|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="_blank">PAYMENT PREVIEW RESULT BY ID</a>|/payment/preview_results/v2/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="_blank">PAYMENT PREVIEW JOB STATUS BY ID</a>|/payment/preview/v2/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -317,17 +317,17 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" target="_blank">INITIATE PAYPAL BILLING AGREEMENT</a>|/consumer/paypalagreement|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_savepayment" target="_blank">SAVE PAYMENT BY USER PROFILE</a>|/consumer/savepayment|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments" target="_blank">DELETE STORED PAYMENTS BY USER PROFILE</a>|/consumer/storedpayments|DELETE|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments" target="_blank">FETCH STORED PAYMENTS BY USER PROFILE</a>|/consumer/storedpayments|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id" target="_blank">UPDATE CREDIT CARD DETAILS</a>|/consumer/storedpayments/{payment_id}|PUT|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" target="_blank">DELETE PAYMENT BY ID</a>|/consumer/storedpayments/{payment_id}|DELETE|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_payment_id" target="_blank">FETCH STORED PAYMENT BY ID</a>|/consumer/storedpayments/{payment_id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments_payment_id" target="_blank">VALIDATE CVV FOR SHIPPING ADDRESS</a>|/consumer/storedpayments/{payment_id}|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" target="_blank">FETCH GIFT CARD BY ID</a>|/consumer/storedpayments/giftcard/{payment_id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments_synch" target="_blank">CREATE/UPDATE ATG PAYMENT</a>|/consumer/storedpayments/synch|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_synch_payment_token" target="_blank">DELETE ATG PAYMENT</a>|/consumer/storedpayments/synch/{payment_token}|DELETE|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">INITIATE PAYPAL BILLING AGREEMENT</a>|/consumer/paypalagreement|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">SAVE PAYMENT BY USER PROFILE</a>|/consumer/savepayment|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">DELETE STORED PAYMENTS BY USER PROFILE</a>|/consumer/storedpayments|DELETE|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">FETCH STORED PAYMENTS BY USER PROFILE</a>|/consumer/storedpayments|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">UPDATE CREDIT CARD DETAILS</a>|/consumer/storedpayments/{payment_id}|PUT|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">DELETE PAYMENT BY ID</a>|/consumer/storedpayments/{payment_id}|DELETE|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">FETCH STORED PAYMENT BY ID</a>|/consumer/storedpayments/{payment_id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">VALIDATE CVV FOR SHIPPING ADDRESS</a>|/consumer/storedpayments/{payment_id}|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">FETCH GIFT CARD BY ID</a>|/consumer/storedpayments/giftcard/{payment_id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">CREATE/UPDATE ATG PAYMENT</a>|/consumer/storedpayments/synch|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">DELETE ATG PAYMENT</a>|/consumer/storedpayments/synch/{payment_token}|DELETE|
 
 <p>&nbsp;</p>
 
@@ -335,12 +335,12 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/post_payment_paypal_details_v1" target="_blank">PAYPAL DETAILS</a>|/payment/paypal_details/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" target="_blank">PAYPAL DETAIL JOB STATUS BY ID</a>|/payment/paypal_details/v1/jobs/{id}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" target="_blank">PAYPAL EXPRESS</a>|/payment/paypal_express/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" target="_blank">PAYPAL EXPRESS JOB STATUS BY ID</a>|/payment/paypal_express/v1/jobs/{v1}|GET|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" target="_blank">PAYPAL MARK</a>|/payment/paypal_mark/v1|POST|
-|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" target="_blank">PAYPAL MARK JOB STATUS BY ID</a>|/payment/paypal_mark/v1/jobs/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL DETAILS</a>|/payment/paypal_details/v1|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL DETAIL JOB STATUS BY ID</a>|/payment/paypal_details/v1/jobs/{id}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL EXPRESS</a>|/payment/paypal_express/v1|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL EXPRESS JOB STATUS BY ID</a>|/payment/paypal_express/v1/jobs/{v1}|GET|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL MARK</a>|/payment/paypal_mark/v1|POST|
+|<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL MARK JOB STATUS BY ID</a>|/payment/paypal_mark/v1/jobs/{id}|GET|
 
 <p>&nbsp;</p>
 
@@ -6070,6 +6070,7 @@ There are no release notes at this time.
 |Layout changes|02/13/2018|Updated doc layout per new API Doc standard|
 |Updated links|03/20/2018|Updated links to point to new dev portal|
 |Updated external links|04/03/2018|Updated external links to open in new browser window|
+|Updated API.md links|05/14/2018|Updated API.md links to point to new dev portal|
 
 ## <a name="related-links"></a>Related Links
 

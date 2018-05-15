@@ -239,20 +239,20 @@ There are 4 possible scenarios:
 
 |API Name|Endpoint Name|HTTP Method|URI Path|
 |---|---|---|---|
-|Carts v1|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md#Cart_Operations_put_buy_carts_v1_id" target="_blank">Create or Update a Cart</a>|PUT|/buy/carts/v1/{id}{?fields}|
-|Carts v1|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md#Cart_Operations_get_buy_carts_v1_id" target="_blank">Retrieve Carts by ID</a>|GET|/buy/carts/v1/{id}/{?fields}|
-|Carts v1|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md#Cart_Operations_get_buy_carts_v1" target="_blank">Retrieve Carts by Filter</a>|GET|/buy/carts/v1/{?filter,fields}|
-|Carts v1|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md#Cart_Operations_delete_buy_carts_v1_id" target="_blank">Delete All Items from a Cart</a>|DELETE|/buy/carts/v1/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart" target="_blank">Create or Update a Cart by Cart ID</a>|PUT|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart-1" target="_blank">Modify a Cart by Cart ID</a>|PATCH|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-delete-all-items-from-a-cart" target="_blank">Delete All Items from a Cart by Cart ID</a>|DELETE|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-get-a-cart-for-a-cartid" target="_blank">Get a Cart by Cart ID</a>|GET|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>|GET|/buy/carts/v2/?filter|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart-2" target="_blank">Create or Update a Cart by Filter Criteria</a>|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-create-or-update-a-user-s-cart-3" target="_blank">Modify a Cart by Filter Criteria</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria-1" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md#cart-operations-delete-all-items-from-a-cart-1" target="_blank">Delete all Items from a Cart by Filter Criteria</a>|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
-|Cart Reviews|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md#Cart_Reviews_post_buy_cart_reviews_v1" target="_blank">Augment a Cart</a>|POST|/buy/cart_reviews/v1|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Create or Update a Cart</a>|PUT|/buy/carts/v1/{id}{?fields}|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Retrieve Carts by ID</a>|GET|/buy/carts/v1/{id}/{?fields}|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Retrieve Carts by Filter</a>|GET|/buy/carts/v1/{?filter,fields}|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Delete All Items from a Cart</a>|DELETE|/buy/carts/v1/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a>|PUT|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a>|PATCH|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete All Items from a Cart by Cart ID</a>|DELETE|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Cart ID</a>|GET|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>|GET|/buy/carts/v2/?filter|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Filter Criteria</a>|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a>|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
+|Cart Reviews|<a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a>|POST|/buy/cart_reviews/v1|
 |Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>|PUT|/buy/lists/v1/{id}{?fields}|
 |Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>|DELETE|/buy/lists/v1/{id}|
 |Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a>|GET|/buy/lists/v1/{id}{?fields}|
@@ -261,14 +261,14 @@ There are 4 possible scenarios:
 |Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>|DELETE|/buy/list_items/v1/{id}|
 |Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>|GET|/buy/list_items/v1{?filter, anchor, count, fields, sort}|
 |Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a>|GET|/buy/list_items/v1/{id}{?fields}|
-|Shipping Options|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md#default_post_buy_shipping_options_v2" target="_blank">Shipping Options</a>|POST|/buy/shipping_options/v2|
-|Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#checkout-preview-request-checkout-preview" target="_blank">Request Checkout Preview</a>|PUT|/buy/checkout_previews/v2/{id}|
-|Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#Checkout_Preview_get_buy_checkout_previews_v2_jobs_id" target="_blank">Retrieve Checkout Preview Job</a>|GET|/buy/checkout_previews/v2/jobs/{id}|
-|Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#Checkout_Preview_get_buy_checkout_preview_results_v2_id" target="_blank">Retrieve Checkout Preview Results</a>|GET|/buy/checkout_preview_results/v2/{id}|
-|Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#Checkout_put_buy_checkouts_v2_id" target="_blank">Request Checkout Submit</a>|PUT|/buy/checkouts/v2/{id}|
-|Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#Checkout_get_buy_checkouts_v2_jobs_id" target="_blank">Retrieve Checkout Submit Job</a>|GET|/buy/checkouts/v2/jobs/{id}|
-|Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#Checkout_get_buy_checkout_results_v2_id" target="_blank">Retrieve Checkout Results</a>|GET|/buy/checkout_results/v2/{id}|
-|Checkouts|<a href="https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md#Launch_Checkout_put_buy_launch_checkouts_v2_id" target="_blank">Request Checkout Submit (Launch)</a>|PUT|/buy/launch_checkouts/v2/{id}|
+|Shipping Options|<a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a>|POST|/buy/shipping_options/v2|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a>|PUT|/buy/checkout_previews/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a>|GET|/buy/checkout_previews/v2/jobs/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Results</a>|GET|/buy/checkout_preview_results/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit</a>|PUT|/buy/checkouts/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a>|GET|/buy/checkouts/v2/jobs/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>|GET|/buy/checkout_results/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a>|PUT|/buy/launch_checkouts/v2/{id}|
 
 ## <a name="making-your-first-api-request"></a>Making Your First API Request
 
@@ -321,7 +321,7 @@ For the request body, the following considerations apply (at miniumum):
 
 **2. Create the URL**
 
-The <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md" target="_blank">API.md</a> states that the required URL format is `/buy/carts/v2/{id}`.
+The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is `/buy/carts/v2/{id}`.
 
 To build the full URL, prepend `https://api.nike.com` to the above path, then append  **id** after "v2". The **id** is the cart identifier you passed in the request body.
 
