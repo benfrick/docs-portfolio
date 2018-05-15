@@ -64,10 +64,10 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |Topic|Details|
 |---|---|
 |Use these APIs to|Display a product grid wall in a digital experience|
-|Who calls this API?|Nike.com, Nike Running Club app (future)|
+|Who calls this API?|Bootroom, Nike.com, Nike Running Club app (future)|
 |Versions|v2|
 |Supported Languages|See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales|
-|SLA|<li>Response time: 250ms <li>Requests per second: 5 max (via edge router constraint)|
+|SLA|<li>Response time: 500ms <li>Requests per second: 5 max (via edge router constraint)|
 |Domain|Commerce|
 |Prerequisites|API Registration|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
