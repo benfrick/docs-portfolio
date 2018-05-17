@@ -96,7 +96,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 |SLA|Response time: 250 ms for all endpoints|
 |Domain|Commerce|
 |Prerequisites|None (public API)|
-|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
 
 >**TIP:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
 
