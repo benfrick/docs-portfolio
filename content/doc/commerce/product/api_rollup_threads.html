@@ -19,8 +19,8 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
         <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
     </div>
 </div>
-<h1 id="product-feed-rollup-threads-v2-api-developers-guide-draft"><a href="#product-feed-rollup-threads-v2-api-developers-guide-draft" name="product-feed-rollup-threads-v2-api-developers-guide-draft" class="anchor"><span class="octicon octicon-link"></span></a>PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)</h1>
-<h6 id="last-updated-05142018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-05142018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-05142018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 05/14/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a></h6>
+<h1 id="product-feed-rollup-threads-v2-api-developers-guide"><a href="#product-feed-rollup-threads-v2-api-developers-guide" name="product-feed-rollup-threads-v2-api-developers-guide" class="anchor"><span class="octicon octicon-link"></span></a>PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE</h1>
+<h6 id="last-updated-05172018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-05172018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-05172018submit-feedback-api-doc-slack-channel-nde-doc" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 05/17/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a></h6>
 <hr />
 <p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and the <a href="/doc/commerce/product/api_product_feeds.html" class="absent">Product Feeds Developer's Guide</a>, this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.</p>
 <h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In this guide:</strong></h2>
@@ -53,7 +53,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     <tr><td>SLA</td><td><li>Response time: 500ms <li>Requests per second: 5 max (via edge router constraint)</td></tr>
     <tr><td>Domain</td><td>Commerce</td></tr>
     <tr><td>Prerequisites</td><td>API Registration</td></tr>
-    <tr><td>Contact Info</td><td>Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: <a href="mailto:andy.sun@nike.com">Andy Sun</a></td></tr>
+    <tr><td>Contact Info</td><td>Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: <a href="mailto:andy.sun@nike.com">Andy Sun</a></td></tr>
   </tbody>
 </table>
 <h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="terms-of-service"></a>Terms of Service</h2>
@@ -99,7 +99,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 <p>By default, the relationship between the Rollup Thread(s) to the parent Thread is based upon a rollup type and rollup key defined in the Nike's Prodigy product information system. As the client of the API, you do not have direct control over those values.</p>
 <p>Both of these fields are located in the API response in the <strong>productInfo.merchProduct.productRollup</strong> object, field names <strong>type</strong> and <strong>key</strong>.</p>
 <ul>
-  <li>rollup <strong>type</strong>: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Examples values are &quot;Standard&quot;, &quot;WidthGroup&quot;, &quot;NFL, or &quot;NBA&quot;.</li>
+  <li>rollup <strong>type</strong>: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Example values are &quot;Standard&quot;, &quot;WidthGroup&quot;, &quot;NFL, or &quot;NBA&quot;.</li>
   <li>rollup <strong>key</strong>: a specific instance of a rollup type, e.g. a value representing a particular style number rollup. Example value is &quot;xqTPKlqE&quot;.</li>
 </ul>
 <h4 id="custom-search-rules"><a href="#custom-search-rules" name="custom-search-rules" class="anchor"><span class="octicon octicon-link"></span></a>Custom Search Rules</h4>
@@ -148,7 +148,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
   <tbody>
     <tr><td><strong>filter</strong></td><td>?filter=language(en)</td></tr>
     <tr><td><strong>filter</strong></td><td>?filter=marketplace(US)</td></tr>
-    <tr><td><strong>consumerChannelId</strong></td><td>?consumerChannelId=(d9a5bc42-4b9c-4976-858a-f159cf99c647)</td></tr>
+    <tr><td><strong>consumerChannelId</strong></td><td>?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647</td></tr>
   </tbody>
 </table>
 <blockquote>
@@ -159,19 +159,15 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     <p><strong>Execute the Request</strong></p>
     <p>Putting together the pieces from Step 1, the full URL you will use is <a href="https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)">https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)</a>.</p>
     <p>Use your favorite REST client to send the request. Alternatively, execute the following cURL command:</p>
-  </li>
-</ol>
-<pre><code class="nohighlight">curl -X GET \
-  'https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language%28en%29,marketplace%28US%29' \
-  -H 'Cache-Control: no-cache'
+    <pre><code class="nohighlight">curl -X GET \
+    'https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language%28en%29,marketplace%28US%29' \
+    -H 'Cache-Control: no-cache'
 </code></pre>
-<ol start="3">
+  </li>
   <li>
     <p><strong>Parse the Response</strong></p>
     <p>See the output of the successful HTTP 200 response below. The response has been truncated for brevity, but shows one parent Thread with two nested Rollup Threads:</p>
-  </li>
-</ol>
-<pre><code class="nohighlight">{
+    <pre><code class="nohighlight">{
   &quot;pages&quot;: {
     &quot;prev&quot;: &quot;&quot;,
     &quot;next&quot;: &quot;/product_feed/rollup_threads/v2?filter=language%28en%29&amp;filter=marketplace%28US%29&amp;consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;anchor=10&quot;,
@@ -825,6 +821,8 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
   ]
 }
 </code></pre>
+  </li>
+</ol>
 <blockquote>
   <p><strong>TIP:</strong> For detailed information about the contents of the response, see the <a href="#using-product-feed-rollup-threads-v2">Using Product Feed Rollup Threads v2</a> section.</p>
 </blockquote>
@@ -1641,7 +1639,13 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 <h2 id="best-practices"><a href="#best-practices" name="best-practices" class="anchor"><span class="octicon octicon-link"></span></a><a name="best-practices"></a>Best Practices</h2>
 <p>See the Best Practices section of the <a href="/doc/commerce/product/api_product_feeds.html#best-practices" class="absent">Product Feeds Developer's Guide</a>.</p>
 <h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting" class="anchor"><span class="octicon octicon-link"></span></a><a name="troubleshooting"></a>Troubleshooting</h2>
-<p>See the Troubleshooting section of the <a href="/doc/commerce/product/api_product_feeds.html#troubleshooting" class="absent">Product Feeds Developer's Guide</a>.</p>
+<p><strong>I'm getting a 200 response, but the Thread data and/or Rollup Threads are not as expected</strong></p>
+<ul>
+  <li>Start by checking your Smart Search rule configuration in the Apollo application to ensure that the rules are correct. If you believe that the rules are correct, then perhaps some other issue is happening. Reach out to Product Feeds team on Slack for assistance: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a></li>
+</ul>
+<blockquote>
+  <p>TIP: See the Troubleshooting section of the <a href="/doc/commerce/product/api_product_feeds.html#troubleshooting" class="absent">Product Feeds Developer's Guide</a> for more general troubleshooting information.</p>
+</blockquote>
 <h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
 <p>See the <a href="/doc/getting-started/glossary.html" class="absent">Glossary</a>.</p>
 <h2 id="release-notes"><a href="#release-notes" name="release-notes" class="anchor"><span class="octicon octicon-link"></span></a><a name="release-notes"></a>Release Notes</h2>
@@ -1652,7 +1656,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     <tr><th>Summary </th><th>Date </th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr><td>Initial draft</td><td>05/14/2018</td><td>Initial Draft</td></tr>
+    <tr><td>Initial draft</td><td>05/17/2018</td><td>Initial Draft</td></tr>
   </tbody>
 </table>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
