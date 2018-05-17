@@ -13,7 +13,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 
 # MERCHANDISED PRODUCT API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 05/14/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/17/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Product APIs.
 
@@ -98,7 +98,7 @@ The following table describe the key details of the API:
 |SLAs|Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms|
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
-|Contact Info|Slack <a href="https://nikedigital.slack.com/messages/cic-merch" target="_blank">#cic-merch</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: [Lst-digitaltech.merch.apis](mailto:Lst-digitaltech.merch.apis)<br><a name="product-owner"></a>Product Owner: [Scott Alvey](mailto:scott.alvey@nike.com)|
+|Contact Info|Slack <a href="https://nikedigital.slack.com/messages/pdm-merch-product" target="_blank">#pdm-merch-product</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Product API Team</a><br> Mailing List: [Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)<br><a name="product-owner"></a>Product Owner: [Arun KannanGeetha](mailto:arun.kannangeetha@nike.com)|
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -227,11 +227,11 @@ The following diagram illustrates the most common patterns for data flow.
 
 After a notification from the system of record is received, the Merchandised Product services then decorate the product data with domain-specific elements such as Product UUIDs for each service. Generally Merchandised Product does not modify the data provided by the systems of record. For more information on the IDs that are returned within the Merchandised Product domain, see [Understanding the Various IDs Returned Within Each Response](#understanding-the-various-ids-returned-within-each-response).
 
-<b>NOTES: <b>
-
-<li>When a Merchandised Product object is created, the object remains in the application cache for 30 seconds.</li>
-
-<li>Because Prodigy is the source of data, product data that is served through any Merchandised Product API is subject to change at any time.</li>
+>**TIPS:**
+>
+>When a Merchandised Product object is created, the object remains in the application cache for 30 seconds.
+>
+>Because Prodigy is the source of data, product data that is served through any Merchandised Product API is subject to change at any time.
 
 ### <a name="how-does-product-data-get-published"></a>How Does Product Data Get Published?
 
