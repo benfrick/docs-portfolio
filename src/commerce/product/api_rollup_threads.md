@@ -17,9 +17,9 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
     </div>
 </div>
 
-# PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
+# PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 05/14/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
+###### Last Updated: 05/17/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
@@ -64,13 +64,13 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |Topic|Details|
 |---|---|
 |Use these APIs to|Display a product grid wall in a digital experience|
-|Who calls this API?|Nike.com, Nike Running Club app (future)|
+|Who calls this API?|Bootroom, Nike.com, Nike Running Club app (future)|
 |Versions|v2|
 |Supported Languages|See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales|
-|SLA|<li>Response time: 250ms <li>Requests per second: 5 max (via edge router constraint)|
+|SLA|<li>Response time: 500ms <li>Requests per second: 5 max (via edge router constraint)|
 |Domain|Commerce|
 |Prerequisites|API Registration|
-|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -120,7 +120,7 @@ By default, the relationship between the Rollup Thread(s) to the parent Thread i
 
 Both of these fields are located in the API response in the **productInfo.merchProduct.productRollup** object, field names **type** and **key**.
 
-- rollup **type**: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Examples values are "Standard", "WidthGroup", "NFL, or "NBA".
+- rollup **type**: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Example values are "Standard", "WidthGroup", "NFL, or "NBA".
 - rollup **key**: a specific instance of a rollup type, e.g. a value representing a particular style number rollup. Example value is "xqTPKlqE".
 
 #### Custom Search Rules
@@ -171,7 +171,7 @@ For your first request, send a request to get all the Rollup Threads for a parti
 |---|---|
 |**filter**|?filter=language(en)|
 |**filter**|?filter=marketplace(US)|
-|**consumerChannelId**|?consumerChannelId=(d9a5bc42-4b9c-4976-858a-f159cf99c647)|
+|**consumerChannelId**|?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647|
 
 >**TIP**: Don't have a consumerChannelId yet? Request that the [Product Owner](#api-at-a-glance) assign one for your app.
 
@@ -181,296 +181,586 @@ For your first request, send a request to get all the Rollup Threads for a parti
 
     Use your favorite REST client to send the request. Alternatively, execute the following cURL command:
 
-```
-curl -X GET \
-  'https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language%28en%29,marketplace%28US%29' \
-  -H 'Cache-Control: no-cache'
-```
+    ```
+    curl -X GET \
+        'https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language%28en%29,marketplace%28US%29' \
+        -H 'Cache-Control: no-cache'
+    ```
 
 3. **Parse the Response**
 
     See the output of the successful HTTP 200 response below. The response has been truncated for brevity, but shows one parent Thread with two nested Rollup Threads:
 
-```
-{
-  "pages": {
-    "prev": "",
-    "next": "/product_feed/rollup_threads/v2?filter=language%28en%29&filter=marketplace%28US%29&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&anchor=10",
-    "totalPages": 773,
-    "totalResources": 7721
-  },
-  "objects": [
+    ```
     {
-      "id": "5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3",
-      "channelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-      "channelName": "NIKE.COM",
-      "marketplace": "US",
-      "language": "en",
-      "lastFetchTime": "2018-05-02T22:25:16.639Z",
-      "active": true,
-      "publishedContent": {
-        "publishStartDate": "3000-01-01T08:00:00.000Z",
-        "createdDateTime": "2018-03-06T16:49:05.702Z",
-        "publishEndDate": "3000-01-01T19:00:00.000Z",
-        "viewStartDate": "3000-01-01T08:00:00.000Z",
-        "properties": {
-          "productCard": {
-            "transforms": [],
-            "language": "en",
-            "type": "card",
-            "creationDate": "2018-03-06T16:49:03.647Z",
-            "version": "1520354943647",
-            "translate": {},
-            "classifications": [],
-            "targetLanguages": [],
-            "modificationDate": "2018-03-06T16:49:03.647Z",
-            "nodes": [],
-            "subType": "image",
-            "id": "b815f55c-2696-4e0c-8221-8f77fa23f8d3",
-            "properties": {
-              "squarishURL": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg",
-              "altText": "NikeGrip Strike Cushioned Crew",
-              "squarish": {
-                "id": "nqrpl3dacns1civdnpix",
-                "type": "product",
-                "url": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg"
-              },
-              "squarishId": "nqrpl3dacns1civdnpix"
-            }
-          },
-          "custom": {},
-          "subtitle": "Soccer Socks",
-          "publish": {
-            "collectionGroups": [
-              "d9a5bc42-4b9c-4976-858a-f159cf99c647"
-            ],
-            "collections": [
-              "11a0e33d-fb1c-4595-be74-2455b7a11cff"
-            ],
-            "countries": [
-              "US"
-            ]
-          },
-          "consumerLabels": [],
-          "threadType": "soldier",
-          "title": "NikeGrip Strike Cushioned Crew",
-          "seo": {
-            "slug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv"
-          },
-          "products": [
-            {
-              "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-              "styleColor": "SX5090-014"
-            }
-          ]
-        }
+      "pages": {
+        "prev": "",
+        "next": "/product_feed/rollup_threads/v2?filter=language%28en%29&filter=marketplace%28US%29&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&anchor=10",
+        "totalPages": 773,
+        "totalResources": 7721
       },
-      "productInfo": [
+      "objects": [
         {
-          "merchProduct": {
-            "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-            "snapshotId": "ebfbd4f9-5f19-40d8-b605-c1570e402b31",
-            "modificationDate": "2018-05-02T00:03:26.553Z",
-            "status": "ACTIVE",
-            "merchGroup": "US",
-            "styleCode": "SX5090",
-            "colorCode": "014",
-            "styleColor": "SX5090-014",
-            "pid": "11231271",
-            "catalogId": "996366d0-271f-3370-9c78-37afb629785a",
-            "productGroupId": "11619046",
-            "brand": "Nike",
-            "channels": [
-              "Nike.com",
-              ".com"
-            ],
-            "consumerChannels": [
-              {
-                "id": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-                "resourceType": "globalization/consumer_channels"
-              }
-            ],
-            "legacyCatalogIds": [
-              "100701"
-            ],
-            "genders": [
-              "KIDS",
-              "WOMEN",
-              "MEN",
-              "GIRLS",
-              "BOYS"
-            ],
-            "valueAddedServices": [
-              {
-                "id": "3d62c037-56f3-59d5-81d3-88ce17f7fb99"
-              }
-            ],
-            "sportTags": [
-              "Soccer/Football"
-            ],
-            "classificationConcepts": [],
-            "taxonomyAttributes": [
-              {
-                "resourceType": "merch/taxonomy_attributes",
-                "ids": [
-                  "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                  "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc"
+          "id": "5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3",
+          "channelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+          "channelName": "NIKE.COM",
+          "marketplace": "US",
+          "language": "en",
+          "lastFetchTime": "2018-05-02T22:25:16.639Z",
+          "active": true,
+          "publishedContent": {
+            "publishStartDate": "3000-01-01T08:00:00.000Z",
+            "createdDateTime": "2018-03-06T16:49:05.702Z",
+            "publishEndDate": "3000-01-01T19:00:00.000Z",
+            "viewStartDate": "3000-01-01T08:00:00.000Z",
+            "properties": {
+              "productCard": {
+                "transforms": [],
+                "language": "en",
+                "type": "card",
+                "creationDate": "2018-03-06T16:49:03.647Z",
+                "version": "1520354943647",
+                "translate": {},
+                "classifications": [],
+                "targetLanguages": [],
+                "modificationDate": "2018-03-06T16:49:03.647Z",
+                "nodes": [],
+                "subType": "image",
+                "id": "b815f55c-2696-4e0c-8221-8f77fa23f8d3",
+                "properties": {
+                  "squarishURL": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg",
+                  "altText": "NikeGrip Strike Cushioned Crew",
+                  "squarish": {
+                    "id": "nqrpl3dacns1civdnpix",
+                    "type": "product",
+                    "url": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg"
+                  },
+                  "squarishId": "nqrpl3dacns1civdnpix"
+                }
+              },
+              "custom": {},
+              "subtitle": "Soccer Socks",
+              "publish": {
+                "collectionGroups": [
+                  "d9a5bc42-4b9c-4976-858a-f159cf99c647"
+                ],
+                "collections": [
+                  "11a0e33d-fb1c-4595-be74-2455b7a11cff"
+                ],
+                "countries": [
+                  "US"
                 ]
-              }
-            ],
-            "commerceCountryInclusions": [],
-            "commerceCountryExclusions": [],
-            "productRollup": {
-              "type": "Standard",
-              "key": "pNznrv"
-            },
-            "quantityLimit": 10,
-            "styleType": "INLINE",
-            "productType": "EQUIPMENT",
-            "mainColor": true,
-            "exclusiveAccess": false,
-            "commercePublishDate": "2018-04-14T00:00:16.000Z",
-            "commerceStartDate": "2017-01-01T08:00:00.000Z",
-            "resourceType": "merchProduct",
-            "links": {
-              "self": {
-                "ref": "/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2"
-              }
+              },
+              "consumerLabels": [],
+              "threadType": "soldier",
+              "title": "NikeGrip Strike Cushioned Crew",
+              "seo": {
+                "slug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv"
+              },
+              "products": [
+                {
+                  "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                  "styleColor": "SX5090-014"
+                }
+              ]
             }
           },
-          "merchPrice": {
-            "fullPrice": 28,
-            "currentPrice": 19.97,
-            "currency": "USD",
-            "discounted": true,
-            "resourceType": "merchPrice",
-            "links": {
-              "self": {
-                "ref": "/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb"
+          "productInfo": [
+            {
+              "merchProduct": {
+                "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                "snapshotId": "ebfbd4f9-5f19-40d8-b605-c1570e402b31",
+                "modificationDate": "2018-05-02T00:03:26.553Z",
+                "status": "ACTIVE",
+                "merchGroup": "US",
+                "styleCode": "SX5090",
+                "colorCode": "014",
+                "styleColor": "SX5090-014",
+                "pid": "11231271",
+                "catalogId": "996366d0-271f-3370-9c78-37afb629785a",
+                "productGroupId": "11619046",
+                "brand": "Nike",
+                "channels": [
+                  "Nike.com",
+                  ".com"
+                ],
+                "consumerChannels": [
+                  {
+                    "id": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+                    "resourceType": "globalization/consumer_channels"
+                  }
+                ],
+                "legacyCatalogIds": [
+                  "100701"
+                ],
+                "genders": [
+                  "KIDS",
+                  "WOMEN",
+                  "MEN",
+                  "GIRLS",
+                  "BOYS"
+                ],
+                "valueAddedServices": [
+                  {
+                    "id": "3d62c037-56f3-59d5-81d3-88ce17f7fb99"
+                  }
+                ],
+                "sportTags": [
+                  "Soccer/Football"
+                ],
+                "classificationConcepts": [],
+                "taxonomyAttributes": [
+                  {
+                    "resourceType": "merch/taxonomy_attributes",
+                    "ids": [
+                      "219e4fa3-73ef-427b-8f93-9d8f51b93443",
+                      "ce8f6431-b545-44b5-bb2d-6a2d7b5df3cc"
+                    ]
+                  }
+                ],
+                "commerceCountryInclusions": [],
+                "commerceCountryExclusions": [],
+                "productRollup": {
+                  "type": "Standard",
+                  "key": "pNznrv"
+                },
+                "quantityLimit": 10,
+                "styleType": "INLINE",
+                "productType": "EQUIPMENT",
+                "mainColor": true,
+                "exclusiveAccess": false,
+                "commercePublishDate": "2018-04-14T00:00:16.000Z",
+                "commerceStartDate": "2017-01-01T08:00:00.000Z",
+                "resourceType": "merchProduct",
+                "links": {
+                  "self": {
+                    "ref": "/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2"
+                  }
+                }
+              },
+              "merchPrice": {
+                "fullPrice": 28,
+                "currentPrice": 19.97,
+                "currency": "USD",
+                "discounted": true,
+                "resourceType": "merchPrice",
+                "links": {
+                  "self": {
+                    "ref": "/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb"
+                  }
+                }
+              },
+              "availability": {
+                "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                "resourceType": "availableProducts",
+                "links": {
+                  "self": {
+                    "ref": "/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2"
+                  }
+                },
+                "available": true
+              },
+              "productContent": {
+                "title": "NikeGrip Strike Cushioned Crew",
+                "subtitle": "Soccer Socks",
+                "colors": [
+                  {
+                    "type": "SIMPLE",
+                    "name": "Black",
+                    "hex": "13161A"
+                  },
+                  {
+                    "type": "PRIMARY",
+                    "name": "Black",
+                    "hex": "13161A"
+                  },
+                  {
+                    "type": "LOGO",
+                    "name": "White",
+                    "hex": "FFFFFF"
+                  }
+                ]
+              },
+              "imageUrls": {
+                "productImageUrl": "https://secure-images.nike.com/is/image/DotCom/SX5090_014"
               }
             }
-          },
-          "availability": {
-            "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-            "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-            "resourceType": "availableProducts",
-            "links": {
-              "self": {
-                "ref": "/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2"
-              }
-            },
-            "available": true
-          },
-          "productContent": {
-            "title": "NikeGrip Strike Cushioned Crew",
-            "subtitle": "Soccer Socks",
-            "colors": [
+          ],
+          "resourceType": "thread",
+          "rollup": {
+            "totalThreads": 2,
+            "threads": [
               {
-                "type": "SIMPLE",
-                "name": "Black",
-                "hex": "13161A"
-              },
-              {
-                "type": "PRIMARY",
-                "name": "Black",
-                "hex": "13161A"
-              },
-              {
-                "type": "LOGO",
-                "name": "White",
-                "hex": "FFFFFF"
+                "id": "996366d0-271f-3370-9c78-37afb629785a",
+                "channelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+                "channelName": "NIKE.COM",
+                "marketplace": "US",
+                "language": "en",
+                "lastFetchTime": "2018-05-02T01:32:34.02Z",
+                "active": true,
+                "publishedContent": {
+                  "publishStartDate": "2017-01-01T08:00:00.000Z",
+                  "createdDateTime": "2018-05-02T01:32:33.721Z",
+                  "publishEndDate": "3000-01-01T19:00:00.000Z",
+                  "viewStartDate": "2017-01-01T08:00:00.000Z",
+                  "properties": {
+                    "productCard": {
+                      "transforms": [],
+                      "language": "en",
+                      "type": "card",
+                      "creationDate": "2018-05-02T01:32:33.715Z",
+                      "version": "1525224753715",
+                      "translate": {},
+                      "classifications": [],
+                      "targetLanguages": [],
+                      "modificationDate": "2018-05-02T01:32:33.715Z",
+                      "nodes": [],
+                      "subType": "image",
+                      "id": "ee7b53be-6cc5-4a42-931e-333bee6b0914",
+                      "properties": {
+                        "squarishURL": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg",
+                        "altText": "NikeGrip Strike Cushioned Crew",
+                        "squarish": {
+                          "id": "nqrpl3dacns1civdnpix",
+                          "type": "product",
+                          "url": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg"
+                        },
+                        "squarishId": "nqrpl3dacns1civdnpix"
+                      }
+                    },
+                    "custom": {},
+                    "subtitle": "Soccer Socks",
+                    "publish": {
+                      "collectionGroups": [
+                        "d9a5bc42-4b9c-4976-858a-f159cf99c647"
+                      ],
+                      "collections": [
+                        "11a0e33d-fb1c-4595-be74-2455b7a11cff"
+                      ],
+                      "countries": [
+                        "US"
+                      ]
+                    },
+                    "consumerLabels": [],
+                    "threadType": "soldier",
+                    "title": "NikeGrip Strike Cushioned Crew",
+                    "seo": {
+                      "slug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv"
+                    },
+                    "products": [
+                      {
+                        "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                        "styleColor": "SX5090-014"
+                      }
+                    ]
+                  }
+                },
+                "productInfo": [
+                  {
+                    "merchProduct": {
+                      "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                      "snapshotId": "ebfbd4f9-5f19-40d8-b605-c1570e402b31",
+                      "modificationDate": "2018-05-02T00:03:26.553Z",
+                      "status": "ACTIVE",
+                      "merchGroup": "US",
+                      "styleCode": "SX5090",
+                      "colorCode": "014",
+                      "styleColor": "SX5090-014",
+                      "pid": "11231271",
+                      "catalogId": "996366d0-271f-3370-9c78-37afb629785a",
+                      "productGroupId": "11619046",
+                      "brand": "Nike",
+                      "channels": [
+                        "Nike.com",
+                        ".com"
+                      ],
+                      "consumerChannels": [
+                        {
+                          "id": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+                          "resourceType": "globalization/consumer_channels"
+                        }
+                      ],
+                      "legacyCatalogIds": [
+                        "100701"
+                      ],
+                      "genders": [
+                        "KIDS",
+                        "WOMEN",
+                        "MEN",
+                        "GIRLS",
+                        "BOYS"
+                      ],
+                      "valueAddedServices": [
+                        {
+                          "id": "3d62c037-56f3-59d5-81d3-88ce17f7fb99"
+                        }
+                      ],
+                      "sportTags": [
+                        "Soccer/Football"
+                      ],
+                      "classificationConcepts": [],
+                      "taxonomyAttributes": [
+                        {
+                          "resourceType": "merch/taxonomy_attributes",
+                          "ids": [
+                            "219e4fa3-73ef-427b-8f93-9d8f51b93443",
+                            "a2da685c-4187-4af8-8dda-c9d35bb8867f"
+                          ]
+                        }
+                      ],
+                      "commerceCountryInclusions": [],
+                      "commerceCountryExclusions": [],
+                      "productRollup": {
+                        "type": "Standard",
+                        "key": "pNznrv"
+                      },
+                      "quantityLimit": 10,
+                      "styleType": "INLINE",
+                      "productType": "EQUIPMENT",
+                      "mainColor": true,
+                      "exclusiveAccess": false,
+                      "commercePublishDate": "2018-04-14T00:00:16.000Z",
+                      "commerceStartDate": "2017-01-01T08:00:00.000Z",
+                      "resourceType": "merchProduct",
+                      "links": {
+                        "self": {
+                          "ref": "/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2"
+                        }
+                      }
+                    },
+                    "merchPrice": {
+                      "fullPrice": 28,
+                      "currentPrice": 19.97,
+                      "currency": "USD",
+                      "discounted": true,
+                      "resourceType": "merchPrice",
+                      "links": {
+                        "self": {
+                          "ref": "/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb"
+                        }
+                      }
+                    },
+                    "availability": {
+                      "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                      "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                      "resourceType": "availableProducts",
+                      "links": {
+                        "self": {
+                          "ref": "/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2"
+                        }
+                      },
+                      "available": true
+                    },
+                    "productContent": {
+                      "title": "NikeGrip Strike Cushioned Crew",
+                      "subtitle": "Soccer Socks",
+                      "colors": [
+                        {
+                          "type": "SIMPLE",
+                          "name": "Black",
+                          "hex": "13161A"
+                        },
+                        {
+                          "type": "PRIMARY",
+                          "name": "Black",
+                          "hex": "13161A"
+                        },
+                        {
+                          "type": "LOGO",
+                          "name": "White",
+                          "hex": "FFFFFF"
+                        }
+                      ]
+                    },
+                    "imageUrls": {
+                      "productImageUrl": "https://secure-images.nike.com/is/image/DotCom/SX5090_014"
+                    }
+                  }
+                ],
+                "resourceType": "thread",
+                "links": {
+                  "self": {
+                    "ref": "/product_feed/threads/v2/996366d0-271f-3370-9c78-37afb629785a?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
+                  }
+                },
+                "searchMetaData": {
+                  "exclusiveAccess": false,
+                  "effectiveInStockStartSellDate": "2017-01-01T08:00:00.000Z",
+                  "effectiveInStockStopSellDate": "2099-12-31T00:00:00.000Z",
+                  "availableSizes": [
+                    "4-5.5",
+                    "6-7.5",
+                    "14-16"
+                  ],
+                  "availableLocalizedSizes": [
+                    "W 5.5-7",
+                    "W 7.5-9 / M 6-7.5",
+                    "M 14-16"
+                  ],
+                  "gtins": [
+                    "00659658090224",
+                    "00659658090965",
+                    "00659658090972",
+                    "00659658090989",
+                    "00659658090996",
+                    "00659658091009"
+                  ],
+                  "publishedContent": {
+                    "publishEndDate": "3000-01-01T19:00:00.000Z",
+                    "publishStartDate": "2017-01-01T08:00:00.000Z",
+                    "propertiesSeoSlug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv",
+                    "propertiesProductsStyleColor": [
+                      "SX5090-014"
+                    ],
+                    "propertiesPublishCollections": [
+                      "11a0e33d-fb1c-4595-be74-2455b7a11cff"
+                    ],
+                    "propertiesConsumerLabelsClassificationText": [],
+                    "viewStartDate": "2017-01-01T08:00:00.000Z",
+                    "threadType": "soldier"
+                  },
+                  "productInfo": [
+                    {
+                      "merchProduct": {
+                        "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
+                        "status": "ACTIVE",
+                        "styleCode": "SX5090",
+                        "colorCode": "014",
+                        "styleColor": "SX5090-014",
+                        "channels": [
+                          "Nike.com",
+                          ".com"
+                        ],
+                        "consumerChannels": [
+                          {
+                            "id": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+                            "resourceType": "globalization/consumer_channels"
+                          }
+                        ],
+                        "genders": [
+                          "KIDS",
+                          "WOMEN",
+                          "MEN",
+                          "GIRLS",
+                          "BOYS"
+                        ],
+                        "productRollup": {
+                          "type": "Standard",
+                          "key": "pNznrv"
+                        },
+                        "mainColor": true,
+                        "commercePublishDate": "2018-04-14T00:00:16.000Z",
+                        "commerceStartDate": "2017-01-01T08:00:00.000Z"
+                      },
+                      "merchPrice": {
+                        "msrp": 28,
+                        "fullPrice": 28,
+                        "currentPrice": 19.97,
+                        "employeePrice": 11.98,
+                        "discounted": true
+                      },
+                      "productContent": {
+                        "fullTitle": "NikeGrip Strike Cushioned Crew Soccer Socks",
+                        "title": "NikeGrip Strike Cushioned Crew",
+                        "subtitle": "Soccer Socks",
+                        "bestFor": [],
+                        "athletes": []
+                      },
+                      "available": true,
+                      "skus": [
+                        {
+                          "id": "2852f714-361b-5ce4-a8bf-a33cb0a7240a"
+                        },
+                        {
+                          "id": "2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c"
+                        },
+                        {
+                          "id": "2511ed77-9505-5a9e-b4b1-94acb6249014"
+                        },
+                        {
+                          "id": "9eb9705a-ef13-5802-a283-3e355d980da8"
+                        },
+                        {
+                          "id": "d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310"
+                        },
+                        {
+                          "id": "7cf5dc89-f5cb-5101-8292-d8fa4691f0c6"
+                        }
+                      ]
+                    }
+                  ],
+                  "productRollup": {
+                    "type": "Standard",
+                    "key": "pNznrv"
+                  },
+                  "taxonomyAttributeValues": {
+                    "a00f0bb2-648b-4853-9559-4cd943b7d6c6": [
+                      "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
+                      "7e0d88b7-b082-4fee-aa65-d8af260c158d",
+                      "143d3eff-40cb-46cd-b579-14462aa828a3"
+                    ],
+                    "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
+                      "05392778-fff6-4fa0-a375-2506d27f009e"
+                    ]
+                  },
+                  "taxonomyAttributeSearchIds": [
+                    "219e4fa3-73ef-427b-8f93-9d8f51b93443",
+                    "6e7e4809-fccb-4e82-8a7b-047125398076"
+                  ]
+                }
               }
             ]
           },
-          "imageUrls": {
-            "productImageUrl": "https://secure-images.nike.com/is/image/DotCom/SX5090_014"
-          }
-        }
-      ],
-      "resourceType": "thread",
-      "rollup": {
-        "totalThreads": 2,
-        "threads": [
-          {
-            "id": "996366d0-271f-3370-9c78-37afb629785a",
-            "channelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-            "channelName": "NIKE.COM",
-            "marketplace": "US",
-            "language": "en",
-            "lastFetchTime": "2018-05-02T01:32:34.02Z",
-            "active": true,
+          "links": {
+            "self": {
+              "ref": "/product_feed/threads/v2/5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
+            }
+          },
+          "searchMetaData": {
+            "exclusiveAccess": false,
+            "effectiveInStockStartSellDate": "2017-01-01T08:00:00.000Z",
+            "effectiveInStockStopSellDate": "2099-12-31T00:00:00.000Z",
+            "availableSizes": [
+              "4-5.5",
+              "6-7.5",
+              "14-16"
+            ],
+            "availableLocalizedSizes": [
+              "W 5.5-7",
+              "W 7.5-9 / M 6-7.5",
+              "M 14-16"
+            ],
+            "gtins": [
+              "00659658090224",
+              "00659658090965",
+              "00659658090972",
+              "00659658090989",
+              "00659658090996",
+              "00659658091009"
+            ],
             "publishedContent": {
-              "publishStartDate": "2017-01-01T08:00:00.000Z",
-              "createdDateTime": "2018-05-02T01:32:33.721Z",
               "publishEndDate": "3000-01-01T19:00:00.000Z",
-              "viewStartDate": "2017-01-01T08:00:00.000Z",
-              "properties": {
-                "productCard": {
-                  "transforms": [],
-                  "language": "en",
-                  "type": "card",
-                  "creationDate": "2018-05-02T01:32:33.715Z",
-                  "version": "1525224753715",
-                  "translate": {},
-                  "classifications": [],
-                  "targetLanguages": [],
-                  "modificationDate": "2018-05-02T01:32:33.715Z",
-                  "nodes": [],
-                  "subType": "image",
-                  "id": "ee7b53be-6cc5-4a42-931e-333bee6b0914",
-                  "properties": {
-                    "squarishURL": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg",
-                    "altText": "NikeGrip Strike Cushioned Crew",
-                    "squarish": {
-                      "id": "nqrpl3dacns1civdnpix",
-                      "type": "product",
-                      "url": "https://c.static-nike.com/a/images/t_default/nqrpl3dacns1civdnpix/nikegrip-strike-cushioned-crew-soccer-socks-pNznrv.jpg"
-                    },
-                    "squarishId": "nqrpl3dacns1civdnpix"
-                  }
-                },
-                "custom": {},
-                "subtitle": "Soccer Socks",
-                "publish": {
-                  "collectionGroups": [
-                    "d9a5bc42-4b9c-4976-858a-f159cf99c647"
-                  ],
-                  "collections": [
-                    "11a0e33d-fb1c-4595-be74-2455b7a11cff"
-                  ],
-                  "countries": [
-                    "US"
-                  ]
-                },
-                "consumerLabels": [],
-                "threadType": "soldier",
-                "title": "NikeGrip Strike Cushioned Crew",
-                "seo": {
-                  "slug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv"
-                },
-                "products": [
-                  {
-                    "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-                    "styleColor": "SX5090-014"
-                  }
-                ]
-              }
+              "publishStartDate": "3000-01-01T08:00:00.000Z",
+              "propertiesSeoSlug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv",
+              "propertiesProductsStyleColor": [
+                "SX5090-014"
+              ],
+              "propertiesPublishCollections": [
+                "11a0e33d-fb1c-4595-be74-2455b7a11cff"
+              ],
+              "propertiesConsumerLabelsClassificationText": [],
+              "viewStartDate": "3000-01-01T08:00:00.000Z",
+              "threadType": "soldier"
             },
             "productInfo": [
               {
                 "merchProduct": {
                   "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-                  "snapshotId": "ebfbd4f9-5f19-40d8-b605-c1570e402b31",
-                  "modificationDate": "2018-05-02T00:03:26.553Z",
                   "status": "ACTIVE",
-                  "merchGroup": "US",
                   "styleCode": "SX5090",
                   "colorCode": "014",
                   "styleColor": "SX5090-014",
-                  "pid": "11231271",
-                  "catalogId": "996366d0-271f-3370-9c78-37afb629785a",
-                  "productGroupId": "11619046",
-                  "brand": "Nike",
                   "channels": [
                     "Nike.com",
                     ".com"
@@ -481,9 +771,6 @@ curl -X GET \
                       "resourceType": "globalization/consumer_channels"
                     }
                   ],
-                  "legacyCatalogIds": [
-                    "100701"
-                  ],
                   "genders": [
                     "KIDS",
                     "WOMEN",
@@ -491,361 +778,74 @@ curl -X GET \
                     "GIRLS",
                     "BOYS"
                   ],
-                  "valueAddedServices": [
-                    {
-                      "id": "3d62c037-56f3-59d5-81d3-88ce17f7fb99"
-                    }
-                  ],
-                  "sportTags": [
-                    "Soccer/Football"
-                  ],
-                  "classificationConcepts": [],
-                  "taxonomyAttributes": [
-                    {
-                      "resourceType": "merch/taxonomy_attributes",
-                      "ids": [
-                        "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                        "a2da685c-4187-4af8-8dda-c9d35bb8867f"
-                      ]
-                    }
-                  ],
-                  "commerceCountryInclusions": [],
-                  "commerceCountryExclusions": [],
                   "productRollup": {
                     "type": "Standard",
                     "key": "pNznrv"
                   },
-                  "quantityLimit": 10,
-                  "styleType": "INLINE",
-                  "productType": "EQUIPMENT",
                   "mainColor": true,
-                  "exclusiveAccess": false,
                   "commercePublishDate": "2018-04-14T00:00:16.000Z",
-                  "commerceStartDate": "2017-01-01T08:00:00.000Z",
-                  "resourceType": "merchProduct",
-                  "links": {
-                    "self": {
-                      "ref": "/merch/products/v2/10e46d2c-9a1d-58c2-b714-642154a109c2"
-                    }
-                  }
+                  "commerceStartDate": "2017-01-01T08:00:00.000Z"
                 },
                 "merchPrice": {
+                  "msrp": 28,
                   "fullPrice": 28,
                   "currentPrice": 19.97,
-                  "currency": "USD",
-                  "discounted": true,
-                  "resourceType": "merchPrice",
-                  "links": {
-                    "self": {
-                      "ref": "/merch/prices/v2/396aa89c-b007-5183-ab49-dc36376763eb"
-                    }
-                  }
-                },
-                "availability": {
-                  "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-                  "productId": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-                  "resourceType": "availableProducts",
-                  "links": {
-                    "self": {
-                      "ref": "/deliver/available_products/v1/10e46d2c-9a1d-58c2-b714-642154a109c2"
-                    }
-                  },
-                  "available": true
+                  "employeePrice": 11.98,
+                  "discounted": true
                 },
                 "productContent": {
+                  "fullTitle": "NikeGrip Strike Cushioned Crew Soccer Socks",
                   "title": "NikeGrip Strike Cushioned Crew",
                   "subtitle": "Soccer Socks",
-                  "colors": [
-                    {
-                      "type": "SIMPLE",
-                      "name": "Black",
-                      "hex": "13161A"
-                    },
-                    {
-                      "type": "PRIMARY",
-                      "name": "Black",
-                      "hex": "13161A"
-                    },
-                    {
-                      "type": "LOGO",
-                      "name": "White",
-                      "hex": "FFFFFF"
-                    }
-                  ]
+                  "bestFor": [],
+                  "athletes": []
                 },
-                "imageUrls": {
-                  "productImageUrl": "https://secure-images.nike.com/is/image/DotCom/SX5090_014"
-                }
+                "available": true,
+                "skus": [
+                  {
+                    "id": "2852f714-361b-5ce4-a8bf-a33cb0a7240a"
+                  },
+                  {
+                    "id": "2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c"
+                  },
+                  {
+                    "id": "2511ed77-9505-5a9e-b4b1-94acb6249014"
+                  },
+                  {
+                    "id": "9eb9705a-ef13-5802-a283-3e355d980da8"
+                  },
+                  {
+                    "id": "d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310"
+                  },
+                  {
+                    "id": "7cf5dc89-f5cb-5101-8292-d8fa4691f0c6"
+                  }
+                ]
               }
             ],
-            "resourceType": "thread",
-            "links": {
-              "self": {
-                "ref": "/product_feed/threads/v2/996366d0-271f-3370-9c78-37afb629785a?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
-              }
+            "productRollup": {
+              "type": "Standard",
+              "key": "pNznrv"
             },
-            "searchMetaData": {
-              "exclusiveAccess": false,
-              "effectiveInStockStartSellDate": "2017-01-01T08:00:00.000Z",
-              "effectiveInStockStopSellDate": "2099-12-31T00:00:00.000Z",
-              "availableSizes": [
-                "4-5.5",
-                "6-7.5",
-                "14-16"
+            "taxonomyAttributeValues": {
+              "a00f0bb2-648b-4853-9559-4cd943b7d6c6": [
+                "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
+                "7e0d88b7-b082-4fee-aa65-d8af260c158d",
+                "143d3eff-40cb-46cd-b579-14462aa828a3"
               ],
-              "availableLocalizedSizes": [
-                "W 5.5-7",
-                "W 7.5-9 / M 6-7.5",
-                "M 14-16"
-              ],
-              "gtins": [
-                "00659658090224",
-                "00659658090965",
-                "00659658090972",
-                "00659658090989",
-                "00659658090996",
-                "00659658091009"
-              ],
-              "publishedContent": {
-                "publishEndDate": "3000-01-01T19:00:00.000Z",
-                "publishStartDate": "2017-01-01T08:00:00.000Z",
-                "propertiesSeoSlug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv",
-                "propertiesProductsStyleColor": [
-                  "SX5090-014"
-                ],
-                "propertiesPublishCollections": [
-                  "11a0e33d-fb1c-4595-be74-2455b7a11cff"
-                ],
-                "propertiesConsumerLabelsClassificationText": [],
-                "viewStartDate": "2017-01-01T08:00:00.000Z",
-                "threadType": "soldier"
-              },
-              "productInfo": [
-                {
-                  "merchProduct": {
-                    "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-                    "status": "ACTIVE",
-                    "styleCode": "SX5090",
-                    "colorCode": "014",
-                    "styleColor": "SX5090-014",
-                    "channels": [
-                      "Nike.com",
-                      ".com"
-                    ],
-                    "consumerChannels": [
-                      {
-                        "id": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-                        "resourceType": "globalization/consumer_channels"
-                      }
-                    ],
-                    "genders": [
-                      "KIDS",
-                      "WOMEN",
-                      "MEN",
-                      "GIRLS",
-                      "BOYS"
-                    ],
-                    "productRollup": {
-                      "type": "Standard",
-                      "key": "pNznrv"
-                    },
-                    "mainColor": true,
-                    "commercePublishDate": "2018-04-14T00:00:16.000Z",
-                    "commerceStartDate": "2017-01-01T08:00:00.000Z"
-                  },
-                  "merchPrice": {
-                    "msrp": 28,
-                    "fullPrice": 28,
-                    "currentPrice": 19.97,
-                    "employeePrice": 11.98,
-                    "discounted": true
-                  },
-                  "productContent": {
-                    "fullTitle": "NikeGrip Strike Cushioned Crew Soccer Socks",
-                    "title": "NikeGrip Strike Cushioned Crew",
-                    "subtitle": "Soccer Socks",
-                    "bestFor": [],
-                    "athletes": []
-                  },
-                  "available": true,
-                  "skus": [
-                    {
-                      "id": "2852f714-361b-5ce4-a8bf-a33cb0a7240a"
-                    },
-                    {
-                      "id": "2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c"
-                    },
-                    {
-                      "id": "2511ed77-9505-5a9e-b4b1-94acb6249014"
-                    },
-                    {
-                      "id": "9eb9705a-ef13-5802-a283-3e355d980da8"
-                    },
-                    {
-                      "id": "d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310"
-                    },
-                    {
-                      "id": "7cf5dc89-f5cb-5101-8292-d8fa4691f0c6"
-                    }
-                  ]
-                }
-              ],
-              "productRollup": {
-                "type": "Standard",
-                "key": "pNznrv"
-              },
-              "taxonomyAttributeValues": {
-                "a00f0bb2-648b-4853-9559-4cd943b7d6c6": [
-                  "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-                  "7e0d88b7-b082-4fee-aa65-d8af260c158d",
-                  "143d3eff-40cb-46cd-b579-14462aa828a3"
-                ],
-                "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
-                  "05392778-fff6-4fa0-a375-2506d27f009e"
-                ]
-              },
-              "taxonomyAttributeSearchIds": [
-                "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-                "6e7e4809-fccb-4e82-8a7b-047125398076"
+              "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
+                "05392778-fff6-4fa0-a375-2506d27f009e"
               ]
-            }
-          }
-        ]
-      },
-      "links": {
-        "self": {
-          "ref": "/product_feed/threads/v2/5fe3b5d9-fd9c-33c7-bc03-b98f35585fb3?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
-        }
-      },
-      "searchMetaData": {
-        "exclusiveAccess": false,
-        "effectiveInStockStartSellDate": "2017-01-01T08:00:00.000Z",
-        "effectiveInStockStopSellDate": "2099-12-31T00:00:00.000Z",
-        "availableSizes": [
-          "4-5.5",
-          "6-7.5",
-          "14-16"
-        ],
-        "availableLocalizedSizes": [
-          "W 5.5-7",
-          "W 7.5-9 / M 6-7.5",
-          "M 14-16"
-        ],
-        "gtins": [
-          "00659658090224",
-          "00659658090965",
-          "00659658090972",
-          "00659658090989",
-          "00659658090996",
-          "00659658091009"
-        ],
-        "publishedContent": {
-          "publishEndDate": "3000-01-01T19:00:00.000Z",
-          "publishStartDate": "3000-01-01T08:00:00.000Z",
-          "propertiesSeoSlug": "nikegrip-strike-cushioned-crew-soccer-socks-pNznrv",
-          "propertiesProductsStyleColor": [
-            "SX5090-014"
-          ],
-          "propertiesPublishCollections": [
-            "11a0e33d-fb1c-4595-be74-2455b7a11cff"
-          ],
-          "propertiesConsumerLabelsClassificationText": [],
-          "viewStartDate": "3000-01-01T08:00:00.000Z",
-          "threadType": "soldier"
-        },
-        "productInfo": [
-          {
-            "merchProduct": {
-              "id": "10e46d2c-9a1d-58c2-b714-642154a109c2",
-              "status": "ACTIVE",
-              "styleCode": "SX5090",
-              "colorCode": "014",
-              "styleColor": "SX5090-014",
-              "channels": [
-                "Nike.com",
-                ".com"
-              ],
-              "consumerChannels": [
-                {
-                  "id": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-                  "resourceType": "globalization/consumer_channels"
-                }
-              ],
-              "genders": [
-                "KIDS",
-                "WOMEN",
-                "MEN",
-                "GIRLS",
-                "BOYS"
-              ],
-              "productRollup": {
-                "type": "Standard",
-                "key": "pNznrv"
-              },
-              "mainColor": true,
-              "commercePublishDate": "2018-04-14T00:00:16.000Z",
-              "commerceStartDate": "2017-01-01T08:00:00.000Z"
             },
-            "merchPrice": {
-              "msrp": 28,
-              "fullPrice": 28,
-              "currentPrice": 19.97,
-              "employeePrice": 11.98,
-              "discounted": true
-            },
-            "productContent": {
-              "fullTitle": "NikeGrip Strike Cushioned Crew Soccer Socks",
-              "title": "NikeGrip Strike Cushioned Crew",
-              "subtitle": "Soccer Socks",
-              "bestFor": [],
-              "athletes": []
-            },
-            "available": true,
-            "skus": [
-              {
-                "id": "2852f714-361b-5ce4-a8bf-a33cb0a7240a"
-              },
-              {
-                "id": "2d6e40b0-956d-5b73-b2fa-5e1b3fcc2f6c"
-              },
-              {
-                "id": "2511ed77-9505-5a9e-b4b1-94acb6249014"
-              },
-              {
-                "id": "9eb9705a-ef13-5802-a283-3e355d980da8"
-              },
-              {
-                "id": "d4a9f2da-5339-5fc9-81a9-ebf6d1a8a310"
-              },
-              {
-                "id": "7cf5dc89-f5cb-5101-8292-d8fa4691f0c6"
-              }
+            "taxonomyAttributeSearchIds": [
+              "219e4fa3-73ef-427b-8f93-9d8f51b93443",
+              "6e7e4809-fccb-4e82-8a7b-047125398076"
             ]
           }
-        ],
-        "productRollup": {
-          "type": "Standard",
-          "key": "pNznrv"
-        },
-        "taxonomyAttributeValues": {
-          "a00f0bb2-648b-4853-9559-4cd943b7d6c6": [
-            "dadd7a2e-d974-499c-9e3e-88c0b19adfcc",
-            "7e0d88b7-b082-4fee-aa65-d8af260c158d",
-            "143d3eff-40cb-46cd-b579-14462aa828a3"
-          ],
-          "758f6b44-e5a7-46be-b288-bac9c3ebe83f": [
-            "05392778-fff6-4fa0-a375-2506d27f009e"
-          ]
-        },
-        "taxonomyAttributeSearchIds": [
-          "219e4fa3-73ef-427b-8f93-9d8f51b93443",
-          "6e7e4809-fccb-4e82-8a7b-047125398076"
-        ]
-      }
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 >**TIP:** For detailed information about the contents of the response, see the [Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2) section.
 
@@ -1670,7 +1670,11 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
-See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html#troubleshooting).
+**I'm getting a 200 response, but the Thread data and/or Rollup Threads are not as expected**
+
+- Start by checking your Smart Search rule configuration in the Apollo application to ensure that the rules are correct. If you believe that the rules are correct, then perhaps some other issue is happening. Reach out to Product Feeds team on Slack for assistance: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a>
+
+>TIP: See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html#troubleshooting) for more general troubleshooting information.
 
 ## <a name="glossary"></a>Glossary
 
@@ -1684,7 +1688,7 @@ There are no release notes at this time.
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|05/14/2018|Initial Draft|
+|Initial draft|05/17/2018|Initial Draft|
 
 ## <a name="related-links"></a>Related Links
 
