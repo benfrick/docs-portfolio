@@ -27,6 +27,7 @@ h5{font-size:1.0em;}
 h6{font-size:.8em;}
 table {
     margin-top: 16px;
+    margin-bottom: 16px;
     padding-top: 50px 10px 15px 10px;
     width:70%
 }
