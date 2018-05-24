@@ -12,7 +12,7 @@ Author:  Jane Moore
 
 # CIRCUIT BREAKER BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/25/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 This guide discusses best practices for calling NDe services in peak traffic periods such as during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the [Service Call Best Practices](#service-call-best-practices) section, specific performance, retry and fallback best practices are listed by service.
 
@@ -76,10 +76,10 @@ Listed below are the best practices for calling each Buy service.
 |Topic|Best Practice|
 |---|---|
 |**Validation**|Pass in all Checkout items and a valid two-digit ISO country. When updating an existing cart, ensure the request brand, channel and region matches the saved cart.|
-|**Performance**|Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.|
-|**Circuit breaker trigger**|Carts repeated call failure to the Merchandised Product, Merchandised Skus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation.|
-|**Circuit breaker fallback behavior**||
-|**Retry pattern for API callers**||
+|**Performance**|<li>Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.</li><li>When updating the cart, use the PATCH method instead of PUT for best performance.</li>|
+|**Circuit breaker trigger**|Carts repeated call failure to the Merchandised Product, Merchandised Skus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation can open the circuit.|
+|**Circuit breaker fallback behavior**|None|
+|**Retry pattern for API callers**|None|
 |**Fallback behavior for API callers**|None|
 
 ### <a name="cart-reviews"></a>Cart Reviews
