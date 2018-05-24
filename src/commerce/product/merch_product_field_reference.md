@@ -31,11 +31,11 @@ Listed below are the product and value-added service status codes.
 
 |Status Code|Description|
 |---|---|
-|**ACTIVE**|Fully merchandised and ready for customer purchase|
-|**INACTIVE**|Incompletely merchandised and not ready for customer purchase|
-|**HOLD**|Fully merchandised but not ready for customer purchase|
-|**CANCEL**|No longer available for purchase|
-|**CLOSEOUT**|Not available for purchase|
+|**ACTIVE**|Fully merchandised and ready for purchase|
+|**INACTIVE**|Incompletely merchandised and not ready for purchase|
+|**HOLD**|Fully merchandised but not available for purchase|
+|**CANCEL**|Never manufactured or manufactured but never made it to market|
+|**CLOSEOUT**|No longer available for purchase|
 
 ## <a name="merchandising-groups"></a>Merchandising Groups
 

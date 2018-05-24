@@ -7,7 +7,7 @@
 
 # USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/24/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -644,7 +644,7 @@ In this case, pass the JWT in the **X-Nike-Authorization** request header. Also,
 
 The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.
 
-See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Reference+Guide" target="_blank">Nike JWT Reference Guide</a> for more information.
+See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide" target="_blank">Nike JWT Reference Guide</a> for more information.
 
 |Required headers for JWT|Description|
 |---|---|

@@ -9,7 +9,7 @@
 <script src="/js/nde.js" type="text/javascript"></script>
 <div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 <h1 id="using-nde-apis--draft"><a href="#using-nde-apis--draft" name="using-nde-apis--draft">USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)</a></h1>
-<h5 id="last-updated-04192018submit-feedback-dev-portal-slack-channeldevportal"><a href="#last-updated-04192018submit-feedback-dev-portal-slack-channeldevportal" name="last-updated-04192018submit-feedback-dev-portal-slack-channeldevportal">Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></a></h5>
+<h5 id="last-updated-05242018submit-feedback-dev-portal-slack-channeldevportal"><a href="#last-updated-05242018submit-feedback-dev-portal-slack-channeldevportal" name="last-updated-05242018submit-feedback-dev-portal-slack-channeldevportal">Last Updated: 05/24/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></a></h5>
 <div class="hr"null>&nbsp;</div>
 <p>This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the per-API or per-domain <a href="/doc/portal/dev-guides.html" class="absent">Developer's Guides</a>.</p>
 <blockquote>
@@ -572,7 +572,7 @@
 <p>Some endpoints such as <a href="/doc/commerce/payment/api_payment.html#submit-payments-for-approval" class="absent"><em>Submit Order Payments for Approval</em></a> require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="_blank">JWT</a> that is signed for a service authorized to call the endpoint.</p>
 <p>In this case, pass the JWT in the <strong>X-Nike-Authorization</strong> request header. Also, send the name of the application (e.g. &quot;checkouts&quot;) that is authorized to call this endpoint in the <strong>X-Nike-AppId</strong> request header. This is the service name used to sign the JWT.</p>
 <p>The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.</p>
-<p>See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Reference+Guide" target="_blank">Nike JWT Reference Guide</a> for more information.</p>
+<p>See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide" target="_blank">Nike JWT Reference Guide</a> for more information.</p>
 <table>
   <thead>
     <tr class="thead-first-child"><th>Required headers for JWT</th><th>Description</th></tr>
