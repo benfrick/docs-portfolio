@@ -35,7 +35,7 @@ Listed below are the product and value-added service status codes.
 |**INACTIVE**|Incompletely merchandised and not ready for customer purchase|
 |**HOLD**|Fully merchandised but not ready for customer purchase|
 |**CANCEL**|No longer available for purchase|
-|**CLOSEOUT**|Not available for purchase.|
+|**CLOSEOUT**|Not available for purchase|
 
 ## <a name="merchandising-groups"></a>Merchandising Groups
 
