@@ -13,7 +13,7 @@ Author:  Jane Moore
 -->
 <div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 <h1 id="circuit-breaker-best-practices-guide--draft"><a href="#circuit-breaker-best-practices-guide--draft" name="circuit-breaker-best-practices-guide--draft">CIRCUIT BREAKER BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)</a></h1>
-<h5 id="last-updated-04192018submit-feedback-dev-portal-slack-channeldevportal"><a href="#last-updated-04192018submit-feedback-dev-portal-slack-channeldevportal" name="last-updated-04192018submit-feedback-dev-portal-slack-channeldevportal">Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></a></h5>
+<h5 id="last-updated-05252018submit-feedback-dev-portal-slack-channeldevportal"><a href="#last-updated-05252018submit-feedback-dev-portal-slack-channeldevportal" name="last-updated-05252018submit-feedback-dev-portal-slack-channeldevportal">Last Updated: 05/25/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></a></h5>
 <p>This guide discusses best practices for calling NDe services in peak traffic periods such as during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the <a href="#service-call-best-practices">Service Call Best Practices</a> section, specific performance, retry and fallback best practices are listed by service.</p>
 <ul>
   <li><a href="#service-call-best-practices">Service Call Best Practices</a></li>
@@ -63,10 +63,10 @@ Author:  Jane Moore
   </thead>
   <tbody>
     <tr class="tbody-first-child"><td><strong>Validation</strong></td><td>Pass in all Checkout items and a valid two-digit ISO country. When updating an existing cart, ensure the request brand, channel and region matches the saved cart.</td></tr>
-    <tr class="tbody-even-child"><td><strong>Performance</strong></td><td>Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.</td></tr>
-    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td>Carts repeated call failure to the Merchandised Product, Merchandised Skus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation.</td></tr>
-    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td></td></tr>
-    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td></td></tr>
+    <tr class="tbody-even-child"><td><strong>Performance</strong></td><td><li>Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.</li><li>When updating the cart, use the PATCH method instead of PUT for best performance.</li></td></tr>
+    <tr class="tbody-odd-child"><td><strong>Circuit breaker trigger</strong></td><td>Carts repeated call failure to the Merchandised Product, Merchandised Skus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation can open the circuit.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td>None</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td>None</td></tr>
     <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td>None</td></tr>
   </tbody>
 </table>
