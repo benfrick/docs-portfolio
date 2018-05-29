@@ -61,6 +61,15 @@ ul {
 }
 pre {
   white-space: pre-wrap;
+  overflow-y: scroll;
+  max-height: 500;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  border-top: 10px solid rgb(201,227,253);
+  border-bottom: 10px solid rgb(201,227,253);
+  border-left: 1px solid rgb(201,227,253);
+  width:70%;
 }
 code, code span {
     font-family: Courier;
