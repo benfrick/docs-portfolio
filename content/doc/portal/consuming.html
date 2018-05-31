@@ -91,10 +91,9 @@
                 <p>Get familiar with common features of NDe APIs at <a href="/doc/getting-started/using_nike_apis.html">Using
                     NDe APIs</a>.</p>
                 <h2><a name="authentication-and-identification" href="#">Authentication and Identification</a></h2>
-                <p>Certain NDe endpoints require that the caller prove its identity and that it is authorized to call
-                    the endpoint. This is done by generating a time-sensitive JSON Web Token (JWT), passing the JWT in
-                    the request to the endpoint, and validating it. Visit the
-                    <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Reference+Guide" target="_blank">Nike
+                <p>Clients must be authenticated and authorized to call certain NDe endpoints. This is done through the use of a JSON Web Token (JWT). The client generates and signs the JWT, passes the JWT in the request to the service, and the service validates it with the
+                    client's public key. Visit the
+                    <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="_blank">JWT Getting Started Guide</a> and <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide" target="_blank">Nike
                         JWT Reference
                         Guide</a> for more information.</p>
             </div>

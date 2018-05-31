@@ -70,7 +70,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |SLA|<li>Response time: 500ms <li>Requests per second: 5 max (via edge router constraint)|
 |Domain|Commerce|
 |Prerequisites|API Registration|
-|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)<br>Apollo Product Owner: [Patricia Cousins](mailto:patricia.cousins@nike.com)|
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -86,11 +86,11 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 - **Obtain a Consumer Channel ID -- REQUIRED**
 
-  Contact the Product Feeds Product Owner [Andy Sun](mailto:andy.sun@nike.com) to get a unique Consumer Channel ID for your app.
+  Contact the [Product Feeds Product Owner](#api-at-a-glance) to get a unique Consumer Channel ID for your app.
 
 - **Configure Custom Search Rules -- OPTIONAL**
 
-  The default key used for rolling up Threads is **productInfo.merchProduct.productRollup.key**. If you require any custom search rules to refine how Threads are rolled up, you can work with the Search team to create them. Contact [Patti Cousins](mailto:patricia.cousins@nike.com) for assistance.
+  The default key used for rolling up Threads is **productInfo.merchProduct.productRollup.key**. If you require any custom search rules to refine how Threads are rolled up, you can work with the Search team to create them. Contact the [Apollo Product Owner](#api-at-a-glance) for assistance.
 
 ## <a name="use-cases"></a>Use Cases
 
@@ -131,7 +131,7 @@ For example, if you wanted to rollup by something other than style number (i.e. 
 
 **Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.**
 
->**TIP**: Reach out to the Apollo Product Owner [Patti Cousins](mailto:patricia.cousins@nike.com) for more information on how to use the Apollo tool.
+>**TIP**: Reach out to the [Apollo Product Owner](#api-at-a-glance) for more information on how to use the Apollo tool.
 
 ### Relationship of Consumer Channel ID to Channel ID
 
@@ -1672,7 +1672,9 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 
 **I'm getting a 200 response, but the Thread data and/or Rollup Threads are not as expected**
 
-- Start by checking your Smart Search rule configuration in the Apollo application to ensure that the rules are correct. If you believe that the rules are correct, then perhaps some other issue is happening. Reach out to Product Feeds team on Slack for assistance: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a>
+- Check your Smart Search rules configuration in the Apollo application to ensure that the rules are correct.
+- Check the rollup key & type from Prodigy for the Parent Thread is as expected.
+- Reach out to Product Feeds team on Slack for assistance: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a>
 
 >TIP: See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html#troubleshooting) for more general troubleshooting information.
 

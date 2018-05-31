@@ -8,11 +8,11 @@ See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/co
 Author:  Jane Moore
 -->
 
-<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!></a>
+<a href="/index.html"><i class="g72-arrow-fill-left" style=""></i> <u>Back to NDe Documentation</u></a><a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black" style="float:right"><i class="g72-alert"></i> FIND AN ISSUE? SLACK US!</a>
 
 # MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/24/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 This guide describes the product and value-added service merchandising codes flowing from Prodigy (the system of record) to the Merchandised Product API.
 
@@ -31,11 +31,11 @@ Listed below are the product and value-added service status codes.
 
 |Status Code|Description|
 |---|---|
-|**ACTIVE**|Fully merchandised and ready for customer purchase|
-|**INACTIVE**|Incompletely merchandised and not ready for customer purchase|
-|**HOLD**|Fully merchandised but not ready for customer purchase|
-|**CANCEL**|No longer available for purchase|
-|**CLOSEOUT**|Nearing end of purchase cycle|
+|**ACTIVE**|Fully merchandised and ready for purchase|
+|**INACTIVE**|Incompletely merchandised and not ready for purchase|
+|**HOLD**|Fully merchandised but not available for purchase|
+|**CANCEL**|Never manufactured or manufactured but never made it to market|
+|**CLOSEOUT**|No longer available for purchase|
 
 ## <a name="merchandising-groups"></a>Merchandising Groups
 
