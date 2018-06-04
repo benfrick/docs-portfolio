@@ -29,15 +29,20 @@ table {
     margin-top: 16px;
     margin-bottom: 16px;
     padding-top: 50px 10px 15px 10px;
-    width:70%
+    width:70%;
 }
 table thead tr th {
-    background-color:#FA5400;
-    /*background-color: #3498db;*/
+    /*background-color:#FA5400;*/
     font-weight:bold;
-    color:white;
+    /*color:white;*/
+    color: rgb(17,17,17);
     text-align: left;
     padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+tbody tr:nth-child(odd)
+{
+    background-color:#f7f9fc;
 }
 table tbody tr td {
     border-bottom: 1px solid #ccc;
@@ -63,7 +68,8 @@ pre {
   white-space: pre-wrap;
   overflow-y: scroll;
   max-height: 500;
-  margin: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   padding: 10px;
   border-radius: 10px;
   border-top: 10px solid rgb(201,227,253);
@@ -78,7 +84,10 @@ a {
     color: #3498db;
 }
 blockquote {
-    border: 2px solid #dfdfdf;
+    /*border: 2px solid #dfdfdf;*/
+    border: 1px solid rgba(58,193,51,.12);
+    background-color: f6fff5;
+    border-radius: 10px;
     padding: 10px 10px 10px 10px;
     width: 40%;
     margin-top: 15px;
