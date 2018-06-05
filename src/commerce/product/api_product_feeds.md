@@ -13,7 +13,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 05/14/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -92,7 +92,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 |Use this API to|Access Nike product data and content in the form of Cards, Threads, and Feeds|
 |Who calls this API?|SNKRS (iOS/Android), Bootroom (Web), Nike.com (Web), Retail Wall (Apple TV)|
 |Versions|v2|
-|Supported Languages|See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales|
+|Supported Locales|See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping</a>|
 |SLA|Response time: 250 ms for all endpoints|
 |Domain|Commerce|
 |Prerequisites|None (public API)|
@@ -148,7 +148,7 @@ Use Product Feeds to get product data and content in the form of Cards, Threads,
 
 <i class="g72-plus"></i> Multiple Threads make up **Feeds**, customized for your users based on their chosen preferences in a Nike experience.
 
-To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">here</a>.
+To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see the <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product Feeds Confluence Space</a>.
 
 ![](/images/commerce/product_feeds/nike_app_annotated.png)
 
@@ -579,7 +579,7 @@ List all threads by one or more filter criteria, e.g. channel and style-color.
 |**sort**|Query|Field(s) by which the results are sorted. Default: **publishedContent.viewStartDateDesc**, then **id.keywordAsc**. See below for allowed sort parameters|String|Optional|
 |**searchTerms**|Query|Search for threads by one or more keywords separated with spaces. Request exact match by enclosing in double quotes. Default: partial match|String|Optional|
 
->**TIP:** For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.
+>**TIP:** For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="_blank">Language/Locale Mapping README</a>.
 
 ##### Allowed Sort Parameters
 
@@ -1986,7 +1986,7 @@ Get a Thread by its unique identifier.
 |**preview**|Query|Preview a thread that is not yet enabled. Requires **Authorization** header to be sent|String|Optional|
 |**includeExclusiveAccess**|Query|Include exclusive and non-exclusive access threads in the results|Boolean|Optional|
 
->**TIP:** For a list of supported marketplaces (country codes) and languages, see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.
+>**TIP:** For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="_blank">Language/Locale Mapping README</a>.
 
 #### Example Scenarios
 
