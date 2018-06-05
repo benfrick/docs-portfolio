@@ -7,7 +7,7 @@
 
 # Get Started with Product Feeds (DRAFT) <i class="g72-swoosh"></i>
 
-##### Last Updated: 05/03/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/03/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 

@@ -20,7 +20,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 04/30/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 04/30/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
@@ -733,7 +733,7 @@ Following is a summary of the errors and warnings that can come back in response
 |400|PUT|INVALID_SKU|Item SKU not found or not valid for the country.|Check the skuId. Correct and retry.|
 |400|GET, PUT|PRODUCT_NOT_BUYABLE|Item sku not 'buyable', either due to being inactive, being outside sell dates, or launch product purchase being attempted outside of launch.|Notify user as necessary|
 |400|PUT|ITEM_QUANTITY_LIMIT|Quantity limit (for single cart) exceeded for the item sku.|Notify the user as necessary|
-|500|GET, PUT, DELETE|SYSTEM_ERROR|Error occurred processing the request.|
+|500|GET, PUT, DELETE|SYSTEM_ERROR|Error occurred processing the request.||
 |401|GET, PUT, DELETE|35|The operation was requested by an unauthorized user.|Check that your access token was sent in **Authorization** request header in format `Bearer {token}` or that the token has not expired.|
 |404|GET|n/a, no request body|The operation was not requested by the cart owner or ownership was not provided.|Check that the access token sent in the request header was for the correct user.|
 |404|GET|n/a, no request body|Cart just created or cart has expired|If cart was just created, try GET again later or do a PUT. If cart was created > 180 days ago, create a new cart.|

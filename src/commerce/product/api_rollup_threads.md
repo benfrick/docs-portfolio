@@ -19,7 +19,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 05/17/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
+##### Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -66,7 +66,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |Use these APIs to|Display a product grid wall in a digital experience|
 |Who calls this API?|Bootroom, Nike.com, Nike Running Club app (future)|
 |Versions|v2|
-|Supported Languages|See <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a> for supported languages and locales|
+|Supported Locales|See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping</a>|
 |SLA|<li>Response time: 500ms <li>Requests per second: 5 max (via edge router constraint)|
 |Domain|Commerce|
 |Prerequisites|API Registration|
