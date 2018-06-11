@@ -1,15 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 <link rel="stylesheet" href="/css/style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="/js/nde.js" type="text/javascript"></script>
-
-<!--
-See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md) for version history for this document.
-Original Author: Benjamin Frick
-SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam Nutt, Laura Kuhner, Sree Krishna
--->
 
 <div class="guide-nav-container">
     <div class="guide-nav-column guide-nav-left">
@@ -290,7 +282,7 @@ For the request headers, the following considerations apply (at minimum):
 
 2. Send the user's access token as obtained from Unite services in the **Authorization** header.
 
-```console
+```
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {your access token}
@@ -306,7 +298,7 @@ For the request body, the following considerations apply (at miniumum):
 
 4. Send a valid SKU identifier obtained from the Merchandised Products SKU service in the items.**skuId** field.
 
-```json
+```
 {
   "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
   "country": "US",
@@ -333,7 +325,7 @@ The complete URL is then https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bc
 
 Execute the request with a cURL command. Using the values gathered in steps 1 and 2, the final cURL command is:
 
-```curl
+```
 curl -X PUT \
   https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
   -H 'Accept: application/json' \
