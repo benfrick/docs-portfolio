@@ -219,7 +219,7 @@ SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam N
     <p>Send the user's access token as obtained from Unite services in the <strong>Authorization</strong> header.</p>
   </li>
 </ol>
-<pre><code class="nohighlight">Accept: application/json
+<pre><code class="console">Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {your access token}
 </code></pre>
@@ -238,7 +238,7 @@ Authorization: Bearer {your access token}
     <p>Send a valid SKU identifier obtained from the Merchandised Products SKU service in the items.<strong>skuId</strong> field.</p>
   </li>
 </ol>
-<pre><code class="nohighlight">{
+<pre><code class="json">{
   &quot;id&quot;: &quot;61bc115b-16e5-43b5-bcaf-dd6168c543f8&quot;,
   &quot;country&quot;: &quot;US&quot;,
   &quot;brand&quot;: &quot;NIKE&quot;,
@@ -257,7 +257,7 @@ Authorization: Bearer {your access token}
 <p>The complete URL is then <a href="https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8">https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8</a>.</p>
 <p><strong>3. Execute the request</strong></p>
 <p>Execute the request with a cURL command. Using the values gathered in steps 1 and 2, the final cURL command is:</p>
-<pre><code class="nohighlight">curl -X PUT \
+<pre><code class="curl">curl -X PUT \
   https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {your access token}' \
