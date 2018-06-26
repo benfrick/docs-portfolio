@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="../../../css/style.css"/>
+<link rel="stylesheet" href="/css/style.css"/>
 <script type="text/javascript" src="/js/nde.js" ></script>
 
 <!--
@@ -38,18 +38,18 @@ Search is a rule-driven API used to retrieve the products or navigation filters 
 
 [Rules, Results and Rankings](#rules-results-rankings)
 
-[Trouble Shooting](#trouble-shooting)
+[Troubleshooting](#troubleshooting)
 
 ## <a name="use-cases"></a>Use Cases
 Here are just some of the ways Search can be used to drive your experience:
 
-- build a grid wall of products curated for your experience
-- add autocomplete functionality to your experience by returning search keyword suggestions based on a partial word typed in the search bar
-- add search preview to your experience by listing highly ranked products matching an autocomplete keyword suggestion
-- retrieve a set of filters used to build navigation in your experience
-- list the most-purchased products even if they can no longer be purchased
-- return threads containing your search term in Facebook with #[search-term]
-- retrieve a product feed when you ask a product question in the Consumer Services Portal
+- Build a grid wall of products curated for your experience
+- Add autocomplete functionality to your experience by returning search keyword suggestions based on a partial word typed in the search bar
+- Add search preview to your experience by listing highly-ranked products matching an autocomplete keyword suggestion
+- Retrieve a set of filters used to build navigation in your experience
+- List the most-purchased products even if they can no longer be purchased
+- Return threads containing your search term in Facebook with #[search-term]
+- Retrieve a product feed when you ask a product question in the Consumer Services Portal
 
 ## <a name="glossary"></a>Glossary
 
@@ -62,10 +62,10 @@ Listed below are some common search terms.
 |Channel|User experience such as Bootroom or NIKE.com|
 |Collection|Grouping of products such as the Mother's Day collection|
 |Concept|Taxonomy, size, collection or authored concept e.g "Mens", "size 8", "Mother's Day", "Mother's Day floral"|
-|Search Term|Customer supplied keyword|
+|Search Term|Customer-supplied keyword|
 |Signal|Driven by consumer behavior or business objectives, signals are used to boost a product in the search rankings|
 |Taxonomy|Mapping of product attributes to UUIDs. Products are stamped with taxonomy ids in Prodigy.|
-|Trigger|Event that causes a search rule to react such as typing a search term or selecting a navigation filter|
+|Trigger|Event that causes a search rule to react, such as typing a search term or selecting a navigation filter|
 
 ## <a name="contacting-the-team"></a>Contacting the Team
 
@@ -96,7 +96,7 @@ The image below illustrates how Autocomplete and Search Preview can be used toge
 
 
 ### Smart Search
-Smart Search uses the default rule and as well as any other custom rules configured for the experience. It also maps free text search keywords supplied by the customer to ids stamped on the product. These ids represent concepts. Concepts can be taxonomy based such as "floral" or "hoodie", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts such as "Mother's day floral." Smart Search currently drives the Athletes gridwall in the [Bootroom](https://www.nike.com/bootroom) experience.
+Smart Search is a query enhancer. It uses the default rule and any custom rules configured for an experience to create an optimized search URL. This URL guarantees that when search is executed, it returns a curated result set with the most relevant products sorted first. Part of this optimization is achieved by mapping free text search keywords supplied by the customer, to ids stamped on the product. These ids represent concepts. Concepts can be taxonomy (attribute) based such as "floral" or "hoodie", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts such as "Mother's day floral." Smart Search currently drives the Athletes gridwall in the [Bootroom](https://www.nike.com/bootroom) experience.
 
 The image below depicts how Smart Search gathers search results and ranks them.
 
@@ -107,15 +107,15 @@ The image below depicts how Smart Search gathers search results and ranks them.
 3 Key2Concepts service passes taxonomy terms to Taxonomy Service, looks up sizes, collections and authored concepts in concept index, and returns concept UUIDs
 4 Taxonomy looks up and returns UUIDs for each taxonomy term
 5 Rules engine finds applicable rules and uses search strategy to find signals
-6 Search strategy algorithm finds and returns applicable signals
-7 Core Search uses the Smart Search URL to execute search and returns the search results
+6 Search strategy algorithm finds and returns applicable signals that boost products in search rankings
+7 Smart Search URL executes search and returns the search results
 
 
 ### Core Search
 Core Search does not use custom rules. It uses a default search rule and sort rule configured for the experience calling it. The main consumer of Core Search is the Product Feeds Rollup Threads Service. After it gets the refined Search URL from Smart Search, the Product Feeds Rollup Threads Service calls Core Search to get the final search results. Certain experiences call Core Search directly but eventually all experiences will call the Product Feeds Rollup Threads Service to get search results.
 
-### Navigation Filtering
-Use this type of search to build navigation in your experience. It uses custom rules to return navigation objects based on the search terms and navigation attribute ids you provide. For instance, if you pass the "gender" attributeId, navigation filter search returns "mens", "womens", "girls" and "boys" navigation objects. Making a second call to Navigation Filtering passing the "girls" attributeId might return "size range", "sport", "best for", and "fit" filters.
+### Recommended Navigation
+Use this type of search to build navigation in your experience. Like Smart Search, Recommended Navigation uses a keyword/concept mapping and custom rules to determine the appropriate set of navigation objects. For instance, if you pass the "gender" attributeId, Recommended Navigation search returns "mens", "womens", "girls" and "boys" navigation objects. Making a second call to Navigation Filtering passing the "girls" attributeId might return "size range", "sport", "best for", and "fit" filters.
 
 
 ## <a name="rules-results-rankings"></a>Rules, Results and Rankings
@@ -124,7 +124,7 @@ Search culls data from several sources and utilizes a robust rules engine to det
 
 ### Rules
 
-Search rules play a key role in determining search results and rankings. Rules are administered in the Apollo rule management tool. Authorized users can add actions to rules that boost products to the top, bury products at the end and exclude products from search results.
+Search rules play a key role in determining search results and rankings. Rules are administered in the Apollo rule management tool. Authorized users can add actions to rules that boost products to the top and/or bury products at the end of search results. Actions can also exclude products completely.
 
 Rules are triggered either by customer activity such as searching for a particular keyword or by context, such as an attribute that a product is assigned. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to build a product wall of related products. They allow a rule administrator to curate exactly what products to display for an experience in a particular geography. Navigation rules are used to build a dynamic navigation filter tree based on filter. For instance, clicking the Gender filter triggers another search that uses a Navigation rule that might return the "girls", "boys", "womens" and "mens" filters.
 
@@ -132,9 +132,7 @@ Each channel has one default rule customized for the experience that determines 
 
 ### <a name="results"></a>Results
 
-The attributes that a product is assigned influences search results. If a product is not in the ACTIVE state or is marked "hide from search", the product will be filtered out of the search results by the default rule.
-
-The field that search criteria is assigned also affects search results because only a subset of product fields are searched.
+Several factors affect search results, including product attributes and to what field they are assigned. If a product is not in the ACTIVE state or is marked "hide from search", the product will be filtered out of the search results by the default rule. If the keyword searched for is not in a field that search queries, the product will be left out of the search results.
 
 Depending upon the type of search, the source of product data is different. Currently, Search Preview and Autocomplete Search use Endeca as a product data source. Navigation and Core search use product information supplied by the Product Feed Service. Both sources provide Search with inventory availability information.
 
@@ -148,7 +146,7 @@ A search rule can be assigned a priority to influence when the rule is applied i
 
 Behind the scenes, the rules engine uses signals as part of the search strategy to influence search rankings. Signals are either consumer or business driven. Consumer driven signals are trends based on consumer behavior over a period of time. For example, a signal could boost the product that had the most viewed product display page within the past week, or a signal could boost the product that was most added to cart within the past month. Because this type of signal is an aggregate of consumer actions, consumer driven signals are constantly changing. Signals can also be driven by marketing objectives. The signal for the newest product or the signal for the product with the highest margin could boost those products to the top of the search rankings.
 
-## <a name="trouble-shooting"></a>Trouble Shooting
+## <a name="troubleshooting"></a>Troubleshooting
 
 If the products returned by search are either not ranked as you expect or not returned at all, there are a few steps you can take to trouble shoot.
 
