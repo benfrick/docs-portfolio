@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="../../../css/style.css"/>
 <script src="/js/nde.js" type="text/javascript"></script>
 
 <!--See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md) for version history for this document.
@@ -459,9 +459,9 @@ The following is a list of scenarios that illustrate which **filter** parameters
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure, so rather than **objects.id** use **id**, for example.
+><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting when using the `fields` parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure; Use **id** rather than objects.**id**.
 >
-><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
+><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values:<br/>`styleCode(942198,AA1697,928597)`
 
 ##### Using Search-Based Queries
 
