@@ -178,7 +178,7 @@ Listed below are the best practices for calling each Availability service.
 
 ## <a name="launch-service"></a>Launch Service
 
-TBD
+Coming soon
 
 ## <a name="merchandised-product-service"></a>Merchandised Product Service
 
