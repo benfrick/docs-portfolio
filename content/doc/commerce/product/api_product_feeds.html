@@ -402,8 +402,8 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </table>
 <blockquote>
   <p><strong>TIPS:</strong></p>
-  <p><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the <strong>objects</strong> element of the response structure, so rather than <strong>objects.id</strong> use <strong>id</strong>, for example.</p>
-  <p><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values at a time: <code>?filter=productInfo.merchProduct.styleCode(942198,AA1697)</code></p>
+  <p><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting when using the <code>fields</code> parameter, e.g. field1.field2. Always start your nesting below the <strong>objects</strong> element of the response structure; Use <strong>id</strong> rather than objects.<strong>id</strong>.</p>
+  <p><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values:<br/><code>styleCode(942198,AA1697,928597)</code></p>
 </blockquote>
 <h5 id="using-search-based-queries"><a href="#using-search-based-queries" name="using-search-based-queries">Using Search-Based Queries</a></h5>
 <p>Send one or more search keywords in the <strong>searchTerms</strong> query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.</p>
