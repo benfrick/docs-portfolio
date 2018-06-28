@@ -355,7 +355,44 @@ Listed below are the best practices for calling each Payment service.
 
 ## <a name="product-feeds-service"></a>Product Feeds Service
 
-TBD
+Listed below are the best practices for calling each Product Feeds Service.
+
+- [Product Feed V2](#product-feed-v2)
+- [Product Feed Rollups V2](#product-feed-rollups-v2)
+- [Product Feed Exclusive Threads V2](#product-feed-exclusive-threads-v2)
+
+### <a name="product-feed-v2"></a>Product Feed V2
+
+**Endpoint:** /product_feed/threads/v2
+
+|Topic|Best Practice|
+|---|---|
+|**Circuit breaker trigger**|None|
+|**Circuit breaker fallback behavior**|None|
+|**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
+|**Fallback behavior for API callers**|None|
+
+### <a name="product-feed-rollups-v2"></a>Product Feed Rollups V2
+
+**Endpoint:**  /product_feed/rollup_threads/v2
+
+|Topic|Best Practice|
+|---|---|
+|**Circuit breaker trigger**|Product Feed Rollups calls Smart Search. Repeated call failure to this service triggers the circuit breaker.|
+|**Circuit breaker fallback behavior**|None|
+|**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
+|**Fallback behavior for API callers**|None|
+
+### <a name="product-feed-exclusive-threads-v2"></a>Product Feed Exclusive Threads V2
+
+**Endpoint:** /product_feed/exclusive_threads/v2
+
+|Topic|Best Practice|
+|---|---|
+|**Circuit breaker trigger**|None|
+|**Circuit breaker fallback behavior**|None|
+|**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
+|**Fallback behavior for API callers**|None|
 
 ## <a name="related-links"></a>Related Links
 
