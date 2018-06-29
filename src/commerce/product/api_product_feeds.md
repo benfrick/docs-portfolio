@@ -13,7 +13,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 06/28/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -44,10 +44,6 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 [Making Your First API Request](#making-your-first-api-request)
 
 [Using Product Feeds v2](#using-product-feeds-v2)
-
-<span class="toc-pad">[All Product Feeds](#all-product-feeds)
-
-<span class="toc-pad">[Product Feed by ID](#product-feed-by-id)
 
 <span class="toc-pad">[Product Threads List](#product-threads-list)
 
@@ -112,8 +108,6 @@ There are no authentication requirements for Product Feeds except when using the
 
 |I want to...|API(s) to use|
 |---|---|
-|List all Product Feeds for a specific channel|*All Product Feeds*|
-|Get a specific Product Feed by its ID|*Product Feed by ID*|
 |List all Product Threads for a channel, language, marketplace, feed ID, SEO slug, style-color, gender, keywords, and more|*Threads List*|
 |Get a specific Product Thread by its ID|*Product Thread by ID*|
 
@@ -133,8 +127,6 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|All Product Feeds|Get all feeds for a channel|`/product_feed/feeds/v2{?filter}`|
-|GET|Product Feed by ID|Get a specific feed or feed preview by its identifier|`[product_feed/feeds/v2/{id}]`|
 |GET|Product Threads List|Get all threads for a channel, marketplace, language combination|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
 |GET|Product Thread by ID|Get a specific thread by its identifier|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
 
@@ -215,9 +207,19 @@ The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Servi
 
 To build the full URL, prepend `https://api.nike.com` to the above path, then append after 'v2' with the required **filter** query parameter. The resulting full URL would be:
 
-`https://api.nike.com/product_feed/feeds/v2?filter="channelId(your_channel_Id_here)"`.
+`https://api.nike.com/product_feed/threads/v2?filter="channelId(your_channel_Id_here)"`.
 
-Test the URL using the Postman app or your favorite browser. You should receive a response body similar to the following (note: your values will vary):
+**3. Execute the request**
+
+Test the URL using the Postman app, your favorite browser or cURL. Below is an example of how to call the endpoint via cURL.
+
+```
+curl -X GET \
+     'https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_Id_here)' \
+     -H 'cache-control: no-cache'
+```
+
+You should receive a response body from the Threads List endpoint similar to the following (note: your values will vary):
 
 ```
 {
@@ -340,16 +342,6 @@ Test the URL using the Postman app or your favorite browser. You should receive 
   }
   ```
 
-**3. Execute the request**
-
-Ultimately you will want to call this API from within your app and this is usually done with a cURL command. For example:
-
-```
-curl -X GET \
-     'https://api.nike.com/product_feed/feeds/v2?filter=channelId(your_channel_Id_here)' \
-     -H 'cache-control: no-cache'
-```
-
 **More Complex Examples**
 
 Next, let's call the Threads List endpoint from the Product Feeds v2 API with a combination of query parameters.
@@ -382,10 +374,6 @@ https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)
 
 ## <a name="using-product-feeds-v2"></a>Using Product Feeds v2
 
-- [All Product Feeds](#all-product-feeds)
-
-- [Product Feed by ID](#product-feed-by-id)
-
 - [Product Threads List](#product-threads-list)
 
 - [Product Thread by ID](#product-thread-by-id)
@@ -393,170 +381,6 @@ https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)
 - [Product Feeds Error Handling](#product-feeds-error-handling)
 
 The following sections explain each Product Feeds endpoint in detail, concluding with a section on error handling.
-
-### <a name="all-product-feeds"></a>All Product Feeds
-
-Get all product feeds for a particular channel by referencing its identifier in the request.
-
-#### Endpoint Details
-
-|HTTP Method|URI Path|Restricted?|
-|---|---|---|
-|**GET**|`/product_feed/feeds/v2{?filter}`|No|
-
-#### Path & Query Parameters
-
-|Parameter|Type|Description|Data Type|Required?|
-|---|---|---|---|---|
-|**filter**|Query|Restrict the response by filter criteria. Only **channelId** is supported, e.g. ?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)|String|**Required**|
-
-#### Example Scenarios
-
-|I Want to List|Sample Query|
-|---|---|
-|Feeds for a channelId|https://api.nike.com/product_feed/feeds/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)|
-
-#### <a name="all-product-feeds-request-headers"></a>Request Headers
-
-There are no required request headers.
-
-#### <a name="all-product-feeds-request-body"></a>Request Body
-
-There is no body for a GET request.
-
-#### <a name="all-product-feeds-response-body"></a>Response Body
-
-The important elements of the *All Product Feeds* response body are as follows:
-
-|Element Name|Description|
-|---|---|
-|**pages**|Object at top level containing link to previous and next pages of results|
-|pages.**prev**|Link to previous page of results|
-|pages.**next**|Link to next page of results|
-|**objects**|Array at top level containing feed data|
-|objects.**id**|Unique identifier for the feed in UUID format|
-|objects.**name**|Human-readable nickname for the feed|
-|objects.**status**|Status of the feed/collection, 'ACTIVE' or 'INACTIVE'|
-|objects.**parentGroupIds**|Lists all the collection groups (channels) that this feed belongs to|
-|objects.**imageUrl**|URL for a full-sized product image|
-|objects.**listingEnabled**|Boolean indicator showing whether the feed should be listed|
-
-Sample *All Product Feeds* response body (HTTP 200):
-
-```
-{
-    "pages": {
-        "prev": "",
-        "next": ""
-    },
-    "objects": [
-        {
-            "id": "01894a4a-9f7a-4b32-b334-651afd0c35ee",
-            "name": "Air Icarus",
-            "status": "ACTIVE",
-            "parentGroupIds": [
-                "79a3408f-590e-4f59-a22c-fd00377a6251"
-            ],
-            "imageUrl": "https://secure-images.nike.com/is/image/DotCom/896447_004",
-            "listingEnabled": false,
-            "resourceType": "feed",
-            "links": {
-                "self": {
-                    "ref": "/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
-                }
-            }
-        },
-        {
-            "id": "02974fb2-0acf-4797-9376-55873c34b4ad",
-            "name": "Uptempo",
-            "status": "ACTIVE",
-            "parentGroupIds": [
-                "79a3408f-590e-4f59-a22c-fd00377a6251"
-            ],
-            "imageUrl": null,
-            "listingEnabled": false,
-            "resourceType": "feed",
-            "links": {
-                "self": {
-                    "ref": "/product_feed/feeds/v2/02974fb2-0acf-4797-9376-55873c34b4ad?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
-                }
-            }
-        },
-    ]
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Feeds/get_product_feed_feeds_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<hr>
-
-### <a name="product-feed-by-id"></a>Product Feed by ID
-
-Get a specific product Feed by its unique identifier.
-
-#### Endpoint Details
-
-|HTTP Method|URI Path|Restricted?|
-|---|---|---|
-|**GET**|`/product_feed/feeds/v2/{id}`|No|
-
-#### Path & Query Parameters
-
-|Parameter|Type|Description|Data Type|Required?|
-|---|---|---|---|---|
-|**id**|Path|Unique identifier of the feed in UUID format|String|**Required**|
-
-#### Example Scenarios
-
-|I Want to List|Sample Query|
-|---|---|
-|Single feed by ID|https://api.nike.com/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee|
-
-#### <a name="product-feed-by-id-request-headers"></a>Request Headers
-
-There are no required request headers.
-
-#### <a name="product-feed-by-id-request-body"></a>Request Body
-
-There is no body for a GET request.
-
-#### <a name="product-feed-by-id-response-body"></a>Response Body
-
-The important elements of the *Product Feed by ID* response body are as follows:
-
-|Element Name|Description|
-|---|---|
-|**id**|Unique identifier for the feed in UUID format|
-|**name**|Human-readable nickname for the feed|
-|**status**|Status of the collection, 'active' or 'inactive'|
-|**parentGroupIds**|Lists all the collection groups (i.e. channels) that this feed belongs to|
-|**imageUrl**|URL for a full-sized product image|
-|**listingEnabled**|Boolean indicator showing whether the feed should be listed on a target app|
-
-Sample *Product Feed by ID* response body (HTTP 200):
-
-```
-{
-    "id": "01894a4a-9f7a-4b32-b334-651afd0c35ee",
-    "name": "Air Icarus",
-    "status": "ACTIVE",
-    "parentGroupIds": [
-        "79a3408f-590e-4f59-a22c-fd00377a6251"
-    ],
-    "imageUrl": "https://secure-images.nike.com/is/image/DotCom/896447_004",
-    "listingEnabled": false,
-    "resourceType": "feed",
-    "links": {
-        "self": {
-            "ref": "/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
-        }
-    }
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Feeds/get_product_feed_feeds_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<hr>
 
 ### <a name="product-threads-list"></a>Product Threads List
 
@@ -635,15 +459,15 @@ The following is a list of scenarios that illustrate which **filter** parameters
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure, so rather than **objects.id** use **id**, for example.
+><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting when using the `fields` parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure; Use **id** rather than objects.**id**.
 >
-><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
+><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values:<br/>`styleCode(942198,AA1697,928597)`
 
 ##### Using Search-Based Queries
 
 Send one or more search keywords in the **searchTerms** query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.
 
-The four searchable fields are:
+The searchable fields are:
 
 - productInfo.productContent.**fullTitle**
 - productInfo.productContent.**title**
@@ -652,16 +476,13 @@ The four searchable fields are:
 - productInfo.merchProduct.**styleColor**
 - productInfo.merchProduct.**styleCode**
 
-For example, using `searchTerms=Chuck Taylor` would return any threads where the words 'Chuck' and 'Taylor' are found anywhere in a searchable field.
+For example, using `searchTerms=Chuck Taylor` would return all threads with the words 'Chuck' and 'Taylor' found anywhere in a searchable field.
 
 The default search behavior is *partial match*. Limiting the search to only *full string matches* can be done by enclosing the keywords in double quotes, like `searchTerms="Chuck Taylor"`. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.
 
 ##### Pagination and Limits
 
-When a call is made to the Threads list endpoint a paginated response will be returned if the number of items exceeds either:
-
-1. The value in the count query parameter (note: max allowed is 50)
-2. The default count of 50 if the count parameter is omitted.
+The Threads List endpoint returns a paginated response when the number of threads returned exceeds the count query parameter. If the count query parameter is omitted, the maximum allowed is 50.
 
 A 'next' link will be provided in the pages section of the response for paginated results. The next link includes all the parameters originally passed to the endpoint along with an anchor parameter that marks the number of item to start the next page.
 
@@ -787,7 +608,7 @@ The important elements of the *Threads List* response body are as follows:
 
 If you are getting data in the **objects.productInfo.customizedPreBuild** section of the response, then one of the threads that you've requested contains a customizable prebuild product.
 
-A prebuild is pre-designed, customizable (e.g., NIKEiD) product design, setup by business operations/designers, as an example of what could be designed for a specific customizable product. These "inspiration" designs are merchandised within specific merchandising groups and used many places, including in product walls, product display pages, and marketing materials.
+A prebuild is a design for a customizable (e.g., NIKEiD) product, invented by product experts/designers to demonstrate how customers can personalize the product. These "inspiration" designs are merchandised within specific merchandising groups and can be found on product walls and product display pages and in marketing materials.
 
 You will be able to identify the presence of prebuilds when **objects.publishedContent.properties.threadType** field contains the value **nikeid_soldier**.
 
@@ -2051,8 +1872,6 @@ The following table lists the v1 endpoints along with the equivalent v2 endpoint
 |---|---|
 |All Product Channels|None|
 |Product Channel by Name|None|
-|All Product Feeds|All Product Feeds|
-|Product Feed by ID|Product Feed by ID|
 |Product Feed by Feed ID|None|
 |All Product Threads|Product Threads List|
 |Product Thread by ID|Product Thread by ID|
@@ -2061,34 +1880,6 @@ The following table lists the v1 endpoints along with the equivalent v2 endpoint
 |Product Thread by SEO Slug|Product Threads List|
 |All Admin Threads|None|
 |Product Card by ID|None|
-
-### <a name="all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping"></a>All Product Feeds & Product Feed by ID v1 to v2 Field Mapping
-
-The response structure of the v1 *All Product Feeds* and *Product Feed by ID* endpoints is the same, with a few minor exceptions, so for the purposes of upgrading to v2 they can be discussed together.
-
-The below table describes how the response body fields map from the v1 to the v2 endpoints with same name.
-
-|V1 Field Name|Description|V2 Field Name|Description|Notes|
-|---|---|---|---|---|
-|**country**|Country in which the feed exists|N/A|No equivalent||
-|**locale**|Locale of the feed content|N/A|No equivalent||
-|**channel**|Channel in which the feed exists|N/A|No equivalent||
-|**totalRecords**|Total number of feeds that match the criteria|N/A|No equivalent||
-|**feeds**|Array containing one or more feeds that match the criteria|N/A|No equivalent||
-|**id**|UniqueID hash of the feed.feedId|**id**||v1 and v2 IDs are not the same, also v2 is in UUID format|
-|**feedId**|An unique ID string relative path of a given feed in AEM/AuthoringTool|N/A|No equivalent|Deprecated|
-|**interestId**|This is used to add the InterestId from Social. Currently SNKRS uses it for the mapping the FOLLOWS verb|N/A|No equivalent|Deprecated|
-|**createdDate**|Time when the object was created in AEM/AuthoringTool|N/A|No equivalent||
-|**lastUpdatedDate**|Last time this object was updated|N/A|No equivalent||
-|**name**|Name of the feed|**name**|Human-readable nickname||
-|**thumbnailURL**|URL for the thumbnail image|N/A|No equivalent||
-|**imageURL**|URL for feed image|**imageURL**|URL of a full-sized image|In v2, this is often null|
-|**categories**|categories the feed is associated with|N/A|No equivalent||
-|**status**|Indicates the status of the feed|**status**|For showing whether this collection is active or inactive||
-|**listingEnabled**|This attribute is true by default.It prevents feeds from being listed when set to false|**listingEnabled**|Shows whether this collection should be listed on a target app||
-|N/A|No equivalent|**parentGroupIds**|Lists all the collection groups (i.e. channels) that this feed belongs to||
-
->**TIP:** For v2 URI format and available parameters, see [All Product Feeds](#all-product-feeds) and [Product Feed by ID](#product-feed-by-id) sections of this document.
 
 ### <a name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"></a>All Product Threads & Product Thread by ID v1 to v2 Field Mapping
 
@@ -2230,7 +2021,7 @@ The URL pattern used by the Product Feeds API's varies depending on the version,
 
 **v2**
 
-`https://api.nike.com/product_feed/feeds/v2`
+No equivalent endpoint.
 
 >**TIP:** Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
 
@@ -2309,11 +2100,12 @@ No release notes available
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|01/23/2018|Initial Draft|
-|Updates per Jan API.md changes|02/9/2018|Added new allowed values for **sort** and **filter** query params, added new **includeExclusiveAccess** query param|
+|Updates per template|02/9/2018|Added new allowed values for **sort** and **filter** query params, added new **includeExclusiveAccess** query param|
 |Layout updates|02/12/2018|Changed layout to meet new API Doc standards, added Troubleshooting content|
 |Updated links|03/20/2018|Updated links to point to new dev portal|
 |Updated external links|04/03/2018|Updated external links to open in new browser window|
 |Updated API.md links|05/14/2018|Updated API.md links to point to new dev portal|
+|Removed endpoints|6/28/2018|Removed references to the deprecated product_feed/feed endpoints|
 
 ## <a name="related-links"></a>Related Links
 
