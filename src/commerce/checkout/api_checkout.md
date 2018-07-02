@@ -14,7 +14,7 @@
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 04/30/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 06/26/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
@@ -1066,7 +1066,7 @@ Required request headers:
 
 The request must contain at least **ONE OF** the following schemas:
 
-Element Name|Type |Description|Required?|
+Element Name|Type|Description|Required?|
 |---|---|---|---|
 |**op**| string |Operation to perform, either 'add' or 'replace' is allowed|Required|
 |**path**|string|JSON Pointer path, only ‘/items’ is allowed|Required|
@@ -1082,7 +1082,7 @@ Element Name|Type |Description|Required?|
 
 **OR**
 
-Element Name|Type |Description|Required?|
+Element Name|Type|Description|Required?|
 |---|---|---|---|
 |**op**|string |Operation to perform, only 'remove' is allowed|Required|
 |**path**|string|JSON Pointer path, only ‘/items’ is allowed|Required|
@@ -1090,7 +1090,7 @@ Element Name|Type |Description|Required?|
 
 **OR**
 
-Element Name|Type |Description|Required?|
+Element Name|Type|Description|Required?|
 |---|---|---|---|
 |**op**|string |Operation to perform, either 'add' or 'remove' is allowed|Required|
 |**path**|string|JSON Pointer path, only '/promotionCodes' is allowed|Required|
@@ -1570,24 +1570,24 @@ Required request headers:
 
 #### <a name="cart-augment-request-body"></a>Request Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**country**|Required|ISO 3166 country code, e.g. US|
-|**currency**|Required|ISO 4217 currency code, e.g. USD|
-|**brand**|Required|Nike brand name associated with the cart, only NIKE is supported|
-|**items**|Required|Array containing list of item objects, with the following required fields:|
-|items.**id**|Required|Unique identifier of the line item in the request. You create this value.|
-|items.**skuId**|Required|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|
-|items.**quantity**|Required|Unit quantity (integer) of the SKU.|
-|items.**shippingAddress**|Required|Address to which items are to be shipped. Only the following field is required:|
-|items.shippingAddress.**country**|Required|Shipping address country. 2-alpha character ISO 3166 country code.|
-|**channel**|Optional|Sales channel of the shopping cart, only 'NIKECOM' is supported. Located at top level of request.|
-|**shippingMethod**|Optional|The method by which the item will be shipped. Located under **items** array. Only the following field is required:|
-|shippingMethod.**id**|Optional|The identifier for the shipping method, e.g. 'STANDARD' for standard ground shipping in the US.|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**country**|string|ISO 3166 country code, e.g. US|Required|
+|**currency**|string|ISO 4217 currency code, e.g. USD|Required|
+|**brand**|string|Nike brand name associated with the cart, only NIKE is supported|Required|
+|**items**|array|Array containing list of item objects, with the following required fields:|Required|
+|items.**id**|string|Unique identifier of the line item in the request. You create this value.|Required|
+|items.**skuId**|string|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|Required|
+|items.**quantity**|integer|Unit quantity of the SKU.|Required|
+|items.**shippingAddress**|object|Address to which items are to be shipped. Only the following field is required:|Required|
+|items.shippingAddress.**country**|string|Shipping address country. 2-alpha character ISO 3166 country code.|Required|
+|**channel**|string|Sales channel of the shopping cart, only 'NIKECOM' is supported. Located at top level of request.|Optional|
+|**shippingMethod**|object|The method by which the item will be shipped. Located under **items** array. Only the following field is required:|Optional|
+|shippingMethod.**id**|string|The identifier for the shipping method, e.g. 'STANDARD' for standard ground shipping in the US.|Optional|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|Optional|
 
 >**TIPS:**
 >
@@ -1802,7 +1802,7 @@ Following is a summary of the errors and warnings that can come back in response
 }
 ```
 
-3. Response for a reqeust that included an id (line item identifier) which was not in UUID format:
+3. Response for a request that included an id (line item identifier) which was not in UUID format:
 ```
 {
     "httpStatus": 500,
@@ -2669,27 +2669,27 @@ Required request headers:
 
 #### <a name="shipping-options-request-body"></a>Request Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**country**|Required|ISO 3166 country code, e.g. US|
-|**currency**|Required|ISO 4217 currency code, e.g. USD|
-|**items**|Required|Array containing list of item objects, with the following required fields:|
-|items.**id**|Required|Unique identifier of the line item in the request. You create this value.|
-|items.**skuId**|Required|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
-|**shippingAddress**|Optional|The address to which items are to be shipped. Required fields are **postalCode** and **country**. Complete list of fields here:|
-|shippingAddress.**address1**|Optional|Shipping address line one.|
-|shippingAddress.**address2**|Optional|Shipping address line two.|
-|shippingAddress.**address3**|Optional|Shipping address line three.|
-|shippingAddress.**city**|Optional|Shipping address city.|
-|shippingAddress.**state**|Optional|Shipping address state. This should be the ISO 3166-2 subdivision code. For the US, this is the 2-alpha state code as defined in ISO 3166-2:US.|
-|shippingAddress.**postalCode**|Optional|Shipping address postal code. In the US, this is the 5-digit or the 5-plus-4-digit zip code.|
-|shippingAddress.**country**|Optional|Shipping address country. 2-alpha character ISO 3166 country code.|
-|shippingAddress.**county**|Optional|Shipping address county. This will typically be used for non-US addresses to hold specific regional data.|
-|**promotionCodes**|Optional|Array containing promotion codes that the user has attempted to apply|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**country**|string|ISO 3166 country code, e.g. US|Required|
+|**currency**|string|ISO 4217 currency code, e.g. USD|Required|
+|**items**|array|Array containing list of item objects, with the following required fields:|Required|
+|items.**id**|string|Unique identifier of the line item in the request. You create this value.|Required|
+|items.**skuId**|string|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|Required|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|Optional|
+|**shippingAddress**|object|The address to which items are to be shipped. Required fields are **postalCode** and **country**. Complete list of fields here:|Optional|
+|shippingAddress.**address1**|string|Shipping address line one.|Optional|
+|shippingAddress.**address2**|string|Shipping address line two.|Optional|
+|shippingAddress.**address3**|string|Shipping address line three.|Optional|
+|shippingAddress.**city**|string|Shipping address city.|Optional|
+|shippingAddress.**state**|string|Shipping address state. This should be the ISO 3166-2 subdivision code. For the US, this is the 2-alpha state code as defined in ISO 3166-2:US.|Optional|
+|shippingAddress.**postalCode**|string|Shipping address postal code. In the US, this is the 5-digit or the 5-plus-4-digit zip code.|Optional|
+|shippingAddress.**country**|string|Shipping address country. 2-alpha character ISO 3166 country code.|Optional|
+|shippingAddress.**county**|string|Shipping address county. This will typically be used for non-US addresses to hold specific regional data.|Optional|
+|**promotionCodes**|array|Array containing promotion codes that the user has attempted to apply|Optional|
 
 >**TIPS:**
 >
@@ -2734,25 +2734,25 @@ Sample *Shipping Options* request body:
 
 The HTTP 200 success response from *Shipping Options* reflects back many elements from the request body and also includes the following new information to the client:
 
-|Element Name|Description|
-|---|---|
-|**shippingMethods**|Array under **items** containing information about the shipping methods available to your shopper based on the data sent in the request|
-|shippingMethods.**id**|Shipping method name|
-|shippingMethods.**daysToArrive**|DEPRECATED - do not use|
-|shippingMethods.**estimatedDelivery**|Estimated delivery date (in nested **date** field) or date range (in nested range.**min** and range.**max** for the shipping method. You will get either a date or a date range, not both.|
-|shippingMethods.estimateDelivery.**id**|Identifier for the delivery estimate|
-|shippingMethods.estimateDelivery.**date**|Estimated delivery date|
-|shippingMethods.estimateDelivery.**range**|Estimated delivery range (see min/max nested)|
-|shippingMethods.estimateDelivery.range.**minDate**|Earliest date within range that the delivery can be completed|
-|shippingMethods.estimateDelivery.range.**maxDate**|Latest date within range that the delivery can be completed|
-|shippingMethods.**priceInfo**|Price information for shipping method. Contains the following:|
-|shippingMethods.priceInfo.**cost**|Base price of shipping method|
-|shippingMethods.priceInfo.**discount**|Discount amount applied (if any)|
-|shippingMethods.priceInfo.**total**|Net price of shipping method (cost - discount)|
-|shippingMethods.**promotionDiscounts**|Array of applied promotion codes and their discount amounts|
-|shippingMethods.promotionDiscounts.**code**|Promotion code associated with the discount (entered by user)|
-|shippingMethods.promotionDiscounts.**amount**|Promotion discount amount|
-|shippingMethods.promotionDiscounts.**id**|Promotion unique identifier|
+|Element Name|Type|Description|
+|---|---|---|
+|**shippingMethods**|array|Array under **items** containing information about the shipping methods available to your shopper based on the data sent in the request|
+|shippingMethods.**id**|string|Shipping method name|
+|shippingMethods.**daysToArrive**|n/a|DEPRECATED - do not use|
+|shippingMethods.**estimatedDelivery**|object|Estimated delivery date (in nested **date** field) or date range (in nested range.**min** and range.**max** for the shipping method. You will get either a date or a date range, not both.|
+|shippingMethods.estimateDelivery.**id**|string|Identifier for the delivery estimate|
+|shippingMethods.estimateDelivery.**date**|string|Estimated delivery date|
+|shippingMethods.estimateDelivery.**range**|object|Estimated delivery range (see min/max nested)|
+|shippingMethods.estimateDelivery.range.**minDate**|string|Earliest date within range that the delivery can be completed|
+|shippingMethods.estimateDelivery.range.**maxDate**|string|Latest date within range that the delivery can be completed|
+|shippingMethods.**priceInfo**|string|Price information for shipping method. Contains the following:|
+|shippingMethods.priceInfo.**cost**|number|Base price of shipping method|
+|shippingMethods.priceInfo.**discount**|number|Discount amount applied (if any)|
+|shippingMethods.priceInfo.**total**|number|Net price of shipping method (cost - discount)|
+|shippingMethods.**promotionDiscounts**|array|Array of applied promotion codes and their discount amounts|
+|shippingMethods.promotionDiscounts.**code**|string|Promotion code associated with the discount (entered by user)|
+|shippingMethods.promotionDiscounts.**amount**|number|Promotion discount amount|
+|shippingMethods.promotionDiscounts.**id**|string|Promotion unique identifier|
 
 >**TIP:** The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> format of `yyyy-mm-ddThh:mm:ss.mssZ` and in UTC with zero offset, e.g. `2017-07-18T18:25:45.237Z`. Convert to the local date (or date/time) of the shopper as necessary.
 
@@ -2974,34 +2974,34 @@ Required request headers:
 
 #### <a name="checkout-preview-request-body"></a>Request Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**request**|Required|Top-level object in request schema|
-|**email**|Required|Email address for the shopper|
-|**country**|Required|2-alpha character ISO 3166 country code, e.g US|
-|**currency**|Required|ISO 4217 currency code for the shopper, e.g. USD|
-|**locale**|Required|Posix-formatted locale code, e.g. en_US|
-|**channel**|Required|Selling channel name associated with the checkout, e.g. 'SNKRS'|
-|**items**|Required|Array containing list of products and value-added services to be previewed. The minimum values that need to be sent in this section are:|
-|items.**id**|Required|Unique identifier of the line item in the array. You create this value|
-|items.**skuId**|Required|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services|
-|items.**quantity**|Required|Unit quantity (integer) of the line item, as chosen by the shopper|
-|items.**recipient**|Required|Person to which the items are to be shipped, as entered by the shopper:|
-|items.recipient.**firstName**|Required|First name of the person receiving the items|
-|items.recipient.**lastName**|Required|Last name of the person receiving the items|
-|items.**shippingAddress**|Required|Address to which items are to be shipped, as entered by the shopper:|
-|items.shippingAddress.**address1**|Required|Shipping address line one|
-|items.shippingAddress.**city**|Required|Shipping address city|
-|items.shippingAddress.**country**|Required|Shipping address country|
-|items.**shippingMethod**|Required|Identifier for the shipping method, as obtained from the Nike Shipping Options API and selected by the shopper, e.g. 'STANDARD' for standard ground shipping in the US|
-|**clientInfo**|Optional|Information about the client system making the request to the API|
-|clientInfo.**deviceId**|Optional|'Fingerprint' of the device making the request|
-|clientInfo.**client**|Optional|Name of client making the request, e.g. 'com.nike.commerce.snkrs.web'|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS: a customization service for a shoe or a gift-wrapping service|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
-|**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**request**|object|Top-level object in request schema|Required|
+|**email**|string|Email address for the shopper|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g US|Required|
+|**currency**|string|ISO 4217 currency code for the shopper, e.g. USD|Required|
+|**locale**|string|Posix-formatted locale code, e.g. en_US|Required|
+|**channel**|string|Selling channel name associated with the checkout, e.g. 'SNKRS'|Required|
+|**items**|array|Array containing list of products and value-added services to be previewed. The minimum values that need to be sent in this section are:|Required|
+|items.**id**|string|Unique identifier of the line item in the array. You create this value|Required|
+|items.**skuId**|string|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services|Required|
+|items.**quantity**|integer|Unit quantity (integer) of the line item, as chosen by the shopper|Required|
+|items.**recipient**|object|Person to which the items are to be shipped, as entered by the shopper:|Required|
+|items.recipient.**firstName**|string|First name of the person receiving the items|Required|
+|items.recipient.**lastName**|string|Last name of the person receiving the items|Required|
+|items.**shippingAddress**|object|Address to which items are to be shipped, as entered by the shopper:|Required|
+|items.shippingAddress.**address1**|string|Shipping address line one|Required|
+|items.shippingAddress.**city**|string|Shipping address city|Required|
+|items.shippingAddress.**country**|string|Shipping address country|Required|
+|items.**shippingMethod**|string|Identifier for the shipping method, as obtained from the Nike Shipping Options API and selected by the shopper, e.g. 'STANDARD' for standard ground shipping in the US|Required|
+|**clientInfo**|object|Information about the client system making the request to the API|Optional|
+|clientInfo.**deviceId**|string|'Fingerprint' of the device making the request|Optional|
+|clientInfo.**client**|string|Name of client making the request, e.g. 'com.nike.commerce.snkrs.web'|Optional|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS: a customization service for a shoe or a gift-wrapping service|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|Optional|
+|**promotionCodes**|array|Array containing list of promotion codes being applied to the checkout|Optional|
 
 >**TIPS:**
 >
@@ -3151,12 +3151,12 @@ There is no body for a GET request.
 
 For a job that is in either "PENDING" or "IN_PROGRESS" status, the response is abbreviated and only contains the following:
 
-|Element Name|Description|
-|---|---|
-|**id**|Checkout id you sent in the request, also your job ID|
-|**status**|Status of the job|
-|**eta**|Estimated wait time before polling the jobs endpoint to get your results|
-|**links**|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
+|Element Name|Type|Description|
+|---|---|---|
+|**id**|string|Checkout id you sent in the request, also your job ID|
+|**status**|string|Status of the job|
+|**eta**|integer|Estimated wait time before polling the jobs endpoint to get your results|
+|**links**|object|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
 
 Sample *Retrieve Checkout Preview Job* response body with "IN_PROGRESS" status:
 
@@ -3177,44 +3177,45 @@ For a job that is in "COMPLETED" status and had no errors, the response also con
 
 The structure of the **response** object is similar in structure to the request body, with the following notable additions:
 
-|Element Name|Description|
-|---|---|
-|**shippingGroups**|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
-|**priceInfo**|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
-|priceInfo.**employeePrice**|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
-|**taxes**|Array of tax details. Found under **items** and **shippingCosts** objects|
-|taxes.**type**|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
-|taxes.**rate**|Tax rate|
-|taxes.**total**|Total tax amount|
-|**promotionDiscounts**|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
-|promotionDiscounts.**code**|Promotion code entered by the user|
-|promotionDiscounts.**amount**|Promotion discount amount|
-|promotionDiscounts.**id**|Promotion identifier|
-|**shippingMethod**|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
-|shippingMethod.**id**|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
-|shippingMethod.**cost**|Retail cost of shipping via the shipping method|
-|shippingMethod.**daysToArrive**|DEPRECATED - do not use|
-|shippingMethod.**estimatedDelivery**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails|Object containing unique identifier of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|Unique identifier (UUID) of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|Message describing the delivery estimate|
-|**shippingCosts**|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
-|shippingCosts.**price**|Price of the shipping costs|
-|shippingCosts.**discount**|Shipping costs discount|
-|shippingCosts.**total**|Total price of the shipping costs, not including tax, less any discounts|
-|shippingCosts.**taxTotal**|Total tax amount based on the total|
-|**promotionCodes**|Array found under **response** containing distinct summary of status for the provided promotion codes|
-|promotionCodes.**code**|Provided promotion code|
-|promotionCodes.**status**|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
-|**totals**|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
-|totals.**subtotal**|Subtotal of the item costs for all items|
-|totals.**valueAddedServicesTotal**|Total of value-added services on the items|
-|totals.**taxTotal**|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
-|totals.**discountTotal**|Total of all discounts (excluding shipping discounts) applied to the checkout|
-|totals.**shippingTotal**|Total of all shipping costs, less any shipping discounts, on the checkout|
-|totals.**total**|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
-|**priceChecksum**|Found under **response**, provides checksum for price details. Optionally, you can send it in the request body to *Request Checkout Submit* (see related section in this guide)|
+|Element Name|Type|Description|
+|---|---|---|
+|**shippingGroups**|array|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
+|**priceInfo**|object|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
+|priceInfo.**employeePrice**|number|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
+|**taxes**|array|Array of tax details. Found under **items** and **shippingCosts** objects|
+|taxes.**type**|enum|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
+|taxes.**rate**|number|Tax rate|
+|taxes.**total**|number|Total tax amount|
+|**promotionDiscounts**|array|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
+|promotionDiscounts.**code**|string|Promotion code entered by the user|
+|promotionDiscounts.**amount**|number|Promotion discount amount|
+|promotionDiscounts.**id**|string|Promotion identifier|
+|promotionDiscounts.**displayName**|string|Promotion display name|
+|**shippingMethod**|object|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
+|shippingMethod.**id**|string|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
+|shippingMethod.**cost**|number|Retail cost of shipping via the shipping method|
+|shippingMethod.**daysToArrive**|n/a|DEPRECATED - do not use|
+|shippingMethod.**estimatedDelivery**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails**|object|Object containing unique identifier of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|string|Unique identifier (UUID) of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|string|Message describing the delivery estimate|
+|**shippingCosts**|object|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
+|shippingCosts.**price**|number|Price of the shipping costs|
+|shippingCosts.**discount**|number|Shipping costs discount|
+|shippingCosts.**total**|number|Total price of the shipping costs, not including tax, less any discounts|
+|shippingCosts.**taxTotal**|number|Total tax amount based on the total|
+|**promotionCodes**|array|Array found under **response** containing distinct summary of status for the provided promotion codes|
+|promotionCodes.**code**|string|Provided promotion code|
+|promotionCodes.**status**|string|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
+|**totals**|object|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
+|totals.**subtotal**|number|Subtotal of the item costs for all items|
+|totals.**valueAddedServicesTotal**|number|Total of value-added services on the items|
+|totals.**taxTotal**|number|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
+|totals.**discountTotal**|number|Total of all discounts (excluding shipping discounts) applied to the checkout|
+|totals.**shippingTotal**|number|Total of all shipping costs, less any shipping discounts, on the checkout|
+|totals.**total**|number|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
+|**priceChecksum**|string|Found under **response**, provides checksum for price details. Optionally, you can send it in the request body to *Request Checkout Submit* (see related section in this guide)|
 
 Sample *Retrieve Checkout Preview Job* response body with "COMPLETED" status:
 
@@ -3394,21 +3395,21 @@ Optional request headers:
 
 Required parts of the request body:
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**request**|Required|Top-level object in request schema|
-|**email**|Required|Email address|
-|**country**|Required|2-alpha character ISO 3166 country code, e.g US|
-|**currency**|Required|ISO 4217 currency code, e.g. USD|
-|**locale**|Required|BCP 47 locale code, e.g. en_US|
-|**channel**|Required|Selling channel name associated with the checkout, e.g. 'SNKRS'|
-|**items**|Required|Array containing list of item objects|
-|**paymentToken**|Required|Unique identifier of the payment details, as obtained from the [Payment Preview API](/doc/commerce/payment/api_payment.html#using-payment-preview) in the **id** field at the top level|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
-|**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**request**|object|Top-level object in request schema|Required|
+|**email**|string|Email address|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g US|Required|
+|**currency**|string|ISO 4217 currency code, e.g. USD|Required|
+|**locale**|string|BCP 47 locale code, e.g. en_US|Required|
+|**channel**|string|Selling channel name associated with the checkout, e.g. 'SNKRS'|Required|
+|**items**|array|Array containing list of item objects|Required|
+|**paymentToken**|string|Unique identifier of the payment details, as obtained from the [Payment Preview API](/doc/commerce/payment/api_payment.html#using-payment-preview) in the **id** field at the top level|Required|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|Optional|
+|**promotionCodes**|array|Array containing list of promotion codes being applied to the checkout|Optional|
 
 >**TIPS:**
 >
@@ -3549,12 +3550,12 @@ There is no body for a GET request.
 
 For a job that is in either "PENDING" or "IN_PROGRESS" status, the response is abbreviated and only contains the following:
 
-|Element Name|Description|
-|---|---|
-|**id**|Checkout id you sent in the request, also your job ID|
-|**status**|Status of the job|
-|**eta**|Estimated wait time before polling the jobs endpoint to get your results|
-|**links**|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
+|Element Name|Type|Description|
+|---|---|---|
+|**id**|string|Checkout id you sent in the request, also your job ID|
+|**status**|string|Status of the job|
+|**eta**|integer|Estimated wait time before polling the jobs endpoint to get your results|
+|**links**|object|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
 
 Sample *Retrieve Checkout Submit Job* response body with "IN_PROGRESS" status:
 ```
@@ -3573,49 +3574,51 @@ Sample *Retrieve Checkout Submit Job* response body with "IN_PROGRESS" status:
 
 For a job that is in "COMPLETED" status and had no errors, the response also contains a **response** object that has the details of your successfully-submitted checkout. The structure of the **response** object is similar in structure to the request body, with the following notable additions:
 
-|Element Name|Description|
-|---|---|
-|**shippingGroups**|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
-|**priceInfo**|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
-|priceInfo.**employeePrice**|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
-|**taxes**|Array of tax details. Found under **items** and **shippingCosts** objects|
-|taxes.**type**|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
-|taxes.**rate**|Tax rate|
-|taxes.**total**|Total tax amount|
-|**promotionDiscounts**|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
-|promotionDiscounts.**code**|Promotion code entered by the user|
-|promotionDiscounts.**amount**|Promotion discount amount|
-|promotionDiscounts.**id**|Promotion identifier|
-|**shippingMethod**|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
-|shippingMethod.**id**|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
-|shippingMethod.**cost**|Retail cost of shipping via the shipping method|
-|shippingMethod.**daysToArrive**|DEPRECATED - do not use|
-|shippingMethod.**estimatedDelivery**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails|Object containing unique identifier of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|Unique identifier (UUID) of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|Message describing the delivery estimate|
-|**shippingCosts**|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
-|shippingCosts.**price**|Price of the shipping costs|
-|shippingCosts.**discount**|Shipping costs discount|
-|shippingCosts.**total**|Total price of the shipping costs, not including tax, less any discounts|
-|shippingCosts.**taxTotal**|Total tax amount based on the total|
-|**promotionCodes**|Array found under **response** containing distinct summary of status for the provided promotion codes|
-|promotionCodes.**code**|Provided promotion code|
-|promotionCodes.**status**|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
-|**totals**|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
-|totals.**subtotal**|Subtotal of the item costs for all items|
-|totals.**valueAddedServicesTotal**|Total of value-added services on the items|
-|totals.**taxTotal**|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
-|totals.**discountTotal**|Total of all discounts (excluding shipping discounts) applied to the checkout|
-|totals.**shippingTotal**|Total of all shipping costs, less any shipping discounts, on the checkout|
-|totals.**total**|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
-|**paymentToken**|Found under **resource**, the unique identifier of the payment details in the payment domain|
-|**paymentApprovalId**|Found under **resource**, the unique identifier of the payment approval|
-|**paymentStatus**|Found under **resource**, the status of payment approval ("ACCEPT", "PENDING_PAYMENT", "REJECT")|
-|**invoiceInfo**|Found under **resource**, an array with special instructions for invoicing. Optional and applies to China only|
-|invoiceInfo.**type**|Type of instruction, e.g. ELECTRONIC_FAPIAO to indicate a Chinese Fapiao tax receipt|
-|invoiceInfo.**detail**|Supporting details for the instruction, e.g. the title to be used with a Fapiao tax receipt|
+|Element Name|Type|Description|
+|---|---|---|
+|**shippingGroups**|array|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
+|**priceInfo**|object|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
+|priceInfo.**employeePrice**|number|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
+|**taxes**|array|Array of tax details. Found under **items** and **shippingCosts** objects|
+|taxes.**type**|enum|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
+|taxes.**rate**|number|Tax rate|
+|taxes.**total**|number|Total tax amount|
+|**promotionDiscounts**|array|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
+|promotionDiscounts.**code**|string|Promotion code entered by the user|
+|promotionDiscounts.**amount**|number|Promotion discount amount|
+|promotionDiscounts.**id**|string|Promotion identifier|
+|promotionDiscounts.**displayName**|string|Promotion display name|
+|**shippingMethod**|object|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
+|shippingMethod.**id**|string|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
+|shippingMethod.**cost**|number|Retail cost of shipping via the shipping method|
+|shippingMethod.**daysToArrive**|n/a|DEPRECATED - do not use|
+|shippingMethod.**estimatedDelivery**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails**|object|Object containing unique identifier of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|string|Unique identifier (UUID) of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|string|Message describing the delivery estimate|
+|**shippingCosts**|object|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
+|shippingCosts.**price**|number|Price of the shipping costs|
+|shippingCosts.**discount**|number|Shipping costs discount|
+|shippingCosts.**total**|number|Total price of the shipping costs, not including tax, less any discounts|
+|shippingCosts.**taxTotal**|number|Total tax amount based on the total|
+|**promotionCodes**|array|Array found under **response** containing distinct summary of status for the provided promotion codes|
+|promotionCodes.**code**|string|Provided promotion code|
+|promotionCodes.**status**|string|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
+|**totals**|object|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
+|totals.**subtotal**|number|Subtotal of the item costs for all items|
+|totals.**valueAddedServicesTotal**|number|Total of value-added services on the items|
+|totals.**taxTotal**|number|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
+|totals.**discountTotal**|number|Total of all discounts (excluding shipping discounts) applied to the checkout|
+|totals.**shippingTotal**|number|Total of all shipping costs, less any shipping discounts, on the checkout|
+|totals.**total**|number|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
+|**paymentToken**|string|Found under **resource**, the unique identifier of the payment details in the payment domain|
+|**paymentApprovalId**|string|Found under **resource**, the unique identifier of the payment approval|
+|**paymentStatus**|string|Found under **resource**, the status of payment approval ("ACCEPT", "PENDING_PAYMENT", "REJECT")|
+|**invoiceInfo**|array|Found under **resource**, an array with special instructions for invoicing. Optional and applies to China only|
+|invoiceInfo.**type**|string|Type of instruction, e.g. ELECTRONIC_FAPIAO to indicate a Chinese Fapiao tax receipt|
+|invoiceInfo.**detail**|string|Supporting details for the instruction, e.g. the title to be used with a Fapiao tax receipt|
+|invoiceInfo.**taxId**|string|Tax Id to be used with a Fapiao tax receipt if the order was placed on behalf of a company|
 
 Sample *Retrieve Checkout Submit Job* response body with "COMPLETED" status:
 ```
@@ -4436,6 +4439,7 @@ No release notes available.
 |Updated links|03/20/2018|Updated links to point to new dev portal|
 |Updated external links|04/02/2018|Updated external links to open in new browser window, commented out 'Try It Now' buttons|
 |Added Wish Lists API|04/30/2018|Added new Wish Lists API content|
+|Added 'Required?' to tables|06/26/2018|Added required column to tables that were missing it|
 
 ## <a name="related-links"></a>Related Links
 
