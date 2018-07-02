@@ -13,7 +13,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 
 # MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 06/01/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 06/04/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
 
@@ -87,7 +87,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 The <b>Merchandised Products API</b> is a set of REST services that provides Nike product data in JSON format. You can list product information such as product attributes, SKU data, prices, product content, product images, and value-added services (VAS).
 
-The following table describe the key details of the API:
+The following table describes the key details of the API:
 
 |Topic|Details|
 |---|---|

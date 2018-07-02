@@ -13,7 +13,7 @@ Author:  Jane Moore
 -->
 <div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 <h1 id="circuit-breaker-best-practices-guide--draft"><a href="#circuit-breaker-best-practices-guide--draft" name="circuit-breaker-best-practices-guide--draft">CIRCUIT BREAKER BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)</a></h1>
-<h5 id="last-updated-05252018submit-feedback-dev-portal-slack-channeldevportal"><a href="#last-updated-05252018submit-feedback-dev-portal-slack-channeldevportal" name="last-updated-05252018submit-feedback-dev-portal-slack-channeldevportal">Last Updated: 05/25/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></a></h5>
+<h5 id="last-updated-05252018submit-feedback-dev-portal-slack-channel-devportal"><a href="#last-updated-05252018submit-feedback-dev-portal-slack-channel-devportal" name="last-updated-05252018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 05/25/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></a></h5>
 <p>This guide discusses best practices for calling NDe services in peak traffic periods such as during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the <a href="#service-call-best-practices">Service Call Best Practices</a> section, specific performance, retry and fallback best practices are listed by service.</p>
 <ul>
   <li><a href="#service-call-best-practices">Service Call Best Practices</a></li>
@@ -182,7 +182,7 @@ Author:  Jane Moore
   </tbody>
 </table>
 <h2 id="launch-service"><a href="#launch-service" name="launch-service"><a name="launch-service"></a>Launch Service</a></h2>
-<p>TBD</p>
+<p>Coming soon</p>
 <h2 id="merchandised-product-service"><a href="#merchandised-product-service" name="merchandised-product-service"><a name="merchandised-product-service"></a>Merchandised Product Service</a></h2>
 <p>Listed below are the best practices for calling each Merchandised Product service.</p>
 <ul>
@@ -378,7 +378,51 @@ Author:  Jane Moore
   </tbody>
 </table>
 <h2 id="product-feeds-service"><a href="#product-feeds-service" name="product-feeds-service"><a name="product-feeds-service"></a>Product Feeds Service</a></h2>
-<p>TBD</p>
+<p>Listed below are the best practices for calling each Product Feeds Service.</p>
+<ul>
+  <li><a href="#product-feed-v2">Product Feed V2</a></li>
+  <li><a href="#product-feed-rollups-v2">Product Feed Rollups V2</a></li>
+  <li><a href="#product-feed-exclusive-threads-v2">Product Feed Exclusive Threads V2</a></li>
+</ul>
+<h3 id="product-feed-v2"><a href="#product-feed-v2" name="product-feed-v2"><a name="product-feed-v2"></a>Product Feed V2</a></h3>
+<p><strong>Endpoint:</strong> /product_feed/threads/v2</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>Circuit breaker trigger</strong></td><td>None</td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td>None</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td>Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td>None</td></tr>
+  </tbody>
+</table>
+<h3 id="product-feed-rollups-v2"><a href="#product-feed-rollups-v2" name="product-feed-rollups-v2"><a name="product-feed-rollups-v2"></a>Product Feed Rollups V2</a></h3>
+<p><strong>Endpoint:</strong>  /product_feed/rollup_threads/v2</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>Circuit breaker trigger</strong></td><td>Product Feed Rollups calls Smart Search. Repeated call failure to this service triggers the circuit breaker.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td>None</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td>Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td>None</td></tr>
+  </tbody>
+</table>
+<h3 id="product-feed-exclusive-threads-v2"><a href="#product-feed-exclusive-threads-v2" name="product-feed-exclusive-threads-v2"><a name="product-feed-exclusive-threads-v2"></a>Product Feed Exclusive Threads V2</a></h3>
+<p><strong>Endpoint:</strong> /product_feed/exclusive_threads/v2</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Topic</th><th>Best Practice</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td><strong>Circuit breaker trigger</strong></td><td>None</td></tr>
+    <tr class="tbody-even-child"><td><strong>Circuit breaker fallback behavior</strong></td><td>None</td></tr>
+    <tr class="tbody-odd-child"><td><strong>Retry pattern for API callers</strong></td><td>Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.</td></tr>
+    <tr class="tbody-even-child"><td><strong>Fallback behavior for API callers</strong></td><td>None</td></tr>
+  </tbody>
+</table>
 <h2 id="related-links"><a href="#related-links" name="related-links"><a name="related-links"></a>Related Links</a></h2>
 <p><a href="/index.html" class="absent">NDe Documentation Home</a></p>
 <p><a href="/doc/portal/consuming.html" class="absent">Getting Started</a></p>

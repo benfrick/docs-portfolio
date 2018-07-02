@@ -12,7 +12,7 @@ Author:  Jane Moore
 
 # GLOBAL REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
 
@@ -51,9 +51,9 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 
 |Channel Code|Description|
 |---|---|
-|**.com**|available in all digital experiences including web, SNKRs app and Nike+ App|
-|**snkrs**|available in the SNKRs App and SNKRs web experience|
-|**nikeplus**|available in the NIKE+ App and Nike+ web experience|
+|**.com**|Available in all digital experiences including web, SNKRS app and Nike App|
+|**snkrs**|Available in the SNKRS App and SNKRS web experience|
+|**nikeplus**|Available in the NIKE App and Nike+ web experience|
 
 ### <a name="brands">Brands</a>
 

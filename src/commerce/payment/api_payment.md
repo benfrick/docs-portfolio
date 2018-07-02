@@ -13,7 +13,7 @@ SME Consultants: Sree Krishna, Durai Devadoss
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 05/14/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/14/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 

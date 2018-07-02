@@ -12,7 +12,7 @@ Author:  Jane Moore
 
 # CIRCUIT BREAKER BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 05/25/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 05/25/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 This guide discusses best practices for calling NDe services in peak traffic periods such as during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the [Service Call Best Practices](#service-call-best-practices) section, specific performance, retry and fallback best practices are listed by service.
 
@@ -178,7 +178,7 @@ Listed below are the best practices for calling each Availability service.
 
 ## <a name="launch-service"></a>Launch Service
 
-TBD
+Coming soon
 
 ## <a name="merchandised-product-service"></a>Merchandised Product Service
 
@@ -355,7 +355,44 @@ Listed below are the best practices for calling each Payment service.
 
 ## <a name="product-feeds-service"></a>Product Feeds Service
 
-TBD
+Listed below are the best practices for calling each Product Feeds Service.
+
+- [Product Feed V2](#product-feed-v2)
+- [Product Feed Rollups V2](#product-feed-rollups-v2)
+- [Product Feed Exclusive Threads V2](#product-feed-exclusive-threads-v2)
+
+### <a name="product-feed-v2"></a>Product Feed V2
+
+**Endpoint:** /product_feed/threads/v2
+
+|Topic|Best Practice|
+|---|---|
+|**Circuit breaker trigger**|None|
+|**Circuit breaker fallback behavior**|None|
+|**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
+|**Fallback behavior for API callers**|None|
+
+### <a name="product-feed-rollups-v2"></a>Product Feed Rollups V2
+
+**Endpoint:**  /product_feed/rollup_threads/v2
+
+|Topic|Best Practice|
+|---|---|
+|**Circuit breaker trigger**|Product Feed Rollups calls Smart Search. Repeated call failure to this service triggers the circuit breaker.|
+|**Circuit breaker fallback behavior**|None|
+|**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
+|**Fallback behavior for API callers**|None|
+
+### <a name="product-feed-exclusive-threads-v2"></a>Product Feed Exclusive Threads V2
+
+**Endpoint:** /product_feed/exclusive_threads/v2
+
+|Topic|Best Practice|
+|---|---|
+|**Circuit breaker trigger**|None|
+|**Circuit breaker fallback behavior**|None|
+|**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
+|**Fallback behavior for API callers**|None|
 
 ## <a name="related-links"></a>Related Links
 
