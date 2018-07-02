@@ -14,7 +14,7 @@ Original Author: Benjamin Frick
 SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Brian Jaress, Jeremy Geiger, Andy Sun-->
 <div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 <h1 id="product-feeds-api-developers-guide"><a href="#product-feeds-api-developers-guide" name="product-feeds-api-developers-guide" class="anchor"><span class="octicon octicon-link"></span></a>PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE</h1>
-<h5 id="last-updated-06052018submit-feedback-dev-portal-slack-channel-devportal"><a href="#last-updated-06052018submit-feedback-dev-portal-slack-channel-devportal" name="last-updated-06052018submit-feedback-dev-portal-slack-channel-devportal" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
+<h5 id="last-updated-07022018submit-feedback-dev-portal-slack-channel-devportal"><a href="#last-updated-07022018submit-feedback-dev-portal-slack-channel-devportal" name="last-updated-07022018submit-feedback-dev-portal-slack-channel-devportal" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 07/02/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
 <hr />
 <p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and <a href="/doc/commerce/product/biz_product_feeds.html" class="absent">Get Started With Product Feeds</a>, this guide provides the additional details necessary to integrate with Product Feeds.</p>
 <h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In this guide:</strong></h2>
@@ -613,108 +613,112 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 </blockquote>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>pages</strong></td><td>Object at top level containing link to previous and next pages of results</td></tr>
-    <tr><td>pages.<strong>prev</strong></td><td>Link to previous page of results</td></tr>
-    <tr><td>pages.<strong>next</strong></td><td>Link to next page of results</td></tr>
-    <tr><td><strong>objects</strong></td><td>Array at top level containing feed data</td></tr>
-    <tr><td>objects.<strong>id</strong></td><td>Unique identifier for the feed in UUID format</td></tr>
-    <tr><td>objects.<strong>marketplace</strong></td><td>ISO 3166 two-letter country code for the user's current location</td></tr>
-    <tr><td>objects.<strong>language</strong></td><td>BCP-47 language code</td></tr>
-    <tr><td>objects.<strong>lastFetchTime</strong></td><td>Time when the data was aggregated in ISO-8601 compliant format: <code>yyyy-MM-ddTHH:mm:ss.SSSZZ</code></td></tr>
-    <tr><td>objects.<strong>active</strong></td><td>Boolean indicator for whether or not this thread is currently available for general use</td></tr>
-    <tr><td>objects.<strong>publishedContent</strong></td><td>Object containing display-oriented information, such as image links and prose descriptions</td></tr>
-    <tr><td>objects.publishedContent.<strong>collectionGroupId</strong></td><td>Identifier for CMS collection group in UUID format. Synonymous to channelId</td></tr>
-    <tr><td>objects.publishedContent.<strong>marketplace</strong></td><td>Marketplace of the thread as ISO 3166 country code format, e.g. 'US'</td></tr>
-    <tr><td>objects.publishedContent.<strong>language</strong></td><td>Language of the thread using BCP 47 format</td></tr>
-    <tr><td>objects.publishedContent.<strong>id</strong></td><td>Thread identifier in UUID format</td></tr>
-    <tr><td>objects.publishedContent.<strong>relationalId</strong></td><td>Identifier of parent thread in UUID format. Ties various language threads to the source version</td></tr>
-    <tr><td>objects.publishedContent.<strong>version</strong></td><td>Version of CMS content node. String</td></tr>
-    <tr><td>objects.publishedContent.<strong>publishStartDate</strong></td><td>Date-time string of when the publishing schedule is set to start</td></tr>
-    <tr><td>objects.publishedContent.<strong>publishEndDate</strong></td><td>Date-time string of when the publishing schedule is set to end</td></tr>
-    <tr><td>objects.publishedContent.<strong>viewStartDate</strong></td><td>Date-time string of when the thread can be viewed on client apps</td></tr>
-    <tr><td>objects.publishedContent.<strong>supportedLanguages</strong></td><td>Array containing list of languages that are currently available</td></tr>
-    <tr><td>objects.publishedContent.<strong>properties</strong></td><td>Free-form JSON object that contains properties for the thread</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>title</strong></td><td>Thread title</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>products</strong></td><td>Array containing thread products</td></tr>
-    <tr><td>objects.publishedContent.properties.products.<strong>styleColor</strong></td><td>Identifier for product style-color, e.g. 831958-616</td></tr>
-    <tr><td>objects.publishedContent.properties.products.<strong>productId</strong></td><td>Product identifier in UUID format</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>publish</strong></td><td>Array containing relational data about thread</td></tr>
-    <tr><td>objects.publishedContent.properties.publish.<strong>countries</strong></td><td>List of ISO 3166 country codes that the thread has been published to</td></tr>
-    <tr><td>objects.publishedContent.properties.publish.<strong>collectionGroups</strong></td><td>List of collection groups (UUID) that the thread belongs to</td></tr>
-    <tr><td>objects.publishedContent.properties.publish.<strong>collections</strong></td><td>List of collections (UUID) that the thread belongs to</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>consumerLabels</strong></td><td>Array of tags/classifications on the thread</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.<strong>classification</strong></td><td>Object containing classification info</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.classification.<strong>type</strong></td><td>Type of classification, e.g. TAXONOMY</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.classification.<strong>id</strong></td><td>Identifier of the classification value in UUID format</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.classification.<strong>text</strong></td><td>Text value for the classification</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.<strong>value</strong></td><td>Object containing classification value info</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.value.<strong>type</strong></td><td>Type of classification value, e.g. TAXONOMY</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.value.<strong>id</strong></td><td>Identifier of the classification value in UUID format</td></tr>
-    <tr><td>objects.publishedContent.properties.consumerLabels.value.<strong>text</strong></td><td>Text for the classification value</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>threadType</strong></td><td>Type of thread, e.g. product</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>relatedThreads</strong></td><td>Array containing a list of related threads by their UUIDs</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>seo</strong></td><td>Object containing SEO info</td></tr>
-    <tr><td>objects.publishedContent.properties.seo.<strong>title</strong></td><td>Title tag for SEO</td></tr>
-    <tr><td>objects.publishedContent.properties.seo.<strong>description</strong></td><td>Meta description for SEO</td></tr>
-    <tr><td>objects.publishedContent.properties.seo.<strong>keywords</strong></td><td>Keywords for SEO</td></tr>
-    <tr><td>objects.publishedContent.properties.seo.<strong>slug</strong></td><td>URL SEO slug of the thread</td></tr>
-    <tr><td>objects.publishedContent.properties.<strong>coverCard</strong></td><td>Object containing info about the cover card</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.<strong>id</strong></td><td>Identifier of cover card in UUID format</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.<strong>version</strong></td><td>Specific version number of the cover card</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.<strong>type</strong></td><td>Type of content, e.g. card</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.<strong>subType</strong></td><td>Subtype of card, e.g. image, video, carousel, text</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.<strong>properties</strong></td><td>Free-form JSON object that contains properties for the card</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>altText</strong></td><td>Cover card image alternate text</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>colorTheme</strong></td><td>Cover card image color theme, i.e. dark</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>landscapeURL</strong></td><td>URL for landscape cover card image</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>portraitURL</strong></td><td>URL for portrait cover card image</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>squarishURL</strong></td><td>URL for squarish cover card image</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>subtitle</strong></td><td>Cover card image subtitle</td></tr>
-    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>title</strong></td><td>Cover card image title</td></tr>
-    <tr><td>objects.publishedContent.<strong>nodes</strong></td><td>Array of card info</td></tr>
-    <tr><td>objects.publishedContent.nodes.<strong>id</strong></td><td>Card identifier in UUID format</td></tr>
-    <tr><td>objects.publishedContent.nodes.<strong>version</strong></td><td>Card version identifier</td></tr>
-    <tr><td>objects.publishedContent.nodes.<strong>type</strong></td><td>Card type, i.e. 'card'</td></tr>
-    <tr><td>objects.publishedContent.nodes.<strong>subType</strong></td><td>Card subtype (text, image, video, carousel)</td></tr>
-    <tr><td>objects.publishedContent.nodes.<strong>properties</strong></td><td>Object containing info about the card, varies by card type</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>loop</strong></td><td>Boolean for whether video will loop or not</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>providerId</strong></td><td>Name of video provider</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>subtitle</strong></td><td>Subtitle for video</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>colorTheme</strong></td><td>Color theme for video, i.e. dark</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>videoId</strong></td><td>Identifier for video</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>autoPlay</strong></td><td>Boolean for whether video will auto-play or not</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>title</strong></td><td>Card title</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>body</strong></td><td>Card body text</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>actions</strong></td><td>Array of action info</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>actionType</strong></td><td>Type of action</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>product</strong></td><td>Object containing product info for the action</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.actions.product.<strong>styleColor</strong></td><td>Style-color code</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.actions.product.<strong>productId</strong></td><td>Product identifier in UUID format</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>destinationType</strong></td><td>Type of destination, i.e link</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>destinationId</strong></td><td>Identifier for destination, i.e. a URL</td></tr>
-    <tr><td>objects.publishedContent.nodes.properties.<strong>speed</strong></td><td>Speed of video</td></tr>
-    <tr><td>objects.publishedContent.<strong>classifications</strong></td><td>Array of classifications</td></tr>
-    <tr><td>objects.publishedContent.classifications.<strong>classification</strong></td><td>Object containing classification info</td></tr>
-    <tr><td>objects.publishedContent.classifications.classification.<strong>type</strong></td><td>Type of classification</td></tr>
-    <tr><td>objects.publishedContent.classifications.classification.<strong>id</strong></td><td>Identifier of the classification value</td></tr>
-    <tr><td>objects.publishedContent.classifications.classification.<strong>text</strong></td><td>Text value for the classification</td></tr>
-    <tr><td>objects.publishedContent.classifications.value.<strong>type</strong></td><td>Type of classification value</td></tr>
-    <tr><td>objects.publishedContent.classifications.value.<strong>id</strong></td><td>Identifier of the classification value</td></tr>
-    <tr><td>objects.publishedContent.classifications.value.<strong>text</strong></td><td>Text for the classification value</td></tr>
-    <tr><td>objects.<strong>productInfo</strong></td><td>Array of responses from other APIs with product info</td></tr>
-    <tr><td>objects.productInfo.<strong>merchProduct</strong></td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a></td></tr>
-    <tr><td>objects.productInfo.<strong>merchPrice</strong></td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a></td></tr>
-    <tr><td>objects.productInfo.<strong>availability</strong></td><td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td></tr>
-    <tr><td>objects.productInfo.<strong>productContent</strong></td><td><a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a></td></tr>
-    <tr><td>objects.productInfo.<strong>imageUrls</strong></td><td>Object containing product image URL</td></tr>
-    <tr><td>objects.productInfo.imageUrls.<strong>productImageUrl</strong></td><td>URL for product image</td></tr>
-    <tr><td>objects.productInfo.<strong>skus</strong></td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a></td></tr>
-    <tr><td>objects.productInfo.<strong>availableSkus</strong></td><td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td></tr>
-    <tr><td>objects.productInfo.<strong>launchView</strong></td><td><a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a></td></tr>
-    <tr><td>objects.productInfo.<strong>customizedPreBuild</strong></td><td><a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a></td></tr>
+    <tr><td><strong>pages</strong></td><td>object</td><td>Object at top level containing link to previous and next pages of results</td><td>Required</td></tr>
+    <tr><td>pages.<strong>prev</strong></td><td>string</td><td>Link to previous page of results</td><td>Required</td></tr>
+    <tr><td>pages.<strong>next</strong></td><td>string</td><td>Link to next page of results</td><td>Required</td></tr>
+    <tr><td><strong>objects</strong></td><td>array</td><td>Array at top level containing feed data</td><td>Required</td></tr>
+    <tr><td>objects.<strong>id</strong></td><td>string</td><td>Unique identifier for the feed in UUID format</td><td>Required</td></tr>
+    <tr><td>objects.<strong>channelId</strong></td><td>string</td><td>UUID for the channel (collectionGroupId)</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>channelName</strong></td><td>string</td><td>Human-readable name for the channel</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>marketplace</strong></td><td>string</td><td>ISO 3166 two-letter country code for the user's current location</td><td>Required</td></tr>
+    <tr><td>objects.<strong>language</strong></td><td>string</td><td>BCP-47 language code</td><td>Required</td></tr>
+    <tr><td>objects.<strong>lastFetchTime</strong></td><td>string</td><td>Time when the data was aggregated in ISO-8601 compliant format: <code>yyyy-MM-ddTHH:mm:ss.SSSZZ</code></td><td>Required</td></tr>
+    <tr><td>objects.<strong>resourceType</strong></td><td>string</td><td>Type of HTTP resource being returned</td><td>Required</td></tr>
+    <tr><td>objects.links.self.<strong>ref</strong></td><td>string</td><td>Self-link of the HTTP resource</td><td>Required</td></tr>
+    <tr><td>objects.<strong>publishedContent</strong></td><td>object</td><td>Object containing display-oriented information, such as image links and prose descriptions</td><td>Required</td></tr>
+    <tr><td>objects.publishedContent.<strong>collectionGroupId</strong></td><td>string</td><td>Identifier for CMS collection group in UUID format. Synonymous to channelId</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>marketplace</strong></td><td>string</td><td>Marketplace of the thread as ISO 3166 country code format, e.g. 'US'</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>language</strong></td><td>string</td><td>Language of the thread using BCP 47 format</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>id</strong></td><td>string</td><td>Thread identifier in UUID format</td><td>Required</td></tr>
+    <tr><td>objects.publishedContent.<strong>relationalId</strong></td><td>string</td><td>Identifier of parent thread in UUID format. Ties various language threads to the source version</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>version</strong></td><td>string</td><td>Version of CMS content node</td><td>Required</td></tr>
+    <tr><td>objects.publishedContent.<strong>type</strong></td><td>string</td><td>Type of content</td><td>Required</td></tr>
+    <tr><td>objects.publishedContent.<strong>subtype</strong></td><td>string</td><td>Subtype of thread or card</td><td>Required</td></tr>
+    <tr><td>objects.publishedContent.<strong>publishStartDate</strong></td><td>string</td><td>Date-time string of when the publishing schedule is set to start</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>publishEndDate</strong></td><td>string</td><td>Date-time string of when the publishing schedule is set to end</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>viewStartDate</strong></td><td>string</td><td>Date-time string of when the thread can be viewed on client apps</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>supportedLanguages</strong></td><td>array</td><td>Array containing list of languages that are currently available</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>properties</strong></td><td>object</td><td>Free-form JSON object that contains properties for the thread</td><td>Required</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>title</strong></td><td>string</td><td>Thread title</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>products</strong></td><td>array</td><td>Array containing thread products</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.products.<strong>styleColor</strong></td><td>string</td><td>Identifier for product style-color, e.g. 831958-616</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.products.<strong>productId</strong></td><td>string</td><td>Product identifier in UUID format</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>publish</strong></td><td>array</td><td>Array containing relational data about thread</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.publish.<strong>countries</strong></td><td>array</td><td>List of ISO 3166 country codes that the thread has been published to</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.publish.<strong>collectionGroups</strong></td><td>array</td><td>List of collection groups (UUID) that the thread belongs to</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.publish.<strong>collections</strong></td><td>array</td><td>List of collections (UUID) that the thread belongs to</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>consumerLabels</strong></td><td>array</td><td>Array of tags/classifications on the thread</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.<strong>classification</strong></td><td>object</td><td>Object containing classification info</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.classification.<strong>type</strong></td><td>string</td><td>Type of classification, e.g. TAXONOMY</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.classification.<strong>id</strong></td><td>string</td><td>Identifier of the classification value in UUID format</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.classification.<strong>text</strong></td><td>string</td><td>Text value for the classification</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.<strong>value</strong></td><td>object</td><td>Object containing classification value info</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.value.<strong>type</strong></td><td>string</td><td>Type of classification value, e.g. TAXONOMY</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.value.<strong>id</strong></td><td>string</td><td>Identifier of the classification value in UUID format</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.consumerLabels.value.<strong>text</strong></td><td>string</td><td>Text for the classification value</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>threadType</strong></td><td>string</td><td>Type of thread, e.g. product</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>relatedThreads</strong></td><td>array</td><td>Array containing a list of related threads by their UUIDs</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>seo</strong></td><td>object</td><td>Object containing SEO info</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.seo.<strong>title</strong></td><td>string</td><td>Title tag for SEO</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.seo.<strong>description</strong></td><td>string</td><td>Meta description for SEO</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.seo.<strong>slug</strong></td><td>string</td><td>URL SEO slug of the thread</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.<strong>coverCard</strong></td><td>object</td><td>Object containing info about the cover card</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.<strong>id</strong></td><td>string</td><td>Identifier of cover card in UUID format</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.<strong>version</strong></td><td>string</td><td>Specific version number of the cover card</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.<strong>type</strong></td><td>string</td><td>Type of content, e.g. card</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.<strong>subType</strong></td><td>string</td><td>Subtype of card, e.g. image, video, carousel, text</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.<strong>properties</strong></td><td>object</td><td>Free-form JSON object that contains properties for the card</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>altText</strong></td><td>string</td><td>Cover card image alternate text</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>colorTheme</strong></td><td>string</td><td>Cover card image color theme, i.e. dark</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>landscapeURL</strong></td><td>string</td><td>URL for landscape cover card image</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>portraitURL</strong></td><td>string</td><td>URL for portrait cover card image</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>squarishURL</strong></td><td>string</td><td>URL for squarish cover card image</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>subtitle</strong></td><td>string</td><td>Cover card image subtitle</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.properties.coverCard.properties.<strong>title</strong></td><td>string</td><td>Cover card image title</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>nodes</strong></td><td>array</td><td>Array of card info</td><td>Required</td></tr>
+    <tr><td>objects.publishedContent.nodes.<strong>id</strong></td><td>string</td><td>Card identifier in UUID format</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.<strong>version</strong></td><td>string</td><td>Card version identifier</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.<strong>type</strong></td><td>string</td><td>Card type, i.e. 'card'</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.<strong>subType</strong></td><td>string</td><td>Card subtype (text, image, video, carousel)</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.<strong>properties</strong></td><td>object</td><td>Object containing info about the card, varies by card type</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>loop</strong></td><td>boolean</td><td>Boolean for whether video will loop or not</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>providerId</strong></td><td>string</td><td>Name of video provider</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>subtitle</strong></td><td>string</td><td>Subtitle for video</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>colorTheme</strong></td><td>string</td><td>Color theme for video, i.e. dark</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>videoId</strong></td><td>string</td><td>Identifier for video</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>autoPlay</strong></td><td>boolean</td><td>Boolean for whether video will auto-play or not</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>title</strong></td><td>string</td><td>Card title</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>body</strong></td><td>string</td><td>Card body text</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>actions</strong></td><td>array</td><td>Array of action info</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>actionType</strong></td><td>string</td><td>Type of action</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>product</strong></td><td>object</td><td>Object containing product info for the action</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.actions.product.<strong>styleColor</strong></td><td>string</td><td>Style-color code</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.actions.product.<strong>productId</strong></td><td>string</td><td>Product identifier in UUID format</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>destinationType</strong></td><td>string</td><td>Type of destination, i.e link</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.actions.<strong>destinationId</strong></td><td>string</td><td>Identifier for destination, i.e. a URL</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.nodes.properties.<strong>speed</strong></td><td>string</td><td>Speed of video</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.<strong>classifications</strong></td><td>array</td><td>Array of classifications</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.classifications.<strong>classification</strong></td><td>object</td><td>Object containing classification info</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.classifications.classification.<strong>type</strong></td><td>string</td><td>Type of classification</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.classifications.classification.<strong>id</strong></td><td>string</td><td>Identifier of the classification value</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.classifications.classification.<strong>text</strong></td><td>string</td><td>Text value for the classification</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.classifications.value.<strong>type</strong></td><td>string</td><td>Type of classification value</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.classifications.value.<strong>id</strong></td><td>string</td><td>Identifier of the classification value</td><td>Optional</td></tr>
+    <tr><td>objects.publishedContent.classifications.value.<strong>text</strong></td><td>string</td><td>Text for the classification value</td><td>Optional</td></tr>
+    <tr><td>objects.<strong>productInfo</strong></td><td>array</td><td>Array of responses from other APIs with product info</td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>merchProduct</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>merchPrice</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>availability</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>productContent</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>imageUrls</strong></td><td>object</td><td>Object containing product image URL</td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.imageUrls.<strong>productImageUrl</strong></td><td>string</td><td>URL for product image</td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>skus</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>availableSkus</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>launchView</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
+    <tr><td>objects.productInfo.<strong>customizedPreBuild</strong></td><td>object</td><td><a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a></td><td>Optional</td></tr>
   </tbody>
 </table>
 <h5 id="what-is-the-customized-prebuild-section-of-the-response"><a href="#what-is-the-customized-prebuild-section-of-the-response" name="what-is-the-customized-prebuild-section-of-the-response" class="anchor"><span class="octicon octicon-link"></span></a>What is the Customized PreBuild Section of the Response?</h5>
@@ -2258,6 +2262,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
     <tr><td>Updated links</td><td>03/20/2018</td><td>Updated links to point to new dev portal</td></tr>
     <tr><td>Updated external links</td><td>04/03/2018</td><td>Updated external links to open in new browser window</td></tr>
     <tr><td>Updated API.md links</td><td>05/14/2018</td><td>Updated API.md links to point to new dev portal</td></tr>
+    <tr><td>Updated request/response content</td><td>07/02/2018</td><td>Added required/optional and data type columns to request/response tables</td></tr>
   </tbody>
 </table>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>

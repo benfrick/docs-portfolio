@@ -14,7 +14,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 -->
 <div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 <h1 id="merchandised-products-api-developers-guide"><a href="#merchandised-products-api-developers-guide" name="merchandised-products-api-developers-guide" class="anchor"><span class="octicon octicon-link"></span></a>MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE</h1>
-<h5 id="last-updated-06042018submit-feedback-dev-portal-slack-channel-devportal"><a href="#last-updated-06042018submit-feedback-dev-portal-slack-channel-devportal" name="last-updated-06042018submit-feedback-dev-portal-slack-channel-devportal" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 06/04/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
+<h5 id="last-updated-07022018submit-feedback-dev-portal-slack-channel-devportal"><a href="#last-updated-07022018submit-feedback-dev-portal-slack-channel-devportal" name="last-updated-07022018submit-feedback-dev-portal-slack-channel-devportal" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 07/02/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
 <p>If you've read <a href="/doc/getting-started/using_nike_apis.html" class="absent">Using NDe APIs</a> and <a href="/doc/commerce/product/biz_merch_product.html" class="absent">Get Started With Nike Merchandised Products</a>, this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.</p>
 <h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In This Guide:</strong></h2>
 <p><a href="#api-at-a-glance">API at a Glance</a></p>
@@ -479,68 +479,68 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <h3 id="response-body"><a href="#response-body" name="response-body" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-product-list-response-body"></a>Response Body</h3>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Required?</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>pages</strong></td><td>Optional</td><td>Object with a <strong>next</strong> and <strong>prev</strong> link used to paginate results</td></tr>
-    <tr><td>pages.<strong>prev</strong></td><td>Optional</td><td>Relative URL to the previous page of results</td></tr>
-    <tr><td>pages.<strong>next</strong></td><td>Optional</td><td>Relative URL to the next page of results</td></tr>
-    <tr><td><strong>id</strong></td><td>Required</td><td>ID of the product in UUID format, generated when product flows into Merch Product from Prodigy, will eventually replace <strong>pid</strong></td></tr>
-    <tr><td><strong>snapshotId</strong></td><td>Required</td><td>ID of the most recent snapshot of the SKU in UUID format, generated when the product is updated</td></tr>
-    <tr><td><strong>modificationDate</strong></td><td>Required</td><td>Timestamp the product was last modified</td></tr>
-    <tr><td><strong>status</strong></td><td>Required</td><td>Product status, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>merchGroup</strong></td><td>Required</td><td>Group this product is merchandised to, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>styleCode</strong></td><td>Required</td><td>Code indicating Nike style</td></tr>
-    <tr><td><strong>colorCode</strong></td><td>Required</td><td>Code indicating Nike color</td></tr>
-    <tr><td><strong>styleColor</strong></td><td>Required</td><td>Concatenation of <strong>styleCode</strong>-<strong>colorCode</strong></td></tr>
-    <tr><td><strong>pid</strong></td><td>Required</td><td>Product ID from legacy system used to map to the product UUID</td></tr>
-    <tr><td><strong>catalogId</strong></td><td>Optional</td><td>Catalog ID in UUID format from the <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Catalog Product</a> service, will eventually replace <strong>legacyCatalogIds</strong></td></tr>
-    <tr><td><strong>productGroupId</strong></td><td>Optional</td><td>ID used to group products together such as products with the same styleCode, from legacy system</td></tr>
-    <tr><td><strong>nikeIdStyleCode</strong></td><td>Optional</td><td>Nike ID style code, only populated for products of styleType <code>NIKEID</code></td></tr>
-    <tr><td><strong>brand</strong></td><td>Optional</td><td>Nike brand associated to this product such as &quot;Jordan&quot;</td></tr>
-    <tr><td><strong>channels</strong></td><td>Optional</td><td>Array of channels this product is sold in</td></tr>
-    <tr><td><strong>legacyCatalogIds</strong></td><td>Optional</td><td>Array of legacy system catalog ids the product is in, used to map to the <strong>catalogId</strong> UUID</td></tr>
-    <tr><td><strong>genders</strong></td><td>Optional</td><td>Array of genders this product is associated with, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>valueAddedServices</strong></td><td>Optional</td><td>Array of value-added service objects associated with this product</td></tr>
-    <tr><td>valueAddedServices.<strong>id</strong></td><td>Optional</td><td>Value-added-service UUID associated with this product that can be used in the <a href="#merchandised-value-added-services-by-id">Merchandised Value Added Services by ID</a> endpoint call</td></tr>
-    <tr><td>valueAddedServices.<strong>publishDate</strong></td><td>Optional</td><td>Timestamp value-added service was published</td></tr>
-    <tr><td>valueAddedServices.<strong>startDate</strong></td><td>Optional</td><td>Timestamp value-added service begins</td></tr>
-    <tr><td>valueAddedServices.<strong>endDate</strong></td><td>Optional</td><td>Timestamp value-added service ends</td></tr>
-    <tr><td><strong>customization</strong></td><td>Optional</td><td>Array of NIKEiD-related customizations available for this product</td></tr>
-    <tr><td>customization.<strong>nikeIdStyleCode</strong></td><td>Optional</td><td>Style code of matching NIKEiD product</td></tr>
-    <tr><td>customization.<strong>nikeIdSlug</strong></td><td>Optional</td><td>NIKEiD slug code associated with this product</td></tr>
-    <tr><td><strong>sportTags</strong></td><td>Optional</td><td>Array of sport tags associated with this product</td></tr>
-    <tr><td><strong>widthGroupIds</strong></td><td>Optional</td><td>Group of product IDs with same style but different width, not currently used</td></tr>
-    <tr><td><strong>classificationConcepts</strong></td><td>Optional</td><td>Array of Taxonomy concept objects associated with this product. See the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy Service</a> for more information.</td></tr>
-    <tr><td>classificationConcepts.<strong>broaderConceptId</strong></td><td>Required</td><td>UUID of the broad Taxonomy concept associated with this product, e.g. <code>Platinum Tint</code></td></tr>
-    <tr><td>classificationConcepts.<strong>narrowerConceptIds</strong></td><td>Required</td><td>Array of narrower Taxonomy concept UUIDs associated with this product</td></tr>
-    <tr><td><strong>commerceCountryInclusions</strong></td><td>Optional</td><td>Array of ISO2 country codes where this product can be sold, e.g. CN,JP</td></tr>
-    <tr><td><strong>commerceCountryExclusions</strong></td><td>Optional</td><td>Array of ISO2 country codes where this product can not be sold, e.g. AT,BE</td></tr>
-    <tr><td><strong>productRollup</strong></td><td>Optional</td><td>Object containing Prodigy rollup attributes</td></tr>
-    <tr><td>productRollup.<strong>type</strong></td><td>Optional</td><td>Type of Prodigy rollup attribute associated to the product</td></tr>
-    <tr><td>productRollup.<strong>key</strong></td><td>Optional</td><td>Key of Prodigy rollup attribute associated to the product</td></tr>
-    <tr><td><strong>quantityLimit</strong></td><td>Optional</td><td>Integer restricting how many of this product a customer can purchase at one time</td></tr>
-    <tr><td><strong>nikeidStyleNumber</strong></td><td>Optional</td><td>Nike ID style code, only populated for products of styleType <code>NIKEID</code></td></tr>
-    <tr><td><strong>styleType</strong></td><td>Optional</td><td>Type of style, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>productType</strong></td><td>Optional</td><td>Type of product, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>publishType</strong></td><td>Optional</td><td>Type of publishing, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>mainColor</strong></td><td>Optional</td><td>True or false, indicating this is the main color of the style</td></tr>
-    <tr><td><strong>exclusiveAccess</strong></td><td>Required</td><td>True or false, indicating whether or not the user must have an access code to unlock the product in order to purchase it</td></tr>
-    <tr><td><strong>preOrder</strong></td><td>Optional</td><td>True or false, true indicates the PDP should display in preOrder status</td></tr>
-    <tr><td><strong>hardLaunch</strong></td><td>Optional</td><td>True or false, true indicates the PDP should not display before the commerceStartDate or after the commerceEndDate regardless of inventory</td></tr>
-    <tr><td><strong>hidePayment</strong></td><td>Optional</td><td>True or false, true indicates certain payment types are not allowed to purchase the product, such as COD in China</td></tr>
-    <tr><td><strong>commercePublishDate</strong></td><td>Optional</td><td>Timestamp indicating when this product was published. e.g. if date is within 30 days of current date, product is considered a New Release</td></tr>
-    <tr><td><strong>commerceStartDate</strong></td><td>Optional</td><td>Timestamp indicating when the product product can be sold</td></tr>
-    <tr><td><strong>commerceEndDate</strong></td><td>Optional</td><td>Timestamp indicating when the product can no longer be sold</td></tr>
-    <tr><td><strong>preorderAvailabilityDate</strong></td><td>Optional</td><td>Timestamp indicating when the product can be pre-ordered</td></tr>
-    <tr><td><strong>preorderByDate</strong></td><td>Optional</td><td>Timestamp, not currently used</td></tr>
-    <tr><td><strong>softLaunchDate</strong></td><td>Optional</td><td>Timestamp e.g. used for products with a publishType of <code>LAUNCH</code>. if <strong>hardLaunch</strong> is true, current date is between the <strong>commerceStartDate</strong> and <strong>softLaunchDate</strong>, display product in Coming Soon status</td></tr>
-    <tr><td><strong>resourceType</strong></td><td>Required</td><td>Type of resource, always merchProduct</td></tr>
-    <tr><td>links.self.<strong>ref</strong></td><td>Required</td><td>Referrer link to result</td></tr>
-    <tr><td><strong>errors</strong></td><td>Optional</td><td>Array of errors associated with this request</td></tr>
-    <tr><td>errors.<strong>requested</strong></td><td>Required</td><td>Error message indicating which field or parameter caused the error</td></tr>
-    <tr><td>errors.<strong>httpStatus</strong></td><td>Required</td><td>HTTP error response code</td></tr>
-    <tr><td>errors.<strong>message</strong></td><td>Required</td><td>Detailed error message</td></tr>
+    <tr><td><strong>pages</strong></td><td>object</td><td>Object with a <strong>next</strong> and <strong>prev</strong> link used to paginate results</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>prev</strong></td><td>string</td><td>Relative URL to the previous page of results</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>next</strong></td><td>string</td><td>Relative URL to the next page of results</td><td>Optional</td></tr>
+    <tr><td><strong>id</strong></td><td>string</td><td>ID of the product in UUID format, generated when product flows into Merch Product from Prodigy, will eventually replace <strong>pid</strong></td><td>Required</td></tr>
+    <tr><td><strong>snapshotId</strong></td><td>string</td><td>ID of the most recent snapshot of the SKU in UUID format, generated when the product is updated</td><td>Required</td></tr>
+    <tr><td><strong>modificationDate</strong></td><td>string</td><td>Timestamp the product was last modified</td><td>Required</td></tr>
+    <tr><td><strong>status</strong></td><td>string</td><td>Product status, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Required</td></tr>
+    <tr><td><strong>merchGroup</strong></td><td>string</td><td>Group this product is merchandised to, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Required</td></tr>
+    <tr><td><strong>styleCode</strong></td><td>string</td><td>Code indicating Nike style</td><td>Required</td></tr>
+    <tr><td><strong>colorCode</strong></td><td>string</td><td>Code indicating Nike color</td><td>Required</td></tr>
+    <tr><td><strong>styleColor</strong></td><td>string</td><td>Concatenation of <strong>styleCode</strong>-<strong>colorCode</strong></td><td>Required</td></tr>
+    <tr><td><strong>pid</strong></td><td>string</td><td>Product ID from legacy system used to map to the product UUID</td><td>Required</td></tr>
+    <tr><td><strong>catalogId</strong></td><td>string</td><td>Catalog ID in UUID format from the <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Catalog Product</a> service, will eventually replace <strong>legacyCatalogIds</strong></td><td>Optional</td></tr>
+    <tr><td><strong>productGroupId</strong></td><td>string</td><td>ID used to group products together such as products with the same styleCode, from legacy system</td><td>Optional</td></tr>
+    <tr><td><strong>nikeIdStyleCode</strong></td><td>string</td><td>Nike ID style code, only populated for products of styleType <code>NIKEID</code></td><td>Optional</td></tr>
+    <tr><td><strong>brand</strong></td><td>string</td><td>Nike brand associated to this product such as &quot;Jordan&quot;</td><td>Optional</td></tr>
+    <tr><td><strong>channels</strong></td><td>array</td><td>Array of channels this product is sold in</td><td>Optional</td></tr>
+    <tr><td><strong>legacyCatalogIds</strong></td><td>array</td><td>Array of legacy system catalog ids the product is in, used to map to the <strong>catalogId</strong> UUID</td><td>Optional</td></tr>
+    <tr><td><strong>genders</strong></td><td>array</td><td>Array of genders this product is associated with, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Optional</td></tr>
+    <tr><td><strong>valueAddedServices</strong></td><td>array</td><td>Array of value-added service objects associated with this product</td><td>Optional</td></tr>
+    <tr><td>valueAddedServices.<strong>id</strong></td><td>string</td><td>Value-added-service UUID associated with this product that can be used in the <a href="#merchandised-value-added-services-by-id">Merchandised Value Added Services by ID</a> endpoint call</td><td>Optional</td></tr>
+    <tr><td>valueAddedServices.<strong>publishDate</strong></td><td>string</td><td>Timestamp value-added service was published</td><td>Optional</td></tr>
+    <tr><td>valueAddedServices.<strong>startDate</strong></td><td>string</td><td>Timestamp value-added service begins</td><td>Optional</td></tr>
+    <tr><td>valueAddedServices.<strong>endDate</strong></td><td>string</td><td>Timestamp value-added service ends</td><td>Optional</td></tr>
+    <tr><td><strong>customization</strong></td><td>array</td><td>Array of NIKEiD-related customizations available for this product</td><td>Optional</td></tr>
+    <tr><td>customization.<strong>nikeIdStyleCode</strong></td><td>string</td><td>Style code of matching NIKEiD product</td><td>Optional</td></tr>
+    <tr><td>customization.<strong>nikeIdSlug</strong></td><td>string</td><td>NIKEiD slug code associated with this product</td><td>Optional</td></tr>
+    <tr><td><strong>sportTags</strong></td><td>array</td><td>Array of sport tags associated with this product</td><td>Optional</td></tr>
+    <tr><td><strong>widthGroupIds</strong></td><td>array</td><td>Group of product IDs with same style but different width, not currently used</td><td>Optional</td></tr>
+    <tr><td><strong>classificationConcepts</strong></td><td>array</td><td>Array of Taxonomy concept objects associated with this product. See the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy Service</a> for more information.</td><td>Optional</td></tr>
+    <tr><td>classificationConcepts.<strong>broaderConceptId</strong></td><td>string</td><td>UUID of the broad Taxonomy concept associated with this product, e.g. <code>Platinum Tint</code></td><td>Required</td></tr>
+    <tr><td>classificationConcepts.<strong>narrowerConceptIds</strong></td><td>array</td><td>Array of narrower Taxonomy concept UUIDs associated with this product</td><td>Required</td></tr>
+    <tr><td><strong>commerceCountryInclusions</strong></td><td>array</td><td>Array of ISO2 country codes where this product can be sold, e.g. CN,JP</td><td>Optional</td></tr>
+    <tr><td><strong>commerceCountryExclusions</strong></td><td>array</td><td>Array of ISO2 country codes where this product can not be sold, e.g. AT,BE</td><td>Optional</td></tr>
+    <tr><td><strong>productRollup</strong></td><td>object</td><td>Object containing Prodigy rollup attributes</td><td>Optional</td></tr>
+    <tr><td>productRollup.<strong>type</strong></td><td>string</td><td>Type of Prodigy rollup attribute associated to the product</td><td>Optional</td></tr>
+    <tr><td>productRollup.<strong>key</strong></td><td>string</td><td>Key of Prodigy rollup attribute associated to the product</td><td>Optional</td></tr>
+    <tr><td><strong>quantityLimit</strong></td><td>integer</td><td>Integer restricting how many of this product a customer can purchase at one time</td><td>Optional</td></tr>
+    <tr><td><strong>nikeidStyleNumber</strong></td><td>string</td><td>Nike ID style code, only populated for products of styleType <code>NIKEID</code></td><td>Optional</td></tr>
+    <tr><td><strong>styleType</strong></td><td>string</td><td>Type of style, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Optional</td></tr>
+    <tr><td><strong>productType</strong></td><td>string</td><td>Type of product, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Optional</td></tr>
+    <tr><td><strong>publishType</strong></td><td>string</td><td>Type of publishing, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Optional</td></tr>
+    <tr><td><strong>mainColor</strong></td><td>boolean</td><td>True or false, indicating this is the main color of the style</td><td>Optional</td></tr>
+    <tr><td><strong>exclusiveAccess</strong></td><td>boolean</td><td>True or false, indicating whether or not the user must have an access code to unlock the product in order to purchase it</td><td>Required</td></tr>
+    <tr><td><strong>preOrder</strong></td><td>boolean</td><td>True or false, true indicates the PDP should display in preOrder status</td><td>Optional</td></tr>
+    <tr><td><strong>hardLaunch</strong></td><td>boolean</td><td>True or false, true indicates the PDP should not display before the commerceStartDate or after the commerceEndDate regardless of inventory</td><td>Optional</td></tr>
+    <tr><td><strong>hidePayment</strong></td><td>boolean</td><td>True or false, true indicates certain payment types are not allowed to purchase the product, such as COD in China</td><td>Optional</td></tr>
+    <tr><td><strong>commercePublishDate</strong></td><td>string</td><td>Timestamp indicating when this product was published. e.g. if date is within 30 days of current date, product is considered a New Release</td><td>Optional</td></tr>
+    <tr><td><strong>commerceStartDate</strong></td><td>string</td><td>Timestamp indicating when the product product can be sold</td><td>Optional</td></tr>
+    <tr><td><strong>commerceEndDate</strong></td><td>string</td><td>Timestamp indicating when the product can no longer be sold</td><td>Optional</td></tr>
+    <tr><td><strong>preorderAvailabilityDate</strong></td><td>string</td><td>Timestamp indicating when the product can be pre-ordered</td><td>Optional</td></tr>
+    <tr><td><strong>preorderByDate</strong></td><td>string</td><td>Timestamp, not currently used</td><td>Optional</td></tr>
+    <tr><td><strong>softLaunchDate</strong></td><td>string</td><td>Timestamp e.g. used for products with a publishType of <code>LAUNCH</code>. if <strong>hardLaunch</strong> is true, current date is between the <strong>commerceStartDate</strong> and <strong>softLaunchDate</strong>, display product in Coming Soon status</td><td>Optional</td></tr>
+    <tr><td><strong>resourceType</strong></td><td>string</td><td>Type of resource, always merchProduct</td><td>Required</td></tr>
+    <tr><td>links.self.<strong>ref</strong></td><td>string</td><td>Referrer link to result</td><td>Required</td></tr>
+    <tr><td><strong>errors</strong></td><td>array</td><td>Array of errors associated with this request</td><td>Optional</td></tr>
+    <tr><td>errors.<strong>requested</strong></td><td>string</td><td>Error message indicating which field or parameter caused the error</td><td>Required</td></tr>
+    <tr><td>errors.<strong>httpStatus</strong></td><td>integer</td><td>HTTP error response code</td><td>Required</td></tr>
+    <tr><td>errors.<strong>message</strong></td><td>string</td><td>Detailed error message</td><td>Required</td></tr>
   </tbody>
 </table>
 <p>Sample <em>Merchandised Product List</em> 200 successful response:</p>
@@ -859,30 +859,30 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <h4 id="response-body-2"><a href="#response-body-2" name="response-body-2" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-product-sku-list-response-body"></a>Response Body</h4>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Required?</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>id</strong></td><td>Required</td><td>ID of the SKU</td></tr>
-    <tr><td><strong>snapshotId</strong></td><td>Required</td><td>ID of the most recent snapshot of the SKU</td></tr>
-    <tr><td><strong>productId</strong></td><td>Required</td><td>ID of the product (as passed in the query parameter)</td></tr>
-    <tr><td><strong>parentId</strong></td><td>Optional</td><td>Same as the productId if the SKUs product has no parent</td></tr>
-    <tr><td><strong>parentType</strong></td><td>Optional</td><td>Type of parent product. In the current version, this is always merchProduct.</td></tr>
-    <tr><td><strong>catalogSkuId</strong></td><td>Optional</td><td>UUID of catalog product. See <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Product Catalog Service</a> for more information.</td></tr>
-    <tr><td><strong>modificationDate</strong></td><td>Required</td><td>Date the SKU was last modified</td></tr>
-    <tr><td><strong>merchGroup</strong></td><td>Optional</td><td>Merchandising group to which this SKU belongs. For more information on Merch Groups, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>stockKeepingUnitId</strong></td><td>Optional</td><td>Deprecated SKU ID that is used for historical purposes by legacy systems.<a href="#glossary">legacy SKUID</a></td></tr>
-    <tr><td><strong>gtin</strong></td><td>Required</td><td><a href="#glossary">Global Trade Item Number</a></td></tr>
-    <tr><td><strong>nikeSize</strong></td><td>Optional</td><td>Internal size</td></tr>
-    <tr><td><strong>countrySpecifications</strong></td><td>Required</td><td>Array of specifications based on country parameter</td></tr>
-    <tr><td>countrySpecifications.<strong>country</strong></td><td>Optional</td><td>Country, matches the country filter</td></tr>
-    <tr><td>countrySpecifications.<strong>localizedSize</strong></td><td>Optional</td><td>Localized SKU size based on country filter</td></tr>
-    <tr><td>countrySpecifications.taxInfo.<strong>commodityCode</strong></td><td>Optional</td><td>Category code of SKU</td></tr>
-    <tr><td>countrySpecifications.taxInfo.<strong>vat</strong></td><td>Optional</td><td>Value-added tax based on the country filter, 0 if none</td></tr>
-    <tr><td><strong>resourceType</strong></td><td>Required</td><td>Type of resource, always merchSku</td></tr>
-    <tr><td>links.self.<strong>ref</strong></td><td>Required</td><td>Referrer link to result</td></tr>
-    <tr><td>errors.<strong>requested</strong></td><td>Optional</td><td>Error message indicating which field caused the error</td></tr>
-    <tr><td>errors.<strong>httpStatus</strong></td><td>Optional</td><td>HTTP error response code</td></tr>
-    <tr><td>errors.<strong>message</strong></td><td>Optional</td><td>Detailed error message</td></tr>
+    <tr><td><strong>id</strong></td><td>string</td><td>ID of the SKU</td><td>Required</td></tr>
+    <tr><td><strong>snapshotId</strong></td><td>string</td><td>ID of the most recent snapshot of the SKU</td><td>Required</td></tr>
+    <tr><td><strong>productId</strong></td><td>string</td><td>ID of the product (as passed in the query parameter)</td><td>Required</td></tr>
+    <tr><td><strong>parentId</strong></td><td>string</td><td>Same as the productId if the SKUs product has no parent</td><td>Optional</td></tr>
+    <tr><td><strong>parentType</strong></td><td>string</td><td>Type of parent product. In the current version, this is always merchProduct.</td><td>Optional</td></tr>
+    <tr><td><strong>catalogSkuId</strong></td><td>string</td><td>UUID of catalog product. See <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Product Catalog Service</a> for more information.</td><td>Optional</td></tr>
+    <tr><td><strong>modificationDate</strong></td><td>string</td><td>Date the SKU was last modified</td><td>Required</td></tr>
+    <tr><td><strong>merchGroup</strong></td><td>string</td><td>Merchandising group to which this SKU belongs. For more information on Merch Groups, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Optional</td></tr>
+    <tr><td><strong>stockKeepingUnitId</strong></td><td>string</td><td>Deprecated SKU ID that is used for historical purposes by legacy systems.<a href="#glossary">legacy SKUID</a></td><td>Optional</td></tr>
+    <tr><td><strong>gtin</strong></td><td>string</td><td><a href="#glossary">Global Trade Item Number</a></td><td>Required</td></tr>
+    <tr><td><strong>nikeSize</strong></td><td>string</td><td>Internal size</td><td>Optional</td></tr>
+    <tr><td><strong>countrySpecifications</strong></td><td>array</td><td>Array of specifications based on country parameter</td><td>Required</td></tr>
+    <tr><td>countrySpecifications.<strong>country</strong></td><td>string</td><td>Country, matches the country filter</td><td>Optional</td></tr>
+    <tr><td>countrySpecifications.<strong>localizedSize</strong></td><td>string</td><td>Localized SKU size based on country filter</td><td>Optional</td></tr>
+    <tr><td>countrySpecifications.taxInfo.<strong>commodityCode</strong></td><td>string</td><td>Category code of SKU</td><td>Optional</td></tr>
+    <tr><td>countrySpecifications.taxInfo.<strong>vat</strong></td><td>string</td><td>Value-added tax based on the country filter, 0 if none</td><td>Optional</td></tr>
+    <tr><td><strong>resourceType</strong></td><td>string</td><td>Type of resource, always merchSku</td><td>Required</td></tr>
+    <tr><td>links.self.<strong>ref</strong></td><td>string</td><td>Referrer link to result</td><td>Required</td></tr>
+    <tr><td>errors.<strong>requested</strong></td><td>string</td><td>Error message indicating which field caused the error</td><td>Optional</td></tr>
+    <tr><td>errors.<strong>httpStatus</strong></td><td>integer</td><td>HTTP error response code</td><td>Optional</td></tr>
+    <tr><td>errors.<strong>message</strong></td><td>string</td><td>Detailed error message</td><td>Optional</td></tr>
   </tbody>
 </table>
 <p>Sample HTTP 200 success response from <em>Merchandised Product SKU List</em>:</p>
@@ -1122,32 +1122,32 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <h3 id="response-body-4"><a href="#response-body-4" name="response-body-4" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-prices-list-response-body"></a>Response Body</h3>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Required?</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>pages</strong></td><td>Optional</td><td>Object with a <strong>next</strong> and <strong>prev</strong> link used to paginate results</td></tr>
-    <tr><td>pages.<strong>prev</strong></td><td>Optional</td><td>Relative URL to the previous page of results</td></tr>
-    <tr><td>pages.<strong>next</strong></td><td>Optional</td><td>Relative URL to the next page of results</td></tr>
-    <tr><td><strong>id</strong></td><td>Required</td><td>ID of the price in UUID format, generated when product flows into Merchandised Price from Prodigy</td></tr>
-    <tr><td><strong>snapshotId</strong></td><td>Required</td><td>ID of the most recent snapshot of the price in UUID format</td></tr>
-    <tr><td><strong>productId</strong></td><td>Required</td><td>ID of product this price belongs to</td></tr>
-    <tr><td><strong>parentId</strong></td><td>Optional</td><td>ID of parent product this price belongs to, alias for productId</td></tr>
-    <tr><td><strong>parentType</strong></td><td>Optional</td><td>Type of parent product, always merchProduct</td></tr>
-    <tr><td><strong>modificationDate</strong></td><td>Required</td><td>Timestamp the price was last modified</td></tr>
-    <tr><td><strong>country</strong></td><td>Required</td><td>Country of this price, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>msrp</strong></td><td></td><td>Manufacturer's recommended retail price. often not provided or may be 0</td></tr>
-    <tr><td><strong>fullPrice</strong></td><td>Required</td><td>Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the <a href="/doc/commerce/checkout/api_checkout.html#using-checkouts" class="absent">Buy API</a> to calculate the difference between current retail price and full retail price to send to fulfillment system</td></tr>
-    <tr><td><strong>currentPrice</strong></td><td>Required</td><td>Purchase price of product. if discounted, price is calculated in Prodigy/PI</td></tr>
-    <tr><td><strong>employeePrice</strong></td><td>Required</td><td>Employee price of product</td></tr>
-    <tr><td><strong>currency</strong></td><td>Required</td><td>Localized currency according to country</td></tr>
-    <tr><td><strong>discounted</strong></td><td>Required</td><td>True or false indicating this product is on sale set by the Price Class field in Prodigy/PI</td></tr>
-    <tr><td><strong>promoInclusions</strong></td><td>Required</td><td>Array of promotions associated with this price</td></tr>
-    <tr><td><strong>promoExclusions</strong></td><td>Required</td><td>Array of true or false values indicating if promo exclusions apply to this price</td></tr>
-    <tr><td><strong>resourceType</strong></td><td>Required</td><td>Type of resource, always merchSku</td></tr>
-    <tr><td>links.self.<strong>ref</strong></td><td>Required</td><td>Referrer link to result</td></tr>
-    <tr><td>errors.<strong>requested</strong></td><td>Required</td><td>Error message indicating which field caused the error</td></tr>
-    <tr><td>errors.<strong>httpStatus</strong></td><td>Required</td><td>HTTP error response code</td></tr>
-    <tr><td>errors.<strong>message</strong></td><td>Required</td><td>Detailed error message</td></tr>
+    <tr><td><strong>pages</strong></td><td>object</td><td>Object with a <strong>next</strong> and <strong>prev</strong> link used to paginate results</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>prev</strong></td><td>string</td><td>Relative URL to the previous page of results</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>next</strong></td><td>string</td><td>Relative URL to the next page of results</td><td>Optional</td></tr>
+    <tr><td><strong>id</strong></td><td>string</td><td>ID of the price in UUID format, generated when product flows into Merchandised Price from Prodigy</td><td>Required</td></tr>
+    <tr><td><strong>snapshotId</strong></td><td>string</td><td>ID of the most recent snapshot of the price in UUID format</td><td>Required</td></tr>
+    <tr><td><strong>productId</strong></td><td>string</td><td>ID of product this price belongs to</td><td>Required</td></tr>
+    <tr><td><strong>parentId</strong></td><td>string</td><td>ID of parent product this price belongs to, alias for productId</td><td>Optional</td></tr>
+    <tr><td><strong>parentType</strong></td><td>string</td><td>Type of parent product, always merchProduct</td><td>Optional</td></tr>
+    <tr><td><strong>modificationDate</strong></td><td>string</td><td>Timestamp the price was last modified</td><td>Required</td></tr>
+    <tr><td><strong>country</strong></td><td>string</td><td>Country of this price, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Required</td></tr>
+    <tr><td><strong>msrp</strong></td><td>number</td><td>Manufacturer's recommended retail price. often not provided or may be 0</td><td>Required</td></tr>
+    <tr><td><strong>fullPrice</strong></td><td>number</td><td>Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the <a href="/doc/commerce/checkout/api_checkout.html#using-checkouts" class="absent">Buy API</a> to calculate the difference between current retail price and full retail price to send to fulfillment system</td><td>Required</td></tr>
+    <tr><td><strong>currentPrice</strong></td><td>number</td><td>Purchase price of product. if discounted, price is calculated in Prodigy/PI</td><td>Required</td></tr>
+    <tr><td><strong>employeePrice</strong></td><td>number</td><td>Employee price of product</td><td>Required</td></tr>
+    <tr><td><strong>currency</strong></td><td>string</td><td>Localized currency according to country</td><td>Required</td></tr>
+    <tr><td><strong>discounted</strong></td><td>boolean</td><td>True or false indicating this product is on sale set by the Price Class field in Prodigy/PI</td><td>Required</td></tr>
+    <tr><td><strong>promoInclusions</strong></td><td>array</td><td>Array of promotions associated with this price</td><td>Required</td></tr>
+    <tr><td><strong>promoExclusions</strong></td><td>array</td><td>Array of true or false values indicating if promo exclusions apply to this price</td><td>Required</td></tr>
+    <tr><td><strong>resourceType</strong></td><td>string</td><td>Type of resource, always merchSku</td><td>Required</td></tr>
+    <tr><td>links.self.<strong>ref</strong></td><td>string</td><td>Referrer link to result</td><td>Required</td></tr>
+    <tr><td>errors.<strong>requested</strong></td><td>string</td><td>Error message indicating which field caused the error</td><td>Required</td></tr>
+    <tr><td>errors.<strong>httpStatus</strong></td><td>integer</td><td>HTTP error response code</td><td>Required</td></tr>
+    <tr><td>errors.<strong>message</strong></td><td>string</td><td>Detailed error message</td><td>Required</td></tr>
   </tbody>
 </table>
 <p>Sample <em>Merchandised Prices List</em> 200 successful response:</p>
@@ -1233,7 +1233,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 </code></pre>
 <h3 id="response-body-5"><a href="#response-body-5" name="response-body-5" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-prices-by-id-response-body"></a>Response Body</h3>
 <p>See the <a href="#merchandised-product-list">Merchandised Prices List</a> endpoint for a description of response body field descriptions.</p>
-<p>Sample 200 success response:</p>
+<p>Sample <em>Merchandised Price by ID</em> 200 success response:</p>
 <pre><code class="nohighlight">{
   &quot;id&quot; : &quot;486d098c-a403-5fb7-8305-243d71625d4c&quot;,
   &quot;snapshotId&quot; : &quot;85ebb452-f61c-46a2-b0ce-14a89a542816&quot;,
@@ -1332,24 +1332,24 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <h3 id="response-body-6"><a href="#response-body-6" name="response-body-6" class="anchor"><span class="octicon octicon-link"></span></a><a name="merchandised-value-added-services-list-response-body"></a>Response Body</h3>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Required or Optional</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>pages</strong></td><td>Optional</td><td>Object with a <strong>next</strong> and <strong>prev</strong> link used to paginate results</td></tr>
-    <tr><td>pages.<strong>prev</strong></td><td>Optional</td><td>Relative URL to the previous page of results</td></tr>
-    <tr><td>pages.<strong>next</strong></td><td>Optional</td><td>Relative URL to the next page of results</td></tr>
-    <tr><td><strong>id</strong></td><td>Required</td><td>ID of the VAS in UUID format, generated when VAS flows into Merchandised VAS from Prodigy</td></tr>
-    <tr><td><strong>snapshotId</strong></td><td>Required</td><td>ID of the most recent snapshot of the VAS in UUID format</td></tr>
-    <tr><td><strong>modificationDate</strong></td><td>Required</td><td>Timestamp the VAS was last modified</td></tr>
-    <tr><td><strong>status</strong></td><td>Required</td><td>VAS status, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>merchGroup</strong></td><td>Required</td><td>Merchandising group this VAS is merchandised to, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td></tr>
-    <tr><td><strong>pid</strong></td><td>Required</td><td>Legacy product id used to map to the product UUID</td></tr>
-    <tr><td><strong>type</strong></td><td>Required</td><td>VAS type</td></tr>
-    <tr><td><strong>displayName</strong></td><td>Optional</td><td>VAS display name</td></tr>
-    <tr><td><strong>commercePublishDate</strong></td><td>Optional</td><td>Timestamp indicating when this VAS was published</td></tr>
-    <tr><td><strong>commerceStartDate</strong></td><td>Optional</td><td>Timestamp indicating when the VAS is available</td></tr>
-    <tr><td><strong>resourceType</strong></td><td>Required</td><td>Type of resource, always merchValueAddedService</td></tr>
-    <tr><td>links.self.<strong>ref</strong></td><td>Required</td><td>Referrer link to result</td></tr>
+    <tr><td><strong>pages</strong></td><td>object</td><td>Object with a <strong>next</strong> and <strong>prev</strong> link used to paginate results</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>prev</strong></td><td>string</td><td>Relative URL to the previous page of results</td><td>Optional</td></tr>
+    <tr><td>pages.<strong>next</strong></td><td>string</td><td>Relative URL to the next page of results</td><td>Optional</td></tr>
+    <tr><td><strong>id</strong></td><td>string</td><td>ID of the VAS in UUID format, generated when VAS flows into Merchandised VAS from Prodigy</td><td>Required</td></tr>
+    <tr><td><strong>snapshotId</strong></td><td>string</td><td>ID of the most recent snapshot of the VAS in UUID format</td><td>Required</td></tr>
+    <tr><td><strong>modificationDate</strong></td><td>string</td><td>Timestamp the VAS was last modified</td><td>Required</td></tr>
+    <tr><td><strong>status</strong></td><td>string</td><td>VAS status, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Required</td></tr>
+    <tr><td><strong>merchGroup</strong></td><td>string</td><td>Merchandising group this VAS is merchandised to, see <a href="/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products" class="absent">Merchandised Product Field Reference Guide</a> for a complete list</td><td>Required</td></tr>
+    <tr><td><strong>pid</strong></td><td>string</td><td>Legacy product id used to map to the product UUID</td><td>Required</td></tr>
+    <tr><td><strong>type</strong></td><td>string</td><td>VAS type</td><td>Required</td></tr>
+    <tr><td><strong>displayName</strong></td><td>string</td><td>VAS display name</td><td>Optional</td></tr>
+    <tr><td><strong>commercePublishDate</strong></td><td>string</td><td>Timestamp indicating when this VAS was published</td><td>Optional</td></tr>
+    <tr><td><strong>commerceStartDate</strong></td><td>string</td><td>Timestamp indicating when the VAS is available</td><td>Optional</td></tr>
+    <tr><td><strong>resourceType</strong></td><td>string</td><td>Type of resource, always &quot;merchValueAddedService&quot;</td><td>Required</td></tr>
+    <tr><td>links.self.<strong>ref</strong></td><td>string</td><td>Referrer link to result</td><td>Required</td></tr>
   </tbody>
 </table>
 <p>Sample <em>Merchandised Value Added Services List</em> 200 successful response:</p>
@@ -1531,50 +1531,50 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <h3 id="response-body-8"><a href="#response-body-8" name="response-body-8" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-content-by-style-color-response-body"></a>Response Body</h3>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Required?</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>globalPid</strong></td><td>Optional</td><td>Global product ID from legacy system</td></tr>
-    <tr><td><strong>parentId</strong></td><td>Optional</td><td>ID of parent product in UUID format</td></tr>
-    <tr><td><strong>parentType</strong></td><td>Optional</td><td>Type of parent product, always merchProduct</td></tr>
-    <tr><td><strong>langLocale</strong></td><td>Optional</td><td>Locale of product content</td></tr>
-    <tr><td><strong>colorDescription</strong></td><td>Optional</td><td>Localized color description</td></tr>
-    <tr><td><strong>slug</strong></td><td>Optional</td><td>Slug ID of the product</td></tr>
-    <tr><td><strong>fullTitle</strong></td><td>Required</td><td>Localized full title of product</td></tr>
-    <tr><td><strong>title</strong></td><td>Optional</td><td>Localized short title of product</td></tr>
-    <tr><td><strong>subtitle</strong></td><td>Optional</td><td>Localized subtitle of product</td></tr>
-    <tr><td><strong>descriptionHeading</strong></td><td>Optional</td><td>Localized heading description</td></tr>
-    <tr><td><strong>description</strong></td><td>Optional</td><td>Localized long description of product</td></tr>
-    <tr><td><strong>headLine</strong></td><td>Optional</td><td>Localized headline of product</td></tr>
-    <tr><td><strong>preOrder</strong></td><td>Optional</td><td>Localized preorder text</td></tr>
-    <tr><td><strong>softLaunch</strong></td><td>Optional</td><td>Localized soft launch text</td></tr>
-    <tr><td><strong>outOfStock</strong></td><td>Optional</td><td>Localized out of stock text</td></tr>
-    <tr><td><strong>notifyMe</strong></td><td>Optional</td><td>Localized notify me text</td></tr>
-    <tr><td><strong>accessCode</strong></td><td>Optional</td><td>Localized access code text</td></tr>
-    <tr><td><strong>pdpGeneral</strong></td><td>Optional</td><td>Key for custom messaging e.g. preOrder or notifyMe</td></tr>
-    <tr><td><strong>productName</strong></td><td>Optional</td><td>Localized product name</td></tr>
-    <tr><td><strong>techSpec</strong></td><td>Optional</td><td>Localized technical specification text</td></tr>
-    <tr><td><strong>benefitSummaryList</strong></td><td>Optional</td><td>Localized list of benefits text</td></tr>
-    <tr><td><strong>benefitSummaryVideo</strong></td><td>Optional</td><td>Localized benefits video URI</td></tr>
-    <tr><td><strong>manufacturingCountryOfOrigin</strong></td><td>Optional</td><td>Localized name of country where product was manufactured</td></tr>
-    <tr><td><strong>shippingDelay</strong></td><td>Optional</td><td>Integer value representing when the customer must be notified of a shipping delay</td></tr>
-    <tr><td><strong>sizeChart</strong></td><td>Optional</td><td>Key of size chart for this product</td></tr>
-    <tr><td><strong>imageBadgeResource</strong></td><td>Optional</td><td>Relative URI to image such as &quot;Editor's Choice&quot; image</td></tr>
-    <tr><td><strong>colors</strong></td><td>Optional</td><td>Array of color items associated with this product</td></tr>
-    <tr><td>colors.<strong>type</strong></td><td>Optional</td><td>Type of color e.g. simple, primary or secondary</td></tr>
-    <tr><td>colors.<strong>name</strong></td><td>Optional</td><td>Localized color</td></tr>
-    <tr><td>colors.<strong>hex</strong></td><td>Optional</td><td>Color hex value</td></tr>
-    <tr><td><strong>bestFor</strong></td><td>Optional</td><td>Array of bestFor items</td></tr>
-    <tr><td>bestFor.<strong>value</strong></td><td>Optional</td><td>'Best for' value such as surface best used on</td></tr>
-    <tr><td>bestFor.<strong>localizedValue</strong></td><td>Optional</td><td>Localized value such as surface best used on</td></tr>
-    <tr><td>bestFor.<strong>type</strong></td><td>Optional</td><td>'Best for' type</td></tr>
-    <tr><td><strong>athletes</strong></td><td>Optional</td><td>Array of athlete items</td></tr>
-    <tr><td>athletes.<strong>value</strong></td><td>Optional</td><td>Athlete value, such as athlete's name</td></tr>
-    <tr><td>athletes.<strong>localizedValue</strong></td><td>Optional</td><td>Athlete value, localized athlete name</td></tr>
-    <tr><td><strong>widths</strong></td><td>Optional</td><td>Array of widths</td></tr>
-    <tr><td>widths.<strong>type</strong></td><td>Optional</td><td>Width type</td></tr>
-    <tr><td>widths.<strong>value</strong></td><td>Optional</td><td>Internal width value</td></tr>
-    <tr><td>widths.<strong>localizedValue</strong></td><td>Optional</td><td>Localized width value</td></tr>
+    <tr><td><strong>globalPid</strong></td><td>string</td><td>Global product ID from legacy system</td><td>Optional</td></tr>
+    <tr><td><strong>parentId</strong></td><td>string</td><td>ID of parent product in UUID format</td><td>Optional</td></tr>
+    <tr><td><strong>parentType</strong></td><td>string</td><td>Type of parent product, always merchProduct</td><td>Optional</td></tr>
+    <tr><td><strong>langLocale</strong></td><td>string</td><td>Locale of product content</td><td>Optional</td></tr>
+    <tr><td><strong>colorDescription</strong></td><td>string</td><td>Localized color description</td><td>Optional</td></tr>
+    <tr><td><strong>slug</strong></td><td>string</td><td>Slug ID of the product</td><td>Optional</td></tr>
+    <tr><td><strong>fullTitle</strong></td><td>string</td><td>Localized full title of product</td><td>Required</td></tr>
+    <tr><td><strong>title</strong></td><td>string</td><td>Localized short title of product</td><td>Optional</td></tr>
+    <tr><td><strong>subtitle</strong></td><td>string</td><td>Localized subtitle of product</td><td>Optional</td></tr>
+    <tr><td><strong>descriptionHeading</strong></td><td>string</td><td>Localized heading description</td><td>Optional</td></tr>
+    <tr><td><strong>description</strong></td><td>string</td><td>Localized long description of product</td><td>Optional</td></tr>
+    <tr><td><strong>headLine</strong></td><td>string</td><td>Localized headline of product</td><td>Optional</td></tr>
+    <tr><td><strong>preOrder</strong></td><td>string</td><td>Localized preorder text</td><td>Optional</td></tr>
+    <tr><td><strong>softLaunch</strong></td><td>string</td><td>Localized soft launch text</td><td>Optional</td></tr>
+    <tr><td><strong>outOfStock</strong></td><td>string</td><td>Localized out of stock text</td><td>Optional</td></tr>
+    <tr><td><strong>notifyMe</strong></td><td>string</td><td>Localized notify me text</td><td>Optional</td></tr>
+    <tr><td><strong>accessCode</strong></td><td>string</td><td>Localized access code text</td><td>Optional</td></tr>
+    <tr><td><strong>pdpGeneral</strong></td><td>string</td><td>Key for custom messaging e.g. preOrder or notifyMe</td><td>Optional</td></tr>
+    <tr><td><strong>productName</strong></td><td>string</td><td>Localized product name</td><td>Optional</td></tr>
+    <tr><td><strong>techSpec</strong></td><td>string</td><td>Localized technical specification text</td><td>Optional</td></tr>
+    <tr><td><strong>benefitSummaryList</strong></td><td>string</td><td>Localized list of benefits text</td><td>Optional</td></tr>
+    <tr><td><strong>benefitSummaryVideo</strong></td><td>string</td><td>Localized benefits video URI</td><td>Optional</td></tr>
+    <tr><td><strong>manufacturingCountryOfOrigin</strong></td><td>string</td><td>Localized name of country where product was manufactured</td><td>Optional</td></tr>
+    <tr><td><strong>shippingDelay</strong></td><td>integer</td><td>Integer value representing when the customer must be notified of a shipping delay</td><td>Optional</td></tr>
+    <tr><td><strong>sizeChart</strong></td><td>string</td><td>Key of size chart for this product</td><td>Optional</td></tr>
+    <tr><td><strong>imageBadgeResource</strong></td><td>string</td><td>Relative URI to image such as &quot;Editor's Choice&quot; image</td><td>Optional</td></tr>
+    <tr><td><strong>colors</strong></td><td>array</td><td>Array of color items associated with this product</td><td>Optional</td></tr>
+    <tr><td>colors.<strong>type</strong></td><td>string</td><td>Type of color e.g. simple, primary or secondary</td><td>Optional</td></tr>
+    <tr><td>colors.<strong>name</strong></td><td>string</td><td>Localized color</td><td>Optional</td></tr>
+    <tr><td>colors.<strong>hex</strong></td><td>string</td><td>Color hex value</td><td>Optional</td></tr>
+    <tr><td><strong>bestFor</strong></td><td>array</td><td>Array of bestFor items</td><td>Optional</td></tr>
+    <tr><td>bestFor.<strong>value</strong></td><td>string</td><td>'Best for' value such as surface best used on</td><td>Optional</td></tr>
+    <tr><td>bestFor.<strong>localizedValue</strong></td><td>string</td><td>Localized value such as surface best used on</td><td>Optional</td></tr>
+    <tr><td>bestFor.<strong>type</strong></td><td>string</td><td>'Best for' type</td><td>Optional</td></tr>
+    <tr><td><strong>athletes</strong></td><td>array</td><td>Array of athlete items</td><td>Optional</td></tr>
+    <tr><td>athletes.<strong>value</strong></td><td>string</td><td>Athlete value, such as athlete's name</td><td>Optional</td></tr>
+    <tr><td>athletes.<strong>localizedValue</strong></td><td>string</td><td>Athlete value, localized athlete name</td><td>Optional</td></tr>
+    <tr><td><strong>widths</strong></td><td>array</td><td>Array of widths</td><td>Optional</td></tr>
+    <tr><td>widths.<strong>type</strong></td><td>string</td><td>Width type</td><td>Optional</td></tr>
+    <tr><td>widths.<strong>value</strong></td><td>string</td><td>Internal width value</td><td>Optional</td></tr>
+    <tr><td>widths.<strong>localizedValue</strong></td><td>string</td><td>Localized width value</td><td>Optional</td></tr>
   </tbody>
 </table>
 <p>Sample <em>Product Content by Style Color</em> response body:</p>
@@ -1970,21 +1970,21 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <pre><code class="nohighlight">https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 </code></pre>
 <h3 id="response-body-12"><a href="#response-body-12" name="response-body-12" class="anchor"><span class="octicon octicon-link"></span></a><a name="product-image-set-by-style-color-list-response-body"></a>Response Body</h3>
-<p>Sample <em>Product Image Set by Style Color</em> response body:</p>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Required?</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>name</strong></td><td>Required</td><td>Image set name, usually the style-color code</td></tr>
-    <tr><td><strong>type</strong></td><td>Required</td><td>Image set type, always img_set</td></tr>
-    <tr><td><strong>title</strong></td><td>Required</td><td>Image set title e.g. Air-Jordan-1-Retro-High-Flyknit</td></tr>
-    <tr><td><strong>defaultDomains</strong></td><td>Required</td><td>Array of domains the image set is served from</td></tr>
-    <tr><td><strong>images</strong></td><td>Required</td><td>Array of image objects that make up the image set</td></tr>
-    <tr><td>images.<strong>company</strong></td><td>Required</td><td>Image company code</td></tr>
-    <tr><td>images.<strong>view</strong></td><td>Required</td><td>Key of image view of product, usually in the format stylecode_colorcode_imageletter_type</td></tr>
+    <tr><td><strong>name</strong></td><td>string</td><td>Image set name, usually the style-color code</td><td>Required</td></tr>
+    <tr><td><strong>type</strong></td><td>string</td><td>Image set type, always img_set</td><td>Required</td></tr>
+    <tr><td><strong>title</strong></td><td>string</td><td>Image set title e.g. Air-Jordan-1-Retro-High-Flyknit</td><td>Required</td></tr>
+    <tr><td><strong>defaultDomains</strong></td><td>array</td><td>Array of domains the image set is served from</td><td>Required</td></tr>
+    <tr><td><strong>images</strong></td><td>array</td><td>Array of image objects that make up the image set</td><td>Required</td></tr>
+    <tr><td>images.<strong>company</strong></td><td>string</td><td>Image company code</td><td>Required</td></tr>
+    <tr><td>images.<strong>view</strong></td><td>string</td><td>Key of image view of product, usually in the format stylecode_colorcode_imageletter_type</td><td>Required</td></tr>
   </tbody>
 </table>
+<p>Sample <em>Product Image Set by Style Color</em> response body:</p>
 <pre><code class="nohighlight">{
   &quot;name&quot; : &quot;919704_006&quot;,
   &quot;type&quot; : &quot;img_set&quot;,
@@ -2062,10 +2062,10 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 <p>Sample <em>Product Base Image URL by Style Color</em> response body:</p>
 <table>
   <thead>
-    <tr><th>Element Name</th><th>Required?</th><th>Description</th></tr>
+    <tr><th>Element Name</th><th>Type</th><th>Description</th><th>Required?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>base</strong></td><td>Required</td><td>URI of base image</td></tr>
+    <tr><td><strong>base</strong></td><td>string</td><td>URI of base image</td><td>Required</td></tr>
   </tbody>
 </table>
 <pre><code class="nohighlight">{
@@ -2300,6 +2300,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
     <tr><td>Updated external links</td><td>3 April, 2018</td><td>Updated external links to open in new browser window</td></tr>
     <tr><td>Updated API.md links</td><td>14 May, 2018</td><td>Updated API.md links to point to new dev portal</td></tr>
     <tr><td>Edits for style</td><td>1 June, 2018</td><td>Edits for capitalization, formatting consistency</td></tr>
+    <tr><td>Normalized table formatting</td><td>2 July, 2018</td><td>Edits for request/response table formatting and content</td></tr>
   </tbody>
 </table>
 <h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>

@@ -13,7 +13,7 @@ SME Consultants:  Joe Peterson, Jeremy Geiger, Joe Peterson, Sean Pierce, Ian Wa
 
 # MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 06/04/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 07/02/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
 
@@ -525,67 +525,67 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 
 ### <a name="merchandised-product-list-response-body"></a>Response Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**pages**|Optional|Object with a **next** and **prev** link used to paginate results|
-|pages.**prev**|Optional|Relative URL to the previous page of results|
-|pages.**next**|Optional|Relative URL to the next page of results|
-|**id**|Required|ID of the product in UUID format, generated when product flows into Merch Product from Prodigy, will eventually replace **pid**|
-|**snapshotId**|Required|ID of the most recent snapshot of the SKU in UUID format, generated when the product is updated|
-|**modificationDate**|Required|Timestamp the product was last modified|
-|**status**|Required|Product status, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**merchGroup**|Required|Group this product is merchandised to, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**styleCode**|Required|Code indicating Nike style|
-|**colorCode**|Required|Code indicating Nike color|
-|**styleColor**|Required|Concatenation of **styleCode**-**colorCode**|
-|**pid**|Required|Product ID from legacy system used to map to the product UUID|
-|**catalogId**|Optional|Catalog ID in UUID format from the <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Catalog Product</a> service, will eventually replace **legacyCatalogIds**|
-|**productGroupId**|Optional|ID used to group products together such as products with the same styleCode, from legacy system|
-|**nikeIdStyleCode**|Optional|Nike ID style code, only populated for products of styleType `NIKEID`|
-|**brand**|Optional|Nike brand associated to this product such as "Jordan"|
-|**channels**|Optional|Array of channels this product is sold in|
-|**legacyCatalogIds**|Optional|Array of legacy system catalog ids the product is in, used to map to the **catalogId** UUID|
-|**genders**|Optional|Array of genders this product is associated with, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**valueAddedServices**|Optional|Array of value-added service objects associated with this product|
-|valueAddedServices.**id**|Optional|Value-added-service UUID associated with this product that can be used in the [Merchandised Value Added Services by ID](#merchandised-value-added-services-by-id) endpoint call|
-|valueAddedServices.**publishDate**|Optional|Timestamp value-added service was published|
-|valueAddedServices.**startDate**|Optional|Timestamp value-added service begins|
-|valueAddedServices.**endDate**|Optional|Timestamp value-added service ends|
-|**customization**|Optional|Array of NIKEiD-related customizations available for this product|
-|customization.**nikeIdStyleCode**|Optional|Style code of matching NIKEiD product|
-|customization.**nikeIdSlug**|Optional|NIKEiD slug code associated with this product|
-|**sportTags**|Optional|Array of sport tags associated with this product|
-|**widthGroupIds**|Optional|Group of product IDs with same style but different width, not currently used|
-|**classificationConcepts**|Optional|Array of Taxonomy concept objects associated with this product. See the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy Service</a> for more information.|
-|classificationConcepts.**broaderConceptId**|Required|UUID of the broad Taxonomy concept associated with this product, e.g. `Platinum Tint`|
-|classificationConcepts.**narrowerConceptIds**|Required|Array of narrower Taxonomy concept UUIDs associated with this product|
-|**commerceCountryInclusions**|Optional|Array of ISO2 country codes where this product can be sold, e.g. CN,JP|
-|**commerceCountryExclusions**|Optional|Array of ISO2 country codes where this product can not be sold, e.g. AT,BE|
-|**productRollup**|Optional|Object containing Prodigy rollup attributes|
-|productRollup.**type**|Optional|Type of Prodigy rollup attribute associated to the product|
-|productRollup.**key**|Optional|Key of Prodigy rollup attribute associated to the product|
-|**quantityLimit**|Optional|Integer restricting how many of this product a customer can purchase at one time|
-|**nikeidStyleNumber**|Optional|Nike ID style code, only populated for products of styleType `NIKEID`|
-|**styleType**|Optional|Type of style, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**productType**|Optional|Type of product, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**publishType**|Optional|Type of publishing, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**mainColor**|Optional|True or false, indicating this is the main color of the style|
-|**exclusiveAccess**|Required|True or false, indicating whether or not the user must have an access code to unlock the product in order to purchase it|
-|**preOrder**|Optional|True or false, true indicates the PDP should display in preOrder status|
-|**hardLaunch**|Optional|True or false, true indicates the PDP should not display before the commerceStartDate or after the commerceEndDate regardless of inventory|
-|**hidePayment**|Optional|True or false, true indicates certain payment types are not allowed to purchase the product, such as COD in China|
-|**commercePublishDate**|Optional|Timestamp indicating when this product was published. e.g. if date is within 30 days of current date, product is considered a New Release|
-|**commerceStartDate**|Optional|Timestamp indicating when the product product can be sold|
-|**commerceEndDate**|Optional|Timestamp indicating when the product can no longer be sold|
-|**preorderAvailabilityDate**|Optional|Timestamp indicating when the product can be pre-ordered|
-|**preorderByDate**|Optional|Timestamp, not currently used|
-|**softLaunchDate**|Optional|Timestamp e.g. used for products with a publishType of `LAUNCH`. if **hardLaunch** is true, current date is between the **commerceStartDate** and **softLaunchDate**, display product in Coming Soon status|
-|**resourceType**|Required|Type of resource, always merchProduct|
-|links.self.**ref**|Required|Referrer link to result|
-|**errors**|Optional|Array of errors associated with this request|
-|errors.**requested**|Required|Error message indicating which field or parameter caused the error|
-|errors.**httpStatus**|Required|HTTP error response code|
-|errors.**message**|Required|Detailed error message|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**pages**|object|Object with a **next** and **prev** link used to paginate results|Optional|
+|pages.**prev**|string|Relative URL to the previous page of results|Optional|
+|pages.**next**|string|Relative URL to the next page of results|Optional|
+|**id**|string|ID of the product in UUID format, generated when product flows into Merch Product from Prodigy, will eventually replace **pid**|Required|
+|**snapshotId**|string|ID of the most recent snapshot of the SKU in UUID format, generated when the product is updated|Required|
+|**modificationDate**|string|Timestamp the product was last modified|Required|
+|**status**|string|Product status, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Required|
+|**merchGroup**|string|Group this product is merchandised to, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Required|
+|**styleCode**|string|Code indicating Nike style|Required|
+|**colorCode**|string|Code indicating Nike color|Required|
+|**styleColor**|string|Concatenation of **styleCode**-**colorCode**|Required|
+|**pid**|string|Product ID from legacy system used to map to the product UUID|Required|
+|**catalogId**|string|Catalog ID in UUID format from the <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Catalog Product</a> service, will eventually replace **legacyCatalogIds**|Optional|
+|**productGroupId**|string|ID used to group products together such as products with the same styleCode, from legacy system|Optional|
+|**nikeIdStyleCode**|string|Nike ID style code, only populated for products of styleType `NIKEID`|Optional|
+|**brand**|string|Nike brand associated to this product such as "Jordan"|Optional|
+|**channels**|array|Array of channels this product is sold in|Optional|
+|**legacyCatalogIds**|array|Array of legacy system catalog ids the product is in, used to map to the **catalogId** UUID|Optional|
+|**genders**|array|Array of genders this product is associated with, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Optional|
+|**valueAddedServices**|array|Array of value-added service objects associated with this product|Optional|
+|valueAddedServices.**id**|string|Value-added-service UUID associated with this product that can be used in the [Merchandised Value Added Services by ID](#merchandised-value-added-services-by-id) endpoint call|Optional|
+|valueAddedServices.**publishDate**|string|Timestamp value-added service was published|Optional|
+|valueAddedServices.**startDate**|string|Timestamp value-added service begins|Optional|
+|valueAddedServices.**endDate**|string|Timestamp value-added service ends|Optional|
+|**customization**|array|Array of NIKEiD-related customizations available for this product|Optional|
+|customization.**nikeIdStyleCode**|string|Style code of matching NIKEiD product|Optional|
+|customization.**nikeIdSlug**|string|NIKEiD slug code associated with this product|Optional|
+|**sportTags**|array|Array of sport tags associated with this product|Optional|
+|**widthGroupIds**|array|Group of product IDs with same style but different width, not currently used|Optional|
+|**classificationConcepts**|array|Array of Taxonomy concept objects associated with this product. See the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy Service</a> for more information.|Optional|
+|classificationConcepts.**broaderConceptId**|string|UUID of the broad Taxonomy concept associated with this product, e.g. `Platinum Tint`|Required|
+|classificationConcepts.**narrowerConceptIds**|array|Array of narrower Taxonomy concept UUIDs associated with this product|Required|
+|**commerceCountryInclusions**|array|Array of ISO2 country codes where this product can be sold, e.g. CN,JP|Optional|
+|**commerceCountryExclusions**|array|Array of ISO2 country codes where this product can not be sold, e.g. AT,BE|Optional|
+|**productRollup**|object|Object containing Prodigy rollup attributes|Optional|
+|productRollup.**type**|string|Type of Prodigy rollup attribute associated to the product|Optional|
+|productRollup.**key**|string|Key of Prodigy rollup attribute associated to the product|Optional|
+|**quantityLimit**|integer|Integer restricting how many of this product a customer can purchase at one time|Optional|
+|**nikeidStyleNumber**|string|Nike ID style code, only populated for products of styleType `NIKEID`|Optional|
+|**styleType**|string|Type of style, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Optional|
+|**productType**|string|Type of product, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Optional|
+|**publishType**|string|Type of publishing, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Optional|
+|**mainColor**|boolean|True or false, indicating this is the main color of the style|Optional|
+|**exclusiveAccess**|boolean|True or false, indicating whether or not the user must have an access code to unlock the product in order to purchase it|Required|
+|**preOrder**|boolean|True or false, true indicates the PDP should display in preOrder status|Optional|
+|**hardLaunch**|boolean|True or false, true indicates the PDP should not display before the commerceStartDate or after the commerceEndDate regardless of inventory|Optional|
+|**hidePayment**|boolean|True or false, true indicates certain payment types are not allowed to purchase the product, such as COD in China|Optional|
+|**commercePublishDate**|string|Timestamp indicating when this product was published. e.g. if date is within 30 days of current date, product is considered a New Release|Optional|
+|**commerceStartDate**|string|Timestamp indicating when the product product can be sold|Optional|
+|**commerceEndDate**|string|Timestamp indicating when the product can no longer be sold|Optional|
+|**preorderAvailabilityDate**|string|Timestamp indicating when the product can be pre-ordered|Optional|
+|**preorderByDate**|string|Timestamp, not currently used|Optional|
+|**softLaunchDate**|string|Timestamp e.g. used for products with a publishType of `LAUNCH`. if **hardLaunch** is true, current date is between the **commerceStartDate** and **softLaunchDate**, display product in Coming Soon status|Optional|
+|**resourceType**|string|Type of resource, always merchProduct|Required|
+|links.self.**ref**|string|Referrer link to result|Required|
+|**errors**|array|Array of errors associated with this request|Optional|
+|errors.**requested**|string|Error message indicating which field or parameter caused the error|Required|
+|errors.**httpStatus**|integer|HTTP error response code|Required|
+|errors.**message**|string|Detailed error message|Required|
 
 Sample *Merchandised Product List* 200 successful response:
 
@@ -919,29 +919,29 @@ https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a
 
 #### <a name="merchandised-product-sku-list-response-body"></a>Response Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**id**|Required|ID of the SKU|
-|**snapshotId**|Required|ID of the most recent snapshot of the SKU|
-|**productId**|Required|ID of the product (as passed in the query parameter)|
-|**parentId**|Optional|Same as the productId if the SKUs product has no parent|
-|**parentType**|Optional|Type of parent product. In the current version, this is always merchProduct.|
-|**catalogSkuId**|Optional|UUID of catalog product. See <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Product Catalog Service</a> for more information.|
-|**modificationDate**|Required|Date the SKU was last modified|
-|**merchGroup**|Optional|Merchandising group to which this SKU belongs. For more information on Merch Groups, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**stockKeepingUnitId**|Optional|Deprecated SKU ID that is used for historical purposes by legacy systems.[legacy SKUID](#glossary)|
-|**gtin**|Required|[Global Trade Item Number](#glossary)|
-|**nikeSize**|Optional|Internal size|
-|**countrySpecifications**|Required|Array of specifications based on country parameter|
-|countrySpecifications.**country**|Optional|Country, matches the country filter|
-|countrySpecifications.**localizedSize**|Optional|Localized SKU size based on country filter|
-|countrySpecifications.taxInfo.**commodityCode**|Optional|Category code of SKU|
-|countrySpecifications.taxInfo.**vat**|Optional|Value-added tax based on the country filter, 0 if none|
-|**resourceType**|Required|Type of resource, always merchSku|
-|links.self.**ref**|Required|Referrer link to result|
-|errors.**requested**|Optional|Error message indicating which field caused the error|
-|errors.**httpStatus**|Optional|HTTP error response code|
-|errors.**message**|Optional|Detailed error message|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|ID of the SKU|Required|
+|**snapshotId**|string|ID of the most recent snapshot of the SKU|Required|
+|**productId**|string|ID of the product (as passed in the query parameter)|Required|
+|**parentId**|string|Same as the productId if the SKUs product has no parent|Optional|
+|**parentType**|string|Type of parent product. In the current version, this is always merchProduct.|Optional|
+|**catalogSkuId**|string|UUID of catalog product. See <a href="https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api" target="_blank">Product Catalog Service</a> for more information.|Optional|
+|**modificationDate**|string|Date the SKU was last modified|Required|
+|**merchGroup**|string|Merchandising group to which this SKU belongs. For more information on Merch Groups, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Optional|
+|**stockKeepingUnitId**|string|Deprecated SKU ID that is used for historical purposes by legacy systems.[legacy SKUID](#glossary)|Optional|
+|**gtin**|string|[Global Trade Item Number](#glossary)|Required|
+|**nikeSize**|string|Internal size|Optional|
+|**countrySpecifications**|array|Array of specifications based on country parameter|Required|
+|countrySpecifications.**country**|string|Country, matches the country filter|Optional|
+|countrySpecifications.**localizedSize**|string|Localized SKU size based on country filter|Optional|
+|countrySpecifications.taxInfo.**commodityCode**|string|Category code of SKU|Optional|
+|countrySpecifications.taxInfo.**vat**|string|Value-added tax based on the country filter, 0 if none|Optional|
+|**resourceType**|string|Type of resource, always merchSku|Required|
+|links.self.**ref**|string|Referrer link to result|Required|
+|errors.**requested**|string|Error message indicating which field caused the error|Optional|
+|errors.**httpStatus**|integer|HTTP error response code|Optional|
+|errors.**message**|string|Detailed error message|Optional|
 
 Sample HTTP 200 success response from *Merchandised Product SKU List*:
 
@@ -1179,31 +1179,31 @@ Note that for the **productid** + [**country**](/doc/commerce/product/merch_prod
 
 ### <a name="merchandised-prices-list-response-body"></a>Response Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**pages**|Optional|Object with a **next** and **prev** link used to paginate results|
-|pages.**prev**|Optional|Relative URL to the previous page of results|
-|pages.**next**|Optional|Relative URL to the next page of results|
-|**id**|Required|ID of the price in UUID format, generated when product flows into Merchandised Price from Prodigy|
-|**snapshotId**|Required|ID of the most recent snapshot of the price in UUID format|
-|**productId**|Required|ID of product this price belongs to|
-|**parentId**|Optional|ID of parent product this price belongs to, alias for productId|
-|**parentType**|Optional|Type of parent product, always merchProduct|
-|**modificationDate**|Required|Timestamp the price was last modified|
-|**country**|Required|Country of this price, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**msrp**||Manufacturer's recommended retail price. often not provided or may be 0|
-|**fullPrice**|Required|Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the [Buy API](/doc/commerce/checkout/api_checkout.html#using-checkouts) to calculate the difference between current retail price and full retail price to send to fulfillment system|
-|**currentPrice**|Required|Purchase price of product. if discounted, price is calculated in Prodigy/PI|
-|**employeePrice**|Required|Employee price of product|
-|**currency**|Required|Localized currency according to country|
-|**discounted**|Required|True or false indicating this product is on sale set by the Price Class field in Prodigy/PI|
-|**promoInclusions**|Required|Array of promotions associated with this price|
-|**promoExclusions**|Required|Array of true or false values indicating if promo exclusions apply to this price|
-|**resourceType**|Required|Type of resource, always merchSku|
-|links.self.**ref**|Required|Referrer link to result|
-|errors.**requested**|Required|Error message indicating which field caused the error|
-|errors.**httpStatus**|Required|HTTP error response code|
-|errors.**message**|Required|Detailed error message|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**pages**|object|Object with a **next** and **prev** link used to paginate results|Optional|
+|pages.**prev**|string|Relative URL to the previous page of results|Optional|
+|pages.**next**|string|Relative URL to the next page of results|Optional|
+|**id**|string|ID of the price in UUID format, generated when product flows into Merchandised Price from Prodigy|Required|
+|**snapshotId**|string|ID of the most recent snapshot of the price in UUID format|Required|
+|**productId**|string|ID of product this price belongs to|Required|
+|**parentId**|string|ID of parent product this price belongs to, alias for productId|Optional|
+|**parentType**|string|Type of parent product, always merchProduct|Optional|
+|**modificationDate**|string|Timestamp the price was last modified|Required|
+|**country**|string|Country of this price, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Required|
+|**msrp**|number|Manufacturer's recommended retail price. often not provided or may be 0|Required|
+|**fullPrice**|number|Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the [Buy API](/doc/commerce/checkout/api_checkout.html#using-checkouts) to calculate the difference between current retail price and full retail price to send to fulfillment system|Required|
+|**currentPrice**|number|Purchase price of product. if discounted, price is calculated in Prodigy/PI|Required|
+|**employeePrice**|number|Employee price of product|Required|
+|**currency**|string|Localized currency according to country|Required|
+|**discounted**|boolean|True or false indicating this product is on sale set by the Price Class field in Prodigy/PI|Required|
+|**promoInclusions**|array|Array of promotions associated with this price|Required|
+|**promoExclusions**|array|Array of true or false values indicating if promo exclusions apply to this price|Required|
+|**resourceType**|string|Type of resource, always merchSku|Required|
+|links.self.**ref**|string|Referrer link to result|Required|
+|errors.**requested**|string|Error message indicating which field caused the error|Required|
+|errors.**httpStatus**|integer|HTTP error response code|Required|
+|errors.**message**|string|Detailed error message|Required|
 
 Sample *Merchandised Prices List* 200 successful response:
 
@@ -1291,7 +1291,7 @@ https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c
 
 See the [Merchandised Prices List](#merchandised-product-list) endpoint for a description of response body field descriptions.
 
-Sample 200 success response:
+Sample *Merchandised Price by ID* 200 success response:
 
 ```
 {
@@ -1389,23 +1389,23 @@ There is no body in a GET request.
 
 ### <a name="merchandised-value-added-services-list-response-body"></a>Response Body
 
-|Element Name|Required or Optional|Description|
-|---|---|---|
-|**pages**|Optional|Object with a **next** and **prev** link used to paginate results|
-|pages.**prev**|Optional|Relative URL to the previous page of results|
-|pages.**next**|Optional|Relative URL to the next page of results|
-|**id**|Required|ID of the VAS in UUID format, generated when VAS flows into Merchandised VAS from Prodigy|
-|**snapshotId**|Required|ID of the most recent snapshot of the VAS in UUID format|
-|**modificationDate**|Required|Timestamp the VAS was last modified|
-|**status**|Required|VAS status, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**merchGroup**|Required|Merchandising group this VAS is merchandised to, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|
-|**pid**|Required|Legacy product id used to map to the product UUID|
-|**type**|Required|VAS type|
-|**displayName**|Optional|VAS display name|
-|**commercePublishDate**|Optional|Timestamp indicating when this VAS was published|
-|**commerceStartDate**|Optional|Timestamp indicating when the VAS is available|
-|**resourceType**|Required|Type of resource, always merchValueAddedService|
-|links.self.**ref**|Required|Referrer link to result|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**pages**|object|Object with a **next** and **prev** link used to paginate results|Optional|
+|pages.**prev**|string|Relative URL to the previous page of results|Optional|
+|pages.**next**|string|Relative URL to the next page of results|Optional|
+|**id**|string|ID of the VAS in UUID format, generated when VAS flows into Merchandised VAS from Prodigy|Required|
+|**snapshotId**|string|ID of the most recent snapshot of the VAS in UUID format|Required|
+|**modificationDate**|string|Timestamp the VAS was last modified|Required|
+|**status**|string|VAS status, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Required|
+|**merchGroup**|string|Merchandising group this VAS is merchandised to, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Required|
+|**pid**|string|Legacy product id used to map to the product UUID|Required|
+|**type**|string|VAS type|Required|
+|**displayName**|string|VAS display name|Optional|
+|**commercePublishDate**|string|Timestamp indicating when this VAS was published|Optional|
+|**commerceStartDate**|string|Timestamp indicating when the VAS is available|Optional|
+|**resourceType**|string|Type of resource, always "merchValueAddedService"|Required|
+|links.self.**ref**|string|Referrer link to result|Required|
 
 Sample *Merchandised Value Added Services List* 200 successful response:
 
@@ -1592,49 +1592,49 @@ https://api.nike.com/merch/contents/v1/919704-006/content?country=ES&locale=es_E
 
 ### <a name="product-content-by-style-color-response-body"></a>Response Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**globalPid**|Optional|Global product ID from legacy system|
-|**parentId**|Optional|ID of parent product in UUID format|
-|**parentType**|Optional|Type of parent product, always merchProduct|
-|**langLocale**|Optional|Locale of product content|
-|**colorDescription**|Optional|Localized color description|
-|**slug**|Optional|Slug ID of the product|
-|**fullTitle**|Required|Localized full title of product|
-|**title**|Optional|Localized short title of product|
-|**subtitle**|Optional|Localized subtitle of product|
-|**descriptionHeading**|Optional|Localized heading description|
-|**description**|Optional|Localized long description of product|
-|**headLine**|Optional|Localized headline of product|
-|**preOrder**|Optional|Localized preorder text|
-|**softLaunch**|Optional|Localized soft launch text|
-|**outOfStock**|Optional|Localized out of stock text|
-|**notifyMe**|Optional|Localized notify me text|
-|**accessCode**|Optional|Localized access code text|
-|**pdpGeneral**|Optional|Key for custom messaging e.g. preOrder or notifyMe|
-|**productName**|Optional|Localized product name|
-|**techSpec**|Optional|Localized technical specification text|
-|**benefitSummaryList**|Optional|Localized list of benefits text|
-|**benefitSummaryVideo**|Optional|Localized benefits video URI|
-|**manufacturingCountryOfOrigin**|Optional|Localized name of country where product was manufactured|
-|**shippingDelay**|Optional|Integer value representing when the customer must be notified of a shipping delay|
-|**sizeChart**|Optional|Key of size chart for this product|
-|**imageBadgeResource**|Optional|Relative URI to image such as "Editor's Choice" image|
-|**colors**|Optional|Array of color items associated with this product|
-|colors.**type**|Optional|Type of color e.g. simple, primary or secondary|
-|colors.**name**|Optional|Localized color|
-|colors.**hex**|Optional|Color hex value|
-|**bestFor**|Optional|Array of bestFor items|
-|bestFor.**value**|Optional|'Best for' value such as surface best used on|
-|bestFor.**localizedValue**|Optional|Localized value such as surface best used on|
-|bestFor.**type**|Optional|'Best for' type|
-|**athletes**|Optional|Array of athlete items|
-|athletes.**value**|Optional|Athlete value, such as athlete's name|
-|athletes.**localizedValue**|Optional|Athlete value, localized athlete name|
-|**widths**|Optional|Array of widths|
-|widths.**type**|Optional|Width type|
-|widths.**value**|Optional|Internal width value|
-|widths.**localizedValue**|Optional|Localized width value|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**globalPid**|string|Global product ID from legacy system|Optional|
+|**parentId**|string|ID of parent product in UUID format|Optional|
+|**parentType**|string|Type of parent product, always merchProduct|Optional|
+|**langLocale**|string|Locale of product content|Optional|
+|**colorDescription**|string|Localized color description|Optional|
+|**slug**|string|Slug ID of the product|Optional|
+|**fullTitle**|string|Localized full title of product|Required|
+|**title**|string|Localized short title of product|Optional|
+|**subtitle**|string|Localized subtitle of product|Optional|
+|**descriptionHeading**|string|Localized heading description|Optional|
+|**description**|string|Localized long description of product|Optional|
+|**headLine**|string|Localized headline of product|Optional|
+|**preOrder**|string|Localized preorder text|Optional|
+|**softLaunch**|string|Localized soft launch text|Optional|
+|**outOfStock**|string|Localized out of stock text|Optional|
+|**notifyMe**|string|Localized notify me text|Optional|
+|**accessCode**|string|Localized access code text|Optional|
+|**pdpGeneral**|string|Key for custom messaging e.g. preOrder or notifyMe|Optional|
+|**productName**|string|Localized product name|Optional|
+|**techSpec**|string|Localized technical specification text|Optional|
+|**benefitSummaryList**|string|Localized list of benefits text|Optional|
+|**benefitSummaryVideo**|string|Localized benefits video URI|Optional|
+|**manufacturingCountryOfOrigin**|string|Localized name of country where product was manufactured|Optional|
+|**shippingDelay**|integer|Integer value representing when the customer must be notified of a shipping delay|Optional|
+|**sizeChart**|string|Key of size chart for this product|Optional|
+|**imageBadgeResource**|string|Relative URI to image such as "Editor's Choice" image|Optional|
+|**colors**|array|Array of color items associated with this product|Optional|
+|colors.**type**|string|Type of color e.g. simple, primary or secondary|Optional|
+|colors.**name**|string|Localized color|Optional|
+|colors.**hex**|string|Color hex value|Optional|
+|**bestFor**|array|Array of bestFor items|Optional|
+|bestFor.**value**|string|'Best for' value such as surface best used on|Optional|
+|bestFor.**localizedValue**|string|Localized value such as surface best used on|Optional|
+|bestFor.**type**|string|'Best for' type|Optional|
+|**athletes**|array|Array of athlete items|Optional|
+|athletes.**value**|string|Athlete value, such as athlete's name|Optional|
+|athletes.**localizedValue**|string|Athlete value, localized athlete name|Optional|
+|**widths**|array|Array of widths|Optional|
+|widths.**type**|string|Width type|Optional|
+|widths.**value**|string|Internal width value|Optional|
+|widths.**localizedValue**|string|Localized width value|Optional|
 
 Sample *Product Content by Style Color* response body:
 
@@ -2034,17 +2034,17 @@ https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 
 ### <a name="product-image-set-by-style-color-list-response-body"></a>Response Body
 
-Sample *Product Image Set by Style Color* response body:
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**name**|string|Image set name, usually the style-color code|Required|
+|**type**|string|Image set type, always img_set|Required|
+|**title**|string|Image set title e.g. Air-Jordan-1-Retro-High-Flyknit|Required|
+|**defaultDomains**|array|Array of domains the image set is served from|Required|
+|**images**|array|Array of image objects that make up the image set|Required|
+|images.**company**|string|Image company code|Required|
+|images.**view**|string|Key of image view of product, usually in the format stylecode_colorcode_imageletter_type|Required|
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**name**|Required|Image set name, usually the style-color code|
-|**type**|Required|Image set type, always img_set|
-|**title**|Required|Image set title e.g. Air-Jordan-1-Retro-High-Flyknit|
-|**defaultDomains**|Required|Array of domains the image set is served from|
-|**images**|Required|Array of image objects that make up the image set|
-|images.**company**|Required|Image company code|
-|images.**view**|Required|Key of image view of product, usually in the format stylecode_colorcode_imageletter_type|
+Sample *Product Image Set by Style Color* response body:
 
 ```
 {
@@ -2122,9 +2122,9 @@ https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 
 Sample *Product Base Image URL by Style Color* response body:
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**base**|Required|URI of base image|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**base**|string|URI of base image|Required|
 
 ```
 {
@@ -2369,6 +2369,7 @@ There are no release notes at this time.
 |Updated external links|3 April, 2018|Updated external links to open in new browser window|
 |Updated API.md links|14 May, 2018|Updated API.md links to point to new dev portal|
 |Edits for style|1 June, 2018|Edits for capitalization, formatting consistency|
+|Normalized table formatting|2 July, 2018|Edits for request/response table formatting and content|
 
 ## <a name="related-links"></a>Related Links
 
