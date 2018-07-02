@@ -87,7 +87,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 The <b>Merchandised Products API</b> is a set of REST services that provides Nike product data in JSON format. You can list product information such as product attributes, SKU data, prices, product content, product images, and value-added services (VAS).
 
-The following table describe the key details of the API:
+The following table describes the key details of the API:
 
 |Topic|Details|
 |---|---|
