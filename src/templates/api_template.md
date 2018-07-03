@@ -200,12 +200,12 @@ Let's take a look at some *endpoint1* scenarios.
 
 #### <a name="endpoint1-request-body"></a>Request Body
 
-|Element Name|Description|Required?|
-|---|---|---|
-|**fieldname**|description|**Required**|
-|**fieldname**|description|Optional|
-|fieldname.**fieldname**|description|Optional|
-|fieldname.fieldname.**fieldname**|description|Optional|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**fieldname**|data type|description|**Required**|
+|**fieldname**|data type|description|Optional|
+|fieldname.**fieldname**|data type|description|Optional|
+|fieldname.fieldname.**fieldname**|data type|description|Optional|
 
 Sample *Endpoint1* request URI:
 ```
@@ -219,12 +219,12 @@ Sample *Endpoint1* request body:
 
 #### <a name="endpoint1-response-body"></a>Response Body
 
-|Element Name|Description|Required?|
-|---|---|---|
-|**fieldname**|description|**Required**|
-|**fieldname**|description|Optional|
-|fieldname.**fieldname**|description|Optional|
-|fieldname.fieldname.**fieldname**|description|Optional|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**fieldname**|data type|description|**Required**|
+|**fieldname**|data type|description|Optional|
+|fieldname.**fieldname**|data type|description|Optional|
+|fieldname.fieldname.**fieldname**|data type|description|Optional|
 
 Sample *endpoint1* 200 response
 ```
