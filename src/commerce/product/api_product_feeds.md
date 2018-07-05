@@ -13,7 +13,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 07/03/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 07/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -94,7 +94,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 |Prerequisites|None (public API)|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
 
->**TIP:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
+>**NOTE:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -500,7 +500,7 @@ There is no body for a GET request.
 
 The important elements of the *Threads List* response body are as follows:
 
->Note: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
+>**NOTE**: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2065,6 +2065,10 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Common Questions
 
+**Who do I contact with questions about what I'm seeing in the **productInfo** or **publishedContent** sections of the response?**
+
+- The data in **productInfo** and **publishedContent** is not owned by the Product Feeds team. Refer to <a href="https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown" target="_blank">Thread Response Ownership Breakdown</a> to find the Slack channel of the team responsible for that data.
+
 **How do I know what product attributes are available for me to use to request Threads?**
 
 - Unless you are doing a keyword search using the **searchTerms** query parameter, you need to know in advance which product attributes to include in your requests. The source of product attributes (e.g. slugs, 'best for', and other attributes) is Nike's Prodigy system.
@@ -2111,6 +2115,7 @@ No release notes available
 |Updated API.md links|05/14/2018|Updated API.md links to point to new dev portal|
 |Updated request/response content|07/02/2018|Added required/optional and data type columns to request/response tables|
 |Removed endpoints|7/3/2018|Removed references to the deprecated product_feed/feed endpoints|
+|Added upstream contact info|7/5/2018|Linked to 'Thread Response Ownership Breakdown' in Troubleshooting|
 
 ## <a name="related-links"></a>Related Links
 
