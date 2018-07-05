@@ -13,7 +13,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 06/28/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 07/03/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -219,7 +219,7 @@ curl -X GET \
      -H 'cache-control: no-cache'
 ```
 
-You should receive a response body from the Threads List endpoint similar to the following (note: your values will vary):
+You will receive a response body from the Threads List endpoint similar to the JSON below.
 
 ```
 {
@@ -459,9 +459,9 @@ The following is a list of scenarios that illustrate which **filter** parameters
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting when using the `fields` parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure; Use **id** rather than objects.**id**.
+><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure, so rather than **objects.id** use **id**, for example.
 >
-><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values:<br/>`styleCode(942198,AA1697,928597)`
+><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
 
 ##### Using Search-Based Queries
 
@@ -476,17 +476,17 @@ The searchable fields are:
 - productInfo.merchProduct.**styleColor**
 - productInfo.merchProduct.**styleCode**
 
-For example, using `searchTerms=Chuck Taylor` would return all threads with the words 'Chuck' and 'Taylor' found anywhere in a searchable field.
+For example, using `searchTerms=Chuck Taylor` returns all threads with the words 'Chuck' and 'Taylor' in a searchable field.
 
 The default search behavior is *partial match*. Limiting the search to only *full string matches* can be done by enclosing the keywords in double quotes, like `searchTerms="Chuck Taylor"`. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.
 
 ##### Pagination and Limits
 
-The Threads List endpoint returns a paginated response when the number of threads returned exceeds the count query parameter. If the count query parameter is omitted, the maximum allowed is 50.
+The Threads List endpoint returns a paginated response when the number of threads found exceeds the count query parameter. If the count query parameter is omitted, the maximum number of threads returned is 50.
 
-A 'next' link will be provided in the pages section of the response for paginated results. The next link includes all the parameters originally passed to the endpoint along with an anchor parameter that marks the number of item to start the next page.
+'next' and 'prev' URLs are returned in the pages section of the response for paginated results. The `next` and `prev` URLs include all the parameters originally passed to the endpoint along with an anchor parameter. The anchor parameter in the `prev` URL marks the number in the result set listed first on the previous page. Similarly, the anchor parameter marks the number in the result set listed first on the next page. For instance if you are viewing threads 26 - 50 of 100 paginated results, the anchor parameter in the `prev` URL would be 1 and 51 in the `next` URL.
 
-If the query results contain 1000s of items, the max limit that can be paged through is 10,000. When the anchor exceeds 10,000 items you should expect to get an error. This is an intentional limitation imposed on the backend data store for performance reasons. If you make a request whose response would contain the 10,000th item, the next link returned will be empty.
+If the query results contain thousands of items, the max limit that can be paged through is 10,000. When the anchor exceeds 10,000 items you should expect to get an error. This is an intentional limitation imposed on the backend data store for performance reasons. If you make a request whose response would contain the 10,000th item, the next link returned will be empty.
 
 #### <a name="threads-list-request-headers"></a>Request Headers
 
@@ -502,113 +502,117 @@ The important elements of the *Threads List* response body are as follows:
 
 >Note: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
 
-|Element Name|Description|
-|---|---|
-|**pages**|Object at top level containing link to previous and next pages of results|
-|pages.**prev**|Link to previous page of results|
-|pages.**next**|Link to next page of results|
-|**objects**|Array at top level containing feed data|
-|objects.**id**|Unique identifier for the feed in UUID format|
-|objects.**marketplace**|ISO 3166 two-letter country code for the user's current location|
-|objects.**language**|BCP-47 language code|
-|objects.**lastFetchTime**|Time when the data was aggregated in ISO-8601 compliant format: `yyyy-MM-ddTHH:mm:ss.SSSZZ`|
-|objects.**active**|Boolean indicator for whether or not this thread is currently available for general use|
-|objects.**publishedContent**|Object containing display-oriented information, such as image links and prose descriptions|
-|objects.publishedContent.**collectionGroupId**|Identifier for CMS collection group in UUID format. Synonymous to channelId|
-|objects.publishedContent.**marketplace**|Marketplace of the thread as ISO 3166 country code format, e.g. 'US'|
-|objects.publishedContent.**language**|Language of the thread using BCP 47 format|
-|objects.publishedContent.**id**|Thread identifier in UUID format|
-|objects.publishedContent.**relationalId**|Identifier of parent thread in UUID format. Ties various language threads to the source version|
-|objects.publishedContent.**version**|Version of CMS content node. String|
-|objects.publishedContent.**publishStartDate**|Date-time string of when the publishing schedule is set to start|
-|objects.publishedContent.**publishEndDate**|Date-time string of when the publishing schedule is set to end|
-|objects.publishedContent.**viewStartDate**|Date-time string of when the thread can be viewed on client apps|
-|objects.publishedContent.**supportedLanguages**|Array containing list of languages that are currently available|
-|objects.publishedContent.**properties**|Free-form JSON object that contains properties for the thread|
-|objects.publishedContent.properties.**title**|Thread title|
-|objects.publishedContent.properties.**products**|Array containing thread products|
-|objects.publishedContent.properties.products.**styleColor**|Identifier for product style-color, e.g. 831958-616|
-|objects.publishedContent.properties.products.**productId**|Product identifier in UUID format|
-|objects.publishedContent.properties.**publish**|Array containing relational data about thread|
-|objects.publishedContent.properties.publish.**countries**|List of ISO 3166 country codes that the thread has been published to|
-|objects.publishedContent.properties.publish.**collectionGroups**|List of collection groups (UUID) that the thread belongs to|
-|objects.publishedContent.properties.publish.**collections**|List of collections (UUID) that the thread belongs to|
-|objects.publishedContent.properties.**consumerLabels**|Array of tags/classifications on the thread|
-|objects.publishedContent.properties.consumerLabels.**classification**|Object containing classification info|
-|objects.publishedContent.properties.consumerLabels.classification.**type**|Type of classification, e.g. TAXONOMY|
-|objects.publishedContent.properties.consumerLabels.classification.**id**|Identifier of the classification value in UUID format|
-|objects.publishedContent.properties.consumerLabels.classification.**text**|Text value for the classification|
-|objects.publishedContent.properties.consumerLabels.**value**|Object containing classification value info|
-|objects.publishedContent.properties.consumerLabels.value.**type**|Type of classification value, e.g. TAXONOMY|
-|objects.publishedContent.properties.consumerLabels.value.**id**|Identifier of the classification value in UUID format|
-|objects.publishedContent.properties.consumerLabels.value.**text**|Text for the classification value|
-|objects.publishedContent.properties.**threadType**|Type of thread, e.g. product|
-|objects.publishedContent.properties.**relatedThreads**|Array containing a list of related threads by their UUIDs|
-|objects.publishedContent.properties.**seo**|Object containing SEO info|
-|objects.publishedContent.properties.seo.**title**|Title tag for SEO|
-|objects.publishedContent.properties.seo.**description**|Meta description for SEO|
-|objects.publishedContent.properties.seo.**keywords**|Keywords for SEO|
-|objects.publishedContent.properties.seo.**slug**|URL SEO slug of the thread|
-|objects.publishedContent.properties.**coverCard**|Object containing info about the cover card|
-|objects.publishedContent.properties.coverCard.**id**|Identifier of cover card in UUID format|
-|objects.publishedContent.properties.coverCard.**version**|Specific version number of the cover card|
-|objects.publishedContent.properties.coverCard.**type**|Type of content, e.g. card|
-|objects.publishedContent.properties.coverCard.**subType**|Subtype of card, e.g. image, video, carousel, text|
-|objects.publishedContent.properties.coverCard.**properties**|Free-form JSON object that contains properties for the card|
-|objects.publishedContent.properties.coverCard.properties.**altText**|Cover card image alternate text|
-|objects.publishedContent.properties.coverCard.properties.**colorTheme**|Cover card image color theme, i.e. dark|
-|objects.publishedContent.properties.coverCard.properties.**landscapeURL**|URL for landscape cover card image|
-|objects.publishedContent.properties.coverCard.properties.**portraitURL**|URL for portrait cover card image|
-|objects.publishedContent.properties.coverCard.properties.**squarishURL**|URL for squarish cover card image|
-|objects.publishedContent.properties.coverCard.properties.**subtitle**|Cover card image subtitle|
-|objects.publishedContent.properties.coverCard.properties.**title**|Cover card image title|
-|objects.publishedContent.**nodes**|Array of card info|
-|objects.publishedContent.nodes.**id**|Card identifier in UUID format|
-|objects.publishedContent.nodes.**version**|Card version identifier|
-|objects.publishedContent.nodes.**type**|Card type, i.e. 'card'|
-|objects.publishedContent.nodes.**subType**|Card subtype (text, image, video, carousel)|
-|objects.publishedContent.nodes.**properties**|Object containing info about the card, varies by card type|
-|objects.publishedContent.nodes.properties.**loop**|Boolean for whether video will loop or not|
-|objects.publishedContent.nodes.properties.**providerId**|Name of video provider|
-|objects.publishedContent.nodes.properties.**subtitle**|Subtitle for video|
-|objects.publishedContent.nodes.properties.**colorTheme**|Color theme for video, i.e. dark|
-|objects.publishedContent.nodes.properties.**videoId**|Identifier for video|
-|objects.publishedContent.nodes.properties.**autoPlay**|Boolean for whether video will auto-play or not|
-|objects.publishedContent.nodes.properties.**title**|Card title|
-|objects.publishedContent.nodes.properties.**body**|Card body text|
-|objects.publishedContent.nodes.properties.**actions**|Array of action info|
-|objects.publishedContent.nodes.properties.actions.**actionType**|Type of action|
-|objects.publishedContent.nodes.properties.actions.**product**|Object containing product info for the action|
-|objects.publishedContent.nodes.properties.actions.product.**styleColor**|Style-color code|
-|objects.publishedContent.nodes.properties.actions.product.**productId**|Product identifier in UUID format|
-|objects.publishedContent.nodes.properties.actions.**destinationType**|Type of destination, i.e link|
-|objects.publishedContent.nodes.properties.actions.**destinationId**|Identifier for destination, i.e. a URL|
-|objects.publishedContent.nodes.properties.**speed**|Speed of video|
-|objects.publishedContent.**classifications**|Array of classifications|
-|objects.publishedContent.classifications.**classification**|Object containing classification info|
-|objects.publishedContent.classifications.classification.**type**|Type of classification|
-|objects.publishedContent.classifications.classification.**id**|Identifier of the classification value|
-|objects.publishedContent.classifications.classification.**text**|Text value for the classification|
-|objects.publishedContent.classifications.value.**type**|Type of classification value|
-|objects.publishedContent.classifications.value.**id**|Identifier of the classification value|
-|objects.publishedContent.classifications.value.**text**|Text for the classification value|
-|objects.**productInfo**|Array of responses from other APIs with product info|
-|objects.productInfo.**merchProduct**|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a>|
-|objects.productInfo.**merchPrice**|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a>|
-|objects.productInfo.**availability**|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|
-|objects.productInfo.**productContent**|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a>|
-|objects.productInfo.**imageUrls**|Object containing product image URL|
-|objects.productInfo.imageUrls.**productImageUrl**|URL for product image|
-|objects.productInfo.**skus**|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a>|
-|objects.productInfo.**availableSkus**|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|
-|objects.productInfo.**launchView**|<a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a>|
-|objects.productInfo.**customizedPreBuild**|<a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a>|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**pages**|object|Object at top level containing link to previous and next pages of results|Required|
+|pages.**prev**|string|Link to previous page of results|Required|
+|pages.**next**|string|Link to next page of results|Required|
+|**objects**|array|Array at top level containing feed data|Required|
+|objects.**id**|string|Unique identifier for the feed in UUID format|Required|
+|objects.**channelId**|string|UUID for the channel (collectionGroupId)|Optional|
+|objects.**channelName**|string|Human-readable name for the channel|Optional|
+|objects.**marketplace**|string|ISO 3166 two-letter country code for the user's current location|Required|
+|objects.**language**|string|BCP-47 language code|Required|
+|objects.**lastFetchTime**|string|Time when the data was aggregated in ISO-8601 compliant format: `yyyy-MM-ddTHH:mm:ss.SSSZZ`|Required|
+|objects.**resourceType**|string|Type of HTTP resource being returned|Required|
+|objects.links.self.**ref**|string|Self-link of the HTTP resource|Required|
+|objects.**publishedContent**|object|Object containing display-oriented information, such as image links and prose descriptions|Required|
+|objects.publishedContent.**collectionGroupId**|string|Identifier for CMS collection group in UUID format. Synonymous to channelId|Optional|
+|objects.publishedContent.**marketplace**|string|Marketplace of the thread as ISO 3166 country code format, e.g. 'US'|Optional|
+|objects.publishedContent.**language**|string|Language of the thread using BCP 47 format|Optional|
+|objects.publishedContent.**id**|string|Thread identifier in UUID format|Required|
+|objects.publishedContent.**relationalId**|string|Identifier of parent thread in UUID format. Ties various language threads to the source version|Optional|
+|objects.publishedContent.**version**|string|Version of CMS content node|Required|
+|objects.publishedContent.**type**|string|Type of content|Required|
+|objects.publishedContent.**subtype**|string|Subtype of thread or card|Required|
+|objects.publishedContent.**publishStartDate**|string|Date-time string of when the publishing schedule is set to start|Optional|
+|objects.publishedContent.**publishEndDate**|string|Date-time string of when the publishing schedule is set to end|Optional|
+|objects.publishedContent.**viewStartDate**|string|Date-time string of when the thread can be viewed on client apps|Optional|
+|objects.publishedContent.**supportedLanguages**|array|Array containing list of languages that are currently available|Optional|
+|objects.publishedContent.**properties**|object|Free-form JSON object that contains properties for the thread|Required|
+|objects.publishedContent.properties.**title**|string|Thread title|Optional|
+|objects.publishedContent.properties.**products**|array|Array containing thread products|Optional|
+|objects.publishedContent.properties.products.**styleColor**|string|Identifier for product style-color, e.g. 831958-616|Optional|
+|objects.publishedContent.properties.products.**productId**|string|Product identifier in UUID format|Optional|
+|objects.publishedContent.properties.**publish**|array|Array containing relational data about thread|Optional|
+|objects.publishedContent.properties.publish.**countries**|array|List of ISO 3166 country codes that the thread has been published to|Optional|
+|objects.publishedContent.properties.publish.**collectionGroups**|array|List of collection groups (UUID) that the thread belongs to|Optional|
+|objects.publishedContent.properties.publish.**collections**|array|List of collections (UUID) that the thread belongs to|Optional|
+|objects.publishedContent.properties.**consumerLabels**|array|Array of tags/classifications on the thread|Optional|
+|objects.publishedContent.properties.consumerLabels.**classification**|object|Object containing classification info|Optional|
+|objects.publishedContent.properties.consumerLabels.classification.**type**|string|Type of classification, e.g. TAXONOMY|Optional|
+|objects.publishedContent.properties.consumerLabels.classification.**id**|string|Identifier of the classification value in UUID format|Optional|
+|objects.publishedContent.properties.consumerLabels.classification.**text**|string|Text value for the classification|Optional|
+|objects.publishedContent.properties.consumerLabels.**value**|object|Object containing classification value info|Optional|
+|objects.publishedContent.properties.consumerLabels.value.**type**|string|Type of classification value, e.g. TAXONOMY|Optional|
+|objects.publishedContent.properties.consumerLabels.value.**id**|string|Identifier of the classification value in UUID format|Optional|
+|objects.publishedContent.properties.consumerLabels.value.**text**|string|Text for the classification value|Optional|
+|objects.publishedContent.properties.**threadType**|string|Type of thread, e.g. product|Optional|
+|objects.publishedContent.properties.**relatedThreads**|array|Array containing a list of related threads by their UUIDs|Optional|
+|objects.publishedContent.properties.**seo**|object|Object containing SEO info|Optional|
+|objects.publishedContent.properties.seo.**title**|string|Title tag for SEO|Optional|
+|objects.publishedContent.properties.seo.**description**|string|Meta description for SEO|Optional|
+|objects.publishedContent.properties.seo.**slug**|string|URL SEO slug of the thread|Optional|
+|objects.publishedContent.properties.**coverCard**|object|Object containing info about the cover card|Optional|
+|objects.publishedContent.properties.coverCard.**id**|string|Identifier of cover card in UUID format|Optional|
+|objects.publishedContent.properties.coverCard.**version**|string|Specific version number of the cover card|Optional|
+|objects.publishedContent.properties.coverCard.**type**|string|Type of content, e.g. card|Optional|
+|objects.publishedContent.properties.coverCard.**subType**|string|Subtype of card, e.g. image, video, carousel, text|Optional|
+|objects.publishedContent.properties.coverCard.**properties**|object|Free-form JSON object that contains properties for the card|Optional|
+|objects.publishedContent.properties.coverCard.properties.**altText**|string|Cover card image alternate text|Optional|
+|objects.publishedContent.properties.coverCard.properties.**colorTheme**|string|Cover card image color theme, i.e. dark|Optional|
+|objects.publishedContent.properties.coverCard.properties.**landscapeURL**|string|URL for landscape cover card image|Optional|
+|objects.publishedContent.properties.coverCard.properties.**portraitURL**|string|URL for portrait cover card image|Optional|
+|objects.publishedContent.properties.coverCard.properties.**squarishURL**|string|URL for squarish cover card image|Optional|
+|objects.publishedContent.properties.coverCard.properties.**subtitle**|string|Cover card image subtitle|Optional|
+|objects.publishedContent.properties.coverCard.properties.**title**|string|Cover card image title|Optional|
+|objects.publishedContent.**nodes**|array|Array of card info|Required|
+|objects.publishedContent.nodes.**id**|string|Card identifier in UUID format|Optional|
+|objects.publishedContent.nodes.**version**|string|Card version identifier|Optional|
+|objects.publishedContent.nodes.**type**|string|Card type, i.e. 'card'|Optional|
+|objects.publishedContent.nodes.**subType**|string|Card subtype (text, image, video, carousel)|Optional|
+|objects.publishedContent.nodes.**properties**|object|Object containing info about the card, varies by card type|Optional|
+|objects.publishedContent.nodes.properties.**loop**|boolean|Boolean for whether video will loop or not|Optional|
+|objects.publishedContent.nodes.properties.**providerId**|string|Name of video provider|Optional|
+|objects.publishedContent.nodes.properties.**subtitle**|string|Subtitle for video|Optional|
+|objects.publishedContent.nodes.properties.**colorTheme**|string|Color theme for video, i.e. dark|Optional|
+|objects.publishedContent.nodes.properties.**videoId**|string|Identifier for video|Optional|
+|objects.publishedContent.nodes.properties.**autoPlay**|boolean|Boolean for whether video will auto-play or not|Optional|
+|objects.publishedContent.nodes.properties.**title**|string|Card title|Optional|
+|objects.publishedContent.nodes.properties.**body**|string|Card body text|Optional|
+|objects.publishedContent.nodes.properties.**actions**|array|Array of action info|Optional|
+|objects.publishedContent.nodes.properties.actions.**actionType**|string|Type of action|Optional|
+|objects.publishedContent.nodes.properties.actions.**product**|object|Object containing product info for the action|Optional|
+|objects.publishedContent.nodes.properties.actions.product.**styleColor**|string|Style-color code|Optional|
+|objects.publishedContent.nodes.properties.actions.product.**productId**|string|Product identifier in UUID format|Optional|
+|objects.publishedContent.nodes.properties.actions.**destinationType**|string|Type of destination, i.e link|Optional|
+|objects.publishedContent.nodes.properties.actions.**destinationId**|string|Identifier for destination, i.e. a URL|Optional|
+|objects.publishedContent.nodes.properties.**speed**|string|Speed of video|Optional|
+|objects.publishedContent.**classifications**|array|Array of classifications|Optional|
+|objects.publishedContent.classifications.**classification**|object|Object containing classification info|Optional|
+|objects.publishedContent.classifications.classification.**type**|string|Type of classification|Optional|
+|objects.publishedContent.classifications.classification.**id**|string|Identifier of the classification value|Optional|
+|objects.publishedContent.classifications.classification.**text**|string|Text value for the classification|Optional|
+|objects.publishedContent.classifications.value.**type**|string|Type of classification value|Optional|
+|objects.publishedContent.classifications.value.**id**|string|Identifier of the classification value|Optional|
+|objects.publishedContent.classifications.value.**text**|string|Text for the classification value|Optional|
+|objects.**productInfo**|array|Array of responses from other APIs with product info|Optional|
+|objects.productInfo.**merchProduct**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**merchPrice**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**availability**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**productContent**|object|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**imageUrls**|object|Object containing product image URL|Optional|
+|objects.productInfo.imageUrls.**productImageUrl**|string|URL for product image|Optional|
+|objects.productInfo.**skus**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**availableSkus**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**launchView**|object|<a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**customizedPreBuild**|object|<a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a>|Optional|
 
 ##### What is the Customized PreBuild Section of the Response?
 
 If you are getting data in the **objects.productInfo.customizedPreBuild** section of the response, then one of the threads that you've requested contains a customizable prebuild product.
 
-A prebuild is a design for a customizable (e.g., NIKEiD) product, invented by product experts/designers to demonstrate how customers can personalize the product. These "inspiration" designs are merchandised within specific merchandising groups and can be found on product walls and product display pages and in marketing materials.
+A prebuild is a design for a customizable (e.g., NIKEiD) product invented by merchandisers/designers to demonstrate how customers can personalize the product. These "inspiration" designs are merchandised within specific experiences and can be found on product walls, product display pages and in marketing materials.
 
 You will be able to identify the presence of prebuilds when **objects.publishedContent.properties.threadType** field contains the value **nikeid_soldier**.
 
@@ -2021,7 +2025,7 @@ The URL pattern used by the Product Feeds API's varies depending on the version,
 
 **v2**
 
-No equivalent endpoint.
+None
 
 >**TIP:** Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
 
@@ -2105,7 +2109,8 @@ No release notes available
 |Updated links|03/20/2018|Updated links to point to new dev portal|
 |Updated external links|04/03/2018|Updated external links to open in new browser window|
 |Updated API.md links|05/14/2018|Updated API.md links to point to new dev portal|
-|Removed endpoints|6/28/2018|Removed references to the deprecated product_feed/feed endpoints|
+|Updated request/response content|07/02/2018|Added required/optional and data type columns to request/response tables|
+|Removed endpoints|7/3/2018|Removed references to the deprecated product_feed/feed endpoints|
 
 ## <a name="related-links"></a>Related Links
 
