@@ -1009,9 +1009,12 @@ The steps for accessing the API Reference on the Developer Portal are as follows
 9. Within a **Schema** subsection, any required fields are either listed in a "Required" section or indicated at the field level
 
 >**TIPS**:
->For more on JSON Schema, see the [JSON Schema Helps Define API Contracts](#json-schema-helps-define-api-contracts) section of this doc.
->For more on how to use the Developer Portal, see the [Developer Portal User Guide](/guide)
->Another option for getting details of an API is the [Developer's Guides](/doc/portal/dev-guides.html). Note not all APIs have Developer's Guide at this time.
+>
+><i class="mr2-sm g72-check"></i>For more on JSON Schema, see the [JSON Schema Helps Define API Contracts](#json-schema-helps-define-api-contracts) section of this doc.
+>
+><i class="mr2-sm g72-check"></i>For more on how to use the Developer Portal, see the [Developer Portal User Guide](/guide)
+>
+><i class="mr2-sm g72-check"></i>Another option for getting details of an API is the [Developer's Guides](/doc/portal/dev-guides.html). Note not all APIs have Developer's Guide at this time.
 
 ## <a name="versioning"></a>Versioning
 
