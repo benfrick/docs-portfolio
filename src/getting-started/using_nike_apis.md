@@ -7,7 +7,7 @@
 
 # USING NDE APIS <i class="g72-swoosh"></i> (DRAFT)
 
-##### Last Updated: 05/24/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 07/05/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -62,6 +62,8 @@ This guide provides general information about using NDe (Nike Digital engineerin
 <span class="toc-pad">[Response Headers](#response-headers)
 
 <span class="toc-pad">[Response Body](#response-body)
+
+[Using the API Reference](#using-the-api-reference)
 
 [Versioning](#versioning)
 
@@ -191,7 +193,7 @@ Example of a JSON-formatted request body that was sent to a NDe API:
 
 ### <a name="json-schema-helps-define-api-contracts"></a>JSON Schema Helps Define API Contracts
 
-The structures of the request and response bodies for NDe APIs are defined in each contract (API.md file) using <a href="http://json-schema.org/" target="_blank">JSON Schema</a>.
+The structures of the request and response bodies for NDe APIs are defined in each contract (an API.md file, commonly) using <a href="http://json-schema.org/" target="_blank">JSON Schema</a>.
 
 Per <a href="https://en.wikipedia.org/wiki/JSON" target="_blank">Wikipedia</a>: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified."
 
@@ -978,6 +980,39 @@ See the per-API guides in each endpoint section for detailed error/warning infor
 
 For additional general error handling info, see the [Error Handling](#error-handling) section.
 
+## <a name="using-the-api-reference"></a>Using the API Reference
+
+This section describes how to use the NDe API Reference documents.
+
+### Overview
+
+Each NDe API Reference document serves as the contract for using the API, and has the following features at minimum:
+
+1. Describes all available endpoints
+2. For each endpoint, lists which URI query and path parameters are required or optional, including data types and sample data
+3. For each endpoint, lists which types of requests and responses are allowed or expected, including headers and payload details with sample data and JSON schema for each
+
+>**TIP**: In some cases, depending on the API, the doc will also provide details for authorization/authentication, error code information, or an overview of the API.
+
+### Accessing the API Reference on the Developer Portal
+
+The steps for accessing the API Reference on the Developer Portal are as follows:
+
+1. Navigate to the [Developer Portal](/)
+2. Use the Search bar or the [Service Catalog](/catalog) link to locate the API
+3. Click the **API** tab to display the API Reference document
+4. Scroll to the endpoint you are interested in
+5. The **URI PARAMETERS** section is expanded by default
+6. To expand additional sections, click **SHOW** on the line of the section you wish to display
+7. Each request/response section may have a **Headers**, **Body**, **Schema** subsection
+8. Scroll to the subsection of interest to display it
+9. Within a **Schema** subsection, any required fields are either listed in a "Required" section or indicated at the field level
+
+>**TIPS**:
+>For more on JSON Schema, see the [JSON Schema Helps Define API Contracts](#json-schema-helps-define-api-contracts) section of this doc.
+>For more on how to use the Developer Portal, see the [Developer Portal User Guide](/guide)
+>Another option for getting details of an API is the [Developer's Guides](/doc/portal/dev-guides.html). Note not all APIs have Developer's Guide at this time.
+
 ## <a name="versioning"></a>Versioning
 
 As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to <a href="http://semver.org/" target="_blank">Semantic Versioning</a> guidelines.
@@ -998,7 +1033,7 @@ NDe APIs take advantage of three layers of caching in order to keep service perf
 
 2. Service
 
-3. Device/browser
+3. Device/Browser
 
 ### <a name="akamai-caching"></a>Akamai Caching
 
