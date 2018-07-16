@@ -13,7 +13,7 @@ SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Br
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 07/03/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 07/16/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -94,7 +94,7 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 |Prerequisites|None (public API)|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
 
->**TIP:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
+>**NOTE:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -172,8 +172,6 @@ Each **channelId** value originates in Nike CMS under a different name, **collec
 
 Each Feed can be associated with one or more channels, opening up the personalized Feed to many Nike experiences.
 
->NOTE: The channelIds used in examples in this guide are invalid. In order to submit requests successfully, you need a valid channelId. Work with the Product Feeds Product Owner to inquire about a channelId for your app.
-
 ## <a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds
 
 As mentioned earlier, the Product Feeds API pulls product content from Nike CMS and includes it in responses. One thing to be aware of is that Nike CMS sometimes uses different names for the same field than Product Feeds. For example, the CMS **collectionGroupId** that you will see in responses is synonymous with the **channelId** query parameter you might send to Product Feeds.
@@ -234,7 +232,7 @@ You will receive a response body from the Threads List endpoint similar to the J
         "language": "en",
         "lastFetchTime": "2017-02-23T16:42:00.711Z",
         "publishedContent": {
-          "collectionGroupId": "dc8a8c4b-4924-4e13-a04b-ba96b6b72766",
+          "collectionGroupId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
           "marketplace": "US",
           "language": "en",
           "resourceType": "publishedContent",
@@ -276,7 +274,7 @@ You will receive a response body from the Threads List endpoint similar to the J
                 "US"
               ],
               "collectionGroups": [
-                "dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
+                "d9a5bc42-4b9c-4976-858a-f159cf99c647"
               ],
               "collections": [
                 "514dcaea-b752-11e6-80f5-76304dec7eb7"
@@ -326,7 +324,7 @@ You will receive a response body from the Threads List endpoint similar to the J
             }
           ],
           "links": {
-            "self": "/content/threads/v1/80bbdb01-114d-474f-a4e3-99e4e70f4931?collectionGroupId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&language=en"
+            "self": "/content/threads/v1/80bbdb01-114d-474f-a4e3-99e4e70f4931?collectionGroupId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
           },
           "classifications": []
         },
@@ -334,7 +332,7 @@ You will receive a response body from the Threads List endpoint similar to the J
         "resourceType": "thread",
         "links": {
           "self": {
-            "ref": "/product_feed/threads/v2/80bbdb01-114d-474f-a4e3-99e4e70f4931?channel=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&langauge=en"
+            "ref": "/product_feed/threads/v2/80bbdb01-114d-474f-a4e3-99e4e70f4931?channel=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&langauge=en"
           }
         }
       }
@@ -432,30 +430,30 @@ The following is a list of scenarios that illustrate which **filter** parameters
 
 |I Want to List|Sample Query|
 |---|---|
-|Threads for a channelId, marketplace of US, and language of English|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)|
-|Threads for a feed|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.publish.collections(364c1c0e-f67f-45f0-a107-d0a60876d835)|
-|Threads for a SEO slug (short text for search engines)|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.seo.slug(sock-dart-university-gold-safari-2017)|
-|Threads for a style-color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.products.styleColor(942198-700)|
-|Threads for a style code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.styleCode(942198)|
-|Threads for a color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.colorCode(001)|
-|Threads for a product ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)|
-|Threads for a SKU ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=skuIds(2852f714-361b-5ce4-a8bf-a33cb0a7240a,fc42d40e-dad8-522f-bd5b-b59890ca2f53)|
-|Threads for a Taxonomy ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=taxonomyIds(c2ec05f1-f18f-4bf7-8d39-7788feb46ff2)|
-|Threads for a gender name|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.genders(WOMEN)|
-|Threads for a Merch Product channel name|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.channels(SNKRS)|
-|Threads Merch Product main color|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.mainColor(true)|
-|Threads for product attribute "best for"|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.bestFor.value(Firm%20Ground)|
-|Threads with buyable product|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=inStock(true)|
-|Threads with a specific available size|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=availableSizes(9)|
-|Threads with a specific available localized size|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=availableLocalizedSizes(27)|
-|Threads for an athlete|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.athletes.value(Kobe%20Bryant)|
-|Threads for a channel with only selected fields returned|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&fields=publishedContent.properties.products.styleColor,publishedContent.nodes.nodes.properties.squarishURL,productInfo.merchPrice.currentPrice|
-|Threads for keywords 'Chuck Taylor'|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&searchTerms=Chuck%20Taylor|
-|Threads for a product rollup key|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=productInfo.merchProduct.productRollup.key(YPTArgON)|
-|Threads for upcoming products|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=upcoming(true)&sort=productInfo.merchProduct.commerceStartDateAsc|
-|Thread for a thread ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5))|
-|Threads for Exclusive Access products|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=exclusiveAccess(true,false)|
-|Threads for a Global Trade Identification Number (GTIN)|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=productInfo.skus.gtin(00884500634190)|
+|Threads for a channelId, marketplace of US, and language of English|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)|
+|Threads for a feed|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.publish.collections(364c1c0e-f67f-45f0-a107-d0a60876d835)|
+|Threads for a SEO slug (short text for search engines)|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.seo.slug(sock-dart-university-gold-safari-2017)|
+|Threads for a style-color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.products.styleColor(942198-700)|
+|Threads for a style code|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.styleCode(942198)|
+|Threads for a color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.colorCode(001)|
+|Threads for a product ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)|
+|Threads for a SKU ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=skuIds(2852f714-361b-5ce4-a8bf-a33cb0a7240a,fc42d40e-dad8-522f-bd5b-b59890ca2f53)|
+|Threads for a Taxonomy ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=taxonomyIds(c2ec05f1-f18f-4bf7-8d39-7788feb46ff2)|
+|Threads for a gender name|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.genders(WOMEN)|
+|Threads for a Merch Product channel name|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.channels(SNKRS)|
+|Threads Merch Product main color|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.mainColor(true)|
+|Threads for product attribute "best for"|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.bestFor.value(Firm%20Ground)|
+|Threads with buyable product|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=inStock(true)|
+|Threads with a specific available size|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=availableSizes(9)|
+|Threads with a specific available localized size|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=availableLocalizedSizes(27)|
+|Threads for an athlete|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.athletes.value(Kobe%20Bryant)|
+|Threads for a channel with only selected fields returned|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&fields=publishedContent.properties.products.styleColor,publishedContent.nodes.nodes.properties.squarishURL,productInfo.merchPrice.currentPrice|
+|Threads for keywords 'Chuck Taylor'|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&searchTerms=Chuck%20Taylor|
+|Threads for a product rollup key|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=productInfo.merchProduct.productRollup.key(YPTArgON)|
+|Threads for upcoming products|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=upcoming(true)&sort=productInfo.merchProduct.commerceStartDateAsc|
+|Thread for a thread ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5))|
+|Threads for Exclusive Access products|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=language(en)&filter=marketplace(US)&filter=exclusiveAccess(true,false)|
+|Threads for a Global Trade Identification Number (GTIN)|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=language(en)&filter=marketplace(US)&filter=productInfo.skus.gtin(00884500634190)|
 
 >**TIPS:**
 >
@@ -500,7 +498,7 @@ There is no body for a GET request.
 
 The important elements of the *Threads List* response body are as follows:
 
->Note: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
+>**NOTE**: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -629,14 +627,14 @@ Sample *Threads List* response body (HTTP 200):
     "objects": [
         {
             "id": "2383e522-7d71-4ad7-8d9f-506aad2d8923",
-            "channelId": "dc8a8c4b-4924-4e13-a04b-ba96b6b72766",
+            "channelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
             "channelName": "BOOTROOM",
             "marketplace": "US",
             "language": "en",
             "lastFetchTime": "2017-10-19T05:28:29.983Z",
             "active": true,
             "publishedContent": {
-                "collectionGroupId": "dc8a8c4b-4924-4e13-a04b-ba96b6b72766",
+                "collectionGroupId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
                 "marketplace": "US",
                 "language": "en",
                 "resourceType": "publishedContent",
@@ -702,7 +700,7 @@ Sample *Threads List* response body (HTTP 200):
                             "US"
                         ],
                         "collectionGroups": [
-                            "79a3408f-590e-4f59-a22c-fd00377a6251"
+                            "d9a5bc42-4b9c-4976-858a-f159cf99c647"
                         ],
                         "collections": [
                             "a4f722b8-e77f-43b3-b909-168e5f43ac60"
@@ -1087,7 +1085,7 @@ Sample *Threads List* response body (HTTP 200):
                     }
                 ],
                 "links": {
-                    "self": "/content/threads/v1/2383e522-7d71-4ad7-8d9f-506aad2d8923?collectionGroupId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&language=en&audienceId=feeds"
+                    "self": "/content/threads/v1/2383e522-7d71-4ad7-8d9f-506aad2d8923?collectionGroupId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en&audienceId=feeds"
                 },
                 "classifications": [
                     {
@@ -1777,7 +1775,7 @@ Sample *Threads List* response body (HTTP 200):
             "resourceType": "thread",
             "links": {
                 "self": {
-                    "ref": "/product_feed/threads/v2/2383e522-7d71-4ad7-8d9f-506aad2d8923?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&language=en"
+                    "ref": "/product_feed/threads/v2/2383e522-7d71-4ad7-8d9f-506aad2d8923?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
                 }
             }
         }
@@ -2037,7 +2035,7 @@ Listed below are some best practices for working with Product Feeds.
 
 Product Feeds v2 has a test environment available at host https://experience.test.commerce.nikecloud.com.
 
-Apart from the host, you can use the same URL, for example: https://experience.test.commerce.nikecloud.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(b300bc43-bf2f-4b34-8942-fdc6f95653f9).
+Apart from the host, you can use the same URL, for example: https://experience.test.commerce.nikecloud.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647).
 
 Some considerations about using the test environment:
 
@@ -2064,6 +2062,10 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 - Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/C0KEN0WQG">#cic-merch</a> Slack channel for assistance.
 
 ### Common Questions
+
+**Who do I contact with questions about what I'm seeing in the **productInfo** or **publishedContent** sections of the response?**
+
+- The data in **productInfo** and **publishedContent** is not owned by the Product Feeds team. Refer to <a href="https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown" target="_blank">Thread Response Ownership Breakdown</a> to find the Slack channel of the team responsible for that data.
 
 **How do I know what product attributes are available for me to use to request Threads?**
 
@@ -2111,6 +2113,8 @@ No release notes available
 |Updated API.md links|05/14/2018|Updated API.md links to point to new dev portal|
 |Updated request/response content|07/02/2018|Added required/optional and data type columns to request/response tables|
 |Removed endpoints|7/3/2018|Removed references to the deprecated product_feed/feed endpoints|
+|Added upstream contact info|7/5/2018|Linked to 'Thread Response Ownership Breakdown' in Troubleshooting|
+|Used valid channelId in examples|7/16/2018|Changed from using invalid to valid channelId (and collectionGroupId) in examples|
 
 ## <a name="related-links"></a>Related Links
 
