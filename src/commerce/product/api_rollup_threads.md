@@ -19,7 +19,7 @@ SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
 
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 7/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -86,7 +86,7 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 - **Obtain a Consumer Channel ID -- REQUIRED**
 
-  Contact the [Product Feeds Product Owner](#api-at-a-glance) to get a unique Consumer Channel ID for your app.
+  [Fill out a request form](https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel) to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
 
 - **Configure Custom Search Rules -- OPTIONAL**
 
@@ -133,15 +133,15 @@ For example, if you wanted to rollup by something other than style number (i.e. 
 
 >**TIP**: Reach out to the [Apollo Product Owner](#api-at-a-glance) for more information on how to use the Apollo tool.
 
-### Relationship of Consumer Channel ID to Channel ID
+### <a name="comparing-ids"></a>Consumer Channel ID and Channel ID
 
 Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds v2 API?
 
 Consumer Channel ID and Channel ID are not directly related and are not used together in either API. They serve a similar purpose in that they are unique IDs that help you to get only the data you need from each API.
 
-**So when calling the Product Feed Rollup Threads API, Consumer Channel ID is required and Channel ID is not allowed.**
+**When calling the Product Feed Rollup Threads API, Consumer Channel ID is required and Channel ID is not allowed.**
 
->**NOTE**: Threads returned by the Product Feed Rollup Threads API are pre-filtered for the Channel ID for Nike.com.
+>**NOTE**: Threads returned by the Product Feed Rollup Threads API are pre-filtered for the Nike.com Channel ID.
 
 ### I Already Use Product Feeds v2. How is This API Response Different?
 
@@ -1691,6 +1691,7 @@ There are no release notes at this time.
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|05/17/2018|Initial Draft|
+|Update|07/19/2018|Updated how to obtain a consumerChannelId|
 
 ## <a name="related-links"></a>Related Links
 
