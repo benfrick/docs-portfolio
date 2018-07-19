@@ -86,7 +86,7 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 - **Obtain a Consumer Channel ID -- REQUIRED**
 
-  [Fill out a request form](https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel) to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
+  <a href="https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel" target="_blank">Fill out a request form</a> to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
 
 - **Configure Custom Search Rules -- OPTIONAL**
 
