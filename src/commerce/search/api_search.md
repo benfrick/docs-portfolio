@@ -66,11 +66,11 @@ Listed below are some common e-commerce search terms.
 |Concept|Translates a customer supplied search term into Nike product attribute(s)|
 |Context|Customer's marketplace, experience and language that causes an e-commerce search rule to fire|
 |Search Rule|Ranks or excludes search results based on products and their attributes|
-|Query|Search term customer is searching for that causes a search rule to fire|
-|Search Term|Customer supplied search keyword|
-|Signal|Customer behavior and merchandiser defined factors used to order search results|
+|Query|Term customer is searching for that causes a search rule to fire|
+|Search Term|Customer-supplied search keyword|
+|Signal|Customer behavior and merchandiser-defined factors used to order search results|
 |Taxonomy|Product attributes|
-|Trigger|Context or customer initiated query that causes an e-commerce  search rule to fire|
+|Trigger|Context or customer-initiated query that causes an e-commerce  search rule to fire|
 
 ## <a name="contacting-the-team"></a>Contacting the Team
 
@@ -85,16 +85,27 @@ Need to reach out to the Search team?
 
 ## <a name="search-types"></a>E-commerce Search Types
 
-E-commerce Search can be used in several ways to both tell the Nike story and decrease the time to purchase by quickly leading customers to the products they need. It searches and ranks results for product and navigation data and will handle content in the near future. This section discusses the various search types.
+E-commerce search can be used to
+
+- tell the Nike story
+- decrease time to purchase by quickly leading customers to the products they need
+
+Currently, e-commerce search handles product and navigation data. Content will be added in the near future. This section discusses the various search types.
 
 ### Smart Search
-Smart Search is a rule based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api_rollup_threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts. Smart Search currently drives the Athletes product gridwall in the [Bootroom](https://www.nike.com/bootroom) experience.
+Smart Search is a rule-based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api_rollup_threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer-provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts.
+
+**Used by:** [Bootroom](https://www.nike.com/bootroom) to drive the Athletes product gridwall
 
 ### Autocomplete
 This type of search suggests keywords when customers provide three or more letters of a search term. Nike.com calls Autocomplete Search when the customer types in the search bar. If a customer types "red", Autocomplete search could return keyword suggestions "Boston Red Sox", "Cincinnati Reds" and "Washington Redskins". A keyword suggestion can be used in a subsequent search to find products matching that keyword.
 
+**Used by:** Nike.com
+
 ### Search Preview
-Search Preview is a simple type of search that uses one or more search keywords to return a subset of product information using default relevancy rankings. It is used by Nike.com. Using the Autocomplete example above, hovering over "red sox" returns the top 6 Red Sox products according to the default rule. Nike.com web uses Search Preview from the Search bar to return products matching the first suggested keyword returned from Autocomplete. That experience calls Search Preview each time the customer hovers over an Autocomplete keyword.
+Search Preview is a simple type of search that uses one or more search keywords to return a subset of product information using default relevancy rankings. Using the Autocomplete example above, hovering over "red sox" returns the top 6 Red Sox products according to the default rule. Nike.com web uses Search Preview from the Search bar to return products matching the first suggested keyword returned from Autocomplete. That experience calls Search Preview each time the customer hovers over an Autocomplete keyword.
+
+**Used by:** Nike.com
 
 The Nike.com image below illustrates how Autocomplete and Search Preview can be used together to quickly lead customers to the products they want.
 
@@ -125,6 +136,8 @@ The image below depicts how Smart Search gathers search results and ranks them.
 
 ### Recommended Navigation
 Use this type of search to build navigation in your experience. Nike.com calls the Recommended Navigation API directly to list filters (product attributes) in the left navigation based on one or more search terms and/or attribute IDs. Like Smart Search, Recommended Navigation uses concepts and rules to determine the appropriate set of navigation filters to return. For instance, if you pass the "blue" search term in the call to Recommended Navigation, it returns a list of filters including "gender", "product type", and "apparel". Checking the "womens" gender filter in the UI executes another Recommended Navigation search for the search terms "blue" and "womens", narrowing the list of navigation filters even further.
+
+**Used by:** Nike.com
 
 ## <a name="rules-results-rankings"></a>Rules, Results and Rankings
 
