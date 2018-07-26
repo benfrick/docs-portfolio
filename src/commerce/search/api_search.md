@@ -6,7 +6,7 @@
 <!--
 See Bitbucket (link to .md in APID repository) for version history of this document.
 Author: Jane Moore
-SME Consultants: Jeremy Myrland, Cameron Hinkle
+SME Consultants: Jeremy Myrland, Cameron Hinkle, Patti Cousins
 -->
 
 <div class="guide-nav-container">
@@ -18,13 +18,14 @@ SME Consultants: Jeremy Myrland, Cameron Hinkle
     </div>
 </div>
 
-# UNDERSTANDING YOUR SEARCH RESULTS (DRAFT)
+# UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS (DRAFT)
 
-###### Last Updated: 06/26/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
+###### Last Updated: 7/26/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
-Search is a rule-driven API used to retrieve the products or context navigation needed to build a personalized, global and consistent search and navigational experience for Nike customers. Most Search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/api_rollup_threads.html) first.
+E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/api_rollup_threads.html) first.
+
 
 ## **In this guide:**
 
@@ -41,31 +42,35 @@ Search is a rule-driven API used to retrieve the products or context navigation 
 [Troubleshooting](#troubleshooting)
 
 ## <a name="use-cases"></a>Use Cases
-Here are just some of the ways Search can be used to drive your experience:
+Here are just some of the ways e-commerce search can be used to drive your experience:
 
-- Build a grid wall of products curated for customers
-- Add autocomplete functionality by returning search keyword suggestions based on a partial word typed in the search bar
-- Add search preview by listing highly-ranked products matching an autocomplete keyword suggestion
-- Retrieve a set of filters used to build navigation
+- Quickly return e-commerce search results using Simple Search, no rule configuration necessary
+- Return search keyword suggestions based on a partial word typed in the search bar using Autocomplete Search
+- List highly-ranked products matching an Autocomplete keyword suggestion using Search Preview
+- Build navigation in your experience by retrieving a set of product filters
 - List the most-purchased products even if they can no longer be purchased
-- Return threads containing your search term in Facebook with #[search-term]
-- Retrieve a product feed when you ask a product question in the Consumer Services Portal
+- Return [Product Feed Threads](/doc/commerce/product/api_rollup_threads.html) containing your search term in Facebook with #[search-term]
+- Retrieve a [Product Feed](/doc/commerce/product/api_rollup_threads.html) when you ask a product question in the Consumer Services Portal
+- Finely tune e-commerce search results using the context aware Smart Search rules engine
 
 ## <a name="glossary"></a>Glossary
 
-Listed below are some common search terms.
+Listed below are some common e-commerce search terms.
 
 |Term|Definition|
 |---|---|
-|Action|Used to manipulate search results by boosting, burying or excluding products|
-|Authored Concept|Group of concepts and/or keyword terms|
-|Channel|User experience such as Bootroom or NIKE.com|
-|Collection|Grouping of products such as the Mother's Day collection|
-|Concept|Taxonomy, size, collection or authored concept e.g "Mens", "size 8", "Mother's Day", "Mother's Day floral"|
-|Search Term|Customer-supplied keyword|
-|Signal|Driven by consumer behavior or business objectives, signals are used to boost a product in the search rankings|
-|Taxonomy|Mapping of product attributes to UUIDs. Products are stamped with taxonomy ids in Prodigy.|
-|Trigger|Event that causes a search rule to react, such as typing a search term or selecting a navigation filter|
+|Action|What an e-commerce search rule does when fired, i.e. manipulates search rankings|
+|Authored Concept|Group of concepts (Nike product attributes)|
+|Channel|Customer experience such as Bootroom or NIKE.com|
+|Collection|Group of products such as the Mother's Day collection|
+|Concept|Translates a customer supplied search term into Nike product attribute(s)|
+|Context|Customer's marketplace, experience and language that causes an e-commerce search rule to fire|
+|Search Rule|Ranks or excludes search results based on products and their attributes|
+|Query|Search term customer is searching for that causes a search rule to fire|
+|Search Term|Customer supplied search keyword|
+|Signal|Customer behavior and merchandiser defined factors used to order search results|
+|Taxonomy|Product attributes|
+|Trigger|Context or customer initiated query that causes an e-commerce  search rule to fire|
 
 ## <a name="contacting-the-team"></a>Contacting the Team
 
@@ -76,27 +81,28 @@ Need to reach out to the Search team?
 |Slack|<a href="https://nikedigital.slack.com/messages/#search-integration" target="_blank">#search-integration</a><br><a href="https://nikedigital.slack.com/messages/#nde-search-merch" target="_blank">#nde-search-merch</a>|
 |Confluence space|<a href="https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud" target="_blank">Content Discovery Team</a>|
 |Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
-|Email the Product Owner<a name="product-owner"></a>|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
+|Email the Product Manager<a name="product-owner"></a>|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
-## <a name="search-types"></a>Search Types
+## <a name="search-types"></a>E-commerce Search Types
 
-Search can be used in several ways to both tell the Nike story and decrease the time to purchase by getting customers to the products they are looking for as quickly as possible. This section discusses the various search types.
+E-commerce Search can be used in several ways to both tell the Nike story and decrease the time to purchase by quickly leading customers to the products they need. It searches and ranks results for product and navigation data and will handle content in the near future. This section discusses the various search types.
+
+### Smart Search
+Smart Search is a rule based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api_rollup_threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts. Smart Search currently drives the Athletes product gridwall in the [Bootroom](https://www.nike.com/bootroom) experience.
 
 ### Autocomplete
-This type of search suggests keywords when customers provide three or more letters of a search term. The experience calling Autocomplete search controls the maximum number of keywords to return. If a customer types "red" in the search bar, Autocomplete could return keyword suggestions "Boston Red Sox", "Cincinnati Reds" and "Washington Red Skins". A keyword suggestion can be used in a subsequent search to find products matching that keyword.
+This type of search suggests keywords when customers provide three or more letters of a search term. Nike.com calls Autocomplete Search when the customer types in the search bar. If a customer types "red", Autocomplete search could return keyword suggestions "Boston Red Sox", "Cincinnati Reds" and "Washington Redskins". A keyword suggestion can be used in a subsequent search to find products matching that keyword.
 
 ### Search Preview
-Search Preview is a simple type of search using one or more search keywords that returns a subset of product information using default relevancy settings. On Nike.com web, Search Preview returns products matching the first suggested keyword returned from Autocomplete and is called each time the customer hovers over an Autocomplete keyword. Using the Autocomplete example above, hovering over "red sox" returns the top 6 Red Sox products according to the default rule. Clicking one of the 6 products opens the PDP. Clicking the View All link executes another search that returns all Red Sox products used to build the gridwall.
+Search Preview is a simple type of search that uses one or more search keywords to return a subset of product information using default relevancy rankings. It is used by Nike.com. Using the Autocomplete example above, hovering over "red sox" returns the top 6 Red Sox products according to the default rule. Nike.com web uses Search Preview from the Search bar to return products matching the first suggested keyword returned from Autocomplete. That experience calls Search Preview each time the customer hovers over an Autocomplete keyword.
 
-The image below illustrates how Autocomplete and Search Preview can be used together to quickly lead customers to the products they want.
+The Nike.com image below illustrates how Autocomplete and Search Preview can be used together to quickly lead customers to the products they want.
 
 ![](/images/commerce/search/autocomplete-search-preview.png)
 
->**TIP:** For information on how to use the Global Navigation service to integrate search capabilities into the UI of your experience, see the <a href="https://tourguide.prod.commerce.nikecloud.com/global-nav" target="_blank">Global Navigation Guide</a>.
+>**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the <a href="https://tourguide.prod.commerce.nikecloud.com/global-nav" target="_blank">Global Navigation Guide</a>.
 
-
-### Smart Search
-Smart Search is a query enhancer. It uses the default rule and any custom rules configured for an experience to create an optimized search URL. This URL guarantees that when search is executed, it returns a curated result set with the most relevant products sorted first. Part of this optimization is achieved by mapping free text search keywords supplied by the customer, to ids stamped on the product. These ids represent concepts. Concepts can be taxonomy (attribute) based such as "floral" or "hoodie", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts such as "Mother's day floral." Smart Search currently drives the Athletes gridwall in the [Bootroom](https://www.nike.com/bootroom) experience.
+<!--
 
 The image below depicts how Smart Search gathers search results and ranks them.
 
@@ -115,38 +121,108 @@ The image below depicts how Smart Search gathers search results and ranks them.
 6. Search strategy algorithm finds and returns applicable signals that boost products in search rankings
 
 7. Smart Search URL executes search and returns the search results
-
-
-### Core Search
-Core Search does not use custom rules. It uses a default search rule and sort rule configured for the experience calling it. The main consumer of Core Search is the Product Feeds Rollup Threads Service. After it gets the refined Search URL from Smart Search, the Product Feeds Rollup Threads Service calls Core Search to get the final search results. Certain experiences call Core Search directly but eventually all experiences will call the Product Feeds Rollup Threads Service to get search results.
+-->
 
 ### Recommended Navigation
-Use this type of search to build navigation in your experience. Like Smart Search, Recommended Navigation uses a keyword/concept mapping and custom rules to determine the appropriate set of navigation objects to return. For instance, if you pass the "gender" attributeId, Recommended Navigation search returns "mens", "womens", "girls" and "boys" navigation objects. Making a second call to Recommended Navigation passing the "girls" attributeId might return "size range", "sport", "best for", and "fit" navigation objects.
-
+Use this type of search to build navigation in your experience. Nike.com calls the Recommended Navigation API directly to list filters (product attributes) in the left navigation based on one or more search terms and/or attribute IDs. Like Smart Search, Recommended Navigation uses concepts and rules to determine the appropriate set of navigation filters to return. For instance, if you pass the "blue" search term in the call to Recommended Navigation, it returns a list of filters including "gender", "product type", and "apparel". Checking the "womens" gender filter in the UI executes another Recommended Navigation search for the search terms "blue" and "womens", narrowing the list of navigation filters even further.
 
 ## <a name="rules-results-rankings"></a>Rules, Results and Rankings
 
-Search culls data from several sources and utilizes a robust rules engine to determine what products or context navigation to return and how to sort them.
+Smart Search culls data from several sources and utilizes a robust rules engine to determine what data to return and how to rank the e-commerce search results. Search results are not cached.
 
 ### Rules
 
-Search rules play a key role in determining search results and rankings. Rules are administered in the Apollo rule management tool. Authorized users can add actions to rules that boost products to the top and/or bury products at the end of search results. Actions can also exclude products completely.
+Smart Search rules play a key role in determining e-commerce search results and rankings. Each channel has a default rule and may also have custom rules.
 
-Rules are triggered either by customer activity such as searching for a particular keyword or by context, such as an attribute that a product is assigned. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to build a product wall of related products. They allow a rule administrator to curate exactly what products to display for an experience in a particular geography. Navigation rules are used to build a dynamic navigation filter tree based on filter. For instance, clicking the Gender filter triggers another search that uses a Navigation rule that might return the "girls", "boys", "womens" and "mens" filters.
+Custom rules are administered in the Apollo rule management tool and are specific to a channel. Authorized Apollo users can add actions to rules to influence the search rankings such as boosting, burying, hiding. Custom rules layer on top of the default rule to either work in concert with or override the default rule.  Contact the <a href="#contacting-the-team">Apollo Product Owner</a> for access to the tool.
 
-Each channel has one default rule customized for the experience that determines relevancy. Rule administrators can create additional layers of rules that either work in concert with or override the default rule.  Contact the <a href="#contacting-the-team">Apollo Product Owner</a> for access to the tool.
+Rules are triggered either by customer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.
+
+The default rule for each experience is listed below. Default rules are not available through the Apollo tool. Contact the Product Owner to create a new or edit an existing default rule. Note that each default rule filters on the same channelId (d9a5bc42-4b9c-4976-858a-f159cf99c647) to get nike.com product threads. Each default rule is associated with an experience through the experience's consumerChannelId passed into the Product Feed Rollup Threads service. See [Product Feed Rollup Threads V2 service](/doc/commerce/product/api_rollup_threads.html#consumer-channel-id-and-channel-id) to read about the difference between channelId and consumerChannelId.
+
+**SNKRS/nike.com**
+```
+(channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+status = ACTIVE
+AND
+((available = true AND effectiveStartViewDate <= now) OR (available = true AND (hardLaunch = null OR hardLaunch==false)))
+AND
+exclusiveAccess = false
+AND
+(commerceCountryExclusions==null OR commerceCountryExclusions!={excludeMarketplaceParam})
+AND
+((threadType = null OR (threadType = soldier AND styleType != NIKEID)) OR  (styleType==null OR (threadType != soldier AND styleType==NIKEID)))
+AND
+(channels = nike.com OR channels = .com OR channels = SNKRS OR channels = Nike.com legacy)
+AND
+(hideFromSearch != true OR hideFromSearch = null)
+```
+
+**Bootroom**
+```
+channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+status = ACTIVE
+AND
+available = true
+AND
+(threadType != soldier AND styleType != NIKEID)
+AND
+channels = Bootroom
+AND
+hideFromSearch != true OR hideFromSearch = null
+```
+
+**Facebook Messenger**
+```
+(channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+status = ACTIVE
+AND
+((available = true AND effectiveStartViewDate <= now)
+OR
+(available = true
+AND
+(hardLaunch = null OR hardLaunch==false)))
+AND
+exclusiveAccess = false
+AND
+(commerceCountryExclusions = null OR commerceCountryExclusions != {excludeMarketplaceParam})
+AND
+((threadType = null OR (threadType = soldier AND styleType != NIKEID))
+OR
+(styleType = null OR (threadType != soldier AND styleType = NIKEID)))
+AND
+(channels = nike.com OR channels = .com OR channels = Nike.com OR channels = SNKRS OR channels = Nike.com legacy)
+AND
+(hideFromSearch != true OR hideFromSearch = null))
+```
+
+**Nike App Visual Search**
+```
+channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+taxonomyAttributeSearchIds = 16633190-45e5-4830-a068-232ac7aea82c
+AND
+(taxonomyAttributeSearchIds != 92be6a0f-24dd-4e2e-87d0-5ce4ade3a923
+OR
+taxonomyAttributeSearchIds != efc99096-767d-40d9-a954-019b35858310
+OR
+taxonomyAttributeSearchIds != 3a4e07b5-2fc4-43f6-a480-ce6ed9030ac6
+OR
+taxonomyAttributeSearchIds != 9215b17d-efa4-4258-aabf-d5af737cde05
+OR
+taxonomyAttributeSearchIds != a2e74fc6-5388-4fc7-9cb5-801e1d8b42eb)
+```
+
+>**TIP:** E-commerce search is not the source of data. Data originates in the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api_rollup_threads.html).
 
 ### <a name="results"></a>Results
 
-Several factors affect search results, including product attributes and the fields those product attributes are assigned to. If a product's state field is not set to ACTIVE or the product's "hide from search" attribute it marked "true", the product will be filtered out of the search results. Similarly, if a search keyword is not in a field that search indexes, the product will not be included in the search results.
-
-Depending upon the type of search, the source of product data is different and slightly different product data is available to search. Currently, Search Preview and Autocomplete Search use Endeca as a product data source. Navigation and Core search use product information supplied by the Product Feed Service. It is important to note that both data sources provide Search with inventory availability information.
-
-Because the product data source differs across search types, different default rules are applied depending upon the type of search  performed.
+Several factors affect search results, including product attributes and the fields those product attributes are assigned to. If a product's state field is not set to ACTIVE or the product's "hide from search" attribute it marked "true", a product rule may filter out the product from the search results. Similarly, if a search keyword is not in a field that search indexes, the product will not be included in the search results.
 
 ### <a name="rankings"></a>Rankings
-
-Through parameters passed into the Product Feeds Rollup Threads Service API, clients can control sorting based on a limited set of product fields. See the [Product Feeds Rollup Threads API V2](/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api) API.md for the complete list.
 
 A search rule can be assigned a priority to influence when the rule is applied in relation to other rules. Rules with a high priority get applied first. Rules assigned a low priority ensure that higher priority rules are applied first.
 
