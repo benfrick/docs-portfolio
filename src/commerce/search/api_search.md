@@ -147,7 +147,7 @@ Smart Search culls data from several sources and utilizes a robust rules engine 
 
 Smart Search rules play a key role in determining e-commerce search results and rankings. Each channel has a default rule and may also have custom rules.
 
-Custom rules are administered in the Apollo rule management tool and are specific to a channel. Authorized Apollo users can add actions to rules to influence the search rankings such as boosting, burying, hiding. Custom rules layer on top of the default rule to either work in concert with or override the default rule.  Contact the <a href="#contacting-the-team">Apollo Product Owner</a> for access to the tool.
+Custom rules are administered in the Apollo rule management tool and are specific to a channel. Authorized Apollo users can add actions to rules to influence the search rankings such as boosting, burying, and hiding. Custom rules layer on top of the default rule to either work in concert with or override the default rule.  Contact the <a href="#contacting-the-team">Apollo Product Owner</a> for access to the tool.
 
 Rules are triggered either by customer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.
 
@@ -233,7 +233,7 @@ taxonomyAttributeSearchIds != a2e74fc6-5388-4fc7-9cb5-801e1d8b42eb)
 
 ### <a name="results"></a>Results
 
-Several factors affect search results, including product attributes and the fields those product attributes are assigned to. If a product's state field is not set to ACTIVE or the product's "hide from search" attribute it marked "true", a product rule may filter out the product from the search results. Similarly, if a search keyword is not in a field that search indexes, the product will not be included in the search results.
+Several factors affect e-commerce search results, including product attributes and the fields those product attributes are assigned to. If a product's state field is not set to ACTIVE or the product's "hide from search" attribute it marked "true", a product rule may filter out the product from the search results. Similarly, if a search keyword is not in a field that search indexes, the product will not be included in the search results.
 
 ### <a name="rankings"></a>Rankings
 
@@ -243,7 +243,7 @@ Behind the scenes, the rules engine uses signals as part of the search strategy 
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
-If the products returned by search are either not ranked as you expect or not returned at all, there are a few steps you can take to trouble shoot.
+If the products returned by e-commerce search are either not ranked as you expect or not returned at all, there are a few steps you can take to trouble shoot.
 
 ### Check Splunk
 Use Splunk to trace the call to provide insight into what rules are being applied and what results the Search API returns.  All you need is the Trace Id. See the [Query Logs with a Trace ID](/content/doc/getting-started/using_nike_apis.html#query-logs-with-a-trace-id) section of the Using Nike APIs guide to learn how to get and use the trace id of the response to query Splunk.
