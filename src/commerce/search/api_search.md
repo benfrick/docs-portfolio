@@ -55,22 +55,23 @@ Here are just some of the ways e-commerce search can be used to drive your exper
 
 ## <a name="glossary"></a>Glossary
 
-Listed below are some common e-commerce search terms.
+Listed below are some common e-commerce search terms and definitions.
 
 |Term|Definition|
 |---|---|
-|Action|What an e-commerce search rule does when fired, i.e. manipulates search rankings|
-|Authored Concept|Group of concepts (Nike product attributes)|
-|Channel|Customer experience such as Bootroom or NIKE.com|
+|Context|Customer's marketplace, experience, channel and language|
+|Trigger|Context or customer-initiated query that causes an e-commerce search rule to fire|
+|Action|What an e-commerce search rule does when it fires, i.e. manipulates e-commerce search rankings|
+|Query|What the customer is searching for|
+|Search Rule|Controls how items are ranked or excluded from e-commerce search results|
+|Taxonomy|Nike product attributes|
+|Search Term|Customer-supplied e-commerce search keyword|
+|Concept|Translates a customer-supplied e-commerce search term into Nike product attribute(s)|
+|Authored Concept|Group of concepts|
 |Collection|Group of products such as the Mother's Day collection|
-|Concept|Translates a customer supplied search term into Nike product attribute(s)|
-|Context|Customer's marketplace, experience and language that causes an e-commerce search rule to fire|
-|Search Rule|Ranks or excludes search results based on products and their attributes|
-|Query|Term customer is searching for that causes a search rule to fire|
-|Search Term|Customer-supplied search keyword|
-|Signal|Customer behavior and merchandiser-defined factors used to order search results|
-|Taxonomy|Product attributes|
-|Trigger|Context or customer-initiated query that causes an e-commerce  search rule to fire|
+|Channel|Customer experience such as Bootroom or NIKE.com|
+|Signal|Customer behavior and merchandiser-defined factors used to rank e-commerce search results|
+
 
 ## <a name="contacting-the-team"></a>Contacting the Team
 
