@@ -709,7 +709,7 @@ An example from the *Create Or Update A User's Cart* endpoint of the Carts API:
 
 https://api.nike.com/buy/carts/v1/61bc185b-16e5-43b5-bcaf-dd6168c543f8<font color="blue">?fields=totals(total),totals(quantity)</font> would return only the **total** and **quantity** fields nested under **totals**.
 
->**TIP:** See the <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+Standards#APIStandards-Formatforfilters" target="_blank">API Standards Confluence Page</a> for more info on using query parameters with NDe APIs.
+>**TIP:** See <a href="https://confluence.nike.com/display/NEA/API+Standards" target="_blank">API Standards</a> for more info on using query parameters with NDe APIs.
 
 ##### Anchor
 
