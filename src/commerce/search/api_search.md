@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="../../../css/style.css"/>
 <script type="text/javascript" src="/js/nde.js" ></script>
 
 <!--
@@ -18,7 +18,7 @@ SME Consultants: Jeremy Myrland, Cameron Hinkle, Patti Cousins
     </div>
 </div>
 
-# <a href="#understanding-your-e-commerce-search-results-draft"></a>UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS (DRAFT)
+# <a href="#understanding-your-e-commerce-search-results-draft"></a><span class="new-indicator-lg"><span>UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS
 
 ##### <a name="last-updated"></a>Last Updated: 8/7/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
