@@ -79,7 +79,7 @@ Need to reach out to the Search team?
 
 |Method|Contact|
 |---|---|
-|Slack|<a href="https://nikedigital.slack.com/messages/#search-integration" target="_blank">#search-integration</a><br><a href="https://nikedigital.slack.com/messages/#nde-search-merch" target="_blank">#nde-search-merch</a>|
+|Slack|<a href="https://nikedigital.slack.com/messages/C4MGZ8GDB" target="_blank">#search-integration</a>|
 |Confluence space|<a href="https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud" target="_blank">Content Discovery Team</a>|
 |Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
 |Email the Product Manager<a name="product-owner"></a>|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
