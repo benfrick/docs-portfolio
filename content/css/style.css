@@ -318,3 +318,12 @@ iframe#nde-docs-frame > html {
     margin-left: 4px;
     vertical-align: top;
 }
+.new-indicator-lg::after {
+    content: "NEW";
+    color: #3498db;
+    padding: 2px;
+    font-size: .9rem;
+    margin-left: 6px;
+    vertical-align: top;
+    border: 1px solid #3498db;
+}
