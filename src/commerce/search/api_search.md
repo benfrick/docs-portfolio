@@ -18,7 +18,7 @@ SME Consultants: Jeremy Myrland, Cameron Hinkle, Patti Cousins
     </div>
 </div>
 
-# <a href="#understanding-your-e-commerce-search-results-draft"></a>UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS (DRAFT)
+# <a href="#understanding-your-e-commerce-search-results-draft"></a><span class="new-indicator-lg"><span>UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS
 
 ##### <a name="last-updated"></a>Last Updated: 8/7/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
@@ -79,7 +79,7 @@ Need to reach out to the Search team?
 
 |Method|Contact|
 |---|---|
-|Slack|<a href="https://nikedigital.slack.com/messages/#search-integration" target="_blank">#search-integration</a><br><a href="https://nikedigital.slack.com/messages/#nde-search-merch" target="_blank">#nde-search-merch</a>|
+|Slack|<a href="https://nikedigital.slack.com/messages/C4MGZ8GDB" target="_blank">#search-integration</a>|
 |Confluence space|<a href="https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud" target="_blank">Content Discovery Team</a>|
 |Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
 |Email the Product Manager<a name="product-owner"></a>|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
