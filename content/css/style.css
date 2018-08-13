@@ -318,6 +318,7 @@ iframe#nde-docs-frame > html {
     margin-left: 4px;
     vertical-align: top;
 }
+
 /* POC styles */
 article h1.poc{
     border-bottom: none;
@@ -348,4 +349,13 @@ aside.note {
 .poc-right-column {
      width:30%;
      vertical-align: top;
+
+.new-indicator-lg::after {
+    content: "NEW";
+    color: #3498db;
+    padding: 2px;
+    font-size: .9rem;
+    margin-left: 6px;
+    vertical-align: middle;
+    border: 1px solid #3498db;
 }
