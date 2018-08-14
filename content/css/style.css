@@ -359,3 +359,17 @@ aside.note {
     vertical-align: middle;
     border: 1px solid #3498db;
 }
+.poc-group-header {
+    padding-top: 8px;
+    color: #32325d;
+}
+.poc-ul .poc-group-header:not(:first-child){
+    border-top: 2px solid #f6f9fc;
+    margin-top: 8px;
+}
+ul.poc-ul {
+    list-style: none;
+}
+.poc-product {
+    color: #32325d;
+}
