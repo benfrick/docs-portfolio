@@ -366,6 +366,7 @@ aside.note {
 .poc-ul .poc-group-header:not(:first-child){
     border-top: 2px solid #f6f9fc;
     margin-top: 8px;
+    width: 100%;
 }
 ul.poc-ul {
     list-style: none;
