@@ -300,3 +300,77 @@ iframe#nde-docs-frame > html {
 .app-container.m12-sm {
  	margin:0;
 }
+.new-indicator::after {
+    content: "NEW";
+    color: white;
+    background-color: #3498db;
+    padding: 2px;
+    font-size: .8rem;
+    margin-left: 6px;
+    vertical-align: top;
+}
+.new-indicator-sm::after {
+    content: "NEW";
+    color: white;
+    background-color: #3498db;
+    padding: 1px;
+    font-size: .6rem;
+    margin-left: 4px;
+    vertical-align: top;
+}
+
+/* POC styles */
+article h1.poc{
+    border-bottom: none;
+}
+p.poc-underline {
+    line-height: 1px;
+    border-bottom: 2px solid #f4f6f7;
+}
+aside {
+     float: right;
+}
+aside.note {
+    margin-top: 0;
+    border-radius: 5px;
+    border: 1px solid #f0f4f7;
+    border-left-width: 2px;
+    width: 262px;
+    padding: 16px;
+    margin: 0px 0 20px 40px;
+    position: relative;
+    z-index: 2;
+}
+.poc-left-column {
+     width:70%;
+     vertical-align: top;
+     margin-right: 40px;
+}
+.poc-right-column {
+     width:30%;
+     vertical-align: top;
+
+.new-indicator-lg::after {
+    content: "NEW";
+    color: #3498db;
+    padding: 2px;
+    font-size: .9rem;
+    margin-left: 6px;
+    vertical-align: middle;
+    border: 1px solid #3498db;
+}
+.poc-group-header {
+    padding-top: 8px;
+    color: #32325d;
+}
+.poc-ul .poc-group-header:not(:first-child){
+    border-top: 2px solid #f6f9fc;
+    margin-top: 8px;
+    width: 100%;
+}
+ul.poc-ul {
+    list-style: none;
+}
+.poc-product {
+    color: #32325d;
+}
