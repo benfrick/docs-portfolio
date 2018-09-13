@@ -1,10 +1,13 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 
 # GET STARTED WITH ANALYTICS PIPELINE <i class="g72-swoosh"></i>
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -26,7 +29,7 @@ The <b>Analytics Pipeline v2 API</b> is your single destination to record analyt
 
 Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event.
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/events.png)
+![](/images/analytics/events.png)
 
 Here are just a few ways in which analytics event data can be used:
 
@@ -64,7 +67,7 @@ Join the web API economy by using the common language of the internet to interac
 
 We're here to help.
 
-<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
@@ -72,14 +75,14 @@ We're here to help.
 
 **The journey begins now!**
 
-<i class="g72-plus-large"></i> [Analytics Pipeline Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/events/api_eventsv2.html)
+<i class="g72-plus-large"></i> [Analytics Pipeline Developer's Guide](/doc/commerce/events/api_eventsv2.html)
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

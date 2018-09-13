@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_product_feeds.md) for version history for this document.
 
@@ -8,13 +9,15 @@ Original Author: Benjamin Frick
 
 SME Consultants: Divya Arunachalam, Mark Keller, Matt Phillips, Cherian John, Brian Jaress, Jeremy Geiger, Andy Sun-->
 
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
+
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 08/13/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Product Feeds](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_product_feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Product Feeds](/doc/commerce/product/biz_product_feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
 
 ## **In this guide:**
 
@@ -41,10 +44,6 @@ If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/gett
 [Making Your First API Request](#making-your-first-api-request)
 
 [Using Product Feeds v2](#using-product-feeds-v2)
-
-<span class="toc-pad">[All Product Feeds](#all-product-feeds)
-
-<span class="toc-pad">[Product Feed by ID](#product-feed-by-id)
 
 <span class="toc-pad">[Product Threads List](#product-threads-list)
 
@@ -89,17 +88,17 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 |Use this API to|Access Nike product data and content in the form of Cards, Threads, and Feeds|
 |Who calls this API?|SNKRS (iOS/Android), Bootroom (Web), Nike.com (Web), Retail Wall (Apple TV)|
 |Versions|v2|
-|Supported Languages|See [here](https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales) for supported languages and locales|
+|Supported Locales|See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping</a>|
 |SLA|Response time: 250 ms for all endpoints|
 |Domain|Commerce|
 |Prerequisites|None (public API)|
-|Contact Info|Slack: [#cic-merch](https://nikedigital.slack.com/messages/C0KEN0WQG)<br>Confluence: [Product and Feeds API](https://confluence.nike.com/display/DEN/Product+And+Feeds+API)<br>Product Owner: Andy Sun|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)|
 
->TIP: This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
+>**NOTE:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.  See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
+It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
 ### <a name="authentication"></a>Authentication
 
@@ -109,18 +108,16 @@ There are no authentication requirements for Product Feeds except when using the
 
 |I want to...|API(s) to use|
 |---|---|
-|List all Product Feeds for a specific channel|*All Product Feeds*|
-|Get a specific Product Feed by its ID|*Product Feed by ID*|
 |List all Product Threads for a channel, language, marketplace, feed ID, SEO slug, style-color, gender, keywords, and more|*Threads List*|
 |Get a specific Product Thread by its ID|*Product Thread by ID*|
 
->TIP: See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more.
+>**TIP:** See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more.
 
 ### <a name="example-implementation-diagram"></a>Example Implementation Diagram
 
 Here is an example of a sequence of API calls to get content from Product Feeds v2:
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/seq_dgm.png?)
+![](/images/commerce/product_feeds/seq_dgm.png)
 
 <br>
 
@@ -130,8 +127,6 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|All Product Feeds|Get all feeds for a channel|`/product_feed/feeds/v2{?filter}`|
-|GET|Product Feed by ID|Get a specific feed or feed preview by its identifier|`[product_feed/feeds/v2/{id}]`|
 |GET|Product Threads List|Get all threads for a channel, marketplace, language combination|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
 |GET|Product Thread by ID|Get a specific thread by its identifier|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
 
@@ -145,9 +140,9 @@ Use Product Feeds to get product data and content in the form of Cards, Threads,
 
 <i class="g72-plus"></i> Multiple Threads make up **Feeds**, customized for your users based on their chosen preferences in a Nike experience.
 
-To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see [here](https://confluence.nike.com/display/DEN/Product+And+Feeds+API).
+To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see the <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product Feeds Confluence Space</a>.
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/nike_app_annotated.png)
+![](/images/commerce/product_feeds/nike_app_annotated.png)
 
 <br>
 
@@ -165,8 +160,9 @@ The Product Feeds API combines product information with product content into Car
 |SKU Inventory Availability|Inventory availability by style-color-size|true/false|Sterling|
 |Published Content|Authored cards and threads|title, seo slug, image URL, video URL, text|Nike CMS (Content Management System)|
 |Launch Views|Launch attributes by style-color (SNKRS, Bootroom only)|method, startEntryDate, stopEntryDate|Launch Admin Tool|
+|Customized PreBuilds|Customized prebuild (e.g. suggested NikeID shoe design)|designId, status, merchGroup|Consumer experiences, Prodigy|
 
->TIP: The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
+>**TIP:** The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
 
 ## <a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?
 
@@ -175,8 +171,6 @@ A channel is a distinct user experience where Nike products are showcased and ma
 Each **channelId** value originates in Nike CMS under a different name, **collectionGroupId**.
 
 Each Feed can be associated with one or more channels, opening up the personalized Feed to many Nike experiences.
-
->NOTE: The channelIds used in examples in this guide are invalid. In order to submit requests successfully, you need a valid channelId. Work with the Product Feeds Product Owner to inquire about a channelId for your app.
 
 ## <a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds
 
@@ -199,21 +193,31 @@ For your first API request, call Product Feeds v2 to get a list of all Threads f
 
 The Product Feeds v2 *Threads List* endpoint only supports the HTTP GET method, so you do not need to send a request body. Only the required request headers and URL query parameters should be sent.
 
-The [API.md](https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md) states that there are *no* required request headers and the only required query parameter is **filter** in the format of **?filter=channelId(your_channel_Id_here)**.
+The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="_blank">API.md</a> states that there are *no* required request headers and the only required query parameter is **filter** in the format of **?filter=channelId(your_channel_Id_here)**.
 
->TIP: The channelId value is in UUID format
+>**TIP:** The channelId value is in UUID format
 
 *Don't have a channelId yet? Request that the [Product Owner](#api-at-a-glance) assign one for your app.*
 
 **2. Create the URL**
 
-The [API.md](https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md) states that the required URL format is `[/product_feed/threads/v2{?filter,fields,anchor,count}]`.
+The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is `[/product_feed/threads/v2{?filter,fields,anchor,count}]`.
 
 To build the full URL, prepend `https://api.nike.com` to the above path, then append after 'v2' with the required **filter** query parameter. The resulting full URL would be:
 
-`https://api.nike.com/product_feed/feeds/v2?filter="channelId(your_channel_Id_here)"`.
+`https://api.nike.com/product_feed/threads/v2?filter="channelId(your_channel_Id_here)"`.
 
-Test the URL using the Postman app or your favorite browser. You should receive a response body similar to the following (note: your values will vary):
+**3. Execute the request**
+
+Test the URL using the Postman app, your favorite browser or cURL. Below is an example of how to call the endpoint via cURL.
+
+```
+curl -X GET \
+     'https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_Id_here)' \
+     -H 'cache-control: no-cache'
+```
+
+You will receive a response body from the Threads List endpoint similar to the JSON below.
 
 ```
 {
@@ -228,7 +232,7 @@ Test the URL using the Postman app or your favorite browser. You should receive 
         "language": "en",
         "lastFetchTime": "2017-02-23T16:42:00.711Z",
         "publishedContent": {
-          "collectionGroupId": "dc8a8c4b-4924-4e13-a04b-ba96b6b72766",
+          "collectionGroupId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
           "marketplace": "US",
           "language": "en",
           "resourceType": "publishedContent",
@@ -270,7 +274,7 @@ Test the URL using the Postman app or your favorite browser. You should receive 
                 "US"
               ],
               "collectionGroups": [
-                "dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
+                "d9a5bc42-4b9c-4976-858a-f159cf99c647"
               ],
               "collections": [
                 "514dcaea-b752-11e6-80f5-76304dec7eb7"
@@ -320,7 +324,7 @@ Test the URL using the Postman app or your favorite browser. You should receive 
             }
           ],
           "links": {
-            "self": "/content/threads/v1/80bbdb01-114d-474f-a4e3-99e4e70f4931?collectionGroupId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&language=en"
+            "self": "/content/threads/v1/80bbdb01-114d-474f-a4e3-99e4e70f4931?collectionGroupId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
           },
           "classifications": []
         },
@@ -328,23 +332,13 @@ Test the URL using the Postman app or your favorite browser. You should receive 
         "resourceType": "thread",
         "links": {
           "self": {
-            "ref": "/product_feed/threads/v2/80bbdb01-114d-474f-a4e3-99e4e70f4931?channel=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&langauge=en"
+            "ref": "/product_feed/threads/v2/80bbdb01-114d-474f-a4e3-99e4e70f4931?channel=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&langauge=en"
           }
         }
       }
     ]
   }
   ```
-
-**3. Execute the request**
-
-Ultimately you will want to call this API from within your app and this is usually done with a cURL command. For example:
-
-```
-curl -X GET \
-     'https://api.nike.com/product_feed/feeds/v2?filter=channelId(your_channel_Id_here)' \
-     -H 'cache-control: no-cache'
-```
 
 **More Complex Examples**
 
@@ -378,10 +372,6 @@ https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)
 
 ## <a name="using-product-feeds-v2"></a>Using Product Feeds v2
 
-- [All Product Feeds](#all-product-feeds)
-
-- [Product Feed by ID](#product-feed-by-id)
-
 - [Product Threads List](#product-threads-list)
 
 - [Product Thread by ID](#product-thread-by-id)
@@ -389,170 +379,6 @@ https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)
 - [Product Feeds Error Handling](#product-feeds-error-handling)
 
 The following sections explain each Product Feeds endpoint in detail, concluding with a section on error handling.
-
-### <a name="all-product-feeds"></a>All Product Feeds
-
-Get all product feeds for a particular channel by referencing its identifier in the request.
-
-#### Endpoint Details
-
-|HTTP Method|URI Path|Restricted?|
-|---|---|---|
-|**GET**|`/product_feed/feeds/v2{?filter}`|No|
-
-#### Path & Query Parameters
-
-|Parameter|Type|Description|Data Type|Required?|
-|---|---|---|---|---|
-|**filter**|Query|Restrict the response by filter criteria. Only **channelId** is supported, e.g. ?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)|String|**Required**|
-
-#### Example Scenarios
-
-|I Want to List|Sample Query|
-|---|---|
-|Feeds for a channelId|https://api.nike.com/product_feed/feeds/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)|
-
-#### <a name="all-product-feeds-request-headers"></a>Request Headers
-
-There are no required request headers.
-
-#### <a name="all-product-feeds-request-body"></a>Request Body
-
-There is no body for a GET request.
-
-#### <a name="all-product-feeds-response-body"></a>Response Body
-
-The important elements of the *All Product Feeds* response body are as follows:
-
-|Element Name|Description|
-|---|---|
-|**pages**|Object at top level containing link to previous and next pages of results|
-|pages.**prev**|Link to previous page of results|
-|pages.**next**|Link to next page of results|
-|**objects**|Array at top level containing feed data|
-|objects.**id**|Unique identifier for the feed in UUID format|
-|objects.**name**|Human-readable nickname for the feed|
-|objects.**status**|Status of the feed/collection, 'ACTIVE' or 'INACTIVE'|
-|objects.**parentGroupIds**|Lists all the collection groups (channels) that this feed belongs to|
-|objects.**imageUrl**|URL for a full-sized product image|
-|objects.**listingEnabled**|Boolean indicator showing whether the feed should be listed|
-
-Sample *All Product Feeds* response body (HTTP 200):
-
-```
-{
-    "pages": {
-        "prev": "",
-        "next": ""
-    },
-    "objects": [
-        {
-            "id": "01894a4a-9f7a-4b32-b334-651afd0c35ee",
-            "name": "Air Icarus",
-            "status": "ACTIVE",
-            "parentGroupIds": [
-                "79a3408f-590e-4f59-a22c-fd00377a6251"
-            ],
-            "imageUrl": "https://secure-images.nike.com/is/image/DotCom/896447_004",
-            "listingEnabled": false,
-            "resourceType": "feed",
-            "links": {
-                "self": {
-                    "ref": "/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
-                }
-            }
-        },
-        {
-            "id": "02974fb2-0acf-4797-9376-55873c34b4ad",
-            "name": "Uptempo",
-            "status": "ACTIVE",
-            "parentGroupIds": [
-                "79a3408f-590e-4f59-a22c-fd00377a6251"
-            ],
-            "imageUrl": null,
-            "listingEnabled": false,
-            "resourceType": "feed",
-            "links": {
-                "self": {
-                    "ref": "/product_feed/feeds/v2/02974fb2-0acf-4797-9376-55873c34b4ad?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
-                }
-            }
-        },
-    ]
-}
-```
-
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Feeds/get_product_feed_feeds_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
-
-<hr>
-
-### <a name="product-feed-by-id"></a>Product Feed by ID
-
-Get a specific product Feed by its unique identifier.
-
-#### Endpoint Details
-
-|HTTP Method|URI Path|Restricted?|
-|---|---|---|
-|**GET**|`/product_feed/feeds/v2/{id}`|No|
-
-#### Path & Query Parameters
-
-|Parameter|Type|Description|Data Type|Required?|
-|---|---|---|---|---|
-|**id**|Path|Unique identifier of the feed in UUID format|String|**Required**|
-
-#### Example Scenarios
-
-|I Want to List|Sample Query|
-|---|---|
-|Single feed by ID|https://api.nike.com/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee|
-
-#### <a name="product-feed-by-id-request-headers"></a>Request Headers
-
-There are no required request headers.
-
-#### <a name="product-feed-by-id-request-body"></a>Request Body
-
-There is no body for a GET request.
-
-#### <a name="product-feed-by-id-response-body"></a>Response Body
-
-The important elements of the *Product Feed by ID* response body are as follows:
-
-|Element Name|Description|
-|---|---|
-|**id**|Unique identifier for the feed in UUID format|
-|**name**|Human-readable nickname for the feed|
-|**status**|Status of the collection, 'active' or 'inactive'|
-|**parentGroupIds**|Lists all the collection groups (i.e. channels) that this feed belongs to|
-|**imageUrl**|URL for a full-sized product image|
-|**listingEnabled**|Boolean indicator showing whether the feed should be listed on a target app|
-
-Sample *Product Feed by ID* response body (HTTP 200):
-
-```
-{
-    "id": "01894a4a-9f7a-4b32-b334-651afd0c35ee",
-    "name": "Air Icarus",
-    "status": "ACTIVE",
-    "parentGroupIds": [
-        "79a3408f-590e-4f59-a22c-fd00377a6251"
-    ],
-    "imageUrl": "https://secure-images.nike.com/is/image/DotCom/896447_004",
-    "listingEnabled": false,
-    "resourceType": "feed",
-    "links": {
-        "self": {
-            "ref": "/product_feed/feeds/v2/01894a4a-9f7a-4b32-b334-651afd0c35ee?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766"
-        }
-    }
-}
-```
-
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Feeds/get_product_feed_feeds_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
-
-<hr>
 
 ### <a name="product-threads-list"></a>Product Threads List
 
@@ -575,84 +401,90 @@ List all threads by one or more filter criteria, e.g. channel and style-color.
 |**sort**|Query|Field(s) by which the results are sorted. Default: **publishedContent.viewStartDateDesc**, then **id.keywordAsc**. See below for allowed sort parameters|String|Optional|
 |**searchTerms**|Query|Search for threads by one or more keywords separated with spaces. Request exact match by enclosing in double quotes. Default: partial match|String|Optional|
 
->TIP: For a list of supported marketplaces (country codes) and languages, see [here](https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales).
+>**TIP:** For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="_blank">Language/Locale Mapping README</a>.
 
 ##### Allowed Sort Parameters
 
-The following are the allowed fields that can be send in the **sort** query parameter:
+The following are the allowed fields that can be sent in the **sort** query parameter:
 
-- **publishedContent.publishStartDateAsc**
+|Sort Field|Description|
+|---|---|
+|**publishedContent.publishStartDateAsc**|By Content Publish Start Date, Ascending|
+|**publishedContent.publishStartDateDesc**|By Content Publish Start Date, Descending|
+|**publishedContent.viewStartDateAsc**|By Content View Start Date, Ascending|
+|**publishedContent.viewStartDateDesc**|By Content View Start Date, Descending|
+|**productInfo.merchProduct.commerceStartDateAsc**|By Commerce Start Date, Ascending|
+|**productInfo.merchPrice.currentPriceAsc**|By Current Price, Ascending|
+|**productInfo.merchPrice.currentPriceDesc**|By Current Price, Descending|
+|**productInfo.merchProduct.commercePublishDateDesc**|By Commerce Publish Date, Descending|
+|**effectiveStartSellDateAsc**|By Effective Start Sell Date, Ascending|
+|**effectiveStartSellDateDesc**|By Effective Start Sell Date, Descending|
+|**lastFetchTimeAsc**|By Last Fetch Time, Ascending|
+|**lastFetchTimeDesc**|By Last Fetch Time, Descending|
+|**idAsc**|By Thread Id, Ascending|
+|**idDesc**|By Thread Id, Descending|
 
-- **publishedContent.publishStartDateDesc**
-
-- **publishedContent.viewStartDateAsc**
-
-- **publishedContent.viewStartDateDesc**
-
-- **productInfo.merchProduct.commerceStartDateAsc**
-
-- **productInfo.merchProduct.currentPriceAsc**
-
-- **productInfo.merchProduct.currentPriceDesc**
-
-- **productInfo.merchProduct.commercePublishDateDesc**
-
-- **id.keywordAsc**
-
-- **id.keywordDesc**
-
-#### Allowed Filter Parameters
+##### Allowed Filter Parameters
 
 The following is a list of scenarios that illustrate which **filter** parameters are supported:
 
 |I Want to List|Sample Query|
 |---|---|
-|Threads for a channelId, marketplace of US, and language of English|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)|
-|Threads for a feed|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.publish.collections(364c1c0e-f67f-45f0-a107-d0a60876d835)|
-|Threads for a SEO slug (short text for search engines)|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.seo.slug(sock-dart-university-gold-safari-2017)|
-|Threads for a style-color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.products.styleColor(942198-700)|
-|Threads for a style code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.styleCode(942198)|
-|Threads for a color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.colorCode(001)|
-|Threads for a product ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)|
-|Threads for a gender name|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.genders(WOMEN)|
-|Threads for a Merch Product channel name|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.channels(SNKRS)|
-|Threads Merch Product main color|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.mainColor(true)|
-|Threads for product attribute "best for"|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.bestFor.value(Firm%20Ground)|
-|Threads with buyable product|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=inStock(true)|
-|Threads with a specific available size|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=availableSizes(9)|
-|Threads with a specific available localized size|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=availableLocalizedSizes(27)|
-|Threads for an athlete|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.athletes.value(Kobe%20Bryant)|
-|Threads for a channel with only selected fields returned|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&fields=publishedContent.properties.products.styleColor,publishedContent.nodes.nodes.properties.squarishURL,productInfo.merchPrice.currentPrice|
-|Threads for keywords 'Chuck Taylor'|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&searchTerms=Chuck%20Taylor|
-|Threads for a product rollup key|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=productInfo.merchProduct.productRollup.key(YPTArgON)|
-|Threads for upcoming products|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=upcoming(true)&sort=productInfo.merchProduct.commerceStartDateAsc|
-|Thread for a thread ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5))|
-|Threads for Exclusive Access products|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=exclusiveAccess(true,false)|
-|Threads for a Global Trade Identification Number (GTIN)|https://api.nike.com/product_feed/threads/v2?filter=channelId(79a3408f-590e-4f59-a22c-fd00377a6251)&filter=language(en)&filter=marketplace(US)&filter=productInfo.skus.gtin(00884500634190)|
+|Threads for a channelId, marketplace of US, and language of English|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)|
+|Threads for a feed|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.publish.collections(364c1c0e-f67f-45f0-a107-d0a60876d835)|
+|Threads for a SEO slug (short text for search engines)|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.seo.slug(sock-dart-university-gold-safari-2017)|
+|Threads for a style-color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=publishedContent.properties.products.styleColor(942198-700)|
+|Threads for a style code|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.styleCode(942198)|
+|Threads for a color code|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.colorCode(001)|
+|Threads for a product ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=productInfo.merchProduct.id(62404604-1e78-5e53-b8f1-6632543cb986)|
+|Threads for a SKU ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=skuIds(2852f714-361b-5ce4-a8bf-a33cb0a7240a,fc42d40e-dad8-522f-bd5b-b59890ca2f53)|
+|Threads for a Taxonomy ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=taxonomyIds(c2ec05f1-f18f-4bf7-8d39-7788feb46ff2)|
+|Threads for a gender name|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.genders(WOMEN)|
+|Threads for a Merch Product channel name|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.channels(SNKRS)|
+|Threads Merch Product main color|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.merchProduct.mainColor(true)|
+|Threads for product attribute "best for"|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.bestFor.value(Firm%20Ground)|
+|Threads with buyable product|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=inStock(true)|
+|Threads with a specific available size|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=availableSizes(9)|
+|Threads with a specific available localized size|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=availableLocalizedSizes(27)|
+|Threads for an athlete|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=productInfo.productContent.athletes.value(Kobe%20Bryant)|
+|Threads for a channel with only selected fields returned|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&fields=publishedContent.properties.products.styleColor,publishedContent.nodes.nodes.properties.squarishURL,productInfo.merchPrice.currentPrice|
+|Threads for keywords 'Chuck Taylor'|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&searchTerms=Chuck%20Taylor|
+|Threads for a product rollup key|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=productInfo.merchProduct.productRollup.key(YPTArgON)|
+|Threads for upcoming products|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=upcoming(true)&sort=productInfo.merchProduct.commerceStartDateAsc|
+|Thread for a thread ID|https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=id(2efdc3a4-7214-3a88-b1b0-4083dc9657d5))|
+|Threads for Exclusive Access products|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=language(en)&filter=marketplace(US)&filter=exclusiveAccess(true,false)|
+|Threads for a Global Trade Identification Number (GTIN)|https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=language(en)&filter=marketplace(US)&filter=productInfo.skus.gtin(00884500634190)|
 
->TIPS:
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure, so rather than **objects.id** use **id**, for example.
+>
+><i class="mr2-sm g72-check"></i>Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
 
-> * Use dot notation to indicate nesting while using the fields parameter, e.g. field1.field2. Always start your nesting below the **objects** element of the response structure, so rather than **objects.id** use **id**, for example.
-
-> * Most filters allow comma-separated values to retrieve multiple values at a time: `?filter=productInfo.merchProduct.styleCode(942198,AA1697)`
-
-#### Using Search-Based Queries
+##### Using Search-Based Queries
 
 Send one or more search keywords in the **searchTerms** query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.
 
-The four searchable fields are:
+The searchable fields are:
 
 - productInfo.productContent.**fullTitle**
-
 - productInfo.productContent.**title**
-
 - productInfo.productContent.**subtitle**
-
 - publishedContent.properties.consumerLabels.classification.**text**
+- productInfo.merchProduct.**styleColor**
+- productInfo.merchProduct.**styleCode**
 
-For example, using `searchTerms=Chuck Taylor` would return any threads where the words 'Chuck' and 'Taylor' are found anywhere in a searchable field.
+For example, using `searchTerms=Chuck Taylor` returns all threads with the words 'Chuck' and 'Taylor' in a searchable field.
 
 The default search behavior is *partial match*. Limiting the search to only *full string matches* can be done by enclosing the keywords in double quotes, like `searchTerms="Chuck Taylor"`. In this case, the thread must contain the exact full string 'Chuck Taylor' in a searchable field in order to be returned in the response.
+
+##### Pagination and Limits
+
+The Threads List endpoint returns a paginated response when the number of threads found exceeds the count query parameter. If the count query parameter is omitted, the maximum number of threads returned is 50.
+
+The `next` and `prev` URLs are returned in the pages section of the response for paginated results. These URLs include all the parameters originally passed to the endpoint along with an anchor parameter. The anchor parameter in the `prev` URL marks the number in the result set listed first on the previous page. Similarly, the anchor parameter marks the number in the result set listed first on the next page. For instance if you are viewing threads 26 - 50 of 100 paginated results, the anchor parameter in the `prev` URL would be 1 and 51 in the `next` URL.
+
+If the query results contain thousands of items, the max limit that can be paged through is 10,000. When the anchor exceeds 10,000 items you should expect to get an error. This is an intentional limitation imposed on the backend data store for performance reasons. If you make a request whose response would contain the 10,000th item, the next link returned will be empty.
 
 #### <a name="threads-list-request-headers"></a>Request Headers
 
@@ -666,112 +498,125 @@ There is no body for a GET request.
 
 The important elements of the *Threads List* response body are as follows:
 
->Note: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Rather than list out all of the elements in this table, links are provided to the relevant API.md for you to find the corresponding response schema.
+>**NOTE**: The **productInfo** array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.
 
-|Element Name|Description|
-|---|---|
-|**pages**|Object at top level containing link to previous and next pages of results|
-|pages.**prev**|Link to previous page of results|
-|pages.**next**|Link to next page of results|
-|**objects**|Array at top level containing feed data|
-|objects.**id**|Unique identifier for the feed in UUID format|
-|objects.**marketplace**|ISO 3166 two-letter country code for the user's current location|
-|objects.**language**|BCP-47 language code|
-|objects.**lastFetchTime**|Time when the data was aggregated in ISO-8601 compliant format: `yyyy-MM-ddTHH:mm:ss.SSSZZ`|
-|objects.**active**|Boolean indicator for whether or not this thread is currently available for general use|
-|objects.**publishedContent**|Object containing display-oriented information, such as image links and prose descriptions|
-|objects.publishedContent.**collectionGroupId**|Identifier for CMS collection group in UUID format. Synonymous to channelId|
-|objects.publishedContent.**marketplace**|Marketplace of the thread as ISO 3166 country code format, e.g. 'US'|
-|objects.publishedContent.**language**|Language of the thread using BCP 47 format|
-|objects.publishedContent.**id**|Thread identifier in UUID format|
-|objects.publishedContent.**relationalId**|Identifier of parent thread in UUID format. Ties various language threads to the source version|
-|objects.publishedContent.**version**|Version of CMS content node. String|
-|objects.publishedContent.**publishStartDate**|Date-time string of when the publishing schedule is set to start|
-|objects.publishedContent.**publishEndDate**|Date-time string of when the publishing schedule is set to end|
-|objects.publishedContent.**viewStartDate**|Date-time string of when the thread can be viewed on client apps|
-|objects.publishedContent.**supportedLanguages**|Array containing list of languages that are currently available|
-|objects.publishedContent.**properties**|Free-form JSON object that contains properties for the thread|
-|objects.publishedContent.properties.**title**|Thread title|
-|objects.publishedContent.properties.**products**|Array containing thread products|
-|objects.publishedContent.properties.products.**styleColor**|Identifier for product style-color, e.g. 831958-616|
-|objects.publishedContent.properties.products.**productId**|Product identifier in UUID format|
-|objects.publishedContent.properties.**publish**|Array containing relational data about thread|
-|objects.publishedContent.properties.publish.**countries**|List of ISO 3166 country codes that the thread has been published to|
-|objects.publishedContent.properties.publish.**collectionGroups**|List of collection groups (UUID) that the thread belongs to|
-|objects.publishedContent.properties.publish.**collections**|List of collections (UUID) that the thread belongs to|
-|objects.publishedContent.properties.**consumerLabels**|Array of tags/classifications on the thread|
-|objects.publishedContent.properties.consumerLabels.**classification**|Object containing classification info|
-|objects.publishedContent.properties.consumerLabels.classification.**type**|Type of classification, e.g. TAXONOMY|
-|objects.publishedContent.properties.consumerLabels.classification.**id**|Identifier of the classification value in UUID format|
-|objects.publishedContent.properties.consumerLabels.classification.**text**|Text value for the classification|
-|objects.publishedContent.properties.consumerLabels.**value**|Object containing classification value info|
-|objects.publishedContent.properties.consumerLabels.value.**type**|Type of classification value, e.g. TAXONOMY|
-|objects.publishedContent.properties.consumerLabels.value.**id**|Identifier of the classification value in UUID format|
-|objects.publishedContent.properties.consumerLabels.value.**text**|Text for the classification value|
-|objects.publishedContent.properties.**threadType**|Type of thread, e.g. product|
-|objects.publishedContent.properties.**relatedThreads**|Array containing a list of related threads by their UUIDs|
-|objects.publishedContent.properties.**seo**|Object containing SEO info|
-|objects.publishedContent.properties.seo.**title**|Title tag for SEO|
-|objects.publishedContent.properties.seo.**description**|Meta description for SEO|
-|objects.publishedContent.properties.seo.**keywords**|Keywords for SEO|
-|objects.publishedContent.properties.seo.**slug**|URL SEO slug of the thread|
-|objects.publishedContent.properties.**coverCard**|Object containing info about the cover card|
-|objects.publishedContent.properties.coverCard.**id**|Identifier of cover card in UUID format|
-|objects.publishedContent.properties.coverCard.**version**|Specific version number of the cover card|
-|objects.publishedContent.properties.coverCard.**type**|Type of content, e.g. card|
-|objects.publishedContent.properties.coverCard.**subType**|Subtype of card, e.g. image, video, carousel, text|
-|objects.publishedContent.properties.coverCard.**properties**|Free-form JSON object that contains properties for the card|
-|objects.publishedContent.properties.coverCard.properties.**altText**|Cover card image alternate text|
-|objects.publishedContent.properties.coverCard.properties.**colorTheme**|Cover card image color theme, i.e. dark|
-|objects.publishedContent.properties.coverCard.properties.**landscapeURL**|URL for landscape cover card image|
-|objects.publishedContent.properties.coverCard.properties.**portraitURL**|URL for portrait cover card image|
-|objects.publishedContent.properties.coverCard.properties.**squarishURL**|URL for squarish cover card image|
-|objects.publishedContent.properties.coverCard.properties.**subtitle**|Cover card image subtitle|
-|objects.publishedContent.properties.coverCard.properties.**title**|Cover card image title|
-|objects.publishedContent.**nodes**|Array of card info|
-|objects.publishedContent.nodes.**id**|Card identifier in UUID format|
-|objects.publishedContent.nodes.**version**|Card version identifier|
-|objects.publishedContent.nodes.**type**|Card type, i.e. 'card'|
-|objects.publishedContent.nodes.**subType**|Card subtype (text, image, video, carousel)|
-|objects.publishedContent.nodes.**properties**|Object containing info about the card, varies by card type|
-|objects.publishedContent.nodes.properties.**loop**|Boolean for whether video will loop or not|
-|objects.publishedContent.nodes.properties.**providerId**|Name of video provider|
-|objects.publishedContent.nodes.properties.**subtitle**|Subtitle for video|
-|objects.publishedContent.nodes.properties.**colorTheme**|Color theme for video, i.e. dark|
-|objects.publishedContent.nodes.properties.**videoId**|Identifier for video|
-|objects.publishedContent.nodes.properties.**autoPlay**|Boolean for whether video will auto-play or not|
-|objects.publishedContent.nodes.properties.**title**|Card title|
-|objects.publishedContent.nodes.properties.**body**|Card body text|
-|objects.publishedContent.nodes.properties.**actions**|Array of action info|
-|objects.publishedContent.nodes.properties.actions.**actionType**|Type of action|
-|objects.publishedContent.nodes.properties.actions.**product**|Object containing product info for the action|
-|objects.publishedContent.nodes.properties.actions.product.**styleColor**|Style-color code|
-|objects.publishedContent.nodes.properties.actions.product.**productId**|Product identifier in UUID format|
-|objects.publishedContent.nodes.properties.actions.**destinationType**|Type of destination, i.e link|
-|objects.publishedContent.nodes.properties.actions.**destinationId**|Identifier for destination, i.e. a URL|
-|objects.publishedContent.nodes.properties.**speed**|Speed of video|
-|objects.publishedContent.**classifications**|Array of classifications|
-|objects.publishedContent.classifications.**classification**|Object containing classification info|
-|objects.publishedContent.classifications.classification.**type**|Type of classification|
-|objects.publishedContent.classifications.classification.**id**|Identifier of the classification value|
-|objects.publishedContent.classifications.classification.**text**|Text value for the classification|
-|objects.publishedContent.classifications.value.**type**|Type of classification value|
-|objects.publishedContent.classifications.value.**id**|Identifier of the classification value|
-|objects.publishedContent.classifications.value.**text**|Text for the classification value|
-|objects.**productInfo**|Array of responses from other APIs with product info|
-|objects.productInfo.**merchProduct**|[API.md link](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id)|
-|objects.productInfo.**merchPrice**|[API.md link](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id)|
-|objects.productInfo.**availability**|[API.md link](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#!/Product_Inventory_Availability/get_deliver_available_products_v1_productId)|
-|objects.productInfo.**productContent**|https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw|
-|objects.productInfo.**imageUrls**|Object containing product image URL|
-|objects.productInfo.imageUrls.**productImageUrl**|URL for product image|
-|objects.productInfo.**skus**|[API.md link](https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id)|
-|objects.productInfo.**availableSkus**|[API.md link](https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD?raw#!/Sku_Availability/get_deliver_available_skus_v1_id)|
-|objects.productInfo.**launchView**|[API.md link](https://bitbucket.nike.com/projects/PHYLLNCH/repos/launchviews/browse/API.md?raw#!/default/get_launch_launch_views_v2_id)|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**pages**|object|Object at top level containing link to previous and next pages of results|Required|
+|pages.**prev**|string|Link to previous page of results|Required|
+|pages.**next**|string|Link to next page of results|Required|
+|**objects**|array|Array at top level containing feed data|Required|
+|objects.**id**|string|Unique identifier for the feed in UUID format|Required|
+|objects.**channelId**|string|UUID for the channel (collectionGroupId)|Optional|
+|objects.**channelName**|string|Human-readable name for the channel|Optional|
+|objects.**marketplace**|string|ISO 3166 two-letter country code for the user's current location|Required|
+|objects.**language**|string|BCP-47 language code|Required|
+|objects.**lastFetchTime**|string|Time when the data was aggregated in ISO-8601 compliant format: `yyyy-MM-ddTHH:mm:ss.SSSZZ`|Required|
+|objects.**resourceType**|string|Type of HTTP resource being returned|Required|
+|objects.links.self.**ref**|string|Self-link of the HTTP resource|Required|
+|objects.**publishedContent**|object|Object containing display-oriented information, such as image links and prose descriptions|Required|
+|objects.publishedContent.**collectionGroupId**|string|Identifier for CMS collection group in UUID format. Synonymous to channelId|Optional|
+|objects.publishedContent.**marketplace**|string|Marketplace of the thread as ISO 3166 country code format, e.g. 'US'|Optional|
+|objects.publishedContent.**language**|string|Language of the thread using BCP 47 format|Optional|
+|objects.publishedContent.**id**|string|Thread identifier in UUID format|Required|
+|objects.publishedContent.**relationalId**|string|Identifier of parent thread in UUID format. Ties various language threads to the source version|Optional|
+|objects.publishedContent.**version**|string|Version of CMS content node|Required|
+|objects.publishedContent.**type**|string|Type of content|Required|
+|objects.publishedContent.**subtype**|string|Subtype of thread or card|Required|
+|objects.publishedContent.**publishStartDate**|string|Date-time string of when the publishing schedule is set to start|Optional|
+|objects.publishedContent.**publishEndDate**|string|Date-time string of when the publishing schedule is set to end|Optional|
+|objects.publishedContent.**viewStartDate**|string|Date-time string of when the thread can be viewed on client apps|Optional|
+|objects.publishedContent.**supportedLanguages**|array|Array containing list of languages that are currently available|Optional|
+|objects.publishedContent.**properties**|object|Free-form JSON object that contains properties for the thread|Required|
+|objects.publishedContent.properties.**title**|string|Thread title|Optional|
+|objects.publishedContent.properties.**products**|array|Array containing thread products|Optional|
+|objects.publishedContent.properties.products.**styleColor**|string|Identifier for product style-color, e.g. 831958-616|Optional|
+|objects.publishedContent.properties.products.**productId**|string|Product identifier in UUID format|Optional|
+|objects.publishedContent.properties.**publish**|array|Array containing relational data about thread|Optional|
+|objects.publishedContent.properties.publish.**countries**|array|List of ISO 3166 country codes that the thread has been published to|Optional|
+|objects.publishedContent.properties.publish.**collectionGroups**|array|List of collection groups (UUID) that the thread belongs to|Optional|
+|objects.publishedContent.properties.publish.**collections**|array|List of collections (UUID) that the thread belongs to|Optional|
+|objects.publishedContent.properties.**consumerLabels**|array|Array of tags/classifications on the thread|Optional|
+|objects.publishedContent.properties.consumerLabels.**classification**|object|Object containing classification info|Optional|
+|objects.publishedContent.properties.consumerLabels.classification.**type**|string|Type of classification, e.g. TAXONOMY|Optional|
+|objects.publishedContent.properties.consumerLabels.classification.**id**|string|Identifier of the classification value in UUID format|Optional|
+|objects.publishedContent.properties.consumerLabels.classification.**text**|string|Text value for the classification|Optional|
+|objects.publishedContent.properties.consumerLabels.**value**|object|Object containing classification value info|Optional|
+|objects.publishedContent.properties.consumerLabels.value.**type**|string|Type of classification value, e.g. TAXONOMY|Optional|
+|objects.publishedContent.properties.consumerLabels.value.**id**|string|Identifier of the classification value in UUID format|Optional|
+|objects.publishedContent.properties.consumerLabels.value.**text**|string|Text for the classification value|Optional|
+|objects.publishedContent.properties.**threadType**|string|Type of thread, e.g. product|Optional|
+|objects.publishedContent.properties.**relatedThreads**|array|Array containing a list of related threads by their UUIDs|Optional|
+|objects.publishedContent.properties.**seo**|object|Object containing SEO info|Optional|
+|objects.publishedContent.properties.seo.**title**|string|Title tag for SEO|Optional|
+|objects.publishedContent.properties.seo.**description**|string|Meta description for SEO|Optional|
+|objects.publishedContent.properties.seo.**slug**|string|URL SEO slug of the thread|Optional|
+|objects.publishedContent.properties.**coverCard**|object|Object containing info about the cover card|Optional|
+|objects.publishedContent.properties.coverCard.**id**|string|Identifier of cover card in UUID format|Optional|
+|objects.publishedContent.properties.coverCard.**version**|string|Specific version number of the cover card|Optional|
+|objects.publishedContent.properties.coverCard.**type**|string|Type of content, e.g. card|Optional|
+|objects.publishedContent.properties.coverCard.**subType**|string|Subtype of card, e.g. image, video, carousel, text|Optional|
+|objects.publishedContent.properties.coverCard.**properties**|object|Free-form JSON object that contains properties for the card|Optional|
+|objects.publishedContent.properties.coverCard.properties.**altText**|string|Cover card image alternate text|Optional|
+|objects.publishedContent.properties.coverCard.properties.**colorTheme**|string|Cover card image color theme, i.e. dark|Optional|
+|objects.publishedContent.properties.coverCard.properties.**landscapeURL**|string|URL for landscape cover card image|Optional|
+|objects.publishedContent.properties.coverCard.properties.**portraitURL**|string|URL for portrait cover card image|Optional|
+|objects.publishedContent.properties.coverCard.properties.**squarishURL**|string|URL for squarish cover card image|Optional|
+|objects.publishedContent.properties.coverCard.properties.**subtitle**|string|Cover card image subtitle|Optional|
+|objects.publishedContent.properties.coverCard.properties.**title**|string|Cover card image title|Optional|
+|objects.publishedContent.**nodes**|array|Array of card info|Required|
+|objects.publishedContent.nodes.**id**|string|Card identifier in UUID format|Optional|
+|objects.publishedContent.nodes.**version**|string|Card version identifier|Optional|
+|objects.publishedContent.nodes.**type**|string|Card type, i.e. 'card'|Optional|
+|objects.publishedContent.nodes.**subType**|string|Card subtype (text, image, video, carousel)|Optional|
+|objects.publishedContent.nodes.**properties**|object|Object containing info about the card, varies by card type|Optional|
+|objects.publishedContent.nodes.properties.**loop**|boolean|Boolean for whether video will loop or not|Optional|
+|objects.publishedContent.nodes.properties.**providerId**|string|Name of video provider|Optional|
+|objects.publishedContent.nodes.properties.**subtitle**|string|Subtitle for video|Optional|
+|objects.publishedContent.nodes.properties.**colorTheme**|string|Color theme for video, i.e. dark|Optional|
+|objects.publishedContent.nodes.properties.**videoId**|string|Identifier for video|Optional|
+|objects.publishedContent.nodes.properties.**autoPlay**|boolean|Boolean for whether video will auto-play or not|Optional|
+|objects.publishedContent.nodes.properties.**title**|string|Card title|Optional|
+|objects.publishedContent.nodes.properties.**body**|string|Card body text|Optional|
+|objects.publishedContent.nodes.properties.**actions**|array|Array of action info|Optional|
+|objects.publishedContent.nodes.properties.actions.**actionType**|string|Type of action|Optional|
+|objects.publishedContent.nodes.properties.actions.**product**|object|Object containing product info for the action|Optional|
+|objects.publishedContent.nodes.properties.actions.product.**styleColor**|string|Style-color code|Optional|
+|objects.publishedContent.nodes.properties.actions.product.**productId**|string|Product identifier in UUID format|Optional|
+|objects.publishedContent.nodes.properties.actions.**destinationType**|string|Type of destination, i.e link|Optional|
+|objects.publishedContent.nodes.properties.actions.**destinationId**|string|Identifier for destination, i.e. a URL|Optional|
+|objects.publishedContent.nodes.properties.**speed**|string|Speed of video|Optional|
+|objects.publishedContent.**classifications**|array|Array of classifications|Optional|
+|objects.publishedContent.classifications.**classification**|object|Object containing classification info|Optional|
+|objects.publishedContent.classifications.classification.**type**|string|Type of classification|Optional|
+|objects.publishedContent.classifications.classification.**id**|string|Identifier of the classification value|Optional|
+|objects.publishedContent.classifications.classification.**text**|string|Text value for the classification|Optional|
+|objects.publishedContent.classifications.value.**type**|string|Type of classification value|Optional|
+|objects.publishedContent.classifications.value.**id**|string|Identifier of the classification value|Optional|
+|objects.publishedContent.classifications.value.**text**|string|Text for the classification value|Optional|
+|objects.**productInfo**|array|Array of responses from other APIs with product info|Optional|
+|objects.productInfo.**merchProduct**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**merchPrice**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**availability**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**productContent**|object|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**imageUrls**|object|Object containing product image URL|Optional|
+|objects.productInfo.imageUrls.**productImageUrl**|string|URL for product image|Optional|
+|objects.productInfo.**skus**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**availableSkus**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**launchView**|object|<a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**customizedPreBuild**|object|<a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a>|Optional|
+
+##### What is the Customized PreBuild Section of the Response?
+
+If you are getting data in the **objects.productInfo.customizedPreBuild** section of the response, then one of the threads that you've requested contains a customizable prebuild product.
+
+A prebuild is a design for a customizable (e.g., NIKEiD) product invented by merchandisers/designers to demonstrate how customers can personalize the product. These "inspiration" designs are merchandised within specific experiences and can be found on product walls, product display pages and in marketing materials.
+
+You will be able to identify the presence of prebuilds when **objects.publishedContent.properties.threadType** field contains the value **nikeid_soldier**.
 
 Sample *Threads List* response body (HTTP 200):
 
->TIP: Scroll to the right to see the entire code snippet.
+>**TIP:** Scroll to the right to see the entire code snippet.
 
 ```
 {
@@ -782,14 +627,14 @@ Sample *Threads List* response body (HTTP 200):
     "objects": [
         {
             "id": "2383e522-7d71-4ad7-8d9f-506aad2d8923",
-            "channelId": "dc8a8c4b-4924-4e13-a04b-ba96b6b72766",
+            "channelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
             "channelName": "BOOTROOM",
             "marketplace": "US",
             "language": "en",
             "lastFetchTime": "2017-10-19T05:28:29.983Z",
             "active": true,
             "publishedContent": {
-                "collectionGroupId": "dc8a8c4b-4924-4e13-a04b-ba96b6b72766",
+                "collectionGroupId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
                 "marketplace": "US",
                 "language": "en",
                 "resourceType": "publishedContent",
@@ -855,7 +700,7 @@ Sample *Threads List* response body (HTTP 200):
                             "US"
                         ],
                         "collectionGroups": [
-                            "79a3408f-590e-4f59-a22c-fd00377a6251"
+                            "d9a5bc42-4b9c-4976-858a-f159cf99c647"
                         ],
                         "collections": [
                             "a4f722b8-e77f-43b3-b909-168e5f43ac60"
@@ -1240,7 +1085,7 @@ Sample *Threads List* response body (HTTP 200):
                     }
                 ],
                 "links": {
-                    "self": "/content/threads/v1/2383e522-7d71-4ad7-8d9f-506aad2d8923?collectionGroupId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&language=en&audienceId=feeds"
+                    "self": "/content/threads/v1/2383e522-7d71-4ad7-8d9f-506aad2d8923?collectionGroupId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en&audienceId=feeds"
                 },
                 "classifications": [
                     {
@@ -1930,7 +1775,7 @@ Sample *Threads List* response body (HTTP 200):
             "resourceType": "thread",
             "links": {
                 "self": {
-                    "ref": "/product_feed/threads/v2/2383e522-7d71-4ad7-8d9f-506aad2d8923?channelId=dc8a8c4b-4924-4e13-a04b-ba96b6b72766&marketplace=US&language=en"
+                    "ref": "/product_feed/threads/v2/2383e522-7d71-4ad7-8d9f-506aad2d8923?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&marketplace=US&language=en"
                 }
             }
         }
@@ -1938,7 +1783,7 @@ Sample *Threads List* response body (HTTP 200):
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <hr>
 
@@ -1964,7 +1809,7 @@ Get a Thread by its unique identifier.
 |**preview**|Query|Preview a thread that is not yet enabled. Requires **Authorization** header to be sent|String|Optional|
 |**includeExclusiveAccess**|Query|Include exclusive and non-exclusive access threads in the results|Boolean|Optional|
 
->TIP: For a list of supported marketplaces (country codes) and languages, see [here](https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales).
+>**TIP:** For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="_blank">Language/Locale Mapping README</a>.
 
 #### Example Scenarios
 
@@ -1991,7 +1836,7 @@ The structure of the response from *Thread by ID* is the same as *Threads List* 
 
 See Threads List for response body details.
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <hr>
 
@@ -2017,9 +1862,9 @@ First, some considerations:
 
 - All endpoints of Product Feeds exclusively feature the GET method, which has no request body, so the focus of each section will be on the differences in the response body only.
 
-- For the 4 endpoints that have both a v1 and a v1.5 (see [Product Feeds v1 API.md](https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeed/browse/API.md?raw) for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
+- For the 4 endpoints that have both a v1 and a v1.5 (see <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API?tab=api" target="_blank">Product Feeds v1 API.md</a> for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
 
->TIP: Upgrading from CAPI (Commerce API)? See the [CAPI Migration Guide](https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/capi_migration.md?raw) for detailed instructions.
+>**TIP:** Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.
 
 ### <a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping
 
@@ -2029,8 +1874,6 @@ The following table lists the v1 endpoints along with the equivalent v2 endpoint
 |---|---|
 |All Product Channels|None|
 |Product Channel by Name|None|
-|All Product Feeds|All Product Feeds|
-|Product Feed by ID|Product Feed by ID|
 |Product Feed by Feed ID|None|
 |All Product Threads|Product Threads List|
 |Product Thread by ID|Product Thread by ID|
@@ -2039,34 +1882,6 @@ The following table lists the v1 endpoints along with the equivalent v2 endpoint
 |Product Thread by SEO Slug|Product Threads List|
 |All Admin Threads|None|
 |Product Card by ID|None|
-
-### <a name="all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping"></a>All Product Feeds & Product Feed by ID v1 to v2 Field Mapping
-
-The response structure of the v1 *All Product Feeds* and *Product Feed by ID* endpoints is the same, with a few minor exceptions, so for the purposes of upgrading to v2 they can be discussed together.
-
-The below table describes how the response body fields map from the v1 to the v2 endpoints with same name.
-
-|V1 Field Name|Description|V2 Field Name|Description|Notes|
-|---|---|---|---|---|
-|**country**|Country in which the feed exists|N/A|No equivalent||
-|**locale**|Locale of the feed content|N/A|No equivalent||
-|**channel**|Channel in which the feed exists|N/A|No equivalent||
-|**totalRecords**|Total number of feeds that match the criteria|N/A|No equivalent||
-|**feeds**|Array containing one or more feeds that match the criteria|N/A|No equivalent||
-|**id**|UniqueID hash of the feed.feedId|**id**||v1 and v2 IDs are not the same, also v2 is in UUID format|
-|**feedId**|An unique ID string relative path of a given feed in AEM/AuthoringTool|N/A|No equivalent|Deprecated|
-|**interestId**|This is used to add the InterestId from Social. Currently SNKRS uses it for the mapping the FOLLOWS verb|N/A|No equivalent|Deprecated|
-|**createdDate**|Time when the object was created in AEM/AuthoringTool|N/A|No equivalent||
-|**lastUpdatedDate**|Last time this object was updated|N/A|No equivalent||
-|**name**|Name of the feed|**name**|Human-readable nickname||
-|**thumbnailURL**|URL for the thumbnail image|N/A|No equivalent||
-|**imageURL**|URL for feed image|**imageURL**|URL of a full-sized image|In v2, this is often null|
-|**categories**|categories the feed is associated with|N/A|No equivalent||
-|**status**|Indicates the status of the feed|**status**|For showing whether this collection is active or inactive||
-|**listingEnabled**|This attribute is true by default.It prevents feeds from being listed when set to false|**listingEnabled**|Shows whether this collection should be listed on a target app||
-|N/A|No equivalent|**parentGroupIds**|Lists all the collection groups (i.e. channels) that this feed belongs to||
-
->TIP: For v2 URI format and available parameters, see [All Product Feeds](#all-product-feeds) and [Product Feed by ID](#product-feed-by-id) sections of this document.
 
 ### <a name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"></a>All Product Threads & Product Thread by ID v1 to v2 Field Mapping
 
@@ -2095,9 +1910,9 @@ The following table describes how the response body fields map from the v1 to th
 |product.**colorCode**|Three-digit color code identifier|productInfo.merchProduct.**colorCode**|Color code of the product||
 |product.**globalPid**|Global identifier of the product|productInfo.merchProduct.**pid**|Product identifier for the product||
 |product.**fullTitle**|Full title of the product|productInfo.productContent.**fullTitle**|Full title of the product||
-|product.**title**|Title of the product|productInfo.productContent.**title**|Title of the product|||
-|product.**subtitle**|Subtitle of the product|productInfo.productContent.**subtitle**|Subtitle of the product|||
-|product.**description**|Description of the product|productInfo.productContent.**description**|Description of the product|||
+|product.**title**|Title of the product|productInfo.productContent.**title**|Title of the product||
+|product.**subtitle**|Subtitle of the product|productInfo.productContent.**subtitle**|Subtitle of the product||
+|product.**description**|Description of the product|productInfo.productContent.**description**|Description of the product||
 |product.**imageUrl**|URL for product images|productInfo.imageURLs.**productImageUrl**|URL for product images||
 |product.**genders**|Array of relevant genders for the product|productInfo.merchProduct.**genders**|Genders that the product is for||
 |product.**price**|Object containing product price info|productInfo.**merchPrice**|Object containing product price info||
@@ -2192,7 +2007,7 @@ The following table describes how the response body fields map from the v1 to th
 |**relationalId**||publishedContent.**relationalId**|The ID of the parent thread. Ties various language threads to the source version||
 |**socialPattern**||N/A|No equivalent|Deprecated|
 
->TIP: For the v2 URI format and available parameters, see the [Product Thread by ID](#product-thread-by-id) and [Product Threads List](#product-threads-list) sections of this document.
+>**TIP:** For the v2 URI format and available parameters, see the [Product Thread by ID](#product-thread-by-id) and [Product Threads List](#product-threads-list) sections of this document.
 
 ### <a name ="url-patterns-by-version"></a>URL Patterns By Version
 
@@ -2208,9 +2023,9 @@ The URL pattern used by the Product Feeds API's varies depending on the version,
 
 **v2**
 
-`https://api.nike.com/product_feed/feeds/v2`
+None
 
->TIP: Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
+>**TIP:** Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
 
 ## <a name="best-practices"></a>Best Practices
 
@@ -2220,7 +2035,7 @@ Listed below are some best practices for working with Product Feeds.
 
 Product Feeds v2 has a test environment available at host https://experience.test.commerce.nikecloud.com.
 
-Apart from the host, you can use the same URL, for example: https://experience.test.commerce.nikecloud.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(b300bc43-bf2f-4b34-8942-fdc6f95653f9).
+Apart from the host, you can use the same URL, for example: https://experience.test.commerce.nikecloud.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647).
 
 Some considerations about using the test environment:
 
@@ -2238,15 +2053,19 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
-- Use a Splunk query (requires access) such as [this](https://cdt-eng.splunkcloud.com/en-US/app/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D) to check for issues with your request.
+- Use a Splunk query (requires access) such as <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D" target="_blank">this</a> to check for issues with your request.
 
-- Use the [Product Feeds v2 Overview](https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419) dashboard in Insights (requires access) to see if the service is up and healthy.
+- Use the <a href="https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419" target="_blank">Product Feeds v2 Overview</a> dashboard in Insights (requires access) to see if the service is up and healthy.
 
-- Contact the Product Feeds Team on the [#cic-merch](https://nikedigital.slack.com/messages/C0KEN0WQG) Slack channel for assistance.
+- Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/C0KEN0WQG">#cic-merch</a> Slack channel for assistance.
 
 ### Common Questions
+
+**Who do I contact with questions about what I'm seeing in the **productInfo** or **publishedContent** sections of the response?**
+
+- The data in **productInfo** and **publishedContent** is not owned by the Product Feeds team. Refer to <a href="https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown" target="_blank">Thread Response Ownership Breakdown</a> to find the Slack channel of the team responsible for that data.
 
 **How do I know what product attributes are available for me to use to request Threads?**
 
@@ -2254,7 +2073,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 **Why isn't my feed showing up?**
 
-- *The feed may have failed validation and was marked inactive*. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the [#cic-merch](https://nikedigital.slack.com/messages/C0KEN0WQG) Slack channel to check if the feed failed validation and why.
+- *The feed may have failed validation and was marked inactive*. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a> Slack channel to check if the feed failed validation and why.
 
 - *The feed might not yet be published*. It can take up to 15 minutes to publish a change from AEM and have it be reflected in the Feeds API.
 
@@ -2272,11 +2091,11 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - The **catalogId** on the product might be blank. To troubleshoot, send a request to the Merchandised Products API with the affected product ID (e.g. https://api.nike.com/merch/products/v2/c98f12d7-7dee-5775-b4a6-c83d0d2dcb9a) to see if a catalog ID is present or not. If not, that is the reason that the thread is not being returned.
 
->TIP: Be careful not to confuse **legacyCatalogId**, which like **catalogId** is also present in the threads response under **productInfo.merchProduct**, but does not affect thread visibility.
+>**TIP:** Be careful not to confuse **legacyCatalogId**, which like **catalogId** is also present in the threads response under **productInfo.merchProduct**, but does not affect thread visibility.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html).
 
 ## <a name="release-notes"></a>Release Notes
 
@@ -2286,17 +2105,23 @@ No release notes available
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|1/23/2018|Initial Draft|
-|Updates per Jan API.md changes|2/9/2018|Added new allowed values for **sort** and **filter** query params, added new **includeExclusiveAccess** query param|
-|Layout updates|2/12/2018|Changed layout to meet new API Doc standards, added Troubleshooting content|
-|Updated links|3/20/2018|Updated links to point to new dev portal|
+|Initial draft|01/23/2018|Initial Draft|
+|Updates per template|02/9/2018|Added new allowed values for **sort** and **filter** query params, added new **includeExclusiveAccess** query param|
+|Layout updates|02/12/2018|Changed layout to meet new API Doc standards, added Troubleshooting content|
+|Updated links|03/20/2018|Updated links to point to new dev portal|
+|Updated external links|04/03/2018|Updated external links to open in new browser window|
+|Updated API.md links|05/14/2018|Updated API.md links to point to new dev portal|
+|Updated request/response content|07/02/2018|Added required/optional and data type columns to request/response tables|
+|Removed endpoints|7/3/2018|Removed references to the deprecated product_feed/feed endpoints|
+|Added upstream contact info|7/5/2018|Linked to 'Thread Response Ownership Breakdown' in Troubleshooting|
+|Used valid channelId in examples|7/16/2018|Changed from using invalid to valid channelId (and collectionGroupId) in examples|
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

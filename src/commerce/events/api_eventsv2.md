@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/events/api_eventsv2.md) for version history of this document.
@@ -8,11 +9,13 @@ Author:  Ben Frick, Jane Moore
 SME Consultants:  Randy Davis, Jen Fong, Doug Jenkins
 -->
 
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
+
 # ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-##### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](https://nde-devportal-docs.niketech.com/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
 
 ## **In This Guide:**
 
@@ -60,7 +63,7 @@ Because Analytics Pipeline is server-side and Nike-authored, it is much more cus
 
 Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event. Future integrations with other partners can be done without necessarily changing the contract of this API, thus making it easier (if not completely transparent) to you.
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/events.png)
+![](/images/analytics/events.png)
 
 Here are a few ways in which analytics event data can be used:
 
@@ -84,13 +87,13 @@ The following table describes the key details of the API:
 |SLAs|Response time (RT) and requests per second (RPS): <br>RT: 500 ms <br>RPS: 500|
 |Domain|Commerce|
 |Prerequisites|None|
-|Contact Info|Slack: [#cic-nexus](https://nikedigital.slack.com/messages/cic-nexus)<br>Confluence space: [Analytics Pipeline API Team](https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home)<br> Mailing List: [Lst-Nexus.Devops](mailto:Lst-Nexus.DevOps)<br><a name="product-owner"></a>Product Owner: [Randall Davis](mailto:randall.davis@nike.com)|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br>Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br> Mailing List: [Lst-Nexus.Devops](mailto:Lst-Nexus.DevOps)<br><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a>|
 
 ### A Note about Segment
 
 Segment is an analytics API and customer data platform which Nike utilizes. As you saw in the above diagram, it is one of several downstream integrations from the Analytics Pipeline API. By integrating with Segment once, Nike unlocks additional downstream integrations like Optimizely for A/B Testing, Kochava for mobile analytics, and several digital marketing integrations.
 
-Reach out to the Analytics API Product Owner, [Randall Davis](mailto:randall.davis@nike.com), for information on the analytics opportunities available via Segment.
+Reach out to the Analytics API Product Owner, [Randy Davis](mailto:randall.davis@nike.com), for information on the analytics opportunities available via Segment.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
@@ -126,15 +129,13 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/adobe1.png)
+![](/images/analytics/adobe1.png)
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/adobe2.png)
+![](/images/analytics/adobe2.png)
 
 <br>
-
->TIP: This guide does not include details of the data transformations. For more info, see [TBD]().
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
@@ -144,7 +145,7 @@ For more information about each service and to try them out though the UI, visit
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-[SEND A NEW EVENT BATCH](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md)|/measure/uxevents/v1|POST|
+|<a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a>|/measure/uxevents/v1|POST|
 
 ## <a name="making-your-first-api-request"></a>Making Your First API Request
 
@@ -166,7 +167,7 @@ However, for your first request and anytime you are performing tests, use the Te
 
 https://experience.test.commerce.nikecloud.com/measure/uxevents/v1.
 
->TIP: The URL for v2 is the same as v1.
+>**TIP:** The URL for v2 is the same as v1.
 
 #### Headers
 
@@ -320,12 +321,12 @@ There are no path nor query parameters to be used with the Analytics Pipeline v2
 
 Forming a request body to the Analytics Pipeline v2 API requires combining the following schema information:
 
-- [Event Batch](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json): top-most level in the request structure, which is common to all event types. Includes an array of one or more events.
-- [Common Fields](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json): common fields to be included for each event
-- One of the following schemas: [Page](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/page.json), [Track](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/track.json), [Identify](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/identify.json)
-- All of the following schemas: [A-B Test](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/ab-test.json), [E-commerce](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/e-commerce.json), [Nike](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/nike.json)
+- <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json" target="_blank">Event Batch</a>: top-most level in the request structure, which is common to all event types. Includes an array of one or more events.
+- <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json" target="_blank">Common Fields</a>: common fields to be included for each event
+- One of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/page.json" target="_blank">Page</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/track.json" target="_blank">Track</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/identify.json" target="_blank">Identify</a>
+- All of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/ab-test.json" target="_blank">A-B Test</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/e-commerce.json" target="_blank">E-commerce</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/nike.json" target="_blank">Nike</a>
 
-![](https://nde-devportal-docs.niketech.com/images/analytics/events_v2_schema.png)
+![](/images/analytics/events_v2_schema.png)
 
 >Note: the Nike schema contains a field, **eventType**, that is a direct carryover from v1 (i.e. same exact values must be used). See more below on [Event Types](#event-types).
 
@@ -333,7 +334,7 @@ Next, we will discuss the details of each of the above schemas, including which 
 
 #### Batch & Common Fields
 
-The fields in the [Batch](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/batch.json) and [Common Fields](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json) schemas are described in the below table:
+The fields in the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/batch.json" target="_blank">Batch</a> and <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json" target="_blank">Common Fields</a> schemas are described in the below table:
 
 |Element Name|Description|Required?|
 |---|---|---|
@@ -513,7 +514,7 @@ Each request must contain **ALL** of the following schemas:
 |events.**eventId**|A UUID v4 for this event instance|Optional|
 |events.**platform**|Platform type, one of "web", "domain, or "mobile"|Optional|
 |events.context.app.**environment**|App environment, one of "development", "test", or "production"|Optional|
-|events.context.app.**domain**|Experience domain of app, see list [here](https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences)|Optional|
+|events.context.app.**domain**|Experience domain of app, see list <a href="https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences" target="_blank">here</a>|Optional|
 |events.context.app.**resource**|Name of API resource of the |Optional|
 |events.context.app.**division**|Organization which the app domain falls under, e.g. "commerce"|Optional|
 |events.context.app.**platform**|Technology platform of the app, e.g. "cloud", "tesla"|Optional|
@@ -1357,13 +1358,13 @@ Scenario: the API is having an issue taking the request.
 }
 ```
 
-<a href="http://nikeweb-test.private.static.s3-website-us-east-1.amazonaws.com/fat/event-validator-ui/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://nikeweb-test.private.static.s3-website-us-east-1.amazonaws.com/fat/event-validator-ui/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
 ## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
 
-If you are currently using version 1 of this API and need information for upgrading, see the [Analytics Pipeline v1 Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/events/api_events.html).
+If you are currently using version 1 of this API and need information for upgrading, see the [Analytics Pipeline v1 Developer's Guide](/doc/commerce/events/api_events.html).
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
@@ -1371,30 +1372,31 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-1. Check for validation errors logged in Splunk [here](https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda)
+1. Check for validation errors logged in Splunk <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda" target="_blank">here</a>
 
-2. Use the sample requests in this document or those provided [here](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events) as a guide for forming valid requests for each event type.
+2. Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html)
 
-## <a name="release-notes"/>Release Notes
+## <a name="release-notes"></a>Release Notes
 
 There are no release notes at this time.
 
-## <a name="document-change-log"/>Document Change Log
+## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|2/14/2018|Initial Draft|
+|Initial draft|02/14/2018|Initial Draft|
+|Updated external links|04/03/2018|Updated external links to open in new browser window|
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

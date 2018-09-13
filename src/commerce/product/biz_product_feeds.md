@@ -1,10 +1,13 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 
 # Get Started with Product Feeds (DRAFT) <i class="g72-swoosh"></i>
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 05/03/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -36,7 +39,7 @@ Use Product Feeds to power compelling user experiences by accessing Nike digital
 
 <i class="g72-arrow-thick-right"></i> Multiple Threads make up **Feeds**, customized for your users based on their chosen preferences.
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/product_feeds/nike_app_annotated.png)
+![](/images/commerce/product_feeds/nike_app_annotated.png)
 
 ## <a name="#features"></a>Features
 
@@ -46,6 +49,8 @@ Product Feeds is simple and easy to use: it does all the heavy lifting of gather
 
 <i class="g72-plus-large"></i> Get all product threads for your app, or a specific thread by its ID. Since each thread includes its cards, no additional calls are required!
 
+<i class="g72-plus-large"></i> Product Grid Wall: Get product threads along related 'rollup' threads, e.g. a style-color accompanied by all other colors for same style.
+
 ## <a name="#considerations"></a>Considerations
 
 **Easy adoption**
@@ -54,7 +59,7 @@ Common implementations of Product Feeds involve only two calls: get all threads 
 
 **Prerequisites**
 
-To get started, you need a channel identifier for your app. Contact the [Product Feeds Product Owner](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#api-at-a-glance) to get one.
+To get started, you need a channel identifier for your app. Contact the [Product Feeds Product Owner](/doc/commerce/product/api_product_feeds.html#api-at-a-glance) to get one.
 
 **Reliable and Scalable**
 
@@ -68,7 +73,7 @@ Join the web economy by using the common language of the internet to interact wi
 
 We're here to help.
 
-<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
@@ -76,20 +81,20 @@ We're here to help.
 
 **From here, explore the Product Feeds Developer Guide to get more details.**
 
-<i class="g72-plus-large"></i> [Product Feeds Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html)
+<i class="g72-plus-large"></i> [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html)
 
 <i class="g72-plus-large"></i> [Supported Countries and Languages](https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales)
 
-<i class="g72-plus-large"></i> [SLA Documentation](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_product_feeds.html#api-at-a-glance)
+<i class="g72-plus-large"></i> [SLA Documentation](/doc/commerce/product/api_product_feeds.html#api-at-a-glance)
 
 **The journey begins now!**
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

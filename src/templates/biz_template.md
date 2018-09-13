@@ -1,11 +1,21 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+
+<div class="guide-nav-container">
+    <div class="guide-nav-column guide-nav-left">
+        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
+    </div>
+    <div class="guide-nav-column guide-nav-right">
+        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+    </div>
+</div>
 
 # Get Started with Nike {API Name} <i class="g72-swoosh"></i>
 <!-- Header describing title of topic) -->
 
-###### Last Updated: 10/31/2017<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
@@ -47,7 +57,7 @@ Join the web API economy by using the common language of the internet to interac
 
 We're here to help.
 
-<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 

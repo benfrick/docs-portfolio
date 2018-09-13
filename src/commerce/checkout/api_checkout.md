@@ -1,18 +1,22 @@
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/nde.js" type="text/javascript"></script>
 
-<!--See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/checkout/api_checkout.md) for version history for this document.
-
-Original Author: Benjamin Frick
-
-SME Consultants: Kevin Stoffregen, Ray Wach, Mark Mardon, Swapna Dontula, Adam Nutt, Laura Kuhner, Sree Krishna-->
+<div class="guide-nav-container">
+    <div class="guide-nav-column guide-nav-left">
+        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
+    </div>
+    <div class="guide-nav-column guide-nav-right">
+        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+    </div>
+</div>
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+###### Last Updated: 06/26/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
 ## **In this guide:**
 
@@ -76,6 +80,26 @@ If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/gett
 
 <span class="toc-pad">[Cart Reviews Error Handling](#cart-reviews-error-handling)
 
+[Using Wish Lists](#using-wish-lists)
+
+<span class="toc-pad">[Wish Lists Overview](#wish-lists-overview)
+
+<span class="toc-pad">[Create or Update a List](#create-or-update-a-list)
+
+<span class="toc-pad">[Delete a List](#delete-a-list)
+
+<span class="toc-pad">[Retrieve a List by ID](#retrieve-a-list-by-id)
+
+<span class="toc-pad">[Retrieve Lists for Authenticated User](#retrieve-lists-for-authenticated-user)
+
+<span class="toc-pad">[Add Item to List](#add-item-to-list)
+
+<span class="toc-pad">[Remove Item from List](#remove-item-from-list)
+
+<span class="toc-pad">[Retrieve Items by List](#remove-item-from-list)
+
+<span class="toc-pad">[Retrieve Item by ID](#retrieve-item-by-id)
+
 [Using Shipping Options](#using-shipping-options)
 
 <span class="toc-pad">[Shipping Options Overview](#shipping-options-overview)
@@ -122,19 +146,19 @@ If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/gett
 
 |Topic|Details|
 |---|---|
-|Use these APIs to|<li>Add Nike products or gift cards to a shopping cart and get pricing <li>Get available shipping options with pricing <li>Preview & validate a checkout <li>Submit a checkout for fulfillment <li> More...|
+|Use these APIs to|<li>Add Nike products or gift cards to a shopping cart or Wish List and get pricing <li>Get available shipping options with pricing <li>Preview & validate a checkout <li>Submit a checkout for fulfillment <li> More...|
 |Who calls this API|SNKRS app (Web/iOS/Android), Nike+ app (iOS/Android), Nike.com|
 |Version|v1, v2|
-|SLA|<li> Carts v1 - Response Time: 50ms, Requests Per Second: 500<li> Carts v2 - Response Time: 1000ms, Requests Per Second: 300 <li>Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200<li>Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000 <li>Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600|
+|SLA|<li> Carts v1 - Response Time: 50ms, Requests Per Second: 500<li> Carts v2 - Response Time: 1000ms, Requests Per Second: 300 <li>Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200<li>Wish Lists - Response Time: 160 ms, Requests Per Second: 80<li>Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000 <li>Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600|
 |Domain|Commerce|
-|Prerequisites|<li>[API Registration](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration)<li>JWT for *Launch Checkout Submit* only|
-|Contact Info|Slack: [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)<br>Confluence: [CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070)<br>Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)|
+|Prerequisites|<li>[API Registration](/doc/getting-started/using_nike_apis.html#registration)<li>JWT for *Launch Checkout Submit* only|
+|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a><br>Confluence: <a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="_blank">CiC Order Capture</a><br>Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)|
 
->TIP: SLAs vary per endpoint for both the Carts (v1 and v2) and Checkouts APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. See [this SLA.json file](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse) and [that SLA.json](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/SLA.json) file to get SLA info by endpoint.
+>**TIP:** SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. Ask the Product Owner to get specific SLA info for each endpoint.
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
 ### <a name="authorization"></a>Authorization
 
@@ -144,11 +168,11 @@ Most calls through the Nike API gateway (api.nike.com) require an access token b
 
 Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#authorization) guide.
+To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#authorization) guide.
 
 #### JSON Web Token
 
-Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#jwt-json-web-token).
+Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#jwt-json-web-token).
 
 ## <a name="use-cases"></a>Use Cases
 
@@ -157,6 +181,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 |Manage a user's shopping cart, get product pricing|Carts API|
 |Check the 'buyability' of a product|Carts API|
 |Augment a cart with estimated taxes and delivery dates|Cart Reviews API|
+|Manage a user's Wish Lists (member/employee only), get product pricing|Wish Lists API|
 |Get available shipping methods, estimated delivery dates|Shipping Options API|
 |Validate product and shipping info. Get product, tax, and shipping prices|Checkouts API|
 |Submit a checkout for fulfillment|Checkouts API|
@@ -165,7 +190,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 
 Here is an example of a sequence of API calls to execute an entire checkout:
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/buy/checkout_seq_dgm.png)
+![](/images/commerce/buy/checkout_seq_dgm.png)
 
 <br>
 
@@ -185,11 +210,11 @@ The Nike Checkout APIs support 3 distinct user types:
 
 Depending on user type, certain aspects of the calls that you make to the Checkout APIs might need to be modified. This will be called out whenever applicable in the detailed endpoint sections which follow in this guide. Also, consider that not all user types might apply to your app (e.g. you might only support Members).
 
-See the User Types section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#user-types) guide for more information.
+See the User Types section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#user-types) guide for more information.
 
 ### Idempotence
 
-[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/) means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let's break it down.
+<a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="_blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let's break it down.
 
 Each PUT request to *Request Checkout Preview* and *Request a Checkout Submit* includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body.
 
@@ -202,34 +227,42 @@ There are 4 possible scenarios:
 |UUID used previously, Entity is new|Client receives HTTP 409 error response (no new job processed)|
 |UUID is new, Entity previously submitted under another UUID|Client receives HTTP 202 response, request processed as new job|
 
->TIP: For more, see the Idempotence Guarantee section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#idempotence-guarantee) guide.
+>**TIP:** For more, see the Idempotence Guarantee section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#idempotence-guarantee) guide.
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
 |API Name|Endpoint Name|HTTP Method|URI Path|
 |---|---|---|---|
-|Carts v1|[Create or Update a Cart](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_put_buy_carts_v1_id)|PUT|/buy/carts/v1/{id}{?fields}|
-|Carts v1|[Retrieve Carts by ID](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_get_buy_carts_v1_id)|GET|/buy/carts/v1/{id}/{?fields}|
-|Carts v1|[Retrieve Carts by Filter](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_get_buy_carts_v1)|GET|/buy/carts/v1/{?filter,fields}|
-|Carts v1|[Delete All Items from a Cart](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#Cart_Operations_delete_buy_carts_v1_id)|DELETE|/buy/carts/v1/{id}|
-|Carts v2|[Create or Update a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart)|PUT|/buy/carts/v2/{id}|
-|Carts v2|[Modify a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-1)|PATCH|/buy/carts/v2/{id}|
-|Carts v2|[Delete All Items from a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart)|DELETE|/buy/carts/v2/{id}|
-|Carts v2|[Get a Cart by Cart ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-cartid)|GET|/buy/carts/v2/{id}|
-|Carts v2|[Get a Cart by Filter Criteria (Query Param)](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria)|GET|/buy/carts/v2/?filter|
-|Carts v2|[Create or Update a Cart by Filter Criteria](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-2)|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|[Modify a Cart by Filter Criteria](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-create-or-update-a-user-s-cart-3)|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|[Get a Cart by Filter Criteria (Path Param)](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-get-a-cart-for-a-user-matching-the-filter-criteria-1)|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|[Delete all Items from a Cart by Filter Criteria](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md#cart-operations-delete-all-items-from-a-cart-1)|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
-|Cart Reviews|[Augment a Cart](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#Cart_Reviews_post_buy_cart_reviews_v1)|POST|/buy/cart_reviews/v1|
-|Shipping Options|[Shipping Options](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#default_post_buy_shipping_options_v2)|POST|/buy/shipping_options/v2|
-|Checkouts|[Request Checkout Preview](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#checkout-preview-request-checkout-preview)|PUT|/buy/checkout_previews/v2/{id}|
-|Checkouts|[Retrieve Checkout Preview Job](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_Preview_get_buy_checkout_previews_v2_jobs_id)|GET|/buy/checkout_previews/v2/jobs/{id}|
-|Checkouts|[Retrieve Checkout Preview Results](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_Preview_get_buy_checkout_preview_results_v2_id)|GET|/buy/checkout_preview_results/v2/{id}|
-|Checkouts|[Request Checkout Submit](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_put_buy_checkouts_v2_id)|PUT|/buy/checkouts/v2/{id}|
-|Checkouts|[Retrieve Checkout Submit Job](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_get_buy_checkouts_v2_jobs_id)|GET|/buy/checkouts/v2/jobs/{id}|
-|Checkouts|[Retrieve Checkout Results](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Checkout_get_buy_checkout_results_v2_id)|GET|/buy/checkout_results/v2/{id}|
-|Checkouts|[Request Checkout Submit (Launch)](https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#Launch_Checkout_put_buy_launch_checkouts_v2_id)|PUT|/buy/launch_checkouts/v2/{id}|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Create or Update a Cart</a>|PUT|/buy/carts/v1/{id}{?fields}|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Retrieve Carts by ID</a>|GET|/buy/carts/v1/{id}/{?fields}|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Retrieve Carts by Filter</a>|GET|/buy/carts/v1/{?filter,fields}|
+|Carts v1|<a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Delete All Items from a Cart</a>|DELETE|/buy/carts/v1/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a>|PUT|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a>|PATCH|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete All Items from a Cart by Cart ID</a>|DELETE|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Cart ID</a>|GET|/buy/carts/v2/{id}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>|GET|/buy/carts/v2/?filter|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Filter Criteria</a>|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
+|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a>|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
+|Cart Reviews|<a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a>|POST|/buy/cart_reviews/v1|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>|PUT|/buy/lists/v1/{id}{?fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>|DELETE|/buy/lists/v1/{id}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a>|GET|/buy/lists/v1/{id}{?fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Lists for Authenticated User</a>|GET|/buy/lists/v1{?filter,fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Add Item to List</a>|PUT|/buy/list_items/v1/{id}{?fields}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>|DELETE|/buy/list_items/v1/{id}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>|GET|/buy/list_items/v1{?filter, anchor, count, fields, sort}|
+|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a>|GET|/buy/list_items/v1/{id}{?fields}|
+|Shipping Options|<a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a>|POST|/buy/shipping_options/v2|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a>|PUT|/buy/checkout_previews/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a>|GET|/buy/checkout_previews/v2/jobs/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Results</a>|GET|/buy/checkout_preview_results/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit</a>|PUT|/buy/checkouts/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a>|GET|/buy/checkouts/v2/jobs/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>|GET|/buy/checkout_results/v2/{id}|
+|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a>|PUT|/buy/launch_checkouts/v2/{id}|
 
 ## <a name="making-your-first-api-request"></a>Making Your First API Request
 
@@ -282,13 +315,11 @@ For the request body, the following considerations apply (at miniumum):
 
 **2. Create the URL**
 
-The [API.md](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/raw/API.md) states that the required URL format is `/buy/carts/v2/{id}`.
+The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is `/buy/carts/v2/{id}`.
 
 To build the full URL, prepend `https://api.nike.com` to the above path, then append  **id** after "v2". The **id** is the cart identifier you passed in the request body.
 
-The complete URL is then:
-
-`https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8`
+The complete URL is then https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8.
 
 **3. Execute the request**
 
@@ -427,13 +458,13 @@ The Carts API helps you manage carts. It provides storage, validation, and prici
 
 - When using the optional channel filter in GET cart requests, carts for which no channel value was included in the preceding PUT request will not be returned.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 The following sections describe each endpoint of the Carts API in detail:
 
 ### <a name="create-or-update-a-cart"></a>Create or Update a Cart
 
-Create a cart by executing an HTTP PUT request with a cart ID in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format **that you have generated**. Update a cart with PUT request using an existing cart ID.
+Create a cart by executing an HTTP PUT request with a cart ID in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format **that you have generated**. Update a cart with PUT request using an existing cart ID.
 
 >**Note**: HTTP PATCH is not supported; for each 'update cart' operation, send the entire cart contents again.
 
@@ -461,13 +492,13 @@ Required request headers:
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 
->TIP: For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
+>**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
 #### <a name="cart-put-request-body"></a>Request Body
 
 |Element Name|Required?|Description|
 |---|---|---|
-|**id**|Required|Unique client-generated cart identifier as [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)|
+|**id**|Required|Unique client-generated cart identifier as <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>|
 |**country**|Required|ISO 3166 country code, e.g. US. This is typically the same as the country of the user's shipping address.|
 |**currency**|Required|ISO 4217 currency code, e.g. USD|
 |**brand**|Required|Nike brand name associated with the cart, only NIKE is supported|
@@ -481,15 +512,15 @@ Required request headers:
 |valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
 |valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * Use the same channel value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>Use the same channel value for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart* Request Body:
 
@@ -577,9 +608,9 @@ Some of the values in the response are exactly as sent in the request, but the v
 
 ### <a name="retrieve-carts-by-id"></a>Retrieve Carts by ID
 
-Get the details of a cart using the ID (in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format) that **you previously created**. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.
+Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format) that **you previously created**. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.
 
->TIP: Reads against this endpoint are [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.
+>**TIP:** Reads against this endpoint are <a href="https://en.wikipedia.org/wiki/Eventual_consistency" target="_blank">eventually consistent</a>. Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.
 
 #### Endpoint Details
 
@@ -627,7 +658,7 @@ Retrieve a user's cart(s) by country, brand, and (optionally) channel. The defau
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html) **Required**<li>**brand**: NIKE brand name, only NIKE is supported **Required**<li>channel: sales channel, only NIKECOM is supported, optional|string|**Required**|
+|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](/doc/commerce/checkout/checkout_country_currency.html) **Required**<li>**brand**: NIKE brand name, only NIKE is supported **Required**<li>channel: sales channel, only NIKECOM is supported, optional|string|**Required**|
 |**fields**|Query|Fields to be included in the response (all fields included by default)|string|Optional|
 
 #### <a name="cart-get2-request-headers"></a>Request Headers
@@ -696,7 +727,7 @@ Following is a summary of the errors and warnings that can come back in response
 |400|PUT|INVALID_SKU|Item SKU not found or not valid for the country.|Check the skuId. Correct and retry.|
 |400|GET, PUT|PRODUCT_NOT_BUYABLE|Item sku not 'buyable', either due to being inactive, being outside sell dates, or launch product purchase being attempted outside of launch.|Notify user as necessary|
 |400|PUT|ITEM_QUANTITY_LIMIT|Quantity limit (for single cart) exceeded for the item sku.|Notify the user as necessary|
-|500|GET, PUT, DELETE|SYSTEM_ERROR|Error occurred processing the request.|
+|500|GET, PUT, DELETE|SYSTEM_ERROR|Error occurred processing the request.||
 |401|GET, PUT, DELETE|35|The operation was requested by an unauthorized user.|Check that your access token was sent in **Authorization** request header in format `Bearer {token}` or that the token has not expired.|
 |404|GET|n/a, no request body|The operation was not requested by the cart owner or ownership was not provided.|Check that the access token sent in the request header was for the correct user.|
 |404|GET|n/a, no request body|Cart just created or cart has expired|If cart was just created, try GET again later or do a PUT. If cart was created > 180 days ago, create a new cart.|
@@ -717,6 +748,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 2. Response for a request that included an invalid country code:
 ```
 {
@@ -729,6 +761,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 3. Response for a request where the item quantity value exceeded the allowed limit:
 ```
 {
@@ -741,6 +774,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 4. Response for a request that included an invalid skuId:
 ```
 {
@@ -754,9 +788,8 @@ Following is a summary of the errors and warnings that can come back in response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#!/Cart_Operations/get_buy_carts_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
-
-<hr>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#!/Cart_Operations/get_buy_carts_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
 
 ## <a name="using-carts-v2"></a>Using Carts v2
 
@@ -815,7 +848,7 @@ Required request headers:
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
->TIP: For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
+>**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
 #### <a name="cart-put-v2-request-body"></a>Request Body
 
@@ -860,13 +893,13 @@ Required request headers:
 |links.self.**ref**|string|Link to this resource, itself|Required|
 |**resourceType**|string|The type of resource the document is modeling|Optional|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Create or Update Cart by Cart ID* Request Body:
 
@@ -998,7 +1031,7 @@ Sample *Create or Update Cart by Cart ID* response body without errors:
 }
 ```
 
->TIP: Prices and subtotals are recalculated and returned in the response to each call.
+>**TIP:** Prices and subtotals are recalculated and returned in the response to each call.
 
 ### <a name="modify-a-cart-by-cart-id"></a>Modify a Cart by Cart ID
 
@@ -1033,7 +1066,7 @@ Required request headers:
 
 The request must contain at least **ONE OF** the following schemas:
 
-Element Name|Type |Description|Required?|
+Element Name|Type|Description|Required?|
 |---|---|---|---|
 |**op**| string |Operation to perform, either 'add' or 'replace' is allowed|Required|
 |**path**|string|JSON Pointer path, only ‘/items’ is allowed|Required|
@@ -1049,7 +1082,7 @@ Element Name|Type |Description|Required?|
 
 **OR**
 
-Element Name|Type |Description|Required?|
+Element Name|Type|Description|Required?|
 |---|---|---|---|
 |**op**|string |Operation to perform, only 'remove' is allowed|Required|
 |**path**|string|JSON Pointer path, only ‘/items’ is allowed|Required|
@@ -1057,15 +1090,17 @@ Element Name|Type |Description|Required?|
 
 **OR**
 
-Element Name|Type |Description|Required?|
+Element Name|Type|Description|Required?|
 |---|---|---|---|
 |**op**|string |Operation to perform, either 'add' or 'remove' is allowed|Required|
 |**path**|string|JSON Pointer path, only '/promotionCodes' is allowed|Required|
 |**value**|string|Promotion Code to add or remove|Required|
 
->TIPS:
-> * You can include more than one patch operation in a request.
-> * Sending "op": "remove" for a line item will delete the entire quantity previously added under that line item.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>You can include more than one patch operation in a request.
+>
+><i class="mr2-sm g72-check"></i>Sending "op": "remove" for a line item will delete the entire quantity previously added under that line item.
 
 Sample *Modify a Cart by Cart ID* Request Body:
 
@@ -1221,7 +1256,7 @@ See the response body from the [*Create or Update Cart by Cart ID* endpoint](#ca
 
 Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** values sent as `?filter` query parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.
 
->TIP: For more info on how to use `?filter`, see the query parameters section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#query-parameters).
+>**TIP:** For more info on how to use `?filter`, see the query parameters section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#query-parameters).
 
 #### Endpoint Details
 
@@ -1233,7 +1268,7 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html) **Required**<li>**brand**: Brand name, e.g. 'NIKE' **Required**<li>channel: Sales channel, optional|string|**Required**|
+|**filter**|Query|Values by which to limit the cart results<li>**country**: ISO 3166-1 [two-letter code](/doc/commerce/checkout/checkout_country_currency.html) **Required**<li>**brand**: Brand name, e.g. 'NIKE' **Required**<li>channel: Sales channel, optional|string|**Required**|
 
 #### <a name="cart-get2-v2-request-headers"></a>Request Headers
 
@@ -1330,7 +1365,7 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**country**|Path|ISO 3166-1 [two-letter code](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html)|string|Required|
+|**country**|Path|ISO 3166-1 [two-letter code](/doc/commerce/checkout/checkout_country_currency.html)|string|Required|
 |**brand**|Path|Brand name, e.g. 'NIKE'|string|Required|
 |**channel**|Path|Sales channel|string|Optional|
 
@@ -1435,6 +1470,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 2. Response for a request that included an invalid **country** value:
 ```
 {
@@ -1442,6 +1478,7 @@ Following is a summary of the errors and warnings that can come back in response
     "message": "Bad Request"
 }
 ```
+
 3. Response for a request where the items.**quantity** value exceeded the allowed limit:
 ```
 {
@@ -1450,6 +1487,7 @@ Following is a summary of the errors and warnings that can come back in response
     "field": "/items/0/quantity"
 }
 ```
+
 4. Response for a request that included an invalid value (not a UUID) in items.**skuId**:
 ```
 {
@@ -1464,9 +1502,8 @@ Following is a summary of the errors and warnings that can come back in response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md?raw" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
-
-<hr>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md?raw" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
 
 ## <a name="using-cart-reviews"></a>Using Cart Reviews
 
@@ -1482,7 +1519,7 @@ After the customer has provided a shipping address and chosen a shipping method,
 
 Cart Reviews returns sales and shipping taxes, estimated delivery date(s), and shipping group information (when applicable), as well as item and subtotal information for a customer's cart.
 
->TIP: Shipping group refers to the grouping of items into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
+>**TIP:** Shipping group refers to the grouping of items into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
 
 #### More Facts About Cart Reviews:
 
@@ -1502,7 +1539,7 @@ Cart Reviews returns sales and shipping taxes, estimated delivery date(s), and s
 
 - The Cache-Control response header indicates that responses must not be cached and thus not used across multiple requests.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 The following section describes the endpoint of the Cart Reviews API in detail:
 
@@ -1533,36 +1570,36 @@ Required request headers:
 
 #### <a name="cart-augment-request-body"></a>Request Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**country**|Required|ISO 3166 country code, e.g. US|
-|**currency**|Required|ISO 4217 currency code, e.g. USD|
-|**brand**|Required|Nike brand name associated with the cart, only NIKE is supported|
-|**items**|Required|Array containing list of item objects, with the following required fields:|
-|items.**id**|Required|Unique identifier of the line item in the request. You create this value.|
-|items.**skuId**|Required|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|
-|items.**quantity**|Required|Unit quantity (integer) of the SKU.|
-|items.**shippingAddress**|Required|Address to which items are to be shipped. Only the following field is required:|
-|items.shippingAddress.**country**|Required|Shipping address country. 2-alpha character ISO 3166 country code.|
-|**channel**|Optional|Sales channel of the shopping cart, only 'NIKECOM' is supported. Located at top level of request.|
-|**shippingMethod**|Optional|The method by which the item will be shipped. Located under **items** array. Only the following field is required:|
-|shippingMethod.**id**|Optional|The identifier for the shipping method, e.g. 'STANDARD' for standard ground shipping in the US.|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**country**|string|ISO 3166 country code, e.g. US|Required|
+|**currency**|string|ISO 4217 currency code, e.g. USD|Required|
+|**brand**|string|Nike brand name associated with the cart, only NIKE is supported|Required|
+|**items**|array|Array containing list of item objects, with the following required fields:|Required|
+|items.**id**|string|Unique identifier of the line item in the request. You create this value.|Required|
+|items.**skuId**|string|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|Required|
+|items.**quantity**|integer|Unit quantity of the SKU.|Required|
+|items.**shippingAddress**|object|Address to which items are to be shipped. Only the following field is required:|Required|
+|items.shippingAddress.**country**|string|Shipping address country. 2-alpha character ISO 3166 country code.|Required|
+|**channel**|string|Sales channel of the shopping cart, only 'NIKECOM' is supported. Located at top level of request.|Optional|
+|**shippingMethod**|object|The method by which the item will be shipped. Located under **items** array. Only the following field is required:|Optional|
+|shippingMethod.**id**|string|The identifier for the shipping method, e.g. 'STANDARD' for standard ground shipping in the US.|Optional|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|Optional|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
-
-> * Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
-
-> * Although optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.
-
-> * Although optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>Use the same brand and channel values for all calls for a particular cart, else you will get a 409 Conflict error when the value varies from the initial PUT.
+>
+><i class="mr2-sm g72-check"></i>Although optional, send the postalCode in the shippingAddress in addition to the required country code. If so, the sales tax will be returned in items.priceInfo.tax and shipping tax will be returned in items.shippingCosts.priceInfo.tax.
+>
+><i class="mr2-sm g72-check"></i>Although optional, if you send a valid shippingMethod in the request, the net shipping cost for the item will be returned in shippingCosts.priceInfo.total. If you also send a valid postalCode in the shippingAddress, the shipping tax for the item will be returned in shippingCosts.priceInfo.tax and also in shippingCosts.taxes.total.
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Cart Reviews* request body:
 
@@ -1754,6 +1791,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 2. Response for a request that included a skuId which was not in UUID format:
 ```
 {
@@ -1763,7 +1801,8 @@ Following is a summary of the errors and warnings that can come back in response
     "message": "Server error"
 }
 ```
-3. Response for a reqeust that included an id (line item identifier) which was not in UUID format:
+
+3. Response for a request that included an id (line item identifier) which was not in UUID format:
 ```
 {
     "httpStatus": 500,
@@ -1772,6 +1811,7 @@ Following is a summary of the errors and warnings that can come back in response
     "message": "Server error"
 }
 ```
+
 4. Response for a request sent to an incorrect URL
 ```
 {
@@ -1784,6 +1824,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 5. Response for a request that included a line item ID which was not unique:
 ```
 {
@@ -1799,6 +1840,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 6. Response for a request that was missing the required field 'country':
 ```
 {
@@ -1813,6 +1855,7 @@ Following is a summary of the errors and warnings that can come back in response
         }
     ]
 ```
+
 7. Response for a request that included an invalid country code:
 ```
 {
@@ -1827,6 +1870,7 @@ Following is a summary of the errors and warnings that can come back in response
         }
     ]
 ```
+
 8. Response for a request that had multiple errors:
 ```
 {
@@ -1848,9 +1892,743 @@ Following is a summary of the errors and warnings that can come back in response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#!/Cart_Reviews/post_buy_cart_reviews_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#!/Cart_Reviews/post_buy_cart_reviews_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
 
-<hr>
+## <a name="using-wish-lists"></a>Using Wish Lists
+
+Manage a Nike member/employee's Wish Lists using the Wish Lists API.
+
+- [Wish Lists Overview](#wish-lists-overview)
+
+- [Create or Update a List](#create-or-update-a-list)
+
+- [Delete a List](#delete-a-list)
+
+- [Retrieve a List by ID](#retrieve-a-list-by-id)
+
+- [Retrieve Lists for Authenticated User](#retrieve-lists-for-authenticated-user)
+
+- [Add Item to List](#add-item-to-list)
+
+- [Remove Item from List](#remove-item-from-list)
+
+- [Retrieve Items by List](#retrieve-items-by-list)
+
+- [Retrieve Item by ID](#retrieve-item-by-id)
+
+### <a name="wish-lists-overview"></a>Wish Lists Overview
+
+The Wish Lists API allows Nike members and employees to save lists of products to consider for purchase.
+
+Features:
+
+- Store unlimited Wish Lists per user
+- Get product pricing and availability for items added to the list
+- Create, read, update and delete support
+- Pagination support
+- Member and employee support only. **Guest users may not save Wish Lists**
+
+#### Life Cycle of Wish List
+
+![](/images/commerce/buy/wishlists_flow.png)
+
+### <a name="create-or-update-a-list"></a>Create or Update a List
+
+Create or update header-level information for a Wish List using this endpoint.
+
+- Only **header-level** info, such as the list identifier and name, can be created with this endpoint. Use the other endpoints to add or remove items from a list.
+- List name must be unique within a user's lists for a given country.
+- Updating lists is currently limited to changing the list name only.
+
+>TIP: You generate the unique list and list item identifiers and send them in the request in UUID format. See individual endpoint sections for details.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**PUT**|`/buy/lists/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="create-list-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="create-list-request-body"></a>Request Body
+
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List UUID assigned by the client|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|**name**|string|Name of the list|Required|
+|**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|**isPublished**|boolean|Specifies if the list is viewable|Optional|
+
+Sample *Create or Update a List* request URI:
+```
+https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+Sample *Create or Update a List* request body:
+```
+{
+    "id": "93a333a2-907b-46f1-b9ac-469489909057",
+    "country": "US",
+    "name": "Winter Running",
+    "brand": "NIKE"
+}
+
+```
+
+#### <a name="create-list-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List UUID assigned by the client|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|**name**|string|Name of the list|Required|
+|**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|**isPublished**|boolean|Specifies if the list is viewable|Optional|
+|**modificationDate**|string|ISO 8601 of the date when the resource was last updated, added or removed from|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+
+Sample *Create or Update a List* 200 response:
+```
+{
+    "id": "93a333a2-907b-46f1-b9ac-469489909057",
+    "country": "US",
+    "name": "Winter Running",
+    "brand": "NIKE",
+    "modificationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057"
+      }
+    }
+}
+```
+
+Sample *Create or Update a List* 400 response:
+```
+{
+    "message": "Validation Failed",
+    "errors": [
+      {
+        "field":"/country",
+        "code":"FIELD_INVALID",
+        "message": "Invalid country"
+      }
+    ]
+}
+```
+
+### <a name="delete-a-list"></a>Delete a List
+
+Delete a Wish List using this endpoint. Note that **all** of the items on the list will be removed.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**DELETE**|`/buy/lists/v1/{id}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+
+#### <a name="delete-list-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="delete-list-request-body"></a>Request Body
+
+There is no request body for a DELETE request.
+
+Sample *Delete a List* request URI:
+```
+https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="delete-list-response-body"></a>Response Body
+
+There is no response body for a successful HTTP response to a DELETE request.
+
+### <a name="retrieve-a-list-by-id"></a>Retrieve a List by ID
+
+Call this endpoint to retrieve header info for a single list using the list identifier that you previously created. The list items are **not** included in the response. To get the list items, separately call the *Retrieve Items by List* endpoint with the appropriate list identifier.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/lists/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="retrieve-id-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-id-request-body"></a>Request Body
+
+There is no request body on a GET request.
+
+Sample *Retrieve a List by ID* request URI:
+```
+https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="retrieve-id-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List UUID assigned by the client|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|**name**|string|Name of the list|Required|
+|**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|**isPublished**|boolean|Specifies if the list is viewable|Optional|
+|**modificationDate**|string|ISO 8601 of the date when the resource was last updated, added or removed from|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+
+Sample *Retrieve a List by ID* 200 response:
+```
+{
+    "id": "93a333a2-907b-46f1-b9ac-469489909057",
+    "country": "US",
+    "name": "Winter Running",
+    "brand": "NIKE",
+    "modificationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057"
+      }
+    }
+}
+```
+
+### <a name="retrieve-lists-for-authenticated-user"></a>Retrieve Lists for Authenticated User
+
+Retrieve header info for all lists for a single authenticated user with this endpoint. The list items are **not** included in the response. To get the list items, separately call the *Retrieve Items by List* endpoint with the appropriate list identifier.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/lists/v1{?filter,fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**filter**|Query|Limit the results to those matching the specified filters<li> country (string, required) - ISO 3166 country code(s)</li><li> name (string, optional) - List name </li>|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="retrieve-auth-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-auth-request-body"></a>Request Body
+
+There is no request body on a GET request.
+
+Sample *Retrieve Lists for Authenticated User* request URI:
+```
+https://www.api.nike.com/buy/lists/v1?filter=country(US)
+```
+
+#### <a name="retrieve-auth-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**objects**|object|List resources|Required|
+|objects.**id**|string|List UUID assigned by the client|Required|
+|objects.**country**|string|2-alpha character ISO 3166 country code, e.g. 'US'|Required|
+|objects.**name**|string|Name of the list|Required|
+|objects.**brand**|string|Brand associated with the list, only 'NIKE' is allowed|Required|
+|objects.**channel**|string|Sales channel of the list, only 'NIKECOM' is allowed|Optional|
+|objects.**isPublic**|boolean|Specifies if the list is viewable by guests|Optional|
+|objects.**isPublished**|boolean|Specifies if the list is viewable|Optional|
+|objects.**modificationDate**|string|ISO 8601 of the date when the resource was last updated, added or removed from|Optional|
+|objects.links.**self**|object|Object containing self-link|Optional|
+|objects.links.self.**ref**|string|Link to this resource, itself|Required|
+
+Sample *Retrieve Lists for Authenticated User* 200 response:
+```
+{
+    "objects": [
+      {
+        "id": "93a333a2-907b-46f1-b9ac-469489909057",
+        "country": "US",
+        "name": "Winter Running",
+        "brand": "NIKE",
+        "modificationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057"
+          }
+        }
+      },
+      {
+        "id": "7b1d5327-58e6-054f-8492-60150b8caafb",
+        "country": "US",
+        "name": "Summer Basketball",
+        "brand": "NIKE",
+        "modificationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/lists/v1/7b1d5327-58e6-054f-8492-60150b8caafb"
+          }
+        }
+      }
+    ]
+}
+```
+
+Sample *Retrieve Lists for Authenticated User* 400 response:
+```
+{
+        "message": "Validation Failed",
+        "errors": [
+          {
+            "field": "filter",
+            "code": "QUERY_PARAMETER_INVALID",
+            "message": "Invalid filter"
+          }
+        ]
+      }
+```
+
+### <a name="add-item-to-list"></a>Add Item to List
+
+Add an item to an existing list using the list identifier and get current product pricing in the response.
+
+- If you add an item that is already on the list, the item will be replaced.
+- Only the item being added are included in the response, not all items in the list.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**PUT**|`/buy/list_items/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="add-item-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="add-item-request-body"></a>Request Body
+
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List item UUID assigned by the client|Required|
+|**wishlistId**|string|List UUID assigned by the client|Required|
+|**skuId**|string|SKU UUID from the merchandising services|Optional|
+|**productId**|string|Product UUID from the merchandising services|Optional|
+|**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+
+Sample *Add Item to List* request URI:
+```
+https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+Sample *Add Item to List* request body:
+```
+{
+    "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+    "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+    "productId": "82ec699b-7855-7a29-1a94-6a1eaf2807d1",
+    "valueAddedServices": [
+      {
+        "id": "1905b205-0908-4f8e-a716-7b1695c38995",
+        "instruction": {
+          "id": "0123456789",
+          "type": "NIKEID"
+        }
+      }
+    ]
+}
+```
+
+#### <a name="add-item-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List item UUID assigned by the client|Required|
+|**wishlistId**|string|List UUID assigned by the client|Required|
+|**skuId**|string|SKU UUID from the merchandising services|Optional|
+|**productId**|string|Product UUID from the merchandising services|Optional|
+|**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+|**msrp**|string|Suggested retail price of the product|Optional|
+|**currentPrice**|string|Current price of the product|Optional|
+|**fullPrice**|string|Full price of the product|Optional|
+|**employeePrice**|string|Employee price of the product|Optional|
+|**currency**|string|Currency of the product prices|Optional|
+|**creationDate**|string|ISO 8601 of the date when the resource was created|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+|**error**|object|Error information|Optional|
+|error.**field**|string|JSON Pointer to the erroneous field|Required|
+|error.**code**|string|Error code for the error, text-based, 'screaming snake-case', one of "INVALID_FIELD", "UNAVAILABLE", "NOT_FOUND"|Required|
+
+Sample *Add Item to List* 200 response:
+```
+{
+    "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+    "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+    "productId": "a05846b0-fef4-e113-94dc-7bad08547709",
+    "country": "US",
+    "msrp": 34.22,
+    "currentPrice": 34.22,
+    "fullPrice": 34.22,
+    "employeePrice": 34.22,
+    "currency": "USD",
+    "creationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/list_items/v1/bf69a7c9-55c5-f643-ffb1-c6f1eaadde21"
+      }
+    },
+    "error": {
+      "field": "/productId",
+      "code": "UNAVAILABLE"
+    }
+}
+```
+
+Sample *Add Item to List* 400 response:
+```
+{
+    "message": "Validation Failed",
+    "errors": [
+      {
+        "field":"/country",
+        "code":"FIELD_INVALID",
+        "message": "Invalid country"
+      }
+    ]
+}
+```
+
+### <a name="remove-item-from-list"></a>Remove Item from List
+
+Delete a single item from a list using the list **item** identifier that you previously created, and get a HTTP 200 response if successful.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**DELETE**|`/buy/list_items/v1/{id}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List item identifier, **client-generated UUID**|String|**Required**|
+
+#### <a name="remove-item-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="remove-item-request-body"></a>Request Body
+
+There is no request body on a DELETE request.
+
+Sample *Remove Item from List* request URI:
+
+```
+https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="remove-item-response-body"></a>Response Body
+
+There is no response body for a successful HTTP response to a DELETE request.
+
+### <a name="retrieve-items-by-list"></a>Retrieve Items by List
+
+Retrieve all items in a list by its list identifier, which you previously created. Add optional filter, sort, count, or anchor criteria query parameters to further manipulate the data in the response.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/list_items/v1{?filter, anchor, count, fields, sort}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**filter**|Query|Limit the results to those matching the specified filters <li> wishlistId (required) List identifier, e.g. `93a333a2-907b-46f1-b9ac-469489909057` </li>|String|Required|
+|**anchor**|Query|Return elements after this anchor|String|Optional|
+|**count**|Query|Number of items to return per response|String|Optional|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list item contents.|String|Optional|
+|**sort**|Query|To sort the items in the list, indicate the field to be sorted on along with the sort order(field+order)|String|Optional|
+
+#### <a name="retrieve-items-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-items-request-body"></a>Request Body
+
+There is no request body for a GET request.
+
+Sample *Retrieve Items by List* request URI:
+```
+https://www.api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
+```
+
+#### <a name="retrieve-items-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**pages**|object|Pagination links|Optional|
+|pages.**prev**|string|Link to previous set of results|Optional|
+|pages.**next**|string|Link to next set of results|Optional|
+|**objects**|array|List item resources|Required|
+|objects.**id**|string|List item UUID assigned by the client|Required|
+|objects.**wishlistId**|string|List UUID assigned by the client|Required|
+|objects.**skuId**|string|SKU UUID from the merchandising services|Optional|
+|objects.**productId**|string|Product UUID from the merchandising services|Optional|
+|objects.**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|objects.**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|objects.valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|objects.valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|objects.valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|objects.valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+|objects.**msrp**|string|Suggested retail price of the product|Optional|
+|objects.**currentPrice**|string|Current price of the product|Optional|
+|objects.**fullPrice**|string|Full price of the product|Optional|
+|objects.**employeePrice**|string|Employee price of the product|Optional|
+|objects.**currency**|string|Currency of the product prices|Optional|
+|objects.**isAvailable**|boolean|Indicates if the product is available|Optional|
+|objects.**creationDate**|string|ISO 8601 of the date when the resource was created|Optional|
+|objects.**isCurrentPriceChanged**|boolean|Indicates if currentPrice has changed since the item was saved|Optional|
+|objects.links.**self**|object|Object containing self-link|Required|
+|objects.links.self.**ref**|string|Link to this resource, itself|Required|
+|objects.**error**|object|Error information|Optional|
+|objects.error.**field**|string|JSON Pointer to the erroneous field|Required|
+|objects.error.**code**|string|Error code for the error, text-based, 'screaming snake-case', one of "INVALID_FIELD", "UNAVAILABLE", "NOT_FOUND"|Required|
+
+Sample *Retrieve Items by List* 200 response:
+```
+{
+    "pages": {
+      "prev": "/buy/list_items/v1?filter=wishlistId(93a333a2-907b-46f1-b9ac-469489909057)&anchor=0&count=25",
+      "next": "/buy/list_items/v1?filter=wishlistId(93a333a2-907b-46f1-b9ac-469489909057)&anchor=2&count=25"
+    },
+    "objects": [
+      {
+        "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+        "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+        "productId": "a05846b0-fef4-e113-94dc-7bad08547709",
+        "country": "US",
+        "msrp": 34.22,
+        "currentPrice": 34.22,
+        "fullPrice": 34.22,
+        "employeePrice": 34.22,
+        "currency": "USD",
+        "creationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/list_items/v1/bf69a7c9-55c5-f643-ffb1-c6f1eaadde21"
+          }
+        },
+        "error": {
+          "field": "/productId",
+          "code": "UNAVAILABLE"
+        }
+      },
+      {
+        "id": "189d2970-3d3b-854e-03c2-843c55789f48",
+        "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+        "productId": "82ec699b-7855-7a29-1a94-6a1eaf2807d1",
+        "country": "US",
+        "valueAddedServices": [
+          {
+            "id": "1905b205-0908-4f8e-a716-7b1695c38995",
+            "instruction": {
+              "id": "0123456789",
+              "type": "NIKEID"
+            }
+          }
+        ],
+        "msrp": 99.49,
+        "currentPrice": 99.49,
+        "fullPrice": 99.49,
+        "employeePrice": 99.49,
+        "currency": "USD",
+        "creationDate": "2016-11-29T22:52:12.132Z",
+        "links": {
+          "self": {
+            "ref": "/buy/list_items/v1/189d2970-3d3b-854e-03c2-843c55789f48"
+          }
+        },
+        "error": {
+          "field": "/valueAddedServices/0/id",
+          "code": "UNAVAILABLE"
+        }
+      }
+    ]
+}
+```
+
+Sample *Retrieve Items from List* 400 response:
+```
+{
+    "message": "Validation Failed",
+    "errors": [
+      {
+        "field": "filter",
+        "code": "QUERY_PARAMETER_INVALID",
+        "message": "Invalid filter"
+      }
+    ]
+}
+```
+
+### <a name="retrieve-item-by-id"></a>Retrieve Item by ID
+
+Retrieve a list item by the list item identifier that you previously created.
+
+#### Endpoint Details
+
+|HTTP Method|URI Path|JWT Restricted?|
+|---|---|---|
+|**GET**|`/buy/list_items/v1/{id}{?fields}`|No|
+
+#### Path & Query Parameters
+
+|Parameter|Type|Description|Data Type|Required?|
+|---|---|---|---|---|
+|**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
+|**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
+
+#### <a name="retrieve-id-request-headers"></a>Request Headers
+
+|Header Name|Description|
+|---|---|
+|**Content-Type**|Content type of the request, application/json is only value allowed|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
+
+#### <a name="retrieve-id-request-body"></a>Request Body
+
+There is no request body for a GET request.
+
+Sample *Retrieve Item by ID* request URI:
+```
+https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+```
+
+#### <a name="retrieve-id-response-body"></a>Response Body
+
+Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**id**|string|List item UUID assigned by the client|Required|
+|**wishlistId**|string|List UUID assigned by the client|Required|
+|**skuId**|string|SKU UUID from the merchandising services|Optional|
+|**productId**|string|Product UUID from the merchandising services|Optional|
+|**country**|string|Country code to use when looking up price for the item. Overrides the country of the parent list|Optional|
+|**valueAddedServices**|array|The value-added services to apply to the purchased SKU. Examples are gift wrap, personalization and customization|Optional|
+|valueAddedServices.**id**|string|UUID of the value-added service|Optional|
+|valueAddedServices.**instruction**|string|Further information about the value-added service. Systems can derive instructions, bill of materials, etc from the referenced resource|Optional|
+|valueAddedServices.instruction.**id**|string|Instruction identifier|Optional|
+|valueAddedServices.instruction.**type**|string|Instruction type, e.g. NIKEiD (only one currently available), Gift Wrap|Optional|
+|**msrp**|string|Suggested retail price of the product|Optional|
+|**currentPrice**|string|Current price of the product|Optional|
+|**fullPrice**|string|Full price of the product|Optional|
+|**employeePrice**|string|Employee price of the product|Optional|
+|**currency**|string|Currency of the product prices|Optional|
+|**isAvailable**|boolean|Indicates if the product is available|Optional|
+|**creationDate**|string|ISO 8601 of the date when the resource was created|Optional|
+|**isCurrentPriceChanged**|boolean|Indicates if currentPrice has changed since the item was saved|Optional|
+|links.**self**|object|Object containing self-link|Optional|
+|links.self.**ref**|string|Link to this resource, itself|Required|
+|**error**|object|Error information|Optional|
+|error.**field**|string|JSON Pointer to the erroneous field|Required|
+|error.**code**|string|Error code for the error, text-based, 'screaming snake-case', one of "INVALID_FIELD", "UNAVAILABLE", "NOT_FOUND"|Required|
+
+Sample *Retrieve Item by ID* 200 response:
+```
+{
+    "id": "bf69a7c9-55c5-f643-ffb1-c6f1eaadde21",
+    "wishlistId": "93a333a2-907b-46f1-b9ac-469489909057",
+    "productId": "a05846b0-fef4-e113-94dc-7bad08547709",
+    "country": "US",
+    "msrp": 34.22,
+    "currentPrice": 34.22,
+    "fullPrice": 34.22,
+    "employeePrice": 34.22,
+    "currency": "USD",
+    "creationDate": "2016-11-29T22:52:12.132Z",
+    "links": {
+      "self": {
+        "ref": "/buy/list_items/v1/bf69a7c9-55c5-f643-ffb1-c6f1eaadde21"
+      }
+    },
+    "error": {
+      "field": "/productId",
+      "code": "UNAVAILABLE"
+    }
+}
+```
+---
 
 ## <a name="using-shipping-options"></a>Using Shipping Options
 
@@ -1866,7 +2644,7 @@ Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, 
 
 Use the Shipping Options v2 API to retrieve the customer's available shipping methods for a checkout, including associated costs and estimated delivery dates/ranges.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 ### <a name="shipping-options"></a>Shipping Options
 
@@ -1891,35 +2669,35 @@ Required request headers:
 
 #### <a name="shipping-options-request-body"></a>Request Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**country**|Required|ISO 3166 country code, e.g. US|
-|**currency**|Required|ISO 4217 currency code, e.g. USD|
-|**items**|Required|Array containing list of item objects, with the following required fields:|
-|items.**id**|Required|Unique identifier of the line item in the request. You create this value.|
-|items.**skuId**|Required|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|
-|**shippingAddress**|Optional|The address to which items are to be shipped. Required fields are **postalCode** and **country**. Complete list of fields here:|
-|shippingAddress.**address1**|Optional|Shipping address line one.|
-|shippingAddress.**address2**|Optional|Shipping address line two.|
-|shippingAddress.**address3**|Optional|Shipping address line three.|
-|shippingAddress.**city**|Optional|Shipping address city.|
-|shippingAddress.**state**|Optional|Shipping address state. This should be the ISO 3166-2 subdivision code. For the US, this is the 2-alpha state code as defined in ISO 3166-2:US.|
-|shippingAddress.**postalCode**|Optional|Shipping address postal code. In the US, this is the 5-digit or the 5-plus-4-digit zip code.|
-|shippingAddress.**country**|Optional|Shipping address country. 2-alpha character ISO 3166 country code.|
-|shippingAddress.**county**|Optional|Shipping address county. This will typically be used for non-US addresses to hold specific regional data.|
-|**promotionCodes**|Optional|Array containing promotion codes that the user has attempted to apply|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**country**|string|ISO 3166 country code, e.g. US|Required|
+|**currency**|string|ISO 4217 currency code, e.g. USD|Required|
+|**items**|array|Array containing list of item objects, with the following required fields:|Required|
+|items.**id**|string|Unique identifier of the line item in the request. You create this value.|Required|
+|items.**skuId**|string|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services.|Required|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service.|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization.|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message.|Optional|
+|**shippingAddress**|object|The address to which items are to be shipped. Required fields are **postalCode** and **country**. Complete list of fields here:|Optional|
+|shippingAddress.**address1**|string|Shipping address line one.|Optional|
+|shippingAddress.**address2**|string|Shipping address line two.|Optional|
+|shippingAddress.**address3**|string|Shipping address line three.|Optional|
+|shippingAddress.**city**|string|Shipping address city.|Optional|
+|shippingAddress.**state**|string|Shipping address state. This should be the ISO 3166-2 subdivision code. For the US, this is the 2-alpha state code as defined in ISO 3166-2:US.|Optional|
+|shippingAddress.**postalCode**|string|Shipping address postal code. In the US, this is the 5-digit or the 5-plus-4-digit zip code.|Optional|
+|shippingAddress.**country**|string|Shipping address country. 2-alpha character ISO 3166 country code.|Optional|
+|shippingAddress.**county**|string|Shipping address county. This will typically be used for non-US addresses to hold specific regional data.|Optional|
+|**promotionCodes**|array|Array containing promotion codes that the user has attempted to apply|Optional|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
-
-> * Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>
+><i class="mr2-sm g72-check"></i>Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
 
 Sample *Shipping Options* request body:
 
@@ -1956,27 +2734,27 @@ Sample *Shipping Options* request body:
 
 The HTTP 200 success response from *Shipping Options* reflects back many elements from the request body and also includes the following new information to the client:
 
-|Element Name|Description|
-|---|---|
-|**shippingMethods**|Array under **items** containing information about the shipping methods available to your shopper based on the data sent in the request|
-|shippingMethods.**id**|Shipping method name|
-|shippingMethods.**daysToArrive**|DEPRECATED - do not use|
-|shippingMethods.**estimatedDelivery**|Estimated delivery date (in nested **date** field) or date range (in nested range.**min** and range.**max** for the shipping method. You will get either a date or a date range, not both.|
-|shippingMethods.estimateDelivery.**id**|Identifier for the delivery estimate|
-|shippingMethods.estimateDelivery.**date**|Estimated delivery date|
-|shippingMethods.estimateDelivery.**range**|Estimated delivery range (see min/max nested)|
-|shippingMethods.estimateDelivery.range.**minDate**|Earliest date within range that the delivery can be completed|
-|shippingMethods.estimateDelivery.range.**maxDate**|Latest date within range that the delivery can be completed|
-|shippingMethods.**priceInfo**|Price information for shipping method. Contains the following:|
-|shippingMethods.priceInfo.**cost**|Base price of shipping method|
-|shippingMethods.priceInfo.**discount**|Discount amount applied (if any)|
-|shippingMethods.priceInfo.**total**|Net price of shipping method (cost - discount)|
-|shippingMethods.**promotionDiscounts**|Array of applied promotion codes and their discount amounts|
-|shippingMethods.promotionDiscounts.**code**|Promotion code associated with the discount (entered by user)|
-|shippingMethods.promotionDiscounts.**amount**|Promotion discount amount|
-|shippingMethods.promotionDiscounts.**id**|Promotion unique identifier|
+|Element Name|Type|Description|
+|---|---|---|
+|**shippingMethods**|array|Array under **items** containing information about the shipping methods available to your shopper based on the data sent in the request|
+|shippingMethods.**id**|string|Shipping method name|
+|shippingMethods.**daysToArrive**|n/a|DEPRECATED - do not use|
+|shippingMethods.**estimatedDelivery**|object|Estimated delivery date (in nested **date** field) or date range (in nested range.**min** and range.**max** for the shipping method. You will get either a date or a date range, not both.|
+|shippingMethods.estimateDelivery.**id**|string|Identifier for the delivery estimate|
+|shippingMethods.estimateDelivery.**date**|string|Estimated delivery date|
+|shippingMethods.estimateDelivery.**range**|object|Estimated delivery range (see min/max nested)|
+|shippingMethods.estimateDelivery.range.**minDate**|string|Earliest date within range that the delivery can be completed|
+|shippingMethods.estimateDelivery.range.**maxDate**|string|Latest date within range that the delivery can be completed|
+|shippingMethods.**priceInfo**|string|Price information for shipping method. Contains the following:|
+|shippingMethods.priceInfo.**cost**|number|Base price of shipping method|
+|shippingMethods.priceInfo.**discount**|number|Discount amount applied (if any)|
+|shippingMethods.priceInfo.**total**|number|Net price of shipping method (cost - discount)|
+|shippingMethods.**promotionDiscounts**|array|Array of applied promotion codes and their discount amounts|
+|shippingMethods.promotionDiscounts.**code**|string|Promotion code associated with the discount (entered by user)|
+|shippingMethods.promotionDiscounts.**amount**|number|Promotion discount amount|
+|shippingMethods.promotionDiscounts.**id**|string|Promotion unique identifier|
 
->TIP: The date value(s) in estimatedDelivery object are in the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format of `yyyy-mm-ddThh:mm:ss.mssZ` and in UTC with zero offset, e.g. `2017-07-18T18:25:45.237Z`. Convert to the local date (or date/time) of the shopper as necessary.
+>**TIP:** The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> format of `yyyy-mm-ddThh:mm:ss.mssZ` and in UTC with zero offset, e.g. `2017-07-18T18:25:45.237Z`. Convert to the local date (or date/time) of the shopper as necessary.
 
 Sample *Shipping Options* response body:
 
@@ -2070,6 +2848,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 2. Response for a request sent to an unrecognized URL:
 ```
 {
@@ -2082,6 +2861,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 3. Response for a request that was missing a required field:
 ```
 {
@@ -2096,6 +2876,7 @@ Following is a summary of the errors and warnings that can come back in response
     ]
 }
 ```
+
 4. Response for a request with malformed JSON:
 ```
 {
@@ -2105,9 +2886,8 @@ Following is a summary of the errors and warnings that can come back in response
 }
 ```
 
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#!/default/post_buy_shipping_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
-
-<hr>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#!/default/post_buy_shipping_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+---
 
 ## <a name="using-checkouts"></a>Using Checkouts
 
@@ -2149,7 +2929,7 @@ A checkout consists of all data necessary for defining the following:
 
 Through calls to Checkout and other Nike APIs, you can maintain the state of the shopper's checkout in your client application and then submit the checkout to Nike for approval and fulfillment.
 
->TIP: It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
+>**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
 ### <a name="request-checkout-preview"></a>Request Checkout Preview
 
@@ -2163,11 +2943,11 @@ In a typical Nike digital experience, a successful checkout preview means that t
 
 Use the response to display the final payment amount to the customer. Once the customer confirms the payment method details and clicks or taps 'Place Order', there will be a greater chance of success.
 
->TIP: For more context, see a step-by-step example of all the calls in a checkout in the diagram in the [Use Cases](#use-cases) section of this document. For more info about Payment, see the [Payment Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html).
+>**TIP:** For more context, see a step-by-step example of all the calls in a checkout in the diagram in the [Use Cases](#use-cases) section of this document. For more info about Payment, see the [Payment Domain Developer's Guide](/doc/commerce/payment/api_payment.html).
 
 ####  Checkout Preview Operates Asynchronously
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more.
 
 #### Endpoint Details
 
@@ -2178,7 +2958,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 #### Path & Query Parameters
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique client-generated identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) for the checkout|string|**Required**|
+|**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
 #### <a name="checkout-preview-request-headers"></a>Request Headers
 
@@ -2194,40 +2974,40 @@ Required request headers:
 
 #### <a name="checkout-preview-request-body"></a>Request Body
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**request**|Required|Top-level object in request schema|
-|**email**|Required|Email address for the shopper|
-|**country**|Required|2-alpha character ISO 3166 country code, e.g US|
-|**currency**|Required|ISO 4217 currency code for the shopper, e.g. USD|
-|**locale**|Required|Posix-formatted locale code, e.g. en_US|
-|**channel**|Required|Selling channel name associated with the checkout, e.g. 'SNKRS'|
-|**items**|Required|Array containing list of products and value-added services to be previewed. The minimum values that need to be sent in this section are:|
-|items.**id**|Required|Unique identifier of the line item in the array. You create this value|
-|items.**skuId**|Required|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services|
-|items.**quantity**|Required|Unit quantity (integer) of the line item, as chosen by the shopper|
-|items.**recipient**|Required|Person to which the items are to be shipped, as entered by the shopper:|
-|items.recipient.**firstName**|Required|First name of the person receiving the items|
-|items.recipient.**lastName**|Required|Last name of the person receiving the items|
-|items.**shippingAddress**|Required|Address to which items are to be shipped, as entered by the shopper:|
-|items.shippingAddress.**address1**|Required|Shipping address line one|
-|items.shippingAddress.**city**|Required|Shipping address city|
-|items.shippingAddress.**country**|Required|Shipping address country|
-|items.**shippingMethod**|Required|Identifier for the shipping method, as obtained from the Nike Shipping Options API and selected by the shopper, e.g. 'STANDARD' for standard ground shipping in the US|
-|**clientInfo**|Optional|Information about the client system making the request to the API|
-|clientInfo.**deviceId**|Optional|'Fingerprint' of the device making the request|
-|clientInfo.**client**|Optional|Name of client making the request, e.g. 'com.nike.commerce.snkrs.web'|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS: a customization service for a shoe or a gift-wrapping service|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
-|**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**request**|object|Top-level object in request schema|Required|
+|**email**|string|Email address for the shopper|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g US|Required|
+|**currency**|string|ISO 4217 currency code for the shopper, e.g. USD|Required|
+|**locale**|string|Posix-formatted locale code, e.g. en_US|Required|
+|**channel**|string|Selling channel name associated with the checkout, e.g. 'SNKRS'|Required|
+|**items**|array|Array containing list of products and value-added services to be previewed. The minimum values that need to be sent in this section are:|Required|
+|items.**id**|string|Unique identifier of the line item in the array. You create this value|Required|
+|items.**skuId**|string|Stock Keeping Unit (SKU) unique identifier of the product, as obtained from Nike Product services|Required|
+|items.**quantity**|integer|Unit quantity (integer) of the line item, as chosen by the shopper|Required|
+|items.**recipient**|object|Person to which the items are to be shipped, as entered by the shopper:|Required|
+|items.recipient.**firstName**|string|First name of the person receiving the items|Required|
+|items.recipient.**lastName**|string|Last name of the person receiving the items|Required|
+|items.**shippingAddress**|object|Address to which items are to be shipped, as entered by the shopper:|Required|
+|items.shippingAddress.**address1**|string|Shipping address line one|Required|
+|items.shippingAddress.**city**|string|Shipping address city|Required|
+|items.shippingAddress.**country**|string|Shipping address country|Required|
+|items.**shippingMethod**|string|Identifier for the shipping method, as obtained from the Nike Shipping Options API and selected by the shopper, e.g. 'STANDARD' for standard ground shipping in the US|Required|
+|**clientInfo**|object|Information about the client system making the request to the API|Optional|
+|clientInfo.**deviceId**|string|'Fingerprint' of the device making the request|Optional|
+|clientInfo.**client**|string|Name of client making the request, e.g. 'com.nike.commerce.snkrs.web'|Optional|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS: a customization service for a shoe or a gift-wrapping service|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|Optional|
+|**promotionCodes**|array|Array containing list of promotion codes being applied to the checkout|Optional|
 
->TIPS:
-
-> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
 
 Sample *Request a Checkout Preview* request body:
 ```
@@ -2337,7 +3117,7 @@ To know if the job is done, check the value of the **status** field in the respo
 
 Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the **response** object from this endpoint. Alternatively, follow the link to the *Retrieve Checkout Preview Results* endpoint which is provided in the response body (see **links** object).
 
->TIP: Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
+>**TIP:** Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
 
 #### Endpoint Details
 
@@ -2349,7 +3129,7 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique client-generated identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) for the checkout|string|**Required**|
+|**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
 #### <a name="checkout-preview-job-request-headers"></a>Request Headers
 
@@ -2371,12 +3151,12 @@ There is no body for a GET request.
 
 For a job that is in either "PENDING" or "IN_PROGRESS" status, the response is abbreviated and only contains the following:
 
-|Element Name|Description|
-|---|---|
-|**id**|Checkout id you sent in the request, also your job ID|
-|**status**|Status of the job|
-|**eta**|Estimated wait time before polling the jobs endpoint to get your results|
-|**links**|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
+|Element Name|Type|Description|
+|---|---|---|
+|**id**|string|Checkout id you sent in the request, also your job ID|
+|**status**|string|Status of the job|
+|**eta**|integer|Estimated wait time before polling the jobs endpoint to get your results|
+|**links**|object|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
 
 Sample *Retrieve Checkout Preview Job* response body with "IN_PROGRESS" status:
 
@@ -2397,44 +3177,45 @@ For a job that is in "COMPLETED" status and had no errors, the response also con
 
 The structure of the **response** object is similar in structure to the request body, with the following notable additions:
 
-|Element Name|Description|
-|---|---|
-|**shippingGroups**|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
-|**priceInfo**|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
-|priceInfo.**employeePrice**|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
-|**taxes**|Array of tax details. Found under **items** and **shippingCosts** objects|
-|taxes.**type**|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
-|taxes.**rate**|Tax rate|
-|taxes.**total**|Total tax amount|
-|**promotionDiscounts**|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
-|promotionDiscounts.**code**|Promotion code entered by the user|
-|promotionDiscounts.**amount**|Promotion discount amount|
-|promotionDiscounts.**id**|Promotion identifier|
-|**shippingMethod**|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
-|shippingMethod.**id**|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
-|shippingMethod.**cost**|Retail cost of shipping via the shipping method|
-|shippingMethod.**daysToArrive**|DEPRECATED - do not use|
-|shippingMethod.**estimatedDelivery**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails|Object containing unique identifier of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|Unique identifier (UUID) of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|Message describing the delivery estimate|
-|**shippingCosts**|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
-|shippingCosts.**price**|Price of the shipping costs|
-|shippingCosts.**discount**|Shipping costs discount|
-|shippingCosts.**total**|Total price of the shipping costs, not including tax, less any discounts|
-|shippingCosts.**taxTotal**|Total tax amount based on the total|
-|**promotionCodes**|Array found under **response** containing distinct summary of status for the provided promotion codes|
-|promotionCodes.**code**|Provided promotion code|
-|promotionCodes.**status**|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
-|**totals**|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
-|totals.**subtotal**|Subtotal of the item costs for all items|
-|totals.**valueAddedServicesTotal**|Total of value-added services on the items|
-|totals.**taxTotal**|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
-|totals.**discountTotal**|Total of all discoutns (excluding shipping discounts) applied to the checkout|
-|totals.**shippingTotal**|Total of all shipping costs, less any shipping discounts, on the checkout|
-|totals.**total**|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
-|**priceChecksum**|Found under **response**, provides checksum for price details. Optionally, you can send it in the request body to *Request Checkout Submit* (see related section in this guide)|
+|Element Name|Type|Description|
+|---|---|---|
+|**shippingGroups**|array|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
+|**priceInfo**|object|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
+|priceInfo.**employeePrice**|number|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
+|**taxes**|array|Array of tax details. Found under **items** and **shippingCosts** objects|
+|taxes.**type**|enum|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
+|taxes.**rate**|number|Tax rate|
+|taxes.**total**|number|Total tax amount|
+|**promotionDiscounts**|array|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
+|promotionDiscounts.**code**|string|Promotion code entered by the user|
+|promotionDiscounts.**amount**|number|Promotion discount amount|
+|promotionDiscounts.**id**|string|Promotion identifier|
+|promotionDiscounts.**displayName**|string|Promotion display name|
+|**shippingMethod**|object|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
+|shippingMethod.**id**|string|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
+|shippingMethod.**cost**|number|Retail cost of shipping via the shipping method|
+|shippingMethod.**daysToArrive**|n/a|DEPRECATED - do not use|
+|shippingMethod.**estimatedDelivery**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails**|object|Object containing unique identifier of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|string|Unique identifier (UUID) of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|string|Message describing the delivery estimate|
+|**shippingCosts**|object|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
+|shippingCosts.**price**|number|Price of the shipping costs|
+|shippingCosts.**discount**|number|Shipping costs discount|
+|shippingCosts.**total**|number|Total price of the shipping costs, not including tax, less any discounts|
+|shippingCosts.**taxTotal**|number|Total tax amount based on the total|
+|**promotionCodes**|array|Array found under **response** containing distinct summary of status for the provided promotion codes|
+|promotionCodes.**code**|string|Provided promotion code|
+|promotionCodes.**status**|string|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
+|**totals**|object|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
+|totals.**subtotal**|number|Subtotal of the item costs for all items|
+|totals.**valueAddedServicesTotal**|number|Total of value-added services on the items|
+|totals.**taxTotal**|number|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
+|totals.**discountTotal**|number|Total of all discounts (excluding shipping discounts) applied to the checkout|
+|totals.**shippingTotal**|number|Total of all shipping costs, less any shipping discounts, on the checkout|
+|totals.**total**|number|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
+|**priceChecksum**|string|Found under **response**, provides checksum for price details. Optionally, you can send it in the request body to *Request Checkout Submit* (see related section in this guide)|
 
 Sample *Retrieve Checkout Preview Job* response body with "COMPLETED" status:
 
@@ -2557,7 +3338,7 @@ After calling both the *Request Checkout Preview* and *Retrieve Checkout Preview
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique client-generated identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) for the checkout|string|**Required**|
+|**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
 ### <a name="request-checkout-submit"></a>Request Checkout Submit
 
@@ -2567,7 +3348,7 @@ Call the *Request Checkout Submit* endpoint when your user is ready to complete 
 
 #### Considerations
 
-- Before calling *Request Checkout Submit*, you must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Payment Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html) for more info.
+- Before calling *Request Checkout Submit*, you must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Payment Domain Developer's Guide](/doc/commerce/payment/api_payment.html) for more info.
 
 - Calling *Request Checkout Preview* is not required before calling *Request Checkout Submit*, but it is recommended in most cases.
 
@@ -2575,7 +3356,7 @@ Call the *Request Checkout Submit* endpoint when your user is ready to complete 
 
 #### Checkout Submit Operates Asynchronously
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#asynchronous-operation)
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#asynchronous-operation)
 guide to learn more.
 
 #### Endpoint Details
@@ -2586,7 +3367,7 @@ guide to learn more.
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique client-generated identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) for the checkout|string|**Required**|
+|**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
 #### <a name="checkout-submit-request-headers"></a>Request Headers
 
@@ -2614,31 +3395,32 @@ Optional request headers:
 
 Required parts of the request body:
 
-|Element Name|Required?|Description|
-|---|---|---|
-|**request**|Required|Top-level object in request schema|
-|**email**|Required|Email address|
-|**country**|Required|2-alpha character ISO 3166 country code, e.g US|
-|**currency**|Required|ISO 4217 currency code, e.g. USD|
-|**locale**|Required|BCP 47 locale code, e.g. en_US|
-|**channel**|Required|Selling channel name associated with the checkout, e.g. 'SNKRS'|
-|**items**|Required|Array containing list of item objects|
-|**paymentToken**|Required|Unique identifier of the payment details, as obtained from the [Payment Preview API](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html#using-payment-preview) in the **id** field at the top level|
-|**valueAddedServices**|Optional|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service|
-|valueAddedServices.**id**|Optional|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|
-|valueAddedServices.Instruction.**id**|Optional|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|
-|valueAddedServices.Instruction.**type**|Optional|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|
-|**promotionCodes**|Optional|Array containing list of promotion codes being applied to the checkout|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**request**|object|Top-level object in request schema|Required|
+|**email**|string|Email address|Required|
+|**country**|string|2-alpha character ISO 3166 country code, e.g US|Required|
+|**currency**|string|ISO 4217 currency code, e.g. USD|Required|
+|**locale**|string|BCP 47 locale code, e.g. en_US|Required|
+|**channel**|string|Selling channel name associated with the checkout, e.g. 'SNKRS'|Required|
+|**items**|array|Array containing list of item objects|Required|
+|**paymentToken**|string|Unique identifier of the payment details, as obtained from the [Payment Preview API](/doc/commerce/payment/api_payment.html#using-payment-preview) in the **id** field at the top level|Required|
+|**valueAddedServices**|array|List of value-added service (VAS) line items. One or more VAS line items can be associated with a Nike product (i.e. **skuId**). Examples of VAS are a customization service for a shoe or a gift-wrapping service|Optional|
+|valueAddedServices.**id**|string|Unique identifier for the VAS. In nested **Instruction** object, the following are required:|Optional|
+|valueAddedServices.Instruction.**id**|string|Instruction unique identifier for the value-added service, related to the various service domains, e.g. design id for Nike iD customization|Optional|
+|valueAddedServices.Instruction.**type**|string|Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message|Optional|
+|**promotionCodes**|array|Array containing list of promotion codes being applied to the checkout|Optional|
 
->TIPS:
+>**TIPS:**
+>
+><i class="mr2-sm g72-check"></i>For the list of supported country code and currency code combinations, see [here](/doc/commerce/checkout/checkout_country_currency.html).
+>
+><i class="mr2-sm g72-check"></i>To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more information.
+>
+><i class="mr2-sm g72-check"></i>Optionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
+>
+><i class="mr2-sm g72-check"></i>For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an **invoiceInfo** array in the request body, similar to the below example (see the request schema for this endpoint for more details):
 
-> * For the list of supported country code and currency code combinations, see [here](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/checkout_country_currency.html).
-
-> * To retrieve VAS data to include in your checkout request, call the Merchandised Value Added Services endpoints of the Merchandised Products API. See the [Merchandised Products API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html) for more information.
-
-> * Optionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
-
->* For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an **invoiceInfo** array in the request body, similar to the below example (see the request schema for this endpoint for more details):
 ```
 "invoiceInfo": {
     "type": "ELECTRONIC_FAPIAO",
@@ -2734,7 +3516,7 @@ To know if the job is done, check the value of the **status** field in the respo
 
 Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object from this endpoint. Alternatively, follow the link to the *Retrieve Checkout Results* endpoint which is provided in the response body (see **links** object).
 
->TIP: Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
+>**TIP:** Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
 
 #### Endpoint Details
 
@@ -2746,7 +3528,7 @@ Once you observe a job status of COMPLETED, get the results of your job by parsi
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique client-generated identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) for the checkout|string|**Required**|
+|**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
 #### <a name="checkout-submit-job-request-headers"></a>Request Headers
 
@@ -2768,12 +3550,12 @@ There is no body for a GET request.
 
 For a job that is in either "PENDING" or "IN_PROGRESS" status, the response is abbreviated and only contains the following:
 
-|Element Name|Description|
-|---|---|
-|**id**|Checkout id you sent in the request, also your job ID|
-|**status**|Status of the job|
-|**eta**|Estimated wait time before polling the jobs endpoint to get your results|
-|**links**|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
+|Element Name|Type|Description|
+|---|---|---|
+|**id**|string|Checkout id you sent in the request, also your job ID|
+|**status**|string|Status of the job|
+|**eta**|integer|Estimated wait time before polling the jobs endpoint to get your results|
+|**links**|object|Relative URL path you can use to poll the jobs endpoint (see nested **ref** field)|
 
 Sample *Retrieve Checkout Submit Job* response body with "IN_PROGRESS" status:
 ```
@@ -2792,49 +3574,51 @@ Sample *Retrieve Checkout Submit Job* response body with "IN_PROGRESS" status:
 
 For a job that is in "COMPLETED" status and had no errors, the response also contains a **response** object that has the details of your successfully-submitted checkout. The structure of the **response** object is similar in structure to the request body, with the following notable additions:
 
-|Element Name|Description|
-|---|---|
-|**shippingGroups**|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
-|**priceInfo**|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
-|priceInfo.**employeePrice**|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
-|**taxes**|Array of tax details. Found under **items** and **shippingCosts** objects|
-|taxes.**type**|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
-|taxes.**rate**|Tax rate|
-|taxes.**total**|Total tax amount|
-|**promotionDiscounts**|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
-|promotionDiscounts.**code**|Promotion code entered by the user|
-|promotionDiscounts.**amount**|Promotion discount amount|
-|promotionDiscounts.**id**|Promotion identifier|
-|**shippingMethod**|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
-|shippingMethod.**id**|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
-|shippingMethod.**cost**|Retail cost of shipping via the shipping method|
-|shippingMethod.**daysToArrive**|DEPRECATED - do not use|
-|shippingMethod.**estimatedDelivery**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails|Object containing unique identifier of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|Unique identifier (UUID) of the delivery estimate|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|Estimated delivery date for the items|
-|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|Message describing the delivery estimate|
-|**shippingCosts**|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
-|shippingCosts.**price**|Price of the shipping costs|
-|shippingCosts.**discount**|Shipping costs discount|
-|shippingCosts.**total**|Total price of the shipping costs, not including tax, less any discounts|
-|shippingCosts.**taxTotal**|Total tax amount based on the total|
-|**promotionCodes**|Array found under **response** containing distinct summary of status for the provided promotion codes|
-|promotionCodes.**code**|Provided promotion code|
-|promotionCodes.**status**|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
-|**totals**|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
-|totals.**subtotal**|Subtotal of the item costs for all items|
-|totals.**valueAddedServicesTotal**|Total of value-added services on the items|
-|totals.**taxTotal**|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
-|totals.**discountTotal**|Total of all discoutns (excluding shipping discounts) applied to the checkout|
-|totals.**shippingTotal**|Total of all shipping costs, less any shipping discounts, on the checkout|
-|totals.**total**|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
-|**paymentToken**|Found under **resource**, the unique identifier of the payment details in the payment domain|
-|**paymentApprovalId**|Found under **resource**, the unique identifier of the payment approval|
-|**paymentStatus**|Found under **resource**, the status of payment approval ("ACCEPT", "PENDING_PAYMENT", "REJECT")|
-|**invoiceInfo**|Found under **resource**, an array with special instructions for invoicing. Optional and applies to China only|
-|invoiceInfo.**type**|Type of instruction, e.g. ELECTRONIC_FAPIAO to indicate a Chinese Fapiao tax receipt|
-|invoiceInfo.**detail**|Supporting details for the instruction, e.g. the title to be used with a Fapiao tax receipt|
+|Element Name|Type|Description|
+|---|---|---|
+|**shippingGroups**|array|Array found under **response** object containing items and corresponding VAS, taxes, shipping address/method/cost. Grouped based on Nike business rules|
+|**priceInfo**|object|Object containing price details. Found under the **items**, **valueAddedServices**, and **shippingCosts** objects|
+|priceInfo.**employeePrice**|number|Employee price of the cart item. Only present if an employee price is used when pricing the checkout|
+|**taxes**|array|Array of tax details. Found under **items** and **shippingCosts** objects|
+|taxes.**type**|enum|Type of tax (e.g. SALESTAX, SHIPPINGTAX, VALUEADDEDTAX)|
+|taxes.**rate**|number|Tax rate|
+|taxes.**total**|number|Total tax amount|
+|**promotionDiscounts**|array|Array found under **items** and **shippingGroups** containing a list of promotions and their discount amounts|
+|promotionDiscounts.**code**|string|Promotion code entered by the user|
+|promotionDiscounts.**amount**|number|Promotion discount amount|
+|promotionDiscounts.**id**|string|Promotion identifier|
+|promotionDiscounts.**displayName**|string|Promotion display name|
+|**shippingMethod**|object|Object found under **shippingGroups** containing cost of shipping method and estimated delivery date(s)|
+|shippingMethod.**id**|string|Identifier for the shipping method, e.g. STANDARD for standard ground shipping in the US|
+|shippingMethod.**cost**|number|Retail cost of shipping via the shipping method|
+|shippingMethod.**daysToArrive**|n/a|DEPRECATED - do not use|
+|shippingMethod.**estimatedDelivery**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.**estimatedDeliveryDetails**|object|Object containing unique identifier of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**id**|string|Unique identifier (UUID) of the delivery estimate|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**date**|string|Estimated delivery date for the items|
+|shippingMethod.estimatedDelivery.estimatedDeliveryDetails.**message**|string|Message describing the delivery estimate|
+|**shippingCosts**|object|Object found under **shippingGroups** containing total shipping costs, discounts, taxes, totals|
+|shippingCosts.**price**|number|Price of the shipping costs|
+|shippingCosts.**discount**|number|Shipping costs discount|
+|shippingCosts.**total**|number|Total price of the shipping costs, not including tax, less any discounts|
+|shippingCosts.**taxTotal**|number|Total tax amount based on the total|
+|**promotionCodes**|array|Array found under **response** containing distinct summary of status for the provided promotion codes|
+|promotionCodes.**code**|string|Provided promotion code|
+|promotionCodes.**status**|string|Status of whether the promotion code was applied, e.g. PROMOTION_APPLIED, PROMOTION_NOT_APPLIED, PROMOTION_INVALID|
+|**totals**|object|Object under **response** containing price subtotals for the entire checkout by items, VAS, taxes, discounts, shipping. Total checkout price also included|
+|totals.**subtotal**|number|Subtotal of the item costs for all items|
+|totals.**valueAddedServicesTotal**|number|Total of value-added services on the items|
+|totals.**taxTotal**|number|Total of all taxes applied to the checkout, including VALUEADDEDTAX|
+|totals.**discountTotal**|number|Total of all discounts (excluding shipping discounts) applied to the checkout|
+|totals.**shippingTotal**|number|Total of all shipping costs, less any shipping discounts, on the checkout|
+|totals.**total**|number|Total prices of the entire checkout (item costs + shipping costs + taxes (including VALUEADDEDTAX) less any discounts|
+|**paymentToken**|string|Found under **resource**, the unique identifier of the payment details in the payment domain|
+|**paymentApprovalId**|string|Found under **resource**, the unique identifier of the payment approval|
+|**paymentStatus**|string|Found under **resource**, the status of payment approval ("ACCEPT", "PENDING_PAYMENT", "REJECT")|
+|**invoiceInfo**|array|Found under **resource**, an array with special instructions for invoicing. Optional and applies to China only|
+|invoiceInfo.**type**|string|Type of instruction, e.g. ELECTRONIC_FAPIAO to indicate a Chinese Fapiao tax receipt|
+|invoiceInfo.**detail**|string|Supporting details for the instruction, e.g. the title to be used with a Fapiao tax receipt|
+|invoiceInfo.**taxId**|string|Tax Id to be used with a Fapiao tax receipt if the order was placed on behalf of a company|
 
 Sample *Retrieve Checkout Submit Job* response body with "COMPLETED" status:
 ```
@@ -2985,11 +3769,11 @@ After calling both the Request Checkout Submit and Retrieve Checkout Submit Job 
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique client-generated identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) for the checkout|string|**Required**|
+|**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
 ### <a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)
 
-The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features [JWT](https://jwt.io/introduction/) authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.
+The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.
 
 The Launch endpoint has the same contract as the Request Checkout Submit endpoint so for additional details see that section.
 
@@ -3003,7 +3787,7 @@ The Launch endpoint has the same contract as the Request Checkout Submit endpoin
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique client-generated identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) for the checkout|string|**Required**|
+|**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
 ### <a name="checkouts-error-handling"></a>Checkouts Error Handling
 
@@ -3428,9 +4212,8 @@ Following is a summary of the errors and warnings that can come back in response
     "resourceType": "job"
 }
 ```
-<a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#!/Checkout/get_buy_checkout_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a>
 
-<hr>
+<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#!/Checkout/get_buy_checkout_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
 
@@ -3530,9 +4313,9 @@ The Shipping Options endpoint is in v2. If a v3 of this endpoint becomes availab
 
 ### Conditions for Retries
 
-For retry information by Checkout endpoint, visit [Retry Patterns for Checkout Clients](https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients) in Confluence.
+For retry information by Checkout endpoint, visit <a href="https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients" target="_blank">Retry Patterns for Checkout Clients</a> in Confluence.
 
-For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode) on Confluence.
+For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.
 
 ### Honor the ETAs for Best Performance
 
@@ -3564,7 +4347,7 @@ Here is an example list of test scenarios for a user experience that is integrat
 
 Additionally, it's useful to add scenarios for multi-quantity (i.e. quantity > 1) for Inline items, as well as scenarios with multiple Nike iD items in same checkout.
 
->TIP: While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
+>**TIP:** While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
 
 ### Test Environment
 
@@ -3582,7 +4365,7 @@ None of the endpoints described in this document support caching.
 
 ### Error Handling: Which JSON Field Had The Error?
 
-In error responses from APIs, Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) standard to indicate which field of the request JSON had the error.
+In error responses from APIs, Nike uses the <a href="https://tools.ietf.org/html/rfc6901" target="_blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.
 
 However, not all Checkout APIs are the same in this regard. This is due to some APIs having been built before Nike decided to use JSON Pointer standard.
 
@@ -3623,11 +4406,11 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV) Slack channel for assistance.
+- Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a> Slack channel for assistance.
 
 ### <a name="common-questions"></a>Common Questions
 
@@ -3641,7 +4424,7 @@ Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of 
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 
@@ -3654,13 +4437,16 @@ No release notes available.
 |Initial draft|10/02/2018|Initial Draft|
 |Added Carts v2|03/16/2018|Updates based on Carts v2 API being released|
 |Updated links|03/20/2018|Updated links to point to new dev portal|
+|Updated external links|04/02/2018|Updated external links to open in new browser window, commented out 'Try It Now' buttons|
+|Added Wish Lists API|04/30/2018|Added new Wish Lists API content|
+|Added 'Required?' to tables|06/26/2018|Added required column to tables that were missing it|
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

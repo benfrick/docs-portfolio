@@ -1,23 +1,26 @@
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"></link>
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"></link>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"></link>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/nde.js" type="text/javascript"></script>
 
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/reference/global.md) for version history of this document.
 Author:  Jane Moore
 -->
 
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
+
 # GLOBAL REFERENCE GUIDE <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
 
-- [Countries, Languages and Currencies](#countries-languages-currencies)
+- [Countries, Languages and Currencies](#countries-languages-and-currencies)
 - [Sales Channels](#sales-channels)
 - [Brands](#brands)
 
-## <a name="countries-languages-currencies">Countries, Languages and Currencies</a>
+## <a name="countries-languages-and-currencies"></a>Countries, Languages and Currencies
 
 |Country|ISO2 Country Code|Locale|Language|Currency|
 |---|---|---|---|---|
@@ -44,13 +47,13 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/gb_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United Kingdom|GB|en_GB|British English|GBP|
 |<img src="https://content.nike.com/content/dam/nike/global/country_flags/us_sml.png" style="display: inline-block; margin-right: 5px; vertical-align: middle;">United States|US|en_US|American English|USD|
 
-## <a name="sales-channels">Sales Channels</a>
+## <a name="sales-channels"></a>Sales Channels
 
 |Channel Code|Description|
 |---|---|
-|**.com**|available in all digital experiences including web, SNKRs app and Nike+ App|
-|**snkrs**|available in the SNKRs App and SNKRs web experience|
-|**nikeplus**|available in the NIKE+ App and Nike+ web experience|
+|**.com**|Available in all digital experiences including web, SNKRS app and Nike App|
+|**snkrs**|Available in the SNKRS App and SNKRS web experience|
+|**nikeplus**|Available in the NIKE App and Nike+ web experience|
 
 ### <a name="brands">Brands</a>
 
@@ -63,10 +66,10 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

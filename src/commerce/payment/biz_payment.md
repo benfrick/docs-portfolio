@@ -1,14 +1,18 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+
 <!--
 See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/payment/biz_payment.md) for version history of this document.
 Author: Jane Moore
 -->
 
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
+
 # GET STARTED WITH PAYMENT <i class="g72-swoosh"></i>
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ## **In this guide:**
 
@@ -28,7 +32,7 @@ The Nike Payment APIs use the latest technologies to support payment in e-commer
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/payment/snkrs_payment.png)
+![](/images/commerce/payment/snkrs_payment.png)
 
 ## <a name="features"></a>Features
 
@@ -39,14 +43,14 @@ The Nike Payment APIs use the latest technologies to support payment in e-commer
 
 <p/>
 
-<img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/visa_logo.png" alt="Visa Logo"/>
-<img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/mastercard_logo.png" alt="MasterCard Logo"/>
-<img style="display: inline-block; margin-right: 20px; width: 65px; height:30px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/apple_pay_logo.png" alt="ApplePay Logo"/>
-<img style="display: inline-block; margin-right: 20px; width: 65px; height:19px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/alipay_logo.png" alt="Alipay Logo"/>
-<img style="display: inline-block; margin-right: 20px; width: 70px; height:26px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/paypal_logo.png" alt="PayPal Logo"/>
-<img style="display: inline-block; margin-right: 20px; width: 70px; height:26px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/sofort_logo.png" alt="Sofort Logo"/>
-<img style="display: inline-block; margin-right: 20px; width: 65px; height:24px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/klarna_logo.png" alt="Klarna Logo"/>
-<img style="display: inline-block; width: 65px; height:32px; vertical-align: middle;" src="https://nde-devportal-docs.niketech.com/images/icons/ideal_logo.png" alt="iDeal Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;" src="/images/icons/visa_logo.png" alt="Visa Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;" src="/images/icons/mastercard_logo.png" alt="MasterCard Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:30px; vertical-align: middle;" src="/images/icons/apple_pay_logo.png" alt="ApplePay Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:19px; vertical-align: middle;" src="/images/icons/alipay_logo.png" alt="Alipay Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 70px; height:26px; vertical-align: middle;" src="/images/icons/paypal_logo.png" alt="PayPal Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 70px; height:26px; vertical-align: middle;" src="/images/icons/sofort_logo.png" alt="Sofort Logo"/>
+<img style="display: inline-block; margin-right: 20px; width: 65px; height:24px; vertical-align: middle;" src="/images/icons/klarna_logo.png" alt="Klarna Logo"/>
+<img style="display: inline-block; width: 65px; height:32px; vertical-align: middle;" src="/images/icons/ideal_logo.png" alt="iDeal Logo"/>
 
 <br/>
 <a name="considerations"></a>
@@ -55,7 +59,7 @@ The Nike Payment APIs use the latest technologies to support payment in e-commer
 
 **API Registration**
 
-Complete a one-time registration process in order to begin using the Payment APIs. See the Registration section of the [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/api-registration.html) guide for more information.
+Complete a one-time registration process in order to begin using the Payment APIs. See the Registration section of the [Using NDe APIs](/doc/getting-started/api-registration.html) guide for more information.
 
 **Shipping and Billing Countries**
 
@@ -65,7 +69,7 @@ Consider the countries to which your consumers will want to ship Nike products a
 
 **We're here to help.**
 
-<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
@@ -73,18 +77,18 @@ Consider the countries to which your consumers will want to ship Nike products a
 
 **Ready to get started with the Payment APIs?**
 
-<i class="g72-plus-large"></i> [Payment Domain Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/payment/api_payment.html)
+<i class="g72-plus-large"></i> [Payment Domain Developer's Guide](/doc/commerce/payment/api_payment.html)
 
-<i class="g72-plus-large"></i> [Supported Payment Methods by Country](https://confluence.nike.com/pages/viewpage.action?pageId=162870810)
+<i class="g72-plus-large"></i> <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870810" target="_blank">Supported Payment Methods by Country</a>
 
-<i class="g72-plus-large"></i> [Get Started with Checkout](https://nde-devportal-docs.niketech.com/doc/commerce/checkout/biz_checkout.html)
+<i class="g72-plus-large"></i> [Get Started with Checkout](/doc/commerce/checkout/biz_checkout.html)
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/doc/getting-started/using_nike_apis.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

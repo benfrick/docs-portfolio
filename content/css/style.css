@@ -1,3 +1,4 @@
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,16 +9,14 @@ html {
     font-size: 14px;
 }
 h1 {
-    font-family: "Nike TG","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: .5px;
     font-size: 40px;
     text-transform: uppercase;
     color: #000000;
 }
 h2,h3,h4,h5,h6 {
-    font-family: OneNikeCurrency,"Nike TG","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: .5px;
     padding-top: .8em;
 }
@@ -28,26 +27,55 @@ h5{font-size:1.0em;}
 h6{font-size:.8em;}
 table {
     margin-top: 16px;
-    padding-top: 50px;
-    padding-bottom: 15px;
-    width:70%
+    margin-bottom: 16px;
+    padding-top: 50px 10px 15px 10px;
+    width:70%;
 }
-table.card thead tr th {
-    background-color:#FA5400;
+table thead tr th {
+    /*background-color:#FA5400;*/
     font-weight:bold;
-    color:white;
+    /*color:white;*/
+    color: rgb(17,17,17);
     text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
 }
-table.card tbody tr td {
-    border-bottom-color: black;
+tbody tr:nth-child(odd)
+{
+    background-color:#f7f9fc;
+}
+table tbody tr td {
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
     border-collapse: collapse;
-    font-size: 1.1em;
 }
 p {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 1.714285714285714;
     padding-top: 1px;
     padding-bottom: 1px;
+}
+ol {
+  display: block;
+  list-style-type: decimal;
+  padding-left: 2em;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  padding-left: 2em;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-y: scroll;
+  max-height: 500;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  border-top: 10px solid rgb(201,227,253);
+  border-bottom: 10px solid rgb(201,227,253);
+  border-left: 1px solid rgb(201,227,253);
+  width:70%;
 }
 code, code span {
     font-family: Courier;
@@ -55,24 +83,17 @@ code, code span {
 a {
     color: #3498db;
 }
-/* dev portal style overrides*/
-.hljs {
-    color: #000000;
-    background-color: #ffffff;
+blockquote {
+    /*border: 2px solid #dfdfdf;*/
+    border: 1px solid rgba(58,193,51,.12);
+    background-color: f6fff5;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 40%;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
-.hljs-string {
-    color: #0B7500;
-}
-.card .card-header a, .navList .navLink {
-    color: #111;
-}
-.toc-pad {
-    margin-left:25px;
-}
-
-
 article h1,h2,h3,h4,h5,h6 {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: bold;
     letter-spacing: 0px;
 }
@@ -82,7 +103,6 @@ article h1{
     border-bottom: 2px solid #f4f6f7;
     text-transform: none;
     font-size: 2em;
-    /*margin-left: 20px;*/
     width: 65%;
 }
 article h2 {
@@ -101,9 +121,31 @@ article p {
 article h2 {
     padding-top: 0px;
 }
+.toc-pad {
+    margin-left:25px;
+}
+.guide-nav-container {
+    display: flex;
+}
+.guide-nav-column {
+     width:49%;
+}
+.guide-nav-left{
+    text-align:left;
+}
+.guide-nav-right{
+    text-align:right;
+}
 .guide-container {
     display: flex;
-
+}
+.guide-landing-column {
+     width:49%;
+}
+.guide-landing-section {
+    border: 2px solid #dfdfdf;
+    margin: 12px 12px 0px 12px;
+    padding: 10px 10px 0px 10px;
 }
 .guide-landing-content
 {
@@ -127,7 +169,7 @@ article h2 {
     justify-content: space-between;
     list-style: none;
     margin-top: 12px!important;
-    margin-bottom: -23px;
+    margin-bottom: 12px;
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -151,7 +193,7 @@ article h2 {
 }
 .guide-box-list-med {
    flex-flow: row wrap;
-   max-width: 582px;
+   max-width: 620px;
    margin-left: 12px;
    margin-bottom: 3px;
 }
@@ -207,12 +249,6 @@ article h2 {
     height: 300px;
     margin-top: 20px;
 }
-/*a.noanchor:link,a.noanchor:visited,a.noanchor:hover,a.noanchor:active {
-    text-decoration: none;
-    color: black;
-    cursor: default;
-}*/
-
 a h6.guide-toc-l2 {
     margin-left: 6px;
     color: black;
@@ -233,7 +269,9 @@ a h6.guide-toc-l3 {
 .guide-menu .guide-menu-nav {
     display: block;
 }
-.guide-menu a.guide-menu-nav.menu-l1, .guide-menu a.guide-menu-nav.menu-l2, .guide-menu a.guide-menu-nav.menu-l3 {
+.guide-menu a.guide-menu-nav.menu-l1,
+.guide-menu a.guide-menu-nav.menu-l2,
+.guide-menu a.guide-menu-nav.menu-l3 {
      text-decoration: none;
      color: black;
  }
@@ -251,6 +289,88 @@ a h6.guide-toc-l3 {
     font-size: .9rem;
     color: #8d8d8d;
 }
-.guide-menu .guide-menu-nav.menu-l1.menu-highlight, .guide-menu .guide-menu-nav.menu-l2.menu-highlight, .guide-menu .guide-menu-nav.menu-l3.menu-highlight {
+.guide-menu .guide-menu-nav.menu-l1.menu-highlight,
+.guide-menu .guide-menu-nav.menu-l2.menu-highlight,
+.guide-menu .guide-menu-nav.menu-l3.menu-highlight {
     color: #3498db;
+}
+iframe#nde-docs-frame > html {
+   padding:0
+}
+.app-container.m12-sm {
+ 	margin:0;
+}
+.new-indicator::after {
+    content: "NEW";
+    color: white;
+    background-color: #3498db;
+    padding: 2px;
+    font-size: .8rem;
+    margin-left: 6px;
+    vertical-align: top;
+}
+.new-indicator-sm::after {
+    content: "NEW";
+    color: white;
+    background-color: #3498db;
+    padding: 1px;
+    font-size: .6rem;
+    margin-left: 4px;
+    vertical-align: top;
+}
+
+/* POC styles */
+article h1.poc{
+    border-bottom: none;
+}
+p.poc-underline {
+    line-height: 1px;
+    border-bottom: 2px solid #f4f6f7;
+}
+aside {
+     float: right;
+}
+aside.note {
+    margin-top: 0;
+    border-radius: 5px;
+    border: 1px solid #f0f4f7;
+    border-left-width: 2px;
+    width: 262px;
+    padding: 16px;
+    margin: 0px 0 20px 40px;
+    position: relative;
+    z-index: 2;
+}
+.poc-left-column {
+     width:70%;
+     vertical-align: top;
+     margin-right: 40px;
+}
+.poc-right-column {
+     width:30%;
+     vertical-align: top;
+
+.new-indicator-lg::after {
+    content: "NEW";
+    color: #3498db;
+    padding: 2px;
+    font-size: .9rem;
+    margin-left: 6px;
+    vertical-align: middle;
+    border: 1px solid #3498db;
+}
+.poc-group-header {
+    padding-top: 8px;
+    color: #32325d;
+}
+.poc-ul .poc-group-header:not(:first-child){
+    border-top: 2px solid #f6f9fc;
+    margin-top: 8px;
+    width: 100%;
+}
+ul.poc-ul {
+    list-style: none;
+}
+.poc-product {
+    color: #32325d;
 }

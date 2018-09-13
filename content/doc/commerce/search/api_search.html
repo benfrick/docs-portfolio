@@ -1,0 +1,252 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
+<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script type="text/javascript" src="/js/nde.js" ></script>
+<!--
+See Bitbucket (link to .md in APID repository) for version history of this document.
+Author: Jane Moore
+SME Consultants: Jeremy Myrland, Cameron Hinkle, Patti Cousins
+-->
+<div class="guide-nav-container">
+    <div class="guide-nav-column guide-nav-left">
+        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
+    </div>
+    <div class="guide-nav-column guide-nav-right">
+        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+    </div>
+</div>
+<h1 id="understanding-your-e-commerce-search-results"><a href="#understanding-your-e-commerce-search-results" name="understanding-your-e-commerce-search-results"><a href="#understanding-your-e-commerce-search-results-draft"></a><span class="new-indicator-lg"><span>UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS</a></h1>
+<h5 id="last-updated-872018submit-feedback-api-doc-slack-channel-nde-doc"><a href="#last-updated-872018submit-feedback-api-doc-slack-channel-nde-doc" name="last-updated-872018submit-feedback-api-doc-slack-channel-nde-doc"><a name="last-updated"></a>Last Updated: 8/7/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a></a></h5>
+<div class="hr"null>&nbsp;</div>
+<p>E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the <a href="/doc/commerce/product/api_rollup_threads.html" class="absent">Product Feed Rollup Threads V2 API Developer's Guide</a> first.</p>
+<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide"><a name="in-this-guide"></a><strong>In this guide:</strong></a></h2>
+<p><a href="#use-cases">Use Cases</a></p>
+<p><a href="#glossary">Glossary</a></p>
+<p><a href="#contacting-the-team">Contacting the Team</a></p>
+<p><a href="#search-types">Search Types</a></p>
+<p><a href="#rules-results-rankings">Rules, Results and Rankings</a></p>
+<p><a href="#troubleshooting">Troubleshooting</a></p>
+<h2 id="use-cases"><a href="#use-cases" name="use-cases"><a name="use-cases"></a>Use Cases</a></h2>
+<p>Here are just some of the ways e-commerce search can be used to drive your experience:</p>
+<ul>
+  <li>Quickly return e-commerce search results using Simple Search, no rule configuration necessary</li>
+  <li>Return search keyword suggestions based on a partial word typed in the search bar using Autocomplete Search</li>
+  <li>List highly-ranked products matching an Autocomplete keyword suggestion using Search Preview</li>
+  <li>Build navigation in your experience by retrieving a set of product filters</li>
+  <li>List the most-purchased products even if they can no longer be purchased</li>
+  <li>Return <a href="/doc/commerce/product/api_rollup_threads.html" class="absent">Product Feed Threads</a> containing your search term in Facebook with #[search-term]</li>
+  <li>Retrieve a <a href="/doc/commerce/product/api_rollup_threads.html" class="absent">Product Feed</a> when you ask a product question in the Consumer Services Portal</li>
+  <li>Finely tune e-commerce search results using the context aware Smart Search rules engine</li>
+</ul>
+<h2 id="glossary"><a href="#glossary" name="glossary"><a name="glossary"></a>Glossary</a></h2>
+<p>Listed below are some common e-commerce search terms and definitions.</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Term</th><th>Definition</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>Context</td><td>Customer's marketplace, experience, channel and language</td></tr>
+    <tr class="tbody-even-child"><td>Trigger</td><td>Context or customer-initiated query that causes an e-commerce search rule to fire</td></tr>
+    <tr class="tbody-odd-child"><td>Action</td><td>What an e-commerce search rule does when it fires, i.e. manipulates e-commerce search rankings</td></tr>
+    <tr class="tbody-even-child"><td>Query</td><td>What the customer is searching for</td></tr>
+    <tr class="tbody-odd-child"><td>Search Rule</td><td>Controls how items are ranked or excluded from e-commerce search results</td></tr>
+    <tr class="tbody-even-child"><td>Taxonomy</td><td>Nike product attributes</td></tr>
+    <tr class="tbody-odd-child"><td>Search Term</td><td>Customer-supplied e-commerce search keyword</td></tr>
+    <tr class="tbody-even-child"><td>Concept</td><td>Translates a customer-supplied e-commerce search term into Nike product attribute(s)</td></tr>
+    <tr class="tbody-odd-child"><td>Authored Concept</td><td>Group of concepts</td></tr>
+    <tr class="tbody-even-child"><td>Collection</td><td>Group of products such as the Mother's Day collection</td></tr>
+    <tr class="tbody-odd-child"><td>Channel</td><td>Customer experience such as Bootroom or NIKE.com</td></tr>
+    <tr class="tbody-even-child"><td>Signal</td><td>Customer behavior and merchandiser-defined factors used to rank e-commerce search results</td></tr>
+  </tbody>
+</table>
+<h2 id="contacting-the-team"><a href="#contacting-the-team" name="contacting-the-team"><a name="contacting-the-team"></a>Contacting the Team</a></h2>
+<p>Need to reach out to the Search team?</p>
+<table>
+  <thead>
+    <tr class="thead-first-child"><th>Method</th><th>Contact</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tbody-first-child"><td>Slack</td><td><a href="https://nikedigital.slack.com/messages/C4MGZ8GDB" target="_blank">#search-integration</a></td></tr>
+    <tr class="tbody-even-child"><td>Confluence space</td><td><a href="https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud" target="_blank">Content Discovery Team</a></td></tr>
+    <tr class="tbody-odd-child"><td>Mailing List</td><td><a href="mailto:Lst-digitaltech.merch.apis">Lst-nde.pdm.merch.dev@nike.com</a></td></tr>
+    <tr class="tbody-even-child"><td>Email the Product Manager<a name="product-owner"></a></td><td><a href="mailto:jeremy.myrland@nike.com">Jeremy Myrland</a> (Search)<br><a href="mailto:patrcia.cousins@nike.com">Patti Cousins</a> (Apollo Tool)</td></tr>
+  </tbody>
+</table>
+<h2 id="e-commerce-search-types"><a href="#e-commerce-search-types" name="e-commerce-search-types"><a name="search-types"></a>E-commerce Search Types</a></h2>
+<p>E-commerce search can be used to</p>
+<ul>
+  <li>tell the Nike story</li>
+  <li>decrease time to purchase by quickly leading customers to the products they need</li>
+</ul>
+<p>Currently, e-commerce search handles product and navigation data. Content will be added in the near future. This section discusses the various search types.</p>
+<h3 id="smart-search"><a href="#smart-search" name="smart-search"><a name="smart-search"></a>Smart Search</a></h3>
+<p>Smart Search is a rule-based filter. You can access this functionality by calling the <a href="/doc/commerce/product/api_rollup_threads.html" class="absent">Product Feed Rollup Threads V2 service</a>. Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer-provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as &quot;red&quot;, size based such as &quot;size 9&quot;, collection based such as &quot;Mother's Day&quot; or groups of concepts.</p>
+<p><strong>Used by:</strong> <a href="https://www.nike.com/bootroom">Bootroom</a> to drive the Athletes product gridwall</p>
+<h3 id="autocomplete"><a href="#autocomplete" name="autocomplete"><a name="autocomplete"></a>Autocomplete</a></h3>
+<p>This type of search suggests keywords when customers provide three or more letters of a search term. Nike.com calls Autocomplete Search when the customer types in the search bar. If a customer types &quot;red&quot;, Autocomplete search could return keyword suggestions &quot;Boston Red Sox&quot;, &quot;Cincinnati Reds&quot; and &quot;Washington Redskins&quot;. A keyword suggestion can be used in a subsequent search to find products matching that keyword.</p>
+<p><strong>Used by:</strong> Nike.com</p>
+<h3 id="search-preview"><a href="#search-preview" name="search-preview"><a name="search-preview"></a>Search Preview</a></h3>
+<p>Search Preview is a simple type of search that uses one or more search keywords to return a subset of product information using default relevancy rankings. Using the Autocomplete example above, hovering over &quot;red sox&quot; returns the top 6 Red Sox products according to the default rule. Nike.com web uses Search Preview from the Search bar to return products matching the first suggested keyword returned from Autocomplete. That experience calls Search Preview each time the customer hovers over an Autocomplete keyword.</p>
+<p><strong>Used by:</strong> Nike.com</p>
+<p>The Nike.com image below illustrates how Autocomplete and Search Preview can be used together to quickly lead customers to the products they want.</p>
+<p><img src="/images/commerce/search/autocomplete-search-preview.png" alt="" class="absent" /></p>
+<blockquote>
+  <p><strong>TIP:</strong> For information on how to integrate Search Bar with Search Preview in your experience, see the <a href="https://tourguide.prod.commerce.nikecloud.com/global-nav" target="_blank">Global Navigation Guide</a>.</p>
+</blockquote>
+<!--
+
+The image below depicts how Smart Search gathers search results and ranks them.
+
+![](/images/commerce/search/smart-search.png)
+
+1. Product Feeds Rollup Threads service: a) calls Smart Search service, passing consumerChannelId, language and marketplace filters, other filters and search terms b) calls Core Search Service with Smart Search URL
+
+2. Smart Search Service: a) passes search terms to Key2Concepts Service and is returned concept UUIDs b) passes UUIDs to the Rules Service c) generates the Smart Search URL based on rules
+
+3. Key2Concepts service passes taxonomy terms to Taxonomy Service, looks up sizes, collections and authored concepts in concept index, and returns concept UUIDs
+
+4. Taxonomy looks up and returns UUIDs for each taxonomy term
+
+5. Rules engine finds applicable rules and uses search strategy to find signals
+
+6. Search strategy algorithm finds and returns applicable signals that boost products in search rankings
+
+7. Smart Search URL executes search and returns the search results
+-->
+<h3 id="recommended-navigation"><a href="#recommended-navigation" name="recommended-navigation"><a name="recommended-navigation"></a>Recommended Navigation</a></h3>
+<p>Use this type of search to build navigation in your experience. Nike.com calls the Recommended Navigation API directly to list filters (product attributes) in the left navigation based on one or more search terms and/or attribute IDs. Like Smart Search, Recommended Navigation uses concepts and rules to determine the appropriate set of navigation filters to return. For instance, if you pass the &quot;blue&quot; search term in the call to Recommended Navigation, it returns a list of filters including &quot;gender&quot;, &quot;product type&quot;, and &quot;apparel&quot;. Checking the &quot;womens&quot; gender filter in the UI executes another Recommended Navigation search for the search terms &quot;blue&quot; and &quot;womens&quot;, narrowing the list of navigation filters even further.</p>
+<p><strong>Used by:</strong> Nike.com</p>
+<h2 id="rules-results-and-rankings"><a href="#rules-results-and-rankings" name="rules-results-and-rankings"><a name="rules-results-rankings"></a>Rules, Results and Rankings</a></h2>
+<p>Smart Search culls data from several sources and utilizes a robust rules engine to determine what data to return and how to rank the e-commerce search results. Search results are not cached.</p>
+<h3 id="rules"><a href="#rules" name="rules"><a name="rules"></a>Rules</a></h3>
+<p>Smart Search rules play a key role in determining e-commerce search results and rankings. Each channel has a default rule and may also have custom rules.</p>
+<p>Custom rules are administered in the Apollo rule management tool and are specific to a channel. Authorized Apollo users can add actions to rules to influence the search rankings such as boosting, burying, and hiding. Custom rules layer on top of the default rule to either work in concert with or override the default rule.  Contact the <a href="#contacting-the-team">Apollo Product Owner</a> for access to the tool.</p>
+<p>Rules are triggered either by customer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.</p>
+<p>The default rule for each experience is listed below. Default rules are not available through the Apollo tool. Contact the Product Owner to create a new or edit an existing default rule. Note that each default rule filters on the same channelId (d9a5bc42-4b9c-4976-858a-f159cf99c647) to get nike.com product threads. Each default rule is associated with an experience through the experience's consumerChannelId passed into the Product Feed Rollup Threads service. See <a href="/doc/commerce/product/api_rollup_threads.html#consumer-channel-id-and-channel-id" class="absent">Product Feed Rollup Threads V2 service</a> to read about the difference between channelId and consumerChannelId.</p>
+<p><strong>SNKRS/nike.com</strong></p>
+<pre><code>(channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+status = ACTIVE
+AND
+((available = true AND effectiveStartViewDate &lt;= now) OR (available = true AND (hardLaunch = null OR hardLaunch==false)))
+AND
+exclusiveAccess = false
+AND
+(commerceCountryExclusions==null OR commerceCountryExclusions!={excludeMarketplaceParam})
+AND
+((threadType = null OR (threadType = soldier AND styleType != NIKEID)) OR  (styleType==null OR (threadType != soldier AND styleType==NIKEID)))
+AND
+(channels = nike.com OR channels = .com OR channels = SNKRS OR channels = Nike.com legacy)
+AND
+(hideFromSearch != true OR hideFromSearch = null)
+</code></pre>
+<p><strong>Bootroom</strong></p>
+<pre><code>channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+status = ACTIVE
+AND
+available = true
+AND
+(threadType != soldier AND styleType != NIKEID)
+AND
+channels = Bootroom
+AND
+hideFromSearch != true OR hideFromSearch = null
+</code></pre>
+<p><strong>Facebook Messenger</strong></p>
+<pre><code>(channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+status = ACTIVE
+AND
+((available = true AND effectiveStartViewDate &lt;= now)
+OR
+(available = true
+AND
+(hardLaunch = null OR hardLaunch==false)))
+AND
+exclusiveAccess = false
+AND
+(commerceCountryExclusions = null OR commerceCountryExclusions != {excludeMarketplaceParam})
+AND
+((threadType = null OR (threadType = soldier AND styleType != NIKEID))
+OR
+(styleType = null OR (threadType != soldier AND styleType = NIKEID)))
+AND
+(channels = nike.com OR channels = .com OR channels = Nike.com OR channels = SNKRS OR channels = Nike.com legacy)
+AND
+(hideFromSearch != true OR hideFromSearch = null))
+</code></pre>
+<p><strong>Nike App Visual Search</strong></p>
+<pre><code>channelId = d9a5bc42-4b9c-4976-858a-f159cf99c647
+AND
+taxonomyAttributeSearchIds = 16633190-45e5-4830-a068-232ac7aea82c
+AND
+(taxonomyAttributeSearchIds != 92be6a0f-24dd-4e2e-87d0-5ce4ade3a923
+OR
+taxonomyAttributeSearchIds != efc99096-767d-40d9-a954-019b35858310
+OR
+taxonomyAttributeSearchIds != 3a4e07b5-2fc4-43f6-a480-ce6ed9030ac6
+OR
+taxonomyAttributeSearchIds != 9215b17d-efa4-4258-aabf-d5af737cde05
+OR
+taxonomyAttributeSearchIds != a2e74fc6-5388-4fc7-9cb5-801e1d8b42eb)
+</code></pre>
+<blockquote>
+  <p><strong>TIP:</strong> E-commerce search is not the source of data. Data originates in the <a href="/doc/commerce/product/api_rollup_threads.html" class="absent">Product Feed Rollup Threads V2 service</a>.</p>
+</blockquote>
+<h3 id="results"><a href="#results" name="results"><a name="results"></a>Results</a></h3>
+<p>Several factors affect e-commerce search results, including product attributes and the fields those product attributes are assigned to. If a product's state field is not set to ACTIVE or the product's &quot;hide from search&quot; attribute it marked &quot;true&quot;, a product rule may filter out the product from the search results. Similarly, if a search keyword is not in a field that search indexes, the product will not be included in the search results.</p>
+<h3 id="rankings"><a href="#rankings" name="rankings"><a name="rankings"></a>Rankings</a></h3>
+<p>A search rule can be assigned a priority to influence when the rule is applied in relation to other rules. Rules with a high priority get applied first. Rules assigned a low priority ensure that higher priority rules are applied first.</p>
+<p>Behind the scenes, the rules engine uses signals as part of the search strategy to influence search rankings. Signals are either consumer or business driven. Consumer driven signals are trends based on consumer behavior over a period of time. For example, a signal could boost the product that had the most viewed product display page within the past week, or a signal could boost the product that was most added to cart within the past month. Because this type of signal is an aggregate of consumer actions, consumer driven signals are constantly changing. Signals can also be driven by marketing objectives. The signal for the newest product or the signal for the product with the highest margin could boost those products to the top of the search rankings.</p>
+<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</a></h2>
+<p>If the products returned by e-commerce search are either not ranked as you expect or not returned at all, there are a few steps you can take to trouble shoot.</p>
+<h3 id="check-splunk"><a href="#check-splunk" name="check-splunk"><a name="check-splunk"></a>Check Splunk</a></h3>
+<p>Use Splunk to trace the call to provide insight into what rules are being applied and what results the Search API returns.  All you need is the Trace Id. See the <a href="https://github.nike.com/jmoor9/nde-devportal-docs/blob/master/content/doc/getting-started/using_nike_apis.html#query-logs-with-a-trace-id">Query Logs with a Trace ID</a> section of the Using Nike APIs guide to learn how to get and use the trace id of the response to query Splunk.</p>
+<p>An abbreviated Splunk trace sequence for Trace Id 65519e4e2c01ba2d is listed below for the Neymar Jr. gridwall in Bootroom, URL <a href="https://www.nike.com/soccer/bootroom/f/neymar-jr/">https://www.nike.com/soccer/bootroom/f/neymar-jr/</a>.</p>
+<pre><code> TRACE 2018-06-14 18:58:39,389 [I/O dispatcher 2] com.nike.phylon.rest.events.LoggingEventsClientResponseHandler app=smartsearchv1 version2.0.1.5 : Sent domain event. statusCode=200 responseBody={&quot;ShardId&quot;:&quot;shardId-000000000004&quot;,&quot;SequenceNumber&quot;:&quot;49579947210318633997012504867285607064259247813704024130&quot;} eventBody={&quot;resourceType&quot;:&quot;smartsearch&quot;,&quot;resourceVersion&quot;:&quot;v1&quot;,&quot;context&quot;:{&quot;additionalResourceInfo&quot;:{&quot;version&quot;:&quot;1.3&quot;},&quot;requestHeaders&quot;:{&quot;Accept&quot;:[&quot;*/*&quot;],&quot;X-Nike-AppId&quot;:[&quot;productfeedrollupsv2&quot;],&quot;X-B3-ParentSpanId&quot;:[&quot;51f91cc7aa938ffb&quot;],&quot;User-Agent&quot;:[&quot;Java/1.8.0_171&quot;],&quot;Connection&quot;:[&quot;keep-alive&quot;],&quot;Host&quot;:[&quot;172.26.173.229:8080&quot;],&quot;Authorization&quot;:[&quot;Bearer XXXXXX.eyJpc3MiOiJwcm9kdWN0ZmVlZHJvbGx1cHN2MiIsImV4cCI6MTUyOTAwMzMxOCwic3ViIjoicHJvZHVjdGZlZWRyb2xsdXBzdjIiLCJhdWQiOlsicHJvZHVjdGZlZWRyb2xsdXBzdjIiXSwic2NwIjpbInJlYWQiLCJ3cml0ZSJdLCJqdGkiOiIxZmM1YTY4Mi0yMmUxLTQ0OWItYjkzMi00MzgzMDQ1MGM4MDAifQ.ZZZZZZ&quot;],&quot;X-NewRelic-ID&quot;:[&quot;UwcDVlVUGwsAU1FaBwgC&quot;],&quot;instanceId&quot;:[&quot;static&quot;],&quot;X-B3-SpanId&quot;:[&quot;119abad1c061e2c8&quot;],&quot;appId&quot;:[&quot;productfeedrollupsv2&quot;],&quot;X-NewRelic-Transaction&quot;:[&quot;PxRTBAMBCgJRUwVUBgdRUlIAFB8EBw8RVU4aBl1dVgACBA4FB1AFBFAABkNKQV4CVVZUBAEGFTs=&quot;],&quot;X-B3-Sampled&quot;:[&quot;1&quot;],&quot;X-B3-TraceId&quot;:[&quot;65519e4e2c01ba2d&quot;]},&quot;event&quot;:{&quot;type&quot;:&quot;READ&quot;,&quot;id&quot;:&quot;25de92b1-0c31-42ea-9441-b668dfde1a42&quot;,&quot;date&quot;:&quot;2018-06-14T18:58:38Z&quot;,&quot;formatVersion&quot;:&quot;v3.0&quot;}},&quot;notification&quot;:{&quot;domain&quot;:&quot;product_feed&quot;,&quot;resource&quot;:&quot;threads&quot;,&quot;version&quot;:&quot;v2&quot;,&quot;language&quot;:&quot;en&quot;,&quot;searchTerms&quot;:null,&quot;queryFields&quot;:&quot;searchMetaData.productInfo[].productContent.fullTitle:language,searchMetaData.productInfo[].productContent.title:language,searchMetaData.productInfo[].productContent.subtitle:language,searchMetaData.publishedContent.propertiesConsumerLabelsClassificationText[]:language&quot;,&quot;where&quot;:&quot;((marketplace==\&quot;US\&quot;))&quot;,&quot;facetQuery&quot;:null,&quot;totalResources&quot;:1,&quot;consumerChannelId&quot;:&quot;06cec393-5bd2-4835-bbd5-89c8dbcae1ff&quot;,&quot;marketplace&quot;:&quot;US&quot;,&quot;attributeIds&quot;:[&quot;250ebb18-ce0f-41ba-ba3f-4b62d09ad346&quot;],&quot;response&quot;:{&quot;modifiedCoreSearchUrl&quot;:&quot;http://search-searches-v2/search/searches/v2/product_feed/threads/v2?language=en&amp;rollupField=searchMetaData.productRollup.key&amp;sort=searchMetaData.publishedContent.publishStartDateDesc,idAsc&amp;rollupSort=searchMetaData.publishedContent.publishStartDateDesc,idAsc&amp;boost=searchMetaData.productInfo[].merchProduct.styleColor=AH7380-107,searchMetaData.productInfo[].merchProduct.styleColor=AH7375-107,searchMetaData.productInfo[].merchProduct.styleColor=AH7347-107,searchMetaData.productInfo[].merchProduct.styleColor=AH7382-107,searchMetaData.productInfo[].merchProduct.styleColor=893858-749,searchMetaData.productInfo[].merchProduct.styleColor=893855-453,searchMetaData.productInfo[].merchProduct.styleColor=893944-453,searchMetaData.productInfo[].merchProduct.styleColor=893857-453,searchMetaData.productInfo[].merchProduct.styleColor=893331-454,searchMetaData.productInfo[].merchProduct.styleColor=893353-454,searchMetaData.productInfo[].merchProduct.styleColor=894432-411,searchMetaData.productInfo[].merchProduct.styleColor=847267-011,searchMetaData.productInfo[].merchProduct.styleColor=555475-067,searchMetaData.productInfo[].merchProduct.styleColor=942842-001,searchMetaData.productInfo[].merchProduct.styleColor=AH8050-300,searchMetaData.productInfo[].merchProduct.styleColor=AH8145-100,searchMetaData.productInfo[].merchProduct.styleColor=AH7380-810,searchMetaData.productInfo[].merchProduct.styleColor=893856-749,searchMetaData.productInfo[].merchProduct.styleColor=893945-749,searchMetaData.productInfo[].merchProduct.styleColor=893970-749,searchMetaData.productInfo[].merchProduct.styleColor=893969-453,searchMetaData.productInfo[].merchProduct.styleColor=892553-036,searchMetaData.productInfo[].merchProduct.styleColor=914480-063,searchMetaData.productInfo[].merchProduct.styleColor=AQ0954-010,searchMetaData.productInfo[].merchProduct.styleColor=886150-036&amp;where=(((marketplace==%22US%22)));((channelId==d9a5bc42-4b9c-4976-858a-f159cf99c647%20and%20searchMetaData.productInfo[].merchProduct.status==ACTIVE%20and%20searchMetaData.productInfo[].available==true%20and%20(publishedContent.properties.threadType!=soldier%20and%20searchMetaData.productInfo[].merchProduct.styleType!=NIKEID)%20and%20(searchMetaData.productInfo[].merchProduct.channels==Bootroom)%20and%20(searchMetaData.productInfo[].merchProduct.hideFromSearch!=true%20or%20searchMetaData.productInfo[].merchProduct.hideFromSearch==null)));searchMetaData.taxonomyAttributeSearchIds==250ebb18-ce0f-41ba-ba3f-4b62d09ad346&amp;fields=id,language,marketplace,channelId,channelName,lastFetchTime,resourceType,active,links,publishedContent.viewStartDate,publishedContent.createdDateTime,publishedContent.publishStartDate,publishedContent.publishEndDate,publishedContent.properties,productInfo.merchProduct,productInfo.merchPrice.fullPrice,productInfo.merchPrice.currentPrice,productInfo.merchPrice.currency,productInfo.merchPrice.discounted,productInfo.merchPrice.links,productInfo.availability,productInfo.productContent.title,productInfo.productContent.subtitle,productInfo.productContent.colors,productInfo.imageUrls,productInfo.customizedPreBuild&amp;queryFields=searchMetaData.productInfo[].productContent.fullTitle:language,searchMetaData.productInfo[].productContent.title:language,searchMetaData.productInfo[].productContent.subtitle:language,searchMetaData.publishedContent.propertiesConsumerLabelsClassificationText[]:language&amp;anchor=0&amp;count=50&quot;,&quot;searchParameters&quot;:{&quot;searchTerms&quot;:null,&quot;fields&quot;:[&quot;id&quot;,&quot;language&quot;,&quot;marketplace&quot;,&quot;channelId&quot;,&quot;channelName&quot;,&quot;lastFetchTime&quot;,&quot;resourceType&quot;,&quot;active&quot;,&quot;links&quot;,&quot;publishedContent.viewStartDate&quot;,&quot;publishedContent.createdDateTime&quot;,&quot;publishedContent.publishStartDate&quot;,&quot;publishedContent.publishEndDate&quot;,&quot;publishedContent.properties&quot;,&quot;productInfo.merchProduct&quot;,&quot;productInfo.merchPrice.fullPrice&quot;,&quot;productInfo.merchPrice.currentPrice&quot;,&quot;productInfo.merchPrice.currency&quot;,&quot;productInfo.merchPrice.discounted&quot;,&quot;productInfo.merchPrice.links&quot;,&quot;productInfo.availability&quot;,&quot;productInfo.productContent.title&quot;,&quot;productInfo.productContent.subtitle&quot;,&quot;productInfo.productContent.colors&quot;,&quot;productInfo.imageUrls&quot;,&quot;productInfo.customizedPreBuild&quot;],&quot;queryFields&quot;:[{&quot;name&quot;:&quot;searchMetaData.productInfo[].productContent.fullTitle:language&quot;,&quot;weight&quot;:1.0},{&quot;name&quot;:&quot;searchMetaData.productInfo[].productContent.title:language&quot;,&quot;weight&quot;:1.0},{&quot;name&quot;:&quot;searchMetaData.productInfo[].productContent.subtitle:language&quot;,&quot;weight&quot;:1.0},{&quot;name&quot;:&quot;searchMetaData.publishedContent.propertiesConsumerLabelsClassificationText[]:language&quot;,&quot;weight&quot;:1.0}],&quot;where&quot;:&quot;(((marketplace==\&quot;US\&quot;)));((channelId==d9a5bc42-4b9c-4976-858a-f159cf99c647 and searchMetaData.productInfo[].merchProduct.status==ACTIVE and searchMetaData.productInfo[].available==true and (publishedContent.properties.threadType!=soldier and searchMetaData.productInfo[].merchProduct.styleType!=NIKEID) and (searchMetaData.productInfo[].merchProduct.channels==Bootroom) and (searchMetaData.productInfo[].merchProduct.hideFromSearch!=true or searchMetaData.productInfo[].merchProduct.hideFromSearch==null)));searchMetaData.taxonomyAttributeSearchIds==250ebb18-ce0f-41ba-ba3f-4b62d09ad346&quot;,&quot;sort&quot;:[{&quot;field&quot;:&quot;searchMetaData.publishedContent.publishStartDate&quot;,&quot;direction&quot;:&quot;DESCENDING&quot;},{&quot;field&quot;:&quot;id&quot;,&quot;direction&quot;:&quot;ASCENDING&quot;}],&quot;anchor&quot;:0,&quot;count&quot;:50,&quot;facetFields&quot;:null,&quot;facetQuery&quot;:null,&quot;rollupField&quot;:&quot;searchMetaData.productRollup.key&quot;,&quot;rollupSort&quot;:[{&quot;field&quot;:&quot;searchMetaData.publishedContent.publishStartDate&quot;,&quot;direction&quot;:&quot;DESCENDING&quot;},{&quot;field&quot;:&quot;id&quot;,&quot;direction&quot;:&quot;ASCENDING&quot;}],&quot;rollupCount&quot;:null,&quot;boost&quot;:[{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AH7380-107&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AH7375-107&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AH7347-107&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AH7382-107&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893858-749&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893855-453&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893944-453&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893857-453&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893331-454&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893353-454&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;894432-411&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;847267-011&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;555475-067&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;942842-001&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AH8050-300&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AH8145-100&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AH7380-810&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893856-749&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893945-749&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893970-749&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;893969-453&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;892553-036&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;914480-063&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;value&quot;:&quot;AQ0954-010&quot;},{&quot;name&quot;:&quot;searchMetaData.productInfo[].merchProduct.styleColor&quot;,&quot;
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,871 [XNIO-5 task-3] com.nike.productfeedcommonv2.util.EventLogger app=productfeedrollupsv2 version2.0.3.113 : Event=EndRequest, Message='HttpStatus=200, HttpMethod=GET, Url=http://172.26.10.170:8080/product_feed/rollup_threads/v2/?consumerChannelId=06cec393-5bd2-4835-bbd5-89c8dbcae1ff&amp;anchor=0&amp;count=50&amp;filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=taxonomyIds%28250ebb18-ce0f-41ba-ba3f-4b62d09ad346%29'
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,862 [XNIO-5 task-3] com.nike.nde.search.client.NikeSearchClient app=productfeedrollupsv2 version2.0.3.113 : event=elastic type=query success=true transactionDuration=57 queryDuration=45 clusterName=search-productfeed-v2-5-5 indexName=product_feed-threads-v2:en::1 resultCount=22
+traceId=65519e4e2c01ba2d instance-id=i-0fe92b635def6169a 2018-06-14T18:58:38,861Z [epollEventLoopGroup-3-8] appname=nio-public-router environment=prod version=1.1.86 |-INFO  VALID_WINGTIPS_SPANS - [DISTRIBUTED_TRACING] {&quot;traceId&quot;:&quot;65519e4e2c01ba2d&quot;,&quot;parentSpanId&quot;:&quot;748893f971b9a3b7&quot;,&quot;spanId&quot;:&quot;f79f887b7899c9fb&quot;,&quot;spanName&quot;:&quot;GET_/product_feed/rollup_threads/v2/&quot;,&quot;sampleable&quot;:&quot;true&quot;,&quot;userId&quot;:&quot;null&quot;,&quot;spanPurpose&quot;:&quot;SERVER&quot;,&quot;startTimeEpochMicros&quot;:&quot;1529002718754000&quot;,&quot;durationNanos&quot;:&quot;107023682&quot;}
+traceId=65519e4e2c01ba2d instance-id=i-0fe92b635def6169a 2018-06-14T18:58:38,861Z [proxyRouterEventLoopGroup-9-8] appname=nio-public-router environment=prod version=1.1.86 |-INFO  VALID_WINGTIPS_SPANS - [DISTRIBUTED_TRACING] {&quot;traceId&quot;:&quot;65519e4e2c01ba2d&quot;,&quot;parentSpanId&quot;:&quot;f79f887b7899c9fb&quot;,&quot;spanId&quot;:&quot;b425e6488b811e1f&quot;,&quot;spanName&quot;:&quot;async_downstream_call-GET_172.26.10.170:8080/product_feed/rollup_threads/v2/?consumerChannelId=06cec393-5bd2-4835-bbd5-89c8dbcae1ff&amp;anchor=0&amp;count=50&amp;filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=taxonomyIds%28250ebb18-ce0f-41ba-ba3f-4b62d09ad346%29&quot;,&quot;sampleable&quot;:&quot;true&quot;,&quot;userId&quot;:&quot;null&quot;,&quot;spanPurpose&quot;:&quot;CLIENT&quot;,&quot;startTimeEpochMicros&quot;:&quot;1529002718759000&quot;,&quot;durationNanos&quot;:&quot;102695600&quot;}
+traceId=65519e4e2c01ba2d instance-id=i-0fe92b635def6169a 2018-06-14T18:58:38,860Z [epollEventLoopGroup-3-8] appname=nio-public-router environment=prod version=1.1.86 |-INFO  c.n.n.filter.BotLoggingFilter - bot-dashboard: true_client_ip=165.225.50.104 forwarded_for_ips=[165.225.50.104, 10.27.178.119, 184.27.178.103, 10.217.232.13, 63.217.232.15] method=GET path=/product_feed/rollup_threads/v2/ uri=/product_feed/rollup_threads/v2/?consumerChannelId=06cec393-5bd2-4835-bbd5-89c8dbcae1ff&amp;anchor=0&amp;count=50&amp;filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=taxonomyIds%28250ebb18-ce0f-41ba-ba3f-4b62d09ad346%29 response_code=200
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,803 [XNIO-5 task-3] com.nike.productfeedcommonv2.util.EventLogger app=productfeedrollupsv2 version2.0.3.113 : Event=CoreSearchV2Service, Message='Querying for language en with searchParameters where=(((marketplace==&quot;US&quot;)));((channelId==d9a5bc42-4b9c-4976-858a-f159cf99c647 and searchMetaData.productInfo[].merchProduct.status==ACTIVE and searchMetaData.productInfo[].available==true and (publishedContent.properties.threadType!=soldier and searchMetaData.productInfo[].merchProduct.styleType!=NIKEID) and (searchMetaData.productInfo[].merchProduct.channels==Bootroom) and (searchMetaData.productInfo[].merchProduct.hideFromSearch!=true or searchMetaData.productInfo[].merchProduct.hideFromSearch==null)));searchMetaData.taxonomyAttributeSearchIds==250ebb18-ce0f-41ba-ba3f-4b62d09ad346&amp;sort=searchMetaData.publishedContent.publishStartDateDesc,idAsc&amp;anchor=0&amp;count=50&amp;rollupField=searchMetaData.productRollup.key&amp;rollupSort=searchMetaData.publishedContent.publishStartDateDesc,idAsc&amp;boost=searchMetaData.productInfo[].merchProduct.styleColor=AH7380-107,searchMetaData.productInfo[].merchProduct.styleColor=AH7375-107,searchMetaData.productInfo[].merchProduct.styleColor=AH7347-107,searchMetaData.productInfo[].merchProduct.styleColor=AH7382-107,searchMetaData.productInfo[].merchProduct.styleColor=893858-749,searchMetaData.productInfo[].merchProduct.styleColor=893855-453,searchMetaData.productInfo[].merchProduct.styleColor=893944-453,searchMetaData.productInfo[].merchProduct.styleColor=893857-453,searchMetaData.productInfo[].merchProduct.styleColor=893331-454,searchMetaData.productInfo[].merchProduct.styleColor=893353-454,searchMetaData.productInfo[].merchProduct.styleColor=894432-411,searchMetaData.productInfo[].merchProduct.styleColor=847267-011,searchMetaData.productInfo[].merchProduct.styleColor=555475-067,searchMetaData.productInfo[].merchProduct.styleColor=942842-001,searchMetaData.productInfo[].merchProduct.styleColor=AH8050-300,searchMetaData.productInfo[].merchProduct.styleColor=AH8145-100,searchMetaData.productInfo[].merchProduct.styleColor=AH7380-810,searchMetaData.productInfo[].merchProduct.styleColor=893856-749,searchMetaData.productInfo[].merchProduct.styleColor=893945-749,searchMetaData.productInfo[].merchProduct.styleColor=893970-749,searchMetaData.productInfo[].merchProduct.styleColor=893969-453,searchMetaData.productInfo[].merchProduct.styleColor=892553-036,searchMetaData.productInfo[].merchProduct.styleColor=914480-063,searchMetaData.productInfo[].merchProduct.styleColor=AQ0954-010,searchMetaData.productInfo[].merchProduct.styleColor=886150-036&amp;fuzziness=0'
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,795 [XNIO-3 task-15] com.nike.nde.search.client.NikeSearchClient app=smartsearchv1 version2.0.1.5 : event=elastic type=get success=true duration=5 clusterName=search-recommend-v1-5-5 indexName=recommend-concepts-v1:en::3 documentId=d80ac58c4bf844d34098df66b8eb779816fb1ef767ed759b20cbd8adea4a38a8
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,790 [XNIO-3 task-2] com.nike.recommendrulesv1.service.ruleaction.RuleActionService app=recommendrulesv1 version${releaseVersion} : transactionId=getRuleActionsByIds state=SUCCESS duration=5
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,790 [XNIO-3 task-2] com.nike.nde.search.client.NikeSearchClient app=recommendrulesv1 version${releaseVersion} : event=elastic type=query success=true transactionDuration=5 queryDuration=1 clusterName=search-recommend-v1-5-5 indexName=recommend-rule_actions-v1:::1 resultCount=2
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,789 [XNIO-3 task-15] com.nike.smartsearchv1.service.smartsearch.RuleEngineService app=smartsearchv1 version2.0.1.5 : Processing rule id=34e4d8c7-4fd5-4f7c-8082-a003de30ad0b
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,789 [XNIO-3 task-15] com.nike.smartsearchv1.service.smartsearch.RuleEngineService app=smartsearchv1 version2.0.1.5 : Processing rule id=ALL_LOCATIONS_DOCUMENT_RULE_BOOTROOM
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,789 [XNIO-3 task-15] com.nike.smartsearchv1.repository.recommendrules.RuleActionRepository app=smartsearchv1 version2.0.1.5 : transactionId=getMatchingRuleActions state=SUCCESS Args=[{&quot;domain&quot;:&quot;product_feed&quot;,&quot;resource&quot;:&quot;threads&quot;,&quot;version&quot;:&quot;v2&quot;,&quot;language&quot;:&quot;en&quot;,&quot;fields&quot;:[],&quot;queryFields&quot;:[],&quot;where&quot;:&quot;((marketplace==\&quot;US\&quot;))&quot;,&quot;anchor&quot;:0,&quot;count&quot;:50,&quot;consumerChannelId&quot;:&quot;06cec393-5bd2-4835-bbd5-89c8dbcae1ff&quot;,&quot;marketplace&quot;:&quot;US&quot;,&quot;attributeIds&quot;:[&quot;250ebb18-ce0f-41ba-ba3f-4b62d09ad346&quot;]}] duration=16
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,785 [XNIO-3 task-2] com.nike.recommendrulesv1.repositories.ruleaction.lookup.RuleLookupRepository app=recommendrulesv1 version${releaseVersion} : transactionId=matchingRulesForQuery state=SUCCESS duration=7
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,785 [XNIO-3 task-2] com.nike.nde.search.client.NikeSearchClient app=recommendrulesv1 version${releaseVersion} : event=elastic type=query success=true transactionDuration=6 queryDuration=1 clusterName=search-recommend-v1-5-5 indexName=recommend-rules-v1:::1 resultCount=2
+
+65519e4e2c01ba2d DEBUG 2018-06-14 18:58:38,774 [XNIO-5 task-3] com.nike.productfeedcommonv2.clients.SmartSearchClient app=productfeedrollupsv2 version2.0.3.113 : [SmartSearchClient#getSmartSearch] ---&gt; GET http://smartsearchv1/recommend/searches/v1/product_feed/threads/v2?where=%28%28marketplace%3D%3D%22US%22%29%29&amp;language=en&amp;marketplace=US&amp;consumerChannelId=06cec393-5bd2-4835-bbd5-89c8dbcae1ff&amp;anchor=0&amp;count=50&amp;attributeIds=250ebb18-ce0f-41ba-ba3f-4b62d09ad346 HTTP/1.1
+
+65519e4e2c01ba2d INFO  2018-06-14 18:58:38,770 [XNIO-5 task-3] com.nike.productfeedcommonv2.util.EventLogger app=productfeedrollupsv2 version2.0.3.113 : Event=StartRequest, Message='HttpMethod=GET, Url=http://172.26.10.170:8080/product_feed/rollup_threads/v2/?consumerChannelId=06cec393-5bd2-4835-bbd5-89c8dbcae1ff&amp;anchor=0&amp;count=50&amp;filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=taxonomyIds%28250ebb18-ce0f-41ba-ba3f-4b62d09ad346%29, nike-api-caller-id=nike:bootroom:web:1.0'
+127.0.1.1 - - [14/Jun/2018:18:58:38  +0000] &quot;GET /product_feed/rollup_threads/v2/?consumerChannelId=06cec393-5bd2-4835-bbd5-89c8dbcae1ff&amp;anchor=0&amp;count=50&amp;filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=taxonomyIds%28250ebb18-ce0f-41ba-ba3f-4b62d09ad346%29 HTTP/1.1&quot; 200 102536 &quot;https://www.nike.com/soccer/bootroom/f/neymar-jr/&quot; &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36&quot; accept-Req=*/* content-type-Req=application/json; charset=UTF-8 content-length-Res=- transfer_encoding-Res=chunked http_status_code-Res=200 error_uid-Res=- X-B3-Sampled-Req=1 X-B3-SpanId-Req=748893f971b9a3b7 X-B3-TraceId-Req=65519e4e2c01ba2d X-B3-TraceId-Res=65519e4e2c01ba2d raw_content_length-Req=0 raw_content_length-Res=102536 final_content_length-Res=102536 elapsed_time_millis=106 appId= upmId= True-Client-IP=165.225.50.104 nike-api-caller-id=nike:bootroom:web:1.0
+
+</code></pre>
+<h3 id="check-the-rules"><a href="#check-the-rules" name="check-the-rules"><a name="check-the-rules"></a>Check the rules</a></h3>
+<p>You will need Apollo access to check rule configuration. If you do not know the rule name(s) affecting your search results, check Splunk using the method described above. Then go into Apollo and verify that the rules are configured correctly and that no rules are competing with one another.</p>
+<h3 id="check-the-products"><a href="#check-the-products" name="check-the-products"><a name="check-the-products"></a>Check the products</a></h3>
+<p>Ensure that the product is set up correctly to be found by search. If you know the style-color or product id, you can call the <a href="/doc/commerce/product/api_merch_product.html" class="absent">Merchandised Product API</a> directly to look at the product details. Note that not all fields in the Merchandised Product are exposed in the Product Feed API.</p>
+<p>If you are unable to locate the product in Merchandised Product, you may need to go even further upstream in the product life cycle. Check the Prodigy Merchandising Tool to troubleshoot why the product has not streamed into the Merchandised Product system yet.</p>
+<p>Still need help? <a href="#contacting-the-team">Contact the Search Team</a>.</p>
+</body>
+</html>

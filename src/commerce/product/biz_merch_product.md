@@ -1,11 +1,15 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+
+<div class="guide-nav-container">    <div class="guide-nav-column guide-nav-left">        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>    </div>    <div class="guide-nav-column guide-nav-right">        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>    </div></div>
 
 # GET STARTED WITH MERCHANDISED PRODUCT API <i class="g72-swoosh"></i> (DRAFT)
+
 <!-- Header describing title of topic) -->
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: API Doc Slack channel [#nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -23,7 +27,7 @@
 
 [Next Steps](#next-steps)
 
-## <a name="overview"/>Overview
+## <a name="overview"></a>Overview
 
 **Nike products drive the e-commerce and brand experience**
 
@@ -31,9 +35,9 @@ The Merchandised Product API provides access to product content and pricing that
 
 <br>
 
-![](https://nde-devportal-docs.niketech.com/images/commerce/merch_product/aj1_retro_es.png)
+![](/images/commerce/merch_product/aj1_retro_es.png)
 
-## <a name="features"/>Features
+## <a name="features"></a>Features
 
 The Merchandised Product API supports the US, Japan, China and European Union geographies, allowing you to reach a wide customer base.
 
@@ -61,30 +65,30 @@ Nike services are built for reliability and scalability, reaping the benefits of
 
 Join the web API economy by using the common language of the internet to interact with Nike services. Your developers will be familiar with issuing JSON-formatted requests to Nike's REST web services using the standard HTTP protocol.
 
-## <a name="#connect"/>Connect
+## <a name="#connect"></a>Connect
 
 We're here to help.
 
-<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/developer-relations)
+<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>
 
 <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
 
-## <a name="next-steps"/>Next Steps
+## <a name="next-steps"></a>Next Steps
 
 **From here, explore the Merchandised Product API in detail through the Developer Guide.  Learn more about the product data.  Read about how the Product Feeds API consumes this data**
 
-<i class="g72-plus-large"></i> [Merchandised Product API Developer's Guide](https://nde-devportal-docs.niketech.com/doc/commerce/product/api_merch_product.html)
+<i class="g72-plus-large"></i> [Merchandised Product API Developer's Guide](/doc/commerce/product/api_merch_product.html)
 
-<i class="g72-plus-large"></i> [Merchandised Product Field Reference](https://nde-devportal-docs.niketech.com/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)
+<i class="g72-plus-large"></i> [Merchandised Product Field Reference](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)
 
-<i class="g72-plus-large"></i> [Get Started with the Product Feeds API](https://nde-devportal-docs.niketech.com/doc/commerce/product/biz_product_feeds.html)
+<i class="g72-plus-large"></i> [Get Started with the Product Feeds API](/doc/commerce/product/biz_product_feeds.html)
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)

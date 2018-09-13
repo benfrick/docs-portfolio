@@ -1,18 +1,30 @@
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css"/>
 <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css"/>
-<link rel="stylesheet" href="https://bitbucket.nike.com/projects/APID/repos/api-docs/raw/css/api-doc.css?at=refs%2Fheads%2Fmaster"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/nde.js" type="text/javascript"></script>
+
 <!--
 See Bitbucket (link to .md in APID repository) for version history of this document.
 Author: Your Name
 SME Consultants:
 -->
-# {API NAME API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-###### Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc [Slack channel #nde-doc](https://nikedigital.slack.com/messages/nde-doc)
+<div class="guide-nav-container">
+    <div class="guide-nav-column guide-nav-left">
+        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
+    </div>
+    <div class="guide-nav-column guide-nav-right">
+        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+    </div>
+</div>
+
+# {API NAME} API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
+
+###### Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
 
 ---
 
-If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the {API Name} API.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the {API Name} API.
 
 ## **In this guide:**
 
@@ -76,7 +88,7 @@ If you've read [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/gett
 
 ## <a name="terms-of-service"></a>Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](https://nde-devportal-docs.niketech.com/doc/getting-started/using_nike_apis.html#registration) on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) on how to create and register your caller ID.
 
 ### <a name="authorization"></a>Authorization
 
@@ -143,7 +155,7 @@ See the output of the successful JSON 200 response below.
 {}
 ```
 
->TIP: For detailed information on this service, see the [Endpoint1](#endpoint1-name) section.
+>**TIP:** For detailed information on this service, see the [Endpoint1](#endpoint1-name) section.
 
 ## <a name="using-service1"></a>Using Service1
 
@@ -188,12 +200,12 @@ Let's take a look at some *endpoint1* scenarios.
 
 #### <a name="endpoint1-request-body"></a>Request Body
 
-|Element Name|Description|Required?|
-|---|---|---|
-|**fieldname**|description|**Required**|
-|**fieldname**|description|Optional|
-|fieldname.**fieldname**|description|Optional|
-|fieldname.fieldname.**fieldname**|description|Optional|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**fieldname**|data type|description|**Required**|
+|**fieldname**|data type|description|Optional|
+|fieldname.**fieldname**|data type|description|Optional|
+|fieldname.fieldname.**fieldname**|data type|description|Optional|
 
 Sample *Endpoint1* request URI:
 ```
@@ -207,12 +219,12 @@ Sample *Endpoint1* request body:
 
 #### <a name="endpoint1-response-body"></a>Response Body
 
-|Element Name|Description|Required?|
-|---|---|---|
-|**fieldname**|description|**Required**|
-|**fieldname**|description|Optional|
-|fieldname.**fieldname**|description|Optional|
-|fieldname.fieldname.**fieldname**|description|Optional|
+|Element Name|Type|Description|Required?|
+|---|---|---|---|
+|**fieldname**|data type|description|**Required**|
+|**fieldname**|data type|description|Optional|
+|fieldname.**fieldname**|data type|description|Optional|
+|fieldname.fieldname.**fieldname**|data type|description|Optional|
 
 Sample *endpoint1* 200 response
 ```
@@ -259,7 +271,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 * What are the terms and concepts used in this API that are not common? Add them to the master glossary at the link below.
 -->
 
-See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/glossary.html)
+See the [Glossary](/doc/getting-started/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 <!--
@@ -274,10 +286,10 @@ See the [Glossary](https://nde-devportal-docs.niketech.com/doc/getting-started/g
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](https://nde-devportal-docs.niketech.com/index.html)
+[NDe Documentation Home](/index.html)
 
-[Getting Started](https://nde-devportal-docs.niketech.com/doc/getting-started/getting-started.html)
+[Getting Started](/doc/portal/consuming.html)
 
-[Business Guides](https://nde-devportal-docs.niketech.com/doc/biz-guides.html)
+[Business Guides](/doc/portal/biz-guides.html)
 
-[Developer's Guides](https://nde-devportal-docs.niketech.com/doc/dev-guides.html)
+[Developer's Guides](/doc/portal/dev-guides.html)
