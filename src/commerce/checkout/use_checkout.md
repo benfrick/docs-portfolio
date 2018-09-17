@@ -14,7 +14,7 @@
 
 # ADDING CHECKOUT TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>
 
-###### Last Updated: 08/30/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 09/13/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ## **In This Guide:**
 
@@ -42,19 +42,19 @@
 
 [Glossary](#glossary)
 
-[Release Notes](#release-notes)
-
 [Document Change Log](#document-change-log)
 
 [Related Links](#related-links)
 
 ## Overview
 
-Use this guide to add checkout to your experience. Step-by-step instructions, including code samples, will be provided along the way. In the end, you will be able to sell Nike products and services through your app, so let's go!
+Use this guide to add checkout to your experience. Step-by-step instructions including code samples will be provided along the way. In the end, you will be able to sell Nike products and services through your app, so let's go!
 
 >**TIP**: Before using this guide you should have already completed [Adding Nike Product Browsing to Your Experience](#).
 
-A checkout consists of the following:
+### What is a Checkout?
+
+A Nike checkout consists of the following:
 
 - Consumer’s product choices (items, quantities, value-added services)
 
@@ -70,17 +70,17 @@ A checkout consists of the following:
 
 [Insert diagram of high-level steps in the process]
 
-[Insert screenshot of checkout]
+1. Add to Cart
+2. Select Shipping Method/Address
+3. Select Payment Method/Address
+4. Preview the Checkout
+5. Submit the Checkout
 
-Add to Cart
-Select Shipping Method/Address
-Select Payment Method/Address
-Preview the Checkout
-Submit the Checkout
+![](/images/commerce/payment/snkrs_payment.png)
 
 ## Step 1: Adding the Shopping Cart
 
-In e-commerce, the cart (also called basket or bag) allows customers to collect and compare items that they are considering for purchase before starting the checkout process. At Nike, a cart contains items, quantities, and associated value-added services (if any).
+In e-commerce, the cart (also called the basket or bag) allows customers to collect and compare items that they are considering for purchase before starting the checkout process. At Nike, a cart contains items, quantities, and associated value-added services (when applicable).
 
 ### Create or update a cart
 
@@ -92,11 +92,11 @@ In e-commerce, the cart (also called basket or bag) allows customers to collect 
 
 ## Step 2: Adding Shipping Options
 
-Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to present to them, based on their shopping context?
+Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to show them, based on their shopping context?
 
-Use the Shipping Options v2 API to retrieve the customer's available shipping methods for a checkout, including associated costs and estimated delivery dates/ranges.
+Use the Shipping Options API to retrieve the available shipping methods for a customer's checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).
 
-Send a request with a country code, currency code, item information and (optionally) shipping address information to this endpoint to get the list of available shipping methods, along with associated costs/taxes and estimated delivery date(s). This endpoint calculates shipping discounts such as free shipping for members.
+Send a request with a country code, currency code, item information and (optionally) shipping address.
 
 ## Step 3: Add Payment Options
 
@@ -205,34 +205,46 @@ Members and employees only. **Guest users may not save Wish Lists**
 
 [Add payment endpoints here, too]
 
-|API Name|Endpoint Name|HTTP Method|URI Path|
-|---|---|---|---|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a>|PUT|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a>|PATCH|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete All Items from a Cart by Cart ID</a>|DELETE|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Cart ID</a>|GET|/buy/carts/v2/{id}|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>|GET|/buy/carts/v2/?filter|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Filter Criteria</a>|PUT|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>|PATCH|/buy/carts/v2/{country}/{brand}/{channel}|
-|Carts v2|<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a>|DELETE|/buy/carts/v2/{country}/{brand}/{channel}|
-|Cart Reviews|<a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a>|POST|/buy/cart_reviews/v1|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>|PUT|/buy/lists/v1/{id}{?fields}|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>|DELETE|/buy/lists/v1/{id}|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a>|GET|/buy/lists/v1/{id}{?fields}|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Lists for Authenticated User</a>|GET|/buy/lists/v1{?filter,fields}|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Add Item to List</a>|PUT|/buy/list_items/v1/{id}{?fields}|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>|DELETE|/buy/list_items/v1/{id}|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>|GET|/buy/list_items/v1{?filter, anchor, count, fields, sort}|
-|Wish Lists|<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a>|GET|/buy/list_items/v1/{id}{?fields}|
-|Shipping Options|<a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a>|POST|/buy/shipping_options/v2|
-|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a>|PUT|/buy/checkout_previews/v2/{id}|
-|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a>|GET|/buy/checkout_previews/v2/jobs/{id}|
-|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Results</a>|GET|/buy/checkout_preview_results/v2/{id}|
-|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit</a>|PUT|/buy/checkouts/v2/{id}|
-|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a>|GET|/buy/checkouts/v2/jobs/{id}|
-|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>|GET|/buy/checkout_results/v2/{id}|
-|Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a>|PUT|/buy/launch_checkouts/v2/{id}|
+**Carts**
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete All Items from a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Filter Criteria</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a>
+
+**Cart Reviews**
+<a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a>
+
+**Payment Options**
+<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">GET PAYMENT OPTIONS FOR AN ORDER</a>
+<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>
+<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">VALIDATE PAYMENTS</a>
+
+**Wish Lists**
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Lists for Authenticated User</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Add Item to List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a>
+
+**Shipping Options**
+<a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a>
+
+**Checkouts**
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Results</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a>
 
 ## <a name="sending-your-first-request"></a>Sending Your First Request
 
@@ -565,10 +577,6 @@ Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of 
 ## <a name="glossary"></a>Glossary
 
 See the [Glossary](/doc/getting-started/glossary.html)
-
-## <a name="release-notes"></a>Release Notes
-
-No release notes available.
 
 ## <a name="document-change-log"></a>Document Change Log
 
