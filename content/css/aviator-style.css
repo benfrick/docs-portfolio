@@ -201,8 +201,8 @@ h3 .endpoint {
     content: "POST"; }
 
 .main {
-  margin: 0 0 0 210px;
-  border-left: 1px solid #eee; }
+  margin: 0 210px 0 0;
+  border-right: 1px solid #eee; }
   .main h6 {
     font-size: 1.01em;
     padding: 0 0 6px 0;
@@ -410,7 +410,7 @@ header {
     header {
       background-color: transparent;
       width: 210px;
-      right: auto;
+      left: auto;
       bottom: auto; }
       header .copyright {
         display: block; }
