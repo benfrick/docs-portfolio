@@ -409,7 +409,7 @@ header {
   @media (min-width: 700px) {
     header {
       background-color: transparent;
-      width: 210px;
+      width: 250px;
       left: auto;
       bottom: auto; }
       header .copyright {
