@@ -1,0 +1,85 @@
+# ----
+# Site
+
+title: Aviator
+description: Jekyll template for API documentation.
+url: https://example.com
+google_analytics_key:
+permalink: none
+
+# -----
+# Build
+
+timezone: Etc/UTC
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# exclude these files (relative to source directory) from the conversion
+exclude:
+  - readme.md
+  - LICENSE
+  - /templates/
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: two_column
+
+kramdown:
+  # parse markdown inside block-level HTML tag
+  parse_block_html: true
+
+# turn these off for now
+source: src
+destination: ./content/
+
+incremental: true
+
+# keep these files/directories (relative to destination directory) when clobbering the destination
+keep_files:
+  - /portal/
+  - /poc/
+
+
+collections_dir: commerce
+
+collections:
+  checkout:
+    output: true
+
+# -----------
+# CloudCannon
+
+types:
+  - get
+  - put
+  - delete
+  - post
+
+languages:
+  bash: Bash
+  c: C
+  css: CSS
+  html: HTML
+  java: Java
+  javascript: JavaScript
+  json: JSON
+  php: PHP
+  python: Python
+  ruby: Ruby
+
+_options:
+  content_markdown:
+    format: p h4 h5 h6
+    bold: true
+    italic: true
+    link: true
+    bulletedlist: true
+    numberedlist: true
+    image: true
+    table: true
+    styles: /css/editor.css
