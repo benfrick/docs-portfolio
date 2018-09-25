@@ -44,13 +44,6 @@ keep_files:
   - /portal/
   - /poc/
 
-
-collections_dir: commerce
-
-collections:
-  checkout:
-    output: true
-
 # -----------
 # CloudCannon
 
