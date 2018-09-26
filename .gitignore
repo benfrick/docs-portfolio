@@ -48,3 +48,4 @@ client/swagger-editor
 /.history/
 junit.xml
 *.iml
+.sass-cache/
