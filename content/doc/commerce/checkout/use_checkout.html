@@ -1,44 +1,75 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/nde.js"></script>
+    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+    <link rel="stylesheet"
+            href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/aviator-two-column.css">
+    <link rel="stylesheet" href="/css/nde.css">
+
 </head>
-<body>
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
-<link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-<link rel="stylesheet" href="/css/style.css">
-<script src="/js/nde.js" type="text/javascript"></script>
-<div class="guide-nav-container">
-    <div class="guide-nav-column guide-nav-left">
-        <a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
-    </div>
-    <div class="guide-nav-column guide-nav-right">
-        <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-    </div>
+    <body>
+    <div class="guide-nav-container">
+<div class="guide-nav-column guide-nav-left">
+<a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
 </div>
-<h1 id="adding-checkout-to-your-experience"><a href="#adding-checkout-to-your-experience" name="adding-checkout-to-your-experience" class="anchor"><span class="octicon octicon-link"></span></a>ADDING CHECKOUT TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br></h1>
-<h6 id="last-updated-09132018submit-feedback-dev-portal-slack-channel-devportal"><a href="#last-updated-09132018submit-feedback-dev-portal-slack-channel-devportal" name="last-updated-09132018submit-feedback-dev-portal-slack-channel-devportal" class="anchor"><span class="octicon octicon-link"></span></a>Last Updated: 09/13/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
-<h2 id="in-this-guide"><a href="#in-this-guide" name="in-this-guide" class="anchor"><span class="octicon octicon-link"></span></a><strong>In This Guide:</strong></h2>
+<div class="guide-nav-column guide-nav-right">
+<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+</div>
+</div>
+    <div class="main">
+        <h1 id="adding-checkout-to-your-experience-">ADDING CHECKOUT TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br /></h1>
+
+<h6 id="last-updated-09132018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 09/13/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
+
+<h2 id="in-this-guide"><strong>In This Guide:</strong></h2>
+
 <p><a href="#overview">Overview</a></p>
+
 <p><a href="#step-1-adding-the-shopping-cart">Step 1: Adding the Shopping Cart</a></p>
+
 <p><a href="#step-2-adding-shipping-options">Step 2: Adding Shipping Options</a></p>
+
 <p><a href="#step-3-add-payment-options">Step 3: Adding Payment Options</a></p>
+
 <p><a href="#step-4-previewing-a-checkout">Step 4: Previewing a Checkout</a></p>
+
 <p><a href="#step-5-submitting-a-checkout">Step 5: Submitting a Checkout</a></p>
+
 <p><a href="#step-6-optional-adding-wish-lists">Step 6 (Optional): Adding Wish Lists</a></p>
+
 <p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
+
 <p><a href="#sending-your-first-request">Sending Your First Request</a></p>
+
 <p><a href="#best-practices">Best Practices</a></p>
+
 <p><a href="#troubleshooting">Troubleshooting</a></p>
+
 <p><a href="#glossary">Glossary</a></p>
+
 <p><a href="#document-change-log">Document Change Log</a></p>
+
 <p><a href="#related-links">Related Links</a></p>
-<h2 id="overview"><a href="#overview" name="overview" class="anchor"><span class="octicon octicon-link"></span></a>Overview</h2>
-<p>Use this guide to add checkout to your experience. Step-by-step instructions including code samples will be provided along the way. In the end, you will be able to sell Nike products and services through your app, so let's go!</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Use this guide to add checkout to your experience. Step-by-step instructions including code samples will be provided along the way. In the end, you will be able to sell Nike products and services through your app, so let’s go!</p>
+
 <blockquote>
   <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="#">Adding Nike Product Browsing to Your Experience</a>.</p>
 </blockquote>
-<h3 id="what-is-a-checkout"><a href="#what-is-a-checkout" name="what-is-a-checkout" class="anchor"><span class="octicon octicon-link"></span></a>What is a Checkout?</h3>
+
+<h3 id="what-is-a-checkout">What is a Checkout?</h3>
+
 <p>A Nike checkout consists of the following:</p>
+
 <ul>
   <li>
     <p>Consumer’s product choices (items, quantities, value-added services)</p>
@@ -59,7 +90,9 @@
     <p>Discounts</p>
   </li>
 </ul>
-<p><a href="Insert diagram of high-level steps in the process">Insert diagram of high-level steps in the process</a></p>
+
+<p>[Insert diagram of high-level steps in the process]</p>
+
 <ol>
   <li>Add to Cart</li>
   <li>Select Shipping Method/Address</li>
@@ -67,56 +100,92 @@
   <li>Preview the Checkout</li>
   <li>Submit the Checkout</li>
 </ol>
+
 <p><img src="/images/commerce/payment/snkrs_payment.png" alt="" /></p>
-<h2 id="step-1-adding-the-shopping-cart"><a href="#step-1-adding-the-shopping-cart" name="step-1-adding-the-shopping-cart" class="anchor"><span class="octicon octicon-link"></span></a>Step 1: Adding the Shopping Cart</h2>
+
+<h2 id="step-1-adding-the-shopping-cart">Step 1: Adding the Shopping Cart</h2>
+
 <p>In e-commerce, the cart (also called the basket or bag) allows customers to collect and compare items that they are considering for purchase before starting the checkout process. At Nike, a cart contains items, quantities, and associated value-added services (when applicable).</p>
-<h3 id="create-or-update-a-cart"><a href="#create-or-update-a-cart" name="create-or-update-a-cart" class="anchor"><span class="octicon octicon-link"></span></a>Create or update a cart</h3>
-<h3 id="get-the-cart-details"><a href="#get-the-cart-details" name="get-the-cart-details" class="anchor"><span class="octicon octicon-link"></span></a>Get the cart details</h3>
-<h3 id="delete-all-items-in-a-cart"><a href="#delete-all-items-in-a-cart" name="delete-all-items-in-a-cart" class="anchor"><span class="octicon octicon-link"></span></a>Delete all items in a cart</h3>
-<h3 id="retrieve-an-enhanced-cart-summary-with-sales-and-shipping-taxes-estimated-delivery-dates-and-item-and-subtotal-information"><a href="#retrieve-an-enhanced-cart-summary-with-sales-and-shipping-taxes-estimated-delivery-dates-and-item-and-subtotal-information" name="retrieve-an-enhanced-cart-summary-with-sales-and-shipping-taxes-estimated-delivery-dates-and-item-and-subtotal-information" class="anchor"><span class="octicon octicon-link"></span></a>Retrieve an enhanced cart summary with sales and shipping taxes, estimated delivery date(s), and item and subtotal information.</h3>
-<h2 id="step-2-adding-shipping-options"><a href="#step-2-adding-shipping-options" name="step-2-adding-shipping-options" class="anchor"><span class="octicon octicon-link"></span></a>Step 2: Adding Shipping Options</h2>
+
+<h3 id="create-or-update-a-cart">Create or update a cart</h3>
+
+<h3 id="get-the-cart-details">Get the cart details</h3>
+
+<h3 id="delete-all-items-in-a-cart">Delete all items in a cart</h3>
+
+<h3 id="retrieve-an-enhanced-cart-summary-with-sales-and-shipping-taxes-estimated-delivery-dates-and-item-and-subtotal-information">Retrieve an enhanced cart summary with sales and shipping taxes, estimated delivery date(s), and item and subtotal information.</h3>
+
+<h2 id="step-2-adding-shipping-options">Step 2: Adding Shipping Options</h2>
+
 <p>Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to show them, based on their shopping context?</p>
-<p>Use the Shipping Options API to retrieve the available shipping methods for a customer's checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).</p>
+
+<p>Use the Shipping Options API to retrieve the available shipping methods for a customer’s checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).</p>
+
 <p>Send a request with a country code, currency code, item information and (optionally) shipping address.</p>
-<h2 id="step-3-add-payment-options"><a href="#step-3-add-payment-options" name="step-3-add-payment-options" class="anchor"><span class="octicon octicon-link"></span></a>Step 3: Add Payment Options</h2>
-<p><a href="TK">TK</a></p>
-<h2 id="step-4-previewing-a-checkout"><a href="#step-4-previewing-a-checkout" name="step-4-previewing-a-checkout" class="anchor"><span class="octicon octicon-link"></span></a>Step 4: Previewing a Checkout</h2>
-<h3 id="request-checkout-preview"><a href="#request-checkout-preview" name="request-checkout-preview" class="anchor"><span class="octicon octicon-link"></span></a><a name="request-checkout-preview"></a>Request Checkout Preview</h3>
-<p>The <em>Request a Checkout Preview</em> endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you'll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.</p>
-<h4 id="checkout-preview-is-optional-but-recommended"><a href="#checkout-preview-is-optional-but-recommended" name="checkout-preview-is-optional-but-recommended" class="anchor"><span class="octicon octicon-link"></span></a>Checkout Preview Is Optional, But Recommended</h4>
+
+<h2 id="step-3-add-payment-options">Step 3: Add Payment Options</h2>
+
+<p>[TK]</p>
+
+<h2 id="step-4-previewing-a-checkout">Step 4: Previewing a Checkout</h2>
+
+<h3 id="request-checkout-preview"><a name="request-checkout-preview"></a>Request Checkout Preview</h3>
+
+<p>The <em>Request a Checkout Preview</em> endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you’ll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.</p>
+
+<h4 id="checkout-preview-is-optional-but-recommended">Checkout Preview Is Optional, But Recommended</h4>
+
 <p>Is it not required to call <em>Request Checkout Preview</em> in order for your shopper to complete their purchase. However, it is recommended.</p>
+
 <p>In a typical Nike digital experience, a successful checkout preview means that the checkout details are accurate, including shipping fees and taxes, and that the checkout process can proceed to the payment steps.</p>
-<p>Use the response to display the final payment amount to the customer. Once the customer confirms the payment method details and clicks or taps 'Place Order', there will be a greater chance of success.</p>
-<h4 id="checkout-preview-operates-asynchronously"><a href="#checkout-preview-operates-asynchronously" name="checkout-preview-operates-asynchronously" class="anchor"><span class="octicon octicon-link"></span></a>Checkout Preview Operates Asynchronously</h4>
+
+<p>Use the response to display the final payment amount to the customer. Once the customer confirms the payment method details and clicks or taps ‘Place Order’, there will be a greater chance of success.</p>
+
+<h4 id="checkout-preview-operates-asynchronously">Checkout Preview Operates Asynchronously</h4>
+
 <p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a> guide to learn more.</p>
-<h3 id="retrieve-checkout-preview-job"><a href="#retrieve-checkout-preview-job" name="retrieve-checkout-preview-job" class="anchor"><span class="octicon octicon-link"></span></a><a name="retrieve-checkout-preview-job"></a>Retrieve Checkout Preview Job</h3>
+
+<h3 id="retrieve-checkout-preview-job"><a name="retrieve-checkout-preview-job"></a>Retrieve Checkout Preview Job</h3>
+
 <p>After calling <em>Request Checkout Preview</em> and receiving a HTTP 202 response, call <em>Retrieve Checkout Preview Job</em> using the same checkout ID to check the status of your job.</p>
+
 <p>To know if the job is done, check the value of the <strong>status</strong> field in the response body as follows:</p>
+
 <ul>
   <li>
-    <p><code>&quot;status&quot;: &quot;PENDING&quot;</code>: job processing has not started</p>
+    <p><code class="highlighter-rouge">"status": "PENDING"</code>: job processing has not started</p>
   </li>
   <li>
-    <p><code>&quot;status&quot;: &quot;IN_PROGRESS&quot;</code>: job processing in progress</p>
+    <p><code class="highlighter-rouge">"status": "IN_PROGRESS"</code>: job processing in progress</p>
   </li>
   <li>
-    <p><code>&quot;status&quot;: &quot;COMPLETED&quot;</code>: job has completed</p>
+    <p><code class="highlighter-rouge">"status": "COMPLETED"</code>: job has completed</p>
   </li>
 </ul>
+
 <p>Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Preview Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
+
 <blockquote>
-  <p><strong>TIP:</strong> Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.</p>
+  <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
 </blockquote>
-<h3 id="retrieve-checkout-preview-results"><a href="#retrieve-checkout-preview-results" name="retrieve-checkout-preview-results" class="anchor"><span class="octicon octicon-link"></span></a><a name="retrieve-checkout-preview-results"></a>Retrieve Checkout Preview Results</h3>
+
+<h3 id="retrieve-checkout-preview-results"><a name="retrieve-checkout-preview-results"></a>Retrieve Checkout Preview Results</h3>
+
 <p>After calling both the <em>Request Checkout Preview</em> and <em>Retrieve Checkout Preview Job</em> endpoints, you can call this endpoint to retrieve the result of your Checkout Preview request. This step is optional, as the same result is already available in the response from the <em>Retrieve Checkout Submit Job</em> endpoint.</p>
-<h2 id="step-5-submitting-a-checkout"><a href="#step-5-submitting-a-checkout" name="step-5-submitting-a-checkout" class="anchor"><span class="octicon octicon-link"></span></a>Step 5: Submitting a Checkout</h2>
-<h3 id="request-checkout-submit"><a href="#request-checkout-submit" name="request-checkout-submit" class="anchor"><span class="octicon octicon-link"></span></a><a name="request-checkout-submit"></a>Request Checkout Submit</h3>
+
+<h2 id="step-5-submitting-a-checkout">Step 5: Submitting a Checkout</h2>
+
+<h3 id="request-checkout-submit"><a name="request-checkout-submit"></a>Request Checkout Submit</h3>
+
 <p>Call the <em>Request Checkout Submit</em> endpoint when your user is ready to complete their purchase.</p>
-<p><em>Request Checkout Submit</em> performs the final validations of the user's information, requests payment authorization, and if everything succeeds, submits a checkout to Nike for fulfillment.</p>
-<h4 id="considerations"><a href="#considerations" name="considerations" class="anchor"><span class="octicon octicon-link"></span></a>Considerations</h4>
+
+<p><em>Request Checkout Submit</em> performs the final validations of the user’s information, requests payment authorization, and if everything succeeds, submits a checkout to Nike for fulfillment.</p>
+
+<h4 id="considerations">Considerations</h4>
+
 <ul>
   <li>
-    <p>Before calling <em>Request Checkout Submit</em>, you must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview <strong>id</strong>. See the <a href="/doc/commerce/payment/api_payment.html">Payment Domain Developer's Guide</a> for more info.</p>
+    <p>Before calling <em>Request Checkout Submit</em>, you must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview <strong>id</strong>. See the <a href="/doc/commerce/payment/api_payment.html">Payment Domain Developer’s Guide</a> for more info.</p>
   </li>
   <li>
     <p>Calling <em>Request Checkout Preview</em> is not required before calling <em>Request Checkout Submit</em>, but it is recommended in most cases.</p>
@@ -125,41 +194,64 @@
     <p>When calling both the Preview and Submit endpoints in succession for a particular checkout, it is <strong>not</strong> required for you to use the same ID in the URL path (i.e. the checkout identifier) for both calls. However, any ID that you use must not have been used previously, else you will receive an idempotent response for the previously-used ID.</p>
   </li>
 </ul>
-<h4 id="checkout-submit-operates-asynchronously"><a href="#checkout-submit-operates-asynchronously" name="checkout-submit-operates-asynchronously" class="anchor"><span class="octicon octicon-link"></span></a>Checkout Submit Operates Asynchronously</h4>
+
+<h4 id="checkout-submit-operates-asynchronously">Checkout Submit Operates Asynchronously</h4>
+
 <p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a>
 guide to learn more.</p>
-<h3 id="retrieve-checkout-submit-job"><a href="#retrieve-checkout-submit-job" name="retrieve-checkout-submit-job" class="anchor"><span class="octicon octicon-link"></span></a>Retrieve Checkout Submit Job</h3>
+
+<h3 id="retrieve-checkout-submit-job">Retrieve Checkout Submit Job</h3>
+
 <p>After calling the Request Checkout Submit endpoint and receiving a HTTP 202 response, you can call this endpoint using the same checkout ID to check the status of your job.</p>
+
 <p>To know if the job is done, check the value of the <strong>status</strong> field in the response body as follows:</p>
+
 <ul>
   <li>
-    <p><code>&quot;status&quot;: &quot;PENDING&quot;</code>: job processing has not started</p>
+    <p><code class="highlighter-rouge">"status": "PENDING"</code>: job processing has not started</p>
   </li>
   <li>
-    <p><code>&quot;status&quot;: &quot;IN_PROGRESS&quot;</code>: job processing in progress</p>
+    <p><code class="highlighter-rouge">"status": "IN_PROGRESS"</code>: job processing in progress</p>
   </li>
   <li>
-    <p><code>&quot;status&quot;: &quot;COMPLETED&quot;</code>: job has completed</p>
+    <p><code class="highlighter-rouge">"status": "COMPLETED"</code>: job has completed</p>
   </li>
 </ul>
+
 <p>Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
+
 <blockquote>
-  <p><strong>TIP:</strong> Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.</p>
+  <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
 </blockquote>
-<h3 id="retrieve-checkout-results"><a href="#retrieve-checkout-results" name="retrieve-checkout-results" class="anchor"><span class="octicon octicon-link"></span></a><a name="retrieve-checkout-results"></a>Retrieve Checkout Results</h3>
+
+<h3 id="retrieve-checkout-results"><a name="retrieve-checkout-results"></a>Retrieve Checkout Results</h3>
+
 <p>After calling both the Request Checkout Submit and Retrieve Checkout Submit Job endpoints, you can call this endpoint to retrieve the result of your request. This step is optional, as the same result is already available in the response from the Retrieve Checkout Submit Job endpoint.</p>
-<h3 id="request-checkout-submit-launch"><a href="#request-checkout-submit-launch" name="request-checkout-submit-launch" class="anchor"><span class="octicon octicon-link"></span></a><a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)</h3>
+
+<h3 id="request-checkout-submit-launch"><a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)</h3>
+
 <p>The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.</p>
+
 <p>The Launch endpoint has the same contract as the Request Checkout Submit endpoint so for additional details see that section.</p>
-<h2 id="step-6-optional-adding-wish-lists"><a href="#step-6-optional-adding-wish-lists" name="step-6-optional-adding-wish-lists" class="anchor"><span class="octicon octicon-link"></span></a>Step 6 (Optional): Adding Wish Lists</h2>
+
+<h2 id="step-6-optional-adding-wish-lists">Step 6 (Optional): Adding Wish Lists</h2>
+
 <p>Create, read, update and delete a wish list</p>
+
 <p>Get product pricing and availability for items added to the list</p>
+
 <p>Store unlimited Wish Lists per user</p>
+
 <p>Members and employees only. <strong>Guest users may not save Wish Lists</strong></p>
-<h3 id="life-cycle-of-wish-list"><a href="#life-cycle-of-wish-list" name="life-cycle-of-wish-list" class="anchor"><span class="octicon octicon-link"></span></a>Life Cycle of Wish List</h3>
+
+<h3 id="life-cycle-of-wish-list">Life Cycle of Wish List</h3>
+
 <p><img src="/images/commerce/buy/wishlists_flow.png" alt="" /></p>
-<h2 id="api-endpoint-quick-reference"><a href="#api-endpoint-quick-reference" name="api-endpoint-quick-reference" class="anchor"><span class="octicon octicon-link"></span></a><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
-<p><a href="Add payment endpoints here, too">Add payment endpoints here, too</a></p>
+
+<h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+
+<p>[Add payment endpoints here, too]</p>
+
 <p><strong>Carts</strong>
 <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a>
 <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a>
@@ -170,12 +262,15 @@ guide to learn more.</p>
 <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a>
 <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>
 <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a></p>
+
 <p><strong>Cart Reviews</strong>
 <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a></p>
+
 <p><strong>Payment Options</strong>
 <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">GET PAYMENT OPTIONS FOR AN ORDER</a>
 <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>
 <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">VALIDATE PAYMENTS</a></p>
+
 <p><strong>Wish Lists</strong>
 <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>
 <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>
@@ -185,8 +280,10 @@ guide to learn more.</p>
 <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>
 <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>
 <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a></p>
+
 <p><strong>Shipping Options</strong>
 <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a></p>
+
 <p><strong>Checkouts</strong>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a>
@@ -195,32 +292,43 @@ guide to learn more.</p>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a></p>
-<h2 id="sending-your-first-request"><a href="#sending-your-first-request" name="sending-your-first-request" class="anchor"><span class="octicon octicon-link"></span></a><a name="sending-your-first-request"></a>Sending Your First Request</h2>
+
+<h2 id="sending-your-first-request"><a name="sending-your-first-request"></a>Sending Your First Request</h2>
+
 <p>For your first request, send a request to the <em>Create or Update a Cart by Cart ID</em> endpoint of the Carts v2 API and create your first cart.</p>
+
 <p><strong>1. Gather Info for the Request</strong></p>
+
 <p>Our example endpoint, <em>Create or Update a Cart by Cart ID</em>, only supports the HTTP PUT method. To create a cart, send a PUT request with (at minimum) the required request headers and the required parts of the request body.</p>
+
 <p>First, read the <a href="#using-carts-v2">Using Carts</a> section of this document to learn more about the required parts of this request.</p>
+
 <p>Assume that user for whom you are creating the cart is a Nike+ member who has logged in with their Nike+ credentials. This indicates which request headers are required.</p>
+
 <p>For the request headers, the following considerations apply (at minimum):</p>
+
 <ol>
   <li>
-    <p>Always send <code>application/json</code> in both the <strong>Accept</strong> and <strong>Content-Type</strong> headers.</p>
+    <p>Always send <code class="highlighter-rouge">application/json</code> in both the <strong>Accept</strong> and <strong>Content-Type</strong> headers.</p>
   </li>
   <li>
-    <p>Send the user's access token as obtained from Unite services in the <strong>Authorization</strong> header.</p>
+    <p>Send the user’s access token as obtained from Unite services in the <strong>Authorization</strong> header.</p>
   </li>
 </ol>
-<pre><code>Accept: application/json
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {your access token}
-</code></pre>
+</code></pre></div></div>
+
 <p>For the request body, the following considerations apply (at miniumum):</p>
+
 <ol>
   <li>
-    <p>Send a UUID <strong>that you have created</strong> in the <strong>id</strong> field, in this case <code>61bc115b-16e5-43b5-bcaf-dd6168c543f8</code>. This is the cart ID.</p>
+    <p>Send a UUID <strong>that you have created</strong> in the <strong>id</strong> field, in this case <code class="highlighter-rouge">61bc115b-16e5-43b5-bcaf-dd6168c543f8</code>. This is the cart ID.</p>
   </li>
   <li>
-    <p>Send the country code of the country where the user is shopping in the <strong>country</strong> field, in this case, <code>US</code>. Send <code>NIKE</code> in the <strong>brand</strong> field.</p>
+    <p>Send the country code of the country where the user is shopping in the <strong>country</strong> field, in this case, <code class="highlighter-rouge">US</code>. Send <code class="highlighter-rouge">NIKE</code> in the <strong>brand</strong> field.</p>
   </li>
   <li>
     <p>Send a UUID <strong>that you have created, different from above</strong> in the items.<strong>id</strong> field. This is the identifier for the line item in the cart. If you include multiple line items, each must have a unique identifier.</p>
@@ -229,109 +337,139 @@ Authorization: Bearer {your access token}
     <p>Send a valid SKU identifier obtained from the Merchandised Products SKU service in the items.<strong>skuId</strong> field.</p>
   </li>
 </ol>
-<pre><code>{
-  &quot;id&quot;: &quot;61bc115b-16e5-43b5-bcaf-dd6168c543f8&quot;,
-  &quot;country&quot;: &quot;US&quot;,
-  &quot;brand&quot;: &quot;NIKE&quot;,
-  &quot;items&quot;: [
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
+  "country": "US",
+  "brand": "NIKE",
+  "items": [
     {
-      &quot;id&quot;: &quot;9992b8cb-e4ac-42af-a8bb-3454d8509d32&quot;,
-      &quot;skuId&quot;: &quot;1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37&quot;,
-      &quot;quantity&quot;: 1
+      "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
+      "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
+      "quantity": 1
     }
   ]
 }
-</code></pre>
+</code></pre></div></div>
+
 <p><strong>2. Create the URL</strong></p>
-<p>The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is <code>/buy/carts/v2/{id}</code>.</p>
-<p>To build the full URL, prepend <code>https://api.nike.com</code> to the above path, then append  <strong>id</strong> after &quot;v2&quot;. The <strong>id</strong> is the cart identifier you passed in the request body.</p>
-<p>The complete URL is then <a href="https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8">https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8</a>.</p>
+
+<p>The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is <code class="highlighter-rouge">/buy/carts/v2/{id}</code>.</p>
+
+<p>To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path, then append  <strong>id</strong> after “v2”. The <strong>id</strong> is the cart identifier you passed in the request body.</p>
+
+<p>The complete URL is then https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8.</p>
+
 <p><strong>3. Execute the request</strong></p>
+
 <p>Execute the request with a cURL command. Using the values gathered in steps 1 and 2, the final cURL command is:</p>
-<pre><code>curl -X PUT \
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X PUT \
   https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {your access token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
-     &quot;id&quot;: &quot;61bc115b-16e5-43b5-bcaf-dd6168c543f8&quot;,
-     &quot;country&quot;: &quot;US&quot;,
-     &quot;brand&quot;: &quot;NIKE&quot;,
-     &quot;items&quot;: [
+     "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
+     "country": "US",
+     "brand": "NIKE",
+     "items": [
        {
-         &quot;id&quot;: &quot;9992b8cb-e4ac-42af-a8bb-3454d8509d32&quot;,
-         &quot;skuId&quot;: &quot;1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37&quot;,
-         &quot;quantity&quot;: 1
+         "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
+         "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
+         "quantity": 1
        }
      ]
 }'
-</code></pre>
+</code></pre></div></div>
+
 <p><strong>4. Parse the Response</strong></p>
+
 <p>Assuming no errors, you will receive a response body similar to the following:</p>
-<pre><code>{
-    &quot;id&quot;: &quot;61bc115b-16e5-43b5-bcaf-dd6168c543f8&quot;,
-    &quot;country&quot;: &quot;US&quot;,
-    &quot;currency&quot;: &quot;USD&quot;,
-    &quot;brand&quot;: &quot;NIKE&quot;,
-    &quot;totals&quot;: {
-        &quot;subtotal&quot;: 130,
-        &quot;discountTotal&quot;: 0,
-        &quot;valueAddedServicesTotal&quot;: 0,
-        &quot;total&quot;: 130,
-        &quot;quantity&quot;: 1
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
+    "country": "US",
+    "currency": "USD",
+    "brand": "NIKE",
+    "totals": {
+        "subtotal": 130,
+        "discountTotal": 0,
+        "valueAddedServicesTotal": 0,
+        "total": 130,
+        "quantity": 1
     },
-    &quot;items&quot;: [
+    "items": [
         {
-            &quot;id&quot;: &quot;9992b8cb-e4ac-42af-a8bb-3454d8509d32&quot;,
-            &quot;skuId&quot;: &quot;1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37&quot;,
-            &quot;quantity&quot;: 1,
-            &quot;priceInfo&quot;: {
-                &quot;price&quot;: 130,
-                &quot;subtotal&quot;: 130,
-                &quot;discount&quot;: 0,
-                &quot;valueAddedServices&quot;: 0,
-                &quot;total&quot;: 130,
-                &quot;priceSnapshotId&quot;: &quot;d5d8dbed-afba-4677-9904-e9712fa3ecb9&quot;,
-                &quot;msrp&quot;: 130,
-                &quot;fullPrice&quot;: 130
+            "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
+            "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
+            "quantity": 1,
+            "priceInfo": {
+                "price": 130,
+                "subtotal": 130,
+                "discount": 0,
+                "valueAddedServices": 0,
+                "total": 130,
+                "priceSnapshotId": "d5d8dbed-afba-4677-9904-e9712fa3ecb9",
+                "msrp": 130,
+                "fullPrice": 130
             }
         }
     ],
-    &quot;links&quot;: {
-        &quot;self&quot;: {
-            &quot;ref&quot;: &quot;/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8&quot;
+    "links": {
+        "self": {
+            "ref": "/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8"
         }
     },
-    &quot;resourceType&quot;: &quot;cart&quot;
+    "resourceType": "cart"
 }
-</code></pre>
+</code></pre></div></div>
+
 <p>Some values in the response are exactly what you sent in the request, but the values in the <strong>totals</strong> section provide a cart pricing summary and the values in items.<strong>priceInfo</strong> section provide the current item pricing details.</p>
+
 <p><strong>Another Example</strong></p>
+
 <p>For your next request, send a GET request to the <em>Get a Cart for a Cart ID</em> endpoint of the Carts v2 API, using the cart <strong>id</strong> that you created in the previous step.</p>
+
 <p>Refer to the <a href="#using-carts-v2">Using Carts v2</a> section of this document to find the required parts of this request.</p>
+
 <p>For the request headers, use the same headers you used in the previous step.</p>
+
 <blockquote>
   <p>Note: There is no request body needed for a GET request.</p>
 </blockquote>
-<p>The complete URL is <a href="https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8">https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8</a>. Note that the same cart <strong>id</strong> that you created for the previous PUT request is at the end of the URL.</p>
+
+<p>The complete URL is https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8. Note that the same cart <strong>id</strong> that you created for the previous PUT request is at the end of the URL.</p>
+
 <p>The final cURL is:</p>
-<pre><code>curl -X GET \
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
   https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {your access token}' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json'
-</code></pre>
+</code></pre></div></div>
+
 <p>The response body from the <em>Get a Cart for a Cart ID</em> endpoint is the same as <em>Create or Update a Cart by Cart ID</em>, so the process of parsing it is also the same.</p>
-<h2 id="best-practices"><a href="#best-practices" name="best-practices" class="anchor"><span class="octicon octicon-link"></span></a><a name="best-practices"></a>Best Practices</h2>
-<h3 id="conditions-for-retries"><a href="#conditions-for-retries" name="conditions-for-retries" class="anchor"><span class="octicon octicon-link"></span></a>Conditions for Retries</h3>
+
+<h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
+
+<h3 id="conditions-for-retries">Conditions for Retries</h3>
+
 <p>For retry information by Checkout endpoint, visit <a href="https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients" target="_blank">Retry Patterns for Checkout Clients</a> in Confluence.</p>
-<p>For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
-<h3 id="honor-the-etas-for-best-performance"><a href="#honor-the-etas-for-best-performance" name="honor-the-etas-for-best-performance" class="anchor"><span class="octicon octicon-link"></span></a>Honor the ETAs for Best Performance</h3>
+
+<p>For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
+
+<h3 id="honor-the-etas-for-best-performance">Honor the ETAs for Best Performance</h3>
+
 <p>For async endpoints that return an ETA, i.e. the estimated time for the job to be completed, it is important for your app to honor the ETA for best performance. For example, if the ETA is 2000ms, your app should wait 2000ms to start polling the /jobs endpoint to avoid consuming network and other resources unnecessarily.</p>
-<h3 id="test-scenarios"><a href="#test-scenarios" name="test-scenarios" class="anchor"><span class="octicon octicon-link"></span></a>Test Scenarios</h3>
+
+<h3 id="test-scenarios">Test Scenarios</h3>
+
 <p>Here is an example list of test scenarios for a user experience that is integrating with the Checkout APIs. Note: in this context, inline refers to a regular Nike product as opposed to a customized Nike iD product.</p>
+
 <ul>
   <li>
     <p>Single Item (Inline) - Single Payment (Credit Card)</p>
@@ -364,71 +502,109 @@ Authorization: Bearer {your access token}
     <p>Mixed Items (Inline &amp; NikeID) - Multiple Payment (Credit Card &amp; Gift Card)</p>
   </li>
 </ul>
-<p>Additionally, it's useful to add scenarios for multi-quantity (i.e. quantity &gt; 1) for Inline items, as well as scenarios with multiple Nike iD items in same checkout.</p>
+
+<p>Additionally, it’s useful to add scenarios for multi-quantity (i.e. quantity &gt; 1) for Inline items, as well as scenarios with multiple Nike iD items in same checkout.</p>
+
 <blockquote>
-  <p><strong>TIP:</strong> While inspecting browser activity on <a href="http://www.nike.com/launch">www.nike.com/launch</a>, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.</p>
+  <p><strong>TIP:</strong> While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.</p>
 </blockquote>
-<h3 id="test-environment"><a href="#test-environment" name="test-environment" class="anchor"><span class="octicon octicon-link"></span></a>Test Environment</h3>
-<p>It is recommended to test all Checkout endpoints in the production environment as opposed to the test environment. Using the test environment can have unpredictable results due to the many downstream services which these endpoints are reliant upon in order to provide typical 'production-like' responses.</p>
+
+<h3 id="test-environment">Test Environment</h3>
+
+<p>It is recommended to test all Checkout endpoints in the production environment as opposed to the test environment. Using the test environment can have unpredictable results due to the many downstream services which these endpoints are reliant upon in order to provide typical ‘production-like’ responses.</p>
+
 <p>There are boundaries for testing in production:</p>
+
 <ul>
   <li>
     <p>Performance tests at high volumes should never be done in production.</p>
   </li>
   <li>
-    <p>Calling 'Request a Checkout Submit' in production can result in actual Nike orders being sent for fulfillment, and actual payment methods being authorized and/or charged. Proceed with caution.</p>
+    <p>Calling ‘Request a Checkout Submit’ in production can result in actual Nike orders being sent for fulfillment, and actual payment methods being authorized and/or charged. Proceed with caution.</p>
   </li>
 </ul>
-<h3 id="caching-data"><a href="#caching-data" name="caching-data" class="anchor"><span class="octicon octicon-link"></span></a>Caching Data</h3>
+
+<h3 id="caching-data">Caching Data</h3>
+
 <p>None of the endpoints described in this document support caching.</p>
-<h3 id="error-handling-which-json-field-had-the-error"><a href="#error-handling-which-json-field-had-the-error" name="error-handling-which-json-field-had-the-error" class="anchor"><span class="octicon octicon-link"></span></a>Error Handling: Which JSON Field Had The Error?</h3>
+
+<h3 id="error-handling-which-json-field-had-the-error">Error Handling: Which JSON Field Had The Error?</h3>
+
 <p>In error responses from APIs, Nike uses the <a href="https://tools.ietf.org/html/rfc6901" target="_blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.</p>
+
 <p>However, not all Checkout APIs are the same in this regard. This is due to some APIs having been built before Nike decided to use JSON Pointer standard.</p>
+
 <p>For example, error responses from the Checkouts v2 API will vary from error responses from the Carts API.</p>
+
 <p>Examples of both:</p>
+
 <p>Checkouts (built before adopting JSON Pointer standard):</p>
-<pre><code>{
-    &quot;message&quot;: &quot;Validation Failed&quot;,
-    &quot;errors&quot;: [{
-        &quot;field&quot;: &quot;request.items[0].contactInfo.email&quot;,
-        &quot;code&quot;: &quot;INVALID_EMAIL&quot;,
-        &quot;message&quot;: &quot;Invalid email&quot;
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "message": "Validation Failed",
+    "errors": [{
+        "field": "request.items[0].contactInfo.email",
+        "code": "INVALID_EMAIL",
+        "message": "Invalid email"
     }]
 }
-</code></pre>
+</code></pre></div></div>
+
 <p>Carts (built after adopting JSON Pointer standard):</p>
-<pre><code>{
-    &quot;message&quot;: &quot;Validation Failed&quot;,
-    &quot;errors&quot;: [{
-        &quot;field&quot;: &quot;/request/items/0/contactInfo/email&quot;,
-        &quot;code&quot;: &quot;INVALID_EMAIL&quot;,
-        &quot;message&quot;: &quot;Invalid email&quot;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "message": "Validation Failed",
+    "errors": [{
+        "field": "/request/items/0/contactInfo/email",
+        "code": "INVALID_EMAIL",
+        "message": "Invalid email"
     }]
 }
-</code></pre>
+</code></pre></div></div>
+
 <p>If you are a client of both of the above APIs, you will need to parse error responses in two different ways.</p>
-<h2 id="troubleshooting"><a href="#troubleshooting" name="troubleshooting" class="anchor"><span class="octicon octicon-link"></span></a><a name="troubleshooting"></a>Troubleshooting</h2>
+
+<h2 id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</h2>
+
 <blockquote>
   <p><strong>TIP:</strong> SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second <em>for the API overall</em> were shown. Ask the Product Owner to get specific SLA info for each endpoint.</p>
 </blockquote>
-<h2 id="terms-of-service"><a href="#terms-of-service" name="terms-of-service" class="anchor"><span class="octicon octicon-link"></span></a><a name="terms-of-service"></a>Terms of Service</h2>
+
+<h2 id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</h2>
+
 <p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the <a href="/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
-<h3 id="authorization"><a href="#authorization" name="authorization" class="anchor"><span class="octicon octicon-link"></span></a><a name="authorization"></a>Authorization</h3>
-<h4 id="access-tokens"><a href="#access-tokens" name="access-tokens" class="anchor"><span class="octicon octicon-link"></span></a>Access Tokens</h4>
+
+<h3 id="authorization"><a name="authorization"></a>Authorization</h3>
+
+<h4 id="access-tokens">Access Tokens</h4>
+
 <p>Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user.</p>
+
 <p>Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.</p>
+
 <p>To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the <a href="/doc/getting-started/using_nike_apis.html#authorization">Using NDe APIs</a> guide.</p>
-<h4 id="json-web-token"><a href="#json-web-token" name="json-web-token" class="anchor"><span class="octicon octicon-link"></span></a>JSON Web Token</h4>
+
+<h4 id="json-web-token">JSON Web Token</h4>
+
 <p>Only one endpoint in the Buy APIs, <em>Launch Checkout Submit</em>, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of <a href="/doc/getting-started/using_nike_apis.html#jwt-json-web-token">Using NDe APIs</a>.</p>
+
 <p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
-<h3 id="example-implementation-diagram"><a href="#example-implementation-diagram" name="example-implementation-diagram" class="anchor"><span class="octicon octicon-link"></span></a><a name="example-implementation-diagram"></a>Example Implementation Diagram</h3>
+
+<h3 id="example-implementation-diagram"><a name="example-implementation-diagram"></a>Example Implementation Diagram</h3>
+
 <p>Here is an example of a sequence of API calls to execute an entire checkout:</p>
+
 <p><img src="/images/commerce/buy/checkout_seq_dgm.png" alt="" /></p>
-<br>
-<h3 id="sample-requests"><a href="#sample-requests" name="sample-requests" class="anchor"><span class="octicon octicon-link"></span></a>Sample Requests</h3>
+
+<p><br /></p>
+
+<h3 id="sample-requests">Sample Requests</h3>
+
 <p>The sample requests included throughout this guide often contain unique IDs and access tokens that are spent/expired in the Production environment, so you will not be able to copy and use them as-is for testing purposes. However, since other values in the request may still be valid and thus reusable, it may be convenient for you to copy the samples and change only the spent/expired values.</p>
-<h3 id="user-types"><a href="#user-types" name="user-types" class="anchor"><span class="octicon octicon-link"></span></a>User Types</h3>
+
+<h3 id="user-types">User Types</h3>
+
 <p>The Nike Checkout APIs support 3 distinct user types:</p>
+
 <ul>
   <li>
     <p>Member: user has logged in with their Nike+ account credentials</p>
@@ -440,27 +616,52 @@ Authorization: Bearer {your access token}
     <p>Employee: user is an employee of Nike or a subsidiary and has logged in with swoosh.com credentials (also known as Swoosh user type)</p>
   </li>
 </ul>
+
 <p>Depending on user type, certain aspects of the calls that you make to the Checkout APIs might need to be modified. This will be called out whenever applicable in the detailed endpoint sections which follow in this guide. Also, consider that not all user types might apply to your app (e.g. you might only support Members).</p>
+
 <p>See the User Types section of the <a href="/doc/getting-started/using_nike_apis.html#user-types">Using NDe APIs</a> guide for more information.</p>
-<h3 id="idempotence"><a href="#idempotence" name="idempotence" class="anchor"><span class="octicon octicon-link"></span></a>Idempotence</h3>
-<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="_blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let's break it down.</p>
+
+<h3 id="idempotence">Idempotence</h3>
+
+<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="_blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let’s break it down.</p>
+
 <p>Each PUT request to <em>Request Checkout Preview</em> and <em>Request a Checkout Submit</em> includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body.</p>
+
 <p>There are 4 possible scenarios:</p>
+
 <table>
   <thead>
-    <tr><th>Scenario</th><th>Result</th></tr>
+    <tr>
+      <th>Scenario</th>
+      <th>Result</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td>UUID and Entity are new to the system (base use case)</td><td>Client receives HTTP 202 response, request processed as new job</td></tr>
-    <tr><td>UUID and Entity match a prior request</td><td>Client receives the exact same HTTP 202 response from the prior request (no new job processed)</td></tr>
-    <tr><td>UUID used previously, Entity is new</td><td>Client receives HTTP 409 error response (no new job processed)</td></tr>
-    <tr><td>UUID is new, Entity previously submitted under another UUID</td><td>Client receives HTTP 202 response, request processed as new job</td></tr>
+    <tr>
+      <td>UUID and Entity are new to the system (base use case)</td>
+      <td>Client receives HTTP 202 response, request processed as new job</td>
+    </tr>
+    <tr>
+      <td>UUID and Entity match a prior request</td>
+      <td>Client receives the exact same HTTP 202 response from the prior request (no new job processed)</td>
+    </tr>
+    <tr>
+      <td>UUID used previously, Entity is new</td>
+      <td>Client receives HTTP 409 error response (no new job processed)</td>
+    </tr>
+    <tr>
+      <td>UUID is new, Entity previously submitted under another UUID</td>
+      <td>Client receives HTTP 202 response, request processed as new job</td>
+    </tr>
   </tbody>
 </table>
+
 <blockquote>
   <p><strong>TIP:</strong> For more, see the Idempotence Guarantee section of the <a href="/doc/getting-started/using_nike_apis.html#idempotence-guarantee">Using NDe APIs</a> guide.</p>
 </blockquote>
-<h3 id="use-troubleshooting-tools"><a href="#use-troubleshooting-tools" name="use-troubleshooting-tools" class="anchor"><span class="octicon octicon-link"></span></a><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
+
+<h3 id="use-troubleshooting-tools"><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
+
 <ul>
   <li>
     <p>Use the general troubleshooting tips in the <a href="/doc/getting-started/using_nike_apis.html#troubleshooting">Using NDe APIs</a> guide.</p>
@@ -472,26 +673,86 @@ Authorization: Bearer {your access token}
     <p>Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a> Slack channel for assistance.</p>
   </li>
 </ul>
-<h3 id="common-questions"><a href="#common-questions" name="common-questions" class="anchor"><span class="octicon octicon-link"></span></a><a name="common-questions"></a>Common Questions</h3>
+
+<h3 id="common-questions"><a name="common-questions"></a>Common Questions</h3>
+
 <p><strong>Is it okay to call Checkout APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
-<p>Yes. The APIs are exposed publicly so it shouldn't matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to us for help.</p>
+
+<p>Yes. The APIs are exposed publicly so it shouldn’t matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to us for help.</p>
+
 <p><strong>My Checkout Submit job is taking a long time to complete. What gives?</strong></p>
-<p>Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of which is somewhat unpredictable. Depending on the total volume of requests happening at the time your request was submitted, combined with the payment method and shipping country selected by the user, it may take several seconds to get a completed job. Best case is about 5 seconds, worst case can be well over a minute. If the job times out, you will get a 'completed with error' job status.</p>
-<h2 id="glossary"><a href="#glossary" name="glossary" class="anchor"><span class="octicon octicon-link"></span></a><a name="glossary"></a>Glossary</h2>
+
+<p>Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of which is somewhat unpredictable. Depending on the total volume of requests happening at the time your request was submitted, combined with the payment method and shipping country selected by the user, it may take several seconds to get a completed job. Best case is about 5 seconds, worst case can be well over a minute. If the job times out, you will get a ‘completed with error’ job status.</p>
+
+<h2 id="glossary"><a name="glossary"></a>Glossary</h2>
+
 <p>See the <a href="/doc/getting-started/glossary.html">Glossary</a></p>
-<h2 id="document-change-log"><a href="#document-change-log" name="document-change-log" class="anchor"><span class="octicon octicon-link"></span></a><a name="document-change-log"></a>Document Change Log</h2>
+
+<h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
+
 <table>
   <thead>
-    <tr><th>Summary </th><th>Date </th><th>Description</th></tr>
+    <tr>
+      <th>Summary</th>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td>Initial draft</td><td>08/30/2018</td><td>Initial Draft</td></tr>
+    <tr>
+      <td>Initial draft</td>
+      <td>08/30/2018</td>
+      <td>Initial Draft</td>
+    </tr>
   </tbody>
 </table>
-<h2 id="related-links"><a href="#related-links" name="related-links" class="anchor"><span class="octicon octicon-link"></span></a><a name="related-links"></a>Related Links</h2>
+
+<h2 id="related-links"><a name="related-links"></a>Related Links</h2>
+
 <p><a href="/index.html">NDe Documentation Home</a></p>
+
 <p><a href="/doc/portal/consuming.html">Getting Started</a></p>
+
 <p><a href="/doc/portal/biz-guides.html">Business Guides</a></p>
-<p><a href="/doc/portal/dev-guides.html">Developer's Guides</a></p>
-</body>
+
+<p><a href="/doc/portal/dev-guides.html">Developer’s Guides</a></p>
+
+    </div>
+    <!--
+<header>
+         <div class="sidebar-header">NDe Documentation</div>
+
+         <form action="/search/" method="get">
+             <input type="text" name="q" id="search-input" placeholder="Search">
+             <input type="submit" value="Search" style="display: none;">
+         </form>
+
+
+            <div id="sidebar" class="sidebar">
+
+	
+	
+		
+			<section>
+				<h6></h6>
+				<ul>
+					
+					
+				</ul>
+			</section>
+		
+	
+		
+	
+
+</div>
+
+   </header>
+   <script>
+           document.getElementById("open-nav").addEventListener("click", function () {
+               document.body.classList.toggle("nav-open");
+           });
+       </script>
+         -->
+   </body>
 </html>
