@@ -1,12 +1,6 @@
 ---
 ---
 
-<!--
-See Bitbucket (link to .md in APID repository) for version history of this document.
-Author: Jane Moore
-SME Consultants: Jeremy Myrland, Cameron Hinkle, Patti Cousins
--->
-
 # <a href="#understanding-your-e-commerce-search-results-draft"></a><span class="new-indicator-lg"><span>UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS
 
 ##### <a name="last-updated"></a>Last Updated: 8/7/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
