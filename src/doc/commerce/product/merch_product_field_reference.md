@@ -1,11 +1,6 @@
 ---
 ---
 
-<!--
-See Bitbucket (https://bitbucket.nike.com/projects/APID/repos/api-docs/browse/commerce/product/api_merch_product_reference.md) for version history of this document.
-Author:  Jane Moore
--->
-
 # MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i> (DRAFT)
 
 ##### Last Updated: 05/24/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>

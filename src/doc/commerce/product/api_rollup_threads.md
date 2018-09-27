@@ -1,11 +1,6 @@
 ---
 ---
 
-<!--
-Author: Benjamin Frick
-SME Consultants: Mark Keller, Andy Sun, Mitchell Waters
--->
-
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
 ##### Last Updated: 7/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
