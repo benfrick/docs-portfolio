@@ -2139,7 +2139,7 @@ Retrieve header info for all lists for a single authenticated user with this end
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Limit the results to those matching the specified filters *  country (string, required) - ISO 3166 country code(s)</li> *  name (string, optional) - List name </li>|String|**Required**|
+|**filter**|Query|Limit the results to those matching the specified filters *  country (string, required) - ISO 3166 country code(s) *  name (string, optional) - List name |String|**Required**|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
 
 #### <a name="retrieve-auth-request-headers"></a>Request Headers
@@ -2401,7 +2401,7 @@ Retrieve all items in a list by its list identifier, which you previously create
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Limit the results to those matching the specified filters  *  wishlistId (required) List identifier, e.g. `93a333a2-907b-46f1-b9ac-469489909057` </li>|String|Required|
+|**filter**|Query|Limit the results to those matching the specified filters  *  wishlistId (required) List identifier, e.g. `93a333a2-907b-46f1-b9ac-469489909057` |String|Required|
 |**anchor**|Query|Return elements after this anchor|String|Optional|
 |**count**|Query|Number of items to return per response|String|Optional|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list item contents.|String|Optional|
