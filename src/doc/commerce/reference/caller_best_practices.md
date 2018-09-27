@@ -67,7 +67,7 @@ Listed below are the best practices for calling each Buy service.
 |Topic|Best Practice|
 |---|---|
 |**Validation**|Pass in all Checkout items and a valid two-digit ISO country. When updating an existing cart, ensure the request brand, channel and region matches the saved cart.|
-|**Performance**|Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.</li><br>When updating the cart, use the PATCH method instead of PUT for best performance.</li>|
+|**Performance**|Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.<br>When updating the cart, use the PATCH method instead of PUT for best performance.|
 |**Circuit breaker trigger**|Carts repeated call failure to the Merchandised Product, Merchandised Skus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation can open the circuit.|
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|None|

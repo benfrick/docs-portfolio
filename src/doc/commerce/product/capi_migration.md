@@ -508,7 +508,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |results.product.**athletes**|Kobe Bryant|productInfo.productContent.athletes.**value**, *.**localizedValue**|Carmelo Anthony|Feeds: Threads List|
 |results.product.**tagline**|N/A|N/A|N/A|N/A|
 |results.product.**benefitsBullets**|N/A|N/A|N/A|N/A|
-|results.product.**benefits**|Benefits / long description|productInfo.productContent.**description**|<p><b>Benefits</b></p><br>Leather, synthetic leather or textile upper depending on color</li>|Feeds: Threads List|
+|results.product.**benefits**|Benefits / long description|productInfo.productContent.**description**|<p><b>Benefits</b></p>Leather, synthetic leather or textile upper depending on color|Feeds: Threads List|
 |results.product.**sizeAndFit**|mens-shoe-sizing-chart|productInfo.productContent.**sizeChart**|mens-shoe-sizing-chart|Feeds: Threads List|
 |results.product.**techSpec**|N/A|productInfo.productContent.**techSpec**|N/A|Feeds: Threads List|
 |results.product.**shoeTechnologies**|Lunarlon|productInfo.merchProduct.**sportTags**|Lunarlon|Feeds: Threads List|
