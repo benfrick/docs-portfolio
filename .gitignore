@@ -49,4 +49,7 @@ client/swagger-editor
 junit.xml
 *.iml
 .sass-cache/
-.jekyll-metadata
+/src/.jekyll-metadata
+/content/robots.txt
+/content/sitemap.xml
+
