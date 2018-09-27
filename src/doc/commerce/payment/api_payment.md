@@ -149,10 +149,10 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 |Topic|Details|
 |---|---|
-|Use this API to|<li>list payment options<li>save payment methods<li>initiate a PayPal Billing Agreement<li>initiate an ApplePay payment<li>allocate payment amount across payment types<li>validate and authorize payment|
+|Use this API to|List payment options<br>Save payment methods<br>Initiate a PayPal Billing Agreement<br>Initiate an ApplePay payment<br>Allocate payment amount across payment types<br>Validate and authorize payment|
 |Who calls this API|SNKRS app (Web/iOS/Android), Nike app (iOS/Android), Nike.com|
-|Version|<li>Payment ApplePay v2<li>Payment Approval v2<li>Payment Credit Card Submit v1<li>Payment Deferred Payment v1<li>Payment Options v2<li>Payment Preview v2<li>Stored Payment v1<li>Payment Wallet v1|
-|SLA response time (rt) and requests per second (rps)|<li>Payment Applepay rt: 350ms rps:40<li>Payment Approval rt: 250ms rps: 200<li>Payment Credit Card Submit ?ms<li>Payment Deferred Payment ?ms<li>Payment Options rt: 250ms rps:700<li>Payment Preview rt: 250ms rps:300<li>Stored Payment ?ms<li>Payment Wallet rt: 300ms rps: 200|
+|Version|<br>Payment ApplePay v2<br>Payment Approval v2<br>Payment Credit Card Submit v1<br>Payment Deferred Payment v1<br>Payment Options v2<br>Payment Preview v2<br>Stored Payment v1<br>Payment Wallet v1|
+|SLA response time (rt) and requests per second (rps)|<br>Payment Applepay rt: 350ms rps:40<br>Payment Approval rt: 250ms rps: 200<br>Payment Credit Card Submit ?ms<br>Payment Deferred Payment ?ms<br>Payment Options rt: 250ms rps:700<br>Payment Preview rt: 250ms rps:300<br>Stored Payment ?ms<br>Payment Wallet rt: 300ms rps: 200|
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
 |Contact Info|Slack #cic-payment<br>Confluence space: <a href="https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook" target="_blank">CiC Payment</a><br><a name="product-owner"></a>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
@@ -4458,11 +4458,11 @@ For example, the SNKRs Web experience calls this endpoint after calling Apple Pa
 
 Prerequisites for the customer who wishes to pay by ApplePay on a Safari Web Browser assumes the customer has:
 
-<li>access to a Mac and either an iPhone, iWatch, or iPad
-<li>installed latest macOS Sierra on Mac
-<li>installed iOS 10 on iPhone, iWatch, or iPad
-<li>set up Apple Pay on iPhone, iWatch, or iPad
-<li>logged into the same iCloud account on their Mac as on their iPhone, iWatch, or iPad
+<br>access to a Mac and either an iPhone, iWatch, or iPad
+<br>installed latest macOS Sierra on Mac
+<br>installed iOS 10 on iPhone, iWatch, or iPad
+<br>set up Apple Pay on iPhone, iWatch, or iPad
+<br>logged into the same iCloud account on their Mac as on their iPhone, iWatch, or iPad
 
 The customer must complete this checklist in order for the Pay with Apple Pay button to display on SNKRs Web in Safari.
 

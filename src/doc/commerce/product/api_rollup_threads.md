@@ -51,7 +51,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |Who calls this API?|Bootroom, Nike.com, Nike Running Club app (future)|
 |Versions|v2|
 |Supported Locales|See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping</a>|
-|SLA|<li>Response time: 500ms <li>Requests per second: 5 max (via edge router constraint)|
+|SLA|<br>Response time: 500ms <br>Requests per second: 5 max (via edge router constraint)|
 |Domain|Commerce|
 |Prerequisites|API Registration|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)<br>Apollo Product Owner: [Patricia Cousins](mailto:patricia.cousins@nike.com)|
