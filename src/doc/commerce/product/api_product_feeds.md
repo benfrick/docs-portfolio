@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 3
+title: Product Feeds
+url: /commerce/product/api_product_feeds.html
 ---
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE

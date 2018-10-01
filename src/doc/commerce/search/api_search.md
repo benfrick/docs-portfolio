@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 6
+title: eCommerce Search
+url: /commerce/search/api_search.html
 ---
 
 # <a href="#understanding-your-e-commerce-search-results-draft"></a><span class="new-indicator-lg"><span>UNDERSTANDING YOUR E-COMMERCE SEARCH RESULTS

@@ -1,45 +1,41 @@
 <div id="sidebar" class="sidebar">
-
-	{% assign sorted_collections = site.collections | sort: "position" %}
-	{% for collection in sorted_collections %}
-		{% if collection.label != "posts" %}
-			<section>
-				<h6>{{ collection.title }}</h6>
+	<section>
+		<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>{{ page.toctitle }}</a></h6>
+		<ul>
+			{% assign sorted_pages = site.pages | sort: "position" %}
+			{% for doc in sorted_pages %}
+			{% if doc.label != "posts" and doc.category == "usecase" %}
+			<li>
+				<a href="{{ doc.url }}" class="{% if doc.url == page.url %}active{% endif %}">
+					{{ doc.title }}
+					{% if doc.type %}<span class="endpoint {{ doc.type }}"></span>{% endif %}
+				</a>
+				{% if doc.url == page.url and doc.toc and doc.toc[0] %}
 				<ul>
-					{% assign sorted_docs = collection.docs | sort: "position" %}
-					{% for doc in sorted_docs %}
+					{% for firstlevel in doc.toc %}
+					<li>
+						<a href="{{ firstlevel.url }}"
+						   class="{% if page.url == firstlevel.url %}active{% endif %}">{{
+							firstlevel.h2 }}</a>
+					</li>
+					{% if firstlevel.subheadings[0] %}
+					<ul>
+						{% for secondlevel in firstlevel.subheadings %}
 						<li>
-							<a href="{{ doc.url }}" class="{% if doc.url == page.url %}active{% endif %}">
-								{{ doc.title }}
-								{% if doc.type %}<span class="endpoint {{ doc.type }}"></span>{% endif %}
-							</a>
-							{% if doc.url == page.url and doc.toc and doc.toc[0] %}
-							    <ul>
-								{% for firstlevel in doc.toc %}
-									<li>
-									<a href="{{ firstlevel.url }}"
-										   		class="{% if page.url == firstlevel.url %}active{% endif %}">{{
-										firstlevel.h2 }}</a>
-									</li>
-									{% if firstlevel.subheadings[0] %}
-										<ul>
-										{% for secondlevel in firstlevel.subheadings %}
-											<li>
-												<a href="{{ secondlevel.url }}"
-											   class="{% if page.url == secondlevel.url %}active{% endif %}">{{
-													secondlevel.h3}}</a>
-											</li>
-										{% endfor %}
-										</ul>
-									{% endif %}
-								{% endfor %}
-								</ul>
-							{% endif %}
+							<a href="{{ secondlevel.url }}"
+							   class="{% if page.url == secondlevel.url %}active{% endif %}">{{
+								secondlevel.h3}}</a>
 						</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
 					{% endfor %}
 				</ul>
-			</section>
-		{% endif %}
-	{% endfor %}
-
+				{% endif %}
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</section>
 </div>
