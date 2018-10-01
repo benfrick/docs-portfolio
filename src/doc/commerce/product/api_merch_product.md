@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 5
+title: Merch Product
+url: /commerce/product/api_merch_product.html
 ---
 
 # MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE

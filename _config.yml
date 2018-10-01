@@ -22,6 +22,7 @@ defaults:
       path: ""
     values:
       layout: two_column
+      toctitle: "NDe Docs Home"
 
 kramdown:
   # parse markdown inside block-level HTML tag
