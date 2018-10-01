@@ -51,4 +51,5 @@ junit.xml
 .sass-cache/
 /src/.jekyll-metadata
 /content/robots.txt
+/content/sitemap.xml
 

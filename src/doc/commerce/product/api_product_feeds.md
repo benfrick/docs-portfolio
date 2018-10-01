@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 3
+title: Product Feeds
+url: /commerce/product/api_product_feeds.html
 ---
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
@@ -1025,7 +1029,7 @@ Sample *Threads List* response body (HTTP 200):
                         "type": "card",
                         "subType": "text",
                         "properties": {
-                            "body": "<p></p><ul><li>Premium kangaroo leather upper supported by an internal midfoot cage for unparalleled lockdown<br></li><li>Kangaroo leather with All Conditions Control (ACC) technology provides unrivaled ball touch and consistent control in dry or wet weather<br></li><li>Flexible plate moves with your foot for stability, traction<span> and comfort</span><br></li><li>Conical and bladed stud configuration enhances traction and underfoot ball control<br></li><li>Internal silicone dot grid grips the insole to prevent slipping<br></li></ul><p></p>",
+                            "body": "<p></p><ul><br>Premium kangaroo leather upper supported by an internal midfoot cage for unparalleled lockdown<br><br>Kangaroo leather with All Conditions Control (ACC) technology provides unrivaled ball touch and consistent control in dry or wet weather<br><br>Flexible plate moves with your foot for stability, traction<span> and comfort</span><br><br>Conical and bladed stud configuration enhances traction and underfoot ball control<br><br>Internal silicone dot grid grips the insole to prevent slipping<br></ul><p></p>",
                             "title": "BENEFITS",
                             "subtitle": ""
                         }
@@ -1278,7 +1282,7 @@ Sample *Threads List* response body (HTTP 200):
                         "title": "Nike Tiempo Legend VI SE FG",
                         "subtitle": "Firm-Ground Soccer Cleat",
                         "descriptionHeading": "DOMINATING TOUCH STARTS FROM WITHIN",
-                        "description": "<div class=\"pi-tier3\"><div class=\"pi-pdpmainbody\"><p><b>DOMINATING TOUCH STARTS FROM WITHIN</b></p><br><p>Equipped with innovations that bring your foot closer to the ball than ever, the Nike Tiempo Legend VI SE Firm-Ground Soccer Cleat is made with weather-resistant technologies and premium leather to truly dominate on the field.</p><br><p><b>Benefits</b></p><li>Premium kangaroo leather offers exceptional ball touch</li><li>TPU plate with conical and bladed cleats for stability and multidirectional traction</li><li>All Conditions Control (ACC) technology enhances touch and control in dry or wet weather</li><li>Firm-ground (FG) cleats for use on short-grass fields that may be slightly wet but rarely muddy</li></div></div>",
+                        "description": "<div class=\"pi-tier3\"><div class=\"pi-pdpmainbody\"><p><b>DOMINATING TOUCH STARTS FROM WITHIN</b></p><br><p>Equipped with innovations that bring your foot closer to the ball than ever, the Nike Tiempo Legend VI SE Firm-Ground Soccer Cleat is made with weather-resistant technologies and premium leather to truly dominate on the field.</p><br><p><b>Benefits</b></p><br>Premium kangaroo leather offers exceptional ball touch<br>TPU plate with conical and bladed cleats for stability and multidirectional traction<br>All Conditions Control (ACC) technology enhances touch and control in dry or wet weather<br>Firm-ground (FG) cleats for use on short-grass fields that may be slightly wet but rarely muddy</div></div>",
                         "pdpGeneral": "<div><p>Due to high demand, this color is sold out on Nike.com. Download <a href=\"https://www.nike.com/us/en_us/c/nike-plus/nike-app\" target=\"_blank\">Nike+</a> to receive updates to future product like this.</p>\n</div>",
                         "techSpec": "",
                         "sizeChart": "unisex-shoe-sizing-chart",

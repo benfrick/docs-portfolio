@@ -67,7 +67,7 @@ Listed below are the best practices for calling each Buy service.
 |Topic|Best Practice|
 |---|---|
 |**Validation**|Pass in all Checkout items and a valid two-digit ISO country. When updating an existing cart, ensure the request brand, channel and region matches the saved cart.|
-|**Performance**|<li>Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.</li><li>When updating the cart, use the PATCH method instead of PUT for best performance.</li>|
+|**Performance**|Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.<br>When updating the cart, use the PATCH method instead of PUT for best performance.|
 |**Circuit breaker trigger**|Carts repeated call failure to the Merchandised Product, Merchandised Skus, Availability, Value-added service, Merchandised Price, Product Content and Exclusive Access services for validation can open the circuit.|
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|None|
@@ -195,7 +195,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 |Topic|Best Practice|
 |---|---|
-|**Performance**|<li>If you have one product UUID, call the `Merchandised Product by ID` endpoint.<li>If you have a list of product UUIDs, call the `Merchandised Product List` endpoint with the id filter to list the products in batch.<li>When filtering by id, request 25 ids or less at a time.|
+|**Performance**|If you have one product UUID, call the `Merchandised Product by ID` endpoint.<br>If you have a list of product UUIDs, call the `Merchandised Product List` endpoint with the id filter to list the products in batch.<br>When filtering by id, request 25 ids or less at a time.|
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
@@ -205,7 +205,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 |Topic|Best Practice|
 |---|---|
-|**Performance**|<li>If have one SKU UUID, call the `Merchandised Product SKU by ID` endpoint.<li>If you have a list of SKU UUIDs, call the `Merchandised Product SKU List` endpoint with the id filter to list the SKUs in batch.<li>When filtering by id, request 25 ids or less at a time.|
+|**Performance**|If have one SKU UUID, call the `Merchandised Product SKU by ID` endpoint.<br>If you have a list of SKU UUIDs, call the `Merchandised Product SKU List` endpoint with the id filter to list the SKUs in batch.<br>When filtering by id, request 25 ids or less at a time.|
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
@@ -215,7 +215,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 |Topic|Best Practice|
 |---|---|
-|**Performance**|<li>If you have one price UUID, call the `Merchandised Product Prices by ID` endpoint.<li>If you have a list of price UUIDs, call the `Merchandised Product Prices List` endpoint with the id filter to list the prices in batch.<li>When filtering by id, request 25 ids or less at a time.|
+|**Performance**|If you have one price UUID, call the `Merchandised Product Prices by ID` endpoint.<br>If you have a list of price UUIDs, call the `Merchandised Product Prices List` endpoint with the id filter to list the prices in batch.<br>When filtering by id, request 25 ids or less at a time.|
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
@@ -225,7 +225,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 |Topic|Best Practice|
 |---|---|
-|**Performance**|<li>If you need the content or images for only one product, call a single product endpoint with the style-color.<li>When calling a multiple product endpoint, request 25 style-colors or less in the request at a time.|
+|**Performance**|If you need the content or images for only one product, call a single product endpoint with the style-color.<br>When calling a multiple product endpoint, request 25 style-colors or less in the request at a time.|
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
@@ -235,7 +235,7 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 |Topic|Best Practice|
 |---|---|
-|**Performance**|<li>If you have one product UUID, call the `Merchandised Value Added Services by ID` endpoint.<li>When calling the `Merchandised Value Added Services List` endpoint filtering by ID, send 25 IDs or less in the request at a time.|
+|**Performance**|If you have one product UUID, call the `Merchandised Value Added Services by ID` endpoint.<br>When calling the `Merchandised Value Added Services List` endpoint filtering by ID, send 25 IDs or less in the request at a time.|
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
@@ -273,7 +273,7 @@ Listed below are the best practices for calling each Payment service.
 |---|---|
 |**Validation**|When available, always pass in the shipping address to the `FETCH SAVED PAYMENTS FOR A UPMID` endpoint to determine if the customer must validate the stored credit card's CVV before submitting the order.|
 |**Performance**|When gift card balance is not needed, set the includeBalance flag to false so the stored gift card balance is not retrieved when gathering the customer's stored payments.|
-|**Circuit breaker triggers**|Payment Stored Payments' repeated call failure to the<li>Payment Gift Card service when saving a Gift Card or retrieving the balance<li>Payment PayPal service when saving a new PayPal payment type to the customer's profile<li>Payment Cybersource service trying to store or update a customer's credit card.|
+|**Circuit breaker triggers**|Payment Stored Payments' repeated call failure to the<br>Payment Gift Card service when saving a Gift Card or retrieving the balance<br>Payment PayPal service when saving a new PayPal payment type to the customer's profile<br>Payment Cybersource service trying to store or update a customer's credit card.|
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
@@ -285,7 +285,7 @@ Listed below are the best practices for calling each Payment service.
 |Topic|Best Practice|
 |---|---|
 |**Performance**|When a customer selects to pay by stored credit card, check the validateCVV flag on the response from the Stored Payments Service. If the value is true, allow the customer to verify their CVV number in your experience and send it to the Payment Credit Card Submit service. Otherwise, Payment Preview will fail due to an unverified CVV number.|
-|**Circuit breaker trigger**|Payment Preview's repeated call failure to the<li>Payment Gift Card service when retrieving the balance<li>Stored Payment service when retrieving the customer's stored payment details<li>Credit Card Submit service when validating the credit card info id<li>Payment Options Service to validate the customer's selected payment options|
+|**Circuit breaker trigger**|Payment Preview's repeated call failure to the<br>Payment Gift Card service when retrieving the balance<br>Stored Payment service when retrieving the customer's stored payment details<br>Credit Card Submit service when validating the credit card info id<br>Payment Options Service to validate the customer's selected payment options|
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|

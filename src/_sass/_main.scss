@@ -167,7 +167,7 @@ dl dd:after {
 }
 
 .sidebar {
-	padding: 20px 20px 0 20px;
+	padding: 15px 15px 0 15px;
 	white-space:nowrap;
 	overflow-y: auto;
 
@@ -183,7 +183,7 @@ dl dd:after {
 
 	h6 {
 		padding: 0;
-		margin: 0 0 5px 0;
+		margin: 10px 0 5px 0;
 	}
 
 	a {
@@ -245,9 +245,10 @@ h3 .endpoint {
 .main {
 	/*margin: 0 0 0 $nav-width; JM original*/
 	/*border-left: 1px solid #eee; JM original*/
-    /* margin: 0 $nav-width 0 0; JM for right col nav*/
-    margin: 0;
-	/*border-right: 1px solid #eee;JM for right col nav*/
+	/*JM for right col nav*/
+    margin: 0 $nav-width 0 0;
+    /*JM for right col*/
+	border-right: 1px solid #eee;
 	h6 {
 		font-size: 1.01em;
 		padding: 0 0 6px 0;
@@ -450,6 +451,7 @@ header {
 	overflow-x: hidden;
 	z-index: 1;
 	background-color: $nav-background-color;
+	padding-top: 30px;
 
 	h1 {
 		height: $nav-header-height;
@@ -499,7 +501,7 @@ header {
 	@media (min-width: $mobile-break) {
 		background-color: transparent;
 		width: $nav-width;
-		/*right: auto; JM*/
+		/* right: auto; JM original left nav*/
 		left: auto;
 		bottom: auto;
 

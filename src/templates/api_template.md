@@ -78,12 +78,12 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this
 
 |Topic|Details|
 |---|---|
-|Use these APIs to|<li>useful functionality<li>useful functionality|
+|Use these APIs to|useful functionality<br>useful functionality|
 |Who calls this API?|SNKRs App, Nike App etc.|
 |Versions|service name, version number and geography|
 |SLA|service name, version number and time in ms.|
 |Domain|Analytics, Brand, Commerce, Identity, Social, Sport|
-|Prerequisites|<li>API Registration<li>JWT|
+|Prerequisites|API Registration<br>JWT|
 |Contact Info|Slack channel, Confluence space URI, Product Owner |
 
 ## <a name="terms-of-service"></a>Terms of Service

@@ -14,17 +14,9 @@
     <link rel="stylesheet" href="/css/nde.css">
 
 </head>
-    <body>
-    <div class="guide-nav-container">
-<div class="guide-nav-column guide-nav-left">
-<a href="/index.html"><i class="g72-arrow-fill-left"></i>&nbsp;<u>Back to NDe Documentation</u></a>
-</div>
-<div class="guide-nav-column guide-nav-right">
-<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-</div>
-</div>
-    <div class="main">
-        <h1 id="circuit-breaker-best-practices-guide--draft">CIRCUIT BREAKER BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)</h1>
+<body>
+<div class="main">
+    <h1 id="circuit-breaker-best-practices-guide--draft">CIRCUIT BREAKER BEST PRACTICES GUIDE <i class="g72-swoosh"></i> (DRAFT)</h1>
 
 <h5 id="last-updated-05252018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 05/25/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
 
@@ -106,7 +98,7 @@
     </tr>
     <tr>
       <td><strong>Performance</strong></td>
-      <td>&lt;li&gt;Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.&lt;/li&gt;&lt;li&gt;When updating the cart, use the PATCH method instead of PUT for best performance.&lt;/li&gt;</td>
+      <td>Multiple Checkout items may slow down the response because Carts validates each one. Regardless, always pass in all Checkout items.<br />When updating the cart, use the PATCH method instead of PUT for best performance.</td>
     </tr>
     <tr>
       <td><strong>Circuit breaker trigger</strong></td>
@@ -405,7 +397,7 @@
   <tbody>
     <tr>
       <td><strong>Performance</strong></td>
-      <td>&lt;li&gt;If you have one product UUID, call the <code class="highlighter-rouge">Merchandised Product by ID</code> endpoint.&lt;li&gt;If you have a list of product UUIDs, call the <code class="highlighter-rouge">Merchandised Product List</code> endpoint with the id filter to list the products in batch.&lt;li&gt;When filtering by id, request 25 ids or less at a time.</td>
+      <td>If you have one product UUID, call the <code class="highlighter-rouge">Merchandised Product by ID</code> endpoint.<br />If you have a list of product UUIDs, call the <code class="highlighter-rouge">Merchandised Product List</code> endpoint with the id filter to list the products in batch.<br />When filtering by id, request 25 ids or less at a time.</td>
     </tr>
     <tr>
       <td><strong>Retry pattern for API callers</strong></td>
@@ -432,7 +424,7 @@
   <tbody>
     <tr>
       <td><strong>Performance</strong></td>
-      <td>&lt;li&gt;If have one SKU UUID, call the <code class="highlighter-rouge">Merchandised Product SKU by ID</code> endpoint.&lt;li&gt;If you have a list of SKU UUIDs, call the <code class="highlighter-rouge">Merchandised Product SKU List</code> endpoint with the id filter to list the SKUs in batch.&lt;li&gt;When filtering by id, request 25 ids or less at a time.</td>
+      <td>If have one SKU UUID, call the <code class="highlighter-rouge">Merchandised Product SKU by ID</code> endpoint.<br />If you have a list of SKU UUIDs, call the <code class="highlighter-rouge">Merchandised Product SKU List</code> endpoint with the id filter to list the SKUs in batch.<br />When filtering by id, request 25 ids or less at a time.</td>
     </tr>
     <tr>
       <td><strong>Retry pattern for API callers</strong></td>
@@ -459,7 +451,7 @@
   <tbody>
     <tr>
       <td><strong>Performance</strong></td>
-      <td>&lt;li&gt;If you have one price UUID, call the <code class="highlighter-rouge">Merchandised Product Prices by ID</code> endpoint.&lt;li&gt;If you have a list of price UUIDs, call the <code class="highlighter-rouge">Merchandised Product Prices List</code> endpoint with the id filter to list the prices in batch.&lt;li&gt;When filtering by id, request 25 ids or less at a time.</td>
+      <td>If you have one price UUID, call the <code class="highlighter-rouge">Merchandised Product Prices by ID</code> endpoint.<br />If you have a list of price UUIDs, call the <code class="highlighter-rouge">Merchandised Product Prices List</code> endpoint with the id filter to list the prices in batch.<br />When filtering by id, request 25 ids or less at a time.</td>
     </tr>
     <tr>
       <td><strong>Retry pattern for API callers</strong></td>
@@ -486,7 +478,7 @@
   <tbody>
     <tr>
       <td><strong>Performance</strong></td>
-      <td>&lt;li&gt;If you need the content or images for only one product, call a single product endpoint with the style-color.&lt;li&gt;When calling a multiple product endpoint, request 25 style-colors or less in the request at a time.</td>
+      <td>If you need the content or images for only one product, call a single product endpoint with the style-color.<br />When calling a multiple product endpoint, request 25 style-colors or less in the request at a time.</td>
     </tr>
     <tr>
       <td><strong>Retry pattern for API callers</strong></td>
@@ -513,7 +505,7 @@
   <tbody>
     <tr>
       <td><strong>Performance</strong></td>
-      <td>&lt;li&gt;If you have one product UUID, call the <code class="highlighter-rouge">Merchandised Value Added Services by ID</code> endpoint.&lt;li&gt;When calling the <code class="highlighter-rouge">Merchandised Value Added Services List</code> endpoint filtering by ID, send 25 IDs or less in the request at a time.</td>
+      <td>If you have one product UUID, call the <code class="highlighter-rouge">Merchandised Value Added Services by ID</code> endpoint.<br />When calling the <code class="highlighter-rouge">Merchandised Value Added Services List</code> endpoint filtering by ID, send 25 IDs or less in the request at a time.</td>
     </tr>
     <tr>
       <td><strong>Retry pattern for API callers</strong></td>
@@ -602,7 +594,7 @@
     </tr>
     <tr>
       <td><strong>Circuit breaker triggers</strong></td>
-      <td>Payment Stored Payments’ repeated call failure to the&lt;li&gt;Payment Gift Card service when saving a Gift Card or retrieving the balance&lt;li&gt;Payment PayPal service when saving a new PayPal payment type to the customer’s profile&lt;li&gt;Payment Cybersource service trying to store or update a customer’s credit card.</td>
+      <td>Payment Stored Payments’ repeated call failure to the<br />Payment Gift Card service when saving a Gift Card or retrieving the balance<br />Payment PayPal service when saving a new PayPal payment type to the customer’s profile<br />Payment Cybersource service trying to store or update a customer’s credit card.</td>
     </tr>
     <tr>
       <td><strong>Circuit breaker fallback behavior</strong></td>
@@ -637,7 +629,7 @@
     </tr>
     <tr>
       <td><strong>Circuit breaker trigger</strong></td>
-      <td>Payment Preview’s repeated call failure to the&lt;li&gt;Payment Gift Card service when retrieving the balance&lt;li&gt;Stored Payment service when retrieving the customer’s stored payment details&lt;li&gt;Credit Card Submit service when validating the credit card info id&lt;li&gt;Payment Options Service to validate the customer’s selected payment options</td>
+      <td>Payment Preview’s repeated call failure to the<br />Payment Gift Card service when retrieving the balance<br />Stored Payment service when retrieving the customer’s stored payment details<br />Credit Card Submit service when validating the credit card info id<br />Payment Options Service to validate the customer’s selected payment options</td>
     </tr>
     <tr>
       <td><strong>Circuit breaker fallback behavior</strong></td>
@@ -918,6 +910,140 @@
 
 <p><a href="/doc/portal/dev-guides.html">Developer’s Guides</a></p>
 
-    </div>
-   </body>
+</div>
+<header>
+    <div id="sidebar" class="sidebar">
+	<section>
+		<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>NDe Docs Home</a></h6>
+		<ul>
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html" class="">
+								Buy
+								
+							</a>
+							
+						</li>
+					
+		
+		
+		
+		
+						<li>
+							<a href="/doc/commerce/payment/api_payment.html" class="">
+								Payment
+								
+							</a>
+							
+						</li>
+					
+		
+		
+						<li>
+							<a href="/doc/commerce/product/api_product_feeds.html" class="">
+								Product Feeds
+								
+							</a>
+							
+						</li>
+					
+		
+		
+						<li>
+							<a href="/doc/commerce/product/api_rollup_threads.html" class="">
+								Rollup Threads
+								
+							</a>
+							
+						</li>
+					
+		
+		
+						<li>
+							<a href="/doc/commerce/product/api_merch_product.html" class="">
+								Merch Product
+								
+							</a>
+							
+						</li>
+					
+		
+		
+						<li>
+							<a href="/doc/commerce/search/api_search.html" class="">
+								eCommerce Search
+								
+							</a>
+							
+						</li>
+					
+		
+		
+						<li>
+							<a href="/doc/commerce/events/api_eventsv2.html" class="">
+								Events
+								
+							</a>
+							
+						</li>
+					
+		
+		</ul>
+	</section>
+</div>
+
+</header>
+<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+	</script>
+</body>
 </html>

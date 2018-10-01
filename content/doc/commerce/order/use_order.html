@@ -16,25 +16,17 @@
 </head>
 <body>
 <div class="main">
-    <h1 id="adding-checkout-to-your-experience-">ADDING CHECKOUT TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br /></h1>
+    <h1 id="adding-order-history-to-your-experience-">ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br /></h1>
 
-<h6 id="last-updated-09132018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 09/13/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
+<h6 id="last-updated-1052018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 10/5/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
 
 <h2 id="in-this-guide"><strong>In This Guide:</strong></h2>
 
 <p><a href="#overview">Overview</a></p>
 
-<p><a href="#step-1-adding-the-shopping-cart">Step 1: Adding the Shopping Cart</a></p>
+<p><a href="#step-1-adding-order-summary">Step 1: Adding Order Summary</a></p>
 
-<p><a href="#step-2-adding-shipping-options">Step 2: Adding Shipping Options</a></p>
-
-<p><a href="#step-3-add-payment-options">Step 3: Adding Payment Options</a></p>
-
-<p><a href="#step-4-previewing-a-checkout">Step 4: Previewing a Checkout</a></p>
-
-<p><a href="#step-5-submitting-a-checkout">Step 5: Submitting a Checkout</a></p>
-
-<p><a href="#step-6-optional-adding-wish-lists">Step 6 (Optional): Adding Wish Lists</a></p>
+<p><a href="#step-2-adding-order-details">Step 2: Adding Order Details</a></p>
 
 <p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
 
@@ -50,21 +42,21 @@
 
 <p><a href="#related-links">Related Links</a></p>
 
-<h2 id="overview">Overview</h2>
+<h2 id="overview"><a name="overview">Overview</a></h2>
 
-<p>Use this guide to add checkout to your experience. Step-by-step instructions including code samples will be provided along the way. In the end, you will be able to sell Nike products and services through your app, so let’s go!</p>
+<p>Use this guide to add order history to your experience. Step-by-step instructions and code samples give you the tools you need to retrieve order information for your customers through your app.</p>
 
 <blockquote>
-  <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="#">Adding Nike Product Browsing to Your Experience</a>.</p>
+  <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="#">Adding Checkout to Your Experience</a>.</p>
 </blockquote>
 
-<h3 id="what-is-a-checkout">What is a Checkout?</h3>
+<h3 id="what-is-an-order">What is an Order?</h3>
 
-<p>A Nike checkout consists of the following:</p>
+<p>A Nike order consists of the following:</p>
 
 <ul>
   <li>
-    <p>Consumer’s product choices (items, quantities, value-added services)</p>
+    <p>Consumer’s purchased items/services</p>
   </li>
   <li>
     <p>Consumer’s payment method(s) and billing address(es)</p>
@@ -86,204 +78,53 @@
 <p>[Insert diagram of high-level steps in the process]</p>
 
 <ol>
-  <li>Add to Cart</li>
-  <li>Select Shipping Method/Address</li>
-  <li>Select Payment Method/Address</li>
-  <li>Preview the Checkout</li>
-  <li>Submit the Checkout</li>
+  <li>Get a list of a customer’s orders</li>
+  <li>Get the details of a customer’s order</li>
 </ol>
 
-<p><img src="/images/commerce/payment/snkrs_payment.png" alt="" /></p>
+<p><img src="/images/commerce/order/order-life-cycle.png" alt="" /></p>
 
-<h2 id="step-1-adding-the-shopping-cart">Step 1: Adding the Shopping Cart</h2>
+<h2 id="step-1-get-a-list-of-a-customers-orders"><a name="order-summary">Step 1: Get a list of a customer’s orders</a></h2>
 
-<p>In e-commerce, the cart (also called the basket or bag) allows customers to collect and compare items that they are considering for purchase before starting the checkout process. At Nike, a cart contains items, quantities, and associated value-added services (when applicable).</p>
+<p>[Overview Description]
+Describe Edge router</p>
 
-<h3 id="create-or-update-a-cart">Create or update a cart</h3>
+<p>Get the customer’s upmid if logged in; guest’s email address.
+Get the unite authorization token in the form of ‘bearer token’
+Send both upmid and authorization as headers</p>
 
-<h3 id="get-the-cart-details">Get the cart details</h3>
+<h3 id="understanding-order-status">Understanding Order Status</h3>
 
-<h3 id="delete-all-items-in-a-cart">Delete all items in a cart</h3>
+<h3 id="customizing-your-results">Customizing Your Results</h3>
 
-<h3 id="retrieve-an-enhanced-cart-summary-with-sales-and-shipping-taxes-estimated-delivery-dates-and-item-and-subtotal-information">Retrieve an enhanced cart summary with sales and shipping taxes, estimated delivery date(s), and item and subtotal information.</h3>
+<p><strong>Filtering</strong></p>
 
-<h2 id="step-2-adding-shipping-options">Step 2: Adding Shipping Options</h2>
+<p><strong>Sorting</strong>*</p>
 
-<p>Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to show them, based on their shopping context?</p>
+<p>You can sort the customer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter.</p>
 
-<p>Use the Shipping Options API to retrieve the available shipping methods for a customer’s checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).</p>
+<h2 id="step-2-get-the-details-of-a-customers-order"><a name="order-details">Step 2: Get the details of a customer’s order</a></h2>
 
-<p>Send a request with a country code, currency code, item information and (optionally) shipping address.</p>
+<p>[Overview Description]</p>
 
-<h2 id="step-3-add-payment-options">Step 3: Add Payment Options</h2>
+<p>required headers (guest)
+x-nike-visitorid
+x-nike-visitid
+appId</p>
 
-<p>[TK]</p>
+<p>required path parameter
+order id</p>
 
-<h2 id="step-4-previewing-a-checkout">Step 4: Previewing a Checkout</h2>
-
-<h3 id="request-checkout-preview"><a name="request-checkout-preview"></a>Request Checkout Preview</h3>
-
-<p>The <em>Request a Checkout Preview</em> endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you’ll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.</p>
-
-<h4 id="checkout-preview-is-optional-but-recommended">Checkout Preview Is Optional, But Recommended</h4>
-
-<p>Is it not required to call <em>Request Checkout Preview</em> in order for your shopper to complete their purchase. However, it is recommended.</p>
-
-<p>In a typical Nike digital experience, a successful checkout preview means that the checkout details are accurate, including shipping fees and taxes, and that the checkout process can proceed to the payment steps.</p>
-
-<p>Use the response to display the final payment amount to the customer. Once the customer confirms the payment method details and clicks or taps ‘Place Order’, there will be a greater chance of success.</p>
-
-<h4 id="checkout-preview-operates-asynchronously">Checkout Preview Operates Asynchronously</h4>
-
-<p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a> guide to learn more.</p>
-
-<h3 id="retrieve-checkout-preview-job"><a name="retrieve-checkout-preview-job"></a>Retrieve Checkout Preview Job</h3>
-
-<p>After calling <em>Request Checkout Preview</em> and receiving a HTTP 202 response, call <em>Retrieve Checkout Preview Job</em> using the same checkout ID to check the status of your job.</p>
-
-<p>To know if the job is done, check the value of the <strong>status</strong> field in the response body as follows:</p>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">"status": "PENDING"</code>: job processing has not started</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">"status": "IN_PROGRESS"</code>: job processing in progress</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">"status": "COMPLETED"</code>: job has completed</p>
-  </li>
-</ul>
-
-<p>Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Preview Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
-
-<blockquote>
-  <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
-</blockquote>
-
-<h3 id="retrieve-checkout-preview-results"><a name="retrieve-checkout-preview-results"></a>Retrieve Checkout Preview Results</h3>
-
-<p>After calling both the <em>Request Checkout Preview</em> and <em>Retrieve Checkout Preview Job</em> endpoints, you can call this endpoint to retrieve the result of your Checkout Preview request. This step is optional, as the same result is already available in the response from the <em>Retrieve Checkout Submit Job</em> endpoint.</p>
-
-<h2 id="step-5-submitting-a-checkout">Step 5: Submitting a Checkout</h2>
-
-<h3 id="request-checkout-submit"><a name="request-checkout-submit"></a>Request Checkout Submit</h3>
-
-<p>Call the <em>Request Checkout Submit</em> endpoint when your user is ready to complete their purchase.</p>
-
-<p><em>Request Checkout Submit</em> performs the final validations of the user’s information, requests payment authorization, and if everything succeeds, submits a checkout to Nike for fulfillment.</p>
-
-<h4 id="considerations">Considerations</h4>
-
-<ul>
-  <li>
-    <p>Before calling <em>Request Checkout Submit</em>, you must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview <strong>id</strong>. See the <a href="/doc/commerce/payment/api_payment.html">Payment Domain Developer’s Guide</a> for more info.</p>
-  </li>
-  <li>
-    <p>Calling <em>Request Checkout Preview</em> is not required before calling <em>Request Checkout Submit</em>, but it is recommended in most cases.</p>
-  </li>
-  <li>
-    <p>When calling both the Preview and Submit endpoints in succession for a particular checkout, it is <strong>not</strong> required for you to use the same ID in the URL path (i.e. the checkout identifier) for both calls. However, any ID that you use must not have been used previously, else you will receive an idempotent response for the previously-used ID.</p>
-  </li>
-</ul>
-
-<h4 id="checkout-submit-operates-asynchronously">Checkout Submit Operates Asynchronously</h4>
-
-<p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a>
-guide to learn more.</p>
-
-<h3 id="retrieve-checkout-submit-job">Retrieve Checkout Submit Job</h3>
-
-<p>After calling the Request Checkout Submit endpoint and receiving a HTTP 202 response, you can call this endpoint using the same checkout ID to check the status of your job.</p>
-
-<p>To know if the job is done, check the value of the <strong>status</strong> field in the response body as follows:</p>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">"status": "PENDING"</code>: job processing has not started</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">"status": "IN_PROGRESS"</code>: job processing in progress</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">"status": "COMPLETED"</code>: job has completed</p>
-  </li>
-</ul>
-
-<p>Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
-
-<blockquote>
-  <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
-</blockquote>
-
-<h3 id="retrieve-checkout-results"><a name="retrieve-checkout-results"></a>Retrieve Checkout Results</h3>
-
-<p>After calling both the Request Checkout Submit and Retrieve Checkout Submit Job endpoints, you can call this endpoint to retrieve the result of your request. This step is optional, as the same result is already available in the response from the Retrieve Checkout Submit Job endpoint.</p>
-
-<h3 id="request-checkout-submit-launch"><a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)</h3>
-
-<p>The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.</p>
-
-<p>The Launch endpoint has the same contract as the Request Checkout Submit endpoint so for additional details see that section.</p>
-
-<h2 id="step-6-optional-adding-wish-lists">Step 6 (Optional): Adding Wish Lists</h2>
-
-<p>Create, read, update and delete a wish list</p>
-
-<p>Get product pricing and availability for items added to the list</p>
-
-<p>Store unlimited Wish Lists per user</p>
-
-<p>Members and employees only. <strong>Guest users may not save Wish Lists</strong></p>
-
-<h3 id="life-cycle-of-wish-list">Life Cycle of Wish List</h3>
-
-<p><img src="/images/commerce/buy/wishlists_flow.png" alt="" /></p>
+<p>https://api.nike.com/order_mgmt/user_order_details/v1/C00000554850?filter=email(jane.moore@nike.com)
+if email is missing, get 404</p>
 
 <h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
 
-<p>[Add payment endpoints here, too]</p>
+<p><strong>Order Summary</strong>
+<a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="_blank">Get a list of a customer’s orders</a></p>
 
-<p><strong>Carts</strong>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete All Items from a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Filter Criteria</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a></p>
-
-<p><strong>Cart Reviews</strong>
-<a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a></p>
-
-<p><strong>Payment Options</strong>
-<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">GET PAYMENT OPTIONS FOR AN ORDER</a>
-<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>
-<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">VALIDATE PAYMENTS</a></p>
-
-<p><strong>Wish Lists</strong>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Lists for Authenticated User</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Add Item to List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a></p>
-
-<p><strong>Shipping Options</strong>
-<a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a></p>
-
-<p><strong>Checkouts</strong>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Results</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a></p>
+<p><strong>Order Details</strong>
+<a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="_blank">Get the details of a customer’s order</a></p>
 
 <h2 id="sending-your-first-request"><a name="sending-your-first-request"></a>Sending Your First Request</h2>
 

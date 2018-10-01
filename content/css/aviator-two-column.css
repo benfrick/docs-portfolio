@@ -6,9 +6,7 @@
 .main {
     padding: 25px;
 }
-.sidebar a {
-    font-size: 1.1em;
-}
+
 /* molokai overrides */
 .right-code code .hll { background-color: #49483e }
 .right-code code .c { color: #75715e } /* Comment */
