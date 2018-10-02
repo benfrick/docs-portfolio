@@ -1,13 +1,50 @@
 ---
-category: usecase
+category: use-case
 position: 2
 title: Payment
 url: /commerce/payment/api_payment.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/payment/api_payment.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/payment/api_payment.html#terms-of-service
+  - h2: Use Cases
+    url: /doc/commerce/payment/api_payment.html#use-cases
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/payment/api_payment.html#api-endpoint-quick-reference
+  - h2: Caching Data
+    url: /doc/commerce/payment/api_payment.html#caching-data
+  - h2: Making Your First Request
+    url: /doc/commerce/payment/api_payment.html#making-your-first-api-request
+  - h2: Using Payment Options
+    url: /doc/commerce/payment/api_payment.html#using-payment-options
+  - h2: Using Stored Payment
+    url: /doc/commerce/payment/api_payment.html#using-stored-payment
+  - h2: Using Payment Preview
+    url: /doc/commerce/payment/api_payment.html#using-payment-preview
+  - h2: Using Payment Approval
+    url: /doc/commerce/payment/api_payment.html#using-payment-approval
+  - h2: Using Credit Card Submit
+    url: /doc/commerce/payment/api_payment.html#using-credit-card-submit
+  - h2: Using Payment Apple Pay
+    url: /doc/commerce/payment/api_payment.html#using-apple-pay
+  - h2: Using Payment Wallet
+    url: /doc/commerce/payment/api_payment.html#using-payment-wallet
+  - h2: Using Deferred Payment
+    url: /doc/commerce/payment/api_payment.html#using-deferred-payment
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/payment/api_payment.html#upgrading-to-the-latest-version
+  - h2: Best Practices
+    url: /doc/commerce/payment/api_payment.html#best-practices
+  - h2: Troubleshooting
+    url: /doc/commerce/payment/api_payment.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/payment/api_payment.html#glossary
 ---
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 07/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
@@ -15,148 +52,14 @@ Use the Payment API to allow customers to pay for Nike products.
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Payment](/doc/commerce/payment/biz_payment.html), this guide provides the details necessary to integrate with the Nike Payment APIs.
 
-## **In this guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-<span class="toc-pad">[Authorization](#authorization)
-
-[Use Cases](#use-cases)
-
-<span class="toc-pad">[Example Implementations](#example-implementations)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[Caching Data](#caching-data)
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Payment Options](#using-payment-options)
-
-<span class="toc-pad">[Get Payment Options for an Order](#get-payment-options-for-an-order)
-
-<span class="toc-pad">[Allowable Billing Countries for a Shipping Country](#allowable-billing-countries-for-a-shipping-country)
-
-<span class="toc-pad">[Validate Payments](#validate-payments)
-
-[Using Stored Payment](#using-stored-payment)
-
-<span class="toc-pad">[Initiate PayPal Billing Agreement](#initiate-paypal-billing-agreement)
-
-<span class="toc-pad">[Save Payment by User Profile](#save-payment-for-user-profile)
-
-<span class="toc-pad">[Delete All Stored Payments by User Profile](#delete-all-stored-payments-for-user-profile)
-
-<span class="toc-pad">[List Stored Payments by User Profile](#list-stored-payments-by-user-profile)
-
-<span class="toc-pad">[Update Stored Payment by ID](#update-stored-payment-by-id)
-
-<span class="toc-pad">[Delete Stored Payment by ID](#delete-stored-payment-by-id)
-
-<span class="toc-pad">[List Stored Payment by ID](#list-stored-payment-by-payment-id)
-
-<span class="toc-pad">[Validate CVV by Shipping Address](#validate-credit-card-cvv-by-shipping-address)
-
-<span class="toc-pad">[Update Default Stored Payment](#update-default-stored-payment-by-user-profile)
-
-<span class="toc-pad">[List Saved Gift Card Payment by ID](#list-gift-card-by-payment-id)
-
-[Using Payment Preview](#using-payment-preview)
-
-<span class="toc-pad">[Payment Preview](#payment-preview)
-
-<span class="toc-pad">[Payment Preview Job Status by ID](#payment-preview-job-status-by-id)
-
-<span class="toc-pad">[Payment Preview Result by ID](#payment-preview-result-by-id)
-
-[Using Payment Approval](#using-payment-approval)
-
-<span class="toc-pad">[Submit Order Payments for Approval](#submit-order-payments-for-approval-post)
-
-<span class="toc-pad">[Submit Order Payments for Approval](#submit-order-payments-for-approval-put)
-
-<span class="toc-pad">[Retrieval Payment Approval Job](#retrieval-payment-approval-job)
-
-<span class="toc-pad">[Order Payments Approval Result](#order-payments-approval-result)
-
-<span class="toc-pad">[Void Payment Approval](#void-payment-approval)
-
-<span class="toc-pad">[Get Payment Approval Summary](#get-payment-approval-summary)
-
-[Using Credit Card Submit](#using-credit-card-submit)
-
-<span class="toc-pad">[Add Credit Card Info with CVV](#add-credit-card-info-with-cvv)
-
-<span class="toc-pad">[Add Credit Card Info without CVV](#add-credit-card-info-without-cvv)
-
-<span class="toc-pad">[Add CVV](#add-cvv-information)
-
-<span class="toc-pad">[Add CVV and Expiration Date](#add-cvv-and-expiration-date)
-
-<span class="toc-pad">[Validate Credit Card Info](#validate-credit-card-info)
-
-<span class="toc-pad">[Store Credit Card Info](#store-credit-card-info)
-
-<span class="toc-pad">[List Credit Card Info](#list-credit-card-info)
-
-<span class="toc-pad">[List Credit Card Info and Validate Status](#list-credit-card-info-and-validate-status)
-
-[Using Payment Apple Pay](#using-apple-pay)
-
-<span class="toc-pad">[Start Apple Pay Session](#start-apple-pay-session)
-
-[Using Payment Wallet](#using-payment-wallet)
-
-<span class="toc-pad">[PayPal Express](#paypal-express)
-
-<span class="toc-pad">[PayPal Express Job Status by ID](#paypal-express-job-by-id)
-
-<span class="toc-pad">[PayPal Mark](#paypal-mark)
-
-<span class="toc-pad">[PayPal Mark Job Status by ID](#paypal-mark-job-by-id)
-
-<span class="toc-pad">[PayPal Details](#paypal-details)
-
-<span class="toc-pad">[PayPal Details Job Status by ID](#paypal-details-job-by-id)
-
-[Using Deferred Payment](#using-deferred-payment)
-
-<span class="toc-pad">[Deferred Payment Form](#deferred-payment-form)
-
-<span class="toc-pad">[Deferred Payment Form Job](#deferred-payment-form-job-status-by-id)
-
-<span class="toc-pad">[Deferred Payment Status](#deferred-payment-status)
-
-<span class="toc-pad">[Deferred Payment Status Job](#deferred-payment-status-job-status-by-id)
-
-<span class="toc-pad">[Deferred Payment WeChat](#deferred-payment-wechat)
-
-<span class="toc-pad">[Deferred Payment WeChat Job](#deferred-wechat-payment-job-status-by-id)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-[Best Practices](#best-practices)
-
-[Troubleshooting](#troubleshooting)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
-
 ## <a name="api-at-a-glance"></a>API at a Glance
 
 |Topic|Details|
 |---|---|
 |Use this API to|List payment options<br>Save payment methods<br>Initiate a PayPal Billing Agreement<br>Initiate an ApplePay payment<br>Allocate payment amount across payment types<br>Validate and authorize payment|
 |Who calls this API|SNKRS app (Web/iOS/Android), Nike app (iOS/Android), Nike.com|
-|Version|<br>Payment ApplePay v2<br>Payment Approval v2<br>Payment Credit Card Submit v1<br>Payment Deferred Payment v1<br>Payment Options v2<br>Payment Preview v2<br>Stored Payment v1<br>Payment Wallet v1|
-|SLA response time (rt) and requests per second (rps)|<br>Payment Applepay rt: 350ms rps:40<br>Payment Approval rt: 250ms rps: 200<br>Payment Credit Card Submit ?ms<br>Payment Deferred Payment ?ms<br>Payment Options rt: 250ms rps:700<br>Payment Preview rt: 250ms rps:300<br>Stored Payment ?ms<br>Payment Wallet rt: 300ms rps: 200|
+|Version|Payment ApplePay v2<br>Payment Approval v2<br>Payment Credit Card Submit v1<br>Payment Deferred Payment v1<br>Payment Options v2<br>Payment Preview v2<br>Stored Payment v1<br>Payment Wallet v1|
+|SLA response time (rt) and requests per second (rps)|Payment Applepay rt: 350ms rps:40<br>Payment Approval rt: 250ms rps: 200<br>Payment Credit Card Submit ?ms<br>Payment Deferred Payment ?ms<br>Payment Options rt: 250ms rps:700<br>Payment Preview rt: 250ms rps:300<br>Stored Payment ?ms<br>Payment Wallet rt: 300ms rps: 200|
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
 |Contact Info|Slack #cic-payment<br>Confluence space: <a href="https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook" target="_blank">CiC Payment</a><br><a name="product-owner"></a>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
@@ -171,7 +74,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
-### <a name="authorization"></a>Authorization
+### <a name="authentication"></a>Authentication
 
 #### Access Tokens
 
@@ -236,15 +139,11 @@ In this flow, the customer chooses to pay by a payment method that will be autho
 
 For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY" target="_blank">PHYLON Payment Repository</a>.
 
-<p>&nbsp;</p>
-
 ### PAYMENT APPLEPAY
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="_blank">START APPLE PAY SESSION</a>|/payment/applepay_sessions/v2/|POST|
-
-<p>&nbsp;</p>
 
 ### PAYMENT APPROVAL
 
@@ -256,8 +155,6 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">ORDER PAYMENTS APPROVAL RESULT</a>|/payment/approval_results/v2/{id}|GET|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">VOID PAYMENT APPROVAL</a>|/payment/approval_results/v2/|DELETE|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api" target="_blank">GET PAYMENT APPROVAL SUMMARY</a>|/payment/approval_summary/v1/{id}|GET|
-
-<p>&nbsp;</p>
 
 ### PAYMENT CREDIT CARD SUBMIT
 
@@ -272,8 +169,6 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">GET CREDIT CARD INFO BY ID</a>|/creditcardsubmit/{id}|GET|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE</a>|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
 
-<p>&nbsp;</p>
-
 ### PAYMENT DEFERRED PAYMENT
 
 |Endpoint Name|Path|HTTP Method|
@@ -285,8 +180,6 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">DEFERRED PAYMENT STATUS</a>|/payment/deferred_payment_status/v1|POST|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">DEFERRED PAYMENT STATUS JOB STATUS BY ID</a>|/payment/deferred_payment_status/v1/jobs/{id}|GET|
 
-<p>&nbsp;</p>
-
 ### PAYMENT OPTIONS
 
 |Endpoint Name|Path|HTTP Method|
@@ -295,8 +188,6 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>|/payment/options/v2/{shippingCountry}|GET|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">VALIDATE PAYMENTS</a>|/payment/validate_payments/v2|POST|
 
-<p>&nbsp;</p>
-
 ### PAYMENT PREVIEW
 
 |Endpoint Name|Path|HTTP Method|
@@ -304,8 +195,6 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="_blank">PAYMENT PREVIEW</a>|/payment/preview/v2|POST|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="_blank">PAYMENT PREVIEW RESULT BY ID</a>|/payment/preview_results/v2/{id}|GET|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="_blank">PAYMENT PREVIEW JOB STATUS BY ID</a>|/payment/preview/v2/jobs/{id}|GET|
-
-<p>&nbsp;</p>
 
 ### STORED PAYMENT
 
@@ -323,8 +212,6 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">CREATE/UPDATE ATG PAYMENT</a>|/consumer/storedpayments/synch|POST|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">DELETE ATG PAYMENT</a>|/consumer/storedpayments/synch/{payment_token}|DELETE|
 
-<p>&nbsp;</p>
-
 ### PAYMENT WALLET
 
 |Endpoint Name|Path|HTTP Method|
@@ -336,8 +223,6 @@ For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY"
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL MARK</a>|/payment/paypal_mark/v1|POST|
 |<a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">PAYPAL MARK JOB STATUS BY ID</a>|/payment/paypal_mark/v1/jobs/{id}|GET|
 
-<p>&nbsp;</p>
-
 ## <a name="caching-data"></a>Caching Data
 
 The Payment API makes use of data caching to optimize service SLAs. The first time data is fetched or when the cache expires, the Payment service makes a call to get the latest data and adds it to the cache.
@@ -345,8 +230,6 @@ The Payment API makes use of data caching to optimize service SLAs. The first ti
 The PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services handle gift card balances. Retrieving the balance of a gift card requires a call to a third-party gift card provider, which can slow down the Payment service's response, especially in high volume traffic. To avoid this scenario, the private gift card Service, which is responsible for retrieving gift card data and is called by the PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services, caches the gift card balance after retrieval. The cache time varies based on the balance. If the gift card has a positive balance, the gift card service caches the balance for 5 minutes; If the gift card has a 0 balance, the gift card service caches the balance for 30 minutes.
 
 The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation. For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Products API](/doc/commerce/product/api_merch_product.html) to get the latest data.
-
-<p>&nbsp;</p>
 
 ## <a name="making-your-first-api-request"></a>Making Your First API request
 
@@ -441,8 +324,6 @@ Assuming no errors, you will receive a response body similar to the following:
 Listed in the response are the the `country` and `billingCountry` passed in the request, as well as the `name` and `displayName` of each payment method valid for your Nike UPMID, shopping in country and billing country. Your user experience would display the `displayName` to the customer and pass the payment's `name` to endpoint requests requiring a payment type.
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ## <a name="using-payment-options"></a>Using Payment Options
 
@@ -623,8 +504,6 @@ Sample *Get Payment Options for an Order* 400 Error Response
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="allowable-billing-countries-for-a-shipping-country"></a>Allowable Billing Countries for a Shipping Country
 
 ---
@@ -782,8 +661,7 @@ Sample *Allowable Billing Countries for a Shipping Country* 400 Error response
 
 |Code|Description|
 |---|---|
-|INVALID_COUNTRY|returned when the request URI country parameter contains invalid country|
-<p>&nbsp;</p>
+|INVALID_COUNTRY|Returned when the request URI country parameter contains invalid country|
 
 ### <a name="validate-payments"></a>Validate Payments
 
@@ -944,8 +822,6 @@ Sample *Validate Payments* 400 Error Response
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_validate_payments_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ## <a name="using-stored-payment"></a>Using Stored Payment
 
 ---
@@ -1046,8 +922,6 @@ Next, you need to get customer approval by redirecting the customer to the PayPa
 The next Stored Payment endpoints you might want to call for the PayPal Billing Agreement flow are `savepayment` to store the PayPal payment method once the customer authorizes the Billing Agreement, and `storedpayment` to display all of the customer's saved payment methods.
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="save-payment-for-user-profile"></a>Save Payment for User Profile
 
@@ -1255,8 +1129,6 @@ This is a sample *Save Payment for User Profile* POST request to save Alipay Def
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#default_post_consumer_savepayment" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</>
-
 ### <a name="delete-all-stored-payments-for-user-profile"></a>Delete All Stored Payments for User Profile
 
 ---
@@ -1296,8 +1168,6 @@ Sample *Delete All Stored Payments for User Profile* DELETE request
 There is no content returned for a successful response.
 
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
-
-<p>&nbsp;</p>
 
 ### <a name="list-stored-payments-by-user-profile"></a>List Stored Payments by User Profile
 
@@ -1550,8 +1420,6 @@ The sample *List Stored Payments by User Profile* 400 Error Response is returned
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="list-stored-payment-by-payment-id"></a>List Stored Payment by Payment ID
 
 ---
@@ -1698,8 +1566,6 @@ Sample *List Stored Payment by ID* Alipay type response body:
 
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
 
-<p>&nbsp;</p>
-
 ### <a name="list-gift-card-by-payment-id"></a>List Gift Card by Payment Id
 
 ---
@@ -1779,8 +1645,6 @@ Sample *List Gift Card by Payment Id* 400 error response:
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="update-stored-payment-by-id"></a>Update Stored Payment by ID
 
@@ -1914,8 +1778,6 @@ Sample 404 error *Update Credit Card by User Profile* response body:
 ```
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 #### <a name="update-default-stored-payment-by-user-profile"></a>Update Default Stored Payment by User Profile
 
 ---
@@ -1989,8 +1851,6 @@ Sample 404 error *Update Default Stored Payment by User Profile* response body:
 ```
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id_default" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 #### <a name="delete-stored-payment-by-id"></a>Delete Stored Payment by ID
 
 ---
@@ -2053,8 +1913,6 @@ Sample 400 error response:
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 #### <a name="validate-credit-card-cvv-by-shipping-address"></a>Validate Credit Card CVV by Shipping Address
 
@@ -2176,8 +2034,6 @@ Sample *Validate Credit Card CVV by Shipping Address* 200 response body for cred
 ```
 
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
-
-<p>&nbsp;</p>
 
 ## <a name="using-payment-preview"></a>Using Payment Preview
 
@@ -2751,8 +2607,6 @@ Sample *Payment Preview* request with "COMPLETED" status with the amount allocat
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/post_payment_preview_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="payment-preview-job-status-by-id"></a>Payment Preview Job Status by ID
 
 ---
@@ -2806,8 +2660,6 @@ https://api.nike.com/payment/preview/v2/jobs/2722be3a-0341-11e6-b512-3e1d05defe7
 The *Payment Preview Job Status by ID* response is identical to the [Payment Preview Response Body](#payment-preview-response-body) except that the resource type value is payment/preview/jobs.
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="payment-preview-result-by-id-by-id"></a>Payment Preview Result by ID
 
@@ -2899,15 +2751,13 @@ Sample Payment Preview Results response for two gift cards and a credit card:
 ```
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ## <a name="using-payment-approval"></a>Using Payment Approval
 
 ---
 
 - [Submit Order Payments for Approval](#submit-order-payments-for-approval-post)
 - [Submit Order Payments for Approval](#submit-order-payments-for-approval-put)
-- [Retrieval Payment Approval Job](#retrieval-payment-approval-job)
+- [Retrieve Payment Approval Job](#retrieve-payment-approval-job)
 - [Order Payments Approval Result](#order-payments-approval-result)
 - [Void Payment Approval](#void-payment-approval)
 - [Get Payment Approval Summary](#get-payment-approval-summary)
@@ -3389,8 +3239,6 @@ Sample PayPal **Submit Order Payments for Approval** response body with "COMPLET
 
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
 
-<p>&nbsp;</p>
-
 ### <a name="submit-order-payments-for-approval-put"></a>Submit Order Payments for Approval (PUT)
 
 ---
@@ -3421,9 +3269,7 @@ See the [Submit Checkouts Payment for Approval (POST)](#submit-order-payments-fo
 
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
 
-<p>&nbsp;</p>
-
-### <a name="retrieval-payment-approval-job"></a>Retrieval Payment Approval Job
+### <a name="retrieve-payment-approval-job"></a>Retrieve Payment Approval Job
 
 ---
 
@@ -3450,7 +3296,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 |---|---|---|---|---|
 |**id**|Path|Unique identifier <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> for the job|String|Required|
 
-#### <a name="retrieval-payment-approval-job-request-headers"></a>Request Headers
+#### <a name="retrieve-payment-approval-job-request-headers"></a>Request Headers
 
 |Name|Description|Required?|
 |---|---|---|
@@ -3470,7 +3316,7 @@ Sample *Retrieval Payment Approval Job* request URI:
 https://api.nike.com/payment/preview/v2/jobs/2722be3a-0341-11e6-b512-3e1d05defe783424
 ```
 
-#### <a name="retrieval-payment-approval-job-response-body"></a>Response Body
+#### <a name="retrieve-payment-approval-job-response-body"></a>Response Body
 
 The *Retrieval Payment Approval Job* response is identical to the [Submit Order Payments for Approval Response Body](#submit-order-payments-for-approval-response-body).
 
@@ -3492,8 +3338,6 @@ Sample *Retrieval Payment Approval Job* response body with "IN_PROGRESS" status:
 }
 ```
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="order-payments-approval-result"></a>Order Payments Approval Result
 
@@ -3606,8 +3450,6 @@ The response is identical to the *Retrieval Payment Approval Job* endpoint excep
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="void-payment-approval"></a>Void Payment Approval
 
 ---
@@ -3653,8 +3495,6 @@ https://api.nike.com/payment/approval_results/v2/ae6575a7-8c0e-44ef-b91b-440bdaf
 The HTTP 204 response from *Void Payment Approval* has no response body.
 
 **This endpoint is not available to Try It Out because it is JWT-restricted**
-
-<p>&nbsp;</p>
 
 ### <a name="payment-approval-summary"></a>Get Payment Approval Summary
 
@@ -3938,8 +3778,6 @@ Error Code                           | Error Message                            
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_summary_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ## <a name="using-credit-card-submit"></a>Using Credit Card Submit
 
 ---
@@ -3997,8 +3835,6 @@ The response body of this endpoint is the iFrame with editable credit card numbe
 
 ![Image](/images/commerce/payment/number_expdate_cvv.png)
 
-<p>&nbsp;</p>
-
 ### <a name="add-credit-card-info-without-cvv"></a>Add Credit Card Info without CVV
 
 ---
@@ -4040,8 +3876,6 @@ The response body of this endpoint is the iFrame with editable credit card numbe
 
 ![Image](/images/commerce/payment/number_expdate.png)
 
-<p>&nbsp;</p>
-
 ### <a name="add-cvv-information"></a>Add CVV Information
 
 ---
@@ -4082,8 +3916,6 @@ The response body of this endpoint is the iFrame with an editable CVV field.
 
 ![Image](/images/commerce/payment/cvv.png)
 
-<p>&nbsp;</p>
-
 ### <a name="add-cvv-and-expiration-date"></a>Add CVV and Expiration Date
 
 ---
@@ -4123,8 +3955,6 @@ https://paymentcc.nike.com/services/expcvv?id=0e13e71d-e952-46af-b3f5-e476befd43
 The response body of this endpoint is the iFrame with editable expiration date and CVV fields prepopulated with values looked up based on the creditCardInfoId `id` path parameter.
 
 ![Image](/images/commerce/payment/expdate_cvv.png)
-
-<p>&nbsp;</p>
 
 ### <a name="validate-credit-card-info"></a>Validate Credit Card Info
 
@@ -4209,7 +4039,6 @@ Sample *Validate Credit Card Info* response body for mode=4:
   "isValid": true
 }
 ```
-<p>&nbsp;</p>
 
 ### <a name="store-credit-card-info"></a>Store Credit Card Info
 
@@ -4271,8 +4100,6 @@ https://paymentcc.nike.com/services/creditcardsubmit/0e13e71d-e952-46af-b3f5-e47
 #### Response Body
 
 This endpoint returns no response body.
-
-<p>&nbsp;</p>
 
 ### <a name="list-credit-card-info"></a>List Credit Card Info
 
@@ -4350,7 +4177,6 @@ Sample *List Credit Card Info* Apple Pay response body:
   "paymentType": "visa"
 }
 ```
-<p>&nbsp;</p>
 
 ### <a name="list-credit-card-info-and-validate-status"></a>List Credit Card Info and Validate Status
 
@@ -4445,8 +4271,6 @@ Sample *List Credit Card Info and Validate Status* Apple Pay response body:
 |CARD_EXPIRY_HAS_INVALID_MONTH|Returned when the credit card expiration month is invalid|
 |CARD_EXPIRY_HAS_INVALID_YEAR|Returned when the credit card expiration year is invalid|
 |PAYMENT_DATA_NOT_VALID|Returned when the ApplePay payment data length is invalid|
-
-<p>&nbsp;</p>
 
 ## <a name="using-apple-pay"></a>Using Apple Pay
 
@@ -4543,8 +4367,6 @@ Sample *Start Apple Pay Session* response body:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ## <a name="using-payment-wallet"></a>Using Payment Wallet
 
 ---
@@ -4561,8 +4383,6 @@ Sample *Start Apple Pay Session* response body:
 When paying with PayPal, this service initializes a PayPal session and generates a PayPal redirect URL and token. It also retrieves and validates PayPal meta data. There is an endpoint for PayPal Express and a separate endpoint for PayPal Mark flows. The PayPal Express flow allows the customer to choose a saved or add a new shipping and billing address at the PayPal site rather than in the Nike experience. The PayPal Mark flow allows the customer to choose an existing or add a new shipping address in the Nike experience and choose a saved or add a new billing address at the PayPal site.
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
-
-<p>&nbsp;</p>
 
 ### <a name="paypal-express"></a>PayPal Express
 
@@ -4712,8 +4532,6 @@ Sample *PayPal Express* response body:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="paypal-express-job-by-id"></a>PayPal Express Job by ID
 
 ---
@@ -4809,8 +4627,6 @@ Sample *PayPal Express Job by ID* response body:
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="paypal-mark"></a>PayPal Mark
 
@@ -5005,8 +4821,6 @@ Sample *PayPal Mark* response body in "PENDING" status:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="paypal-mark-job-by-id"></a>PayPal Mark Job by ID
 
 ---
@@ -5082,7 +4896,6 @@ The HTTP 200 response from *PayPal Mark* contains information about how to retri
 |response.**paypalToken**|string|PayPal express token|Required|
 |response.**redirectURL**|string|PayPal redirect URL customer follows to pay|Required|
 
-
 Sample *PayPal Mark Job by ID* response body:
 ```
 {
@@ -5103,8 +4916,6 @@ Sample *PayPal Mark Job by ID* response body:
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="paypal-details"></a>PayPal Details
 
@@ -5251,8 +5062,6 @@ Sample *PayPal Details* 400 response body:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/post_payment_paypal_details_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 #### <a name="paypal-details-job-by-id"></a>PayPal Details Job by ID
 
 ---
@@ -5381,7 +5190,7 @@ Sample *PayPal Details Job by ID* 200 response body in "COMPLETED" status:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
+
 
 ## <a name="using-deferred-payment"></a>Using Deferred Payment
 
@@ -5519,8 +5328,6 @@ Sample *Deferred Payment Form* 400 response:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="deferred-payment-form-job-status-by-id"></a>Deferred Payment Form Job Status by Id
 
 ---
@@ -5575,8 +5382,6 @@ https://api.nike.com/payment/deferred_payment_forms/v1/jobs/2722be3a-0341-11e6-b
 The HTTP 202 response from *Deferred Payment Form Job* contains information about how to retrieve the results of your job via the 'Deferred Payment Form Job' endpoint. The response body is the same as is returned in the [Deferred Payment Form](#deferred-payment-response-body) except that the resourceType is payment/deferred_payment_forms.
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="deferred-payment-status"></a>Deferred Payment Status
 
@@ -5692,8 +5497,6 @@ Sample *Deferred Payment Status* response in "PENDING" status:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
-
 ### <a name="deferred-payment-status-job-status-by-id"></a>Deferred Payment Status Job Status by Id
 
 ---
@@ -5783,8 +5586,6 @@ Sample *Deferred Payment Status Job* response in "COMPLETED" status:
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
 
 ### <a name="deferred-payment-wechat"></a>Deferred Payment WeChat
 
@@ -5882,7 +5683,7 @@ Sample *Deferred Payment WeChat* response in "PENDING" status:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
+
 
 ### <a name="deferred-wechat-payment-job-status-by-id"></a>Deferred WeChat Payment Job Status by Id
 
@@ -5983,7 +5784,7 @@ Sample *Deferred WeChat Payment Job* response in "COMPLETED" status:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<p>&nbsp;</p>
+
 
 ## <a name="upgrading-to-the-latest-version"></a>Upgrading to the latest version
 
@@ -6049,14 +5850,6 @@ The Stored Payment Service supports storing these types of payment:
 
 See the <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870810" target="_blank">Global Payment Options</a> for a list of supported payment types by shipping and billing country.
 
-<p>&nbsp;</p>
-
-## <a name="release-notes"></a>Release Notes
-
-There are no release notes at this time.
-
-<p>&nbsp;</p>
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
@@ -6067,6 +5860,7 @@ There are no release notes at this time.
 |Updated external links|04/03/2018|Updated external links to open in new browser window|
 |Updated API.md links|05/14/2018|Updated API.md links to point to new dev portal|
 |Updated request/response tables|07/01/2018|Normalized formatting of request/response tables|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 

@@ -18,133 +18,9 @@
 <div class="main">
     <h1 id="buy-domain-developers-guide">BUY DOMAIN <i class="g72-swoosh"></i><br />DEVELOPER’S GUIDE</h1>
 
-<h6 id="last-updated-06262018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 06/26/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
+<h6 id="last-updated-10012018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 10/01/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
 
 <p>If you’ve read <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="/doc/commerce/checkout/biz_checkout.html">Get Started With Checkout</a>, this guide provides the additional details necessary to integrate with the Buy Domain APIs.</p>
-
-<h2 id="in-this-guide"><strong>In this guide:</strong></h2>
-
-<p><a href="#api-at-a-glance">API at a Glance</a></p>
-
-<p><a href="#terms-of-service">Terms of Service</a></p>
-
-<p><span class="toc-pad"><a href="#authorization">Authorization</a></span></p>
-
-<p><a href="#use-cases">Use Cases</a></p>
-
-<p><span class="toc-pad"><a href="#example-implementation-diagram">Example Implementation Diagram</a></span></p>
-
-<p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
-
-<p><a href="#making-your-first-api-request">Making Your First API Request</a></p>
-
-<p><a href="#using-carts-v1">Using Carts v1</a></p>
-
-<p><span class="toc-pad"><a href="#carts-v1-overview">Carts v1 Overview</a></span></p>
-
-<p><span class="toc-pad"><a href="#create-or-update-a-cart">Create or Update a Cart</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-carts-by-id">Retrieve Carts by ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-carts-by-filter">Retrieve Carts by Filter</a></span></p>
-
-<p><span class="toc-pad"><a href="#delete-all-items-from-a-cart">Delete All Items from a Cart</a></span></p>
-
-<p><span class="toc-pad"><a href="#carts-v1-error-handling">Carts v1 Error Handling</a></span></p>
-
-<p><a href="#using-carts-v2">Using Carts v2</a></p>
-
-<p><span class="toc-pad"><a href="#carts-v2-overview">Carts v2 Overview</a></span></p>
-
-<p><span class="toc-pad"><a href="#create-or-update-a-cart-by-cart-id">Create or Update a Cart by Cart ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#modify-a-cart-by-cart-id">Modify a Cart by Cart ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#delete-all-items-from-a-cart-by-cart-id">Delete All Items from a Cart by Cart ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#get-a-cart-by-cart-id">Get a Cart by Cart ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#get-a-cart-by-filter-criteria-query-param">Get a Cart by Filter Criteria (Query Param)</a></span></p>
-
-<p><span class="toc-pad"><a href="#create-or-update-a-cart-by-filter-criteria">Create or Update a Cart by Filter Criteria</a></span></p>
-
-<p><span class="toc-pad"><a href="#modify-a-cart-by-filter-criteria">Modify a Cart by Filter Criteria</a></span></p>
-
-<p><span class="toc-pad"><a href="#get-a-cart-by-filter-criteria-path-param">Get a Cart by Filter Criteria (Path Param)</a></span></p>
-
-<p><span class="toc-pad"><a href="#delete-all-items-from-a-cart-by-filter-criteria">Delete All Items from a Cart by Filter Criteria</a></span></p>
-
-<p><span class="toc-pad"><a href="#carts-v2-error-handling">Carts v2 Error Handling</a></span></p>
-
-<p><a href="#using-cart-reviews">Using Cart Reviews</a></p>
-
-<p><span class="toc-pad"><a href="#cart-reviews-overview">Cart Reviews Overview</a></span></p>
-
-<p><span class="toc-pad"><a href="#augment-a-cart">Augment a Cart</a></span></p>
-
-<p><span class="toc-pad"><a href="#cart-reviews-error-handling">Cart Reviews Error Handling</a></span></p>
-
-<p><a href="#using-wish-lists">Using Wish Lists</a></p>
-
-<p><span class="toc-pad"><a href="#wish-lists-overview">Wish Lists Overview</a></span></p>
-
-<p><span class="toc-pad"><a href="#create-or-update-a-list">Create or Update a List</a></span></p>
-
-<p><span class="toc-pad"><a href="#delete-a-list">Delete a List</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-a-list-by-id">Retrieve a List by ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-lists-for-authenticated-user">Retrieve Lists for Authenticated User</a></span></p>
-
-<p><span class="toc-pad"><a href="#add-item-to-list">Add Item to List</a></span></p>
-
-<p><span class="toc-pad"><a href="#remove-item-from-list">Remove Item from List</a></span></p>
-
-<p><span class="toc-pad"><a href="#remove-item-from-list">Retrieve Items by List</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-item-by-id">Retrieve Item by ID</a></span></p>
-
-<p><a href="#using-shipping-options">Using Shipping Options</a></p>
-
-<p><span class="toc-pad"><a href="#shipping-options-overview">Shipping Options Overview</a></span></p>
-
-<p><span class="toc-pad"><a href="#shipping-options">Shipping Options</a></span></p>
-
-<p><span class="toc-pad"><a href="#shipping-options-error-handling">Shipping Options Error Handling</a></span></p>
-
-<p><a href="#using-checkouts">Using Checkouts</a></p>
-
-<p><span class="toc-pad"><a href="#checkouts-overview">Checkouts Overview</a></span></p>
-
-<p><span class="toc-pad"><a href="#request-checkout-preview">Request Checkout Preview</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-checkout-preview-job">Retrieve Checkout Preview Job</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-checkout-preview-results">Retrieve Checkout Preview Results</a></span></p>
-
-<p><span class="toc-pad"><a href="#request-checkout-submit">Request Checkout Submit</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-checkout-submit-job">Retrieve Checkout Submit Job</a></span></p>
-
-<p><span class="toc-pad"><a href="#retrieve-checkout-results">Retrieve Checkout Results</a></span></p>
-
-<p><span class="toc-pad"><a href="#request-checkout-submit-launch">Request Checkout Submit (Launch)</a></span></p>
-
-<p><span class="toc-pad"><a href="#checkouts-error-handling">Checkouts Error Handling</a></span></p>
-
-<p><a href="#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></p>
-
-<p><a href="#best-practices">Best Practices</a></p>
-
-<p><a href="#troubleshooting">Troubleshooting</a></p>
-
-<p><a href="#glossary">Glossary</a></p>
-
-<p><a href="#release-notes">Release Notes</a></p>
-
-<p><a href="#document-change-log">Document Change Log</a></p>
-
-<p><a href="#related-links">Related Links</a></p>
 
 <h2 id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</h2>
 
@@ -158,7 +34,7 @@
   <tbody>
     <tr>
       <td>Use these APIs to</td>
-      <td>* Add Nike products or gift cards to a shopping cart or Wish List and get pricing * Get available shipping options with pricing * Preview &amp; validate a checkout * Submit a checkout for fulfillment * More…</td>
+      <td>Add Nike products or gift cards to a shopping cart or Wish List and get pricing<br />Get available shipping options with pricing&gt;<br />Preview &amp; validate a checkout<br />Submit a checkout for fulfillment<br />More…</td>
     </tr>
     <tr>
       <td>Who calls this API</td>
@@ -170,7 +46,7 @@
     </tr>
     <tr>
       <td>SLA</td>
-      <td>*  Carts v1 - Response Time: 50ms, Requests Per Second: 500 *  Carts v2 - Response Time: 1000ms, Requests Per Second: 300  * Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200 * Wish Lists - Response Time: 160 ms, Requests Per Second: 80 * Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000  * Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600</td>
+      <td>Carts - Response Time: 1000ms, Requests Per Second: 300<br />Cart Reviews - Response Time: 150 ms, Requests Per Second: 200<br />Wish Lists - Response Time: 160 ms, Requests Per Second: 80<br />Shipping Options - Response Time: 100 ms, Requests Per Second: 1000<br />Checkouts - Response Time: 300 ms, Requests Per Second: 600</td>
     </tr>
     <tr>
       <td>Domain</td>
@@ -178,7 +54,7 @@
     </tr>
     <tr>
       <td>Prerequisites</td>
-      <td>* <a href="/doc/getting-started/using_nike_apis.html#registration">API Registration</a> * JWT for <em>Launch Checkout Submit</em> only</td>
+      <td><a href="/doc/getting-started/using_nike_apis.html#registration">API Registration</a><br />JWT for <em>Launch Checkout Submit</em> only</td>
     </tr>
     <tr>
       <td>Contact Info</td>
@@ -195,7 +71,7 @@
 
 <p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the <a href="/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
 
-<h3 id="authorization"><a name="authorization"></a>Authorization</h3>
+<h3 id="authentication"><a name="authentication"></a>Authentication</h3>
 
 <h4 id="access-tokens">Access Tokens</h4>
 
@@ -1176,7 +1052,7 @@ Authorization: Bearer {your access token}
     <tr>
       <td><strong>filter</strong></td>
       <td>Query</td>
-      <td>Values by which to limit the cart results * <strong>country</strong>: ISO 3166-1 <a href="/doc/commerce/checkout/checkout_country_currency.html">two-letter code</a> <strong>Required</strong> * <strong>brand</strong>: NIKE brand name, only NIKE is supported <strong>Required</strong> * channel: sales channel, only NIKECOM is supported, optional</td>
+      <td>Values by which to limit the cart results: <strong>country</strong>: ISO 3166-1 <a href="/doc/commerce/checkout/checkout_country_currency.html">two-letter code</a> <strong>Required</strong><br /><strong>brand</strong>: NIKE brand name, only NIKE is supported <strong>Required</strong><br />channel: sales channel, only NIKECOM is supported, optional</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -4979,7 +4855,7 @@ Authorization: Bearer {your access token}
     <tr>
       <td><strong>filter</strong></td>
       <td>Query</td>
-      <td>Limit the results to those matching the specified filters *  country (string, required) - ISO 3166 country code(s) *  name (string, optional) - List name</td>
+      <td>Limit the results to those matching the specified filters: <strong>country</strong> (string, required) - ISO 3166 country code(s)<br />name (string, optional) - List name</td>
       <td>String</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -5653,7 +5529,7 @@ Authorization: Bearer {your access token}
     <tr>
       <td><strong>filter</strong></td>
       <td>Query</td>
-      <td>Limit the results to those matching the specified filters  *  wishlistId (required) List identifier, e.g. <code class="highlighter-rouge">93a333a2-907b-46f1-b9ac-469489909057</code></td>
+      <td>Limit the results to those matching the specified filters: <strong>wishlistId</strong> (required), List identifier, e.g. <code class="highlighter-rouge">93a333a2-907b-46f1-b9ac-469489909057</code></td>
       <td>String</td>
       <td>Required</td>
     </tr>
@@ -9804,10 +9680,6 @@ guide to learn more.</p>
 
 <p>See the <a href="/doc/getting-started/glossary.html">Glossary</a></p>
 
-<h2 id="release-notes"><a name="release-notes"></a>Release Notes</h2>
-
-<p>No release notes available.</p>
-
 <h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
 
 <table>
@@ -9848,6 +9720,11 @@ guide to learn more.</p>
       <td>Added ‘Required?’ to tables</td>
       <td>06/26/2018</td>
       <td>Added required column to tables that were missing it</td>
+    </tr>
+    <tr>
+      <td>Updated TOC</td>
+      <td>10/01/2018</td>
+      <td>Removed ‘In this guide’, replaced with sidebar TOC</td>
     </tr>
   </tbody>
 </table>
@@ -9922,6 +9799,293 @@ guide to learn more.</p>
 					
 				</a>
 				
+				<ul>
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#api-at-a-glance"
+						   class="">API at a Glance</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#terms-of-service"
+						   class="">Terms of Service</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#authentication"
+							   class="">Authentication</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#use-cases"
+						   class="">Use Cases</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#api-endpoint-quick-reference"
+						   class="">Endpoint Quick Reference</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#making-your-first-api-request"
+						   class="">Making Your First Request</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#using-carts-v2"
+						   class="">Using Carts</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#carts-v2-overview"
+							   class="">Overview</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#create-or-update-a-cart-by-cart-id"
+							   class="">Create/Update a Cart by ID</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#modify-a-cart-by-cart-id"
+							   class="">Modify a Cart by ID</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#delete-all-items-from-a-cart-by-cart-id"
+							   class="">Delete Items from a Cart by ID</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#get-a-cart-by-cart-id"
+							   class="">Get a Cart by Cart ID</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#get-a-cart-by-filter-criteria-query-param"
+							   class="">Get a Cart by Filter Criteria (Query Param)</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#create-or-update-a-cart-by-filter-criteria"
+							   class="">Create/Update a Cart by Filter Criteria</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#modify-a-cart-by-filter-criteria"
+							   class="">Modify a Cart by Filter Criteria</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#get-a-cart-by-filter-criteria-path-param"
+							   class="">Get a Cart by Filter Criteria (Path Param)</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#delete-all-items-from-a-cart-by-filter-criteria"
+							   class="">Delete All Items from a Cart by Filter Criteria</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#carts-v2-error-handling"
+							   class="">Error Handling</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#using-cart-reviews"
+						   class="">Using Cart Reviews</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#cart-reviews-overview"
+							   class="">Overview</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#augment-a-cart"
+							   class="">Augment a Cart</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#cart-reviews-error-handling"
+							   class="">Error Handling</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#using-wish-lists"
+						   class="">Using Wish Lists</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#wish-lists-overview"
+							   class="">Overview</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#create-or-update-a-list"
+							   class="">Create/Update a List</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#delete-a-list"
+							   class="">Delete a List</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-a-list-by-id"
+							   class="">Retrieve a List by ID</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-lists-for-authenticated-user"
+							   class="">Retrieve Lists for User</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#add-item-to-list"
+							   class="">Add Item to List</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#remove-item-from-list"
+							   class="">Remove Item from List</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-item-by-id"
+							   class="">Retrieve Item by ID</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#using-shipping-options"
+						   class="">Using Shipping Options</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#shipping-options-overview"
+							   class="">Overview</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#shipping-options"
+							   class="">Shipping Options</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#shipping-options-error-handling"
+							   class="">Error Handling</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#using-checkouts"
+						   class="">Using Checkouts</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#checkouts-overview"
+							   class="">Overview</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#request-checkout-preview"
+							   class="">Request Checkout Preview</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-preview-job"
+							   class="">Retrieve Checkout Preview Job</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-preview results"
+							   class="">Retrieve Checkout Preview Results</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#request-checkout-submit"
+							   class="">Request Checkout Submit</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-submit-job"
+							   class="">Retrieve Checkout Submit Job</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-results"
+							   class="">Retrieve Checkout Results</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#request-checkout-submit-launch"
+							   class="">Request Checkout Submit (Launch)</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/checkout/api_checkout.html#checkouts-error-handling"
+							   class="">Error Handling</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#upgrading-to-the-latest-version"
+						   class="">Upgrading to the Latest Version</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#best-practices"
+						   class="">Best Practices</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#troubleshooting"
+						   class="">Troubleshooting</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/checkout/api_checkout.html#glossary"
+						   class="">Glossary</a>
+					</li>
+					
+					
+				</ul>
+				
 			</li>
 			
 			
@@ -9967,14 +10131,6 @@ guide to learn more.</p>
 			</li>
 			
 			
-			
-			<li>
-				<a href="/doc/commerce/search/api_search.html" class="">
-					eCommerce Search
-					
-				</a>
-				
-			</li>
 			
 			
 			

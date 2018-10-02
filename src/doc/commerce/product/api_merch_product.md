@@ -1,81 +1,77 @@
 ---
-category: usecase
+category: use-case
 position: 5
 title: Merch Product
 url: /commerce/product/api_merch_product.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/product/api_merch_product.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/product/api_merch_product.html#terms-of-service
+  - h2: Use Cases
+    url: /doc/commerce/product/api_merch_product.html#use-cases
+  - h2: Gathering a Complete Data Set for a Product
+    url: /doc/commerce/product/api_merch_product.html#gathering-a-complete-data-set-for-a-product
+  - h2: Accessing Product Data the Easy Way
+    url: /doc/commerce/product/api_merch_product.html#accessing-product-data-the-easy-way
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/product/api_merch_product.html#api-endpoint-quick-reference
+  - h2: Understanding Nike Product Data
+    url: /doc/commerce/product/api_merch_product.html#understanding-nike-product-data
+    subheadings:
+      - h3: Where Does Product Data Come From?
+        url: /doc/commerce/product/api_merch_product.html#where-does-product-data-come-from
+      - h3: How Does Product Data Get Published?
+        url: /doc/commerce/product/api_merch_product.html#how-does-product-data-get-published
+      - h3: Where Do I Get Inventory Information
+        url: /doc/commerce/product/api_merch_product.html#where-do-i-get-inventory-information
+      - h3: How to Find a Current Product
+        url: /doc/commerce/product/api_merch_product.html#how-to-find-a-current-product
+  - h2: Merchandised Products API Concepts
+    url: /doc/commerce/product/api_merch_product.html#merchandised-product-api-concepts
+    subheadings:
+      - h3: How Product Data is Organized in the Merchandised Products API
+        url: /doc/commerce/product/api_merch_product.html#how-product-data-is-organized-in-the-merchandised-product-api
+      - h3: Finding the Data Points You Need
+        url: /doc/commerce/product/api_merch_product.html#finding-the-data-points-you-need
+      - h3: Understanding the Various IDs Returned Within Each Response
+        url: /doc/commerce/product/api_merch_product.html#understanding-the-various-ids-returned-within-each-response
+      - h3: Caching Data
+        url: /doc/commerce/product/api_merch_product.html#caching-data
+      - h3: Create, Update, and Delete Capabilities of the API
+        url: /doc/commerce/product/api_merch_product.html#create-update-and-delete-capabilities-of-the-api
+  - h2: International Considerations
+    url: /doc/commerce/product/api_merch_product.html#international-considerations
+    subheadings:
+      - h3: Working with Merch Groups, Countries, and Languages
+        url: /doc/commerce/product/api_merch_product.html#working-with-merch-groups-countries-and-languages
+      - h3: Excluding Countries where a Specific Product Should Not Be Offered
+        url: /doc/commerce/product/api_merch_product.html#excluding-countries-where-a-specific-product-should-not-be-offered
+  - h2: Making Your First Request
+    url: /doc/commerce/product/api_merch_product.html#making-your-first-api-request
+  - h2: Using Merchandised Products
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-products
+  - h2: Using Merchandised Product SKUs
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-product-skus
+  - h2: Using Merchandised Prices
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-product-prices
+  - h2: Using Merchandised Value-Added Services
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-value-added-services
+  - h2: Using Product Content
+    url: /doc/commerce/product/api_merch_product.html#using-product-content
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/product/api_merch_product.html#upgrading-to-the-latest-version
+  - h2: Troubleshooting
+    url: /doc/commerce/product/api_merch_product.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/product/api_merch_product.html#glossary
 ---
 
 # MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 07/02/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
-
-## **In This Guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-[Use Cases](#use-cases)
-
-[Try It Out: Gathering a Complete Data Set for a Product](#try-it-out-gathering-a-complete-data-set-for-a-product)
-
-[Accessing Product Data the Easy Way: Consider Using Product Feeds](#accessing-product-data-the-easy-way-consider-using-product-feeds)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[Understanding Nike Product Data](#understanding-nike-product-data)
-
-<span class="toc-pad">[Where Does Product Data Come From?](#where-does-product-data-come-from)</span>
-
-<span class="toc-pad">[How Does Product Data Get Published?](#how-does-product-data-get-published)</span>
-
-<span class="toc-pad">[Where Do I Get Inventory Information?](#where-do-i-get-inventory-information)</span>
-
-<span class="toc-pad">[How to Find a Current Product](#how-to-find-a-current-product)</span>
-
-[Merchandised Products API Concepts](#merchandised-products-api-concepts)
-
-<span class="toc-pad">[How Product Data is Organized in the Merchandised Products API](#how-product-data-is-organized-in-the-merchandised-products-api)</span>
-
-<span class="toc-pad">[TIP: Finding the Data Points You Need](#tip-finding-the-data-points-you-need)</span>
-
-<span class="toc-pad">[Understanding the Various IDs Returned Within Each Response](#understanding-the-various-ids-returned-within-each-response)</span>
-
-<span class="toc-pad">[Caching Data](#caching-data)</span>
-
-<span class="toc-pad">[Create, Update, and Delete Capabilities of the API](#create-update-and-delete-capabilities-of-the-api)</span>
-
-[International Considerations](#international-considerations)
-
-<span class="toc-pad">[Working with Merch Groups, Countries, and Languages](#working-with-merch-groups-countries-and-languages)</span>
-
-<span class="toc-pad">[Excluding Countries where a Specific Product Should Not Be Offered](#excluding-countries-where-a-specific-product-should-not-be-offered)</span>
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Merchandised Products](#using-merchandised-products)
-
-[Using Merchandised Product SKUs](#using-merchandised-product-skus)
-
-[Using Merchandised Prices](#using-merchandised-product-prices)
-
-[Using Merchandised Value-Added Services](#using-merchandised-value-added-services)
-
-[Using Product Content](#using-product-content)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-[Troubleshooting](#troubleshooting)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -113,7 +109,7 @@ If you are retrieving products that are publicly available, no authentication or
 |List the available images and localized product information such as title, subtitle, and description for a product<p>Lists all images in the Scene7 or Cloudinary image set|Product Content API|
 |List product information for a product at a specific point in time using a Snapshot ID|Merchandised Products API|
 
-## <a name="try-it-out-gathering-a-complete-data-set-for-a-product"></a>Try It Out: Gathering a Complete Data Set for a Product
+## <a name="gathering-a-complete-data-set-for-a-product"></a>Gathering a Complete Data Set for a Product
 
 The following example describes the set of Merchandised Products service calls you can make to assemble the product details of a style-color. These are all public services, so feel free to experiment with the endpoints. Note that the style-color in this example is not a current, active style-color. Product availability changes all the time, so you should get a current product from Nike.com to try this out.
 
@@ -136,7 +132,7 @@ https://api.nike.com/merch/contents/v1/526628-009/images?country=US
 5. Using style-color 526628-009 (not product ID), get the localized content for the product from the Product Content endpoint of the Product Content service:
 https://api.nike.com/merch/contents/v1/526628-009/content?country=US&locale=en_US
 
-## <a name="accessing-product-data-the-easy-way-consider-using-product-feeds"></a>Accessing Product Data the Easy Way: Consider Using Product Feeds
+## <a name="accessing-product-data-the-easy-way"></a>Accessing Product Data the Easy Way: Consider Using Product Feeds
 
 Before you start using the Merchandised Products APIs, you should evaluate whether you could accomplish the same objectives by using the Product Feeds API.
 
@@ -266,7 +262,7 @@ These items are divided into a set of microservices. The relationship between th
 
 ![](/images/commerce/merch_product/relationships.png)
 
-### <a name="tip-finding-the-data-points-you-need"></a>**TIP:** Finding the Data Points You Need
+### <a name="finding-the-data-points-you-need"></a>Finding the Data Points You Need
 
 Microservice architecture specifies that data should be divided into logical groupings within semantically-named resources. You can use the following general guidelines to find the data points among the Merchandised Products resources:
 - If the data can be localized, it is typically in the Content API.
@@ -2349,10 +2345,6 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 |SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
 |VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
-## <a name="release-notes"></a>Release Notes
-
-There are no release notes at this time.
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
@@ -2364,6 +2356,7 @@ There are no release notes at this time.
 |Updated API.md links|14 May, 2018|Updated API.md links to point to new dev portal|
 |Edits for style|1 June, 2018|Edits for capitalization, formatting consistency|
 |Normalized table formatting|2 July, 2018|Edits for request/response table formatting and content|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 
