@@ -1,53 +1,36 @@
 ---
-category: usecase
+category: use-case
 position: 7
 title: Events
 url: /commerce/events/api_eventsv2.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/events/api_eventsv2.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/events/api_eventsv2.html#terms-of-service
+  - h2: Use Cases
+    url: /doc/commerce/events/api_eventsv2.html#use-cases
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/events/api_eventsv2.html#api-endpoint-quick-reference
+  - h2: Making Your First Request
+    url: /doc/commerce/events/api_eventsv2.html#making-your-first-api-request
+  - h2: Using Analytics Pipeline
+    url: /doc/commerce/events/api_eventsv2.html#using-analytics-v2-pipeline
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/events/api_eventsv2.html#upgrading-to-the-latest-version
+  - h2: Best Practices
+    url: /doc/commerce/events/api_eventsv2.html#best-practices
+  - h2: Troubleshooting
+    url: /doc/commerce/events/api_eventsv2.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/events/api_eventsv2.html#glossary
 ---
 
 # ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
-
-## **In This Guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-<span class="toc-pad">[Authentication](#authentication)
-
-[Use Cases](#use-cases)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Analytics Pipeline v2](#using-analytics-v2-pipeline)
-
-<span class="toc-pad">[Endpoint Details](#endpoint-details)
-
-<span class="toc-pad">[Path & Query Parameters](#path--query-parameters)
-
-<span class="toc-pad">[Request Headers](#request-headers)
-
-<span class="toc-pad">[Request Body](#request-body)
-
-<span class="toc-pad">[Response Body](#response-body)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-[Troubleshooting](#troubleshooting)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -95,7 +78,7 @@ Reach out to the Analytics API Product Owner, [Randy Davis](mailto:randall.davis
 - High usage from a single IP address may be flagged by Nike bot detection and blocked.
 - This API is not intended for application monitoring, logging, or reporting on server-side errors.
 
-### <a name="authentication"></a>Authentication
+### <a name="authorization"></a>Authorization
 
 No authentication or authorization is required to use the Analytics Pipeline v2 API.
 
@@ -1374,16 +1357,13 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 See the [Glossary](/doc/getting-started/glossary.html)
 
-## <a name="release-notes"></a>Release Notes
-
-There are no release notes at this time.
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|02/14/2018|Initial Draft|
 |Updated external links|04/03/2018|Updated external links to open in new browser window|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 

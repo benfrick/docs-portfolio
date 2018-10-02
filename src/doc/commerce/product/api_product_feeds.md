@@ -1,8 +1,31 @@
 ---
-category: usecase
+category: use-case
 position: 3
 title: Product Feeds
 url: /commerce/product/api_product_feeds.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/product/api_product_feeds.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/product/api_product_feeds.html#terms-of-service
+  - h2: Use Cases
+    url: /doc/commerce/product/api_product_feeds.html#use-cases
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/product/api_product_feeds.html#api-endpoint-quick-reference
+  - h2: Cards, Threads, and Feeds
+    url: /doc/commerce/product/api_product_feeds.html#cards-threads-and-feeds
+  - h2: Making Your First Request
+    url: /doc/commerce/product/api_product_feeds.html#making-your-first-api-request
+  - h2: Using Product Feeds
+    url: /doc/commerce/product/api_product_feeds.html#using-product-feeds-v2
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/product/api_product_feeds.html#upgrading-to-the-latest-version
+  - h2: Best Practices
+    url: /doc/commerce/product/api_product_feeds.html#best-practices
+  - h2: Troubleshooting
+    url: /doc/commerce/product/api_product_feeds.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/product/api_product_feeds.html#glossary
 ---
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
@@ -12,66 +35,6 @@ url: /commerce/product/api_product_feeds.html
 ---
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Product Feeds](/doc/commerce/product/biz_product_feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
-
-## **In this guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-<span class="toc-pad">[Authentication](#authentication)
-
-[Use Cases](#use-cases)
-
-<span class="toc-pad">[Example Implementation Diagram](#example-implementation-diagram)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[What are Cards, Threads, and Feeds?](#what-are-cards-threads-and-feeds)
-
-[Where Do Cards, Threads, and Feeds Come From?](#where-do-cards-threads-and-feeds-come-from)
-
-[What are Channels and Why Do I Need One?](#what-are-channels-and-why-do-i-need-one)
-
-[Terminology Differences Between CMS and Product Feeds](#terminology-differences-between-cms-and-product-feeds)
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Product Feeds v2](#using-product-feeds-v2)
-
-<span class="toc-pad">[Product Threads List](#product-threads-list)
-
-<span class="toc-pad">[Product Thread by ID](#product-thread-by-id)
-
-<span class="toc-pad">[Product Feeds Error Handling](#product-feeds-error-handling)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-<span class="toc-pad">[V1.x to V2 Endpoint Mapping](#v1x-to-v2-endpoint-mapping)
-
-<span class="toc-pad">[All Product Feeds & Product Feed by ID v1 to v2 Field Mapping](#all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping)
-
-<span class="toc-pad">[All Product Threads & Product Thread by ID v1 to v2 Field Mapping](#all-product-threads--product-thread-by-id-v1-to-v2-field-mapping)
-
-<span class="toc-pad">[URL Patterns By Version](#url-patterns-by-version)
-
-[Best Practices](#best-practices)
-
-<span class="toc-pad">[Test Environment](#test-environment)
-
-[Troubleshooting](#troubleshooting)
-
-<span class="toc-pad">[Use Troubleshooting Tools](#use-troubleshooting-tools)
-
-<span class="toc-pad">[Common Questions](#common-questions)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -124,7 +87,9 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 |GET|Product Threads List|Get all threads for a channel, marketplace, language combination|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
 |GET|Product Thread by ID|Get a specific thread by its identifier|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
 
-## <a name="what-are-cards-threads-and-feeds"></a>What are Cards, Threads, and Feeds?
+## <a name="cards-threads-and-feeds"></a>Cards, Threads, and Feeds
+
+### <a name="what-are-cards-threads-and-feeds"></a>What are Cards, Threads, and Feeds?
 
 Use Product Feeds to get product data and content in the form of Cards, Threads, and Feeds.
 
@@ -140,7 +105,7 @@ To summarize, a Feed is comprised of multiple Threads, and within each Thread re
 
 <br>
 
-## <a name="where-do-cards-threads-and-feeds-come-from"></a>Where Do Cards, Threads, and Feeds Come From?
+### <a name="where-do-cards-threads-and-feeds-come-from"></a>Where Do Cards, Threads, and Feeds Come From?
 
 The Product Feeds API combines product information with product content into Cards, Threads, and Feeds by pulling data from the following Nike Cloud APIs:
 
@@ -158,7 +123,7 @@ The Product Feeds API combines product information with product content into Car
 
 >**TIP:** The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
 
-## <a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?
+### <a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?
 
 A channel is a distinct user experience where Nike products are showcased and made available for purchase, for example in SNKRS or the Nike app. Each channel has a unique **channelId** (channel identifier) that is required by certain Product Feeds API endpoints. This allows the results in responses to be filtered appropriately for your experience.
 
@@ -166,7 +131,7 @@ Each **channelId** value originates in Nike CMS under a different name, **collec
 
 Each Feed can be associated with one or more channels, opening up the personalized Feed to many Nike experiences.
 
-## <a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds
+### <a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds
 
 As mentioned earlier, the Product Feeds API pulls product content from Nike CMS and includes it in responses. One thing to be aware of is that Nike CMS sometimes uses different names for the same field than Product Feeds. For example, the CMS **collectionGroupId** that you will see in responses is synonymous with the **channelId** query parameter you might send to Product Feeds.
 
@@ -2091,10 +2056,6 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 See the [Glossary](/doc/getting-started/glossary.html).
 
-## <a name="release-notes"></a>Release Notes
-
-No release notes available
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
@@ -2109,6 +2070,7 @@ No release notes available
 |Removed endpoints|7/3/2018|Removed references to the deprecated product_feed/feed endpoints|
 |Added upstream contact info|7/5/2018|Linked to 'Thread Response Ownership Breakdown' in Troubleshooting|
 |Used valid channelId in examples|7/16/2018|Changed from using invalid to valid channelId (and collectionGroupId) in examples|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 

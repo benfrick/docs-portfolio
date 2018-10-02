@@ -5,7 +5,7 @@
 		<ul>
 			{% assign sorted_pages = site.pages | sort: "position" %}
 			{% for doc in sorted_pages %}
-			{% if doc.label != "posts" and doc.category == "usecase" %}
+			{% if doc.label != "posts" and doc.category == "use-case" %}
 			<li>
 				<a href="{{ doc.url }}" class="{% if doc.url == page.url %}active{% endif %}">
 					{{ doc.title }}

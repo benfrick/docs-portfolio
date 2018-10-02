@@ -1,51 +1,40 @@
 ---
-category: usecase
+category: use-case
 position: 4
 title: Rollup Threads
 url: /commerce/product/api_rollup_threads.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/product/api_rollup_threads.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/product/api_rollup_threads.html#terms-of-service
+  - h2: Use Cases
+    url: /doc/commerce/product/api_rollup_threads.html#use-cases
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/product/api_rollup_threads.html#api-endpoint-quick-reference
+  - h2: What is a Rollup Thread?
+    url: /doc/commerce/product/api_rollup_threads.html#what-is-a-rollup-thread
+  - h2: Making Your First Request
+    url: /doc/commerce/product/api_rollup_threads.html#making-your-first-api-request
+  - h2: Using Rollup Threads
+    url: /doc/commerce/product/api_rollup_threads.html#using-rollup-threads
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/product/api_rollup_threads.html#upgrading-to-the-latest-version
+  - h2: Best Practices
+    url: /doc/commerce/product/api_rollup_threads.html#best-practices
+  - h2: Troubleshooting
+    url: /doc/commerce/product/api_rollup_threads.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/product/api_rollup_threads.html#glossary
 ---
 
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 7/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html), this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.
-
-## **In this guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-<span class="toc-pad">[Authorization](#authorization)
-
-<span class="toc-pad">[Prerequisites](#prerequisites)
-
-[Use Cases](#use-cases)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[What is a Rollup Thread?](#what-is-a-rollup-thread)
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-[Best Practices](#best-practices)
-
-[Troubleshooting](#troubleshooting)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -64,7 +53,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) on how to create and register your caller ID.
 
-### <a name="authorization"></a>Authorization
+### <a name="authentication"></a>Authentication
 
 No authentication or authorization is required to use this API.
 
@@ -837,7 +826,7 @@ For your first request, send a request to get all the Rollup Threads for a parti
 
 >**TIP:** For detailed information about the contents of the response, see the [Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2) section.
 
-## <a name="using-rollup-threads-v2"></a>Using Product Feed Rollup Threads v2
+## <a name="using-rollup-threads"></a>Using Rollup Threads
 
 Use the Product Feed Rollup Threads v2 API to produce a grid wall of related products.
 
@@ -1648,7 +1637,7 @@ Sample *Rollup Threads* 400 response:
 }
 ```
 
-## <a name="upgrading-to-the-latest-version"></a>Upgrading to the latest version
+## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
 
 Version 2 (v2) is the current and only version of this API.
 
@@ -1670,16 +1659,13 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 
 See the [Glossary](/doc/getting-started/glossary.html).
 
-## <a name="release-notes"></a>Release Notes
-
-There are no release notes at this time.
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|05/17/2018|Initial Draft|
 |Update|07/19/2018|Updated how to obtain a consumerChannelId|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 

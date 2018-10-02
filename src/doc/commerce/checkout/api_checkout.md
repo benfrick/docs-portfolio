@@ -1,150 +1,55 @@
 ---
-category: usecase
+category: use-case
 position: 1
 title: Buy
 url: /commerce/checkout/api_checkout.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/checkout/api_checkout.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/checkout/api_checkout.html#terms-of-service
+  - h2: Use Cases
+    url: /doc/commerce/checkout/api_checkout.html#use-cases
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/checkout/api_checkout.html#api-endpoint-quick-reference
+  - h2: Making Your First Request
+    url: /doc/commerce/checkout/api_checkout.html#making-your-first-api-request
+  - h2: Using Carts
+    url: /doc/commerce/checkout/api_checkout.html#using-carts-v2
+  - h2: Using Cart Reviews
+    url: /doc/commerce/checkout/api_checkout.html#using-cart-reviews
+  - h2: Using Wish Lists
+    url: /doc/commerce/checkout/api_checkout.html#using-wish-lists
+  - h2: Using Shipping Options
+    url: /doc/commerce/checkout/api_checkout.html#using-shipping-options
+  - h2: Using Checkouts
+    url: /doc/commerce/checkout/api_checkout.html#using-checkouts
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/checkout/api_checkout.html#upgrading-to-the-latest-version
+  - h2: Best Practices
+    url: /doc/commerce/checkout/api_checkout.html#best-practices
+  - h2: Troubleshooting
+    url: /doc/commerce/checkout/api_checkout.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/checkout/api_checkout.html#glossary
 ---
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-###### Last Updated: 06/26/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+###### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Checkout](/doc/commerce/checkout/biz_checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
-
-## **In this guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-<span class="toc-pad">[Authorization](#authorization)
-
-[Use Cases](#use-cases)
-
-<span class="toc-pad">[Example Implementation Diagram](#example-implementation-diagram)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Carts v1](#using-carts-v1)
-
-<span class="toc-pad">[Carts v1 Overview](#carts-v1-overview)
-
-<span class="toc-pad">[Create or Update a Cart](#create-or-update-a-cart)
-
-<span class="toc-pad">[Retrieve Carts by ID](#retrieve-carts-by-id)
-
-<span class="toc-pad">[Retrieve Carts by Filter](#retrieve-carts-by-filter)
-
-<span class="toc-pad">[Delete All Items from a Cart](#delete-all-items-from-a-cart)
-
-<span class="toc-pad">[Carts v1 Error Handling](#carts-v1-error-handling)
-
-[Using Carts v2](#using-carts-v2)
-
-<span class="toc-pad">[Carts v2 Overview](#carts-v2-overview)
-
-<span class="toc-pad">[Create or Update a Cart by Cart ID](#create-or-update-a-cart-by-cart-id)
-
-<span class="toc-pad">[Modify a Cart by Cart ID](#modify-a-cart-by-cart-id)
-
-<span class="toc-pad">[Delete All Items from a Cart by Cart ID](#delete-all-items-from-a-cart-by-cart-id)
-
-<span class="toc-pad">[Get a Cart by Cart ID](#get-a-cart-by-cart-id)
-
-<span class="toc-pad">[Get a Cart by Filter Criteria (Query Param)](#get-a-cart-by-filter-criteria-query-param)
-
-<span class="toc-pad">[Create or Update a Cart by Filter Criteria](#create-or-update-a-cart-by-filter-criteria)
-
-<span class="toc-pad">[Modify a Cart by Filter Criteria](#modify-a-cart-by-filter-criteria)
-
-<span class="toc-pad">[Get a Cart by Filter Criteria (Path Param)](#get-a-cart-by-filter-criteria-path-param)
-
-<span class="toc-pad">[Delete All Items from a Cart by Filter Criteria](#delete-all-items-from-a-cart-by-filter-criteria)
-
-<span class="toc-pad">[Carts v2 Error Handling](#carts-v2-error-handling)
-
-[Using Cart Reviews](#using-cart-reviews)
-
-<span class="toc-pad">[Cart Reviews Overview](#cart-reviews-overview)
-
-<span class="toc-pad">[Augment a Cart](#augment-a-cart)
-
-<span class="toc-pad">[Cart Reviews Error Handling](#cart-reviews-error-handling)
-
-[Using Wish Lists](#using-wish-lists)
-
-<span class="toc-pad">[Wish Lists Overview](#wish-lists-overview)
-
-<span class="toc-pad">[Create or Update a List](#create-or-update-a-list)
-
-<span class="toc-pad">[Delete a List](#delete-a-list)
-
-<span class="toc-pad">[Retrieve a List by ID](#retrieve-a-list-by-id)
-
-<span class="toc-pad">[Retrieve Lists for Authenticated User](#retrieve-lists-for-authenticated-user)
-
-<span class="toc-pad">[Add Item to List](#add-item-to-list)
-
-<span class="toc-pad">[Remove Item from List](#remove-item-from-list)
-
-<span class="toc-pad">[Retrieve Items by List](#remove-item-from-list)
-
-<span class="toc-pad">[Retrieve Item by ID](#retrieve-item-by-id)
-
-[Using Shipping Options](#using-shipping-options)
-
-<span class="toc-pad">[Shipping Options Overview](#shipping-options-overview)
-
-<span class="toc-pad">[Shipping Options](#shipping-options)
-
-<span class="toc-pad">[Shipping Options Error Handling](#shipping-options-error-handling)
-
-[Using Checkouts](#using-checkouts)
-
-<span class="toc-pad">[Checkouts Overview](#checkouts-overview)
-
-<span class="toc-pad">[Request Checkout Preview](#request-checkout-preview)
-
-<span class="toc-pad">[Retrieve Checkout Preview Job](#retrieve-checkout-preview-job)
-
-<span class="toc-pad">[Retrieve Checkout Preview Results](#retrieve-checkout-preview-results)
-
-<span class="toc-pad">[Request Checkout Submit](#request-checkout-submit)
-
-<span class="toc-pad">[Retrieve Checkout Submit Job](#retrieve-checkout-submit-job)
-
-<span class="toc-pad">[Retrieve Checkout Results](#retrieve-checkout-results)
-
-<span class="toc-pad">[Request Checkout Submit (Launch)](#request-checkout-submit-launch)
-
-<span class="toc-pad">[Checkouts Error Handling](#checkouts-error-handling)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-[Best Practices](#best-practices)
-
-[Troubleshooting](#troubleshooting)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
 |Topic|Details|
 |---|---|
-|Use these APIs to|* Add Nike products or gift cards to a shopping cart or Wish List and get pricing * Get available shipping options with pricing * Preview & validate a checkout * Submit a checkout for fulfillment * More...|
+|Use these APIs to|Add Nike products or gift cards to a shopping cart or Wish List and get pricing<br>Get available shipping options with pricing><br>Preview & validate a checkout<br>Submit a checkout for fulfillment<br>More...|
 |Who calls this API|SNKRS app (Web/iOS/Android), Nike+ app (iOS/Android), Nike.com|
 |Version|v1, v2|
-|SLA| *  Carts v1 - Response Time: 50ms, Requests Per Second: 500 *  Carts v2 - Response Time: 1000ms, Requests Per Second: 300  * Cart Reviews v1 - Response Time: 150 ms, Requests Per Second: 200 * Wish Lists - Response Time: 160 ms, Requests Per Second: 80 * Shipping Options v2 - Response Time: 100 ms, Requests Per Second: 1000  * Checkouts v2 - Response Time: 300 ms, Requests Per Second: 600|
+|SLA|Carts - Response Time: 1000ms, Requests Per Second: 300<br>Cart Reviews - Response Time: 150 ms, Requests Per Second: 200<br>Wish Lists - Response Time: 160 ms, Requests Per Second: 80<br>Shipping Options - Response Time: 100 ms, Requests Per Second: 1000<br>Checkouts - Response Time: 300 ms, Requests Per Second: 600|
 |Domain|Commerce|
-|Prerequisites| * [API Registration](/doc/getting-started/using_nike_apis.html#registration) * JWT for *Launch Checkout Submit* only|
+|Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)<br>JWT for *Launch Checkout Submit* only|
 |Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a><br>Confluence: <a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="_blank">CiC Order Capture</a><br>Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)|
 
 >**TIP:** SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. Ask the Product Owner to get specific SLA info for each endpoint.
@@ -153,7 +58,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
-### <a name="authorization"></a>Authorization
+### <a name="authentication"></a>Authentication
 
 #### Access Tokens
 
@@ -392,7 +297,7 @@ Refer to the [Using Carts v2](#using-carts-v2) section of this document to find 
 
 For the request headers, use the same headers you used in the previous step.
 
->Note: There is no request body needed for a GET request.
+>**NOTE**: There is no request body needed for a GET request.
 
 The complete URL is https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8. Note that the same cart **id** that you created for the previous PUT request is at the end of the URL.
 
@@ -651,7 +556,7 @@ Retrieve a user's cart(s) by country, brand, and (optionally) channel. The defau
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Values by which to limit the cart results * **country**: ISO 3166-1 [two-letter code](/doc/commerce/checkout/checkout_country_currency.html) **Required** * **brand**: NIKE brand name, only NIKE is supported **Required** * channel: sales channel, only NIKECOM is supported, optional|string|**Required**|
+|**filter**|Query|Values by which to limit the cart results: **country**: ISO 3166-1 [two-letter code](/doc/commerce/checkout/checkout_country_currency.html) **Required**<br>**brand**: NIKE brand name, only NIKE is supported **Required**<br>channel: sales channel, only NIKECOM is supported, optional|string|**Required**|
 |**fields**|Query|Fields to be included in the response (all fields included by default)|string|Optional|
 
 #### <a name="cart-get2-request-headers"></a>Request Headers
@@ -677,7 +582,7 @@ See the response body from the *Create or Update Cart* endpoint as it is the sam
 
 Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
->**Note**: The delete operation is optional; carts will automatically purge from storage after 180 days of inactivity.
+>**NOTE**: The delete operation is optional; carts will automatically purge from storage after 180 days of inactivity.
 
 #### Endpoint Details
 
@@ -1175,7 +1080,7 @@ Sample *Modify a Cart by Cart ID* response body without errors:
 
 Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
->**Note**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
+>**NOTE**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
 
 #### Endpoint Details
 
@@ -1387,7 +1292,7 @@ See the response body from the [*Create or Update Cart by Cart ID*](#cart-put-v2
 
 Delete all items in a cart by **country**, **brand**, and (optionally) **channel** values sent as path parameters and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
->**Note**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
+>**NOTE**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
 
 #### Endpoint Details
 
@@ -2143,7 +2048,7 @@ Retrieve header info for all lists for a single authenticated user with this end
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Limit the results to those matching the specified filters *  country (string, required) - ISO 3166 country code(s) *  name (string, optional) - List name |String|**Required**|
+|**filter**|Query|Limit the results to those matching the specified filters: **country** (string, required) - ISO 3166 country code(s)<br>name (string, optional) - List name|String|**Required**|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
 
 #### <a name="retrieve-auth-request-headers"></a>Request Headers
@@ -2405,7 +2310,7 @@ Retrieve all items in a list by its list identifier, which you previously create
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**filter**|Query|Limit the results to those matching the specified filters  *  wishlistId (required) List identifier, e.g. `93a333a2-907b-46f1-b9ac-469489909057` |String|Required|
+|**filter**|Query|Limit the results to those matching the specified filters: **wishlistId** (required), List identifier, e.g. `93a333a2-907b-46f1-b9ac-469489909057`|String|Required|
 |**anchor**|Query|Return elements after this anchor|String|Optional|
 |**count**|Query|Number of items to return per response|String|Optional|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list item contents.|String|Optional|
@@ -2949,6 +2854,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 |**PUT**|`/buy/checkout_previews/v2/{id}`|no|
 
 #### Path & Query Parameters
+
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
@@ -4419,10 +4325,6 @@ Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of 
 
 See the [Glossary](/doc/getting-started/glossary.html)
 
-## <a name="release-notes"></a>Release Notes
-
-No release notes available.
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
@@ -4433,6 +4335,7 @@ No release notes available.
 |Updated external links|04/02/2018|Updated external links to open in new browser window, commented out 'Try It Now' buttons|
 |Added Wish Lists API|04/30/2018|Added new Wish Lists API content|
 |Added 'Required?' to tables|06/26/2018|Added required column to tables that were missing it|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 

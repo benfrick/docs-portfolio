@@ -1,81 +1,52 @@
 ---
-category: usecase
+category: use-case
 position: 5
 title: Merch Product
 url: /commerce/product/api_merch_product.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/product/api_merch_product.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/product/api_merch_product.html#terms-of-service
+  - h2: Use Cases
+    url: /doc/commerce/product/api_merch_product.html#use-cases
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/product/api_merch_product.html#api-endpoint-quick-reference
+  - h2: Consider Using Product Feeds
+    url: /doc/commerce/product/api_merch_product.html#consider-using-product-feeds
+  - h2: Gathering a Product Data Set
+    url: /doc/commerce/product/api_merch_product.html#gathering-a-product-data-set
+  - h2: Understanding Nike Product Data
+    url: /doc/commerce/product/api_merch_product.html#understanding-nike-product-data
+  - h2: Merchandised Products Concepts
+    url: /doc/commerce/product/api_merch_product.html#merchandised-product-concepts
+  - h2: International Considerations
+    url: /doc/commerce/product/api_merch_product.html#international-considerations
+  - h2: Making Your First Request
+    url: /doc/commerce/product/api_merch_product.html#making-your-first-api-request
+  - h2: Using Merchandised Products
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-products
+  - h2: Using Merchandised Product SKUs
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-product-skus
+  - h2: Using Merchandised Prices
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-product-prices
+  - h2: Using Merchandised VAS
+    url: /doc/commerce/product/api_merch_product.html#using-merchandised-vas
+  - h2: Using Product Content
+    url: /doc/commerce/product/api_merch_product.html#using-product-content
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/product/api_merch_product.html#upgrading-to-the-latest-version
+  - h2: Troubleshooting
+    url: /doc/commerce/product/api_merch_product.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/product/api_merch_product.html#glossary
 ---
 
 # MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 07/02/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Merchandised Products](/doc/commerce/product/biz_merch_product.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
-
-## **In This Guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-[Use Cases](#use-cases)
-
-[Try It Out: Gathering a Complete Data Set for a Product](#try-it-out-gathering-a-complete-data-set-for-a-product)
-
-[Accessing Product Data the Easy Way: Consider Using Product Feeds](#accessing-product-data-the-easy-way-consider-using-product-feeds)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[Understanding Nike Product Data](#understanding-nike-product-data)
-
-<span class="toc-pad">[Where Does Product Data Come From?](#where-does-product-data-come-from)</span>
-
-<span class="toc-pad">[How Does Product Data Get Published?](#how-does-product-data-get-published)</span>
-
-<span class="toc-pad">[Where Do I Get Inventory Information?](#where-do-i-get-inventory-information)</span>
-
-<span class="toc-pad">[How to Find a Current Product](#how-to-find-a-current-product)</span>
-
-[Merchandised Products API Concepts](#merchandised-products-api-concepts)
-
-<span class="toc-pad">[How Product Data is Organized in the Merchandised Products API](#how-product-data-is-organized-in-the-merchandised-products-api)</span>
-
-<span class="toc-pad">[TIP: Finding the Data Points You Need](#tip-finding-the-data-points-you-need)</span>
-
-<span class="toc-pad">[Understanding the Various IDs Returned Within Each Response](#understanding-the-various-ids-returned-within-each-response)</span>
-
-<span class="toc-pad">[Caching Data](#caching-data)</span>
-
-<span class="toc-pad">[Create, Update, and Delete Capabilities of the API](#create-update-and-delete-capabilities-of-the-api)</span>
-
-[International Considerations](#international-considerations)
-
-<span class="toc-pad">[Working with Merch Groups, Countries, and Languages](#working-with-merch-groups-countries-and-languages)</span>
-
-<span class="toc-pad">[Excluding Countries where a Specific Product Should Not Be Offered](#excluding-countries-where-a-specific-product-should-not-be-offered)</span>
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Merchandised Products](#using-merchandised-products)
-
-[Using Merchandised Product SKUs](#using-merchandised-product-skus)
-
-[Using Merchandised Prices](#using-merchandised-product-prices)
-
-[Using Merchandised Value-Added Services](#using-merchandised-value-added-services)
-
-[Using Product Content](#using-product-content)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-[Troubleshooting](#troubleshooting)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -112,46 +83,6 @@ If you are retrieving products that are publicly available, no authentication or
 |List the sizes and SKU detail such as Nike size, localized size description, value-added tax (VAT) and Commodity Code for a style-color|Merchandised Products API<br/>Merchandised SKUs API|
 |List the available images and localized product information such as title, subtitle, and description for a product<p>Lists all images in the Scene7 or Cloudinary image set|Product Content API|
 |List product information for a product at a specific point in time using a Snapshot ID|Merchandised Products API|
-
-## <a name="try-it-out-gathering-a-complete-data-set-for-a-product"></a>Try It Out: Gathering a Complete Data Set for a Product
-
-The following example describes the set of Merchandised Products service calls you can make to assemble the product details of a style-color. These are all public services, so feel free to experiment with the endpoints. Note that the style-color in this example is not a current, active style-color. Product availability changes all the time, so you should get a current product from Nike.com to try this out.
-
-Follow these steps to assemble a complete set of product data:
-
-1. Using style-color 526628-009 (example), get the Product ID and a few product details from the Merch Product endpoint (filtered by style-color and Merch Group):
-https://api.nike.com/merch/products/v2?filter=merchGroup(US)&filter=styleColor(526628-009)&filter=merchgroup(US)
-
-2. Using the product ID from the Merch Product response, get prices from the Merch Price endpoint (filtered by product ID and country US):
-https://api.nike.com/merch/prices/v2?filter=productid(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&filter=country(US)
-
-3. Using the same product ID, get the SKU data from the Merch SKUs endpoint (filtered by country US):
-https://api.nike.com/merch/skus/v2?filter=productId(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&filter=country(US)
-
-4. Using style-color 526628-009 (not product ID), get the product images from the images endpoint of the Product Content service:
-https://api.nike.com/merch/contents/v1/526628-009/images?country=US
-
-<span class="toc-pad">**Note**: Images are returned from the Product Content service without a URL; but all of the necessary information is returned to build it. The experience is responsible for assembling the image URL.</span>
-
-5. Using style-color 526628-009 (not product ID), get the localized content for the product from the Product Content endpoint of the Product Content service:
-https://api.nike.com/merch/contents/v1/526628-009/content?country=US&locale=en_US
-
-## <a name="accessing-product-data-the-easy-way-consider-using-product-feeds"></a>Accessing Product Data the Easy Way: Consider Using Product Feeds
-
-Before you start using the Merchandised Products APIs, you should evaluate whether you could accomplish the same objectives by using the Product Feeds API.
-
-The Product Feeds API aggregates product information, inventory data, and brand content from various sources including the Merchandised Products API. The Product Feeds API organizes the data into Cards (product data or events), Threads (groups of related cards) and Feeds (groups of related Threads). Using Product Feeds rather than the Merchandised Products API has the following advantages:
-
-- Product Feeds remains in sync with multiple data providers (including Merchandised Products), which reduces the number of service contracts for which you need to keep track.
-- Since Product Feeds is an aggregation service, you only need to make a single call to get most of the information you would need. By contrast, calling Merchandised Products APIs directly requires a minimum of 4-5 calls to get the complete portrait of a single product.
-- Product Feeds enforces business-critical rules around product visibility in experiences. For example, Nike restricts the sale and presentation of some products in countries. Product Feeds eliminates the logic required to comply with these rules.
-
-There are a few caveats:
-
-- Product Feeds responses are larger, so response times may be slightly slower - but still within SLAs.
-- Product Feeds does not provide all of the data that is provided in every service with which it integrates. The data points in some cases are selective.
-
-For the full list of use cases to evaluate if that API is better suited to your product needs, see [Product Threads List](/doc/commerce/product/api_product_feeds.html#product-threads-list).
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
 
@@ -207,6 +138,46 @@ For more information about each service and to try them out though the UI, visit
 |<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR</a>|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
 |<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a>|/merch/contents/v1/images/base|GET|
 
+## <a name="consider-using-product-feeds"></a>Consider Using Product Feeds
+
+Before you start using the Merchandised Products APIs, you should evaluate whether you could accomplish the same objectives by using the Product Feeds API.
+
+The Product Feeds API aggregates product information, inventory data, and brand content from various sources including the Merchandised Products API. The Product Feeds API organizes the data into Cards (product data or events), Threads (groups of related cards) and Feeds (groups of related Threads). Using Product Feeds rather than the Merchandised Products API has the following advantages:
+
+- Product Feeds remains in sync with multiple data providers (including Merchandised Products), which reduces the number of service contracts for which you need to keep track.
+- Since Product Feeds is an aggregation service, you only need to make a single call to get most of the information you would need. By contrast, calling Merchandised Products APIs directly requires a minimum of 4-5 calls to get the complete portrait of a single product.
+- Product Feeds enforces business-critical rules around product visibility in experiences. For example, Nike restricts the sale and presentation of some products in countries. Product Feeds eliminates the logic required to comply with these rules.
+
+There are a few caveats:
+
+- Product Feeds responses are larger, so response times may be slightly slower - but still within SLAs.
+- Product Feeds does not provide all of the data that is provided in every service with which it integrates. The data points in some cases are selective.
+
+For the full list of use cases to evaluate if that API is better suited to your product needs, see [Product Threads List](/doc/commerce/product/api_product_feeds.html#product-threads-list).
+
+## <a name="gathering-a-product-data-set"></a>Gathering a Product Data Set
+
+The following example describes the set of Merchandised Products service calls you can make to assemble the product details of a style-color. These are all public services, so feel free to experiment with the endpoints. Note that the style-color in this example is not a current, active style-color. Product availability changes all the time, so you should get a current product from Nike.com to try this out.
+
+Follow these steps to assemble a complete set of product data:
+
+1. Using style-color 526628-009 (example), get the Product ID and a few product details from the Merch Product endpoint (filtered by style-color and Merch Group):
+https://api.nike.com/merch/products/v2?filter=merchGroup(US)&filter=styleColor(526628-009)&filter=merchgroup(US)
+
+2. Using the product ID from the Merch Product response, get prices from the Merch Price endpoint (filtered by product ID and country US):
+https://api.nike.com/merch/prices/v2?filter=productid(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&filter=country(US)
+
+3. Using the same product ID, get the SKU data from the Merch SKUs endpoint (filtered by country US):
+https://api.nike.com/merch/skus/v2?filter=productId(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&filter=country(US)
+
+4. Using style-color 526628-009 (not product ID), get the product images from the images endpoint of the Product Content service:
+https://api.nike.com/merch/contents/v1/526628-009/images?country=US
+
+<span class="toc-pad">**Note**: Images are returned from the Product Content service without a URL; but all of the necessary information is returned to build it. The experience is responsible for assembling the image URL.</span>
+
+5. Using style-color 526628-009 (not product ID), get the localized content for the product from the Product Content endpoint of the Product Content service:
+https://api.nike.com/merch/contents/v1/526628-009/content?country=US&locale=en_US
+
 ## <a name="understanding-nike-product-data"></a>Understanding Nike Product Data
 
 Nike product data is a complex set of information that flows from multiple origin systems and processes.
@@ -243,7 +214,7 @@ Inventory is available via the Inventory domain. For example, product availabili
 
 The easiest way to find a current product is to go to Nike.com and find a style-color that is offered on the site. With the exception of NIKEiD products, if the style-color is available on Nike.com, the data is available in our services.
 
-## <a name="merchandised-product-api-concepts"></a>Merchandised Products API Concepts
+## <a name="merchandised-product-concepts"></a>Merchandised Products Concepts
 
 The Merchandised Products API uses underlying concepts as the foundation for how the API is designed and consumed.
 
@@ -266,7 +237,7 @@ These items are divided into a set of microservices. The relationship between th
 
 ![](/images/commerce/merch_product/relationships.png)
 
-### <a name="tip-finding-the-data-points-you-need"></a>**TIP:** Finding the Data Points You Need
+### <a name="finding-the-data-points-you-need"></a>Finding the Data Points You Need
 
 Microservice architecture specifies that data should be divided into logical groupings within semantically-named resources. You can use the following general guidelines to find the data points among the Merchandised Products resources:
 - If the data can be localized, it is typically in the Content API.
@@ -1316,7 +1287,7 @@ Sample *Merchandised Price by ID* 200 success response:
 
 ----
 
-## <a name="merchandised-value-added-services"></a>Using Merchandised Value Added Services
+## <a name="using-merchandised-vas"></a>Using Merchandised VAS
 
 - [MERCHANDISED VALUE ADDED SERVICES LIST](#merchandised-value-added-services-list)
 
@@ -2349,10 +2320,6 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 |SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
 |VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
-## <a name="release-notes"></a>Release Notes
-
-There are no release notes at this time.
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
@@ -2364,6 +2331,7 @@ There are no release notes at this time.
 |Updated API.md links|14 May, 2018|Updated API.md links to point to new dev portal|
 |Edits for style|1 June, 2018|Edits for capitalization, formatting consistency|
 |Normalized table formatting|2 July, 2018|Edits for request/response table formatting and content|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 
