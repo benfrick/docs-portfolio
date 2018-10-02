@@ -18,47 +18,9 @@
 <div class="main">
     <h1 id="analytics-pipeline-v2-api-developers-guide-draft">ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br />DEVELOPER’S GUIDE (DRAFT)</h1>
 
-<h5 id="last-updated-04192018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 04/19/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
+<h5 id="last-updated-10012018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 10/01/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
 
 <p>If you’ve read <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="/doc/commerce/events/biz_events.html">Get Started With Nike Analytics Pipeline</a>, this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.</p>
-
-<h2 id="in-this-guide"><strong>In This Guide:</strong></h2>
-
-<p><a href="#api-at-a-glance">API at a Glance</a></p>
-
-<p><a href="#terms-of-service">Terms of Service</a></p>
-
-<p><span class="toc-pad"><a href="#authentication">Authentication</a></span></p>
-
-<p><a href="#use-cases">Use Cases</a></p>
-
-<p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
-
-<p><a href="#making-your-first-api-request">Making Your First API Request</a></p>
-
-<p><a href="#using-analytics-v2-pipeline">Using Analytics Pipeline v2</a></p>
-
-<p><span class="toc-pad"><a href="#endpoint-details">Endpoint Details</a></span></p>
-
-<p><span class="toc-pad"><a href="#path--query-parameters">Path &amp; Query Parameters</a></span></p>
-
-<p><span class="toc-pad"><a href="#request-headers">Request Headers</a></span></p>
-
-<p><span class="toc-pad"><a href="#request-body">Request Body</a></span></p>
-
-<p><span class="toc-pad"><a href="#response-body">Response Body</a></span></p>
-
-<p><a href="#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></p>
-
-<p><a href="#troubleshooting">Troubleshooting</a></p>
-
-<p><a href="#glossary">Glossary</a></p>
-
-<p><a href="#release-notes">Release Notes</a></p>
-
-<p><a href="#document-change-log">Document Change Log</a></p>
-
-<p><a href="#related-links">Related Links</a></p>
 
 <h2 id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</h2>
 
@@ -142,7 +104,7 @@
   <li>This API is not intended for application monitoring, logging, or reporting on server-side errors.</li>
 </ul>
 
-<h3 id="authentication"><a name="authentication"></a>Authentication</h3>
+<h3 id="authorization"><a name="authorization"></a>Authorization</h3>
 
 <p>No authentication or authorization is required to use the Analytics Pipeline v2 API.</p>
 
@@ -2283,10 +2245,6 @@
 
 <p>See the <a href="/doc/getting-started/glossary.html">Glossary</a></p>
 
-<h2 id="release-notes"><a name="release-notes"></a>Release Notes</h2>
-
-<p>There are no release notes at this time.</p>
-
 <h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
 
 <table>
@@ -2307,6 +2265,11 @@
       <td>Updated external links</td>
       <td>04/03/2018</td>
       <td>Updated external links to open in new browser window</td>
+    </tr>
+    <tr>
+      <td>Updated TOC</td>
+      <td>10/01/2018</td>
+      <td>Removed ‘In this guide’, replaced with sidebar TOC</td>
     </tr>
   </tbody>
 </table>
@@ -2387,53 +2350,13 @@
 			
 			
 			
-			<li>
-				<a href="/doc/commerce/payment/api_payment.html" class="">
-					Payment
-					
-				</a>
-				
-			</li>
 			
 			
 			
-			<li>
-				<a href="/doc/commerce/product/api_product_feeds.html" class="">
-					Product Feeds
-					
-				</a>
-				
-			</li>
 			
 			
 			
-			<li>
-				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
-					Rollup Threads
-					
-				</a>
-				
-			</li>
 			
-			
-			
-			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
-					
-				</a>
-				
-			</li>
-			
-			
-			
-			<li>
-				<a href="/doc/commerce/search/api_search.html" class="">
-					eCommerce Search
-					
-				</a>
-				
-			</li>
 			
 			
 			
@@ -2442,6 +2365,108 @@
 					Events
 					
 				</a>
+				
+				<ul>
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#api-at-a-glance"
+						   class="">API at a Glance</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#terms-of-service"
+						   class="">Terms of Service</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/events/api_eventsv2.html#authorization"
+							   class="">Authorization</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#use-cases"
+						   class="">Use Cases</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#api-endpoint-quick-reference"
+						   class="">Endpoint Quick Reference</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#making-your-first-api-request"
+						   class="">Making Your First Request</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#using-analytics-v2-pipeline"
+						   class="">Using Analytics Pipeline</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/events/api_eventsv2.html#endpoint-details"
+							   class="">Endpoint Details</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/events/api_eventsv2.html#path--query-parameters"
+							   class="">Path & Query Params</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/events/api_eventsv2.html#request-headers"
+							   class="">Request Headers</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/events/api_eventsv2.html#request-body"
+							   class="">Request Body</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/events/api_eventsv2.html#response-body"
+							   class="">Response Body</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#upgrading-to-the-latest-version"
+						   class="">Upgrading to the Latest Version</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#best-practices"
+						   class="">Best Practices</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#troubleshooting"
+						   class="">Troubleshooting</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/events/api_eventsv2.html#glossary"
+						   class="">Glossary</a>
+					</li>
+					
+					
+				</ul>
 				
 			</li>
 			

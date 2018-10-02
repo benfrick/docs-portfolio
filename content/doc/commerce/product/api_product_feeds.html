@@ -24,66 +24,6 @@
 
 <p>If you’ve read <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="/doc/commerce/product/biz_product_feeds.html">Get Started With Product Feeds</a>, this guide provides the additional details necessary to integrate with Product Feeds.</p>
 
-<h2 id="in-this-guide"><strong>In this guide:</strong></h2>
-
-<p><a href="#api-at-a-glance">API at a Glance</a></p>
-
-<p><a href="#terms-of-service">Terms of Service</a></p>
-
-<p><span class="toc-pad"><a href="#authentication">Authentication</a></span></p>
-
-<p><a href="#use-cases">Use Cases</a></p>
-
-<p><span class="toc-pad"><a href="#example-implementation-diagram">Example Implementation Diagram</a></span></p>
-
-<p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
-
-<p><a href="#what-are-cards-threads-and-feeds">What are Cards, Threads, and Feeds?</a></p>
-
-<p><a href="#where-do-cards-threads-and-feeds-come-from">Where Do Cards, Threads, and Feeds Come From?</a></p>
-
-<p><a href="#what-are-channels-and-why-do-i-need-one">What are Channels and Why Do I Need One?</a></p>
-
-<p><a href="#terminology-differences-between-cms-and-product-feeds">Terminology Differences Between CMS and Product Feeds</a></p>
-
-<p><a href="#making-your-first-api-request">Making Your First API Request</a></p>
-
-<p><a href="#using-product-feeds-v2">Using Product Feeds v2</a></p>
-
-<p><span class="toc-pad"><a href="#product-threads-list">Product Threads List</a></span></p>
-
-<p><span class="toc-pad"><a href="#product-thread-by-id">Product Thread by ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#product-feeds-error-handling">Product Feeds Error Handling</a></span></p>
-
-<p><a href="#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></p>
-
-<p><span class="toc-pad"><a href="#v1x-to-v2-endpoint-mapping">V1.x to V2 Endpoint Mapping</a></span></p>
-
-<p><span class="toc-pad"><a href="#all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping">All Product Feeds &amp; Product Feed by ID v1 to v2 Field Mapping</a></span></p>
-
-<p><span class="toc-pad"><a href="#all-product-threads--product-thread-by-id-v1-to-v2-field-mapping">All Product Threads &amp; Product Thread by ID v1 to v2 Field Mapping</a></span></p>
-
-<p><span class="toc-pad"><a href="#url-patterns-by-version">URL Patterns By Version</a></span></p>
-
-<p><a href="#best-practices">Best Practices</a></p>
-
-<p><span class="toc-pad"><a href="#test-environment">Test Environment</a></span></p>
-
-<p><a href="#troubleshooting">Troubleshooting</a></p>
-
-<p><span class="toc-pad"><a href="#use-troubleshooting-tools">Use Troubleshooting Tools</a></span></p>
-
-<p><span class="toc-pad"><a href="#common-questions">Common Questions</a></span></p>
-
-<p><a href="#glossary">Glossary</a></p>
-
-<p><a href="#release-notes">Release Notes</a></p>
-
-<p><a href="#document-change-log">Document Change Log</a></p>
-
-<p><a href="#related-links">Related Links</a></p>
-
 <h2 id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</h2>
 
 <p>Product Feeds enables users of your app to browse a feed of relevant Nike product-related content, including details about the products with images, videos, and more.</p>
@@ -3888,10 +3828,6 @@
 
 <p>See the <a href="/doc/getting-started/glossary.html">Glossary</a>.</p>
 
-<h2 id="release-notes"><a name="release-notes"></a>Release Notes</h2>
-
-<p>No release notes available</p>
-
 <h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
 
 <table>
@@ -3952,6 +3888,11 @@
       <td>Used valid channelId in examples</td>
       <td>7/16/2018</td>
       <td>Changed from using invalid to valid channelId (and collectionGroupId) in examples</td>
+    </tr>
+    <tr>
+      <td>Updated TOC</td>
+      <td>10/01/2018</td>
+      <td>Removed ‘In this guide’, replaced with sidebar TOC</td>
     </tr>
   </tbody>
 </table>
@@ -4048,6 +3989,122 @@
 					
 				</a>
 				
+				<ul>
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#api-at-a-glance"
+						   class="">API at a Glance</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#terms-of-service"
+						   class="">Terms of Service</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/product/api_product_feeds.html#authentication"
+							   class="">Authentication</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#use-cases"
+						   class="">Use Cases</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#api-endpoint-quick-reference"
+						   class="">Endpoint Quick Reference</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#what-are-cards-threads-and-feeds"
+						   class="">What are Cards, Threads, and Feeds?</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#where-do-cards-threads-and-feeds-come-from"
+						   class="">Where Do Cards, Threads, and Feeds Come From?</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#what-are-channels-and-why-do-i-need-one"
+						   class="">What are Channels and Why Do I Need One?</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#terminology-differences-between-cms-and-product-feeds"
+						   class="">Terminology Differences Between Product Feeds and CMS</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#making-your-first-api-request"
+						   class="">Making Your First Request</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#using-product-feeds-v2"
+						   class="">Using Product Feeds</a>
+					</li>
+					
+					<ul>
+						
+						<li>
+							<a href="/doc/commerce/product/api_product_feeds.html#product-threads-list"
+							   class="">Product Threads List</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/product/api_product_feeds.html#product-thread-by-id"
+							   class="">Product Threads by ID</a>
+						</li>
+						
+						<li>
+							<a href="/doc/commerce/product/api_product_feeds.html#product-feeds-error-handling"
+							   class="">Product Feeds Error Handling</a>
+						</li>
+						
+					</ul>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#upgrading-to-the-latest-version"
+						   class="">Upgrading to the Latest Version</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#best-practices"
+						   class="">Best Practices</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#troubleshooting"
+						   class="">Troubleshooting</a>
+					</li>
+					
+					
+					<li>
+						<a href="/doc/commerce/product/api_product_feeds.html#glossary"
+						   class="">Glossary</a>
+					</li>
+					
+					
+				</ul>
+				
 			</li>
 			
 			
@@ -4071,14 +4128,6 @@
 			</li>
 			
 			
-			
-			<li>
-				<a href="/doc/commerce/search/api_search.html" class="">
-					eCommerce Search
-					
-				</a>
-				
-			</li>
 			
 			
 			

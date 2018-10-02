@@ -1,8 +1,47 @@
 ---
-category: usecase
+category: use-case
 position: 3
 title: Product Feeds
 url: /commerce/product/api_product_feeds.html
+toc:
+  - h2: API at a Glance
+    url: /doc/commerce/product/api_product_feeds.html#api-at-a-glance
+  - h2: Terms of Service
+    url: /doc/commerce/product/api_product_feeds.html#terms-of-service
+    subheadings:
+      - h3: Authentication
+        url: /doc/commerce/product/api_product_feeds.html#authentication
+  - h2: Use Cases
+    url: /doc/commerce/product/api_product_feeds.html#use-cases
+  - h2: Endpoint Quick Reference
+    url: /doc/commerce/product/api_product_feeds.html#api-endpoint-quick-reference
+  - h2: What are Cards, Threads, and Feeds?
+    url: /doc/commerce/product/api_product_feeds.html#what-are-cards-threads-and-feeds
+  - h2: Where Do Cards, Threads, and Feeds Come From?
+    url: /doc/commerce/product/api_product_feeds.html#where-do-cards-threads-and-feeds-come-from
+  - h2: What are Channels and Why Do I Need One?
+    url: /doc/commerce/product/api_product_feeds.html#what-are-channels-and-why-do-i-need-one
+  - h2: Terminology Differences Between Product Feeds and CMS
+    url: /doc/commerce/product/api_product_feeds.html#terminology-differences-between-cms-and-product-feeds  
+  - h2: Making Your First Request
+    url: /doc/commerce/product/api_product_feeds.html#making-your-first-api-request
+  - h2: Using Product Feeds
+    url: /doc/commerce/product/api_product_feeds.html#using-product-feeds-v2
+    subheadings:
+      - h3: Product Threads List
+        url: /doc/commerce/product/api_product_feeds.html#product-threads-list
+      - h3: Product Threads by ID
+        url: /doc/commerce/product/api_product_feeds.html#product-thread-by-id
+      - h3: Product Feeds Error Handling
+        url: /doc/commerce/product/api_product_feeds.html#product-feeds-error-handling
+  - h2: Upgrading to the Latest Version
+    url: /doc/commerce/product/api_product_feeds.html#upgrading-to-the-latest-version
+  - h2: Best Practices
+    url: /doc/commerce/product/api_product_feeds.html#best-practices
+  - h2: Troubleshooting
+    url: /doc/commerce/product/api_product_feeds.html#troubleshooting
+  - h2: Glossary
+    url: /doc/commerce/product/api_product_feeds.html#glossary
 ---
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
@@ -12,66 +51,6 @@ url: /commerce/product/api_product_feeds.html
 ---
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Product Feeds](/doc/commerce/product/biz_product_feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
-
-## **In this guide:**
-
-[API at a Glance](#api-at-a-glance)
-
-[Terms of Service](#terms-of-service)
-
-<span class="toc-pad">[Authentication](#authentication)
-
-[Use Cases](#use-cases)
-
-<span class="toc-pad">[Example Implementation Diagram](#example-implementation-diagram)
-
-[API Endpoint Quick Reference](#api-endpoint-quick-reference)
-
-[What are Cards, Threads, and Feeds?](#what-are-cards-threads-and-feeds)
-
-[Where Do Cards, Threads, and Feeds Come From?](#where-do-cards-threads-and-feeds-come-from)
-
-[What are Channels and Why Do I Need One?](#what-are-channels-and-why-do-i-need-one)
-
-[Terminology Differences Between CMS and Product Feeds](#terminology-differences-between-cms-and-product-feeds)
-
-[Making Your First API Request](#making-your-first-api-request)
-
-[Using Product Feeds v2](#using-product-feeds-v2)
-
-<span class="toc-pad">[Product Threads List](#product-threads-list)
-
-<span class="toc-pad">[Product Thread by ID](#product-thread-by-id)
-
-<span class="toc-pad">[Product Feeds Error Handling](#product-feeds-error-handling)
-
-[Upgrading to the Latest Version](#upgrading-to-the-latest-version)
-
-<span class="toc-pad">[V1.x to V2 Endpoint Mapping](#v1x-to-v2-endpoint-mapping)
-
-<span class="toc-pad">[All Product Feeds & Product Feed by ID v1 to v2 Field Mapping](#all-product-feeds--product-feed-by-id-v1-to-v2-field-mapping)
-
-<span class="toc-pad">[All Product Threads & Product Thread by ID v1 to v2 Field Mapping](#all-product-threads--product-thread-by-id-v1-to-v2-field-mapping)
-
-<span class="toc-pad">[URL Patterns By Version](#url-patterns-by-version)
-
-[Best Practices](#best-practices)
-
-<span class="toc-pad">[Test Environment](#test-environment)
-
-[Troubleshooting](#troubleshooting)
-
-<span class="toc-pad">[Use Troubleshooting Tools](#use-troubleshooting-tools)
-
-<span class="toc-pad">[Common Questions](#common-questions)
-
-[Glossary](#glossary)
-
-[Release Notes](#release-notes)
-
-[Document Change Log](#document-change-log)
-
-[Related Links](#related-links)
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -2091,10 +2070,6 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 See the [Glossary](/doc/getting-started/glossary.html).
 
-## <a name="release-notes"></a>Release Notes
-
-No release notes available
-
 ## <a name="document-change-log"></a>Document Change Log
 
 |Summary |Date |Description|
@@ -2109,6 +2084,7 @@ No release notes available
 |Removed endpoints|7/3/2018|Removed references to the deprecated product_feed/feed endpoints|
 |Added upstream contact info|7/5/2018|Linked to 'Thread Response Ownership Breakdown' in Troubleshooting|
 |Used valid channelId in examples|7/16/2018|Changed from using invalid to valid channelId (and collectionGroupId) in examples|
+|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## <a name="related-links"></a>Related Links
 
