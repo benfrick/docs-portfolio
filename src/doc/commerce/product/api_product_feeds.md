@@ -8,32 +8,16 @@ toc:
     url: /doc/commerce/product/api_product_feeds.html#api-at-a-glance
   - h2: Terms of Service
     url: /doc/commerce/product/api_product_feeds.html#terms-of-service
-    subheadings:
-      - h3: Authentication
-        url: /doc/commerce/product/api_product_feeds.html#authentication
   - h2: Use Cases
     url: /doc/commerce/product/api_product_feeds.html#use-cases
   - h2: Endpoint Quick Reference
     url: /doc/commerce/product/api_product_feeds.html#api-endpoint-quick-reference
-  - h2: What are Cards, Threads, and Feeds?
-    url: /doc/commerce/product/api_product_feeds.html#what-are-cards-threads-and-feeds
-  - h2: Where Do Cards, Threads, and Feeds Come From?
-    url: /doc/commerce/product/api_product_feeds.html#where-do-cards-threads-and-feeds-come-from
-  - h2: What are Channels and Why Do I Need One?
-    url: /doc/commerce/product/api_product_feeds.html#what-are-channels-and-why-do-i-need-one
-  - h2: Terminology Differences Between Product Feeds and CMS
-    url: /doc/commerce/product/api_product_feeds.html#terminology-differences-between-cms-and-product-feeds  
+  - h2: Cards, Threads, and Feeds
+    url: /doc/commerce/product/api_product_feeds.html#cards-threads-and-feeds
   - h2: Making Your First Request
     url: /doc/commerce/product/api_product_feeds.html#making-your-first-api-request
   - h2: Using Product Feeds
     url: /doc/commerce/product/api_product_feeds.html#using-product-feeds-v2
-    subheadings:
-      - h3: Product Threads List
-        url: /doc/commerce/product/api_product_feeds.html#product-threads-list
-      - h3: Product Threads by ID
-        url: /doc/commerce/product/api_product_feeds.html#product-thread-by-id
-      - h3: Product Feeds Error Handling
-        url: /doc/commerce/product/api_product_feeds.html#product-feeds-error-handling
   - h2: Upgrading to the Latest Version
     url: /doc/commerce/product/api_product_feeds.html#upgrading-to-the-latest-version
   - h2: Best Practices
@@ -103,7 +87,9 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 |GET|Product Threads List|Get all threads for a channel, marketplace, language combination|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
 |GET|Product Thread by ID|Get a specific thread by its identifier|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
 
-## <a name="what-are-cards-threads-and-feeds"></a>What are Cards, Threads, and Feeds?
+## <a name="cards-threads-and-feeds"></a>Cards, Threads, and Feeds
+
+### <a name="what-are-cards-threads-and-feeds"></a>What are Cards, Threads, and Feeds?
 
 Use Product Feeds to get product data and content in the form of Cards, Threads, and Feeds.
 
@@ -119,7 +105,7 @@ To summarize, a Feed is comprised of multiple Threads, and within each Thread re
 
 <br>
 
-## <a name="where-do-cards-threads-and-feeds-come-from"></a>Where Do Cards, Threads, and Feeds Come From?
+### <a name="where-do-cards-threads-and-feeds-come-from"></a>Where Do Cards, Threads, and Feeds Come From?
 
 The Product Feeds API combines product information with product content into Cards, Threads, and Feeds by pulling data from the following Nike Cloud APIs:
 
@@ -137,7 +123,7 @@ The Product Feeds API combines product information with product content into Car
 
 >**TIP:** The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
 
-## <a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?
+### <a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?
 
 A channel is a distinct user experience where Nike products are showcased and made available for purchase, for example in SNKRS or the Nike app. Each channel has a unique **channelId** (channel identifier) that is required by certain Product Feeds API endpoints. This allows the results in responses to be filtered appropriately for your experience.
 
@@ -145,7 +131,7 @@ Each **channelId** value originates in Nike CMS under a different name, **collec
 
 Each Feed can be associated with one or more channels, opening up the personalized Feed to many Nike experiences.
 
-## <a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds
+### <a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds
 
 As mentioned earlier, the Product Feeds API pulls product content from Nike CMS and includes it in responses. One thing to be aware of is that Nike CMS sometimes uses different names for the same field than Product Feeds. For example, the CMS **collectionGroupId** that you will see in responses is synonymous with the **channelId** query parameter you might send to Product Feeds.
 
