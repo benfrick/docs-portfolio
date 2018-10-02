@@ -8,9 +8,6 @@ toc:
     url: /doc/commerce/checkout/api_checkout.html#api-at-a-glance
   - h2: Terms of Service
     url: /doc/commerce/checkout/api_checkout.html#terms-of-service
-    subheadings:
-      - h3: Authentication
-        url: /doc/commerce/checkout/api_checkout.html#authentication
   - h2: Use Cases
     url: /doc/commerce/checkout/api_checkout.html#use-cases
   - h2: Endpoint Quick Reference
@@ -19,87 +16,14 @@ toc:
     url: /doc/commerce/checkout/api_checkout.html#making-your-first-api-request
   - h2: Using Carts
     url: /doc/commerce/checkout/api_checkout.html#using-carts-v2
-    subheadings:
-      - h3: Overview
-        url: /doc/commerce/checkout/api_checkout.html#carts-v2-overview
-      - h3: Create/Update a Cart by ID
-        url: /doc/commerce/checkout/api_checkout.html#create-or-update-a-cart-by-cart-id
-      - h3: Modify a Cart by ID
-        url: /doc/commerce/checkout/api_checkout.html#modify-a-cart-by-cart-id
-      - h3: Delete Items from a Cart by ID
-        url: /doc/commerce/checkout/api_checkout.html#delete-all-items-from-a-cart-by-cart-id
-      - h3: Get a Cart by Cart ID
-        url: /doc/commerce/checkout/api_checkout.html#get-a-cart-by-cart-id
-      - h3: Get a Cart by Filter Criteria (Query Param)
-        url: /doc/commerce/checkout/api_checkout.html#get-a-cart-by-filter-criteria-query-param
-      - h3: Create/Update a Cart by Filter Criteria
-        url: /doc/commerce/checkout/api_checkout.html#create-or-update-a-cart-by-filter-criteria
-      - h3: Modify a Cart by Filter Criteria
-        url: /doc/commerce/checkout/api_checkout.html#modify-a-cart-by-filter-criteria
-      - h3: Get a Cart by Filter Criteria (Path Param)
-        url: /doc/commerce/checkout/api_checkout.html#get-a-cart-by-filter-criteria-path-param
-      - h3: Delete All Items from a Cart by Filter Criteria
-        url: /doc/commerce/checkout/api_checkout.html#delete-all-items-from-a-cart-by-filter-criteria
-      - h3: Error Handling
-        url: /doc/commerce/checkout/api_checkout.html#carts-v2-error-handling
   - h2: Using Cart Reviews
     url: /doc/commerce/checkout/api_checkout.html#using-cart-reviews
-    subheadings:
-      - h3: Overview
-        url: /doc/commerce/checkout/api_checkout.html#cart-reviews-overview
-      - h3: Augment a Cart
-        url: /doc/commerce/checkout/api_checkout.html#augment-a-cart
-      - h3: Error Handling
-        url: /doc/commerce/checkout/api_checkout.html#cart-reviews-error-handling
   - h2: Using Wish Lists
     url: /doc/commerce/checkout/api_checkout.html#using-wish-lists
-    subheadings:
-      - h3: Overview
-        url: /doc/commerce/checkout/api_checkout.html#wish-lists-overview
-      - h3: Create/Update a List
-        url: /doc/commerce/checkout/api_checkout.html#create-or-update-a-list
-      - h3: Delete a List
-        url: /doc/commerce/checkout/api_checkout.html#delete-a-list
-      - h3: Retrieve a List by ID
-        url: /doc/commerce/checkout/api_checkout.html#retrieve-a-list-by-id
-      - h3: Retrieve Lists for User
-        url: /doc/commerce/checkout/api_checkout.html#retrieve-lists-for-authenticated-user
-      - h3: Add Item to List
-        url: /doc/commerce/checkout/api_checkout.html#add-item-to-list
-      - h3: Remove Item from List
-        url: /doc/commerce/checkout/api_checkout.html#remove-item-from-list
-      - h3: Retrieve Item by ID
-        url: /doc/commerce/checkout/api_checkout.html#retrieve-item-by-id
   - h2: Using Shipping Options
     url: /doc/commerce/checkout/api_checkout.html#using-shipping-options
-    subheadings:  
-      - h3: Overview
-        url: /doc/commerce/checkout/api_checkout.html#shipping-options-overview
-      - h3: Shipping Options
-        url: /doc/commerce/checkout/api_checkout.html#shipping-options
-      - h3: Error Handling
-        url: /doc/commerce/checkout/api_checkout.html#shipping-options-error-handling
   - h2: Using Checkouts
     url: /doc/commerce/checkout/api_checkout.html#using-checkouts
-    subheadings:
-      - h3: Overview
-        url: /doc/commerce/checkout/api_checkout.html#checkouts-overview
-      - h3: Request Checkout Preview
-        url: /doc/commerce/checkout/api_checkout.html#request-checkout-preview
-      - h3: Retrieve Checkout Preview Job
-        url: /doc/commerce/checkout/api_checkout.html#retrieve-checkout-preview-job
-      - h3: Retrieve Checkout Preview Results
-        url: /doc/commerce/checkout/api_checkout.html#retrieve-checkout-preview results
-      - h3: Request Checkout Submit
-        url: /doc/commerce/checkout/api_checkout.html#request-checkout-submit
-      - h3: Retrieve Checkout Submit Job
-        url: /doc/commerce/checkout/api_checkout.html#retrieve-checkout-submit-job
-      - h3: Retrieve Checkout Results
-        url: /doc/commerce/checkout/api_checkout.html#retrieve-checkout-results
-      - h3: Request Checkout Submit (Launch)
-        url: /doc/commerce/checkout/api_checkout.html#request-checkout-submit-launch
-      - h3: Error Handling
-        url: /doc/commerce/checkout/api_checkout.html#checkouts-error-handling
   - h2: Upgrading to the Latest Version
     url: /doc/commerce/checkout/api_checkout.html#upgrading-to-the-latest-version
   - h2: Best Practices
@@ -373,7 +297,7 @@ Refer to the [Using Carts v2](#using-carts-v2) section of this document to find 
 
 For the request headers, use the same headers you used in the previous step.
 
->Note: There is no request body needed for a GET request.
+>**NOTE**: There is no request body needed for a GET request.
 
 The complete URL is https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8. Note that the same cart **id** that you created for the previous PUT request is at the end of the URL.
 
@@ -658,7 +582,7 @@ See the response body from the *Create or Update Cart* endpoint as it is the sam
 
 Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
->**Note**: The delete operation is optional; carts will automatically purge from storage after 180 days of inactivity.
+>**NOTE**: The delete operation is optional; carts will automatically purge from storage after 180 days of inactivity.
 
 #### Endpoint Details
 
@@ -1156,7 +1080,7 @@ Sample *Modify a Cart by Cart ID* response body without errors:
 
 Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
->**Note**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
+>**NOTE**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
 
 #### Endpoint Details
 
@@ -1368,7 +1292,7 @@ See the response body from the [*Create or Update Cart by Cart ID*](#cart-put-v2
 
 Delete all items in a cart by **country**, **brand**, and (optionally) **channel** values sent as path parameters and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
->**Note**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
+>**NOTE**: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.
 
 #### Endpoint Details
 
@@ -2930,6 +2854,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 |**PUT**|`/buy/checkout_previews/v2/{id}`|no|
 
 #### Path & Query Parameters
+
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|

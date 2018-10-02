@@ -536,7 +536,7 @@ Authorization: Bearer {your access token}
 <p>For the request headers, use the same headers you used in the previous step.</p>
 
 <blockquote>
-  <p>Note: There is no request body needed for a GET request.</p>
+  <p><strong>NOTE</strong>: There is no request body needed for a GET request.</p>
 </blockquote>
 
 <p>The complete URL is https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8. Note that the same cart <strong>id</strong> that you created for the previous PUT request is at the end of the URL.</p>
@@ -1125,7 +1125,7 @@ Authorization: Bearer {your access token}
 <p>Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status (‘Not Found’).</p>
 
 <blockquote>
-  <p><strong>Note</strong>: The delete operation is optional; carts will automatically purge from storage after 180 days of inactivity.</p>
+  <p><strong>NOTE</strong>: The delete operation is optional; carts will automatically purge from storage after 180 days of inactivity.</p>
 </blockquote>
 
 <h4 id="endpoint-details-3">Endpoint Details</h4>
@@ -2680,7 +2680,7 @@ Authorization: Bearer {your access token}
 <p>Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status (‘Not Found’).</p>
 
 <blockquote>
-  <p><strong>Note</strong>: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.</p>
+  <p><strong>NOTE</strong>: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.</p>
 </blockquote>
 
 <h4 id="endpoint-details-6">Endpoint Details</h4>
@@ -3300,7 +3300,7 @@ Authorization: Bearer {your access token}
 <p>Delete all items in a cart by <strong>country</strong>, <strong>brand</strong>, and (optionally) <strong>channel</strong> values sent as path parameters and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status (‘Not Found’).</p>
 
 <blockquote>
-  <p><strong>Note</strong>: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.</p>
+  <p><strong>NOTE</strong>: The delete operation is optional; carts will automatically purge from storage after 90 days of inactivity.</p>
 </blockquote>
 
 <h4 id="endpoint-details-12">Endpoint Details</h4>
@@ -6807,9 +6807,27 @@ Authorization: Bearer {your access token}
 </table>
 
 <h4 id="path--query-parameters-22">Path &amp; Query Parameters</h4>
-<p>|Parameter|Type|Description|Data Type|Required?|
-|—|—|—|—|—|
-|<strong>id</strong>|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|<strong>Required</strong>|</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Required?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td>Path</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>string</td>
+      <td><strong>Required</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="request-headers-23"><a name="checkout-preview-request-headers"></a>Request Headers</h4>
 
@@ -9812,15 +9830,6 @@ guide to learn more.</p>
 						   class="">Terms of Service</a>
 					</li>
 					
-					<ul>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#authentication"
-							   class="">Authentication</a>
-						</li>
-						
-					</ul>
-					
 					
 					<li>
 						<a href="/doc/commerce/checkout/api_checkout.html#use-cases"
@@ -9845,89 +9854,11 @@ guide to learn more.</p>
 						   class="">Using Carts</a>
 					</li>
 					
-					<ul>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#carts-v2-overview"
-							   class="">Overview</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#create-or-update-a-cart-by-cart-id"
-							   class="">Create/Update a Cart by ID</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#modify-a-cart-by-cart-id"
-							   class="">Modify a Cart by ID</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#delete-all-items-from-a-cart-by-cart-id"
-							   class="">Delete Items from a Cart by ID</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#get-a-cart-by-cart-id"
-							   class="">Get a Cart by Cart ID</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#get-a-cart-by-filter-criteria-query-param"
-							   class="">Get a Cart by Filter Criteria (Query Param)</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#create-or-update-a-cart-by-filter-criteria"
-							   class="">Create/Update a Cart by Filter Criteria</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#modify-a-cart-by-filter-criteria"
-							   class="">Modify a Cart by Filter Criteria</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#get-a-cart-by-filter-criteria-path-param"
-							   class="">Get a Cart by Filter Criteria (Path Param)</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#delete-all-items-from-a-cart-by-filter-criteria"
-							   class="">Delete All Items from a Cart by Filter Criteria</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#carts-v2-error-handling"
-							   class="">Error Handling</a>
-						</li>
-						
-					</ul>
-					
 					
 					<li>
 						<a href="/doc/commerce/checkout/api_checkout.html#using-cart-reviews"
 						   class="">Using Cart Reviews</a>
 					</li>
-					
-					<ul>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#cart-reviews-overview"
-							   class="">Overview</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#augment-a-cart"
-							   class="">Augment a Cart</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#cart-reviews-error-handling"
-							   class="">Error Handling</a>
-						</li>
-						
-					</ul>
 					
 					
 					<li>
@@ -9935,129 +9866,17 @@ guide to learn more.</p>
 						   class="">Using Wish Lists</a>
 					</li>
 					
-					<ul>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#wish-lists-overview"
-							   class="">Overview</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#create-or-update-a-list"
-							   class="">Create/Update a List</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#delete-a-list"
-							   class="">Delete a List</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-a-list-by-id"
-							   class="">Retrieve a List by ID</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-lists-for-authenticated-user"
-							   class="">Retrieve Lists for User</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#add-item-to-list"
-							   class="">Add Item to List</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#remove-item-from-list"
-							   class="">Remove Item from List</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-item-by-id"
-							   class="">Retrieve Item by ID</a>
-						</li>
-						
-					</ul>
-					
 					
 					<li>
 						<a href="/doc/commerce/checkout/api_checkout.html#using-shipping-options"
 						   class="">Using Shipping Options</a>
 					</li>
 					
-					<ul>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#shipping-options-overview"
-							   class="">Overview</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#shipping-options"
-							   class="">Shipping Options</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#shipping-options-error-handling"
-							   class="">Error Handling</a>
-						</li>
-						
-					</ul>
-					
 					
 					<li>
 						<a href="/doc/commerce/checkout/api_checkout.html#using-checkouts"
 						   class="">Using Checkouts</a>
 					</li>
-					
-					<ul>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#checkouts-overview"
-							   class="">Overview</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#request-checkout-preview"
-							   class="">Request Checkout Preview</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-preview-job"
-							   class="">Retrieve Checkout Preview Job</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-preview results"
-							   class="">Retrieve Checkout Preview Results</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#request-checkout-submit"
-							   class="">Request Checkout Submit</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-submit-job"
-							   class="">Retrieve Checkout Submit Job</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#retrieve-checkout-results"
-							   class="">Retrieve Checkout Results</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#request-checkout-submit-launch"
-							   class="">Request Checkout Submit (Launch)</a>
-						</li>
-						
-						<li>
-							<a href="/doc/commerce/checkout/api_checkout.html#checkouts-error-handling"
-							   class="">Error Handling</a>
-						</li>
-						
-					</ul>
 					
 					
 					<li>

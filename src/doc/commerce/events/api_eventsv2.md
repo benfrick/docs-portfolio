@@ -8,9 +8,6 @@ toc:
     url: /doc/commerce/events/api_eventsv2.html#api-at-a-glance
   - h2: Terms of Service
     url: /doc/commerce/events/api_eventsv2.html#terms-of-service
-    subheadings:
-      - h3: Authorization
-        url: /doc/commerce/events/api_eventsv2.html#authorization
   - h2: Use Cases
     url: /doc/commerce/events/api_eventsv2.html#use-cases
   - h2: Endpoint Quick Reference
@@ -19,17 +16,6 @@ toc:
     url: /doc/commerce/events/api_eventsv2.html#making-your-first-api-request
   - h2: Using Analytics Pipeline
     url: /doc/commerce/events/api_eventsv2.html#using-analytics-v2-pipeline
-    subheadings:
-      - h3: Endpoint Details
-        url: /doc/commerce/events/api_eventsv2.html#endpoint-details
-      - h3: Path & Query Params
-        url: /doc/commerce/events/api_eventsv2.html#path--query-parameters
-      - h3: Request Headers
-        url: /doc/commerce/events/api_eventsv2.html#request-headers
-      - h3: Request Body
-        url: /doc/commerce/events/api_eventsv2.html#request-body
-      - h3: Response Body
-        url: /doc/commerce/events/api_eventsv2.html#response-body
   - h2: Upgrading to the Latest Version
     url: /doc/commerce/events/api_eventsv2.html#upgrading-to-the-latest-version
   - h2: Best Practices
