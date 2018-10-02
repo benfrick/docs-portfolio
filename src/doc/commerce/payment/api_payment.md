@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 2
+title: Payment
+url: /commerce/payment/api_payment.html
 ---
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE

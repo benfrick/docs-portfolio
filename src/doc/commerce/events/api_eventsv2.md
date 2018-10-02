@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 7
+title: Events
+url: /commerce/events/api_eventsv2.html
 ---
 
 # ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)

@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 1
+title: Buy
+url: /commerce/checkout/api_checkout.html
 ---
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE

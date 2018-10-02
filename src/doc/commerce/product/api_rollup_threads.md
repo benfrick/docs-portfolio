@@ -1,4 +1,8 @@
 ---
+category: usecase
+position: 4
+title: Rollup Threads
+url: /commerce/product/api_rollup_threads.html
 ---
 
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE

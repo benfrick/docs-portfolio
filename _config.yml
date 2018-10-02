@@ -12,14 +12,8 @@ permalink: none
 
 timezone: Etc/UTC
 
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
 # exclude these files (relative to source directory) from the conversion
 exclude:
-  - readme.md
-  - LICENSE
   - /templates/
 
 defaults:
@@ -28,21 +22,18 @@ defaults:
       path: ""
     values:
       layout: two_column
+      toctitle: "NDe Docs Home"
 
 kramdown:
   # parse markdown inside block-level HTML tag
   parse_block_html: true
 
-# turn these off for now
+# publish to/from
 source: src
 destination: ./content/
 
+# only convert changed files
 incremental: true
-
-# keep these files/directories (relative to destination directory) when clobbering the destination
-keep_files:
-  - /portal/
-  - /poc/
 
 # -----------
 # CloudCannon
