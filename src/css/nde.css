@@ -89,6 +89,11 @@ code, code span {
 a {
     color: #3498db;
 }
+h2 a, h2 a:link, h2 a:visited, h2 a:hover, h2 a:active {
+    text-decoration: none;
+    color: #000000;
+    cursor: auto;
+}
 blockquote {
     /*border: 2px solid #dfdfdf;*/
     border: 1px solid rgba(58,193,51,.12);
@@ -324,6 +329,28 @@ iframe#nde-docs-frame > html {
     font-size: .6rem;
     margin-left: 4px;
     vertical-align: top;
+}
+.numberCircle {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    padding: 1px 5px 1px 5px;
+    margin: 5px 5px 5px 0px;
+    width: 19px;
+    border-radius: 50%;
+    left: 0;
+    top: 3px;
+}
+.numberCircle.gray {
+    background: #939da3;
+    border: 2px solid #939da3;
+}
+.numberCircle.green {
+    border: 2px solid #23a04b;
+    background: #f6fff5;
+    color: #23a04b;
 }
 
 /* POC styles */
