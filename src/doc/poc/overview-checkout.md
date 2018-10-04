@@ -3,7 +3,7 @@
 
 # Cart and Checkout Overview
 
-Learn how to use <a href="/doc/commerce/checkout/use_checkout.html">Cart and Checkout</a>, our solution to allow customers to purchase Nike products and services.
+Learn how to use [Cart and Checkout](/doc/commerce/checkout/use_checkout.html), our solution to allow customers to purchase Nike products and services.
 
 ---
 
