@@ -1,0 +1,7 @@
+---
+layout: none
+---
+{% assign list = site.html_pages %}
+  {% for entry in list %}
+{{entry.url | relative_url | prepend:"./content"}}
+  {% endfor %}
