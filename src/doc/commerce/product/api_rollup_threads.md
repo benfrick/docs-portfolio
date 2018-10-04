@@ -8,11 +8,6 @@ toc:
     url: /doc/commerce/product/api_rollup_threads.html#api-at-a-glance
   - h2: Terms of Service
     url: /doc/commerce/product/api_rollup_threads.html#terms-of-service
-    subheadings:
-      - h3: Authentication
-        url: /doc/commerce/product/api_rollup_threads.html#authentication
-      - h3: Prerequisites
-        url: /doc/commerce/product/api_rollup_threads.html#prerequisites
   - h2: Use Cases
     url: /doc/commerce/product/api_rollup_threads.html#use-cases
   - h2: Endpoint Quick Reference
@@ -21,8 +16,8 @@ toc:
     url: /doc/commerce/product/api_rollup_threads.html#what-is-a-rollup-thread
   - h2: Making Your First Request
     url: /doc/commerce/product/api_rollup_threads.html#making-your-first-api-request
-  - h2: Using Product Feed Rollup Threads
-    url: /doc/commerce/product/api_rollup_threads.html#using-product-feed-rollup-threads-v2
+  - h2: Using Rollup Threads
+    url: /doc/commerce/product/api_rollup_threads.html#using-rollup-threads
   - h2: Upgrading to the Latest Version
     url: /doc/commerce/product/api_rollup_threads.html#upgrading-to-the-latest-version
   - h2: Best Practices
@@ -831,7 +826,7 @@ For your first request, send a request to get all the Rollup Threads for a parti
 
 >**TIP:** For detailed information about the contents of the response, see the [Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2) section.
 
-## <a name="using-rollup-threads-v2"></a>Using Product Feed Rollup Threads v2
+## <a name="using-rollup-threads"></a>Using Rollup Threads
 
 Use the Product Feed Rollup Threads v2 API to produce a grid wall of related products.
 
