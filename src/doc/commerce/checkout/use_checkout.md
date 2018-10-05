@@ -1,4 +1,5 @@
 ---
+tags: pdf
 category:
 position: 1
 title: Buy
