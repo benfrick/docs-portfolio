@@ -1,4 +1,5 @@
 ---
+tags: pdf
 category: use-case
 position: 3
 title: Product Feeds

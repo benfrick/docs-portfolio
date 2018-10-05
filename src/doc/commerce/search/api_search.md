@@ -1,5 +1,6 @@
 ---
-category: usecase
+tags: pdf
+category: use-case
 position: 6
 title: eCommerce Search
 url: /commerce/search/api_search.html
