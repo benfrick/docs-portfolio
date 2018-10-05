@@ -1,4 +1,5 @@
 ---
+tags: pdf
 category:
 position: 2
 title: Orders
