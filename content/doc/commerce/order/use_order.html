@@ -18,37 +18,24 @@
 <div class="main">
     <h1 id="adding-order-history-to-your-experience-">ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br /></h1>
 
-<h6 id="last-updated-1052018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 10/5/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h6>
-
-<h2 id="in-this-guide"><strong>In This Guide:</strong></h2>
-
-<p><a href="#overview">Overview</a></p>
-
-<p><a href="#step-1-adding-order-summary">Step 1: Adding Order Summary</a></p>
-
-<p><a href="#step-2-adding-order-details">Step 2: Adding Order Details</a></p>
-
-<p><a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a></p>
-
-<p><a href="#sending-your-first-request">Sending Your First Request</a></p>
-
-<p><a href="#best-practices">Best Practices</a></p>
-
-<p><a href="#troubleshooting">Troubleshooting</a></p>
-
-<p><a href="#glossary">Glossary</a></p>
-
-<p><a href="#document-change-log">Document Change Log</a></p>
-
-<p><a href="#related-links">Related Links</a></p>
+<h6 id="last-updated-1052018">Last Updated: 10/5/2018</h6>
 
 <h2 id="overview"><a name="overview">Overview</a></h2>
 
-<p>Use this guide to add order history to your experience. Step-by-step instructions and code samples give you the tools you need to retrieve order information for your customers through your app.</p>
+<p>Retrieve a complete order history for your consumers.</p>
 
 <blockquote>
   <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="#">Adding Checkout to Your Experience</a>.</p>
 </blockquote>
+
+<p>Adding order history to your app is a two-step process.</p>
+
+<p><i class="numberCircle gray">1</i>Your application makes an API request to <a href="#order-summary">retrieve all or a filtered list of a
+consumer’s
+orders</a>.</p>
+
+<p><i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes a second API
+request to <a href="#order-details">get detailed information for one consumer order</a>.</p>
 
 <h3 id="what-is-an-order">What is an Order?</h3>
 
@@ -77,40 +64,151 @@
 
 <p>[Insert diagram of high-level steps in the process]</p>
 
-<ol>
-  <li>Get a list of a customer’s orders</li>
-  <li>Get the details of a customer’s order</li>
-</ol>
+<p>Providing consumers a way to access their past orders enables them to check the progress of
+product shipment and to view their product and payment history, no phone call required.</p>
 
 <p><img src="/images/commerce/order/order-life-cycle.png" alt="" /></p>
 
-<h2 id="step-1-get-a-list-of-a-customers-orders"><a name="order-summary">Step 1: Get a list of a customer’s orders</a></h2>
+<h2 id="step-1-list-a-consumers-orders">Step 1: <a name="order-summary">List a consumer’s orders</a></h2>
 
-<p>[Overview Description]
-Describe Edge router</p>
+<p>Use the order summary API to get all of a consumer’s Nike orders. You could make this information accessible to the
+consumer as a self-service in your app. The information returned for each order is a limited set of data.
+If you need a more in-depth picture of a consumer’s order that contains pricing, tax information, shipping instructions and detailed product information, see <a href="#order-details">List the
+details of
+ a consumer’s
+ order</a>.</p>
 
-<p>Get the customer’s upmid if logged in; guest’s email address.
-Get the unite authorization token in the form of ‘bearer token’
-Send both upmid and authorization as headers</p>
-
-<h3 id="understanding-order-status">Understanding Order Status</h3>
+<p>The order summary API requires that you pass certain headers in the request depending upon whether the consumer
+is logged in, is a guest or an employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
 
 <h3 id="customizing-your-results">Customizing Your Results</h3>
 
+<p>You can control what is returned in your result set and how it is sorted through URL parameters.</p>
+
 <p><strong>Filtering</strong></p>
 
-<p><strong>Sorting</strong>*</p>
+<p>The table below lists the fields by which you can filter your order summary results. If no filter is applied, all
+of a consumer’s orders are returned. While some filters only allow one value, you can filter by
+ different types of filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
+  allowed, you can request order summaries filtered by orderSubmitDateAfter and status. Note that filter parameter names
+   and values are case sensitive.</p>
 
-<p>You can sort the customer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Order Field Name</th>
+      <th>Description</th>
+      <th>Sample Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>status</strong></td>
+      <td>List orders with this status.</td>
+      <td>Cancelled</td>
+    </tr>
+    <tr>
+      <td><strong>orderType</strong></td>
+      <td>List orders of this type. You can only filter by one orderType at a time.</td>
+      <td>SALES_ORDER</td>
+    </tr>
+    <tr>
+      <td><strong>storeId</strong></td>
+      <td>List orders placed in this store. You can only filter by one storeId at a time.</td>
+      <td>28382</td>
+    </tr>
+    <tr>
+      <td><strong>orderSubmitDateAfter</strong></td>
+      <td>List orders placed after this date. You can only filter by one date at a time.</td>
+      <td>Format is yyyy-MM-dd’T’HH:mm:ssZ</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="step-2-get-the-details-of-a-customers-order"><a name="order-details">Step 2: Get the details of a customer’s order</a></h2>
+<p>Order Summary request filtering by a status of ‘Shipped’ that were submitted after 2018-01-24.</p>
+
+<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)
+&amp;filter=orderType(RESERVE_ORDER)</code></p>
+
+<p>Order Summary request filtering by a status of ‘Shipped’ or ‘Delivered’.</p>
+
+<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)</code></p>
+
+<p><strong>Sorting</strong></p>
+
+<p>You can sort the consumer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter. If no sorting is applied, orders are
+returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+
+<p><strong>Other Query Parameters</strong></p>
+
+<p>The Order History API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+
+<h3 id="understanding-order-status">Understanding Order Status</h3>
+
+<p>There are three types of statuses</p>
+<ul>
+  <li>order</li>
+  <li>line item (product or service purchased)</li>
+  <li>payment.</li>
+</ul>
+
+<p>The status of the order depends on the status of each line item and the payment status.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status Field Name</th>
+      <th>Description</th>
+      <th>API Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>status of the order</td>
+      <td>Order Summary<br />Order Details</td>
+    </tr>
+    <tr>
+      <td>orderLines.rolledUpStatus</td>
+      <td>Rolled up status description of an order line. e.g. PARTIALLY SHIPPED.</td>
+      <td>Order Summary<br />Order Details</td>
+    </tr>
+    <tr>
+      <td>paymentStatus</td>
+      <td>status of payment</td>
+      <td>Order Summary</td>
+    </tr>
+    <tr>
+      <td>orderLines.maxOrderLineStatus</td>
+      <td>Description of maximum order line status that belong to the current order line.</td>
+      <td>Order Details</td>
+    </tr>
+    <tr>
+      <td>orderLines.minOrderLineStatus</td>
+      <td>Description of minimum order line status that belong to the current order line.</td>
+      <td>Order Details</td>
+    </tr>
+    <tr>
+      <td>orderLines.statuses</td>
+      <td>An array of zero-or-more status-quantity break up for each order line.</td>
+      <td>Order Details</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>What status is the order in if paymentStatus is anything other than PAID?
+What are maxOrderLineStatus and minOrderLineStatus used for?</p>
+
+<!--The orderLines.statuses.statusCode field is set to one of several codes. For a complete list of order statusCodes,
+see
+[Order Status Mapping for Consumers](https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers){:target="_blank"}.-->
+
+<h2 id="step-2-list-the-details-of-a-consumers-order">Step 2: <a name="order-details">List the details of a consumer’s order</a></h2>
 
 <p>[Overview Description]</p>
 
-<p>required headers (guest)
-x-nike-visitorid
-x-nike-visitid
-appId</p>
+<p>The order details API requires that you pass certain headers in the request depending upon whether the consumer
+is logged in, a guest or an employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
 
 <p>required path parameter
 order id</p>
@@ -121,22 +219,21 @@ if email is missing, get 404</p>
 <h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
 
 <p><strong>Order Summary</strong>
-<a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="_blank">Get a list of a customer’s orders</a></p>
+<a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="_blank">Get a list of a consumer’s orders</a></p>
 
 <p><strong>Order Details</strong>
-<a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="_blank">Get the details of a customer’s order</a></p>
+<a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="_blank">Get the details of a consumer’s order</a></p>
 
 <h2 id="sending-your-first-request"><a name="sending-your-first-request"></a>Sending Your First Request</h2>
 
-<p>For your first request, send a request to the <em>Create or Update a Cart by Cart ID</em> endpoint of the Carts v2 API and create your first cart.</p>
+<p>For your first request, send a request to the <em>User Order Summary</em> endpoint of the BFF Order Summary V1 API to list a
+consumer’s orders.</p>
 
 <p><strong>1. Gather Info for the Request</strong></p>
 
-<p>Our example endpoint, <em>Create or Update a Cart by Cart ID</em>, only supports the HTTP PUT method. To create a cart, send a PUT request with (at minimum) the required request headers and the required parts of the request body.</p>
+<p>Our example endpoint <em>User Order Summary</em>, only supports the HTTP GET method. To list orders, send a GET request with (at minimum) the required request headers.</p>
 
-<p>First, read the <a href="#using-carts-v2">Using Carts</a> section of this document to learn more about the required parts of this request.</p>
-
-<p>Assume that user for whom you are creating the cart is a Nike+ member who has logged in with their Nike+ credentials. This indicates which request headers are required.</p>
+<p>Assume that consumer for whom you are getting a list of orders for is a Nike+ member who has logged in with their Nike+ credentials. This indicates which request headers are required.</p>
 
 <p>For the request headers, the following considerations apply (at minimum):</p>
 
@@ -154,146 +251,32 @@ Content-Type: application/json
 Authorization: Bearer {your access token}
 </code></pre></div></div>
 
-<p>For the request body, the following considerations apply (at miniumum):</p>
-
-<ol>
-  <li>
-    <p>Send a UUID <strong>that you have created</strong> in the <strong>id</strong> field, in this case <code class="highlighter-rouge">61bc115b-16e5-43b5-bcaf-dd6168c543f8</code>. This is the cart ID.</p>
-  </li>
-  <li>
-    <p>Send the country code of the country where the user is shopping in the <strong>country</strong> field, in this case, <code class="highlighter-rouge">US</code>. Send <code class="highlighter-rouge">NIKE</code> in the <strong>brand</strong> field.</p>
-  </li>
-  <li>
-    <p>Send a UUID <strong>that you have created, different from above</strong> in the items.<strong>id</strong> field. This is the identifier for the line item in the cart. If you include multiple line items, each must have a unique identifier.</p>
-  </li>
-  <li>
-    <p>Send a valid SKU identifier obtained from the Merchandised Products SKU service in the items.<strong>skuId</strong> field.</p>
-  </li>
-</ol>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
-  "country": "US",
-  "brand": "NIKE",
-  "items": [
-    {
-      "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
-      "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
-      "quantity": 1
-    }
-  ]
-}
-</code></pre></div></div>
-
 <p><strong>2. Create the URL</strong></p>
 
-<p>The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is <code class="highlighter-rouge">/buy/carts/v2/{id}</code>.</p>
+<p>The <a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="_blank">API.md</a> states that the required URL format is <code class="highlighter-rouge">/order_mgmt/user_order_summary/v1/</code>.</p>
 
-<p>To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path, then append  <strong>id</strong> after “v2”. The <strong>id</strong> is the cart identifier you passed in the request body.</p>
+<p>To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path.</p>
 
-<p>The complete URL is then https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8.</p>
+<p>The complete URL is then https://api.nike.com/order_mgmt/user_order_summary/v1/.</p>
 
 <p><strong>3. Execute the request</strong></p>
 
 <p>Execute the request with a cURL command. Using the values gathered in steps 1 and 2, the final cURL command is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X PUT \
-  https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer {your access token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-     "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
-     "country": "US",
-     "brand": "NIKE",
-     "items": [
-       {
-         "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
-         "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
-         "quantity": 1
-       }
-     ]
-}'
-</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
 
 <p><strong>4. Parse the Response</strong></p>
 
 <p>Assuming no errors, you will receive a response body similar to the following:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
-    "country": "US",
-    "currency": "USD",
-    "brand": "NIKE",
-    "totals": {
-        "subtotal": 130,
-        "discountTotal": 0,
-        "valueAddedServicesTotal": 0,
-        "total": 130,
-        "quantity": 1
-    },
-    "items": [
-        {
-            "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
-            "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
-            "quantity": 1,
-            "priceInfo": {
-                "price": 130,
-                "subtotal": 130,
-                "discount": 0,
-                "valueAddedServices": 0,
-                "total": 130,
-                "priceSnapshotId": "d5d8dbed-afba-4677-9904-e9712fa3ecb9",
-                "msrp": 130,
-                "fullPrice": 130
-            }
-        }
-    ],
-    "links": {
-        "self": {
-            "ref": "/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8"
-        }
-    },
-    "resourceType": "cart"
-}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 </code></pre></div></div>
-
-<p>Some values in the response are exactly what you sent in the request, but the values in the <strong>totals</strong> section provide a cart pricing summary and the values in items.<strong>priceInfo</strong> section provide the current item pricing details.</p>
-
-<p><strong>Another Example</strong></p>
-
-<p>For your next request, send a GET request to the <em>Get a Cart for a Cart ID</em> endpoint of the Carts v2 API, using the cart <strong>id</strong> that you created in the previous step.</p>
-
-<p>Refer to the <a href="#using-carts-v2">Using Carts v2</a> section of this document to find the required parts of this request.</p>
-
-<p>For the request headers, use the same headers you used in the previous step.</p>
-
-<blockquote>
-  <p>Note: There is no request body needed for a GET request.</p>
-</blockquote>
-
-<p>The complete URL is https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8. Note that the same cart <strong>id</strong> that you created for the previous PUT request is at the end of the URL.</p>
-
-<p>The final cURL is:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
-  https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
-  -H 'accept: application/json' \
-  -H 'authorization: Bearer {your access token}' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json'
-</code></pre></div></div>
-
-<p>The response body from the <em>Get a Cart for a Cart ID</em> endpoint is the same as <em>Create or Update a Cart by Cart ID</em>, so the process of parsing it is also the same.</p>
 
 <h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
 
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
-<p>For retry information by Checkout endpoint, visit <a href="https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients" target="_blank">Retry Patterns for Checkout Clients</a> in Confluence.</p>
-
-<p>For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
+<p>For all Order APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
 
 <h3 id="honor-the-etas-for-best-performance">Honor the ETAs for Best Performance</h3>
 
@@ -301,106 +284,23 @@ Authorization: Bearer {your access token}
 
 <h3 id="test-scenarios">Test Scenarios</h3>
 
-<p>Here is an example list of test scenarios for a user experience that is integrating with the Checkout APIs. Note: in this context, inline refers to a regular Nike product as opposed to a customized Nike iD product.</p>
-
-<ul>
-  <li>
-    <p>Single Item (Inline) - Single Payment (Credit Card)</p>
-  </li>
-  <li>
-    <p>Single Item (Inline) - Single Payment (Gift Card)</p>
-  </li>
-  <li>
-    <p>Single Item (Inline) - Single Payment (PayPal)</p>
-  </li>
-  <li>
-    <p>Single Item (NikeID) - Single Payment (Credit Card)</p>
-  </li>
-  <li>
-    <p>Single Item (NikeID) - Single Payment (PayPal)</p>
-  </li>
-  <li>
-    <p>Single Item (Inline) - Multiple Payment (Credit Card &amp; Gift Card)</p>
-  </li>
-  <li>
-    <p>Single Item (NikeID) - Multiple Payment (Credit Card &amp; Gift Card)</p>
-  </li>
-  <li>
-    <p>Mixed Items (Inline &amp; NikeID) - Single Payment (Credit Card)</p>
-  </li>
-  <li>
-    <p>Mixed Items (Inline &amp; NikeID) - Single Payment (PayPal)</p>
-  </li>
-  <li>
-    <p>Mixed Items (Inline &amp; NikeID) - Multiple Payment (Credit Card &amp; Gift Card)</p>
-  </li>
-</ul>
-
-<p>Additionally, it’s useful to add scenarios for multi-quantity (i.e. quantity &gt; 1) for Inline items, as well as scenarios with multiple Nike iD items in same checkout.</p>
-
-<blockquote>
-  <p><strong>TIP:</strong> While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.</p>
-</blockquote>
-
 <h3 id="test-environment">Test Environment</h3>
 
-<p>It is recommended to test all Checkout endpoints in the production environment as opposed to the test environment. Using the test environment can have unpredictable results due to the many downstream services which these endpoints are reliant upon in order to provide typical ‘production-like’ responses.</p>
+<p>It is recommended to test all Order endpoints in the production environment as opposed to the test environment. Using the test environment can have unpredictable results due to the many downstream services which these endpoints are reliant upon in order to provide typical ‘production-like’ responses.</p>
 
 <p>There are boundaries for testing in production:</p>
 
 <ul>
-  <li>
-    <p>Performance tests at high volumes should never be done in production.</p>
-  </li>
-  <li>
-    <p>Calling ‘Request a Checkout Submit’ in production can result in actual Nike orders being sent for fulfillment, and actual payment methods being authorized and/or charged. Proceed with caution.</p>
-  </li>
+  <li>Performance tests at high volumes should never be done in production.</li>
 </ul>
 
 <h3 id="caching-data">Caching Data</h3>
 
 <p>None of the endpoints described in this document support caching.</p>
 
-<h3 id="error-handling-which-json-field-had-the-error">Error Handling: Which JSON Field Had The Error?</h3>
-
-<p>In error responses from APIs, Nike uses the <a href="https://tools.ietf.org/html/rfc6901" target="_blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.</p>
-
-<p>However, not all Checkout APIs are the same in this regard. This is due to some APIs having been built before Nike decided to use JSON Pointer standard.</p>
-
-<p>For example, error responses from the Checkouts v2 API will vary from error responses from the Carts API.</p>
-
-<p>Examples of both:</p>
-
-<p>Checkouts (built before adopting JSON Pointer standard):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "message": "Validation Failed",
-    "errors": [{
-        "field": "request.items[0].contactInfo.email",
-        "code": "INVALID_EMAIL",
-        "message": "Invalid email"
-    }]
-}
-</code></pre></div></div>
-
-<p>Carts (built after adopting JSON Pointer standard):</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "message": "Validation Failed",
-    "errors": [{
-        "field": "/request/items/0/contactInfo/email",
-        "code": "INVALID_EMAIL",
-        "message": "Invalid email"
-    }]
-}
-</code></pre></div></div>
-
-<p>If you are a client of both of the above APIs, you will need to parse error responses in two different ways.</p>
+<h3 id="error-handling">Error Handling:</h3>
 
 <h2 id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</h2>
-
-<blockquote>
-  <p><strong>TIP:</strong> SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second <em>for the API overall</em> were shown. Ask the Product Owner to get specific SLA info for each endpoint.</p>
-</blockquote>
 
 <h2 id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</h2>
 
@@ -418,15 +318,12 @@ Authorization: Bearer {your access token}
 
 <h4 id="json-web-token">JSON Web Token</h4>
 
-<p>Only one endpoint in the Buy APIs, <em>Launch Checkout Submit</em>, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of <a href="/doc/getting-started/using_nike_apis.html#jwt-json-web-token">Using NDe APIs</a>.</p>
+<p>Neither the <em>BFF Order Summary</em> nor <em>BFF Order Details</em> endpoints require the additional
+authorization
+ of a
+ JSON Web Token (JWT). For more, see the JWT section of <a href="/doc/getting-started/using_nike_apis.html#jwt-json-web-token">Using NDe APIs</a>.</p>
 
 <p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
-
-<h3 id="example-implementation-diagram"><a name="example-implementation-diagram"></a>Example Implementation Diagram</h3>
-
-<p>Here is an example of a sequence of API calls to execute an entire checkout:</p>
-
-<p><img src="/images/commerce/buy/checkout_seq_dgm.png" alt="" /></p>
 
 <p><br /></p>
 
@@ -436,7 +333,7 @@ Authorization: Bearer {your access token}
 
 <h3 id="user-types">User Types</h3>
 
-<p>The Nike Checkout APIs support 3 distinct user types:</p>
+<p>The Nike Order APIs support 3 distinct user types:</p>
 
 <ul>
   <li>
@@ -450,48 +347,9 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<p>Depending on user type, certain aspects of the calls that you make to the Checkout APIs might need to be modified. This will be called out whenever applicable in the detailed endpoint sections which follow in this guide. Also, consider that not all user types might apply to your app (e.g. you might only support Members).</p>
+<p>Depending on user type, certain aspects of the calls that you make to the Order APIs might need to be modified. This will be called out whenever applicable in the detailed endpoint sections which follow in this guide. Also, consider that not all user types might apply to your app (e.g. you might only support Members).</p>
 
 <p>See the User Types section of the <a href="/doc/getting-started/using_nike_apis.html#user-types">Using NDe APIs</a> guide for more information.</p>
-
-<h3 id="idempotence">Idempotence</h3>
-
-<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="_blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let’s break it down.</p>
-
-<p>Each PUT request to <em>Request Checkout Preview</em> and <em>Request a Checkout Submit</em> includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body.</p>
-
-<p>There are 4 possible scenarios:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Scenario</th>
-      <th>Result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>UUID and Entity are new to the system (base use case)</td>
-      <td>Client receives HTTP 202 response, request processed as new job</td>
-    </tr>
-    <tr>
-      <td>UUID and Entity match a prior request</td>
-      <td>Client receives the exact same HTTP 202 response from the prior request (no new job processed)</td>
-    </tr>
-    <tr>
-      <td>UUID used previously, Entity is new</td>
-      <td>Client receives HTTP 409 error response (no new job processed)</td>
-    </tr>
-    <tr>
-      <td>UUID is new, Entity previously submitted under another UUID</td>
-      <td>Client receives HTTP 202 response, request processed as new job</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>TIP:</strong> For more, see the Idempotence Guarantee section of the <a href="/doc/getting-started/using_nike_apis.html#idempotence-guarantee">Using NDe APIs</a> guide.</p>
-</blockquote>
 
 <h3 id="use-troubleshooting-tools"><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
 
@@ -509,13 +367,75 @@ Authorization: Bearer {your access token}
 
 <h3 id="common-questions"><a name="common-questions"></a>Common Questions</h3>
 
-<p><strong>Is it okay to call Checkout APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
+<p><strong>Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
 
-<p>Yes. The APIs are exposed publicly so it shouldn’t matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to us for help.</p>
+<p>Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to us for help.</p>
 
-<p><strong>My Checkout Submit job is taking a long time to complete. What gives?</strong></p>
+<h4 id="request-headers"><a name="request-headers"></a>Request Headers</h4>
 
-<p>Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of which is somewhat unpredictable. Depending on the total volume of requests happening at the time your request was submitted, combined with the payment method and shipping country selected by the user, it may take several seconds to get a completed job. Best case is about 5 seconds, worst case can be well over a minute. If the job times out, you will get a ‘completed with error’ job status.</p>
+<p>Edge Router</p>
+
+<p>Required request headers:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Header Name</th>
+      <th>Description</th>
+      <th>Member</th>
+      <th>Guest</th>
+      <th>Employee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Accept</strong></td>
+      <td>Content type you will accept in response, application/json is only value allowed</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td><strong>Content-Type</strong></td>
+      <td>Content type of the request, application/json is only value allowed</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization</strong></td>
+      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the consumer is logged in</td>
+      <td>X</td>
+      <td> </td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td><strong>x-nike-visitorid</strong></td>
+      <td>Unique identifier for the guest, validated by the Edge router and passed through to the service</td>
+      <td> </td>
+      <td>X</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>x-nike-visitid</strong></td>
+      <td>Integer identifying the guest’s session</td>
+      <td> </td>
+      <td>X</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>appId</strong></td>
+      <td>Application making the API request e.g. com.nike.sport.running.ios</td>
+      <td> </td>
+      <td>X</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
+</blockquote>
 
 <h2 id="glossary"><a name="glossary"></a>Glossary</h2>
 
@@ -533,9 +453,9 @@ Authorization: Bearer {your access token}
   </thead>
   <tbody>
     <tr>
-      <td>Initial draft</td>
-      <td>08/30/2018</td>
+      <td>Initial draft 10/5/2018</td>
       <td>Initial Draft</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -544,12 +464,6 @@ Authorization: Bearer {your access token}
 
 <p><a href="/index.html">NDe Documentation Home</a></p>
 
-<p><a href="/doc/portal/consuming.html">Getting Started</a></p>
-
-<p><a href="/doc/portal/biz-guides.html">Business Guides</a></p>
-
-<p><a href="/doc/portal/dev-guides.html">Developer’s Guides</a></p>
-
 </div>
 <header>
     <div id="sidebar" class="sidebar">
@@ -557,6 +471,8 @@ Authorization: Bearer {your access token}
 		<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
 		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>NDe Docs Home</a></h6>
 		<ul>
+			
+			
 			
 			
 			
@@ -616,6 +532,8 @@ Authorization: Bearer {your access token}
 			
 			
 			
+			
+			
 			<li>
 				<a href="/doc/commerce/payment/api_payment.html" class="">
 					Payment
@@ -655,6 +573,14 @@ Authorization: Bearer {your access token}
 			</li>
 			
 			
+			
+			<li>
+				<a href="/doc/commerce/search/api_search.html" class="">
+					eCommerce Search
+					
+				</a>
+				
+			</li>
 			
 			
 			

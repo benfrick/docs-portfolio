@@ -1,4 +1,5 @@
 ---
+tags: pdf
 category: use-case
 position: 5
 title: Merch Product
