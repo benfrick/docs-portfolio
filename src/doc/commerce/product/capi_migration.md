@@ -262,8 +262,8 @@ Have a question about migrating from CAPI services to Cloud services? See team c
 |**CAPI**|Arun KannanGeetha|arun.kannangeetha@nike.com|#nde-capi|
 |**Cloud Catalog Service**|Debbie Meier|debbie.meier@nike.com|#caps-info|
 |**Cloud Inventory Service**|Lori Brown|lori.brown@nike.com|#cic-inventory|
-|**Cloud Merchandised Product Service**<br>includes product, price, SKU, content, value-added service APIs|Scott Alvey|scott.alvey@nike.com|#cic-merch|
-|**Cloud Product Feed Service**<br>catalog, inventory, product, taxonomy service aggregator|Andy Sun|andy.sun@nike.com|#cic-merch|
+|**Cloud Merchandised Product Service**<br>includes product, price, SKU, content, value-added service APIs|Arun KannanGeetha|arun.kannangeetha@nike.com|#pdm-merch-product|
+|**Cloud Product Feed Service**<br>catalog, inventory, product, taxonomy service aggregator|Andy Sun|andy.sun@nike.com|#nde-product-feeds|
 |**Cloud Search Service**|David Wagner|david.wagner@nike.com|#search-integration|
 |**Cloud Taxonomy Service**|Don Lawson|don.lawson@nike.com|#cic-taxonomy|
 |**Prodigy Tool**|Matt Salgado|matt.salgado@nike.com||
