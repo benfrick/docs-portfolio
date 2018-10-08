@@ -59,25 +59,71 @@ product shipment and to view their product and payment history, no phone call re
 
 Use the order summary API to get all of a consumer's Nike orders. You could make this information accessible to the
 consumer as a self-service in your app. The information returned for each order is a limited set of data.
-If you need more
-detailed
-information
-about a consumer's order, see [List the details of a consumer's order](#order-details).
+If you need a more in-depth picture of a consumer's order that contains pricing, tax information, shipping instructions and detailed product information, see [List the
+details of
+ a consumer's
+ order](#order-details).
 
 The order summary API requires that you pass certain headers in the request depending upon whether the consumer
 is logged in, is a guest or an employee. For more information, see [Required Request Headers](#request-headers).
 
-
-
 ### Customizing Your Results
+
+You can control what is returned in your result set and how it is sorted through URL parameters.
 
 **Filtering**
 
+The table below lists the fields by which you can filter your order summary results. If no filter is applied, all
+of a consumer's orders are returned. While some filters only allow one value, you can filter by
+ different types of filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
+  allowed, you can request order summaries filtered by orderSubmitDateAfter and status. Note that filter parameter names
+   and values are case sensitive.
+
+|Order Field Name|Description|Sample Value|
+|---|---|
+|**status**|List orders with this status.|Cancelled|
+|**orderType**|List orders of this type. You can only filter by one orderType at a time.|SALES_ORDER|
+|**storeId**|List orders placed in this store. You can only filter by one storeId at a time.|28382|
+|**orderSubmitDateAfter**|List orders placed after this date. You can only filter by one date at a time.|Format is yyyy-MM-dd'T'HH:mm:ssZ|
+
+Order Summary request filtering by a status of 'Shipped' that were submitted after 2018-01-24.
+
+`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)
+&filter=orderType(RESERVE_ORDER)`
+
+Order Summary request filtering by a status of 'Shipped' or 'Delivered'.
+
+`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)`
+
 **Sorting**
 
-You can sort the consumer's orders in several ways using the `sort` query parameter.
+You can sort the consumer's orders in several ways using the `sort` query parameter. If no sorting is applied, orders are
+returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html){:target="_blank"}.
+
+**Other Query Parameters**
+
+The Order History API also supports the `fields`, `count` and `anchor` query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html){:target="_blank"}.
 
 ### Understanding Order Status
+
+There are three types of statuses
+- order
+- line item (product or service purchased)
+- payment.
+
+The status of the order depends on the status of each line item and the payment status.
+
+|Status Field Name|Description|API Name|
+|---|---|---|
+|status|status of the order|Order Summary<br>Order Details|
+|orderLines.rolledUpStatus|Rolled up status description of an order line. e.g. PARTIALLY SHIPPED.|Order Summary<br>Order Details|
+|paymentStatus|status of payment|Order Summary|
+|orderLines.maxOrderLineStatus|Description of maximum order line status that belong to the current order line.|Order Details|
+|orderLines.minOrderLineStatus|Description of minimum order line status that belong to the current order line.|Order Details|
+|orderLines.statuses|An array of zero-or-more status-quantity break up for each order line.|Order Details|
+
+What status is the order in if paymentStatus is anything other than PAID?
+What are maxOrderLineStatus and minOrderLineStatus used for?
 
 <!--The orderLines.statuses.statusCode field is set to one of several codes. For a complete list of order statusCodes,
 see
@@ -95,8 +141,6 @@ order id
 
 https://api.nike.com/order_mgmt/user_order_details/v1/C00000554850?filter=email(jane.moore@nike.com)
 if email is missing, get 404
-
-
 
 
 ## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference

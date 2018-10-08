@@ -3,7 +3,7 @@
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide (DRAFT)
 
-##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/08/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.
 
@@ -259,7 +259,7 @@ Have a question about migrating from CAPI services to Cloud services? See team c
 
 |Service|Product Owner|Contact Information|Slack Channel|
 |---|---|---|---|
-|**CAPI**|Jeremy Geiger|jeremy.geiger@nike.com|#nde-capi|
+|**CAPI**|Arun KannanGeetha|arun.kannangeetha@nike.com|#nde-capi|
 |**Cloud Catalog Service**|Debbie Meier|debbie.meier@nike.com|#caps-info|
 |**Cloud Inventory Service**|Lori Brown|lori.brown@nike.com|#cic-inventory|
 |**Cloud Merchandised Product Service**<br>includes product, price, SKU, content, value-added service APIs|Scott Alvey|scott.alvey@nike.com|#cic-merch|
