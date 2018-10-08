@@ -73,23 +73,131 @@ product shipment and to view their product and payment history, no phone call re
 
 <p>Use the order summary API to get all of a consumer’s Nike orders. You could make this information accessible to the
 consumer as a self-service in your app. The information returned for each order is a limited set of data.
-If you need more
-detailed
-information
-about a consumer’s order, see <a href="#order-details">List the details of a consumer’s order</a>.</p>
+If you need a more in-depth picture of a consumer’s order that contains pricing, tax information, shipping instructions and detailed product information, see <a href="#order-details">List the
+details of
+ a consumer’s
+ order</a>.</p>
 
 <p>The order summary API requires that you pass certain headers in the request depending upon whether the consumer
 is logged in, is a guest or an employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
 
 <h3 id="customizing-your-results">Customizing Your Results</h3>
 
+<p>You can control what is returned in your result set and how it is sorted through URL parameters.</p>
+
 <p><strong>Filtering</strong></p>
+
+<p>The table below lists the fields by which you can filter your order summary results. If no filter is applied, all
+of a consumer’s orders are returned. While some filters only allow one value, you can filter by
+ different types of filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
+  allowed, you can request order summaries filtered by orderSubmitDateAfter and status. Note that filter parameter names
+   and values are case sensitive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order Field Name</th>
+      <th>Description</th>
+      <th>Sample Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>status</strong></td>
+      <td>List orders with this status.</td>
+      <td>Cancelled</td>
+    </tr>
+    <tr>
+      <td><strong>orderType</strong></td>
+      <td>List orders of this type. You can only filter by one orderType at a time.</td>
+      <td>SALES_ORDER</td>
+    </tr>
+    <tr>
+      <td><strong>storeId</strong></td>
+      <td>List orders placed in this store. You can only filter by one storeId at a time.</td>
+      <td>28382</td>
+    </tr>
+    <tr>
+      <td><strong>orderSubmitDateAfter</strong></td>
+      <td>List orders placed after this date. You can only filter by one date at a time.</td>
+      <td>Format is yyyy-MM-dd’T’HH:mm:ssZ</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Order Summary request filtering by a status of ‘Shipped’ that were submitted after 2018-01-24.</p>
+
+<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)
+&amp;filter=orderType(RESERVE_ORDER)</code></p>
+
+<p>Order Summary request filtering by a status of ‘Shipped’ or ‘Delivered’.</p>
+
+<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)</code></p>
 
 <p><strong>Sorting</strong></p>
 
-<p>You can sort the consumer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter.</p>
+<p>You can sort the consumer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter. If no sorting is applied, orders are
+returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+
+<p><strong>Other Query Parameters</strong></p>
+
+<p>The Order History API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
 
 <h3 id="understanding-order-status">Understanding Order Status</h3>
+
+<p>There are three types of statuses</p>
+<ul>
+  <li>order</li>
+  <li>line item (product or service purchased)</li>
+  <li>payment.</li>
+</ul>
+
+<p>The status of the order depends on the status of each line item and the payment status.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status Field Name</th>
+      <th>Description</th>
+      <th>API Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>status of the order</td>
+      <td>Order Summary<br />Order Details</td>
+    </tr>
+    <tr>
+      <td>orderLines.rolledUpStatus</td>
+      <td>Rolled up status description of an order line. e.g. PARTIALLY SHIPPED.</td>
+      <td>Order Summary<br />Order Details</td>
+    </tr>
+    <tr>
+      <td>paymentStatus</td>
+      <td>status of payment</td>
+      <td>Order Summary</td>
+    </tr>
+    <tr>
+      <td>orderLines.maxOrderLineStatus</td>
+      <td>Description of maximum order line status that belong to the current order line.</td>
+      <td>Order Details</td>
+    </tr>
+    <tr>
+      <td>orderLines.minOrderLineStatus</td>
+      <td>Description of minimum order line status that belong to the current order line.</td>
+      <td>Order Details</td>
+    </tr>
+    <tr>
+      <td>orderLines.statuses</td>
+      <td>An array of zero-or-more status-quantity break up for each order line.</td>
+      <td>Order Details</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>What status is the order in if paymentStatus is anything other than PAID?
+What are maxOrderLineStatus and minOrderLineStatus used for?</p>
 
 <!--The orderLines.statuses.statusCode field is set to one of several codes. For a complete list of order statusCodes,
 see
