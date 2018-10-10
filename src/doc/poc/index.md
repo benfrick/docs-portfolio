@@ -87,7 +87,7 @@ Explore the guides below to get familiar with the product features and experienc
             <ul class="poc-ul" style="list-style: none;padding:5px;">
                 <i style="padding-top:10px;" class="fas fa-toolbox fa-2x"></i>
                 <li class="poc-group-header"><h3 style="padding-top:0px;padding-bottom:5px;">Tools</h3></li>
-                <li><a href="#"><h5 style="line-height: 0.3;">Launch Admin</h5></a></li>
+                <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="_blank"><h5 style="line-height: 0.3;">Launch Admin</h5></a></li>
                 <li><a href="#"><h5 style="line-height: 0.3;">Search Admin</h5></a></li>
                 <li><a href="/doc/poc/overview-uxf.html"><h5 style="line-height: 0.3;">NCSS</h5></a></li>
             </ul>
@@ -106,13 +106,14 @@ Explore the guides below to get familiar with the product features and experienc
     <hr>
     <div class="ncss-row" style="margin-top:15px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t" style="width:30%;">
-            <i class="fas fa-walking fa-3x"></i><h4><a href="/doc/portal/consuming.html">Get Started</a></h4>
+            <i class="fas fa-walking fa-3x"></i><h4><a href="/doc/poc/get-started.html">Get Started</a></h4>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t" style="width:30%;">
-            <i class="far fa-comments fa-3x"></i><h4><a href="/doc/portal/community.html">NDe
+            <i class="far fa-comments fa-3x"></i><h4><a href="/doc/poc/community.html">NDe
             Community</a></h4>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t" style="width:30%;">
-            <i class="fas fa-book-open fa-3x"></i><h4><a href="/doc/portal/reference.html">Reference Guides</a>
+            <i class="fas fa-book-open fa-3x"></i><h4><a href="/doc/poc/reference.html">Reference Guides</a>
         </h4>
         </div>
+    </div>
