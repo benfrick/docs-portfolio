@@ -1,97 +1,220 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
-    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
-    <link rel="stylesheet" href="/css/nde.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
     <script src="/js/nde.js"></script>
+    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
+    <link rel="stylesheet"
+            href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/aviator-two-column.css">
+    <link rel="stylesheet" href="/css/nde.css">
+
 </head>
 <body>
-<div class="guide-nav-container">
-    <div class="guide-nav-column guide-nav-left">
-        <a href="/index.html"><i class="g72-arrow-fill-left"></i> <u>Back to NDe Documentation</u></a>
-    </div>
-    <div class="guide-nav-column guide-nav-right">
-        <a
-                href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J"
-                class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i> FIND
-            AN ISSUE? SLACK US!</a>
-    </div>
+<div class="main">
+    <h1 id="product-feeds-overview">Product Feeds Overview</h1>
+
+<hr />
+
+<p>Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase Nike products and make them available for purchase. But how is all that visual content pulled together? It’s done with <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds</a> and you can use it, too.</p>
+
+<h4 id="use-product-feeds-to-tell-amazing-nike-stories-with-digital-product-data-and-authored-content">Use Product Feeds to tell amazing Nike stories with digital product data and authored content.</h4>
+
+<p>Product Feeds is simple and easy to use: it does all the heavy lifting of gathering the content for you.</p>
+
+<p><br /></p>
+
+<p><img src="/images/commerce/product_feeds/nike_app_annotated.png" alt="Nike App Using Feeds" /></p>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<p>Step through the Use Cases below to incorporate Product Feeds capabilities into your experience.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><i class="g72-check"></i>  <a href="/doc/commerce/product/api_product_feeds.html">Get all product threads for a channel, SEO slug, style-color, size, gender, athlete, keyword, and more.</a></td>
+    </tr>
+    <tr>
+      <td><i class="g72-check"></i>  <a href="/doc/commerce/product/api_product_feeds.html">Get a specific thread by its ID.</a></td>
+    </tr>
+    <tr>
+      <td><i class="g72-check"></i>  <a href="/doc/commerce/product/api_product_feeds.html">Product Grid Wall: Get product threads along with related ‘rollup’ threads.</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<html>
+<h3>Related Information</h3>
+    <aside class="note">
+    <h5>APIs:</h5>
+    <ul>
+        <li>
+            <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="_blank">Product Feeds V2</a> <span class="guide-details-li-text"></span>
+        </li>
+    </ul>
+</aside>
+</html>
+
+<ul>
+  <li><a href="/doc/commerce/reference/caller_best_practices.html">Working with Circuit Breakers:</a> Learn how to be a good client by following these best practices.</li>
+  <li><a href="/doc/getting-started/glossary.html">Glossary:</a> Common terms explained.</li>
+  <li><a href="/doc/commerce/reference/product_lifecycle.html">Product Life Cycle:</a> Discover how Nike products become available for purchase in an experience.</li>
+</ul>
+
+<h3 id="connect">Connect</h3>
+
+<p>We’re here to help.   <i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>   <i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a></p>
+
 </div>
-<article>
-    <div class="guide-container">
-        <div class="guide-content">
-            <h1 class="poc">Product Feeds Overview</h1>
-            <p>Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club tell amazing stories while showcasing Nike products and making them available for purchase.
-
-                But how is all that visual content pulled together? It's done with <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds</a> and you can use it, too.
-                </p>
-            <p class="poc-underline">&nbsp;</p>
-            <h4>Use Product Feeds to power compelling user experiences by accessing Nike digital product data and authored content.
-            </h4>
-            <div class="guide-container" style="margin-top: 20px;">
-                <div class="poc-left-column">
-                    Product Feeds is simple and easy to use: it does all the heavy lifting of gathering the content for you.
-                    <div>
-                            <img src="/images/commerce/product_feeds/nike_app_annotated.png">
-                        </div>
-                </div>
-            </div>
-
-            <h3>Use Cases</h3>
-            <p>Step through the Use
-                Cases below to incorporate Product Feeds capabilities into your experience.</p>
-            <table>
-                <tr>
-                    <td><a
-                            href="/doc/commerce/product/api_product_feeds.html"><i
-                            class="g72-arrow-fill-right pr2-sm d-sm-ib"></i>Get all product threads for a channel, SEO slug, style-color, size, gender, athlete, keyword, and more.</a></td>
-                </tr>
-                <tr>
-                    <td><a href="/doc/commerce/product/api_product_feeds.html"><i
-                            class="g72-arrow-fill-right pr2-sm d-sm-ib"></i>Get a specific thread by its ID.</a></td>
-                </tr>
-                <tr>
-                    <td><a href="/doc/commerce/product/api_product_feeds.html"><i
-                            class="g72-arrow-fill-right pr2-sm d-sm-ib"></i>Product Grid Wall: Get product threads along with related 'rollup' threads, e.g. a style-color accompanied by all other colors for same style.</a>
-                    </td>
-                </tr>
-            </table>
-            <h5>Related Information</h5>
-            <aside class="note">
-                <h5>APIs:</h5>
-                <ul>
-                    <li>
-                        <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="_blank">Product Feeds V2</a> <span class="guide-details-li-text"></span>
-                    </li>
-                </ul>
-            </aside>
-            <ul>
-                <li>
-                    <a href="/doc/commerce/reference/caller_best_practices.html">Working with Circuit Breakers:</a> <span
-                        class="guide-details-li-text">Learn how to be a good client by following these best practices
-                .</span>
-                </li>
-                <li>
-                    <a href="/doc/getting-started/glossary.html">Glossary:</a> <span
-                        class="guide-details-li-text">Common terms explained.
-                </span>
-                </li>
-                <li>
-                    <a href="/doc/commerce/reference/product_lifecycle.html">Product Life Cycle:</a> <span
-                        class="guide-details-li-text">Discover how Nike products become available for purchase in an
-                experience.
-                </span>
-                </li>
-            </ul>
-            <h5>Connect</h5>
-
-            We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a
-                href="https://nikedigital.slack.com/messages/developer-relations"
-                target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a
-                href=mailto:developer.relations@nike.com">Email</a>
-        </div>
-    </div>
-</article>
+<header>
+    <div id="sidebar" class="sidebar">
+	<section>
+		<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>NDe Docs Home</a></h6>
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<a href="/doc/commerce/checkout/api_checkout.html" class="">
+					Buy
+					
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				<a href="/doc/commerce/payment/api_payment.html" class="">
+					Payment
+					
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<a href="/doc/commerce/product/api_product_feeds.html" class="">
+					Product Feeds
+					
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
+					Rollup Threads
+					
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<a href="/doc/commerce/product/api_merch_product.html" class="">
+					Merch Product
+					
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<a href="/doc/commerce/search/api_search.html" class="">
+					eCommerce Search
+					
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<a href="/doc/commerce/events/api_eventsv2.html" class="">
+					Events
+					
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+	</section>
+</div>
+</header>
+<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+	</script>
 </body>
 </html>
