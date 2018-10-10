@@ -39,13 +39,13 @@ Build simple payment flows into your experience:
 Step through the Use Cases below to incorporate Payment capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options.](/doc/commerce/payment/use-payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options that the customer has saved.](/doc/commerce/payment/use-payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Allocate amount owed across payment types.](/doc/commerce/payment/use-payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate an Apple Pay transaction.](/doc/commerce/payment/use-payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a wallet transaction like Paypal Express/Mark.](/doc/commerce/payment/use-payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/use-payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Save and get sensitive credit card information including CVV code.](/doc/commerce/payment/use-payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options that the customer has saved.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Allocate amount owed across payment types.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate an Apple Pay transaction.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a wallet transaction like Paypal Express/Mark.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Save and get sensitive credit card information including CVV code.](/doc/commerce/payment/api_payment.html)|
 
 <html>
 <h3>Related Information</h3>
