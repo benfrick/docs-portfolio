@@ -3,9 +3,9 @@
 
 # Cart and Checkout Overview
 
-Learn how to use [Cart and Checkout](/doc/commerce/checkout/use_checkout.html), our solution to allow customers to purchase Nike products and services.
-
 ---
+
+Learn how to use [Cart and Checkout](/doc/commerce/checkout/use_checkout.html), our solution to allow customers to purchase Nike products and services.
 
 ### Nike Checkout gives customers fast and easy access to make purchases
 
@@ -30,15 +30,30 @@ Your customer finds a Nike a product they love in your app. What happens next? S
 |<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/content/commerce/checkout/use-checkout.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/content/commerce/checkout/use-checkout.html)|
 
-### APIs
+<html>
+<h3>Related Information</h3>
+<aside class="note">
+<h5>APIs</h5>
+<ul>
+    <li>
+        <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Carts</a> <span class="guide-details-li-text"></span>
+    </li>
+        <li>
+            <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Cart Reviews</a> <span class="guide-details-li-text"></span>
+        </li>
+    <li>
+        <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api" target="_blank">Buy Lists</a> <span class="guide-details-li-text"></span>
+    </li>
+    <li>
+        <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a> <span class="guide-details-li-text"></span>
+    </li>
+    <li>
+        <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Checkouts</a> <span class="guide-details-li-text"></span>
+    </li>
+</ul>
+</aside>
+</html>
 
-* [Carts](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api)
-* [Cart Reviews](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api)
-* [Buy Lists](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api)
-* [Shipping Options](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api)               
-* [Checkouts](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api)
-
-### Related Information
 
 * [Supported Countries and Currencies:](/doc/commerce/checkout/checkout_country_currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart and Checkout.
                 

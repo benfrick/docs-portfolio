@@ -27,7 +27,7 @@ h2,h3,h4,h5,h6 {
 h2{font-size:2.1em;}
 h3{font-size:1.6em;}
 h4{font-size:1.2em;}
-h5{font-size:1.0em;line-height: 0.3;}
+h5{font-size:1.0em; line-height: 0.3;}
 h6{font-size:.8em;}
 table {
     margin-top: 16px;
@@ -393,18 +393,15 @@ aside.note {
     vertical-align: middle;
     border: 1px solid #3498db;
 }
-
 .poc-group-header {
     padding-top: 8px;
     color: #32325d;
 }
-
 .poc-ul .poc-group-header:not(:first-child){
     border-top: 2px solid #f6f9fc;
     margin-top: 8px;
     width: 100%;
 }
-
 ul.poc-ul {
     list-style: none;
 }

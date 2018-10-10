@@ -1,6 +1,7 @@
 ---
 layout: no-toc
 ---
+
 # NDe Commerce Docs <i class="g72-swoosh"></i>
 
 ---
@@ -82,7 +83,7 @@ Explore the guides below to get familiar with the product features and experienc
     </div>
     <div class="ncss-row" style="padding-top:10px;padding-bottom:10px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t"
-             style="background-color: #f7f9fc;width: 180px; height: 180px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:5px;border-radius:10px;">
+             style="width: 180px; height: 180px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:5px;border-radius:10px;">
             <ul class="poc-ul" style="list-style: none;padding:5px;">
                 <i style="padding-top:10px;" class="fas fa-toolbox fa-2x"></i>
                 <li class="poc-group-header"><h3 style="padding-top:0px;padding-bottom:5px;">Tools</h3></li>
@@ -92,7 +93,7 @@ Explore the guides below to get familiar with the product features and experienc
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t"
-             style="background-color: #f7f9fc;width: 180px; height: 180px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:5px;border-radius:10px;">
+             style="width: 180px; height: 180px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:5px;border-radius:10px;">
             <ul class="poc-ul" style="list-style: none;padding:5px;">
                 <i style="padding-top:10px;" class="fas fa-code fa-2x"></i>
                 <li class="poc-group-header"><h3 style="padding-top:0px;padding-bottom:5px;">Libraries</h3></li>
