@@ -1,7 +1,7 @@
 ---
 ---
 
-# Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide (DRAFT)
+# Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide
 
 ##### Last Updated: 10/08/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
