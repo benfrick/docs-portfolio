@@ -35,11 +35,11 @@ Retrieve a complete order history for your consumers.
 
 Adding order history to your app is a two-step process.
 
-<i class="numberCircle gray">1</i>Your application makes an API request to [retrieve all or a filtered list of a
+<i class="numberCircle gray">1</i>Your application makes an Order Summary API request to [retrieve all or a filtered list of a
 consumer's
 orders](#order-summary).
 
-<i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes a second API
+<i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes an Order Details API
 request to [get detailed information for one consumer order](#order-details).
 
 ### What is an Order?
@@ -97,27 +97,28 @@ of a consumer's orders are returned. While some filters only allow one value, yo
 |**storeId**|List orders placed in this store. You can only filter by one storeId at a time.|28382|
 |**orderSubmitDateAfter**|List orders placed after this date. You can only filter by one date at a time.|Format is yyyy-MM-dd'T'HH:mm:ssZ|
 
-Order Summary request filtering by a status of 'Shipped' that were submitted after 2018-01-24.
-
-`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)
-&filter=orderType(RESERVE_ORDER)`
-
-Order Summary request filtering by a status of 'Shipped' or 'Delivered'.
-
-`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)`
 
 **Sorting**
 
 You can sort the consumer's orders in several ways using the `sort` query parameter. If no sorting is applied, orders are
 returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html){:target="_blank"}.
 
-Order Summary requested sorting by the field in descending order:
 
-`https://api.nike.com/order_mgmt/user_order_summary/v1?sort=orderSubmitDateDesc`
 
 **Other Query Parameters**
 
 The Order History API also supports the `fields`, `count` and `anchor` query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html){:target="_blank"}.
+
+Let's take a look at some Order Summary scenarios
+
+|I want to List for a Consumer|Sample Query|
+|---|---|
+|All orderTypes of RESERVE_ORDER submitted after 2018-01-24|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)
+   &filter=orderType(RESERVE_ORDER)`|
+|All orders with a status of `Shipped` or `Delivered`|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)`|
+|All orders sorted in ascending modificationDate|`https://api.nike.com/order_mgmt/user_order_summary/v1?sort=modificationDateAsc`|
+|All order IDs, statuses and submitted dates|https://api.nike.com/order_mgmt/user_order_summary/v1?fields=id,status,orderSubmitDate|
+|Two
 
 ### Understanding Order Status
 

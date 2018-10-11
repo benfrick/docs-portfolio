@@ -31,11 +31,11 @@
 
 <p>Adding order history to your app is a two-step process.</p>
 
-<p><i class="numberCircle gray">1</i>Your application makes an API request to <a href="#order-summary">retrieve all or a filtered list of a
+<p><i class="numberCircle gray">1</i>Your application makes an Order Summary API request to <a href="#order-summary">retrieve all or a filtered list of a
 consumer’s
 orders</a>.</p>
 
-<p><i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes a second API
+<p><i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes an Order Details API
 request to <a href="#order-details">get detailed information for one consumer order</a>.</p>
 
 <h3 id="what-is-an-order">What is an Order?</h3>
@@ -126,27 +126,51 @@ of a consumer’s orders are returned. While some filters only allow one value, 
   </tbody>
 </table>
 
-<p>Order Summary request filtering by a status of ‘Shipped’ that were submitted after 2018-01-24.</p>
-
-<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)
-&amp;filter=orderType(RESERVE_ORDER)</code></p>
-
-<p>Order Summary request filtering by a status of ‘Shipped’ or ‘Delivered’.</p>
-
-<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)</code></p>
-
 <p><strong>Sorting</strong></p>
 
 <p>You can sort the consumer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter. If no sorting is applied, orders are
 returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
 
-<p>Order Summary requested sorting by the field in descending order:</p>
-
-<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?sort=orderSubmitDateDesc</code></p>
-
 <p><strong>Other Query Parameters</strong></p>
 
 <p>The Order History API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+
+<p>Let’s take a look at some Order Summary scenarios</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>I want to List for a Consumer</th>
+      <th>Sample Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All orderTypes of RESERVE_ORDER submitted after 2018-01-24</td>
+      <td>`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)</td>
+    </tr>
+    <tr>
+      <td>&amp;filter=orderType(RESERVE_ORDER)`</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>All orders with a status of <code class="highlighter-rouge">Shipped</code> or <code class="highlighter-rouge">Delivered</code></td>
+      <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)</code></td>
+    </tr>
+    <tr>
+      <td>All orders sorted in ascending modificationDate</td>
+      <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?sort=modificationDateAsc</code></td>
+    </tr>
+    <tr>
+      <td>All order IDs, statuses and submitted dates</td>
+      <td>https://api.nike.com/order_mgmt/user_order_summary/v1?fields=id,status,orderSubmitDate</td>
+    </tr>
+    <tr>
+      <td>Two</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="understanding-order-status">Understanding Order Status</h3>
 
@@ -516,6 +540,10 @@ authorization
 		<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
 		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>NDe Docs Home</a></h6>
 		<ul>
+			
+			
+			
+			
 			
 			
 			
