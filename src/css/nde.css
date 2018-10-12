@@ -22,7 +22,6 @@ h2,h3,h4,h5,h6 {
     letter-spacing: .5px;
     padding-top: .8em;
     padding-bottom: .8em;
-
 }
 h2{font-size:2.1em;}
 h3{font-size:1.6em;}
@@ -46,8 +45,7 @@ table thead tr th {
     padding: 5px;
     border-bottom: 1px solid #ccc;
 }
-tbody tr:nth-child(odd)
-{
+tbody tr:nth-child(odd) {
     background-color:#f7f9fc;
 }
 table tbody tr td {
@@ -86,14 +84,15 @@ pre {
 code, code span {
     font-family: Courier;
 }
-a {
+a a:link, a:visited, a:active {
     color: #3498db;
-}
-h2 a, h2 a:link, h2 a:visited, h2 a:hover, h2 a:active {
     text-decoration: none;
-    color: #000000;
     cursor: auto;
-}
+    }
+a:hover {
+    color: #125886;
+    text-decoration: none;
+    }
 blockquote {
     /*border: 2px solid #dfdfdf;*/
     border: 1px solid rgba(58,193,51,.12);
@@ -108,7 +107,7 @@ article h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
     letter-spacing: 0px;
 }
-article h1{
+article h1 {
     padding-top: 8px;
     padding-bottom: 5px;
     border-bottom: 2px solid #f4f6f7;
@@ -142,10 +141,10 @@ article h2 {
 .guide-nav-column {
      width:49%;
 }
-.guide-nav-left{
+.guide-nav-left {
     text-align:left;
 }
-.guide-nav-right{
+.guide-nav-right {
     text-align:right;
 }
 .guide-container {
@@ -287,7 +286,6 @@ a h6.guide-toc-l3 {
      text-decoration: none;
      color: black;
  }
-
 .guide-menu .guide-menu-nav.menu-l1 {
     margin-left: 6px;
     font-size: 1rem;
@@ -397,7 +395,7 @@ aside.note {
     padding-top: 8px;
     color: #32325d;
 }
-.poc-ul .poc-group-header:not(:first-child){
+.poc-ul .poc-group-header:not(:first-child) {
     border-top: 2px solid #f6f9fc;
     margin-top: 8px;
     width: 100%;
