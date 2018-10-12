@@ -168,7 +168,7 @@ dl dd:after {
     overflow: hidden;
     padding: 2px 0; }
     .sidebar a.active {
-      color: #2196F3;
+      font-weight: bold;
       text-decoration: none; }
 
 .endpoint {
