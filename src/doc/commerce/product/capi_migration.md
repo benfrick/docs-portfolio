@@ -1,9 +1,12 @@
 ---
 ---
 
-# Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide (DRAFT)
+# Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide
 
-##### Last Updated: 10/08/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/11/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+
+
+> The CAPI API is in KLO. No feature requests or enhancements are being accepted. If CAPI does not provide the data or functionality you require, migrate to the appropriate Cloud services.
 
 If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.
 
@@ -259,7 +262,7 @@ Have a question about migrating from CAPI services to Cloud services? See team c
 
 |Service|Product Owner|Contact Information|Slack Channel|
 |---|---|---|---|
-|**CAPI**|Arun KannanGeetha|arun.kannangeetha@nike.com|#nde-capi|
+|**CAPI**|None. These services are in KLO.|None.|#nde-capi|
 |**Cloud Catalog Service**|Debbie Meier|debbie.meier@nike.com|#caps-info|
 |**Cloud Inventory Service**|Lori Brown|lori.brown@nike.com|#cic-inventory|
 |**Cloud Merchandised Product Service**<br>includes product, price, SKU, content, value-added service APIs|Arun KannanGeetha|arun.kannangeetha@nike.com|#pdm-merch-product|
@@ -272,6 +275,7 @@ Have a question about migrating from CAPI services to Cloud services? See team c
 
 The following table lists all of the CAPI endpoints and the equivalent Cloud endpoint.
 
+>Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exists in the Cloud. Those are marked as 'None/Deprecated'. For other CAPI endpoints, the Cloud solution is still to be determined and those are marked as 'TBD'.
 >Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exists in the Cloud. Those are marked as 'None/Deprecated'. For other CAPI endpoints, the Cloud solution is still to be determined and those are marked as 'TBD'.
 
 |Use Case|CAPI Endpoint Name|Equivalent Cloud Endpoint Name|
