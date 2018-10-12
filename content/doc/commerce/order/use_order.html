@@ -31,11 +31,11 @@
 
 <p>Adding order history to your app is a two-step process.</p>
 
-<p><i class="numberCircle gray">1</i>Your application makes an API request to <a href="#order-summary">retrieve all or a filtered list of a
+<p><i class="numberCircle gray">1</i>Your application makes an Order Summary API request to <a href="#order-summary">retrieve all or a filtered list of a
 consumer’s
 orders</a>.</p>
 
-<p><i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes a second API
+<p><i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes an Order Details API
 request to <a href="#order-details">get detailed information for one consumer order</a>.</p>
 
 <h3 id="what-is-an-order">What is an Order?</h3>
@@ -126,15 +126,6 @@ of a consumer’s orders are returned. While some filters only allow one value, 
   </tbody>
 </table>
 
-<p>Order Summary request filtering by a status of ‘Shipped’ that were submitted after 2018-01-24.</p>
-
-<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)
-&amp;filter=orderType(RESERVE_ORDER)</code></p>
-
-<p>Order Summary request filtering by a status of ‘Shipped’ or ‘Delivered’.</p>
-
-<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)</code></p>
-
 <p><strong>Sorting</strong></p>
 
 <p>You can sort the consumer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter. If no sorting is applied, orders are
@@ -144,16 +135,53 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
 
 <p>The Order History API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
 
+<p>Let’s take a look at some Order Summary scenarios</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>I want to List for a Consumer</th>
+      <th>Sample Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All orderTypes of RESERVE_ORDER submitted after 2018-01-24</td>
+      <td>`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)</td>
+    </tr>
+    <tr>
+      <td>&amp;filter=orderType(RESERVE_ORDER)`</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>All orders with a status of <code class="highlighter-rouge">Shipped</code> or <code class="highlighter-rouge">Delivered</code></td>
+      <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)</code></td>
+    </tr>
+    <tr>
+      <td>All orders sorted in ascending modificationDate</td>
+      <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?sort=modificationDateAsc</code></td>
+    </tr>
+    <tr>
+      <td>All order IDs, statuses and submitted dates</td>
+      <td>https://api.nike.com/order_mgmt/user_order_summary/v1?fields=id,status,orderSubmitDate</td>
+    </tr>
+    <tr>
+      <td>Two</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="understanding-order-status">Understanding Order Status</h3>
 
-<p>There are three types of statuses</p>
+<p>An order contains three types of statuses:</p>
 <ul>
   <li>order</li>
-  <li>line item (product or service purchased)</li>
-  <li>payment.</li>
+  <li>order line (product or service purchased)</li>
+  <li>payment</li>
 </ul>
 
-<p>The status of the order depends on the status of each line item and the payment status.</p>
+<p>An order line of an order is a Nike service or product that the consumer has purchased that is associated with a quantity. Orders have at least one and may have many order lines. Each unit of an order line has it’s own status and each status maps to a numeric status code. Order Details API returns the description of the lowest and highest status code. The status of the order depends on the status of each order line.</p>
 
 <table>
   <thead>
@@ -166,56 +194,96 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
   <tbody>
     <tr>
       <td>status</td>
-      <td>status of the order</td>
+      <td>Status of the order. Matches the orderLines.rolledUpStatus with the highest status code on the order.</td>
       <td>Order Summary<br />Order Details</td>
     </tr>
     <tr>
       <td>orderLines.rolledUpStatus</td>
-      <td>Rolled up status description of an order line. e.g. PARTIALLY SHIPPED.</td>
+      <td>Status of an order line. Computed by “Partially” + status of the highest status code on this order line. Matches orderLines.maxOrderLineStatus. e.g. “Partially Shipped”.</td>
       <td>Order Summary<br />Order Details</td>
     </tr>
     <tr>
-      <td>paymentStatus</td>
-      <td>status of payment</td>
-      <td>Order Summary</td>
-    </tr>
-    <tr>
       <td>orderLines.maxOrderLineStatus</td>
-      <td>Description of maximum order line status that belong to the current order line.</td>
+      <td>Status of the highest status code on this order line. This status is included in orderLines.statuses.</td>
       <td>Order Details</td>
     </tr>
     <tr>
       <td>orderLines.minOrderLineStatus</td>
-      <td>Description of minimum order line status that belong to the current order line.</td>
+      <td>Status of the lowest status code on this order line. This status is included in orderLines.statuses.</td>
       <td>Order Details</td>
     </tr>
     <tr>
       <td>orderLines.statuses</td>
-      <td>An array of zero-or-more status-quantity break up for each order line.</td>
+      <td>An array of statuses for each status code on this order line. The description with the highest status code matches orderLines.maxOrderLineStatus. The description with the lowest status code matches orderLines.minOrderLineStatus.</td>
       <td>Order Details</td>
+    </tr>
+    <tr>
+      <td>paymentStatus</td>
+      <td>Status of payment.</td>
+      <td>Order Summary</td>
     </tr>
   </tbody>
 </table>
 
-<p>What status is the order in if paymentStatus is anything other than PAID?
-What are maxOrderLineStatus and minOrderLineStatus used for?</p>
+<p>In the scenario illustrated by the Order Details response below, a consumer purchases three identical pair of Air Jordan size 10 men’s shoes. Two pair are delivered to his home and one pair is in transit to his home from the warehouse. If the customer decides to return one pair, the pair he keeps has a status of “Delivered,” the returned pair has a status of “Returned”, and the pair in transit has a status of “Shipped”. Because the “Delivered” status has the highest status code, the status at the order level is “Partially Delivered”.</p>
 
-<!--The orderLines.statuses.statusCode field is set to one of several codes. For a complete list of order statusCodes,
-see
-[Order Status Mapping for Consumers](https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers){:target="_blank"}.-->
+<pre><code class="language-`">{
+"status": "Partially Delivered",
+...
+"orderLines": [
+        {
+           ...
+
+            "statuses": [
+                {
+                    "description": "Delivered",
+                    "quantity": 1,
+                    "date": "2018-01-30T12:16:51Z"
+                },
+                {
+                    "description": "Shipped",
+                    "quantity": 1,
+                    "date": "2018-01-30T12:16:51Z"
+                }
+                {
+                    "description": "Return Processed",
+                    "quantity": 1,
+                    "date": "2018-01-30T12:16:51Z"
+                }
+            ],
+            "rolledUpStatus": "Partially Delivered",
+            ...
+            "maxOrderLineStatus": "Partially Delivered",
+            ...
+            "minOrderLineStatus": "Shipped",
+            ...
+        }
+   }
+}
+</code></pre>
+
+<p>For a complete list of status codes and their descriptions, see <a href="https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers" target="_blank">Order Status Mapping for Consumers</a>. Note that the User Status column values are not actually returned by either API. They are listed to help simplify the various Line Level status codes and statuses. Values in the Line Level Status column are returned in the Order Details response in the various status fields.</p>
 
 <h2 id="step-2-list-the-details-of-a-consumers-order">Step 2: <a name="order-details">List the details of a consumer’s order</a></h2>
 
-<p>[Overview Description]</p>
+<p>Use the order details API to get details of one consumer order. This API returns an in-depth picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want to get all of a consumer’s orders, see <a href="#order-summary">List a consumer’s orders</a>.</p>
 
 <p>The order details API requires that you pass certain headers in the request depending upon whether the consumer
 is logged in, a guest or an employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
 
-<p>required path parameter
-order id</p>
+<h3 id="required-request-parameters">Required Request Parameters</h3>
 
-<p>https://api.nike.com/order_mgmt/user_order_details/v1/C00000554850?filter=email(jane.moore@nike.com)
-if email is missing, get 404</p>
+<p>For guest consumers, the orderNumber path parameter and email address query parameter are required for validation purposes. If the email address is missing from the request or does not match the shipTo email address on the guest’s order, the API returns a 404.</p>
+
+<h3 id="customizing-your-results-1">Customizing Your Results</h3>
+
+<p>You can control what is returned in your result set through URL parameters.</p>
+
+<p>The Order Details API supports the <code class="highlighter-rouge">fields</code> query parameter to restrict the fields returned in the response. Since the Order Details API only returns one consumer order, the <code class="highlighter-rouge">anchor</code>, <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">count</code> query parameters are not supported. For more information on the <code class="highlighter-rouge">fields</code> query parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+
+<p>Order Details request for orderNumber C00000123456 shipping to email address customer.email@nike.com, restricting the response fields to id, status and orderLines.shippingMethod.</p>
+
+<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_details/v1/C00000554850?filter=email(jane.moore@nike.com)&amp;fields=id,status,orderLines.shippingMethod</code></p>
 
 <h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
 
@@ -362,7 +430,7 @@ authorization
     <p>Use a Splunk query (requires access) to check for issues with your request.</p>
   </li>
   <li>
-    <p>Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a> Slack channel for assistance.</p>
+    <p>Contact the Orders team on the <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="_blank">#mp-athena</a> Slack channel for assistance.</p>
   </li>
 </ul>
 
@@ -541,8 +609,7 @@ authorization
 			
 			
 			
-			
-			
+
 			<li>
 				<a href="/doc/commerce/checkout/api_checkout.html" class="">
 					Buy
@@ -562,6 +629,8 @@ authorization
 				</a>
 				
 			</li>
+			
+			
 			
 			
 			
