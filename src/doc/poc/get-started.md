@@ -35,7 +35,7 @@ Get started learning about the principles, standards, and conventions for using 
            <ul class="poc-ul" style="list-style: none;padding:5px;">
                <i style="padding:5px;" class="g72-info fs32-aligntop pr2-sm d-sm-ib"></i>
                <li class="poc-group-header">
-                   <a href="https://confluence.nike.com/display/DAHP/NDe+Architecture+Principles" target="_blank">
+                   <a href="https://github.nike.com/nde-architecture/principles" target="_blank">
                    <h4 style="padding:5px;">Architecture Principles</h4></a></li>
                <li style="font-size: 0.8em;">Principles to guide development activities.</li>
            </ul>
