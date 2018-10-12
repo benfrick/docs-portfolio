@@ -45,7 +45,7 @@ Explore the guides below to get familiar with product features and experience ho
                 <li class="poc-group-header"><h4 style="padding:5px;">Shop</h4></li>
                 <li><a href="/doc/poc/overview-checkout.html"><h5 style="line-height: 0.3;">Cart & Checkout</h5></a></li>
                 <li><a href="/doc/poc/overview-payment.html"><h5 style="line-height: 0.3;">Payment</h5></a></li>
-                <li><a href="#"><h5 style="line-height: 0.3;">Customization</h5></a></li>
+                <!--<li><a href="#"><h5 style="line-height: 0.3;">Customization</h5></a></li>-->
             </ul>
         </div>
         <!--<div class="ncss-col-sm-6 full ta-sm-c va-sm-t"
@@ -89,7 +89,7 @@ Explore the guides below to get familiar with product features and experience ho
                 <i style="padding:5px;" class="fas fa-toolbox fa-2x"></i>
                 <li class="poc-group-header"><h4 style="padding:5px;">Tools</h4></li>
                 <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="_blank"><h5 style="line-height: 0.3;">Launch Admin</h5></a></li>
-                <li><a href="#"><h5 style="line-height: 0.3;">Search Admin</h5></a></li>
+                <li><a href="https://adminops-int.prod.commerce.nikecloud.com/apollov1" target="_blank"><h5 style="line-height: 0.3;">Search Admin</h5></a></li>
                 <li><a href="/doc/poc/overview-uxf.html"><h5 style="line-height: 0.3;">NCSS</h5></a></li>
             </ul>
         </div>

@@ -5,7 +5,7 @@
 
 ---
 
-Learn how to use <a href="/doc/commerce/checkout/use_checkout.html">Nike Payment</a>, our solution to allow customers to pay for purchases of Nike products and services.
+Learn how to use <a href="/doc/commerce/payment/api_payment.html">Nike Payment</a>, our solution to allow customers to pay for purchases of Nike products and services.
 
 #### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe:
 
