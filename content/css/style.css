@@ -151,8 +151,6 @@ dl dd:after {
     padding: 0;
     margin: 10px 0 5px 0; }
   .sidebar a {
-    color: #777;
-    text-decoration: none;
     font-size: .90em;
     display: block;
     width: 100%;

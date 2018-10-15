@@ -178,6 +178,21 @@ dl dd:after {
 		margin: 10px 0 5px 0;
 	}
 
+	a {
+		font-size: .90em;
+		display: block;
+		width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		padding: 2px 0;
+
+		&.active {
+			font-weight: bold;
+			text-decoration: none;
+		}
+	}
+}
+
 .endpoint {
 	font-size: 10px;
 	padding: 0 2px;
