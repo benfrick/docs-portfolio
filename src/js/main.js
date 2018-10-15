@@ -103,3 +103,11 @@ function getClosestHeader() {
 	}
 	return $last;
 }
+jQuery(function() {
+	var $sidebar = $('#sidebar');
+
+	$sidebar.find('a').click(function() {
+		$sidebar.find('a').removeClass('active');
+		$(this).addClass('active');
+	});
+});

@@ -85,7 +85,7 @@ pre {
 code, code span {
     font-family: Courier;
 }
-a a:link, a:visited, a:active a:hover {
+a a:link, a:visited, a:hover, a:active {
     color: #3498db;
     text-decoration: none;
 }
