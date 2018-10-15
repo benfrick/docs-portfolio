@@ -114,6 +114,10 @@ article h1 {
 article h2 {
     font-size: 1.7em;
 }
+article a {
+color: #3498db;
+text-decoration: none;
+}
 article a h3 {
     font-size: 1.2em;
     padding: 10px;
