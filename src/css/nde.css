@@ -5,7 +5,7 @@
   word-wrap:break-word;
 }
 body {
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     font-size: 14px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -20,8 +20,8 @@ h1 {
 h2,h3,h4,h5,h6 {
     font-weight: bold;
     letter-spacing: .5px;
-    padding-top: .8em;
-    padding-bottom: .8em;
+    padding-top: .6em;
+    padding-bottom: .6em;
 }
 h2{font-size:2.1em;}
 h3{font-size:1.6em;}
@@ -32,7 +32,7 @@ table {
     margin-top: 16px;
     margin-bottom: 16px;
     padding: 50px 10px 15px 10px;
-    width:70%;
+    width: 85%;
     border: none;
     table-layout:fixed;
 }
@@ -67,6 +67,7 @@ ul {
   display: block;
   list-style-type: disc;
   padding-left: 2em;
+  padding: 10px;
 }
 pre {
   white-space: pre-wrap;
@@ -84,14 +85,10 @@ pre {
 code, code span {
     font-family: Courier;
 }
-a a:link, a:visited, a:active {
+a a:link, a:visited, a:active a:hover {
     color: #3498db;
     text-decoration: none;
     cursor: auto;
-    }
-a:hover {
-    color: #125886;
-    text-decoration: none;
     }
 blockquote {
     /*border: 2px solid #dfdfdf;*/
