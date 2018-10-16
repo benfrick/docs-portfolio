@@ -51,7 +51,7 @@ toc:
 
 Use the Payment API to allow customers to pay for Nike products.
 
-If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Payment](/doc/commerce/payment/biz_payment.html), this guide provides the details necessary to integrate with the Nike Payment APIs.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Payment Overview](/doc/portal/overview-payment.html), this guide provides the details necessary to integrate with the Nike Payment APIs.
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -5865,10 +5865,6 @@ See the <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](/index.html)
+[NDe Docs Home](/index.html)
 
-[Getting Started](/doc/portal/consuming.html)
-
-[Business Guides](/doc/portal/biz-guides.html)
-
-[Developer's Guides](/doc/portal/dev-guides.html)
+[Get Started](/doc/portal/get-started.html)
