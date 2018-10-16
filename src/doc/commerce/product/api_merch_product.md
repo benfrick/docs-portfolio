@@ -1,7 +1,7 @@
 ---
 tags: pdf
 category: use-case
-position: 5
+position: 2
 title: Merch Product
 url: /commerce/product/api_merch_product.html
 toc:

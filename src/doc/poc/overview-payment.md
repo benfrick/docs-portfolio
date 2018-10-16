@@ -7,6 +7,10 @@
 
 Learn how to use <a href="/doc/commerce/payment/api_payment.html">Nike Payment</a>, our solution to allow customers to pay for purchases of Nike products and services.
 
+<html>
+<aside class="note" style="background:#f7f7f7;width:200px;text-align:center"><a href="/doc/commerce/payment/api_payment.html"><ul><li style="list-style:none"><i style="float:none" class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+</html>
+
 #### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe:
 
 <img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;"

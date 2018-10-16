@@ -7,6 +7,10 @@
 
 Learn how to use <a href="/doc/commerce/events/api_eventsv2.html">Analytics Pipeline</a>, your single destination to record analytics events.
 
+<html>
+<aside class="note" style="background:#f7f7f7;width:200px;text-align:center"><a href="/doc/commerce/events/api_eventsv2.html"><ul><li style="list-style:none"><i style="float:none" class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+</html>
+
 #### Track consumer and application behavior
 
 Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event.

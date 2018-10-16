@@ -1,8 +1,8 @@
 ---
 tags: pdf
 category: use-case
-position: 1
-title: Buy
+position: 5
+title: Cart & Checkout
 url: /commerce/checkout/api_checkout.html
 toc:
   - h2: API at a Glance

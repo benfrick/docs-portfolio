@@ -47,6 +47,28 @@
     
   
     
+./content/doc/commerce/product/capi_migration.html
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
