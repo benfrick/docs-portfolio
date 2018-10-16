@@ -1,7 +1,7 @@
 ---
 tags: pdf
 category: use-case
-position: 2
+position: 6
 title: Payment
 url: /commerce/payment/api_payment.html
 toc:
