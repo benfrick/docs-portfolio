@@ -1,7 +1,7 @@
 ---
 tags: pdf
 category: use-case
-position: 6
+position: 4
 title: Search
 url: /commerce/search/api_search.html
 ---

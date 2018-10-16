@@ -1,4 +1,8 @@
 ---
+category: reference
+position: 3
+title: Reference
+url: /doc/poc/reference.html
 ---
 
 # <i class="fas fa-book-open"></i>&nbsp; Reference

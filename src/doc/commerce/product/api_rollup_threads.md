@@ -1,7 +1,7 @@
 ---
 tags: pdf
 category: use-case
-position: 4
+position: 2
 title: Rollup Threads
 url: /commerce/product/api_rollup_threads.html
 toc:
