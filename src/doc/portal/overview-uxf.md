@@ -24,4 +24,4 @@ UX Foundation offers products that solve common problems for hosted user experie
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
