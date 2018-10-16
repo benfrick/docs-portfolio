@@ -1,7 +1,27 @@
 ---
+tags: pdf
+category: use-case
+position: 3
+title: CAPI Migration
+url: /commerce/product/capi_migration.html
+toc:
+  - h2: Overview
+    url: /doc/commerce/product/capi_migration.html#overview
+  - h2: CAPI vs. Cloud
+    url: /doc/commerce/product/capi_migration.html#capi-vs-cloud-comparison
+  - h2: Endpoint Mapping
+    url: /doc/commerce/product/capi_migration.html#endpoint-mapping
+  - h2: Migration Scenarios
+    url: /doc/commerce/product/capi_migration.html#migration-scenarios
+  - h2: Migration Contacts
+    url: /doc/commerce/product/capi_migration.html#migration-contacts
+  - h2: Field Mapping
+    url: /doc/commerce/product/capi_migration.html#field-mapping
 ---
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide
+
+---
 
 ##### Last Updated: 10/11/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
@@ -9,28 +29,6 @@
 > The CAPI API is in KLO. No feature requests or enhancements are being accepted. If CAPI does not provide the data or functionality you require, migrate to the appropriate Cloud services.
 
 If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.
-
----
-
-## **In This Guide**
-
-[Overview](#overview)
-
-[CAPI vs Cloud Comparison](#capi-vs-cloud-comparison)
-
-[Endpoint Mapping](#endpoint-mapping)
-
-[Migration Scenarios](#migration-scenarios)
-
-[Migration Contacts](#migration-contacts)
-
-[Field Mapping](#field-mapping)
-
-<!--
-[Document Change Log](#document-change-log)
--->
-
-[Related Links](#related-links)
 
 ## <a name="overview"></a>Overview
 

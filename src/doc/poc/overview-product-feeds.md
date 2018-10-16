@@ -38,7 +38,8 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
     </ul>
 </aside>
 </html>
-            
+
+* [Rollup Threads Developer's Guide](/doc/commerce/product/api_rollup_threads.html) Need your Feeds rolled up? Read this developer's guide.    
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
 * [Glossary:](/doc/getting-started/glossary.html) Common terms explained.
 * [Product Life Cycle:](/doc/commerce/reference/product_lifecycle.html) Discover how Nike products become available for purchase in an experience.
