@@ -66,11 +66,11 @@ request to <a href="#order-details">list details of a consumer’s order</a>.</p
   </li>
 </ul>
 
-<p>An order is created when the consumer has provided all of the necessary information and chooses to submit it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted and is assigned a status of <code class="highlighter-rouge">CREATED</code>. The order goes changes status as it progresses through its lifecycle. See <a href="#order-status">Understanding Order Status</a> for more detail. By giving consumers the ability to check on the status of their Nike order in your experience, you are providing consumers a vital self-service.</p>
+<p>An order is created when the consumer has provided all of the necessary information and chooses to submit it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of <code class="highlighter-rouge">CREATED</code>. The order is assigned different statuses as it progresses through the lifecycle. See <a href="#order-status">Understanding Order Status</a> for more detail. By giving consumers the ability to check the status of their Nike order in your experience, you are providing consumers a vital self-service.</p>
 
 <h2 id="step-1-list-a-consumers-orders">Step 1: <a name="order-summary">List a consumer’s orders</a></h2>
 
-<p>Use the BFF Order Summary API to get all or a select list of a consumer’s Nike orders. By making this information accessible as a self-service in your app, consumers can check the progress of product shipment as well as view their product and payment history, no phone call required.</p>
+<p>Use the BFF Order Summary API to get all or a select list of a Nike consumer’s orders. By making this information accessible as a self-service in your app, consumers can check the progress of product shipment as well as view their product and payment history, no phone call required.</p>
 
 <p>The BFF Order Summary API returns limited information about each order. If you need a more in-depth picture of a consumer’s order that contains pricing, tax information, shipping instructions and detailed product information, see <a href="#order-details">List
 details of a consumer’s order</a>.</p>
@@ -80,14 +80,14 @@ is logged in, is a guest or an employee. For more information, see <a href="#req
 
 <h3 id="customizing-your-results">Customizing Your Results</h3>
 
-<p>You can control what is returned in your result set and how it is sorted through URL parameters.</p>
+<p>You control what is returned in your result set and how it is sorted through URL parameters.</p>
 
 <p><strong>Filtering</strong></p>
 
-<p>The table below lists the fields by which you can filter your order summary results. If no filter is applied, all
+<p>The table below lists the fields by which you can filter your BFF Order Summary results. If no filter is applied, all
 of a consumer’s orders are returned. While some filters only allow one value, you can filter by
  different types of filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
-  allowed, you can request an order summary filtered by orderSubmitDateAfter and status. Note that filter parameter names
+  allowed, you can request a BFF Order Summary filtered by orderSubmitDateAfter and status. Note that filter parameter names
    and values are case sensitive.</p>
 
 <table>
@@ -129,9 +129,9 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
 
 <p><strong>Other Query Parameters</strong></p>
 
-<p>The Order History API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+<p>The BFF Order Summary API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results, and control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
 
-<p>Let’s take a look at some Order Summary scenarios.</p>
+<p>Let’s take a look at some BFF Order Summary scenarios.</p>
 
 <table>
   <thead>
@@ -199,7 +199,7 @@ is logged in, a guest, or an employee. For more information, see <a href="#reque
 
 <h3 id="customizing-your-results-1">Customizing Your Results</h3>
 
-<p>You can control what is returned in your result set through URL parameters. The BFF Order Details API supports the <code class="highlighter-rouge">fields</code> query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the <code class="highlighter-rouge">anchor</code>, <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">count</code> query parameters are not supported. For more information on the <code class="highlighter-rouge">fields</code> query parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+<p>You control what is returned in your result set through URL parameters. The BFF Order Details API supports the <code class="highlighter-rouge">fields</code> query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the <code class="highlighter-rouge">anchor</code>, <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">count</code> query parameters are not supported. For more information on the <code class="highlighter-rouge">fields</code> query parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
 
 <p>Let’s take a look at some BFF Order Details scenarios.</p>
 
@@ -244,7 +244,7 @@ is logged in, a guest, or an employee. For more information, see <a href="#reque
 
 <p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="_blank">Order Details API</a> for a full list of fields returned in the response.</p>
 
-<h2 id="understanding-order-status"><a name="order-status">Understanding Order Status</a></h2>
+<h2 id="understanding-order-status"><a name="order-status"></a>Understanding Order Status</h2>
 
 <p>An order contains three types of statuses:</p>
 <ul>
@@ -269,32 +269,32 @@ is logged in, a guest, or an employee. For more information, see <a href="#reque
     <tr>
       <td>status</td>
       <td>Status of the order. Matches the orderLines.rolledUpStatus with the highest status code on the order.</td>
-      <td>Order Summary<br />Order Details</td>
+      <td>BFF Order Summary<br />BFF Order Details</td>
     </tr>
     <tr>
       <td>orderLines.rolledUpStatus</td>
       <td>Status of an order line. Computed by “Partially” + orderLines.maxOrderLineStatus. e.g. “Partially Shipped”.</td>
-      <td>Order Summary<br />Order Details</td>
+      <td>BFF Order Summary<br />BFF Order Details</td>
     </tr>
     <tr>
       <td>orderLines.maxOrderLineStatus</td>
       <td>Status of the highest status code on this order line. Matches orderLines.rolledUpStatus. This status is included in orderLines.statuses.</td>
-      <td>Order Details</td>
+      <td>BFF Order Details</td>
     </tr>
     <tr>
       <td>orderLines.minOrderLineStatus</td>
       <td>Status of the lowest status code on this order line. This status is included in orderLines.statuses.</td>
-      <td>Order Details</td>
+      <td>BFF Order Details</td>
     </tr>
     <tr>
       <td>orderLines.statuses</td>
       <td>An array of statuses for each status code on this order line. The description with the highest status code matches orderLines.maxOrderLineStatus. The description with the lowest status code matches orderLines.minOrderLineStatus.</td>
-      <td>Order Details</td>
+      <td>BFF Order Details</td>
     </tr>
     <tr>
       <td>paymentStatus</td>
       <td>Status of payment.</td>
-      <td>Order Summary</td>
+      <td>BFF Order Summary</td>
     </tr>
   </tbody>
 </table>
@@ -418,7 +418,7 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 -->
 
-<p>Listed below are the order line statuses and status codes for a line item. The first column lists the order line statuses returned by both the BFF Order Summary and BFF Order History APIs. Both APIs use the status codes in the second column to determine status ranking, but these status codes are not returned by either API. The third column contains a simple status that is also not returned by either API but is included here as a sample mapping of consumer-friendly status to actual status.  Your experience could perform a similar mapping to display a simple status to the consumer instead of the actual status.</p>
+<p>Listed below are the order line statuses and status codes. The first column lists the order line statuses returned by both the BFF Order Summary and BFF Order Details APIs. Both APIs use the status codes in the second column to determine status ranking, but these status codes are not returned by either API. The third column contains a simple status that is not returned by either API but is provided as a sample consumer-friendly status. Your experience could perform a similar status-to-simple-status mapping to display to the consumer.</p>
 
 <table>
   <thead>
@@ -1143,6 +1143,8 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 <h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
 
+<p>Listed below are some best practices for working with BFF Order Summary and BFF Order Details.</p>
+
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
 <p>For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
@@ -1154,7 +1156,7 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 <p>There are boundaries for testing in production:</p>
 
 <ul>
-  <li>Performance tests at high volumes should never be done in production.</li>
+  <li>Performance tests at high volumes should never be done in production. All performance tests should be done in test.</li>
 </ul>
 
 <h3 id="caching-data">Caching Data</h3>
@@ -1191,14 +1193,14 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 <h4 id="json-web-token">JSON Web Token</h4>
 
-<p>Neither the <em>BFF Order Summary</em> nor <em>BFF Order Details</em> endpoints require the additional
+<p>Neither the BFF Order Summary nor BFF Order Details endpoints require the additional
 authorization
  of a
  JSON Web Token (JWT). For more, see the JWT section of <a href="/doc/getting-started/using_nike_apis.html#jwt-json-web-token">Using NDe APIs</a>.</p>
 
 <h3 id="sample-requests">Sample Requests</h3>
 
-<p>The sample requests included throughout this guide often contain unique IDs and access tokens that are spent/expired in the Production environment, so you will not be able to copy and use them as-is for testing purposes. However, since other values in the request may still be valid and thus reusable, it may be convenient for you to copy the samples and change only the spent/expired values.</p>
+<p>Sample requests included throughout this guide contain unique IDs and access tokens that are spent/expired in the Production environment, so you will not be able use them as-is for testing purposes. Reuse what you can and replace with valid IDs/access tokens when necessary.</p>
 
 <h3 id="user-types">User Types</h3>
 
@@ -1218,7 +1220,7 @@ authorization
 
 <h4 id="required-request-headers"><a name="request-headers"></a>Required Request Headers</h4>
 
-<p>Listed below are the required request headers based on user type. Since all BFF Order Summary and BFF Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token.</p>
+<p>Listed below are the required request headers based on user type. Since most BFF Order Summary and BFF Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token and passes that token in the request.</p>
 
 <table>
   <thead>
