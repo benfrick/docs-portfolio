@@ -17,11 +17,11 @@
 </head>
 <body>
 <div class="main">
-    <h1 id="adding-order-history-to-your-experience-">ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br /></h1>
+    <h1 id="adding-order-history-to-your-experience-draft">ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br />DRAFT</h1>
 
-<h6 id="last-updated-1052018">Last Updated: 10/5/2018</h6>
+<h6 id="last-updated-10152018">Last Updated: 10/15/2018</h6>
 
-<h2 id="overview"><a name="overview">Overview</a></h2>
+<h2 id="overview"><a name="overview"></a>Overview</h2>
 
 <p>Retrieve a complete order history for your consumers.</p>
 
@@ -31,16 +31,16 @@
 
 <p>Adding order history to your app is a two-step process.</p>
 
-<p><i class="numberCircle gray">1</i>Your application makes an Order Summary API request to <a href="#order-summary">retrieve all or a filtered list of a
+<p><i class="numberCircle gray">1</i>Your application makes a BFF (backend-for-frontend) Order Summary API request to retrieve all or a filtered <a href="#order-summary">list of a
 consumer’s
 orders</a>.</p>
 
-<p><i class="numberCircle gray">2</i>Using information from an order returned in the order summary response, your application makes an Order Details API
-request to <a href="#order-details">get detailed information for one consumer order</a>.</p>
+<p><i class="numberCircle gray">2</i>Using an order ID returned in the BFF Order Summary response, your application makes a BFF Order Details API
+request to <a href="#order-details">list details of a consumer’s order</a>.</p>
 
 <h3 id="what-is-an-order">What is an Order?</h3>
 
-<p>A Nike order consists of the following:</p>
+<p>An order consists of all data necessary for defining the following:</p>
 
 <ul>
   <li>
@@ -59,27 +59,23 @@ request to <a href="#order-details">get detailed information for one consumer or
     <p>Taxes</p>
   </li>
   <li>
-    <p>Discounts</p>
+    <p>Promotions</p>
+  </li>
+  <li>
+    <p>Status</p>
   </li>
 </ul>
 
-<p>[Insert diagram of high-level steps in the process]</p>
-
-<p>Providing consumers a way to access their past orders enables them to check the progress of
-product shipment and to view their product and payment history, no phone call required.</p>
-
-<p><img src="/images/commerce/order/order-life-cycle.png" alt="" /></p>
+<p>An order is created when the consumer has provided all of the necessary information and chooses to submit it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted and is assigned a status of <code class="highlighter-rouge">CREATED</code>. The order goes changes status as it progresses through its lifecycle. See <a href="#order-status">Understanding Order Status</a> for more detail. By giving consumers the ability to check on the status of their Nike order in your experience, you are providing consumers a vital self-service.</p>
 
 <h2 id="step-1-list-a-consumers-orders">Step 1: <a name="order-summary">List a consumer’s orders</a></h2>
 
-<p>Use the order summary API to get all of a consumer’s Nike orders. You could make this information accessible to the
-consumer as a self-service in your app. The information returned for each order is a limited set of data.
-If you need a more in-depth picture of a consumer’s order that contains pricing, tax information, shipping instructions and detailed product information, see <a href="#order-details">List the
-details of
- a consumer’s
- order</a>.</p>
+<p>Use the BFF Order Summary API to get all or a select list of a consumer’s Nike orders. By making this information accessible as a self-service in your app, consumers can check the progress of product shipment as well as view their product and payment history, no phone call required.</p>
 
-<p>The order summary API requires that you pass certain headers in the request depending upon whether the consumer
+<p>The BFF Order Summary API returns limited information about each order. If you need a more in-depth picture of a consumer’s order that contains pricing, tax information, shipping instructions and detailed product information, see <a href="#order-details">List
+details of a consumer’s order</a>.</p>
+
+<p>The BFF Order Summary API requires that you pass certain headers in the request depending upon whether the consumer
 is logged in, is a guest or an employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
 
 <h3 id="customizing-your-results">Customizing Your Results</h3>
@@ -91,7 +87,7 @@ is logged in, is a guest or an employee. For more information, see <a href="#req
 <p>The table below lists the fields by which you can filter your order summary results. If no filter is applied, all
 of a consumer’s orders are returned. While some filters only allow one value, you can filter by
  different types of filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
-  allowed, you can request order summaries filtered by orderSubmitDateAfter and status. Note that filter parameter names
+  allowed, you can request an order summary filtered by orderSubmitDateAfter and status. Note that filter parameter names
    and values are case sensitive.</p>
 
 <table>
@@ -135,60 +131,138 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
 
 <p>The Order History API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results and to control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
 
-<p>Let’s take a look at some Order Summary scenarios</p>
+<p>Let’s take a look at some Order Summary scenarios.</p>
 
 <table>
   <thead>
     <tr>
-      <th>I want to List for a Consumer</th>
+      <th>I want to list for a Consumer</th>
       <th>Sample Query</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>All orderTypes of RESERVE_ORDER submitted after 2018-01-24</td>
-      <td>`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)</td>
+      <td>orderTypes of RESERVE_ORDER submitted after 2018-01-24 purchased at store 12345</td>
+      <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&amp;filter=orderSubmitDateAfter(2018-01-24)&amp;filter=orderType(RESERVE_ORDER)</code></td>
     </tr>
     <tr>
-      <td>&amp;filter=orderType(RESERVE_ORDER)`</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>All orders with a status of <code class="highlighter-rouge">Shipped</code> or <code class="highlighter-rouge">Delivered</code></td>
+      <td>orders with a status of <code class="highlighter-rouge">Shipped</code> or <code class="highlighter-rouge">Delivered</code></td>
       <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)</code></td>
     </tr>
     <tr>
-      <td>All orders sorted in ascending modificationDate</td>
+      <td>all orders sorted in ascending modificationDate</td>
       <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_summary/v1?sort=modificationDateAsc</code></td>
     </tr>
     <tr>
-      <td>All order IDs, statuses and submitted dates</td>
+      <td>just the order ID, status and submitted date fields of all orders</td>
       <td>https://api.nike.com/order_mgmt/user_order_summary/v1?fields=id,status,orderSubmitDate</td>
     </tr>
     <tr>
-      <td>Two</td>
-      <td> </td>
+      <td>two most recently submitted orders</td>
+      <td>https://api.nike.com/order_mgmt/user_order_summary/v1?count=2</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="understanding-order-status">Understanding Order Status</h3>
+<h3 id="executing-the-request">Executing the Request</h3>
+
+<p>Sample CURL for BFF Order Summary for a Member/Employee</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
+  https://api.nike.com/order_mgmt/user_order_summary/v1 \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
+</code></pre></div></div>
+
+<p>Sample CURL for BFF Order Summary for a Guest</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
+  'https://api.nike.com/order_mgmt/user_order_summary/v1' \
+  -H 'X-Nike-Visitorid: 2c83877b-10fa-44da-a92d-2451efef8671' \
+  -H 'appid: com.nike.sport.running.ios' \
+  -H 'x-nike-visitid: 2'
+</code></pre></div></div>
+
+<h3 id="parsing-the-response">Parsing the Response</h3>
+
+<p>The BFF Order Summary JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="_blank">BFF Order Summary API</a> for a full list of fields returned in the response.</p>
+
+<h2 id="step-2-list-details-of-a-consumers-order">Step 2: <a name="order-details">List details of a consumer’s order</a></h2>
+
+<p>Use the BFF Order Details API to get details of one consumer order. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want to get all of a consumer’s orders, see <a href="#order-summary">List a consumer’s orders</a>.</p>
+
+<p>The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
+is logged in, a guest, or an employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
+
+<h3 id="required-request-parameters">Required Request Parameters</h3>
+
+<p>For Members and Employees, only the orderNumber path parameter is required. For validation purposes for guest consumers, the orderNumber path parameter and email address filter parameter are required. If the email address is missing from the request or does not match the shipTo email address on the guest’s order, the API returns a 404.</p>
+
+<h3 id="customizing-your-results-1">Customizing Your Results</h3>
+
+<p>You can control what is returned in your result set through URL parameters. The BFF Order Details API supports the <code class="highlighter-rouge">fields</code> query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the <code class="highlighter-rouge">anchor</code>, <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">count</code> query parameters are not supported. For more information on the <code class="highlighter-rouge">fields</code> query parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+
+<p>Let’s take a look at some BFF Order Details scenarios.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>I want to</th>
+      <th>Sample Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>list the details for order ID C00011554850 for a logged in user</td>
+      <td>https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850</td>
+    </tr>
+    <tr>
+      <td>list the ID,status and shipping method fields for orderNumber C00011554850</td>
+      <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email(my.email@address.com)&amp;fields=id,status,orderLines.shippingMethod</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="executing-the-request-1">Executing the Request</h3>
+
+<p>Sample CURL for BFF Order Details C00011554850 for a Member/Employee:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
+  https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850 \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
+</code></pre></div></div>
+
+<p>Sample CURL for BFF Order Details C00011554850 for a Guest:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
+  'https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email%28my.email@address.com%29' \
+  -H 'X-Nike-Visitorid: 2c83877b-10fa-44da-a92d-2451efef8671' \
+  -H 'appid: com.nike.sport.running.ios' \
+  -H 'x-nike-visitid: 2'
+</code></pre></div></div>
+
+<h3 id="parsing-the-response-1">Parsing the Response</h3>
+
+<p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="_blank">Order Details API</a> for a full list of fields returned in the response.</p>
+
+<h2 id="understanding-order-status"><a name="order-status">Understanding Order Status</a></h2>
 
 <p>An order contains three types of statuses:</p>
 <ul>
   <li>order</li>
-  <li>order line (product or service purchased)</li>
+  <li>order line</li>
   <li>payment</li>
 </ul>
 
-<p>An order line of an order is a Nike service or product that the consumer has purchased that is associated with a quantity. Orders have at least one and may have many order lines. Each unit of an order line has it’s own status and each status maps to a numeric status code. Order Details API returns the description of the lowest and highest status code. The status of the order depends on the status of each order line.</p>
+<p>An order line is a Nike service or product associated with a quantity, e.g. Nike Air VaporMax quantity 1. Orders have at least one order line and may have several. Each order line has one or more statuses that map(s) to a numeric status code. Behind the scenes, the status of the order is calculated by evaluating which order line has a rolledUpStatus with the highest status code.</p>
+
+<p>The table below describes each status associated with an order.</p>
 
 <table>
   <thead>
     <tr>
       <th>Status Field Name</th>
       <th>Description</th>
-      <th>API Name</th>
+      <th>API</th>
     </tr>
   </thead>
   <tbody>
@@ -199,12 +273,12 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
     </tr>
     <tr>
       <td>orderLines.rolledUpStatus</td>
-      <td>Status of an order line. Computed by “Partially” + status of the highest status code on this order line. Matches orderLines.maxOrderLineStatus. e.g. “Partially Shipped”.</td>
+      <td>Status of an order line. Computed by “Partially” + orderLines.maxOrderLineStatus. e.g. “Partially Shipped”.</td>
       <td>Order Summary<br />Order Details</td>
     </tr>
     <tr>
       <td>orderLines.maxOrderLineStatus</td>
-      <td>Status of the highest status code on this order line. This status is included in orderLines.statuses.</td>
+      <td>Status of the highest status code on this order line. Matches orderLines.rolledUpStatus. This status is included in orderLines.statuses.</td>
       <td>Order Details</td>
     </tr>
     <tr>
@@ -225,7 +299,54 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
   </tbody>
 </table>
 
-<p>In the scenario illustrated by the Order Details response below, a consumer purchases three identical pair of Air Jordan size 10 men’s shoes. Two pair are delivered to his home and one pair is in transit to his home from the warehouse. If the customer decides to return one pair, the pair he keeps has a status of “Delivered,” the returned pair has a status of “Returned”, and the pair in transit has a status of “Shipped”. Because the “Delivered” status has the highest status code, the status at the order level is “Partially Delivered”.</p>
+<p>In the scenario illustrated by the BFF Order Details response below, a consumer has purchased two order lines. One order line has shipped and has a rolledUpStatus of “Shipped” and the other has been delayed at the factory and has a rolledUpStatus of “Factory Delayed”. Because the “Shipped” status has a higher status code than the “Factory Delayed” status code, the order status is “Partially Shipped”, calculated by “Partially” + the order line with the highest rolledUpStatus on the order.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+"status": "Partially Shipped",
+...
+"orderLines": [
+        {
+           ...
+
+            "statuses": [
+                {
+                    "description": "Shipped",
+                    "quantity": 1,
+                    "date": "2018-01-30T12:16:51Z"
+                }
+            ],
+            "rolledUpStatus": "Shipped",
+            ...
+            "maxOrderLineStatus": "Shipped",
+            ...
+            "minOrderLineStatus": "Shipped",
+            ...
+        },
+        {
+           ...
+
+            "statuses": [
+                {
+                    "description": "Factory Delayed",
+                    "quantity": 1,
+                    "date": "2018-01-30T12:16:51Z"
+                }
+            ],
+            "rolledUpStatus": "Factory Delayed",
+            ...
+            "maxOrderLineStatus": "Factory Delayed",
+            ...
+            "minOrderLineStatus": "Factory Delayed",
+            ...
+        }
+    ]
+}
+
+
+
+</code></pre></div></div>
+
+<p>Let’s look at a slightly more complex example. As illustrated by the BFF Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of “Delivered”, another short was delivered and returned and has a status of “Return Processed”, and one short was shipped and has a status of “Shipped”. Because the “Delivered” status has the highest status code of the order line, the rolledUpStatus of the order line is “Delivered”. The highest rolledUpStatus of the order is “Delivered”, so the overall order status is “Partially Delivered”.</p>
 
 <pre><code class="language-`">{
 "status": "Partially Delivered",
@@ -258,100 +379,773 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
             "minOrderLineStatus": "Shipped",
             ...
         }
-   }
+    ]
 }
 </code></pre>
 
-<p>For a complete list of status codes and their descriptions, see <a href="https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers" target="_blank">Order Status Mapping for Consumers</a>. Note that the User Status column values are not actually returned by either API. They are listed to help simplify the various Line Level status codes and statuses. Values in the Line Level Status column are returned in the Order Details response in the various status fields.</p>
+<!--
+Below are typical order life cycles
 
-<h2 id="step-2-list-the-details-of-a-consumers-order">Step 2: <a name="order-details">List the details of a consumer’s order</a></h2>
+Simple ship to home
 
-<p>Use the order details API to get details of one consumer order. This API returns an in-depth picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want to get all of a consumer’s orders, see <a href="#order-summary">List a consumer’s orders</a>.</p>
+CREATED - IN PROCESS - SHIPPED - DELIVERED - COMPLETE
+                  |      |
+                  DELAYED
+                  SHIPMENT DELAYED
+                  BACKORDER
+                            |                                                                              |
+                            DELIVERY ATTEMPT 1 - DELIVERY ATTEMPT 2 - DELIVERY ATTEMPT 3 - UNABLE TO DELIVER
+                                       REFUSED SHIPMENT
 
-<p>The order details API requires that you pass certain headers in the request depending upon whether the consumer
-is logged in, a guest or an employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
+Simple ship to store
 
-<h3 id="required-request-parameters">Required Request Parameters</h3>
+CREATED - IN PROCESS - READY FOR PICKUP - PICKED UP - COMPLETE
+                                    |
+                                    ABANDONED
 
-<p>For guest consumers, the orderNumber path parameter and email address query parameter are required for validation purposes. If the email address is missing from the request or does not match the shipTo email address on the guest’s order, the API returns a 404.</p>
 
-<h3 id="customizing-your-results-1">Customizing Your Results</h3>
+Cancellation
 
-<p>You can control what is returned in your result set through URL parameters.</p>
+CANCEL IN PROCESS - CANCELLED - POST VOIDED
 
-<p>The Order Details API supports the <code class="highlighter-rouge">fields</code> query parameter to restrict the fields returned in the response. Since the Order Details API only returns one consumer order, the <code class="highlighter-rouge">anchor</code>, <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">count</code> query parameters are not supported. For more information on the <code class="highlighter-rouge">fields</code> query parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+Return
 
-<p>Order Details request for orderNumber C00000123456 shipping to email address customer.email@nike.com, restricting the response fields to id, status and orderLines.shippingMethod.</p>
+RETURN CREATED - RETURN IN PROCESS - RETURN PROCESSED - RETURN COMPLETED
 
-<p><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_details/v1/C00000554850?filter=email(jane.moore@nike.com)&amp;fields=id,status,orderLines.shippingMethod</code></p>
+Exchange
+
+EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
+
+-->
+
+<p>Listed below are the order line statuses and status codes for a line item. The first column lists the order line statuses returned by both the BFF Order Summary and BFF Order History APIs. Both APIs use the status codes in the second column to determine status ranking, but these status codes are not returned by either API. The third column contains a simple status that is also not returned by either API but is included here as a sample mapping of consumer-friendly status to actual status.  Your experience could perform a similar mapping to display a simple status to the consumer instead of the actual status.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>STATUS</th>
+      <th>STATUS CODE<br />(not returned by API)</th>
+      <th>SIMPLE STATUS<br />(not returned by API)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Draft Order Created</td>
+      <td>1000</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Draft Order Reserved Awaiting Acceptance</td>
+      <td>1040</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Draft Order Reserved</td>
+      <td>1050</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Created or CREATED</td>
+      <td>1100</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Authorized</td>
+      <td>1100.01</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>1100.02</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Pending Completion</td>
+      <td>1100.03</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Origin Scan</td>
+      <td>1100.050</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>In Transit</td>
+      <td>1100.100</td>
+      <td>CREATED</td>
+    </tr>
+    <tr>
+      <td>Acknowledged</td>
+      <td>1100.110</td>
+      <td>IN PROCESS </td>
+    </tr>
+    <tr>
+      <td>Work Order Cancelled</td>
+      <td>1100.1600</td>
+      <td>IN PROCESS </td>
+    </tr>
+    <tr>
+      <td>Factory Processing</td>
+      <td>1100.600</td>
+      <td>IN PROCESS </td>
+    </tr>
+    <tr>
+      <td>Factory Completed</td>
+      <td>1100.700</td>
+      <td>IN PROCESS </td>
+    </tr>
+    <tr>
+      <td>Factory Delayed</td>
+      <td>1100.800</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Reserved Awaiting Acceptance</td>
+      <td>1140</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Reserved</td>
+      <td>1200</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Being Negotiated</td>
+      <td>1230</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Accepted</td>
+      <td>1260</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Rescheduling</td>
+      <td>1300</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>BOReview</td>
+      <td>1300</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Unscheduled</td>
+      <td>1310</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Scheduled</td>
+      <td>1500</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Awaiting Chained Order Creation</td>
+      <td>1600</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Awaiting Procurement Purchase Order Creation</td>
+      <td>2030</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Awaiting Procurement Transfer Order Creation</td>
+      <td>2060</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Chained Order Created</td>
+      <td>2100</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>PO Released</td>
+      <td>2100.100</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Released For SO Create</td>
+      <td>2100.1000</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>DSV Acknowledged</td>
+      <td>2100.1100</td>
+      <td>IN PROCESS </td>
+    </tr>
+    <tr>
+      <td>Released To Third Party</td>
+      <td>2100.1200</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Received By Partner</td>
+      <td>2100.1210</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Confirmed By Partner</td>
+      <td>2100.1220</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Order Processing</td>
+      <td>2100.1230</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Order Delayed</td>
+      <td>2100.1250</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>PO Acknowledged</td>
+      <td>2100.200</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Released To FC</td>
+      <td>2100.30</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>PO Sent To Warehouse</td>
+      <td>2100.300</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>PO Warehouse Acknowledged</td>
+      <td>2100.350</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>PO Scheduled For Pick</td>
+      <td>2100.40</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Order Received</td>
+      <td>2100.400</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>PO Awaiting Shipment</td>
+      <td>2100.50</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Order Processed</td>
+      <td>2100.500</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>DSV Acknowledged</td>
+      <td>2100.550</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Factory Processing</td>
+      <td>2100.600</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Sent For SO Create</td>
+      <td>2100.620</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>DSV Acknowledged</td>
+      <td>2100.650</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Factory Completed</td>
+      <td>2100.700</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Factory Delayed</td>
+      <td>2100.800</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Procurement Purchase Order Created</td>
+      <td>2130</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Procurement Purchase Order Shipped</td>
+      <td>2130.01</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Work Order Created</td>
+      <td>2140</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Work Order Completed</td>
+      <td>2141</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Procurement Transfer Order Created</td>
+      <td>2160</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Procurement Transfer Order Shipped</td>
+      <td>2160.01</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Released</td>
+      <td>3200</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Awaiting Shipment Consolidation</td>
+      <td>3200.01</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Awaiting WMS Interface</td>
+      <td>3200.02</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Published To WMS</td>
+      <td>3200.03</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Acknowledged</td>
+      <td>3200.100</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Sent To Warehouse</td>
+      <td>3200.1000</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Released To Third Party</td>
+      <td>3200.1200</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Received By Partner</td>
+      <td>3200.1210</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Confirmed By Partner</td>
+      <td>3200.1220</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Order Processing</td>
+      <td>3200.1230</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Pending Release To SAP</td>
+      <td>3200.150</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Scheduled For Pick</td>
+      <td>3200.200</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Awaiting Shipment</td>
+      <td>3200.300</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Order Received</td>
+      <td>3200.400</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Order Processed</td>
+      <td>3200.500</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Factory Processing</td>
+      <td>3200.600</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Factory Completed</td>
+      <td>3200.700</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>DSV Acknowledged</td>
+      <td>3200.900</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Sent To Node</td>
+      <td>3300</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Included In Shipment</td>
+      <td>3350</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Awaiting Invoice</td>
+      <td>3700.0101</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Invoiced</td>
+      <td>3700.999</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Held</td>
+      <td>8000</td>
+      <td>IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Carried</td>
+      <td>1100.7777</td>
+      <td>COMPLETE</td>
+    </tr>
+    <tr>
+      <td>Order Completed</td>
+      <td>2100.1240</td>
+      <td>COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Order Completed</td>
+      <td>3200.1240</td>
+      <td>COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Completed</td>
+      <td>3700.12</td>
+      <td>COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Order Completed</td>
+      <td>3700.777710</td>
+      <td>COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Order Completed</td>
+      <td>3700.7777.10</td>
+      <td>COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Backordered From Node</td>
+      <td>1400</td>
+      <td>BACKORDER</td>
+    </tr>
+    <tr>
+      <td>Order Delayed</td>
+      <td>3200.1250</td>
+      <td>DELAYED</td>
+    </tr>
+    <tr>
+      <td>Factory Delayed</td>
+      <td>3200.800</td>
+      <td>DELAYED</td>
+    </tr>
+    <tr>
+      <td>Shipped</td>
+      <td>3700</td>
+      <td>SHIPPED</td>
+    </tr>
+    <tr>
+      <td>Origin Scan</td>
+      <td>3700.10</td>
+      <td>SHIPPED</td>
+    </tr>
+    <tr>
+      <td>Customs Cleared</td>
+      <td>3700.100</td>
+      <td>SHIPPED</td>
+    </tr>
+    <tr>
+      <td>Manifest Scan</td>
+      <td>3700.200</td>
+      <td>SHIPPED</td>
+    </tr>
+    <tr>
+      <td>In Transit</td>
+      <td>3700.30</td>
+      <td>SHIPPED</td>
+    </tr>
+    <tr>
+      <td>Delivered To Store</td>
+      <td>3700.105</td>
+      <td>DELIVERED</td>
+    </tr>
+    <tr>
+      <td>Notionally Delivered</td>
+      <td>3700.69</td>
+      <td>DELIVERED</td>
+    </tr>
+    <tr>
+      <td>Delivered</td>
+      <td>3700.70</td>
+      <td>DELIVERED</td>
+    </tr>
+    <tr>
+      <td>Order Delivered</td>
+      <td>3700.7777</td>
+      <td>DELIVERED</td>
+    </tr>
+    <tr>
+      <td>Ready For Pickup</td>
+      <td>3700.110</td>
+      <td>READY FOR PICKUP</td>
+    </tr>
+    <tr>
+      <td>Customer Picked Up</td>
+      <td>3700.120</td>
+      <td>PICKED UP</td>
+    </tr>
+    <tr>
+      <td>Picked Up</td>
+      <td>3700.20</td>
+      <td>PICKED UP</td>
+    </tr>
+    <tr>
+      <td>Shipment Delayed</td>
+      <td>3700.130</td>
+      <td>SHIPMENT DELAYED</td>
+    </tr>
+    <tr>
+      <td>Shipment Delayed</td>
+      <td>8500</td>
+      <td>SHIPMENT DELAYED</td>
+    </tr>
+    <tr>
+      <td>Abandoned</td>
+      <td>3700.210</td>
+      <td>ABANDONED</td>
+    </tr>
+    <tr>
+      <td>Delivery Attempt 1</td>
+      <td>3700.40</td>
+      <td>DELIVERY ATTEMPT 1</td>
+    </tr>
+    <tr>
+      <td>Delivery Attempt 2</td>
+      <td>3700.50</td>
+      <td>DELIVERY ATTEMPT 2</td>
+    </tr>
+    <tr>
+      <td>Delivery Attempt 3</td>
+      <td>3700.60</td>
+      <td>DELIVERY ATTEMPT 3</td>
+    </tr>
+    <tr>
+      <td>Unable To Deliver</td>
+      <td>3700.80</td>
+      <td>UNABLE TO DELIVER</td>
+    </tr>
+    <tr>
+      <td>Refused Shipment</td>
+      <td>3700.90</td>
+      <td>REFUSED SHIPMENT</td>
+    </tr>
+    <tr>
+      <td>Pending Cancel</td>
+      <td>1300.9000</td>
+      <td>CANCEL IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Pending Cancel</td>
+      <td>3200.9000</td>
+      <td>CANCEL IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Cancelled</td>
+      <td>9000</td>
+      <td>CANCELLED</td>
+    </tr>
+    <tr>
+      <td>Void</td>
+      <td>9000.100</td>
+      <td>CANCELLED</td>
+    </tr>
+    <tr>
+      <td>Post Voided</td>
+      <td>9000.200</td>
+      <td>POST VOIDED</td>
+    </tr>
+    <tr>
+      <td>Delivered to Return Center</td>
+      <td>1100.200</td>
+      <td>RETURN CREATED</td>
+    </tr>
+    <tr>
+      <td>Early Refund</td>
+      <td>1100.300</td>
+      <td>RETURN CREATED</td>
+    </tr>
+    <tr>
+      <td>Return Created</td>
+      <td>3700.01</td>
+      <td>RETURN CREATED</td>
+    </tr>
+    <tr>
+      <td>Return Request Created</td>
+      <td>3700.011</td>
+      <td>RETURN CREATED</td>
+    </tr>
+    <tr>
+      <td>Return Received</td>
+      <td>3700.02</td>
+      <td>RETURN CREATED</td>
+    </tr>
+    <tr>
+      <td>Returned At Store</td>
+      <td>1100.400</td>
+      <td>RETURN COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Returned At Store</td>
+      <td>3700.04</td>
+      <td>RETURN COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Returned to DC</td>
+      <td>3700.85</td>
+      <td>RETURN COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Returned To Carrier</td>
+      <td>3700.95</td>
+      <td>RETURN COMPLETED</td>
+    </tr>
+    <tr>
+      <td>Delivered to Return Center</td>
+      <td>1100.200100</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Inspection Escalate</td>
+      <td>1100.500</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Return In Progress</td>
+      <td>3700.03</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Return Processed</td>
+      <td>3700.05</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Return Invoiced</td>
+      <td>3950.01</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Received at Return Center</td>
+      <td>3950.100</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Inspection Passed</td>
+      <td>3950.200</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Inspection Escalate</td>
+      <td>3950.300</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Inspection Denied</td>
+      <td>3950.400</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Inspected And Invoiced</td>
+      <td>3950.01.100</td>
+      <td>RETURN IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>Return Denied</td>
+      <td>3700.06</td>
+      <td>RETURN DENIED</td>
+    </tr>
+    <tr>
+      <td>CSR Refund</td>
+      <td>3950.700</td>
+      <td>CSR REFUND</td>
+    </tr>
+    <tr>
+      <td>Inspected And Invoiced</td>
+      <td>3950.01100</td>
+      <td>RETURN PROCESSED</td>
+    </tr>
+    <tr>
+      <td>Exchange Order Created</td>
+      <td>3950.02.01</td>
+      <td>EXCHANGE CREATED</td>
+    </tr>
+    <tr>
+      <td>Awaiting Exchange Order Creation</td>
+      <td>3950.02</td>
+      <td>EXCHANGE IN PROCESS</td>
+    </tr>
+    <tr>
+      <td>CREATED</td>
+      <td> </td>
+      <td>Created (Only for Reserve Orders)</td>
+    </tr>
+    <tr>
+      <td>UNRESERVED</td>
+      <td> </td>
+      <td>UnReserved(Only for Reserve Orders)</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
 
-<p><strong>Order Summary</strong>
-<a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="_blank">Get a list of a consumer’s orders</a></p>
-
-<p><strong>Order Details</strong>
-<a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="_blank">Get the details of a consumer’s order</a></p>
-
-<h2 id="sending-your-first-request"><a name="sending-your-first-request"></a>Sending Your First Request</h2>
-
-<p>For your first request, send a request to the <em>User Order Summary</em> endpoint of the BFF Order Summary V1 API to list a
-consumer’s orders.</p>
-
-<p><strong>1. Gather Info for the Request</strong></p>
-
-<p>Our example endpoint <em>User Order Summary</em>, only supports the HTTP GET method. To list orders, send a GET request with (at minimum) the required request headers.</p>
-
-<p>Assume that consumer for whom you are getting a list of orders for is a Nike+ member who has logged in with their Nike+ credentials. This indicates which request headers are required.</p>
-
-<p>For the request headers, the following considerations apply (at minimum):</p>
-
-<ol>
-  <li>
-    <p>Always send <code class="highlighter-rouge">application/json</code> in both the <strong>Accept</strong> and <strong>Content-Type</strong> headers.</p>
-  </li>
-  <li>
-    <p>Send the user’s access token as obtained from Unite services in the <strong>Authorization</strong> header.</p>
-  </li>
-</ol>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept: application/json
-Content-Type: application/json
-Authorization: Bearer {your access token}
-</code></pre></div></div>
-
-<p><strong>2. Create the URL</strong></p>
-
-<p>The <a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="_blank">API.md</a> states that the required URL format is <code class="highlighter-rouge">/order_mgmt/user_order_summary/v1/</code>.</p>
-
-<p>To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path.</p>
-
-<p>The complete URL is then https://api.nike.com/order_mgmt/user_order_summary/v1/.</p>
-
-<p><strong>3. Execute the request</strong></p>
-
-<p>Execute the request with a cURL command. Using the values gathered in steps 1 and 2, the final cURL command is:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
-
-<p><strong>4. Parse the Response</strong></p>
-
-<p>Assuming no errors, you will receive a response body similar to the following:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th>Endpoint Name</th>
+      <th>Path</th>
+      <th>HTTP Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF ORDER SUMMARY</a></td>
+      <td>/order_mgmt/user_order_summary/v1</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="blank">BFF ORDER DETAIL</a></td>
+      <td>/order_mgmt/user_order_detail/v1/{orderNumber}</td>
+      <td>GET</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
 
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
-<p>For all Order APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
-
-<h3 id="honor-the-etas-for-best-performance">Honor the ETAs for Best Performance</h3>
-
-<p>For async endpoints that return an ETA, i.e. the estimated time for the job to be completed, it is important for your app to honor the ETA for best performance. For example, if the ETA is 2000ms, your app should wait 2000ms to start polling the /jobs endpoint to avoid consuming network and other resources unnecessarily.</p>
-
-<h3 id="test-scenarios">Test Scenarios</h3>
+<p>For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
 
 <h3 id="test-environment">Test Environment</h3>
 
@@ -367,9 +1161,19 @@ Authorization: Bearer {your access token}
 
 <p>None of the endpoints described in this document support caching.</p>
 
-<h3 id="error-handling">Error Handling:</h3>
-
 <h2 id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</h2>
+
+<ul>
+  <li>
+    <p>Use the general troubleshooting tips in the <a href="/doc/getting-started/using_nike_apis.html#troubleshooting">Using NDe APIs</a> guide.</p>
+  </li>
+  <li>
+    <p>Use a Splunk query (requires access) to check for issues with your request.</p>
+  </li>
+  <li>
+    <p>Contact the Orders team on the <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="_blank">#mp-athena</a> Slack channel for assistance.</p>
+  </li>
+</ul>
 
 <h2 id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</h2>
 
@@ -392,17 +1196,13 @@ authorization
  of a
  JSON Web Token (JWT). For more, see the JWT section of <a href="/doc/getting-started/using_nike_apis.html#jwt-json-web-token">Using NDe APIs</a>.</p>
 
-<p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
-
-<p><br /></p>
-
 <h3 id="sample-requests">Sample Requests</h3>
 
 <p>The sample requests included throughout this guide often contain unique IDs and access tokens that are spent/expired in the Production environment, so you will not be able to copy and use them as-is for testing purposes. However, since other values in the request may still be valid and thus reusable, it may be convenient for you to copy the samples and change only the spent/expired values.</p>
 
 <h3 id="user-types">User Types</h3>
 
-<p>The Nike Order APIs support 3 distinct user types:</p>
+<p>The BFF Order APIs support 3 distinct user types:</p>
 
 <ul>
   <li>
@@ -416,35 +1216,9 @@ authorization
   </li>
 </ul>
 
-<p>Depending on user type, certain aspects of the calls that you make to the Order APIs might need to be modified. This will be called out whenever applicable in the detailed endpoint sections which follow in this guide. Also, consider that not all user types might apply to your app (e.g. you might only support Members).</p>
+<h4 id="required-request-headers"><a name="request-headers"></a>Required Request Headers</h4>
 
-<p>See the User Types section of the <a href="/doc/getting-started/using_nike_apis.html#user-types">Using NDe APIs</a> guide for more information.</p>
-
-<h3 id="use-troubleshooting-tools"><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
-
-<ul>
-  <li>
-    <p>Use the general troubleshooting tips in the <a href="/doc/getting-started/using_nike_apis.html#troubleshooting">Using NDe APIs</a> guide.</p>
-  </li>
-  <li>
-    <p>Use a Splunk query (requires access) to check for issues with your request.</p>
-  </li>
-  <li>
-    <p>Contact the Orders team on the <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="_blank">#mp-athena</a> Slack channel for assistance.</p>
-  </li>
-</ul>
-
-<h3 id="common-questions"><a name="common-questions"></a>Common Questions</h3>
-
-<p><strong>Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
-
-<p>Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to us for help.</p>
-
-<h4 id="request-headers"><a name="request-headers"></a>Request Headers</h4>
-
-<p>Edge Router</p>
-
-<p>Required request headers:</p>
+<p>Listed below are the required request headers based on user type. Since all BFF Order Summary and BFF Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token.</p>
 
 <table>
   <thead>
@@ -506,9 +1280,27 @@ authorization
   <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
 </blockquote>
 
+<p>See the User Types section of the <a href="/doc/getting-started/using_nike_apis.html#user-types">Using NDe APIs</a> guide for more information.</p>
+
+<h3 id="common-questions"><a name="common-questions"></a>Common Questions</h3>
+
+<p><strong>Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
+
+<p>Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4">#mp-athena</a> for help.</p>
+
+<h2 id="contacting-the-team"><a name="contacting-team"></a>Contacting the Team</h2>
+
+<p>Need to contact the Orders team?</p>
+
+<ul>
+  <li>Slack: <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4">#mp-athena</a></li>
+  <li>Confluence Space: <a href="https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP" target="blank">Order Management</a></li>
+  <li>Product Owner: Vishibha Anand <a href="mailto:Vishibha.Anand@nike.com">Vishibha.Anand@nike.com</a></li>
+</ul>
+
 <h2 id="glossary"><a name="glossary"></a>Glossary</h2>
 
-<p>See the <a href="/doc/getting-started/glossary.html">Glossary</a></p>
+<p>See the <a href="/doc/getting-started/glossary.html">Glossary</a> for related terms.</p>
 
 <h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
 
@@ -522,16 +1314,21 @@ authorization
   </thead>
   <tbody>
     <tr>
-      <td>Initial draft 10/5/2018</td>
+      <td>Initial draft 10/15/2018</td>
       <td>Initial Draft</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="related-links"><a name="related-links"></a>Related Links</h2>
+<h2 id="next-steps"><a name="next-steps"></a>Next Steps</h2>
 
-<p><a href="/index.html">NDe Documentation Home</a></p>
+<p>You’ve learned how to add Order History to your experience. Here are some next steps.</p>
+
+<ul>
+  <li><a href="/doc/commerce/events/api_eventsv2.html">Capturing User Events</a></li>
+  <li><a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a></li>
+</ul>
 
 </div>
 <header>
@@ -630,6 +1427,8 @@ authorization
 				</a>
 				
 			</li>
+			
+			
 			
 			
 			
