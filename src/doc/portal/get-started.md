@@ -2,7 +2,7 @@
 category: reference
 position: 1
 title: Get Started
-url: /doc/poc/get-started.html
+url: /doc/portal/get-started.html
 ---
 
 # <i class="fas fa-walking"></i>&nbsp; Get Started

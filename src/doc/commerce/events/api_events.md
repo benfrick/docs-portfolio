@@ -5,7 +5,7 @@
 
 ##### Last Updated: 04/19/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
-If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Get Started With Nike Analytics Pipeline](/doc/commerce/events/biz_events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Analytics Pipeline Overview](/doc/portal/overview-events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.
 
 ## **In This Guide:**
 
@@ -2063,10 +2063,6 @@ There are no release notes at this time.
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](/index.html)
+[NDe Docs Home](/index.html)
 
-[Getting Started](/doc/portal/consuming.html)
-
-[Business Guides](/doc/portal/biz-guides.html)
-
-[Developer's Guides](/doc/portal/dev-guides.html)
+[Get Started](/doc/portal/get-started.html)
