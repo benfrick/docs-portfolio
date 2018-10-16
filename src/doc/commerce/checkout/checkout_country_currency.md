@@ -34,10 +34,6 @@ The following describes the shipping countries supported by the Nike Checkout AP
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](/index.html)
+[NDe Docs Home](/index.html)
 
-[Getting Started](/doc/portal/consuming.html)
-
-[Business Guides](/doc/portal/biz-guides.html)
-
-[Developer's Guides](/doc/portal/dev-guides.html)
+[Get Started](/doc/portal/get-started.html)

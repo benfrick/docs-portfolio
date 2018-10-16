@@ -31,8 +31,8 @@ Your customer finds a Nike a product they love in your app. What happens next? S
 |<i class="g72-check"></i>&nbsp;&nbsp;[Check the 'buyability' of a product](/doc/commerce/checkout/api_checkout.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Review a customer's cart for checkout](/doc/commerce/checkout/api_checkout.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Get available shipping methods and estimated delivery dates](/doc/commerce/checkout/api_checkout.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/content/commerce/checkout/api_checkout.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/content/commerce/checkout/api_checkout.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html)|
 
 <html>
 <h3>Related Information</h3>

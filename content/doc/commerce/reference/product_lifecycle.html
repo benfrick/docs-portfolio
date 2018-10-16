@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="main">
-    <h1 id="product-life-cycle">PRODUCT LIFE CYCLE<i class="g72-swoosh"></i></h1>
+    <h1 id="product-life-cycle-">PRODUCT LIFE CYCLE  <i class="g72-swoosh"></i></h1>
 
 <h5 id="last-updated-04192018submit-feedback-dev-portal-slack-channel-devportal">Last Updated: 04/19/2018<br />Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a></h5>
 
@@ -25,39 +25,52 @@
 
 <h2 id="where-product-data-comes-from">Where Product Data Comes From</h2>
 
-<p>1a The Product Depot Tool provides raw product data from various upstream Nike systems to Prodigy. The Prodigy Tool provides merchandised product, sku, pricing, value-added services and localized content to the Merchandised Product Service.</p>
-
-<p>1b The Taxonomy Service provides taxonomy (product attribute) IDs to the Merchandised Product Service used by the Search Service.</p>
-
-<p>1c The Catalog Service provides catalog IDs to the Merchandised Product Service.</p>
-
-<p>2 Merchandised Product Service provides video and image URLS, catalog IDs, taxonomy IDs, merchandised products, prices, skus, value-added services and localized content to the Content Management Service (CMS).</p>
-
-<p>3a The Sterling Tool provides raw inventory data to the Availability Service. The Availability Service provides inventory information on a sku basis to the Product Feed Composer Service.</p>
-
-<p>3b The Launch Service provides launch dates to the Product Feed Composer Service (for launch products only).</p>
-
-<p>3c CMS provides Thread, Feed, and Card data to the Product Feed Composer Service.</p>
-
-<p>4 Product Feed Composer Service assembles Launch, Feed, Thread, Card and Inventory data and pushes it to the Search Service.</p>
+<ul>
+  <li>
+    <p><strong>1a</strong> The Product Depot Tool provides raw product data from various upstream Nike systems to Prodigy. The Prodigy Tool provides merchandised product, sku, pricing, value-added services and localized content to the Merchandised Product Service.</p>
+  </li>
+  <li>
+    <p><strong>1b</strong> The Taxonomy Service provides taxonomy (product attribute) IDs to the Merchandised Product Service used by the Search Service.</p>
+  </li>
+  <li>
+    <p><strong>1c</strong> The Catalog Service provides catalog IDs to the Merchandised Product Service.</p>
+  </li>
+  <li>
+    <p><strong>2</strong> Merchandised Product Service provides video and image URLS, catalog IDs, taxonomy IDs, merchandised products, prices, skus, value-added services and localized content to the Content Management Service (CMS).</p>
+  </li>
+  <li>
+    <p><strong>3a</strong> The Sterling Tool provides raw inventory data to the Availability Service. The Availability Service provides inventory information on a sku basis to the Product Feed Composer Service.</p>
+  </li>
+  <li>
+    <p><strong>3b</strong> The Launch Service provides launch dates to the Product Feed Composer Service (for launch products only).</p>
+  </li>
+  <li>
+    <p><strong>3c</strong> CMS provides Thread, Feed, and Card data to the Product Feed Composer Service.</p>
+  </li>
+  <li>
+    <p><strong>4</strong> Product Feed Composer Service assembles Launch, Feed, Thread, Card and Inventory data and pushes it to the Search Service.</p>
+  </li>
+</ul>
 
 <h2 id="how-product-data-gets-to-the-customer">How Product Data Gets to the Customer</h2>
 
-<p>a Nike experiences call the Product Feed service to get Feed and Thread data. Experience calls Scene 7/Cloudinary repository to get image and video media.</p>
-
-<p>b The Product Feed service gathers and returns Feed data. The Product Feed service calls the Search Service for Thread data. Scene 7/Cloudinary serve image and video media.</p>
-
-<p>c The Search Service gathers and returns Thread data to the Product Feed service based on the search criteria.</p>
+<ul>
+  <li>
+    <p><strong>a</strong> Nike experiences call the Product Feed service to get Feed and Thread data. Experience calls Scene 7/Cloudinary repository to get image and video media.</p>
+  </li>
+  <li>
+    <p><strong>b</strong> The Product Feed service gathers and returns Feed data. The Product Feed service calls the Search Service for Thread data. Scene 7/Cloudinary serve image and video media.</p>
+  </li>
+  <li>
+    <p><strong>c</strong> The Search Service gathers and returns Thread data to the Product Feed service based on the search criteria.</p>
+  </li>
+</ul>
 
 <h2 id="related-links"><a name="related-links"></a>Related Links</h2>
 
-<p><a href="/index.html">NDe Documentation Home</a></p>
+<p><a href="/index.html">NDe Docs Home</a></p>
 
-<p><a href="/doc/portal/consuming.html">Getting Started</a></p>
-
-<p><a href="/doc/portal/biz-guides.html">Business Guides</a></p>
-
-<p><a href="/doc/portal/dev-guides.html">Developer’s Guides</a></p>
+<p><a href="/doc/portal/get-started.html">Get Started</a></p>
 
 </div>
 <header>
@@ -66,18 +79,6 @@
 		<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
 		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>NDe Docs Home</a></h6>
 		<ul>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
@@ -142,8 +143,8 @@
 			
 			
 			<li>
-				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
-					Rollup Threads
+				<a href="/doc/commerce/product/api_merch_product.html" class="">
+					Merch Product
 					
 				</a>
 				
@@ -151,11 +152,9 @@
 			
 			
 			
-			
-			
 			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
+				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
+					Rollup Threads
 					
 				</a>
 				
@@ -218,7 +217,7 @@
 			
 			
 			<li>
-				<a href="/doc/poc/overview-uxf.html" class="">
+				<a href="/doc/portal/overview-uxf.html" class="">
 					UX Foundation
 					
 				</a>
@@ -278,18 +277,8 @@
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             <li>
-                <a href="/doc/poc/get-started.html" class="">
+                <a href="/doc/portal/get-started.html" class="">
                     Get Started
                     
                 </a>
@@ -302,8 +291,12 @@
             
             
             
+            
+            
+            
+            
             <li>
-                <a href="/doc/poc/community.html" class="">
+                <a href="/doc/portal/community.html" class="">
                     Community
                     
                 </a>
@@ -314,19 +307,13 @@
             
             
             
-            
-            
-            
-            
             <li>
-                <a href="/doc/poc/reference.html" class="">
+                <a href="/doc/portal/reference.html" class="">
                     Reference
                     
                 </a>
                 
             </li>
-            
-            
             
             
             
