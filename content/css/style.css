@@ -88,22 +88,6 @@ h5 {
 p {
   margin-top: 0; }
 
-h3 a {
-  text-decoration: none;
-  color: #474a54; }
-
-h3 a:hover {
-  text-decoration: none;
-  color: #474a54; }
-
-a {
-  color: #1EAEDB;
-  text-decoration: none; }
-
-a:hover {
-  color: #0FA0CE;
-  text-decoration: underline; }
-
 pre {
   white-space: pre-wrap;
   font-size: 1em;
@@ -159,8 +143,6 @@ dl dd:after {
     padding: 0;
     margin: 10px 0 5px 0; }
   .sidebar a {
-    color: #777;
-    text-decoration: none;
     font-size: .90em;
     display: block;
     width: 100%;
@@ -168,7 +150,7 @@ dl dd:after {
     overflow: hidden;
     padding: 2px 0; }
     .sidebar a.active {
-      color: #2196F3;
+      font-weight: bold;
       text-decoration: none; }
 
 .endpoint {
