@@ -39,7 +39,7 @@ toc:
 
 Retrieve a complete order history for your consumers.
 
->**TIP**: Before using this guide you should have already completed [Adding Checkout to Your Experience](#).
+>**TIP**: Before using this guide you should have already completed [Adding Checkout to Your Experience](/doc/commerce/checkout/api_checkout.html).
 
 Adding order history to your app is a two-step process.
 
@@ -71,7 +71,7 @@ An order consists of all data necessary for defining the following:
 An order is created when the consumer has provided all of the necessary information and chooses to submit it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the lifecycle. See [Understanding Order Status](#order-status) for more detail. By giving consumers the ability to check the status of their Nike order in your experience, you are providing consumers a vital self-service.
 
 
-## Step 1: <a name="order-summary">List a consumer's orders</a>
+## Step 1: <a name="order-summary"></a>List a consumer's orders
 
 Use the BFF Order Summary API to get all or a select list of a Nike consumer's orders. By making this information accessible as a self-service in your app, consumers can check the progress of product shipment as well as view their product and payment history, no phone call required.
 
@@ -104,12 +104,12 @@ of a consumer's orders are returned. While some filters only allow one value, yo
 **Sorting**
 
 You can sort the consumer's orders in several ways using the `sort` query parameter. If no sorting is applied, orders are
-returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html){:target="_blank"}.
+returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
 
 
 **Other Query Parameters**
 
-The BFF Order Summary API also supports the `fields`, `count` and `anchor` query parameters to restrict the results to certain fields, restrict the number of results, and control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html){:target="_blank"}.
+The BFF Order Summary API also supports the `fields`, `count` and `anchor` query parameters to restrict the results to certain fields, restrict the number of results, and control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
 
 Let's take a look at some BFF Order Summary scenarios.
 
@@ -143,10 +143,10 @@ curl -X GET \
 
 ### Parsing the Response
 
-The BFF Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#order-status) for more detail on how status is determined and what statuses to display to the consumer in your experience. See the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="_blank"} for a full list of fields returned in the response.
+The BFF Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#order-status) for more detail on how status is determined and what statuses to display to the consumer in your experience. See the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} for a full list of fields returned in the response.
 
 
-## Step 2: <a name="order-details">List details of a consumer's order</a>
+## Step 2: <a name="order-details"></a>List details of a consumer's order
 
 Use the BFF Order Details API to get details of one consumer order. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want to get all of a consumer's orders, see [List a consumer's orders](#order-summary).
 
@@ -159,7 +159,7 @@ For Members and Employees, only the orderNumber path parameter is required. For 
 
 ### Customizing Your Results
 
-You control what is returned in your result set through URL parameters. The BFF Order Details API supports the `fields` query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the `anchor`, `sort`, `filter` and `count` query parameters are not supported. For more information on the `fields` query parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html){:target="_blank"}.
+You control what is returned in your result set through URL parameters. The BFF Order Details API supports the `fields` query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the `anchor`, `sort`, `filter` and `count` query parameters are not supported. For more information on the `fields` query parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
 
 
 Let's take a look at some BFF Order Details scenarios.
@@ -191,7 +191,7 @@ curl -X GET \
 
 ### Parsing the Response
 
-The BFF Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#order-status) for more detail on how status is determined and what statuses to display to the consumer in your experience. See the [Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api){:target="_blank"} for a full list of fields returned in the response.
+The BFF Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#order-status) for more detail on how status is determined and what statuses to display to the consumer in your experience. See the [Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api){:target="blank"} for a full list of fields returned in the response.
 
 ## <a name="order-status"></a>Understanding Order Status
 
@@ -571,8 +571,6 @@ See the User Types section of the [Using NDe APIs](/doc/getting-started/using_ni
 **Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?**
 
 Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4) for help.
-
-
 
 ## <a name="contacting-team"></a>Contacting the Team
 

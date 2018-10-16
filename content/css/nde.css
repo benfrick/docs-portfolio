@@ -89,6 +89,14 @@ a {
     color: #3498db;
     text-decoration: none;
 }
+.sidebar a {
+    color: #4c555a;
+    text-decoration: none;
+}
+.sidebar a.active {
+    color: #3498db;
+    text-decoration: none;
+}
 blockquote {
     /*border: 2px solid #dfdfdf;*/
     border: 1px solid rgba(58,193,51,.12);

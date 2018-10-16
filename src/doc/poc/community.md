@@ -1,4 +1,8 @@
 ---
+category: reference
+position: 2
+title: Community
+url: /doc/poc/community.html
 ---
 
 # <i class="far fa-comments"></i>&nbsp; Community

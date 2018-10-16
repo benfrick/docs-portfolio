@@ -1,4 +1,8 @@
 ---
+category: use-case
+position: 8
+title: UX Foundation
+url: /poc/overview-uxf.html
 ---
 
 # UX Foundation Overview
