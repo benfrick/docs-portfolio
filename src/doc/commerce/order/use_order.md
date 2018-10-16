@@ -104,7 +104,7 @@ of a consumer's orders are returned. While some filters only allow one value, yo
 **Sorting**
 
 You can sort the consumer's orders in several ways using the `sort` query parameter. If no sorting is applied, orders are
-returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters){:target="_blank"} section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
+returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
 
 
 **Other Query Parameters**
