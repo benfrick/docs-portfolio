@@ -26,7 +26,7 @@
 <p>Retrieve a complete order history for your consumers.</p>
 
 <blockquote>
-  <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="#">Adding Checkout to Your Experience</a>.</p>
+  <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="/doc/commerce/checkout/api_checkout.html">Adding Checkout to Your Experience</a>.</p>
 </blockquote>
 
 <p>Adding order history to your app is a two-step process.</p>
@@ -68,7 +68,7 @@ request to <a href="#order-details">list details of a consumer’s order</a>.</p
 
 <p>An order is created when the consumer has provided all of the necessary information and chooses to submit it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of <code class="highlighter-rouge">CREATED</code>. The order is assigned different statuses as it progresses through the lifecycle. See <a href="#order-status">Understanding Order Status</a> for more detail. By giving consumers the ability to check the status of their Nike order in your experience, you are providing consumers a vital self-service.</p>
 
-<h2 id="step-1-list-a-consumers-orders">Step 1: <a name="order-summary">List a consumer’s orders</a></h2>
+<h2 id="step-1-list-a-consumers-orders">Step 1: <a name="order-summary"></a>List a consumer’s orders</h2>
 
 <p>Use the BFF Order Summary API to get all or a select list of a Nike consumer’s orders. By making this information accessible as a self-service in your app, consumers can check the progress of product shipment as well as view their product and payment history, no phone call required.</p>
 
@@ -125,11 +125,11 @@ of a consumer’s orders are returned. While some filters only allow one value, 
 <p><strong>Sorting</strong></p>
 
 <p>You can sort the consumer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter. If no sorting is applied, orders are
-returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a>.</p>
 
 <p><strong>Other Query Parameters</strong></p>
 
-<p>The BFF Order Summary API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results, and control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+<p>The BFF Order Summary API also supports the <code class="highlighter-rouge">fields</code>, <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">anchor</code> query parameters to restrict the results to certain fields, restrict the number of results, and control pagination. For more information on syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a>.</p>
 
 <p>Let’s take a look at some BFF Order Summary scenarios.</p>
 
@@ -184,9 +184,9 @@ returned in descending order by the orderSubmitDate field. You can sort by one o
 
 <h3 id="parsing-the-response">Parsing the Response</h3>
 
-<p>The BFF Order Summary JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="_blank">BFF Order Summary API</a> for a full list of fields returned in the response.</p>
+<p>The BFF Order Summary JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF Order Summary API</a> for a full list of fields returned in the response.</p>
 
-<h2 id="step-2-list-details-of-a-consumers-order">Step 2: <a name="order-details">List details of a consumer’s order</a></h2>
+<h2 id="step-2-list-details-of-a-consumers-order">Step 2: <a name="order-details"></a>List details of a consumer’s order</h2>
 
 <p>Use the BFF Order Details API to get details of one consumer order. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want to get all of a consumer’s orders, see <a href="#order-summary">List a consumer’s orders</a>.</p>
 
@@ -199,7 +199,7 @@ is logged in, a guest, or an employee. For more information, see <a href="#reque
 
 <h3 id="customizing-your-results-1">Customizing Your Results</h3>
 
-<p>You control what is returned in your result set through URL parameters. The BFF Order Details API supports the <code class="highlighter-rouge">fields</code> query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the <code class="highlighter-rouge">anchor</code>, <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">count</code> query parameters are not supported. For more information on the <code class="highlighter-rouge">fields</code> query parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters" target="_blank">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html" target="_blank">Using NDe APIs</a>.</p>
+<p>You control what is returned in your result set through URL parameters. The BFF Order Details API supports the <code class="highlighter-rouge">fields</code> query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the <code class="highlighter-rouge">anchor</code>, <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">count</code> query parameters are not supported. For more information on the <code class="highlighter-rouge">fields</code> query parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a>.</p>
 
 <p>Let’s take a look at some BFF Order Details scenarios.</p>
 
@@ -242,7 +242,7 @@ is logged in, a guest, or an employee. For more information, see <a href="#reque
 
 <h3 id="parsing-the-response-1">Parsing the Response</h3>
 
-<p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="_blank">Order Details API</a> for a full list of fields returned in the response.</p>
+<p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="blank">Order Details API</a> for a full list of fields returned in the response.</p>
 
 <h2 id="understanding-order-status"><a name="order-status"></a>Understanding Order Status</h2>
 
