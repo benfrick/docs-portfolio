@@ -31,8 +31,8 @@ Your customer finds a Nike a product they love in your app. What happens next? S
 |<i class="g72-check"></i>&nbsp;&nbsp;[Check the 'buyability' of a product](/doc/commerce/checkout/api_checkout.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Review a customer's cart for checkout](/doc/commerce/checkout/api_checkout.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Get available shipping methods and estimated delivery dates](/doc/commerce/checkout/api_checkout.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/content/commerce/checkout/api_checkout.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/content/commerce/checkout/api_checkout.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html)|
 
 <html>
 <h3>Related Information</h3>
@@ -71,4 +71,4 @@ Your customer finds a Nike a product they love in your app. What happens next? S
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>

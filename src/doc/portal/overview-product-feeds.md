@@ -39,11 +39,11 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
 </aside>
 </html>
 
-* [Rollup Threads Developer's Guide](/doc/commerce/product/api_rollup_threads.html) Need your Feeds rolled up? Read this developer's guide.    
+* [Rollup Threads Developer's Guide:](/doc/commerce/product/api_rollup_threads.html) Need your Product Threads rolled up? Read this developer's guide.    
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
 * [Glossary:](/doc/getting-started/glossary.html) Common terms explained.
 * [Product Life Cycle:](/doc/commerce/reference/product_lifecycle.html) Discover how Nike products become available for purchase in an experience.
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/developer-relations" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>

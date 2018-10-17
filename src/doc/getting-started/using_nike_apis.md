@@ -1,13 +1,13 @@
 ---
 ---
 
-# USING NDE APIS <i class="g72-swoosh"></i>
+# USING NDE APIS &nbsp;<i class="g72-swoosh"></i>
 
 ##### Last Updated: 07/05/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
 ---
 
-This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the per-API or per-domain [Developer's Guides](/doc/portal/dev-guides.html).
+This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the detailed guides.
 
 >**TIP:** Also check out the <a href="https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics" target="_blank">API Basics</a> course offered by NDe Architecture team.
 
@@ -1009,8 +1009,6 @@ The steps for accessing the API Reference on the Developer Portal are as follows
 ><i class="mr2-sm g72-check"></i>For more on JSON Schema, see the [JSON Schema Helps Define API Contracts](#json-schema-helps-define-api-contracts) section of this doc.
 >
 ><i class="mr2-sm g72-check"></i>For more on how to use the Developer Portal, see the [Developer Portal User Guide](/guide)
->
-><i class="mr2-sm g72-check"></i>Another option for getting details of an API is the [Developer's Guides](/doc/portal/dev-guides.html). Note not all APIs have Developer's Guide at this time.
 
 ## <a name="versioning"></a>Versioning
 
@@ -1501,10 +1499,6 @@ For a master glossary of terms for Nike APIs, see the [Glossary](/doc/getting-st
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](/index.html)
+[NDe Docs Home](/index.html)
 
-[Getting Started](/doc/portal/consuming.html)
-
-[Business Guides](/doc/portal/biz-guides.html)
-
-[Developer's Guides](/doc/portal/dev-guides.html)
+[Get Started](/doc/portal/consuming.html)

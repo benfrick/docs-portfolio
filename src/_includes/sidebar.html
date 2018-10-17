@@ -1,11 +1,9 @@
 <div id="sidebar" class="sidebar">
 	<section>
-		<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+		<a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
 		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>{{ page.toctitle }}</a></h6>
 		<ul>
-			{% assign sorted_pages = site.pages | sort: "position" %}
-			{% for doc in sorted_pages %}
-			{% if doc.label != "posts" and doc.category == "use-case" %}
+			{% assign sorted_pages = site.pages | sort: "position" %}{% for doc in sorted_pages %}{% if doc.label != "posts" and doc.category == "use-case" %}
 			<li>
 				<a href="{{ doc.url }}" class="{% if doc.url == page.url %}active{% endif %}">
 					{{ doc.title }}
@@ -29,19 +27,15 @@
 						</li>
 						{% endfor %}
 					</ul>
-					{% endif %}
-					{% endfor %}
+					{% else %}{% endif %}{% endfor %}
 				</ul>
 				{% endif %}
 			</li>
-			{% endif %}
-			{% endfor %}
+			{% else %}{% endif %}{% endfor %}
 		</ul>
         <hr>
         <ul>
-            {% assign sorted_pages = site.pages | sort: "position" %}
-            {% for doc in sorted_pages %}
-            {% if doc.label != "posts" and doc.category == "reference" %}
+            {% assign sorted_pages = site.pages | sort: "position" %}{% for doc in sorted_pages %}{% if doc.label != "posts" and doc.category == "reference" %}
             <li>
                 <a href="{{ doc.url }}" class="{% if doc.url == page.url %}active{% endif %}">
                     {{ doc.title }}
@@ -65,13 +59,11 @@
                         </li>
                         {% endfor %}
                     </ul>
-                    {% endif %}
-                    {% endfor %}
+					{% else %}{% endif %}{% endfor %}
                 </ul>
                 {% endif %}
             </li>
-            {% endif %}
-            {% endfor %}
+			{% else %}{% endif %}{% endfor %}
         </ul>
 	</section>
 </div>

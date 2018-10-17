@@ -2,7 +2,7 @@
 category: reference
 position: 2
 title: Community
-url: /doc/poc/community.html
+url: /doc/portal/community.html
 ---
 
 # <i class="far fa-comments"></i>&nbsp; Community

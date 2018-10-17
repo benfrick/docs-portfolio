@@ -1,7 +1,7 @@
 ---
 ---
 
-# COUNTRIES, CHANNELS, BRANDS <i class="g72-swoosh"></i>
+# COUNTRIES, CHANNELS, BRANDS &nbsp;<i class="g72-swoosh"></i>
 
 ##### Last Updated: 06/05/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
 
@@ -46,7 +46,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |**snkrs**|Available in the SNKRS App and SNKRS web experience|
 |**nikeplus**|Available in the NIKE App and Nike+ web experience|
 
-### <a name="brands">Brands</a>
+## <a name="brands"></a>Brands
 
 |Brand Code|Description|
 |---|---|
@@ -57,10 +57,6 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 
 ## <a name="related-links"></a>Related Links
 
-[NDe Documentation Home](/index.html)
+[NDe Docs Home](/index.html)
 
-[Getting Started](/doc/portal/consuming.html)
-
-[Business Guides](/doc/portal/biz-guides.html)
-
-[Developer's Guides](/doc/portal/dev-guides.html)
+[Get Started](/doc/portal/get-started.html)
