@@ -8,7 +8,7 @@
 {1-2 sentence intro to set context for this doc and the domain it describes}
 
 <html>
-<aside class="note" style="background:#f7f7f7;width:200px;text-align:center"><a href="{rel link to dev's guide here}"><ul><li style="list-style:none"><i style="float:none" class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+<aside class="button"><a href="{rel link to dev's guide here}"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
 </html>
 
 #### {1 short, catchy sentence for why you want to use this thing}
