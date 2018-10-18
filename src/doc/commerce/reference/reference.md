@@ -11,7 +11,6 @@ url: /doc/commerce/reference/reference.html
 
 API reference guides for consumers of Nike APIs.
 
-<html>
 <div class="ncss-container" style="max-width:800px;">
     <div class="ncss-row" style="padding-top:10px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med"
@@ -54,4 +53,5 @@ API reference guides for consumers of Nike APIs.
                <li style="font-size: 0.8em">The road a product takes to get in front of the consumer.</li>
            </ul>
        </div>
-</html>           
+    </div>
+</div>          

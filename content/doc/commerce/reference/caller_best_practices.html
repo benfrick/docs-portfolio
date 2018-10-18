@@ -382,7 +382,7 @@
 <h3 id="merchandised-product-caching"><a name="merchandised-product-caching"></a>Merchandised Product Caching</h3>
 
 <p>Because product and SKU information does not change frequently, service-to-service calls made to the Merchandised Product service should use distributed caching. Pre-loading of the cache prior to launch is recommended so no customer has a degraded shopping experience while the service loads the data into its cache. During launch, retrieve the merchandised product data from cache if available rather than calling the service.</p>
-<p></p>
+<p />
 
 <p>Experiences calling the Merchandised Product services directly should not cache these endpoints. Rather, if the Cache-Control header is set, the browser will cache product data for that time period.</p>
 
