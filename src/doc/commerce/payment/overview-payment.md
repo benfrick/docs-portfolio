@@ -84,7 +84,7 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 * [Adding Cart & Checkout to Your Experience:](/doc/commerce/checkout/api_checkout.html) Learn how to add Cart & Checkout to your experience
 * [Supported Countries and Currencies:](/doc/commerce/checkout/checkout_country_currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart and Checkout.
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
-* [Glossary:](/doc/getting-started/glossary.html) Common terms explained.
+* [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 * [Product Life Cycle:](/doc/commerce/reference/product_lifecycle.html) Discover how Nike products become available for purchase in an experience.
 
 ### Connect

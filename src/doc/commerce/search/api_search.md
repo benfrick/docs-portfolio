@@ -8,7 +8,7 @@ url: /commerce/search/api_search.html
 
 # <a href="#understanding-your-e-commerce-search-results-draft"></a><span class="new-indicator-lg"><span>UNDERSTANDING YOUR SEARCH RESULTS
 
-##### <a name="last-updated"></a>Last Updated: 8/7/2018<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
+##### Last Updated: 8/7/2018
 
 ---
 

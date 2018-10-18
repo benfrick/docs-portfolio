@@ -16,7 +16,7 @@ Explore the guides below to get familiar with product features and experience ho
             <ul class="poc-ul" style="list-style: none;padding:5px;">
                 <i style="padding:5px;" class="fas fa-map fa-2x"></i>
                 <li class="poc-group-header"><h4 style="padding:5px;">Browse</h4></li>
-                <li><a href="/doc/portal/overview-product-feeds.html"><h5 style="line-height: 0.3;">Product Feeds</h5></a></li>
+                <li><a href="/doc/commerce/product/overview-product-feeds.html"><h5 style="line-height: 0.3;">Product Feeds</h5></a></li>
                 <li><a href="/doc/commerce/product/api_merch_product.html"><h5 style="line-height: 0.3;">Merch Products</h5></a></li>
                 <li><a href="/doc/commerce/product/capi_migration.html"><h5 style="line-height: 0.3;">CAPI Migration</h5></a></li>
             </ul>
@@ -43,8 +43,8 @@ Explore the guides below to get familiar with product features and experience ho
             <ul class="poc-ul" style="list-style: none;padding:5px;">
                 <i style="padding:5px;" class="fas fa-shopping-cart fa-2x"></i>
                 <li class="poc-group-header"><h4 style="padding:5px;">Shop</h4></li>
-                <li><a href="/doc/portal/overview-checkout.html"><h5 style="line-height: 0.3;">Cart & Checkout</h5></a></li>
-                <li><a href="/doc/portal/overview-payment.html"><h5 style="line-height: 0.3;">Payment</h5></a></li>
+                <li><a href="/doc/commerce/checkout/overview-checkout.html"><h5 style="line-height: 0.3;">Cart & Checkout</h5></a></li>
+                <li><a href="/doc/commerce/payment/overview-payment.html"><h5 style="line-height: 0.3;">Payment</h5></a></li>
                 <!--<li><a href="#"><h5 style="line-height: 0.3;">Customization</h5></a></li>-->
             </ul>
         </div>
@@ -70,7 +70,7 @@ Explore the guides below to get familiar with product features and experience ho
             <ul class="poc-ul" style="list-style: none;padding:5px;">
                 <i style="padding:5px;" class="fas fa-chart-line fa-2x"></i>
                 <li class="poc-group-header"><h4 style="padding:5px;">Analyze</h4></li>
-                <li><a href="/doc/portal/overview-events.html"><h5 style="line-height: 0.3;">Events</h5></a></li>
+                <li><a href="/doc/commerce/events/overview-events.html"><h5 style="line-height: 0.3;">Events</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t"
@@ -78,7 +78,7 @@ Explore the guides below to get familiar with product features and experience ho
             <ul class="poc-ul" style="list-style: none;padding:5px;">
                 <i style="padding:5px;" class="fas fa-users fa-2x"></i>
                 <li class="poc-group-header"><h4 style="padding:5px;">UX</h4></li>
-                <li><a href="/doc/portal/overview-uxf.html"><h5 style="line-height: 0.3;">UX Foundation</h5></a></li>
+                <li><a href="/doc/doc/commerce/uxf/overview-uxf.html"><h5 style="line-height: 0.3;">UX Foundation</h5></a></li>
             </ul>
         </div>
     </div>
@@ -90,7 +90,7 @@ Explore the guides below to get familiar with product features and experience ho
                 <li class="poc-group-header"><h4 style="padding:5px;">Tools</h4></li>
                 <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="_blank"><h5 style="line-height: 0.3;">Launch Admin</h5></a></li>
                 <li><a href="https://adminops-int.prod.commerce.nikecloud.com/apollov1" target="_blank"><h5 style="line-height: 0.3;">Search Admin</h5></a></li>
-                <li><a href="/doc/portal/overview-uxf.html"><h5 style="line-height: 0.3;">NCSS</h5></a></li>
+                <li><a href="/doc/doc/commerce/uxf/overview-uxf.html"><h5 style="line-height: 0.3;">NCSS</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t"
@@ -99,8 +99,8 @@ Explore the guides below to get familiar with product features and experience ho
                 <i style="padding:5px;" class="fas fa-code fa-2x"></i>
                 <li class="poc-group-header"><h4 style="padding:5px;">Libraries</h4></li>
                 <li><a href="/doc/commerce/search/nacl.html"><h5 style="line-height: 0.3;">Admin Client Library</h5></a></li>
-                <li><a href="/doc/portal/overview-uxf.html"><h5 style="line-height: 0.3;">Experience Server</h5></a></li>
-                <li><a href="/doc/portal/overview-uxf.html"><h5 style="line-height: 0.3;">Global Nav</h5></a></li>
+                <li><a href="/doc/doc/commerce/uxf/overview-uxf.html"><h5 style="line-height: 0.3;">Experience Server</h5></a></li>
+                <li><a href="/doc/doc/commerce/uxf/overview-uxf.html"><h5 style="line-height: 0.3;">Global Nav</h5></a></li>
             </ul>
         </div>
     </div>
@@ -108,7 +108,7 @@ Explore the guides below to get familiar with product features and experience ho
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t" style="padding:10px;background:#F4F4F4;width: 150px; height: 150px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:5px;border-radius:10px;">
             <ul class="poc-ul" style="list-style: none;padding:5px;">
             <i style="padding:5px;" class="fas fa-walking fa-3x"></i>
-            <li class="poc-group-header"><h4><a href="/doc/portal/get-started.html">Get Started</a></h4></li>
+            <li class="poc-group-header"><h4><a href="/doc/getting-started/get-started.html">Get Started</a></h4></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t" style="padding:10px;background:#F4F4F4;width: 150px; height: 150px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:5px;border-radius:10px;">
@@ -120,7 +120,7 @@ Explore the guides below to get familiar with product features and experience ho
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t" style="padding:10px;background:#F4F4F4;width: 150px; height: 150px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:5px;border-radius:10px;">
             <ul class="poc-ul" style="list-style: none;padding:5px;">
             <i style="padding:5px;" class="fas fa-book-open fa-3x"></i>
-            <li class="poc-group-header"><h4><a href="/doc/portal/reference.html">Reference</a></h4></li>
+            <li class="poc-group-header"><h4><a href="/doc/commerce/reference/reference.html">Reference</a></h4></li>
             </ul>
         </div>
     </div>

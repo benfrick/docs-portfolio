@@ -2,7 +2,7 @@
 category: use-case
 position: 8
 title: UX Foundation
-url: /portal/overview-uxf.html
+url: /doc/commerce/uxf/overview-uxf.html
 ---
 
 # UX Foundation Overview

@@ -65,7 +65,7 @@ Your customer finds a Nike a product they love in your app. What happens next? S
 
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices. 
                  
-* [Glossary:](/doc/getting-started/glossary.html) Common terms explained.                   
+* [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.                   
 
 * [Product Life Cycle:](/doc/commerce/reference/product_lifecycle.html) Discover how Nike products become available for purchase in an experience.
 
