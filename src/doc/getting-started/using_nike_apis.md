@@ -1,9 +1,9 @@
 ---
 ---
 
-# USING NDE APIS <i class="g72-swoosh"></i>
+# USING NDE APIS &nbsp;<i class="g72-swoosh"></i>
 
-##### Last Updated: 07/05/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 07/05/2018
 
 ---
 
@@ -1495,7 +1495,7 @@ Be a good client by following these [circuit breaker best practices](/doc/commer
 
 ## <a name="glossary"></a>Glossary
 
-For a master glossary of terms for Nike APIs, see the [Glossary](/doc/getting-started/glossary.html).
+For a master glossary of terms for Nike APIs, see the [Glossary](/doc/commerce/reference/glossary.html).
 
 ## <a name="related-links"></a>Related Links
 

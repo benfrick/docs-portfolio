@@ -21,10 +21,9 @@ toc:
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide
 
+##### Last Updated: 10/11/2018
+
 ---
-
-##### Last Updated: 10/11/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
-
 
 > The CAPI API is in KLO. No feature requests or enhancements are being accepted. If CAPI does not provide the data or functionality you require, migrate to the appropriate Cloud services.
 
@@ -668,4 +667,4 @@ The following tables describe the mapping of *response body* fields between CAPI
 
 [NDe Docs Home](/index.html)
 
-[Get Started](/doc/portal/get-started.html)
+[Get Started](/doc/getting-started/get-started.html)

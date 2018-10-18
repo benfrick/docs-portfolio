@@ -33,7 +33,7 @@ toc:
 
 # ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
 
-###### Last Updated: 10/15/2018
+##### Last Updated: 10/15/2018
 
 ## <a name="overview"></a>Overview
 
@@ -582,7 +582,7 @@ Need to contact the Orders team?
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](/doc/getting-started/glossary.html) for related terms.
+See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 ## <a name="document-change-log"></a>Document Change Log
 
