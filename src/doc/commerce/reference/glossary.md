@@ -5,6 +5,8 @@
 
 ##### Last Updated: 04/19/2018
 
+---
+
 ## Glossary of Terms
 
 |Term|Definition|

@@ -31,6 +31,8 @@ toc:
 
 ##### Last Updated: 10/01/2018
 
+---
+
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Analytics Pipeline Overview](/doc/commerce/events/overview-events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
 
 ## <a name="api-at-a-glance"></a>API at a Glance
