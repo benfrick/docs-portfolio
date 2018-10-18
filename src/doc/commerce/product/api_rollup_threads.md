@@ -31,7 +31,7 @@ toc:
 
 # PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018
 
 ---
 
@@ -1658,7 +1658,7 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](/doc/getting-started/glossary.html).
+See the [Glossary](/doc/commerce/reference/glossary.html).
 
 ## <a name="document-change-log"></a>Document Change Log
 
@@ -1672,4 +1672,4 @@ See the [Glossary](/doc/getting-started/glossary.html).
 
 [NDe Docs Home](/index.html)
 
-[Get Started](/doc/portal/get-started.html)
+[Get Started](/doc/getting-started/get-started.html)
