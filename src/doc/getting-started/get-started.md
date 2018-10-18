@@ -11,7 +11,6 @@ url: /doc/getting-started/get-started.html
 
 Get started learning about the principles, standards, and conventions for using and creating NDe APIs.
 
-<html>
 <div class="ncss-container" style="max-width:800px;padding-top:10px">
 	<div class="ncss-row">
 	   <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
@@ -41,4 +40,6 @@ Get started learning about the principles, standards, and conventions for using 
 			   <li style="font-size: 0.8em;">Principles to guide development activities.</li>
 		   </ul>
 	   </div>
-</html>       
+	</div>
+</div>   
+       

@@ -7,9 +7,7 @@
 
 Learn how to use <a href="/doc/commerce/payment/api_payment.html">Nike Payment</a>, our solution to allow customers to pay for purchases of Nike products and services.
 
-<html>
 <aside class="button"><a href="/doc/commerce/payment/api_payment.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
-</html>
 
 #### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe:
 
@@ -51,9 +49,8 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/api_payment.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Save and get sensitive credit card information including CVV code.](/doc/commerce/payment/api_payment.html)|
 
-<html>
 <h3>Related Information</h3>
-    <aside class="note">
+<aside class="note">
     <h5>APIs:</h5>
     <ul>
         <li>
@@ -79,7 +76,6 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
         </li>
     </ul>
 </aside>
-</html>
             
 * [Adding Cart & Checkout to Your Experience:](/doc/commerce/checkout/api_checkout.html) Learn how to add Cart & Checkout to your experience
 * [Supported Countries and Currencies:](/doc/commerce/checkout/checkout_country_currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart and Checkout.

@@ -21,24 +21,12 @@ The NDe Admin Component Library (NACL) is a modular and flexible toolkit of user
 
 ![Gridwall Flip Card Component](/images/commerce/search/gridwall-flipcard.png)
 
-<html>
-<h3>Get Started</h3>
-<ul>
-    <li>
-        <a href="https://pages.github.nike.com/UXFoundation/premium-experience-toolkit/?selectedKind=Admin%7CAppBar&selectedStory=Decorated&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs" target="_blank">Story Book:</a> <span
-            class="guide-details-li-text">Check out live demos with source code for every component</span>
-    </li>
-    <li>
-        <a href="https://bitbucket.nike.com/projects/RUX/repos/premium-experience-toolkit/browse/docs/AdminComponents.md?at=master" target="_blank">Admin Component Guide:</a> <span class="guide-details-li-text">Get installation information, code snippets and
-        more</span>
-    </li>
-    <li>
-    <a href="https://bitbucket.nike.com/projects/RUX/repos/premium-experience-toolkit/browse/docs/AdminContributing.md" target="_blank">Contributing to the NACL:</a> <span
-        class="guide-details-li-text">Learn how to add your new component to the library</span>
-    </li>
-</ul>
-</html>
-            
+### Get Started
+
+- [Story Book:](https://pages.github.nike.com/UXFoundation/premium-experience-toolkit/?selectedKind=Admin%7CAppBar&selectedStory=Decorated&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs){:target="blank"} Check out live demos with source code for every component.
+- [Admin Component Guide:](https://bitbucket.nike.com/projects/RUX/repos/premium-experience-toolkit/browse/docs/AdminComponents.md?at=master){:target="blank"} Get installation information, code snippets and more.
+- [Contributing to the NACL:](https://bitbucket.nike.com/projects/RUX/repos/premium-experience-toolkit/browse/docs/AdminContributing.md){:target="blank"} Learn how to add your new component to the library.
+
 ### Connect
 
 We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
