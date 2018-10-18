@@ -7,7 +7,7 @@
 
 Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase Nike products and make them available for purchase. But how is all that visual content pulled together? It's done with <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds</a> and you can use it, too.
 <html>
-<aside class="note" style="background:#f7f7f7;width:200px;text-align:center"><a href="/doc/commerce/product/api_product_feeds.html"><ul><li style="list-style:none"><i style="float:none" class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+<aside class="button"><a href="/doc/commerce/product/api_product_feeds.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
 </html>
 
 #### Use Product Feeds to tell amazing Nike stories with digital product data and authored content.
