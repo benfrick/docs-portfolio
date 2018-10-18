@@ -3,7 +3,7 @@
 
 # Developer Portal Migration Guide <i class="g72-swoosh"></i> (DRAFT)
 
-###### Last Updated: 03/20/2018<br>Submit Feedback: Dev Portal Slack channel<a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 03/20/2018
 
 The Developer Portal available at http://developer.nikedev.com will migrate to https://developer.niketech.com as of 04/16/2018.
 

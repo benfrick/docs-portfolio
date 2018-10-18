@@ -2,7 +2,7 @@
 category: reference
 position: 3
 title: Reference
-url: /doc/portal/reference.html
+url: /doc/commerce/reference/reference.html
 ---
 
 # <i class="fas fa-book-open"></i>&nbsp; Reference
@@ -12,7 +12,6 @@ url: /doc/portal/reference.html
 API reference guides for consumers of Nike APIs.
 
 <html>
-<br>
 <div class="ncss-container" style="max-width:800px;">
     <div class="ncss-row" style="padding-top:10px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t"
@@ -40,7 +39,7 @@ API reference guides for consumers of Nike APIs.
            <ul class="poc-ul" style="list-style: none;padding:5px;">
                <i style="padding:5px;" class="g72-menu fs32-aligntop pr2-sm d-sm-ib"></i>
                <li class="poc-group-header">
-                   <a href="/doc/getting-started/glossary.html">
+                   <a href="/doc/commerce/reference/glossary.html">
                    <h4 style="padding:5px;">Glossary</h4></a></li>
                <li style="font-size: 0.8em">Definitions of terms and acronyms used in the guides.</li>
            </ul>
@@ -53,3 +52,6 @@ API reference guides for consumers of Nike APIs.
                    <a href="/doc/commerce/reference/product_lifecycle.html">
                    <h4 style="padding:5px;">Product Life Cycle</h4></a></li>
                <li style="font-size: 0.8em">The road a product takes to get in front of the consumer.</li>
+           </ul>
+       </div>
+</html>           

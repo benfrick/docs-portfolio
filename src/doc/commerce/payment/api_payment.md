@@ -45,13 +45,13 @@ toc:
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018
 
 ---
 
 Use the Payment API to allow customers to pay for Nike products.
 
-If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Payment Overview](/doc/portal/overview-payment.html), this guide provides the details necessary to integrate with the Nike Payment APIs.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Payment Overview](/doc/commerce/payment/overview-payment.html), this guide provides the details necessary to integrate with the Nike Payment APIs.
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -5867,4 +5867,4 @@ See the <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870
 
 [NDe Docs Home](/index.html)
 
-[Get Started](/doc/portal/get-started.html)
+[Get Started](/doc/getting-started/get-started.html)

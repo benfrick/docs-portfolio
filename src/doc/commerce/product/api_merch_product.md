@@ -45,7 +45,9 @@ toc:
 
 # MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 10/01/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 10/01/2018
+
+---
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
 
@@ -2338,6 +2340,6 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 
 [NDe Docs Home](/index.html)
 
-[Get Started](/doc/portal/get-started.html)
+[Get Started](/doc/getting-started/get-started.html)
 
 [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products)

@@ -2,7 +2,7 @@
 category: use-case
 position: 8
 title: UX Foundation
-url: /portal/overview-uxf.html
+url: /doc/commerce/uxf/overview-uxf.html
 ---
 
 # UX Foundation Overview
@@ -13,7 +13,7 @@ UX Foundation offers products that solve common problems for hosted user experie
 
 <br>
 
-<a href="https://tourguide.prod.commerce.nikecloud.com/" target="_blank"><img src="../../images/uxf/tour-guide.png">
+<a href="https://tourguide.prod.commerce.nikecloud.com/" target="_blank"><img src="../../../images/uxf/tour-guide.png">
 
 ### Products
 

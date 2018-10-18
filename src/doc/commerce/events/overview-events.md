@@ -46,7 +46,7 @@ Want to know what your users are up to? Step through the Use Cases below to inco
 </html>
             
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
-* [Glossary:](/doc/getting-started/glossary.html) Common terms explained.
+* [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 * [Using Nike APIs:](/doc/getting-started/using_nike_apis.html) Discover common NDe API features, standards, conventions, and other helpful info.
 
 ### Connect

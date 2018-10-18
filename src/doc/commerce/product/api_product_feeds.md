@@ -31,11 +31,11 @@ toc:
 
 # PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 08/13/2018<br>Submit Feedback: Dev Portal Slack channel <a href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J">#devportal</a>
+##### Last Updated: 08/13/2018
 
 ---
 
-If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Product Feeds Overview](/doc/portal/overview-product-feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
 
 ## <a name="api-at-a-glance"></a>API at a Glance
 
@@ -2055,7 +2055,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ## <a name="glossary"></a>Glossary
 
-See the [Glossary](/doc/getting-started/glossary.html).
+See the [Glossary](/doc/commerce/reference/glossary.html).
 
 ## <a name="document-change-log"></a>Document Change Log
 
@@ -2077,4 +2077,4 @@ See the [Glossary](/doc/getting-started/glossary.html).
 
 [NDe Docs Home](/index.html)
 
-[Get Started](/doc/portal/get-started.html)
+[Get Started](/doc/getting-started/get-started.html)

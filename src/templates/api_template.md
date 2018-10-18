@@ -20,7 +20,7 @@ SME Consultants:
 
 # {API NAME} API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
-###### Last Updated: MM/DD/YYYY<br>Submit Feedback: API Doc Slack channel <a href="https://nikedigital.slack.com/messages/nde-doc" target="_blank">#nde-doc</a>
+##### MM/DD/YYYY
 
 ---
 
@@ -271,7 +271,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 * What are the terms and concepts used in this API that are not common? Add them to the master glossary at the link below.
 -->
 
-See the [Glossary](/doc/getting-started/glossary.html)
+See the [Glossary](/doc/commerce/reference/glossary.html)
 
 ## <a name="release-notes"></a>Release Notes
 <!--
@@ -288,4 +288,4 @@ See the [Glossary](/doc/getting-started/glossary.html)
 
 [NDe Docs Home](/index.html)
 
-[Get Started](/doc/portal/get-started.html)
+[Get Started](/doc/getting-started/get-started.html)
