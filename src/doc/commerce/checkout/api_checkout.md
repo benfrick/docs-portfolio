@@ -39,6 +39,8 @@ toc:
 
 ##### Last Updated: 10/01/2018
 
+---
+
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and the [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
 ## <a name="api-at-a-glance"></a>API at a Glance

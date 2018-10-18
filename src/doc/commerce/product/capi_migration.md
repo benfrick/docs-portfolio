@@ -21,10 +21,9 @@ toc:
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide
 
----
-
 ##### Last Updated: 10/11/2018
 
+---
 
 > The CAPI API is in KLO. No feature requests or enhancements are being accepted. If CAPI does not provide the data or functionality you require, migrate to the appropriate Cloud services.
 

@@ -5,6 +5,8 @@
 
 ##### Last Updated: 04/19/2018
 
+---
+
 ![](/images/commerce/reference/product_life_cycle.png)
 
 ## Where Product Data Comes From

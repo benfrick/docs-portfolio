@@ -5,6 +5,8 @@
 
 ##### Last Updated: 06/05/2018
 
+---
+
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
 
 - [Countries, Languages and Currencies](#countries-languages-and-currencies)
