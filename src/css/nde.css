@@ -13,9 +13,8 @@ body {
 h1 {
     font-weight: bold;
     letter-spacing: .5px;
-    font-size: 40px;
+    font-size: 2.8em;
     text-transform: uppercase;
-    color: #000000;
 }
 h2,h3,h4,h5,h6 {
     font-weight: bold;
@@ -235,7 +234,6 @@ aside {
      float: right;
 }
 aside.note {
-    list-style:
     margin-top: 0;
     border-radius: 5px;
     border: 1px solid #f0f4f7;
@@ -271,6 +269,15 @@ aside.button i {
 .group-header h4 {
     padding: 5px;
 }
+.tile-sm {
+    padding: 10px;
+    background: #F4F4F4;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 5px;
+    border-radius: 10px;
+}
 .tile-med {
     padding: 5px;
     height: 180px;
@@ -279,32 +286,13 @@ aside.button i {
     margin: 5px;
     border-radius: 10px;
 }
-.tile-med ul {
+.tile-sm ul, .tile-med ul {
     list-style: none;
     padding: 5px;
 }
-.tile-med i {
+.tile-sm i, .tile-med i {
     padding: 5px;
 }
-.tile-med li h5 {
-    line-height: 0.3;
-}
-.tile-sm {
-    padding: 10px;
-    background: #F4F4F4;
-    height: 150px;
-    width: 150px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin:5px;
-    border-radius:10px;
-}
-.tile-sm ul {
-    list-style:none;
-    padding: 5px;
-}
-.tile-sm i {
-    padding: 5px
-}
-.tile-sm li h5 {
+.tile-sm li h5, .tile-med li h5 {
     line-height: 0.3;
 }
