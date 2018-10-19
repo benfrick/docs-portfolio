@@ -6,9 +6,8 @@
 ---
 
 Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase Nike products and make them available for purchase. But how is all that visual content pulled together? It's done with <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds</a> and you can use it, too.
-<html>
+
 <aside class="button"><a href="/doc/commerce/product/api_product_feeds.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
-</html>
 
 #### Use Product Feeds to tell amazing Nike stories with digital product data and authored content.
 
@@ -27,9 +26,9 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
 |<i class="g72-check"></i>&nbsp;&nbsp;[Get a specific thread by its ID.](/doc/commerce/product/api_product_feeds.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Product Grid Wall: Get product threads along with related 'rollup' threads.](/doc/commerce/product/api_product_feeds.html)|
 
-<html>
+
 <h3>Related Information</h3>
-    <aside class="note">
+<aside class="note">
     <h5>APIs:</h5>
     <ul>
         <li>
@@ -37,7 +36,6 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
         </li>
     </ul>
 </aside>
-</html>
 
 * [Rollup Threads Developer's Guide:](/doc/commerce/product/api_rollup_threads.html) Need your Product Threads rolled up? Read this developer's guide.    
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.

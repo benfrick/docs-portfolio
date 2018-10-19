@@ -7,9 +7,7 @@
 
 Learn how to use [Cart and Checkout](/doc/commerce/checkout/api_checkout.html), our solution to allow customers to purchase Nike products and services.
 
-<html>
 <aside class="button"><a href="/doc/commerce/checkout/api_checkout.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
-</html>
 
 ### Nike Checkout gives customers fast and easy access to make purchases
 
@@ -34,7 +32,6 @@ Your customer finds a Nike a product they love in your app. What happens next? S
 |<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html)|
 
-<html>
 <h3>Related Information</h3>
 <aside class="note">
 <h5>APIs</h5>
@@ -56,8 +53,6 @@ Your customer finds a Nike a product they love in your app. What happens next? S
     </li>
 </ul>
 </aside>
-</html>
-
 
 * [Supported Countries and Currencies:](/doc/commerce/checkout/checkout_country_currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart and Checkout.
                 

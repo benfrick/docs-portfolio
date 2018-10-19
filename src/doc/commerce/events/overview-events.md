@@ -7,9 +7,7 @@
 
 Learn how to use <a href="/doc/commerce/events/api_eventsv2.html">Analytics Pipeline</a>, your single destination to record analytics events.
 
-<html>
 <aside class="button"><a href="/doc/commerce/events/api_eventsv2.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
-</html>
 
 #### Track consumer and application behavior
 
@@ -33,9 +31,8 @@ Want to know what your users are up to? Step through the Use Cases below to inco
 |<i class="g72-check"></i>&nbsp;&nbsp;[Track the success of new features (A/B testing)](/doc/commerce/events/api_eventsv2.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Alert on traffic anomalies](/doc/commerce/events/api_eventsv2.html)|
 
-<html>
 <h3>Related Information</h3>
-    <aside class="note">
+<aside class="note">
     <h5>APIs:</h5>
     <ul>
         <li>
@@ -43,7 +40,6 @@ Want to know what your users are up to? Step through the Use Cases below to inco
         </li>
     </ul>
 </aside>
-</html>
             
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.

@@ -11,7 +11,7 @@ url: /doc/portal/community.html
 
 Learn what is going on around NDe and discover what this dynamic development community has to offer.
 
-<html>
+
 <div class="ncss-container" style="max-width:800px;padding-top:10px;">
     <div class="ncss-row" style="padding-top:10px;">
        <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
