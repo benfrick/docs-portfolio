@@ -35,7 +35,7 @@ toc:
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Analytics Pipeline Overview](/doc/commerce/events/overview-events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
 
-## <a name="api-at-a-glance"></a>API at a Glance
+## API at a Glance
 
 The <b>Analytics Pipeline v2 API</b> is your single destination to record analytics events, helping both user experiences and web services to track consumer and application behavior.
 
@@ -75,17 +75,17 @@ Segment is an analytics API and customer data platform which Nike utilizes. As y
 
 Reach out to the Analytics API Product Owner, [Randy Davis](mailto:randall.davis@nike.com), for information on the analytics opportunities available via Segment.
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 
 - Clients must not use analytics data collected with the Analytics Pipeline v2 API for sales, revenue, or available inventory data.
 - High usage from a single IP address may be flagged by Nike bot detection and blocked.
 - This API is not intended for application monitoring, logging, or reporting on server-side errors.
 
-### <a name="authorization"></a>Authorization
+### Authorization
 
 No authentication or authorization is required to use the Analytics Pipeline v2 API.
 
-## <a name="use-cases"></a>Use Cases
+## Use Cases
 
 With the Analytics Pipeline v2 API you can track:
 
@@ -117,7 +117,7 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 <br>
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.
 
@@ -127,7 +127,7 @@ For more information about each service and to try them out though the UI, visit
 |---|---|---|
 |<a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a>|/measure/uxevents/v1|POST|
 
-## <a name="making-your-first-api-request"></a>Making Your First API Request
+## Making Your First API Request
 
 For your first Analytics Pipeline v2 API request, send an event that corresponds to a user clicking 'Change Billing Country' in the context of completing checkout in a web app.
 
@@ -268,7 +268,7 @@ The responses from the Analytics Pipeline v2 API are simple to parse. If the eve
 
 If you receive any other response than this, something went wrong. See the [Response Body](#response-body) section for info on error responses.
 
-## <a name="using-analytics-v2-pipeline"></a>Using Analytics v2 Pipeline
+## Using Analytics v2 Pipeline
 
 - [Analytics Pipeline Overview](#analytics-pipeline-overview)
 - [Endpoint Details](#endpoint-details)
@@ -277,27 +277,27 @@ If you receive any other response than this, something went wrong. See the [Resp
 - [Request Body](#request-body)
 - [Response Body](#response-body)
 
-### <a name="analytics-pipeline-overview"></a>Analytics Pipeline Overview
+### Analytics Pipeline Overview
 
 Use the Analytics Pipeline v2 API as a single destination for tracking your user experience, service, or application events.
 
-### <a name="endpoint-details"></a>Endpoint Details
+### Endpoint Details
 
 |HTTP Method|URI Path|Restricted?|
 |---|---|---|
 |**POST**|`/measure/uxevents/v1`|No|
 
-### <a name="path--query-parameters"></a>Path & Query Parameters
+### Path & Query Parameters
 
 There are no path nor query parameters to be used with the Analytics Pipeline v2 API.
 
-### <a name="request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Content-Type**|Content type of the request, **application/json** is only value allowed|Required|
 
-### <a name="request-body"></a>Request Body
+### Request Body
 
 Forming a request body to the Analytics Pipeline v2 API requires combining the following schema information:
 
@@ -1269,7 +1269,7 @@ N/A
 }
 ```
 
-### <a name="response-body"></a>Response Body
+### Response Body
 
 |Element Name|Description|Required?|
 |---|---|---|
@@ -1342,11 +1342,11 @@ Scenario: the API is having an issue taking the request.
 
 ---
 
-## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
+## Upgrading to the Latest Version
 
 If you are currently using version 1 of this API and need information for upgrading, see the [Analytics Pipeline v1 Developer's Guide](/doc/commerce/events/api_events.html).
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 Listed below are ways to troubleshoot unexpected responses using this API.
 
@@ -1356,11 +1356,11 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 2. Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 See the [Glossary](/doc/commerce/reference/glossary.html)
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
@@ -1368,7 +1368,7 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 |Updated external links|04/03/2018|Updated external links to open in new browser window|
 |Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

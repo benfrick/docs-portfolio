@@ -25,7 +25,7 @@
 
 <p>If you’ve read <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and the <a href="/doc/commerce/checkout/overview-checkout.html">Cart &amp; Checkout Overview</a>, this guide provides the additional details necessary to integrate with the Buy Domain APIs.</p>
 
-<h2 id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</h2>
+<h2 id="api-at-a-glance">API at a Glance</h2>
 
 <table>
   <thead>
@@ -70,11 +70,11 @@
   <p><strong>TIP:</strong> SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second <em>for the API overall</em> were shown. Ask the Product Owner to get specific SLA info for each endpoint.</p>
 </blockquote>
 
-<h2 id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</h2>
+<h2 id="terms-of-service">Terms of Service</h2>
 
 <p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the <a href="/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
 
-<h3 id="authentication"><a name="authentication"></a>Authentication</h3>
+<h3 id="authentication">Authentication</h3>
 
 <h4 id="access-tokens">Access Tokens</h4>
 
@@ -88,7 +88,7 @@
 
 <p>Only one endpoint in the Buy APIs, <em>Launch Checkout Submit</em>, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of <a href="/doc/getting-started/using_nike_apis.html#jwt-json-web-token">Using NDe APIs</a>.</p>
 
-<h2 id="use-cases"><a name="use-cases"></a>Use Cases</h2>
+<h2 id="use-cases">Use Cases</h2>
 
 <table>
   <thead>
@@ -129,7 +129,7 @@
   </tbody>
 </table>
 
-<h3 id="example-implementation-diagram"><a name="example-implementation-diagram"></a>Example Implementation Diagram</h3>
+<h3 id="example-implementation-diagram">Example Implementation Diagram</h3>
 
 <p>Here is an example of a sequence of API calls to execute an entire checkout:</p>
 
@@ -200,7 +200,7 @@
   <p><strong>TIP:</strong> For more, see the Idempotence Guarantee section of the <a href="/doc/getting-started/using_nike_apis.html#idempotence-guarantee">Using NDe APIs</a> guide.</p>
 </blockquote>
 
-<h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+<h2 id="api-endpoint-quick-reference">API Endpoint Quick Reference</h2>
 
 <table>
   <thead>
@@ -395,7 +395,7 @@
   </tbody>
 </table>
 
-<h2 id="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making Your First API Request</h2>
+<h2 id="making-your-first-api-request">Making Your First API Request</h2>
 
 <p>For your first API request, send a request to the <em>Create or Update a Cart by Cart ID</em> endpoint of the Carts v2 API and create your first cart.</p>
 
@@ -556,7 +556,7 @@ Authorization: Bearer {your access token}
 
 <p>The response body from the <em>Get a Cart for a Cart ID</em> endpoint is the same as <em>Create or Update a Cart by Cart ID</em>, so the process of parsing it is also the same.</p>
 
-<h2 id="using-carts-v1"><a name="using-carts-v1"></a>Using Carts v1</h2>
+<h2 id="using-carts-v1">Using Carts v1</h2>
 
 <p><strong>NOTE: Carts v1 has been replaced with Carts v2 and will be deprecated. Use Carts v2 for any new integrations. For more info, see the <a href="#using-carts-v2">Using Carts v2</a> section of this document.</strong></p>
 
@@ -581,7 +581,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<h3 id="carts-v1-overview"><a name="carts-v1-overview"></a>Carts v1 Overview</h3>
+<h3 id="carts-v1-overview">Carts v1 Overview</h3>
 
 <p>In e-commerce, the cart (also called basket or bag) allows customers to collect and compare items that they are considering for purchase before starting the checkout process. At Nike, a cart contains items, quantities, and associated value-added services (if any).</p>
 
@@ -625,7 +625,7 @@ Authorization: Bearer {your access token}
 
 <p>The following sections describe each endpoint of the Carts API in detail:</p>
 
-<h3 id="create-or-update-a-cart"><a name="create-or-update-a-cart"></a>Create or Update a Cart</h3>
+<h3 id="create-or-update-a-cart">Create or Update a Cart</h3>
 
 <p>Create a cart by executing an HTTP PUT request with a cart ID in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format <strong>that you have generated</strong>. Update a cart with PUT request using an existing cart ID.</p>
 
@@ -682,7 +682,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers"><a name="cart-put-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -732,7 +732,7 @@ Authorization: Bearer {your access token}
   <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
 </blockquote>
 
-<h4 id="request-body"><a name="cart-put-request-body"></a>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 
 <table>
   <thead>
@@ -862,7 +862,7 @@ Authorization: Bearer {your access token}
    }
 </code></pre></div></div>
 
-<h4 id="response-body"><a name="cart-put-response-body"></a>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 
 <p>Sample <em>Create or Update Cart</em> response body without errors:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
@@ -905,7 +905,7 @@ Authorization: Bearer {your access token}
 
 <p>Some of the values in the response are exactly as sent in the request, but the values in the <strong>totals</strong> section provides a cart pricing summary and the <strong>priceInfo</strong> section provides the latest item pricing details.</p>
 
-<h3 id="retrieve-carts-by-id"><a name="retrieve-carts-by-id"></a>Retrieve Carts by ID</h3>
+<h3 id="retrieve-carts-by-id">Retrieve Carts by ID</h3>
 
 <p>Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format) that <strong>you previously created</strong>. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.</p>
 
@@ -962,7 +962,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-1"><a name="cart-get1-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-1">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -1008,15 +1008,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-1"><a name="cart-get1-request-body"></a>Request Body</h4>
+<h4 id="request-body-1">Request Body</h4>
 
 <p>There is no body on a GET request.</p>
 
-<h4 id="response-body-1"><a name="cart-get1-response-body"></a>Response Body</h4>
+<h4 id="response-body-1">Response Body</h4>
 
 <p>See the response body from the <em>Create or Update Cart</em> endpoint as it is the same as this endpoint.</p>
 
-<h3 id="retrieve-carts-by-filter"><a name="retrieve-carts-by-filter"></a>Retrieve Carts by Filter</h3>
+<h3 id="retrieve-carts-by-filter">Retrieve Carts by Filter</h3>
 
 <p>Retrieve a user’s cart(s) by country, brand, and (optionally) channel. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.</p>
 
@@ -1069,7 +1069,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-2"><a name="cart-get2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-2">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -1115,15 +1115,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-2"><a name="cart-get2-request-body"></a>Request Body</h4>
+<h4 id="request-body-2">Request Body</h4>
 
 <p>There is no body on a GET request.</p>
 
-<h4 id="response-body-2"><a name="cart-get2-response-body"></a>Response Body</h4>
+<h4 id="response-body-2">Response Body</h4>
 
 <p>See the response body from the <em>Create or Update Cart</em> endpoint as it is the same as this endpoint.</p>
 
-<h3 id="delete-all-items-from-a-cart"><a name="delete-all-items-from-a-cart"></a>Delete All Items From A Cart</h3>
+<h3 id="delete-all-items-from-a-cart">Delete All Items From A Cart</h3>
 
 <p>Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status (‘Not Found’).</p>
 
@@ -1173,7 +1173,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-3"><a name="cart-delete-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-3">Request Headers</h4>
 
 <table>
   <thead>
@@ -1217,15 +1217,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-3"><a name="cart-delete-request-body"></a>Request Body</h4>
+<h4 id="request-body-3">Request Body</h4>
 
 <p>There is no body on a DELETE request.</p>
 
-<h4 id="response-body-3"><a name="cart-delete-response-body"></a>Response Body</h4>
+<h4 id="response-body-3">Response Body</h4>
 
 <p>The HTTP 204 response (successful delete) returns an empty response body.</p>
 
-<h3 id="carts-v1-error-handling"><a name="carts-v1-error-handling"></a>Carts v1 Error Handling</h3>
+<h3 id="carts-v1-error-handling">Carts v1 Error Handling</h3>
 
 <p>Following is a summary of the errors and warnings that can come back in responses from the Carts API:</p>
 
@@ -1383,7 +1383,7 @@ Authorization: Bearer {your access token}
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#!/Cart_Operations/get_buy_carts_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 <hr />
 
-<h2 id="using-carts-v2"><a name="using-carts-v2"></a>Using Carts v2</h2>
+<h2 id="using-carts-v2">Using Carts v2</h2>
 
 <ul>
   <li>
@@ -1421,11 +1421,11 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<h3 id="carts-v2-overview"><a name="carts-v2-overview"></a>Carts v2 Overview</h3>
+<h3 id="carts-v2-overview">Carts v2 Overview</h3>
 
 <p>Manage a user’s shopping cart by either the cart ID or by a set of filter criteria.</p>
 
-<h3 id="create-or-update-a-cart-by-cart-id"><a name="create-or-update-a-cart-by-cart-id"></a>Create or Update a Cart by Cart ID</h3>
+<h3 id="create-or-update-a-cart-by-cart-id">Create or Update a Cart by Cart ID</h3>
 
 <p>Create a cart by executing an HTTP PUT request with a cart ID that you have generated. Update a cart with a PUT request using an existing cart ID.</p>
 
@@ -1471,7 +1471,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-4"><a name="cart-put-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-4">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -1535,7 +1535,7 @@ Authorization: Bearer {your access token}
   <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
 </blockquote>
 
-<h4 id="request-body-4"><a name="cart-put-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-4">Request Body</h4>
 
 <table>
   <thead>
@@ -1804,7 +1804,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h4 id="response-body-4"><a name="cart-put-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-4">Response Body</h4>
 
 <p>Some of the values in the response are exactly as sent in the request, but the values in the <strong>totals</strong> section provides a cart pricing summary and the <strong>priceInfo</strong> section provides the latest item pricing details.</p>
 
@@ -2321,7 +2321,7 @@ Authorization: Bearer {your access token}
   <p><strong>TIP:</strong> Prices and subtotals are recalculated and returned in the response to each call.</p>
 </blockquote>
 
-<h3 id="modify-a-cart-by-cart-id"><a name="modify-a-cart-by-cart-id"></a>Modify a Cart by Cart ID</h3>
+<h3 id="modify-a-cart-by-cart-id">Modify a Cart by Cart ID</h3>
 
 <p>Create or update a cart by executing a HTTP PATCH request with a Cart ID. Add or remove a line item or promotion code from a user’s cart, or to create or replace the entire cart contents.</p>
 
@@ -2367,7 +2367,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-5"><a name="cart-patch-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-5">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -2427,7 +2427,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-5"><a name="cart-patch-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-5">Request Body</h4>
 
 <p>The request must contain at least <strong>ONE OF</strong> the following schemas:</p>
 
@@ -2619,7 +2619,7 @@ Authorization: Bearer {your access token}
 ]
 </code></pre></div></div>
 
-<h4 id="response-body-5"><a name="cart-patch-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-5">Response Body</h4>
 
 <p>Some of the values in the response are exactly as sent in the request, but the values in the <strong>totals</strong> section provides a cart pricing summary and the <strong>priceInfo</strong> section provides the latest item pricing details.</p>
 
@@ -2678,7 +2678,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="delete-all-items-from-a-cart-by-cart-id"><a name="delete-all-items-from-a-cart-by-cart-id"></a>Delete All Items from a Cart by Cart ID</h3>
+<h3 id="delete-all-items-from-a-cart-by-cart-id">Delete All Items from a Cart by Cart ID</h3>
 
 <p>Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status (‘Not Found’).</p>
 
@@ -2728,7 +2728,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-6"><a name="cart-delete-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-6">Request Headers</h4>
 
 <table>
   <thead>
@@ -2786,15 +2786,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-6"><a name="cart-delete-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-6">Request Body</h4>
 
 <p>There is no body on a DELETE request.</p>
 
-<h4 id="response-body-6"><a name="cart-delete-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-6">Response Body</h4>
 
 <p>The HTTP 204 response (successful delete) returns an empty response body.</p>
 
-<h3 id="get-a-cart-by-cart-id"><a name="get-a-cart-by-cart-id"></a>Get a Cart by Cart ID</h3>
+<h3 id="get-a-cart-by-cart-id">Get a Cart by Cart ID</h3>
 
 <p>Get the details of a cart using the Cart ID. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals.</p>
 
@@ -2840,7 +2840,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-7"><a name="cart-get-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-7">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -2900,15 +2900,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-7"><a name="cart-get-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-7">Request Body</h4>
 
 <p>There is no body on a GET request.</p>
 
-<h4 id="response-body-7"><a name="cart-get-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-7">Response Body</h4>
 
 <p>See the response body from the <a href="#cart-put-v2-response-body"><em>Create or Update Cart by Cart ID</em> endpoint</a> as it is the same for this endpoint.</p>
 
-<h3 id="get-a-cart-by-filter-criteria-query-param"><a name="get-a-cart-by-filter-criteria-query-param"></a>Get a Cart by Filter Criteria (Query Param)</h3>
+<h3 id="get-a-cart-by-filter-criteria-query-param">Get a Cart by Filter Criteria (Query Param)</h3>
 
 <p>Retrieve a user’s cart by <strong>country</strong>, <strong>brand</strong>, and (optionally) <strong>channel</strong> values sent as <code class="highlighter-rouge">?filter</code> query parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.</p>
 
@@ -2958,7 +2958,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-8"><a name="cart-get2-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-8">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -3018,15 +3018,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-8"><a name="cart-get2-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-8">Request Body</h4>
 
 <p>There is no body on a GET request.</p>
 
-<h4 id="response-body-8"><a name="cart-get2-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-8">Response Body</h4>
 
 <p>See the response body from the <a href="#cart-put-v2-response-body"><em>Create or Update Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h3 id="create-or-update-a-cart-by-filter-criteria"><a name="create-or-update-a-cart-by-filter-criteria"></a>Create or Update a Cart by Filter Criteria</h3>
+<h3 id="create-or-update-a-cart-by-filter-criteria">Create or Update a Cart by Filter Criteria</h3>
 
 <p>Create or update a cart by executing an HTTP PUT request with country, brand, and (optionally) channel path parameters included. The format of each cart in the HTTP 200 response is the same as doing a PUT by Cart ID.</p>
 
@@ -3086,19 +3086,19 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-9"><a name="cart-put2-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-9">Request Headers</h4>
 
 <p>See the required request headers of the <a href="#cart-put-v2-request-headers"><em>Create or Update a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h4 id="request-body-9"><a name="cart-put2-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-9">Request Body</h4>
 
 <p>See the request body format and sample request of the <a href="#cart-put-v2-request-body"><em>Create or Update a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h4 id="response-body-9"><a name="cart-put2-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-9">Response Body</h4>
 
 <p>See the response body format and sample response of the <a href="#cart-put-v2-response-body"><em>Create or Update a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h3 id="modify-a-cart-by-filter-criteria"><a name="modify-a-cart-by-filter-criteria"></a>Modify a Cart by Filter Criteria</h3>
+<h3 id="modify-a-cart-by-filter-criteria">Modify a Cart by Filter Criteria</h3>
 
 <p>Create or update a cart by executing an HTTP PUT request with country, brand, and (optionally) channel path parameters included. The format of each cart in the HTTP 200 response is the same as doing a PUT by Cart ID.</p>
 
@@ -3158,19 +3158,19 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-10"><a name="cart-patch2-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-10">Request Headers</h4>
 
 <p>See the required request headers of the <a href="#cart-patch-v2-request-headers"><em>Modify a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h4 id="request-body-10"><a name="cart-patch2-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-10">Request Body</h4>
 
 <p>See the request body format and sample request of the <a href="#cart-patch-v2-request-body"><em>Modify a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h4 id="response-body-10"><a name="cart-patch2-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-10">Response Body</h4>
 
 <p>See the response body format and sample response of the <a href="#cart-patch-v2-response-body"><em>Modify a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h3 id="get-a-cart-by-filter-criteria-path-param"><a name="get-a-cart-by-filter-criteria-path-param"></a>Get a Cart by Filter Criteria (Path Param)</h3>
+<h3 id="get-a-cart-by-filter-criteria-path-param">Get a Cart by Filter Criteria (Path Param)</h3>
 
 <p>Retrieve a user’s cart by <strong>country</strong>, <strong>brand</strong>, and (optionally) <strong>channel</strong> values sent as path parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.</p>
 
@@ -3230,7 +3230,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-11"><a name="cart-get2-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-11">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -3290,15 +3290,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-11"><a name="cart-get2-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-11">Request Body</h4>
 
 <p>There is no body on a GET request.</p>
 
-<h4 id="response-body-11"><a name="cart-get2-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-11">Response Body</h4>
 
 <p>See the response body from the <a href="#cart-put-v2-response-body"><em>Create or Update Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
-<h3 id="delete-all-items-from-a-cart-by-filter-criteria"><a name="delete-all-items-from-a-cart-by-filter-criteria"></a>Delete All Items from a Cart by Filter Criteria</h3>
+<h3 id="delete-all-items-from-a-cart-by-filter-criteria">Delete All Items from a Cart by Filter Criteria</h3>
 
 <p>Delete all items in a cart by <strong>country</strong>, <strong>brand</strong>, and (optionally) <strong>channel</strong> values sent as path parameters and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status (‘Not Found’).</p>
 
@@ -3348,7 +3348,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-12"><a name="cart-delete-v2-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-12">Request Headers</h4>
 
 <table>
   <thead>
@@ -3406,15 +3406,15 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-12"><a name="cart-delete-v2-request-body"></a>Request Body</h4>
+<h4 id="request-body-12">Request Body</h4>
 
 <p>There is no body on a DELETE request.</p>
 
-<h4 id="response-body-12"><a name="cart-delete-v2-response-body"></a>Response Body</h4>
+<h4 id="response-body-12">Response Body</h4>
 
 <p>The HTTP 204 response (successful delete) returns an empty response body.</p>
 
-<h3 id="carts-v2-error-handling"><a name="carts-v2-error-handling"></a>Carts v2 Error Handling</h3>
+<h3 id="carts-v2-error-handling">Carts v2 Error Handling</h3>
 
 <p>Following is a summary of the errors and warnings that can come back in responses from the Carts v2 API:</p>
 
@@ -3622,7 +3622,7 @@ Authorization: Bearer {your access token}
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md?raw" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 <hr />
 
-<h2 id="using-cart-reviews"><a name="using-cart-reviews"></a>Using Cart Reviews</h2>
+<h2 id="using-cart-reviews">Using Cart Reviews</h2>
 
 <ul>
   <li>
@@ -3636,7 +3636,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<h3 id="cart-reviews-overview"><a name="cart-reviews-overview"></a>Cart Reviews Overview</h3>
+<h3 id="cart-reviews-overview">Cart Reviews Overview</h3>
 
 <p>After the customer has provided a shipping address and chosen a shipping method, use this service to retrieve an enhanced cart summary before the customer proceeds to the checkout process. Use the Cart Reviews API in conjunction with the Carts API to achieve this.</p>
 
@@ -3681,7 +3681,7 @@ Authorization: Bearer {your access token}
 
 <p>The following section describes the endpoint of the Cart Reviews API in detail:</p>
 
-<h3 id="augment-a-cart"><a name="augment-a-cart"></a>Augment a Cart</h3>
+<h3 id="augment-a-cart">Augment a Cart</h3>
 
 <h4 id="endpoint-details-13">Endpoint Details</h4>
 
@@ -3725,7 +3725,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-13"><a name="cart-augment-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-13">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -3771,7 +3771,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-13"><a name="cart-augment-request-body"></a>Request Body</h4>
+<h4 id="request-body-13">Request Body</h4>
 
 <table>
   <thead>
@@ -3947,7 +3947,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h4 id="response-body-13"><a name="cart-augment-response-body"></a>Response Body</h4>
+<h4 id="response-body-13">Response Body</h4>
 
 <p>Sample <em>Cart Reviews</em> response body:</p>
 
@@ -4053,7 +4053,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="cart-reviews-error-handling"><a name="cart-reviews-error-handling"></a>Cart Reviews Error Handling</h3>
+<h3 id="cart-reviews-error-handling">Cart Reviews Error Handling</h3>
 
 <p>Following is a summary of the errors and warnings that can come back in responses from the Cart Reviews API:</p>
 
@@ -4236,7 +4236,7 @@ Authorization: Bearer {your access token}
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#!/Cart_Reviews/post_buy_cart_reviews_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 <hr />
 
-<h2 id="using-wish-lists"><a name="using-wish-lists"></a>Using Wish Lists</h2>
+<h2 id="using-wish-lists">Using Wish Lists</h2>
 
 <p>Manage a Nike member/employee’s Wish Lists using the Wish Lists API.</p>
 
@@ -4270,7 +4270,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<h3 id="wish-lists-overview"><a name="wish-lists-overview"></a>Wish Lists Overview</h3>
+<h3 id="wish-lists-overview">Wish Lists Overview</h3>
 
 <p>The Wish Lists API allows Nike members and employees to save lists of products to consider for purchase.</p>
 
@@ -4288,7 +4288,7 @@ Authorization: Bearer {your access token}
 
 <p><img src="/images/commerce/buy/wishlists_flow.png" alt="" /></p>
 
-<h3 id="create-or-update-a-list"><a name="create-or-update-a-list"></a>Create or Update a List</h3>
+<h3 id="create-or-update-a-list">Create or Update a List</h3>
 
 <p>Create or update header-level information for a Wish List using this endpoint.</p>
 
@@ -4351,7 +4351,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-14"><a name="create-list-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-14">Request Headers</h4>
 
 <table>
   <thead>
@@ -4372,7 +4372,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-14"><a name="create-list-request-body"></a>Request Body</h4>
+<h4 id="request-body-14">Request Body</h4>
 
 <table>
   <thead>
@@ -4443,7 +4443,7 @@ Authorization: Bearer {your access token}
 
 </code></pre></div></div>
 
-<h4 id="response-body-14"><a name="create-list-response-body"></a>Response Body</h4>
+<h4 id="response-body-14">Response Body</h4>
 
 <table>
   <thead>
@@ -4557,7 +4557,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="delete-a-list"><a name="delete-a-list"></a>Delete a List</h3>
+<h3 id="delete-a-list">Delete a List</h3>
 
 <p>Delete a Wish List using this endpoint. Note that <strong>all</strong> of the items on the list will be removed.</p>
 
@@ -4603,7 +4603,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-15"><a name="delete-list-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-15">Request Headers</h4>
 
 <table>
   <thead>
@@ -4624,7 +4624,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-15"><a name="delete-list-request-body"></a>Request Body</h4>
+<h4 id="request-body-15">Request Body</h4>
 
 <p>There is no request body for a DELETE request.</p>
 
@@ -4632,11 +4632,11 @@ Authorization: Bearer {your access token}
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
-<h4 id="response-body-15"><a name="delete-list-response-body"></a>Response Body</h4>
+<h4 id="response-body-15">Response Body</h4>
 
 <p>There is no response body for a successful HTTP response to a DELETE request.</p>
 
-<h3 id="retrieve-a-list-by-id"><a name="retrieve-a-list-by-id"></a>Retrieve a List by ID</h3>
+<h3 id="retrieve-a-list-by-id">Retrieve a List by ID</h3>
 
 <p>Call this endpoint to retrieve header info for a single list using the list identifier that you previously created. The list items are <strong>not</strong> included in the response. To get the list items, separately call the <em>Retrieve Items by List</em> endpoint with the appropriate list identifier.</p>
 
@@ -4689,7 +4689,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-16"><a name="retrieve-id-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-16">Request Headers</h4>
 
 <table>
   <thead>
@@ -4710,7 +4710,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-16"><a name="retrieve-id-request-body"></a>Request Body</h4>
+<h4 id="request-body-16">Request Body</h4>
 
 <p>There is no request body on a GET request.</p>
 
@@ -4718,7 +4718,7 @@ Authorization: Bearer {your access token}
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
-<h4 id="response-body-16"><a name="retrieve-id-response-body"></a>Response Body</h4>
+<h4 id="response-body-16">Response Body</h4>
 
 <table>
   <thead>
@@ -4819,7 +4819,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="retrieve-lists-for-authenticated-user"><a name="retrieve-lists-for-authenticated-user"></a>Retrieve Lists for Authenticated User</h3>
+<h3 id="retrieve-lists-for-authenticated-user">Retrieve Lists for Authenticated User</h3>
 
 <p>Retrieve header info for all lists for a single authenticated user with this endpoint. The list items are <strong>not</strong> included in the response. To get the list items, separately call the <em>Retrieve Items by List</em> endpoint with the appropriate list identifier.</p>
 
@@ -4872,7 +4872,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-17"><a name="retrieve-auth-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-17">Request Headers</h4>
 
 <table>
   <thead>
@@ -4893,7 +4893,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-17"><a name="retrieve-auth-request-body"></a>Request Body</h4>
+<h4 id="request-body-17">Request Body</h4>
 
 <p>There is no request body on a GET request.</p>
 
@@ -4901,7 +4901,7 @@ Authorization: Bearer {your access token}
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1?filter=country(US)
 </code></pre></div></div>
 
-<h4 id="response-body-17"><a name="retrieve-auth-response-body"></a>Response Body</h4>
+<h4 id="response-body-17">Response Body</h4>
 
 <table>
   <thead>
@@ -5038,7 +5038,7 @@ Authorization: Bearer {your access token}
       }
 </code></pre></div></div>
 
-<h3 id="add-item-to-list"><a name="add-item-to-list"></a>Add Item to List</h3>
+<h3 id="add-item-to-list">Add Item to List</h3>
 
 <p>Add an item to an existing list using the list identifier and get current product pricing in the response.</p>
 
@@ -5096,7 +5096,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-18"><a name="add-item-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-18">Request Headers</h4>
 
 <table>
   <thead>
@@ -5117,7 +5117,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-18"><a name="add-item-request-body"></a>Request Body</h4>
+<h4 id="request-body-18">Request Body</h4>
 
 <table>
   <thead>
@@ -5213,7 +5213,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h4 id="response-body-18"><a name="add-item-response-body"></a>Response Body</h4>
+<h4 id="response-body-18">Response Body</h4>
 
 <table>
   <thead>
@@ -5413,7 +5413,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="remove-item-from-list"><a name="remove-item-from-list"></a>Remove Item from List</h3>
+<h3 id="remove-item-from-list">Remove Item from List</h3>
 
 <p>Delete a single item from a list using the list <strong>item</strong> identifier that you previously created, and get a HTTP 200 response if successful.</p>
 
@@ -5459,7 +5459,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-19"><a name="remove-item-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-19">Request Headers</h4>
 
 <table>
   <thead>
@@ -5480,7 +5480,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-19"><a name="remove-item-request-body"></a>Request Body</h4>
+<h4 id="request-body-19">Request Body</h4>
 
 <p>There is no request body on a DELETE request.</p>
 
@@ -5489,11 +5489,11 @@ Authorization: Bearer {your access token}
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
-<h4 id="response-body-19"><a name="remove-item-response-body"></a>Response Body</h4>
+<h4 id="response-body-19">Response Body</h4>
 
 <p>There is no response body for a successful HTTP response to a DELETE request.</p>
 
-<h3 id="retrieve-items-by-list"><a name="retrieve-items-by-list"></a>Retrieve Items by List</h3>
+<h3 id="retrieve-items-by-list">Retrieve Items by List</h3>
 
 <p>Retrieve all items in a list by its list identifier, which you previously created. Add optional filter, sort, count, or anchor criteria query parameters to further manipulate the data in the response.</p>
 
@@ -5567,7 +5567,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-20"><a name="retrieve-items-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-20">Request Headers</h4>
 
 <table>
   <thead>
@@ -5588,7 +5588,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-20"><a name="retrieve-items-request-body"></a>Request Body</h4>
+<h4 id="request-body-20">Request Body</h4>
 
 <p>There is no request body for a GET request.</p>
 
@@ -5596,7 +5596,7 @@ Authorization: Bearer {your access token}
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
 </code></pre></div></div>
 
-<h4 id="response-body-20"><a name="retrieve-items-response-body"></a>Response Body</h4>
+<h4 id="response-body-20">Response Body</h4>
 
 <table>
   <thead>
@@ -5876,7 +5876,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="retrieve-item-by-id"><a name="retrieve-item-by-id"></a>Retrieve Item by ID</h3>
+<h3 id="retrieve-item-by-id">Retrieve Item by ID</h3>
 
 <p>Retrieve a list item by the list item identifier that you previously created.</p>
 
@@ -5929,7 +5929,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-21"><a name="retrieve-id-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-21">Request Headers</h4>
 
 <table>
   <thead>
@@ -5950,7 +5950,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-21"><a name="retrieve-id-request-body"></a>Request Body</h4>
+<h4 id="request-body-21">Request Body</h4>
 
 <p>There is no request body for a GET request.</p>
 
@@ -5958,7 +5958,7 @@ Authorization: Bearer {your access token}
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
-<h4 id="response-body-21"><a name="retrieve-id-response-body"></a>Response Body</h4>
+<h4 id="response-body-21">Response Body</h4>
 
 <table>
   <thead>
@@ -6160,7 +6160,7 @@ Authorization: Bearer {your access token}
 </code></pre></div></div>
 <hr />
 
-<h2 id="using-shipping-options"><a name="using-shipping-options"></a>Using Shipping Options</h2>
+<h2 id="using-shipping-options">Using Shipping Options</h2>
 
 <ul>
   <li>
@@ -6174,7 +6174,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<h3 id="shipping-options-overview"><a name="shipping-options-overview"></a>Shipping Options Overview</h3>
+<h3 id="shipping-options-overview">Shipping Options Overview</h3>
 
 <p>Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to present to them, based on their shopping context?</p>
 
@@ -6184,7 +6184,7 @@ Authorization: Bearer {your access token}
   <p><strong>TIP:</strong> It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
 </blockquote>
 
-<h3 id="shipping-options"><a name="shipping-options"></a>Shipping Options</h3>
+<h3 id="shipping-options">Shipping Options</h3>
 
 <p>Send a request with a country code, currency code, item information and (optionally) shipping address information to this endpoint to get the list of available shipping methods, along with associated costs/taxes and estimated delivery date(s). This endpoint calculates shipping discounts such as free shipping for members.</p>
 
@@ -6207,7 +6207,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-22"><a name="shipping-options-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-22">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -6253,7 +6253,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-22"><a name="shipping-options-request-body"></a>Request Body</h4>
+<h4 id="request-body-22">Request Body</h4>
 
 <table>
   <thead>
@@ -6422,7 +6422,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h4 id="response-body-22"><a name="shipping-options-response-body"></a>Response Body</h4>
+<h4 id="response-body-22">Response Body</h4>
 
 <p>The HTTP 200 success response from <em>Shipping Options</em> reflects back many elements from the request body and also includes the following new information to the client:</p>
 
@@ -6589,7 +6589,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="shipping-options-error-handling"><a name="shipping-options-error-handling"></a>Shipping Options Error Handling</h3>
+<h3 id="shipping-options-error-handling">Shipping Options Error Handling</h3>
 
 <p>Following is a summary of the errors and warnings that can come back in responses from the Shipping Options API:</p>
 
@@ -6705,7 +6705,7 @@ Authorization: Bearer {your access token}
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#!/default/post_buy_shipping_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 <hr />
 
-<h2 id="using-checkouts"><a name="using-checkouts"></a>Using Checkouts</h2>
+<h2 id="using-checkouts">Using Checkouts</h2>
 
 <ul>
   <li>
@@ -6737,7 +6737,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<h3 id="checkouts-overview"><a name="checkouts-overview"></a>Checkouts Overview</h3>
+<h3 id="checkouts-overview">Checkouts Overview</h3>
 
 <p>The Checkouts v2 API allows you to create, validate, and submit a checkout to Nike for fulfillment. What exactly is a checkout? (Hint: it’s like an order).</p>
 
@@ -6770,7 +6770,7 @@ Authorization: Bearer {your access token}
   <p><strong>TIP:</strong> It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.</p>
 </blockquote>
 
-<h3 id="request-checkout-preview"><a name="request-checkout-preview"></a>Request Checkout Preview</h3>
+<h3 id="request-checkout-preview">Request Checkout Preview</h3>
 
 <p>The <em>Request a Checkout Preview</em> endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you’ll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.</p>
 
@@ -6832,7 +6832,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-23"><a name="checkout-preview-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-23">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -6885,7 +6885,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-23"><a name="checkout-preview-request-body"></a>Request Body</h4>
+<h4 id="request-body-23">Request Body</h4>
 
 <table>
   <thead>
@@ -7132,7 +7132,7 @@ Authorization: Bearer {your access token}
    }
 </code></pre></div></div>
 
-<h4 id="response-body-23"><a name="checkout-preview-response-body"></a>Response Body</h4>
+<h4 id="response-body-23">Response Body</h4>
 
 <p>The HTTP 202 response from <em>Request Checkout Preview</em> contains information about how to retrieve the results of your job via the ‘Retrieve Checkout Preview Job’ endpoint. Following are the descriptions of the important fields in the response body:</p>
 
@@ -7176,7 +7176,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="retrieve-checkout-preview-job"><a name="retrieve-checkout-preview-job"></a>Retrieve Checkout Preview Job</h3>
+<h3 id="retrieve-checkout-preview-job">Retrieve Checkout Preview Job</h3>
 
 <p>After calling <em>Request Checkout Preview</em> and receiving a HTTP 202 response, call <em>Retrieve Checkout Preview Job</em> using the same checkout ID to check the status of your job.</p>
 
@@ -7242,7 +7242,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-24"><a name="checkout-preview-job-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-24">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -7295,11 +7295,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-body-24"><a name="checkout-preview-job-request-body"></a>Request Body</h4>
+<h4 id="request-body-24">Request Body</h4>
 
 <p>There is no body for a GET request.</p>
 
-<h4 id="response-body-24"><a name="checkout-preview-job-response-body"></a>Response Body</h4>
+<h4 id="response-body-24">Response Body</h4>
 
 <p>For a job that is in either “PENDING” or “IN_PROGRESS” status, the response is abbreviated and only contains the following:</p>
 
@@ -7658,7 +7658,7 @@ Authorization: Bearer {your access token}
 }
 </code></pre></div></div>
 
-<h3 id="retrieve-checkout-preview-results"><a name="retrieve-checkout-preview-results"></a>Retrieve Checkout Preview Results</h3>
+<h3 id="retrieve-checkout-preview-results">Retrieve Checkout Preview Results</h3>
 
 <p>After calling both the <em>Request Checkout Preview</em> and <em>Retrieve Checkout Preview Job</em> endpoints, you can call this endpoint to retrieve the result of your Checkout Preview request. This step is optional, as the same result is already available in the response from the <em>Retrieve Checkout Submit Job</em> endpoint.</p>
 
@@ -7702,7 +7702,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h3 id="request-checkout-submit"><a name="request-checkout-submit"></a>Request Checkout Submit</h3>
+<h3 id="request-checkout-submit">Request Checkout Submit</h3>
 
 <p>Call the <em>Request Checkout Submit</em> endpoint when your user is ready to complete their purchase.</p>
 
@@ -7767,7 +7767,7 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h4 id="request-headers-25"><a name="checkout-submit-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-25">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -7871,7 +7871,7 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h4 id="request-body-25"><a name="checkout-submit-request-body"></a>Request Body</h4>
+<h4 id="request-body-25">Request Body</h4>
 
 <p>Required parts of the request body:</p>
 
@@ -8032,7 +8032,7 @@ guide to learn more.</p>
    }
 </code></pre></div></div>
 
-<h4 id="response-body-25"><a name="checkout-submit-response-body"></a>Response Body</h4>
+<h4 id="response-body-25">Response Body</h4>
 
 <p>The HTTP 202 response from <em>Request Checkout Submit</em> contains information about how to retrieve the results of your job from the <em>Retrieve Checkout Submit Job</em> endpoint. Following are descriptions of the important fields in the response body:</p>
 
@@ -8142,7 +8142,7 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h4 id="request-headers-26"><a name="checkout-submit-job-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-26">Request Headers</h4>
 
 <p>Required request headers:</p>
 
@@ -8195,11 +8195,11 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h4 id="request-body-26"><a name="checkout-submit-job-request-body"></a>Request Body</h4>
+<h4 id="request-body-26">Request Body</h4>
 
 <p>There is no body for a GET request.</p>
 
-<h4 id="response-body-26"><a name="checkout-submit-job-response-body"></a>Response Body</h4>
+<h4 id="response-body-26">Response Body</h4>
 
 <p>For a job that is in either “PENDING” or “IN_PROGRESS” status, the response is abbreviated and only contains the following:</p>
 
@@ -8612,7 +8612,7 @@ guide to learn more.</p>
 }
 </code></pre></div></div>
 
-<h3 id="retrieve-checkout-results"><a name="retrieve-checkout-results"></a>Retrieve Checkout Results</h3>
+<h3 id="retrieve-checkout-results">Retrieve Checkout Results</h3>
 
 <p>After calling both the Request Checkout Submit and Retrieve Checkout Submit Job endpoints, you can call this endpoint to retrieve the result of your request. This step is optional, as the same result is already available in the response from the Retrieve Checkout Submit Job endpoint.</p>
 
@@ -8658,7 +8658,7 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h3 id="request-checkout-submit-launch"><a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)</h3>
+<h3 id="request-checkout-submit-launch">Request Checkout Submit (Launch)</h3>
 
 <p>The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.</p>
 
@@ -8706,7 +8706,7 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h3 id="checkouts-error-handling"><a name="checkouts-error-handling"></a>Checkouts Error Handling</h3>
+<h3 id="checkouts-error-handling">Checkouts Error Handling</h3>
 
 <p>Following is a summary of the errors and warnings that can come back in responses from the Checkouts API:</p>
 
@@ -9321,7 +9321,7 @@ guide to learn more.</p>
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#!/Checkout/get_buy_checkout_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</h2>
+<h2 id="upgrading-to-the-latest-version">Upgrading to the Latest Version</h2>
 
 <p>Here is the version status of each of the APIs described in this document, along with notes about upgrade paths:</p>
 
@@ -9560,7 +9560,7 @@ guide to learn more.</p>
 
 <p>The Shipping Options endpoint is in v2. If a v3 of this endpoint becomes available, then the process of upgrading will be documented here.</p>
 
-<h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
+<h2 id="best-practices">Best Practices</h2>
 
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
@@ -9669,11 +9669,11 @@ guide to learn more.</p>
 
 <p>If you are a client of both of the above APIs, you will need to parse error responses in two different ways.</p>
 
-<h2 id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</h2>
+<h2 id="troubleshooting">Troubleshooting</h2>
 
 <p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
 
-<h3 id="use-troubleshooting-tools"><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
+<h3 id="use-troubleshooting-tools">Use Troubleshooting Tools</h3>
 
 <ul>
   <li>
@@ -9687,7 +9687,7 @@ guide to learn more.</p>
   </li>
 </ul>
 
-<h3 id="common-questions"><a name="common-questions"></a>Common Questions</h3>
+<h3 id="common-questions">Common Questions</h3>
 
 <p><strong>Is it okay to call Checkout APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
 
@@ -9697,11 +9697,11 @@ guide to learn more.</p>
 
 <p>Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of which is somewhat unpredictable. Depending on the total volume of requests happening at the time your request was submitted, combined with the payment method and shipping country selected by the user, it may take several seconds to get a completed job. Best case is about 5 seconds, worst case can be well over a minute. If the job times out, you will get a ‘completed with error’ job status.</p>
 
-<h2 id="glossary"><a name="glossary"></a>Glossary</h2>
+<h2 id="glossary">Glossary</h2>
 
 <p>See the <a href="/doc/commerce/reference/glossary.html">Glossary</a></p>
 
-<h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
+<h2 id="document-change-log">Document Change Log</h2>
 
 <table>
   <thead>
@@ -9750,7 +9750,7 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h2 id="related-links"><a name="related-links"></a>Related Links</h2>
+<h2 id="related-links">Related Links</h2>
 
 <p><a href="/index.html">NDe Docs Home</a></p>
 
@@ -9773,16 +9773,16 @@ guide to learn more.</p>
 			</li>
 			
 			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
+				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
+					Rollup Threads
 					
 				</a>
 				
 			</li>
 			
 			<li>
-				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
-					Rollup Threads
+				<a href="/doc/commerce/product/api_merch_product.html" class="">
+					Merch Product
 					
 				</a>
 				
