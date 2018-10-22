@@ -1,7 +1,6 @@
 ---
 ---
 
-# Developer Portal Migration Guide <i class="g72-swoosh"></i> (DRAFT)
 
 ##### Last Updated: 03/20/2018
 
@@ -11,7 +10,7 @@ Use this guide to understand how to execute common tasks on the new Developer Po
 
 ---
 
-## <a name="#use-cases"></a>Use Cases
+## Use Cases
 
 This section covers how common use cases from the legacy portal can be achieved on the new portal, including screen shots from both.
 

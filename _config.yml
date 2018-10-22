@@ -21,7 +21,7 @@ defaults:
     scope:
       path: ""
     values:
-      layout: two_column
+      layout: two-column
       toctitle: "NDe Docs Home"
 
 kramdown:

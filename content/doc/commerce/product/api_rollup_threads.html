@@ -25,7 +25,7 @@
 
 <p>If you’ve read <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and the <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds Developer’s Guide</a>, this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.</p>
 
-<h2 id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</h2>
+<h2 id="api-at-a-glance">API at a Glance</h2>
 
 <table>
   <thead>
@@ -70,15 +70,15 @@
   </tbody>
 </table>
 
-<h2 id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</h2>
+<h2 id="terms-of-service">Terms of Service</h2>
 
 <p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of <a href="/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> on how to create and register your caller ID.</p>
 
-<h3 id="authentication"><a name="authentication"></a>Authentication</h3>
+<h3 id="authentication">Authentication</h3>
 
 <p>No authentication or authorization is required to use this API.</p>
 
-<h3 id="prerequisites"><a name="prerequisites"></a>Prerequisites</h3>
+<h3 id="prerequisites">Prerequisites</h3>
 
 <p>In order to use the Product Feed Rollup Threads v2 API, you need to:</p>
 
@@ -95,7 +95,7 @@
   </li>
 </ul>
 
-<h2 id="use-cases"><a name="use-cases"></a>Use Cases</h2>
+<h2 id="use-cases">Use Cases</h2>
 
 <table>
   <thead>
@@ -112,7 +112,7 @@
   </tbody>
 </table>
 
-<h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+<h2 id="api-endpoint-quick-reference">API Endpoint Quick Reference</h2>
 
 <table>
   <thead>
@@ -133,7 +133,7 @@
   </tbody>
 </table>
 
-<h2 id="what-is-a-rollup-thread"><a name="what-is-a-rollup-thread"></a>What is a Rollup Thread?</h2>
+<h2 id="what-is-a-rollup-thread">What is a Rollup Thread?</h2>
 
 <p>The endpoint of this API is closely related to the <em>Threads List</em> endpoint of the Product Feeds v2 API. First, read the <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds v2 Developer’s Guide</a> to understand the basic concepts of working with Threads.</p>
 
@@ -166,7 +166,7 @@
   <p><strong>TIP</strong>: Reach out to the <a href="#api-at-a-glance">Apollo Product Owner</a> for more information on how to use the Apollo tool.</p>
 </blockquote>
 
-<h3 id="consumer-channel-id-and-channel-id"><a name="comparing-ids"></a>Consumer Channel ID and Channel ID</h3>
+<h3 id="consumer-channel-id-and-channel-id">Consumer Channel ID and Channel ID</h3>
 
 <p>Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds v2 API?</p>
 
@@ -186,7 +186,7 @@
 
 <p><img src="/images/commerce/product_feeds/rollup_threads_response.png" alt="" /></p>
 
-<h2 id="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making your first API request</h2>
+<h2 id="making-your-first-api-request">Making your first API request</h2>
 
 <p>For your first request, send a request to get all the Rollup Threads for a particular consumerChannelId, marketplace, and language combination. These are the minimum required query parameters for calling this API.</p>
 
@@ -925,11 +925,11 @@
   <p><strong>TIP:</strong> For detailed information about the contents of the response, see the <a href="#using-product-feed-rollup-threads-v2">Using Product Feed Rollup Threads v2</a> section.</p>
 </blockquote>
 
-<h2 id="using-rollup-threads"><a name="using-rollup-threads"></a>Using Rollup Threads</h2>
+<h2 id="using-rollup-threads">Using Rollup Threads</h2>
 
 <p>Use the Product Feed Rollup Threads v2 API to produce a grid wall of related products.</p>
 
-<h3 id="rollup-threads-list"><a name="rollup-threads"></a>Rollup Threads List</h3>
+<h3 id="rollup-threads-list">Rollup Threads List</h3>
 
 <p>Get a list of product Threads with related Rollup Threads using the <em>Rollup Threads List</em> endpoint.</p>
 
@@ -1154,11 +1154,11 @@
   </tbody>
 </table>
 
-<h4 id="request-headers"><a name="rollup-threads-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers">Request Headers</h4>
 
 <p>There are no required request headers.</p>
 
-<h4 id="request-body"><a name="rollup-threads-request-body"></a>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 
 <p>There is no request body required for a GET request.</p>
 
@@ -1167,7 +1167,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/commerce/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)
 </code></pre></div></div>
 
-<h4 id="response-body"><a name="rollup-threads-response-body"></a>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 
 <blockquote>
   <p>Note: The <strong>productInfo</strong> array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.</p>
@@ -2065,15 +2065,15 @@
 }
 </code></pre></div></div>
 
-<h2 id="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version</h2>
+<h2 id="upgrading-to-the-latest-version">Upgrading to the Latest Version</h2>
 
 <p>Version 2 (v2) is the current and only version of this API.</p>
 
-<h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
+<h2 id="best-practices">Best Practices</h2>
 
 <p>See the Best Practices section of the <a href="/doc/commerce/product/api_product_feeds.html#best-practices">Product Feeds Developer’s Guide</a>.</p>
 
-<h2 id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</h2>
+<h2 id="troubleshooting">Troubleshooting</h2>
 
 <p><strong>I’m getting a 200 response, but the Thread data and/or Rollup Threads are not as expected</strong></p>
 
@@ -2087,11 +2087,11 @@
   <p>TIP: See the Troubleshooting section of the <a href="/doc/commerce/product/api_product_feeds.html#troubleshooting">Product Feeds Developer’s Guide</a> for more general troubleshooting information.</p>
 </blockquote>
 
-<h2 id="glossary"><a name="glossary"></a>Glossary</h2>
+<h2 id="glossary">Glossary</h2>
 
 <p>See the <a href="/doc/commerce/reference/glossary.html">Glossary</a>.</p>
 
-<h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
+<h2 id="document-change-log">Document Change Log</h2>
 
 <table>
   <thead>
@@ -2120,7 +2120,7 @@
   </tbody>
 </table>
 
-<h2 id="related-links"><a name="related-links"></a>Related Links</h2>
+<h2 id="related-links">Related Links</h2>
 
 <p><a href="/index.html">NDe Docs Home</a></p>
 
@@ -2137,14 +2137,6 @@
 			<li>
 				<a href="/doc/commerce/product/api_product_feeds.html" class="">
 					Product Feeds
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
 					
 				</a>
 				
@@ -2214,6 +2206,14 @@
 					</li>
 					
 				</ul>
+				
+			</li>
+			
+			<li>
+				<a href="/doc/commerce/product/api_merch_product.html" class="">
+					Merch Product
+					
+				</a>
 				
 			</li>
 			

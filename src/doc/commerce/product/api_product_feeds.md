@@ -37,7 +37,7 @@ toc:
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
 
-## <a name="api-at-a-glance"></a>API at a Glance
+## API at a Glance
 
 Product Feeds enables users of your app to browse a feed of relevant Nike product-related content, including details about the products with images, videos, and more.
 
@@ -54,15 +54,15 @@ Product Feeds enables users of your app to browse a feed of relevant Nike produc
 
 >**NOTE:** This guide covers the v2 Product Feeds APIs in detail, as well as the process to upgrade from v1.x to v2. The v1.x endpoints are not otherwise covered in this guide.
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 
 It is highly recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
-### <a name="authentication"></a>Authentication
+### Authentication
 
 There are no authentication requirements for Product Feeds except when using the **preview** query parameter to preview a Feed or Thread, which is not common. See the [Using Product Feeds v2](#using-product-feeds-v2) section for more details.
 
-## <a name="use-cases"></a>Use Cases
+## Use Cases
 
 |I want to...|API(s) to use|
 |---|---|
@@ -71,7 +71,7 @@ There are no authentication requirements for Product Feeds except when using the
 
 >**TIP:** See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](/doc/commerce/product/api_merch_product.html) for more.
 
-### <a name="example-implementation-diagram"></a>Example Implementation Diagram
+### Example Implementation Diagram
 
 Here is an example of a sequence of API calls to get content from Product Feeds v2:
 
@@ -79,7 +79,7 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 
 <br>
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 **Product Feeds v2 Endpoints**
 
@@ -88,9 +88,9 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 |GET|Product Threads List|Get all threads for a channel, marketplace, language combination|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
 |GET|Product Thread by ID|Get a specific thread by its identifier|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
 
-## <a name="cards-threads-and-feeds"></a>Cards, Threads, and Feeds
+## Cards, Threads, and Feeds
 
-### <a name="what-are-cards-threads-and-feeds"></a>What are Cards, Threads, and Feeds?
+### What are Cards, Threads, and Feeds?
 
 Use Product Feeds to get product data and content in the form of Cards, Threads, and Feeds.
 
@@ -106,7 +106,7 @@ To summarize, a Feed is comprised of multiple Threads, and within each Thread re
 
 <br>
 
-### <a name="where-do-cards-threads-and-feeds-come-from"></a>Where Do Cards, Threads, and Feeds Come From?
+### Where Do Cards, Threads, and Feeds Come From?
 
 The Product Feeds API combines product information with product content into Cards, Threads, and Feeds by pulling data from the following Nike Cloud APIs:
 
@@ -124,7 +124,7 @@ The Product Feeds API combines product information with product content into Car
 
 >**TIP:** The full response from all of the above APIs is passed along to you in the Product Feeds response, i.e. nothing is filtered out by default.
 
-### <a name="what-are-channels-and-why-do-i-need-one"></a>What are Channels and Why Do I Need One?
+### What are Channels and Why Do I Need One?
 
 A channel is a distinct user experience where Nike products are showcased and made available for purchase, for example in SNKRS or the Nike app. Each channel has a unique **channelId** (channel identifier) that is required by certain Product Feeds API endpoints. This allows the results in responses to be filtered appropriately for your experience.
 
@@ -132,7 +132,7 @@ Each **channelId** value originates in Nike CMS under a different name, **collec
 
 Each Feed can be associated with one or more channels, opening up the personalized Feed to many Nike experiences.
 
-### <a name="terminology-differences-between-cms-and-product-feeds"></a>Terminology Differences Between CMS and Product Feeds
+### Terminology Differences Between CMS and Product Feeds
 
 As mentioned earlier, the Product Feeds API pulls product content from Nike CMS and includes it in responses. One thing to be aware of is that Nike CMS sometimes uses different names for the same field than Product Feeds. For example, the CMS **collectionGroupId** that you will see in responses is synonymous with the **channelId** query parameter you might send to Product Feeds.
 
@@ -145,7 +145,7 @@ Here is a terminology guide between Nike CMS and Product Feeds:
 |Content/Thread|Thread|
 |Node|Card|
 
-## <a name="making-your-first-api-request"></a>Making Your First API Request
+## Making Your First API Request
 
 For your first API request, call Product Feeds v2 to get a list of all Threads for a particular channel:
 
@@ -330,7 +330,7 @@ Your full URL would be:
 
 https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)&filter=marketplace(US)&filter=language(en)&count=50&filter=publishedContent.properties.products.styleColor(AA0612-706)
 
-## <a name="using-product-feeds-v2"></a>Using Product Feeds v2
+## Using Product Feeds v2
 
 - [Product Threads List](#product-threads-list)
 
@@ -340,7 +340,7 @@ https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)
 
 The following sections explain each Product Feeds endpoint in detail, concluding with a section on error handling.
 
-### <a name="product-threads-list"></a>Product Threads List
+### Product Threads List
 
 List all threads by one or more filter criteria, e.g. channel and style-color.
 
@@ -446,15 +446,15 @@ The `next` and `prev` URLs are returned in the pages section of the response for
 
 If the query results contain thousands of items, the max limit that can be paged through is 10,000. When the anchor exceeds 10,000 items you should expect to get an error. This is an intentional limitation imposed on the backend data store for performance reasons. If you make a request whose response would contain the 10,000th item, the next link returned will be empty.
 
-#### <a name="threads-list-request-headers"></a>Request Headers
+#### Request Headers
 
 There are no required request headers.
 
-#### <a name="threads-list-request-body"></a>Request Body
+#### Request Body
 
 There is no body for a GET request.
 
-#### <a name="threads-list-response-body"></a>Response Body
+#### Response Body
 
 The important elements of the *Threads List* response body are as follows:
 
@@ -1747,7 +1747,7 @@ Sample *Threads List* response body (HTTP 200):
 
 <hr>
 
-### <a name="product-thread-by-id"></a>Product Thread by ID
+### Product Thread by ID
 
 Get a Thread by its unique identifier.
 
@@ -1778,15 +1778,15 @@ Get a Thread by its unique identifier.
 |Single thread by ID|https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860|
 |Single thread by ID (only selected fields returned)|https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860?fields=publishedContent.properties.coverCard.properties.title,publishedContent.properties.coverCard.properties.landscapeURL|
 
-#### <a name="thread-by-id-request-headers"></a>Request Headers
+#### Request Headers
 
 There are no required request headers.
 
-#### <a name="thread-by-id-request-body"></a>Request Body
+#### Request Body
 
 There is no body for a GET request.
 
-#### <a name="thread-by-id-response-body"></a>Response Body
+#### Response Body
 
 The structure of the response from *Thread by ID* is the same as *Threads List* with the following exceptions:
 
@@ -1800,7 +1800,7 @@ See Threads List for response body details.
 
 <hr>
 
-### <a name="product-feeds-error-handling"></a>Product Feeds Error Handling
+### Product Feeds Error Handling
 
 Following is a summary of the errors that can come back in responses from the Product Feeds v2 APIs:
 
@@ -1812,7 +1812,7 @@ Following is a summary of the errors that can come back in responses from the Pr
 |404|GET|Resource does not exist|Check for malformed URL. Correct and retry|
 |500|GET|Internal Server Error|Downstream service does not recognize query parameter, e.g. ?language=foo|
 
-## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
+## Upgrading to the Latest Version
 
 Ready to upgrade to the latest version of the Product Feeds API? All clients of Product Feeds v1 are expected to migrate to v2 by **March 31st, 2018**.
 
@@ -1826,7 +1826,7 @@ First, some considerations:
 
 >**TIP:** Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.
 
-### <a name="v1x-to-v2-endpoint-mapping"></a>V1.x to V2 Endpoint Mapping
+### V1.x to V2 Endpoint Mapping
 
 The following table lists the v1 endpoints along with the equivalent v2 endpoint for each:
 
@@ -1843,7 +1843,7 @@ The following table lists the v1 endpoints along with the equivalent v2 endpoint
 |All Admin Threads|None|
 |Product Card by ID|None|
 
-### <a name="all-product-threads--product-thread-by-id-v1-to-v2-field-mapping"></a>All Product Threads & Product Thread by ID v1 to v2 Field Mapping
+### All Product Threads & Product Thread by ID v1 to v2 Field Mapping
 
 The response structure of the v1 *All Product Threads* and *Product Thread by ID* endpoints is the same, with a few minor exceptions, so for the purposes of upgrading to v2 they can be discussed together.
 
@@ -1987,11 +1987,11 @@ None
 
 >**TIP:** Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#url-patterns) guide for info on Nike standards.
 
-## <a name="best-practices"></a>Best Practices
+## Best Practices
 
 Listed below are some best practices for working with Product Feeds.
 
-### <a name="test-environment"></a>Test Environment
+### Test Environment
 
 Product Feeds v2 has a test environment available at host https://experience.test.commerce.nikecloud.com.
 
@@ -2007,11 +2007,11 @@ Some considerations about using the test environment:
 
 - All performance testing activities should be done in test and not in production.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 Listed below are ways to troubleshoot unexpected responses using this API.
 
-### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
+### Use Troubleshooting Tools
 
 - Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
@@ -2053,11 +2053,11 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 >**TIP:** Be careful not to confuse **legacyCatalogId**, which like **catalogId** is also present in the threads response under **productInfo.merchProduct**, but does not affect thread visibility.
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 See the [Glossary](/doc/commerce/reference/glossary.html).
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
@@ -2073,7 +2073,7 @@ See the [Glossary](/doc/commerce/reference/glossary.html).
 |Used valid channelId in examples|7/16/2018|Changed from using invalid to valid channelId (and collectionGroupId) in examples|
 |Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

@@ -122,7 +122,7 @@
 
 <h2 id="step-4-previewing-a-checkout">Step 4: Previewing a Checkout</h2>
 
-<h3 id="request-checkout-preview"><a name="request-checkout-preview"></a>Request Checkout Preview</h3>
+<h3 id="request-checkout-preview">Request Checkout Preview</h3>
 
 <p>The <em>Request a Checkout Preview</em> endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you’ll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.</p>
 
@@ -138,7 +138,7 @@
 
 <p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a> guide to learn more.</p>
 
-<h3 id="retrieve-checkout-preview-job"><a name="retrieve-checkout-preview-job"></a>Retrieve Checkout Preview Job</h3>
+<h3 id="retrieve-checkout-preview-job">Retrieve Checkout Preview Job</h3>
 
 <p>After calling <em>Request Checkout Preview</em> and receiving a HTTP 202 response, call <em>Retrieve Checkout Preview Job</em> using the same checkout ID to check the status of your job.</p>
 
@@ -162,13 +162,13 @@
   <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
 </blockquote>
 
-<h3 id="retrieve-checkout-preview-results"><a name="retrieve-checkout-preview-results"></a>Retrieve Checkout Preview Results</h3>
+<h3 id="retrieve-checkout-preview-results">Retrieve Checkout Preview Results</h3>
 
 <p>After calling both the <em>Request Checkout Preview</em> and <em>Retrieve Checkout Preview Job</em> endpoints, you can call this endpoint to retrieve the result of your Checkout Preview request. This step is optional, as the same result is already available in the response from the <em>Retrieve Checkout Submit Job</em> endpoint.</p>
 
 <h2 id="step-5-submitting-a-checkout">Step 5: Submitting a Checkout</h2>
 
-<h3 id="request-checkout-submit"><a name="request-checkout-submit"></a>Request Checkout Submit</h3>
+<h3 id="request-checkout-submit">Request Checkout Submit</h3>
 
 <p>Call the <em>Request Checkout Submit</em> endpoint when your user is ready to complete their purchase.</p>
 
@@ -217,11 +217,11 @@ guide to learn more.</p>
   <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
 </blockquote>
 
-<h3 id="retrieve-checkout-results"><a name="retrieve-checkout-results"></a>Retrieve Checkout Results</h3>
+<h3 id="retrieve-checkout-results">Retrieve Checkout Results</h3>
 
 <p>After calling both the Request Checkout Submit and Retrieve Checkout Submit Job endpoints, you can call this endpoint to retrieve the result of your request. This step is optional, as the same result is already available in the response from the Retrieve Checkout Submit Job endpoint.</p>
 
-<h3 id="request-checkout-submit-launch"><a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)</h3>
+<h3 id="request-checkout-submit-launch">Request Checkout Submit (Launch)</h3>
 
 <p>The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.</p>
 
@@ -241,7 +241,7 @@ guide to learn more.</p>
 
 <p><img src="/images/commerce/buy/wishlists_flow.png" alt="" /></p>
 
-<h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+<h2 id="api-endpoint-quick-reference">API Endpoint Quick Reference</h2>
 
 <p>[Add payment endpoints here, too]</p>
 
@@ -286,7 +286,7 @@ guide to learn more.</p>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a></p>
 
-<h2 id="sending-your-first-request"><a name="sending-your-first-request"></a>Sending Your First Request</h2>
+<h2 id="sending-your-first-request">Sending Your First Request</h2>
 
 <p>For your first request, send a request to the <em>Create or Update a Cart by Cart ID</em> endpoint of the Carts v2 API and create your first cart.</p>
 
@@ -447,7 +447,7 @@ Authorization: Bearer {your access token}
 
 <p>The response body from the <em>Get a Cart for a Cart ID</em> endpoint is the same as <em>Create or Update a Cart by Cart ID</em>, so the process of parsing it is also the same.</p>
 
-<h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
+<h2 id="best-practices">Best Practices</h2>
 
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
@@ -556,17 +556,17 @@ Authorization: Bearer {your access token}
 
 <p>If you are a client of both of the above APIs, you will need to parse error responses in two different ways.</p>
 
-<h2 id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</h2>
+<h2 id="troubleshooting">Troubleshooting</h2>
 
 <blockquote>
   <p><strong>TIP:</strong> SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second <em>for the API overall</em> were shown. Ask the Product Owner to get specific SLA info for each endpoint.</p>
 </blockquote>
 
-<h2 id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</h2>
+<h2 id="terms-of-service">Terms of Service</h2>
 
 <p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the <a href="/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
 
-<h3 id="authorization"><a name="authorization"></a>Authorization</h3>
+<h3 id="authorization">Authorization</h3>
 
 <h4 id="access-tokens">Access Tokens</h4>
 
@@ -582,7 +582,7 @@ Authorization: Bearer {your access token}
 
 <p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
 
-<h3 id="example-implementation-diagram"><a name="example-implementation-diagram"></a>Example Implementation Diagram</h3>
+<h3 id="example-implementation-diagram">Example Implementation Diagram</h3>
 
 <p>Here is an example of a sequence of API calls to execute an entire checkout:</p>
 
@@ -653,7 +653,7 @@ Authorization: Bearer {your access token}
   <p><strong>TIP:</strong> For more, see the Idempotence Guarantee section of the <a href="/doc/getting-started/using_nike_apis.html#idempotence-guarantee">Using NDe APIs</a> guide.</p>
 </blockquote>
 
-<h3 id="use-troubleshooting-tools"><a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools</h3>
+<h3 id="use-troubleshooting-tools">Use Troubleshooting Tools</h3>
 
 <ul>
   <li>
@@ -667,7 +667,7 @@ Authorization: Bearer {your access token}
   </li>
 </ul>
 
-<h3 id="common-questions"><a name="common-questions"></a>Common Questions</h3>
+<h3 id="common-questions">Common Questions</h3>
 
 <p><strong>Is it okay to call Checkout APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
 
@@ -677,11 +677,11 @@ Authorization: Bearer {your access token}
 
 <p>Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of which is somewhat unpredictable. Depending on the total volume of requests happening at the time your request was submitted, combined with the payment method and shipping country selected by the user, it may take several seconds to get a completed job. Best case is about 5 seconds, worst case can be well over a minute. If the job times out, you will get a ‘completed with error’ job status.</p>
 
-<h2 id="glossary"><a name="glossary"></a>Glossary</h2>
+<h2 id="glossary">Glossary</h2>
 
 <p>See the <a href="/doc/commerce/reference/glossary.html">Glossary</a></p>
 
-<h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
+<h2 id="document-change-log">Document Change Log</h2>
 
 <table>
   <thead>
@@ -700,7 +700,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h2 id="related-links"><a name="related-links"></a>Related Links</h2>
+<h2 id="related-links">Related Links</h2>
 
 <p><a href="/index.html">NDe Docs Home</a></p>
 
@@ -723,16 +723,16 @@ Authorization: Bearer {your access token}
 			</li>
 			
 			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
+				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
+					Rollup Threads
 					
 				</a>
 				
 			</li>
 			
 			<li>
-				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
-					Rollup Threads
+				<a href="/doc/commerce/product/api_merch_product.html" class="">
+					Merch Product
 					
 				</a>
 				

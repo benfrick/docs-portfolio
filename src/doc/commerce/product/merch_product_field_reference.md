@@ -16,7 +16,7 @@ See the [Global Reference Guide](/doc/commerce/reference/global.html) for the li
 - [Style Types](#style-types)
 - [Publish Types](#publish-types)
 
-## <a name="status-codes"></a>Status Codes
+## Status Codes
 
 Listed below are the product and value-added service status codes.
 
@@ -28,7 +28,7 @@ Listed below are the product and value-added service status codes.
 |**CANCEL**|Never manufactured or manufactured but never made it to market|
 |**CLOSEOUT**|No longer available for purchase|
 
-## <a name="merchandising-groups"></a>Merchandising Groups
+## Merchandising Groups
 
 Listed below are the merchandising group codes and the countries included within each NIKE sales geography.
 
@@ -36,7 +36,7 @@ Listed below are the merchandising group codes and the countries included within
 |---|---|---|---|---|
 |China|Austria<br>Belgium<br>Czech Republic<br>Denmark<br>Finland<br>France<br>Germany<br>Greece<br>Hungary<br>Ireland<br>Italy<br>Luxembourg<br>Netherlands<br>Poland<br>Portugal<br>Slovenia<br>Spain<br>Sweden<br>United Kingdom|Japan|United States|for future use|
 
-## <a name="genders"></a>Genders
+## Genders
 
 Listed below are the gender codes.  Adult unisex products are merchandised with both "MEN" and "WOMEN" gender codes.
 
@@ -48,7 +48,7 @@ Listed below are the gender codes.  Adult unisex products are merchandised with 
 |**GIRLS**|Female child|
 |**KIDS**|Unisex child|
 
-## <a name="product-types"></a>Product Types
+## Product Types
 
 Listed below are the product type codes.
 
@@ -65,7 +65,7 @@ Listed below are the product type codes.
 |**GIFT_MESSAGE**|Value-added service where a gift message is packaged with the product|
 |**JERSEY_ID**|Team jersey product bought in bulk for a team with customizable team number, emblem and name. This is not a NIKEiD product.|
 
-## <a name="style-types"></a>Style Types
+## Style Types
 
 Listed below are the product style codes.
 
@@ -77,7 +77,7 @@ Listed below are the product style codes.
 |**GIFT_CARD**|Physical or electronic debit card customer uses to purchase products and services|
 |**VOUCHER**|Credit given to a customer after returning a product that the customer uses to purchase other products and services|
 
-## <a name="publish-types"></a>Publish Types
+## Publish Types
 
 Listed below are the publish type codes.
 
@@ -86,7 +86,7 @@ Listed below are the publish type codes.
 |**FLOW**|Product that is available to all NIKE customers for purchase when merchandising is complete and inventory is available|
 |**LAUNCH**|Product that is available for purchase by certain NIKE customers for a discrete time period when merchandising is complete and inventory is available|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 
