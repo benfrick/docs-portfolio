@@ -51,7 +51,7 @@ toc:
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
 
-## <a name="api-at-a-glance"></a>API at a Glance
+## API at a Glance
 
 The <b>Merchandised Products API</b> is a set of REST services that provides Nike product data in JSON format. You can list product information such as product attributes, SKU data, prices, product content, product images, and value-added services (VAS).
 
@@ -68,7 +68,7 @@ The following table describes the key details of the API:
 |Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
 |Contact Info|Slack <a href="https://nikedigital.slack.com/messages/pdm-merch-product" target="_blank">#pdm-merch-product</a><br>Confluence space: <a href="https://confluence.nike.com/collector/pages.action?key=MPA" target="_blank">Merchandised Products API Team</a><br> Mailing List: [Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)<br><a name="product-owner"></a>Product Owner: [Arun KannanGeetha](mailto:arun.kannangeetha@nike.com)|
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 
 To use the Merchandised Products API, you must send a caller ID header in every API request to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create your caller ID.
 
@@ -76,7 +76,7 @@ To use the Merchandised Products API, you must send a caller ID header in every 
 
 If you are retrieving products that are publicly available, no authentication or authorization is required. If you need product data that is not available to the public and you are an internal Nike team, you can contact the Product Owner for details on setting up authentication.
 
-## <a name="use-cases"></a>Use Cases
+## Use Cases
 
 |I want to...|API(s) to use|
 |---|---|
@@ -87,7 +87,7 @@ If you are retrieving products that are publicly available, no authentication or
 |List the available images and localized product information such as title, subtitle, and description for a product<p>Lists all images in the Scene7 or Cloudinary image set|Product Content API|
 |List product information for a product at a specific point in time using a Snapshot ID|Merchandised Products API|
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.
 
@@ -141,7 +141,7 @@ For more information about each service and to try them out though the UI, visit
 |<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR</a>|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
 |<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">PRODUCT BASE IMAGE URL BY STYLE COLOR LIST</a>|/merch/contents/v1/images/base|GET|
 
-## <a name="consider-using-product-feeds"></a>Consider Using Product Feeds
+## Consider Using Product Feeds
 
 Before you start using the Merchandised Products APIs, you should evaluate whether you could accomplish the same objectives by using the Product Feeds API.
 
@@ -158,7 +158,7 @@ There are a few caveats:
 
 For the full list of use cases to evaluate if that API is better suited to your product needs, see [Product Threads List](/doc/commerce/product/api_product_feeds.html#product-threads-list).
 
-## <a name="gathering-a-product-data-set"></a>Gathering a Product Data Set
+## Gathering a Product Data Set
 
 The following example describes the set of Merchandised Products service calls you can make to assemble the product details of a style-color. These are all public services, so feel free to experiment with the endpoints. Note that the style-color in this example is not a current, active style-color. Product availability changes all the time, so you should get a current product from Nike.com to try this out.
 
@@ -181,11 +181,11 @@ https://api.nike.com/merch/contents/v1/526628-009/images?country=US
 5. Using style-color 526628-009 (not product ID), get the localized content for the product from the Product Content endpoint of the Product Content service:
 https://api.nike.com/merch/contents/v1/526628-009/content?country=US&locale=en_US
 
-## <a name="understanding-nike-product-data"></a>Understanding Nike Product Data
+## Understanding Nike Product Data
 
 Nike product data is a complex set of information that flows from multiple origin systems and processes.
 
-### <a name="where-does-product-data-come-from"></a>Where Does Product Data Come From?
+### Where Does Product Data Come From?
 
 Product data originates from two primary upstream systems: <b>Prodigy</b> (via <b>eMerch</b>), and the cloud-based <b>Catalog</b> service. Prodigy and the Catalog service are the systems of record for product data, and are not managed within the Merchandised Products domain.
 
@@ -201,7 +201,7 @@ After a notification from the system of record is received, the Merchandised Pro
 >
 >Because Prodigy is the source of data, product data that is served through any Merchandised Products API is subject to change at any time.
 
-### <a name="how-does-product-data-get-published"></a>How Does Product Data Get Published?
+### How Does Product Data Get Published?
 
 When a change to a product is saved in Prodigy, a notification that a new product has been published is received by Merchandised Products cloud services. This initiates the creation of a fresh snapshot of all product data.
 
@@ -209,19 +209,19 @@ Prodigy uses a first-in-first-out queue, however an individual product update is
 
 <b>NOTE:</b> When a Merchandised Products object is updated, the object remains in the application cache for 30 seconds.
 
-### <a name="where-do-i-get-inventory-information"></a>Where Do I Get Inventory Information?
+### Where Do I Get Inventory Information?
 
 Inventory is available via the Inventory domain. For example, product availability can be found <a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">here</a>.
 
-### <a name="how-to-find-a-current-product"></a>How To Find a Current Product
+### How To Find a Current Product
 
 The easiest way to find a current product is to go to Nike.com and find a style-color that is offered on the site. With the exception of NIKEiD products, if the style-color is available on Nike.com, the data is available in our services.
 
-## <a name="merchandised-product-concepts"></a>Merchandised Products Concepts
+## Merchandised Products Concepts
 
 The Merchandised Products API uses underlying concepts as the foundation for how the API is designed and consumed.
 
-### <a name="how-product-data-is-organized-in-the-merchandised-product-api"></a>How Product Data is Organized in the Merchandised Products API
+### How Product Data is Organized in the Merchandised Products API
 
 Depending upon the information you are looking for, you may need to chain together several service calls, using the output of one service call as input to another service call.
 
@@ -240,14 +240,14 @@ These items are divided into a set of microservices. The relationship between th
 
 ![](/images/commerce/merch_product/relationships.png)
 
-### <a name="finding-the-data-points-you-need"></a>Finding the Data Points You Need
+### Finding the Data Points You Need
 
 Microservice architecture specifies that data should be divided into logical groupings within semantically-named resources. You can use the following general guidelines to find the data points among the Merchandised Products resources:
 - If the data can be localized, it is typically in the Content API.
 - If you are looking for size information, it is in the Merchandised SKUs API.
 - If you are looking for launch-related information or dates associated with a product, look in the Merchandised Products API.
 
-### <a name="understanding-the-various-ids-returned-within-each-response"></a>Understanding the Various IDs Returned Within Each Response
+### Understanding the Various IDs Returned Within Each Response
 
 The resources provided by the <b>Merchandised Products API</b> include a wide range of IDs that are used for various current and historical purposes. The following table describes the concepts and common uses for each of these IDs.
 
@@ -266,7 +266,7 @@ The resources provided by the <b>Merchandised Products API</b> include a wide ra
 |**gtin**|Merchandised SKU| Globally unique 14-digit number that used to identify retail SKUs. These are commonly called UPC codes, though the technical specification for the two is slightly different.|
 |**catalogSkuId**| Merchandised SKU | Deprecated IDs that are returned for use by legacy systems.|
 
-### <a name="caching-data"></a>Caching Data
+### Caching Data
 
 The Merchandised Products API caching strategy includes three layers: application, Akamai and experience.
 
@@ -276,15 +276,15 @@ The second cache layer is Akamai caching, utilized when the client calls the ser
 
 The third type of caching should occur within the client experience, depending on the client's architectural patterns. Caching client-side is recommended to reduce network calls and unnecessary load on the system.
 
-### <a name="create-update-and-delete-capabilities-of-the-api"></a>Create, Update, and Delete Capabilities of the API
+### Create, Update, and Delete Capabilities of the API
 
 In addition to listing product data, the API creates, modifies and deletes merchandised product data that flows into the system from Prodigy, which is the primary system of record. Every update call made to the Merchandised Products services from Prodigy (including deletion) is versioned, creating an audit trail. In this way, no merchandised product data is physically deleted from the data store. A timestamped deletion record in inserted instead. Each version has a unique **snapshotId** representing a snapshot of the object in time. The create, update and delete endpoints are restricted and only certain applications can call them.
 
-## <a name="international-considerations"></a>International Considerations
+## International Considerations
 
 Generally the rules and behaviors for products are the same regardless of geography. However, there are a few key concepts and exceptions.
 
-### <a name="working-with-merch-groups-countries-and-languages"></a>Working with Merch Groups, Countries, and Languages
+### Working with Merch Groups, Countries, and Languages
 
 A Merch Group is a collection of countries defined in Prodigy. Merch Groups are used to manage product information and inventory at a group level. The Merchandised Products API uses the Merch Group as a foundational element in how the data is organized and presented.
 
@@ -292,7 +292,7 @@ Within each Merch Group, each country may include translations and size conversi
 
 For most API calls, Merch Group and Country are required. For the current list of supported Merch Groups, countries, and languages see [Merchandised Products API Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products).
 
-### <a name="excluding-countries-where-a-specific-product-should-not-be-offered"></a>Excluding Countries where a Specific Product Should Not Be Offered
+### Excluding Countries where a Specific Product Should Not Be Offered
 
 In some cases, Nike does not offer a specific product in a certain country, even if it is offered in other countries within the same Merch Group. This may be for a variety of reasons, including legal implications of selling a product that is not within the trade guidelines for a given country. If you are building a public or consumer-facing experience, it is essential that you do not show that product in an excluded country.
 
@@ -303,7 +303,7 @@ The Merchandised Products API includes two fields that are used for this purpose
 
 The two data points reflect two views of essentially the same data. You should use **commerceCountryExclusions** to exclude a product from being displayed in the specified country. The **commerceCountryInclusions** field is an inverse view that is primarily used for legacy systems, and may be deprecated soon.
 
-## <a name="making-your-first-api-request"></a>Making Your First API Request
+## Making Your First API Request
 
 To try out the following examples, you need a valid style-color, style number, or ID, depending upon the service. If you find that the data in any of these examples is no longer available, go to a product page on the [store.nike.com](https://store.nike.com) to get the style-color of an active, in-stock product.
 
@@ -420,7 +420,7 @@ See the output of the successful JSON 200 response below.
 
 >**TIP:** For detailed information on this service, see [Merchandised Product List](#merchandised-product-list).
 
-## <a name="using-merchandised-products"></a>Using Merchandised Products
+## Using Merchandised Products
 
 - [Merchandised Products Overview](#merchandised-products-overview)
 
@@ -428,7 +428,7 @@ See the output of the successful JSON 200 response below.
 
 - [Merchandised Product by ID](#merchandised-product-by-id)
 
-### <a name="merchandised-products-overview"></a>Merchandised Products Overview
+### Merchandised Products Overview
 
 Use the Merchandised Products service to list, create, update, and delete merchandised product information.
 
@@ -438,7 +438,7 @@ Use the Merchandised Products service to list, create, update, and delete mercha
 - If country is not specified, all countries are returned.
 - This is a synchronous service.
 
-### <a name="merchandised-product-list"></a>Merchandised Product List
+### Merchandised Product List
 
 The Merchandised Products service returns all products matching the filter query parameter up to the value supplied in the count parameter. If no count parameter is supplied, up to 25 products are returned. When the count parameter is supplied, the maximum number of products is 25. Product results are sorted by product ID, style-color or style, depending upon the filter query parameters passed in. If the count parameter restricts the results, a **pages** object is returned in the response that the caller can use for pagination.
 
@@ -476,14 +476,14 @@ Let's take a look at some *Merchandised Product List* scenarios.
 |US product with product ID 8653b383-22a0-55a1-ba7e-56174e5ab1e7 and Snapshot ID c59808d1-0945-4bcc-9c47-dcb34cc40824|https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=snapshotId(c59808d1-0945-4bcc-9c47-dcb34cc40824)&filter=id(8653b383-22a0-55a1-ba7e-56174e5ab1e7)|
 |More than one product in a single response: US product with product ID b9c9789-1a35-503c-8a22-95a745c35df8 and US product with product ID 30e88273-bc07-5a51-bb8a-9c58a789c504|https://api.nike.com/merch/products/v2?filter=id(ab9c9789-1a35-503c-8a22-95a745c35df8,30e88273-bc07-5a51-bb8a-9c58a789c504)|
 
-### <a name="merchandised-product-list-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="merchandised-product-list-request-body"></a>Request Body
+### Request Body
 No body is required for a GET request.
 
 Sample *Merchandised Product List* URI:
@@ -491,7 +491,7 @@ Sample *Merchandised Product List* URI:
 https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646)
 ```
 
-### <a name="merchandised-product-list-response-body"></a>Response Body
+### Response Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -707,7 +707,7 @@ Sample *Merchandised Product List* 400 error response:
 
 <p>&nbsp;</p>
 
-### <a name="merchandised-product-by-id"></a>Merchandised Product By ID
+### Merchandised Product By ID
 
 ---
 
@@ -730,14 +730,14 @@ The caller does not have to send an access token in the **Authorization** header
 |**id**|path|ID of product|String|Required|
 |**snapshotId**|query|ID representing the product version|String|Optional|
 
-### <a name="merchandised-product-by-id-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="merchandised-product-by-id-request-body"></a>Request Body
+### Request Body
 
 No body is required for GET requests.
 
@@ -753,7 +753,7 @@ Sample request URI to list product information for ID 30e88273-bc07-5a51-bb8a-9c
 https://api.nike.com/merch/products/v2/30e88273-bc07-5a51-bb8a-9c58a789c504
 ```
 
-### <a name="merchandised-product-by-id-response-body"></a>Response Body
+### Response Body
 
 See the [Merchandised Product List](#merchandised-product-list) endpoint to view the list of response body field definitions.
 
@@ -823,13 +823,13 @@ Sample 404 response:
 
 ---
 
-## <a name="using-merchandised-product-skus"></a>Using Merchandised Product SKUs
+## Using Merchandised Product SKUs
 
 - [MERCHANDISED PRODUCT SKU LIST](#merchandised-product-sku-list)
 
 - [MERCHANDISED PRODUCT SKU BY ID](#merchandised-product-sku-by-id)
 
-### <a name="merchandised-product-sku-overview"></a>Merchandised Product SKU Overview
+### Merchandised Product SKU Overview
 
 Use this service to list, add, update and delete merchandised SKU information.
 
@@ -841,7 +841,7 @@ Use this service to list, add, update and delete merchandised SKU information.
 
 The following sections describe each endpoint of the Merchandised Product SKU API in detail.
 
-### <a name="merchandised-product-sku-list"></a>Merchandised Product SKU List
+### Merchandised Product SKU List
 
 Use this service to search for multiple SKUs by filter. Search results are sorted in ascending order by the **displayOrder** field and then **stockKeepingUnitId**. Note that the **displayOrder** field is not returned in the results.
 
@@ -860,14 +860,14 @@ Use this service to search for multiple SKUs by filter. Search results are sorte
 |**count**|query|Number of results to return. Max = 25|String|Optional|
 |**anchor**|query|If the value is 10, results returned start with result 11|Integer|Optional|
 
-#### <a name="merchandised-product-sku-list-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in the response. The only accepted value is <b>application/json</b>|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-#### <a name="merchandised-product-sku-list-request-body"></a>Request Body
+#### Request Body
 
 No request body is required for GET requests.
 
@@ -885,7 +885,7 @@ Sample Merchandised Product SKU List request URI:
 https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a745c35df8)&filter=country(US)
 ```
 
-#### <a name="merchandised-product-sku-list-response-body"></a>Response Body
+#### Response Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1000,7 +1000,7 @@ Sample 404 error response from *Merchandised Product SKU List*:
 
 ---
 
-### <a name="merchandised-product-sku-by-id"></a>Merchandised Product SKU by ID
+### Merchandised Product SKU by ID
 
 Use this service to search for SKU information by SKU ID. This service returns the same data as the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint returns except for the pages object because the endpoint only returns one result. In order to get a SKU ID, you can query the *Merchandised Product SKU List* endpoint filtering by productid.
 
@@ -1021,14 +1021,14 @@ Use this service to search for SKU information by SKU ID. This service returns t
 |**fields**|query|List of fields to return. if not sent, all fields are returned|string|Optional|
 |**country**|query|[Country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) used to localize results|string|Optional|
 
-#### <a name="merchandised-product-sku-by-id-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|No|
 |**Content-Type**|Content type of the request, application/json is only value allowed|No|
 
-#### <a name="merchandised-product-sku-by-id-request-body"></a>Request Body
+#### Request Body
 
 Required parts of the request body:
 
@@ -1045,7 +1045,7 @@ Sample Product SKU by ID request URI:
 https://api.nike.com/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13
 ```
 
-#### <a name="merchandised-product-sku-by-id-response-body"></a>Response Body
+#### Response Body
 
 Sample *Merchandised Product SKU By ID* 200 successful response:
 
@@ -1087,13 +1087,13 @@ Sample *Merchandised Product SKU By ID* 200 successful response:
 
 ---
 
-## <a name="using-merchandised-product-prices"></a>Using Merchandised Product Prices
+## Using Merchandised Product Prices
 
 - [MERCHANDISED PRICES LIST](#merchandised-prices-list)
 
 - [MERCHANDISED PRICES BY ID](#merchandised-prices-by-id)
 
-### <a name="merchandised-produce-prices-overview"></a>Merchandised Product Prices Overview
+### Merchandised Product Prices Overview
 
 Use this API to list, create and delete product prices.
 
@@ -1104,7 +1104,7 @@ Use this API to list, create and delete product prices.
 
 The following sections describe each endpoint of the Merchandised Product Price API in detail.
 
-### <a name="merchandised-prices-list"></a>Merchandised Prices List
+### Merchandised Prices List
 
 Use this endpoint to list price data by price ID or by product ID and [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products). Because price values and currency are localized, both country and productid are required parameters when searching by productid. Country is not required when searching by price ID because the price record for a price ID is for a specific country. To get the price ID in the results, first search by productid and country. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
 
@@ -1125,14 +1125,14 @@ No special headers are required to use this endpoint so it can be executed in an
 |**count**|query|Number of results to return, default = 25, max = 25|Integer|Optional|
 |**anchor**|query|If the value is 10, results returned start with result 11|Integer|Optional|
 
-### <a name="merchandised-prices-list-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="merchandised-prices-list-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -1145,7 +1145,7 @@ Let's take a look at *Merchandised Price List* scenarios.
 
 Note that for the **productid** + [**country**](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) price queries, there is a different price record for each country. Querying by ID is for a specific country.
 
-### <a name="merchandised-prices-list-response-body"></a>Response Body
+### Response Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1208,7 +1208,7 @@ Sample *Merchandised Prices List* 200 successful response:
 
 ---
 
-### <a name="merchandised-prices-by-id"></a>Merchandised Prices by ID
+### Merchandised Prices by ID
 
 Use this endpoint to list price data by price ID. To get the price ID, search by productid and [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) using the [Merchandised Prices List](#merchandised-prices-list) endpoint and Price ID is returned in the results. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
 
@@ -1231,14 +1231,14 @@ No special headers are required to use this endpoint so it can be executed in an
 |**filter**|Path|Field list and values to search for. ID or productid + country is required.<br>maximum of one country is supported|String|**Required**|
 |**snapshotId**|Query|ID representing the product version, allowed in listing by price ID only|String|Optional|
 
-### <a name="merchandised-prices-by-id-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="merchandised-prices-by-id-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -1255,7 +1255,7 @@ Sample *Merchandised Price by ID* request URI:
 https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c
 ```
 
-### <a name="merchandised-prices-by-id-response-body"></a>Response Body
+### Response Body
 
 See the [Merchandised Prices List](#merchandised-product-list) endpoint for a description of response body field descriptions.
 
@@ -1290,13 +1290,13 @@ Sample *Merchandised Price by ID* 200 success response:
 
 ----
 
-## <a name="using-merchandised-vas"></a>Using Merchandised VAS
+## Using Merchandised VAS
 
 - [MERCHANDISED VALUE ADDED SERVICES LIST](#merchandised-value-added-services-list)
 
 - [MERCHANDISED VALUE ADDED SERVICES BY ID](#merchandised-value-added-services-by-id)
 
-### <a name="merchandised-value-added-services-overview"></a>Merchandised Value Added Services Overview
+### Merchandised Value Added Services Overview
 
 Products can be merchandised with one or more Value Added Services (VAS) such as gift wrap or personalization. Digital and physical gift cards are another example of VAS as customers can personalize the gift message and configure the amount. A VAS can be merchandised to an unlimited number of products. Use this service to list, add, and delete VAS.
 
@@ -1309,7 +1309,7 @@ Note that the VAS services return a field named pid. Even though this field impl
 
 The following sections describe each endpoint of the Merchandised Value Added Services API in detail.
 
-### <a name="merchandised-value-added-services-list"></a>Merchandised Value Added Services List
+### Merchandised Value Added Services List
 
 Use this endpoint to list VAS by type or by VAS ID. Listing by multiple IDs is supported.
 
@@ -1344,18 +1344,18 @@ Let's take a look at some *Merchandised Value Added Services List* scenarios.
 |VAS ID 47bc9091-2965-5231-b5f1-a7216e249894 and Snapshot ID 52ca6f5b-fde9-4daf-af65-3993ef7eb428|https://api.nike.com/merch/value_added_services/v1?filter=id(afd90c5b-230f-5fd3-b3a4-af36c5dbd55d)&filter=snapshotId(e0861083-f3a3-4120-bc30-29888113e940)|
 |all available VAS|https://api.nike.com/merch/value_added_services/v1|
 
-### <a name="merchandised-value-added-services-list-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="merchandised-value-added-services-list-request-body"></a>Request Body
+### Request Body
 
 There is no body in a GET request.
 
-### <a name="merchandised-value-added-services-list-response-body"></a>Response Body
+### Response Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1423,7 +1423,7 @@ Sample *Merchandised Value Added Services List* 200 successful response:
 
 ---
 
-### <a name="merchandised-value-added-services-by-id"></a>Merchandised Value Added Services by ID
+### Merchandised Value Added Services by ID
 
 Use this endpoint when you want to list the fields for one VAS ID. This endpoint returns almost identical results as the [Merchandised Value Added Services List](#merchandised-value-added-services-list) endpoint returns except that it does not return pagination information because it returns only one VAS object. This endpoint returns a quicker response than the Merchandised Value Added Services List endpoint because it does not filter or paginate the results.
 
@@ -1455,18 +1455,18 @@ Let's take a look at some *Merchandised Value Added Services by ID* scenarios.
 |ID 56e48cf5-050f-51a7-b6ce-1ca5ab9d415b and Snapshot ID 52ca6f5b-fde9-4daf-af65-3993ef7eb428|https://api.nike.com/merch/value_added_services/v1/56e48cf5-050f-51a7-b6ce-1ca5ab9d415b?snapshotId=566ba45b-898b-4f19-a743-c12e8a753945|
 |ID 56e48cf5-050f-51a7-b6ce-1ca5ab9d415b and only return pid and type fields|https://api.nike.com/merch/value_added_services/v1/56e48cf5-050f-51a7-b6ce-1ca5ab9d415b?fields=(status,pid,type)|
 
-### <a name="merchandised-value-added-services-list-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="merchandised-value-added-services-list-request-body"></a>Request Body
+### Request Body
 
 There is no body in a GET request.
 
-### <a name="merchandised-value-added-services-list-response-body"></a>Response Body
+### Response Body
 
 See the [Merchandised Value Added Services List Response Body](#merchandised-value-added-services-list) endpoint for a list of VAS field descriptions returned in the response.
 
@@ -1496,7 +1496,7 @@ Sample *Merchandised Value Added Services by ID* 200 successful response:
 
 ---
 
-## <a name="using-product-content"></a>Using Product Content
+## Using Product Content
 
 - [PRODUCT CONTENT BY STYLE COLOR](#product-content-by-style-color)
 - [PRODUCT CONTENT BY STYLE COLOR LIST](#product-content-by-style-color-list)
@@ -1507,7 +1507,7 @@ Sample *Merchandised Value Added Services by ID* 200 successful response:
 - [PRODUCT IMAGE SET BY STYLE COLOR LIST](#product-image-set-by-style-color-list)
 - [PRODUCT BASE IMAGE URL BY STYLE COLOR LIST](#product-base-image-url-by-style-color-list)
 
-### <a name="product-content-services-overview"></a>Product Content Overview
+### Product Content Overview
 
 Use these services to list product content such as title, subtitle, description, and images by [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale.
 
@@ -1517,7 +1517,7 @@ All endpoints are synchronous.
 
 The following sections describe each endpoint of the Product Content Services API in detail.
 
-### <a name="product-content-by-style-color"></a>Product Content by Style Color
+### Product Content by Style Color
 
 Use this endpoint to list localized product content for a style-color, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale.
 
@@ -1541,14 +1541,14 @@ Let's take a look at some *Product Content by Style Color* scenarios.
 |---|---|
 |Style-color code 919704-006 in Spain for locale es_ES|https://api.nike.com/merch/contents/v1/919704-006/content?country=ES&locale=es_ES|
 
-### <a name="product-content-by-style-color-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-content-by-style-color-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -1558,7 +1558,7 @@ Sample *Product Content by Style Color* URI:
 https://api.nike.com/merch/contents/v1/919704-006/content?country=ES&locale=es_ES
 ```
 
-### <a name="product-content-by-style-color-response-body"></a>Response Body
+### Response Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1668,7 +1668,7 @@ Sample *Product Content by Style Color* response body:
 
 ---
 
-### <a name="product-content-by-style-color-list"></a>Product Content by Style Color List
+### Product Content by Style Color List
 
 Use this endpoint to list localized product content for a list of style-colors, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one country and locale is supported.
 
@@ -1692,14 +1692,14 @@ Let's take a look at some *Product Content by Style Color List* scenarios.
 |---|---|
 |Style-color codes 852395-601 and 919704-006, country Spain and locale es_ES|https://api.nike.com/merch/contents/v1/content?stylecolors=852395-601,919704-006&country=ES&locale=es_ES|
 
-### <a name="product-content-by-style-color-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-content-by-style-color-list-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -1709,7 +1709,7 @@ Sample *Product Content by Style Color List* URI:
 https://api.nike.com/merch/contents/v1/content?stylecolors=852395-601,919704-006&country=ES&locale=es_ES
 ```
 
-### <a name="product-content-by-style-color-list-response-body"></a>Response Body
+### Response Body
 
 See the complete response body field list in the [Product Content by Style Color Response Body](#product-content-by-style-color).
 
@@ -1838,7 +1838,7 @@ Sample *Product Content by Style Color List* response body:
 
 ---
 
-### <a name="product-content-item-by-style-color"></a>Product Content Item by Style Color
+### Product Content Item by Style Color
 
 Use this endpoint to list one item (field) of product content for a style-color, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one style-color, itemName, country and locale is supported. You can use any valid itemName in the path parameter.
 
@@ -1863,14 +1863,14 @@ Let's take a look at some *Product Content Item by Style Color* scenarios.
 |---|---|
 |Title information for style-color code 919704-006, country Spain and locale es_ES|https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&locale=es_ES|
 
-### <a name="product-content-item-by-style-color-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-content-item-by-style-color-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -1880,7 +1880,7 @@ Sample *Product Content by Style Color List* URI:
 https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&locale=es_ES
 ```
 
-### <a name="product-content-item-by-style-color-response-body"></a>Response Body
+### Response Body
 
 Sample *Product Content Item by Style Color List* response body:
 
@@ -1897,7 +1897,7 @@ Sample *Product Content Item by Style Color List* response body:
 
 ---
 
-### <a name="product-content-field-by-style-color-list"></a>Product Content Field by Style Color List
+### Product Content Field by Style Color List
 
 Use this endpoint to list one item (field) of product content for a list of style-colors, [country](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) and locale. Only one itemName, country and locale is supported. You can use any valid itemName in the path parameter.
 
@@ -1922,7 +1922,7 @@ Let's take a look at some *Product Content Field by Style Color List* scenarios.
 |---|---|
 |Title information for style-color codes 852395-601 and 919704-006, country Spain and locale es_ES|https://api.nike.com/merch/contents/v1/content/descriptionHeading?country=ES&locale=es_ES&stylecolors=852395-601,919704-006|
 
-### <a name="product-content-field-by-style-color-list-request-headers"></a>Request Headers
+### Request Headers
 
 Required request headers:
 
@@ -1931,7 +1931,7 @@ Required request headers:
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-content-field-by-style-color-list-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -1941,7 +1941,7 @@ Sample *Product Content Item by Style Color List* URI:
 https://api.nike.com/merch/contents/v1/content/descriptionHeading?country=ES&locale=es_ES&stylecolors=852395-601,919704-006
 ```
 
-### <a name="product-content-field-by-style-color-list-response-body"></a>Response Body
+### Response Body
 
 Sample *Product Content Item by Style Color List* response body:
 
@@ -1958,7 +1958,7 @@ Sample *Product Content Item by Style Color List* response body:
 
 ---
 
-### <a name="product-image-set-by-style-color"></a>Product Image Set by Style Color
+### Product Image Set by Style Color
 
 Use this endpoint to list the images associated with a style-color and country.
 
@@ -1983,14 +1983,14 @@ Let's take a look at some *Product Image Set by Style Color* scenarios.
 |---|---|
 |Style-color code 919704-006 and country Spain|hhttps://api.nike.com//merch/contents/v1/919704-006/images?country=ES|
 
-### <a name="product-image-set-by-style-color-list-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-image-set-by-style-color-list-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -2000,7 +2000,7 @@ Sample *Product Image Set by Style Color* URI:
 https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 ```
 
-### <a name="product-image-set-by-style-color-list-response-body"></a>Response Body
+### Response Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2046,7 +2046,7 @@ Sample *Product Image Set by Style Color* response body:
 
 ---
 
-### <a name="product-base-image-url-by-style-color"></a>Product Base Image URL by Style Color
+### Product Base Image URL by Style Color
 
 Use this endpoint to list the first image in the image set for a style-color. This is also known as the base image.
 
@@ -2069,14 +2069,14 @@ Let's take a look at some *Product Base Image URL by Style Color* scenarios.
 |---|---|
 |Style-color code 919704-006 and country Spain|https://api.nike.com/merch/contents/v1/919704-006/images/base?country=ES|
 
-### <a name="product-base-image-url-by-style-color-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-base-image-url-by-style-color-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -2086,7 +2086,7 @@ Sample *Product Base Image URL by Style Color* URI:
 https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 ```
 
-### <a name="product-base-image-url-by-style-color-response-body"></a>Response Body
+### Response Body
 
 Sample *Product Base Image URL by Style Color* response body:
 
@@ -2104,7 +2104,7 @@ Sample *Product Base Image URL by Style Color* response body:
 
 ---
 
-### <a name="product-base-image-url-by-style-color-list"></a>Product Image Set by Style Color List
+### Product Image Set by Style Color List
 
 Use this endpoint to list the image set for a list of style-color codes and country. Only one country is supported.
 
@@ -2127,14 +2127,14 @@ Let's take a look at some *Product Image Set by Style Color List* scenarios.
 |---|---|
 |Style-color codes 919704-006 and 852395-601 and country Spain|https://api.nike.com/merch/contents/v1/images%3Fcountry=ES&stylecolors=919704-006,852395-601|
 
-### <a name="product-base-image-url-by-style-color-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-base-image-url-by-style-color-list-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -2144,7 +2144,7 @@ Sample *Product Image Set by Style Color List* URI:
 https://api.nike.com/merch/contents/v1/images?country=ES&stylecolors=919704-006,852395-601
 ```
 
-### <a name="product-base-image-url-by-style-color-list-response-body"></a>Response Body
+### Response Body
 
 Sample *Product Image Set by Style Color List* response body:
 
@@ -2212,7 +2212,7 @@ See the [Product Image Set by Style Color List Response Body](#product-image-set
 
 ---
 
-### <a name="product-base-image-url-by-style-color-list"></a>Product Base Image URL by Style Color List
+### Product Base Image URL by Style Color List
 
 Use this endpoint to list the base image for a list of style-color codes and country. Only one country is supported.
 
@@ -2235,14 +2235,14 @@ Let's take a look at some *Product Base Image URL by Style Color List* scenarios
 |---|---|
 |Style-color codes 919704-006 and 852395-601 and country Spain|https://api.nike.com/merch/contents/v1/images/base?country=ES&stylecolors=919704-006,852395-601|
 
-### <a name="product-base-image-url-by-style-color-list-request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|Optional|
 |**Content-Type**|Content type of the request, application/json is only value allowed|Optional|
 
-### <a name="product-base-image-url-by-style-color-list-request-body"></a>Request Body
+### Request Body
 
 There is no request body for a GET request.
 
@@ -2252,7 +2252,7 @@ Sample *Product Base Image URL by Style Color List* URI:
 https://api.nike.com/merch/contents/v1/images/base?country=ES&stylecolors=919704-006,852395-601
 ```
 
-### <a name="product-base-image-url-by-style-color-list-response-body"></a>Response Body
+### Response Body
 
 Sample *Product Image Set by Style Color List* response body:
 
@@ -2267,11 +2267,11 @@ Sample *Product Image Set by Style Color List* response body:
 
 ---
 
-## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
+## Upgrading to the Latest Version
 
 All clients are currently calling the most recent version of Merchandised Products services. There are no upgrade notes at this time.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 Listed below are ways to troubleshoot unexpected responses using this API.
 
@@ -2308,7 +2308,7 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 * Environment in which your request was executed (test, prod, performance)
 * Splunk [TraceId](/doc/getting-started/using_nike_apis.html#query-logs-with-a-trace-id)
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 |Term|Definition|
 |---|---|
@@ -2323,7 +2323,7 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 |SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
 |VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
@@ -2336,7 +2336,7 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 |Normalized table formatting|2 July, 2018|Edits for request/response table formatting and content|
 |Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

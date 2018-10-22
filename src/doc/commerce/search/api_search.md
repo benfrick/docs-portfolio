@@ -15,7 +15,7 @@ url: /commerce/search/api_search.html
 E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/api_rollup_threads.html) first.
 
 
-## <a name="in-this-guide"></a>**In this guide:**
+## **In this guide:**
 
 [Use Cases](#use-cases)
 
@@ -29,7 +29,7 @@ E-commerce search provides a robust and consistent e-commerce search experience 
 
 [Troubleshooting](#troubleshooting)
 
-## <a name="use-cases"></a>Use Cases
+## Use Cases
 Here are just some of the ways e-commerce search can be used to drive your experience:
 
 - Quickly return e-commerce search results using Simple Search, no rule configuration necessary
@@ -41,7 +41,7 @@ Here are just some of the ways e-commerce search can be used to drive your exper
 - Retrieve a [Product Feed](/doc/commerce/product/api_rollup_threads.html) when you ask a product question in the Consumer Services Portal
 - Finely tune e-commerce search results using the context aware Smart Search rules engine
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 Listed below are some common e-commerce search terms and definitions.
 
@@ -61,7 +61,7 @@ Listed below are some common e-commerce search terms and definitions.
 |Signal|Customer behavior and merchandiser-defined factors used to rank e-commerce search results|
 
 
-## <a name="contacting-the-team"></a>Contacting the Team
+## Contacting the Team
 
 Need to reach out to the Search team?
 
@@ -72,7 +72,7 @@ Need to reach out to the Search team?
 |Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
 |Email the Product Manager<a name="product-owner"></a>|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
-## <a name="search-types"></a>E-commerce Search Types
+## E-commerce Search Types
 
 E-commerce search can be used to
 
@@ -81,17 +81,17 @@ E-commerce search can be used to
 
 Currently, e-commerce search handles product and navigation data. Content will be added in the near future. This section discusses the various search types.
 
-### <a name="smart-search"></a>Smart Search
+### Smart Search
 Smart Search is a rule-based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api_rollup_threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer-provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts.
 
 **Used by:** [Bootroom](https://www.nike.com/bootroom) to drive the Athletes product gridwall
 
-### <a name="autocomplete"></a>Autocomplete
+### Autocomplete
 This type of search suggests keywords when customers provide three or more letters of a search term. Nike.com calls Autocomplete Search when the customer types in the search bar. If a customer types "red", Autocomplete search could return keyword suggestions "Boston Red Sox", "Cincinnati Reds" and "Washington Redskins". A keyword suggestion can be used in a subsequent search to find products matching that keyword.
 
 **Used by:** Nike.com
 
-### <a name="search-preview"></a>Search Preview
+### Search Preview
 Search Preview is a simple type of search that uses one or more search keywords to return a subset of product information using default relevancy rankings. Using the Autocomplete example above, hovering over "red sox" returns the top 6 Red Sox products according to the default rule. Nike.com web uses Search Preview from the Search bar to return products matching the first suggested keyword returned from Autocomplete. That experience calls Search Preview each time the customer hovers over an Autocomplete keyword.
 
 **Used by:** Nike.com
@@ -123,16 +123,16 @@ The image below depicts how Smart Search gathers search results and ranks them.
 7. Smart Search URL executes search and returns the search results
 -->
 
-### <a name="recommended-navigation"></a>Recommended Navigation
+### Recommended Navigation
 Use this type of search to build navigation in your experience. Nike.com calls the Recommended Navigation API directly to list filters (product attributes) in the left navigation based on one or more search terms and/or attribute IDs. Like Smart Search, Recommended Navigation uses concepts and rules to determine the appropriate set of navigation filters to return. For instance, if you pass the "blue" search term in the call to Recommended Navigation, it returns a list of filters including "gender", "product type", and "apparel". Checking the "womens" gender filter in the UI executes another Recommended Navigation search for the search terms "blue" and "womens", narrowing the list of navigation filters even further.
 
 **Used by:** Nike.com
 
-## <a name="rules-results-rankings"></a>Rules, Results and Rankings
+## Rules, Results and Rankings
 
 Smart Search culls data from several sources and utilizes a robust rules engine to determine what data to return and how to rank the e-commerce search results. Search results are not cached.
 
-### <a name="rules"></a>Rules
+### Rules
 
 Smart Search rules play a key role in determining e-commerce search results and rankings. Each channel has a default rule and may also have custom rules.
 
@@ -220,21 +220,21 @@ taxonomyAttributeSearchIds != a2e74fc6-5388-4fc7-9cb5-801e1d8b42eb)
 
 >**TIP:** E-commerce search is not the source of data. Data originates in the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api_rollup_threads.html).
 
-### <a name="results"></a>Results
+### Results
 
 Several factors affect e-commerce search results, including product attributes and the fields those product attributes are assigned to. If a product's state field is not set to ACTIVE or the product's "hide from search" attribute it marked "true", a product rule may filter out the product from the search results. Similarly, if a search keyword is not in a field that search indexes, the product will not be included in the search results.
 
-### <a name="rankings"></a>Rankings
+### Rankings
 
 A search rule can be assigned a priority to influence when the rule is applied in relation to other rules. Rules with a high priority get applied first. Rules assigned a low priority ensure that higher priority rules are applied first.
 
 Behind the scenes, the rules engine uses signals as part of the search strategy to influence search rankings. Signals are either consumer or business driven. Consumer driven signals are trends based on consumer behavior over a period of time. For example, a signal could boost the product that had the most viewed product display page within the past week, or a signal could boost the product that was most added to cart within the past month. Because this type of signal is an aggregate of consumer actions, consumer driven signals are constantly changing. Signals can also be driven by marketing objectives. The signal for the newest product or the signal for the product with the highest margin could boost those products to the top of the search rankings.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 If the products returned by e-commerce search are either not ranked as you expect or not returned at all, there are a few steps you can take to trouble shoot.
 
-### <a name="check-splunk"></a>Check Splunk
+### Check Splunk
 Use Splunk to trace the call to provide insight into what rules are being applied and what results the Search API returns.  All you need is the Trace Id. See the [Query Logs with a Trace ID](/content/doc/getting-started/using_nike_apis.html#query-logs-with-a-trace-id) section of the Using Nike APIs guide to learn how to get and use the trace id of the response to query Splunk.
 
 An abbreviated Splunk trace sequence for Trace Id 65519e4e2c01ba2d is listed below for the Neymar Jr. gridwall in Bootroom, URL https://www.nike.com/soccer/bootroom/f/neymar-jr/.
@@ -274,11 +274,11 @@ traceId=65519e4e2c01ba2d instance-id=i-0fe92b635def6169a 2018-06-14T18:58:38,860
 
 ```
 
-### <a name="check-the-rules"></a>Check the rules
+### Check the rules
 
 You will need Apollo access to check rule configuration. If you do not know the rule name(s) affecting your search results, check Splunk using the method described above. Then go into Apollo and verify that the rules are configured correctly and that no rules are competing with one another.
 
-### <a name="check-the-products"></a>Check the products
+### Check the products
 
 Ensure that the product is set up correctly to be found by search. If you know the style-color or product id, you can call the [Merchandised Product API](/doc/commerce/product/api_merch_product.html) directly to look at the product details. Note that not all fields in the Merchandised Product are exposed in the Product Feed API.
 

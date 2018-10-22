@@ -45,7 +45,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 
 [Related Links](#related-links)
 
-## <a name="api-at-a-glance"></a>API at a Glance
+## API at a Glance
 
 The <b>Analytics Pipeline API</b> is your single destination to record analytics events, helping both user experiences and web services to track consumer and application behavior.
 
@@ -87,17 +87,17 @@ Segment is an analytics API and customer data platform which Nike utilizes. As y
 
 Reach out to the Analytics API Product Owner, [Randy Davis](mailto:randall.davis@nike.com), for information on the analytics opportunities available via Segment.
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 
 - Clients must not use analytics data collected with the Analytics Pipeline API for sales, revenue, or available inventory data.
 - High usage from a single IP address may be flagged by Nike bot detection and blocked.
 - This API is not intended for application monitoring, logging, or reporting on server-side errors.
 
-### <a name="authentication"></a>Authentication
+### Authentication
 
 No authentication or authorization is required to use the Analytics Pipeline API.
 
-## <a name="use-cases"></a>Use Cases
+## Use Cases
 
 With the Analytics Pipeline API you can track:
 
@@ -131,7 +131,7 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 
 >**TIP:** This guide does not include details of the data transformations. For more info, see [TBD]().
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 **Analytics Pipeline API**
 
@@ -139,7 +139,7 @@ Here are some screenshots from Adobe Analytics to illustrate what kind of insigh
 |---|---|---|
 |<a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a>|/measure/uxevents/v1|POST|
 
-## <a name="making-your-first-api-request"></a>Making Your First API Request
+## Making Your First API Request
 
 For your first Analytics Pipeline API request, send an event that corresponds to a user clicking 'Change Billing Country' in the context of completing checkout in a web app.
 
@@ -263,7 +263,7 @@ The responses from the Analytics Pipeline API are simple to parse. If the event 
 
 If you receive any other response than this, something went wrong. See the [Response Body](#response-body) section for info on error responses.
 
-## <a name="using-analytics-pipeline"></a>Using Analytics Pipeline
+## Using Analytics Pipeline
 
 - [Analytics Pipeline Overview](#analytics-pipeline-overview)
 - [Endpoint Details](#endpoint-details)
@@ -272,27 +272,27 @@ If you receive any other response than this, something went wrong. See the [Resp
 - [Request Body](#request-body)
 - [Response Body](#response-body)
 
-### <a name="analytics-pipeline-overview"></a>Analytics Pipeline Overview
+### Analytics Pipeline Overview
 
 Use the Analytics Pipeline API as a single destination for tracking your user experience, service, or application events.
 
-### <a name="endpoint-details"></a>Endpoint Details
+### Endpoint Details
 
 |HTTP Method|URI Path|Restricted?|
 |---|---|---|
 |**POST**|`/measure/uxevents/v1`|No|
 
-### <a name="path--query-parameters"></a>Path & Query Parameters
+### Path & Query Parameters
 
 There are no path nor query parameters to be used with the Analytics Pipeline API.
 
-### <a name="request-headers"></a>Request Headers
+### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|---|
 |**Content-Type**|Content type of the request, **application/json** is only value allowed|Required|
 
-### <a name="request-body"></a>Request Body
+### Request Body
 
 Forming a request body to the Analytics Pipeline API requires combining the following schema information:
 
@@ -1675,7 +1675,7 @@ Sample request body:
 }
 ```
 
-### <a name="response-body"></a>Response Body
+### Response Body
 
 The response body format is described below.
 
@@ -1751,13 +1751,13 @@ Scenario: the API is having an issue taking the request.
 
 ---
 
-## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
+## Upgrading to the Latest Version
 
 Use the following tables to help your upgrade process from Analytics Pipeline v1 to v2.
 
 The first table shows the v1-v2 mapping for the fields in the Event Batch & Base Event schema. The remaining tables show the mappings for the fields that are specific to each Event Type.
 
-### <a name="event-batch--base-event-schema-mapping"></a>Event Batch & Base Event Schema Mapping
+### Event Batch & Base Event Schema Mapping
 
 |V1 Field Name|Description|V2 Field Name|Description|Notes|
 |---|---|---|---|---|
@@ -2035,7 +2035,7 @@ The above must be combined with one of the following:
 |events.properties.**view**|Object representing the user viewing part of an application per the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/baseView.json" target="_blank">baseView schema</a>||||
 |events.properties.**other**|Other text input data per <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/otherContexts.json" target="_blank">otherContext schema</a>|N/A (deprecated)|N/A||
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 Listed below are ways to troubleshoot unexpected responses using this API.
 
@@ -2045,15 +2045,15 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 2. Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 See the [Glossary](/doc/commerce/reference/glossary.html)
 
-## <a name="release-notes"></a>Release Notes
+## Release Notes
 
 There are no release notes at this time.
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
@@ -2061,7 +2061,7 @@ There are no release notes at this time.
 |Updated links|03/20/2018|Updated links to point to new dev portal|
 |Updated external links|04/03/2018|Updated external links to open in new browser window|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

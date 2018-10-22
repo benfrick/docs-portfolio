@@ -105,7 +105,7 @@ Send a request with a country code, currency code, item information and (optiona
 
 ## Step 4: Previewing a Checkout
 
-### <a name="request-checkout-preview"></a>Request Checkout Preview
+### Request Checkout Preview
 
 The *Request a Checkout Preview* endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you'll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.
 
@@ -121,7 +121,7 @@ Use the response to display the final payment amount to the customer. Once the c
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more.
 
-### <a name="retrieve-checkout-preview-job"></a>Retrieve Checkout Preview Job
+### Retrieve Checkout Preview Job
 
 After calling *Request Checkout Preview* and receiving a HTTP 202 response, call *Retrieve Checkout Preview Job* using the same checkout ID to check the status of your job.
 
@@ -137,13 +137,13 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 
 >**TIP:** Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
 
-### <a name="retrieve-checkout-preview-results"></a>Retrieve Checkout Preview Results
+### Retrieve Checkout Preview Results
 
 After calling both the *Request Checkout Preview* and *Retrieve Checkout Preview Job* endpoints, you can call this endpoint to retrieve the result of your Checkout Preview request. This step is optional, as the same result is already available in the response from the *Retrieve Checkout Submit Job* endpoint.
 
 ## Step 5: Submitting a Checkout
 
-### <a name="request-checkout-submit"></a>Request Checkout Submit
+### Request Checkout Submit
 
 Call the *Request Checkout Submit* endpoint when your user is ready to complete their purchase.
 
@@ -178,11 +178,11 @@ Once you observe a job status of COMPLETED, get the results of your job by parsi
 
 >**TIP:** Parsing the 'Completed' job result directly is a best practice because it eliminates doing another service call.
 
-### <a name="retrieve-checkout-results"></a>Retrieve Checkout Results
+### Retrieve Checkout Results
 
 After calling both the Request Checkout Submit and Retrieve Checkout Submit Job endpoints, you can call this endpoint to retrieve the result of your request. This step is optional, as the same result is already available in the response from the Retrieve Checkout Submit Job endpoint.
 
-### <a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)
+### Request Checkout Submit (Launch)
 
 The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.
 
@@ -202,7 +202,7 @@ Members and employees only. **Guest users may not save Wish Lists**
 
 ![](/images/commerce/buy/wishlists_flow.png)
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 [Add payment endpoints here, too]
 
@@ -247,7 +247,7 @@ Members and employees only. **Guest users may not save Wish Lists**
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>
 <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a>
 
-## <a name="sending-your-first-request"></a>Sending Your First Request
+## Sending Your First Request
 
 For your first request, send a request to the *Create or Update a Cart by Cart ID* endpoint of the Carts v2 API and create your first cart.
 
@@ -399,7 +399,7 @@ curl -X GET \
 
 The response body from the *Get a Cart for a Cart ID* endpoint is the same as *Create or Update a Cart by Cart ID*, so the process of parsing it is also the same.
 
-## <a name="best-practices"></a>Best Practices
+## Best Practices
 
 ### Conditions for Retries
 
@@ -490,15 +490,15 @@ Carts (built after adopting JSON Pointer standard):
 
 If you are a client of both of the above APIs, you will need to parse error responses in two different ways.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 >**TIP:** SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. Ask the Product Owner to get specific SLA info for each endpoint.
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
-### <a name="authorization"></a>Authorization
+### Authorization
 
 #### Access Tokens
 
@@ -514,7 +514,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 
 Listed below are ways to troubleshoot unexpected responses using this API.
 
-### <a name="example-implementation-diagram"></a>Example Implementation Diagram
+### Example Implementation Diagram
 
 Here is an example of a sequence of API calls to execute an entire checkout:
 
@@ -557,7 +557,7 @@ There are 4 possible scenarios:
 
 >**TIP:** For more, see the Idempotence Guarantee section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#idempotence-guarantee) guide.
 
-### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
+### Use Troubleshooting Tools
 
 - Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
@@ -565,7 +565,7 @@ There are 4 possible scenarios:
 
 - Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a> Slack channel for assistance.
 
-### <a name="common-questions"></a>Common Questions
+### Common Questions
 
 **Is it okay to call Checkout APIs if my app is hosted in an Amazon Web Services VPC?**
 
@@ -575,17 +575,17 @@ Yes. The APIs are exposed publicly so it shouldn't matter where you are calling 
 
 Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of which is somewhat unpredictable. Depending on the total volume of requests happening at the time your request was submitted, combined with the payment method and shipping country selected by the user, it may take several seconds to get a completed job. Best case is about 5 seconds, worst case can be well over a minute. If the job times out, you will get a 'completed with error' job status.
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 See the [Glossary](/doc/commerce/reference/glossary.html)
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|08/30/2018|Initial Draft|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 
