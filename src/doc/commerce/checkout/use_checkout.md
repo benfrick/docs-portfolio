@@ -184,7 +184,7 @@ After calling both the Request Checkout Submit and Retrieve Checkout Submit Job 
 
 ### Request Checkout Submit (Launch)
 
-The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.
+The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features [JWT](https://jwt.io/introduction/){:target="blank"} authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.
 
 The Launch endpoint has the same contract as the Request Checkout Submit endpoint so for additional details see that section.
 
@@ -207,45 +207,45 @@ Members and employees only. **Guest users may not save Wish Lists**
 [Add payment endpoints here, too]
 
 **Carts**
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete All Items from a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Cart ID</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Query Param)</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Filter Criteria</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a>
-<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a>
+[Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+[Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+[Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+[Get a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+[Get a Cart by Filter Criteria (Query Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api)
+[Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+[Modify a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+[Get a Cart by Filter Criteria (Path Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+[Delete All Item from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
 
 **Cart Reviews**
-<a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a>
+[Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="blank"}
 
 **Payment Options**
-<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">GET PAYMENT OPTIONS FOR AN ORDER</a>
-<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY</a>
-<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">VALIDATE PAYMENTS</a>
+[Get Payment Options for an Order](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="blank"}
+[Allowable Billing Countries for a Shipping Country](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="blank"}
+[Validate Payments](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="blank"}
 
 **Wish Lists**
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Lists for Authenticated User</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Add Item to List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a>
-<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a>
+[Create or Update a List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+[Delete a List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+[Retrieve a List by ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+[Retrieve Lists for Authenticated User](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+[Add Item to List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+[Remove Item from List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+[Retrieve Items by List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+[Retrieve Item by ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
 
 **Shipping Options**
-<a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a>
+[Shipping Options](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="blank"}
 
 **Checkouts**
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Results</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>
-<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a>
+[Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
+[Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
+[Retrieve Checkout Preview Results](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
+[Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
+[Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
+[Retrieve Checkout Results](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
+[Request Checkout Submit (Launch)](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
 
 ## Sending Your First Request
 
@@ -298,7 +298,7 @@ For the request body, the following considerations apply (at miniumum):
 
 **2. Create the URL**
 
-The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is `/buy/carts/v2/{id}`.
+The [API Reference](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"} states that the required URL format is `/buy/carts/v2/{id}`.
 
 To build the full URL, prepend `https://api.nike.com` to the above path, then append  **id** after "v2". The **id** is the cart identifier you passed in the request body.
 
@@ -403,9 +403,9 @@ The response body from the *Get a Cart for a Cart ID* endpoint is the same as *C
 
 ### Conditions for Retries
 
-For retry information by Checkout endpoint, visit <a href="https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients" target="_blank">Retry Patterns for Checkout Clients</a> in Confluence.
+For retry information by Checkout endpoint, visit [Retry Patterns for Checkout Clients](https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients){:target="blank"} in Confluence.
 
-For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.
+For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="blank"} on Confluence.
 
 ### Honor the ETAs for Best Performance
 
@@ -455,7 +455,7 @@ None of the endpoints described in this document support caching.
 
 ### Error Handling: Which JSON Field Had The Error?
 
-In error responses from APIs, Nike uses the <a href="https://tools.ietf.org/html/rfc6901" target="_blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.
+In error responses from APIs, Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901){:target="blank"} standard to indicate which field of the request JSON had the error.
 
 However, not all Checkout APIs are the same in this regard. This is due to some APIs having been built before Nike decided to use JSON Pointer standard.
 
@@ -542,7 +542,7 @@ See the User Types section of the [Using NDe APIs](/doc/getting-started/using_ni
 
 ### Idempotence
 
-<a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="_blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let's break it down.
+[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/)"{:target="blank"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let's break it down.
 
 Each PUT request to *Request Checkout Preview* and *Request a Checkout Submit* includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body.
 
@@ -563,7 +563,7 @@ There are 4 possible scenarios:
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a> Slack channel for assistance.
+- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="blank"} Slack channel for assistance.
 
 ### Common Questions
 

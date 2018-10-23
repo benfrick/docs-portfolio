@@ -51,7 +51,7 @@
     </tr>
     <tr>
       <td>Supported Locales</td>
-      <td>See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping</a></td>
+      <td>See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="blank">Language/Locale Mapping</a></td>
     </tr>
     <tr>
       <td>SLA</td>
@@ -67,7 +67,7 @@
     </tr>
     <tr>
       <td>Contact Info</td>
-      <td>Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br />Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br />Product Owner: <a href="mailto:andy.sun@nike.com">Andy Sun</a></td>
+      <td>Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="blank">#nde-product-feeds</a><br />Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="blank">Product and Feeds API</a><br />Product Owner: <a href="mailto:andy.sun@nike.com">Andy Sun</a></td>
     </tr>
   </tbody>
 </table>
@@ -158,7 +158,7 @@
 
 <p><i class="g72-plus"></i> Multiple Threads make up <strong>Feeds</strong>, customized for your users based on their chosen preferences in a Nike experience.</p>
 
-<p>To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see the <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product Feeds Confluence Space</a>.</p>
+<p>To summarize, a Feed is comprised of multiple Threads, and within each Thread resides a set of Cards. For an in-depth explanation of Cards, Threads, and Feeds, see the <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="blank">Product Feeds Confluence Space</a>.</p>
 
 <p><img src="/images/commerce/product_feeds/nike_app_annotated.png" alt="" /></p>
 
@@ -288,7 +288,7 @@
 
 <p>The Product Feeds v2 <em>Threads List</em> endpoint only supports the HTTP GET method, so you do not need to send a request body. Only the required request headers and URL query parameters should be sent.</p>
 
-<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="_blank">API.md</a> states that there are <em>no</em> required request headers and the only required query parameter is <strong>filter</strong> in the format of <strong>?filter=channelId(your_channel_Id_here)</strong>.</p>
+<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">API Reference</a> states that there are <em>no</em> required request headers and the only required query parameter is <strong>filter</strong> in the format of <strong>?filter=channelId(your_channel_Id_here)</strong>.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> The channelId value is in UUID format</p>
@@ -298,7 +298,7 @@
 
 <p><strong>2. Create the URL</strong></p>
 
-<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is <code class="highlighter-rouge">[/product_feed/threads/v2{?filter,fields,anchor,count}]</code>.</p>
+<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">API Reference</a> states that the required URL format is <code class="highlighter-rouge">[/product_feed/threads/v2{?filter,fields,anchor,count}]</code>.</p>
 
 <p>To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path, then append after ‘v2’ with the required <strong>filter</strong> query parameter. The resulting full URL would be:</p>
 
@@ -563,7 +563,7 @@
 </table>
 
 <blockquote>
-  <p><strong>TIP:</strong> For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="_blank">Language/Locale Mapping README</a>.</p>
+  <p><strong>TIP:</strong> For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="blank">Language/Locale Mapping README</a>.</p>
 </blockquote>
 
 <h5 id="allowed-sort-parameters">Allowed Sort Parameters</h5>
@@ -1370,25 +1370,25 @@
     <tr>
       <td>objects.productInfo.<strong>merchProduct</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
     <tr>
       <td>objects.productInfo.<strong>merchPrice</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
     <tr>
       <td>objects.productInfo.<strong>availability</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
     <tr>
       <td>objects.productInfo.<strong>productContent</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
     <tr>
@@ -1406,25 +1406,25 @@
     <tr>
       <td>objects.productInfo.<strong>skus</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
     <tr>
       <td>objects.productInfo.<strong>availableSkus</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
     <tr>
       <td>objects.productInfo.<strong>launchView</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
     <tr>
       <td>objects.productInfo.<strong>customizedPreBuild</strong></td>
       <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="blank">API Reference</a></td>
       <td>Optional</td>
     </tr>
   </tbody>
@@ -2701,7 +2701,7 @@
 </table>
 
 <blockquote>
-  <p><strong>TIP:</strong> For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="_blank">Language/Locale Mapping README</a>.</p>
+  <p><strong>TIP:</strong> For a list of supported locales, see the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="blank">Language/Locale Mapping JSON</a> and the <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md" target="blank">Language/Locale Mapping README</a>.</p>
 </blockquote>
 
 <h4 id="example-scenarios">Example Scenarios</h4>
@@ -2813,12 +2813,12 @@
     <p>All endpoints of Product Feeds exclusively feature the GET method, which has no request body, so the focus of each section will be on the differences in the response body only.</p>
   </li>
   <li>
-    <p>For the 4 endpoints that have both a v1 and a v1.5 (see <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API?tab=api" target="_blank">Product Feeds v1 API.md</a> for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.</p>
+    <p>For the 4 endpoints that have both a v1 and a v1.5 (see <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API?tab=api" target="blank">Product Feeds v1 API Reference</a> for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.</p>
   </li>
 </ul>
 
 <blockquote>
-  <p><strong>TIP:</strong> Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html" target="_blank">CAPI Migration Guide</a> for detailed instructions.</p>
+  <p><strong>TIP:</strong> Upgrading from CAPI (Commerce API)? See the <a href="/doc/commerce/product/capi_migration.html">CAPI Migration Guide</a> for detailed instructions.</p>
 </blockquote>
 
 <h3 id="v1x-to-v2-endpoint-mapping">V1.x to V2 Endpoint Mapping</h3>
@@ -3763,10 +3763,10 @@
     <p>Use the general troubleshooting tips in the <a href="/doc/getting-started/using_nike_apis.html#troubleshooting">Using NDe APIs</a> guide.</p>
   </li>
   <li>
-    <p>Use a Splunk query (requires access) such as <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&amp;display.page.search.mode=smart&amp;dispatch.sample_ratio=1&amp;earliest=-1h%40h&amp;latest=now&amp;sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D" target="_blank">this</a> to check for issues with your request.</p>
+    <p>Use a Splunk query (requires access) such as <a href="https://nike.splunkcloud.com/en-US/app/nike_search/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&amp;display.page.search.mode=smart&amp;dispatch.sample_ratio=1&amp;earliest=-1h%40h&amp;latest=now&amp;sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D" target="blank">this</a> to check for issues with your request.</p>
   </li>
   <li>
-    <p>Use the <a href="https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419" target="_blank">Product Feeds v2 Overview</a> dashboard in Insights (requires access) to see if the service is up and healthy.</p>
+    <p>Use the <a href="https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419" target="blank">Product Feeds v2 Overview</a> dashboard in Insights (requires access) to see if the service is up and healthy.</p>
   </li>
   <li>
     <p>Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/C0KEN0WQG">#cic-merch</a> Slack channel for assistance.</p>
@@ -3778,7 +3778,7 @@
 <p><strong>Who do I contact with questions about what I’m seeing in the **productInfo</strong> or <strong>publishedContent</strong> sections of the response?**</p>
 
 <ul>
-  <li>The data in <strong>productInfo</strong> and <strong>publishedContent</strong> is not owned by the Product Feeds team. Refer to <a href="https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown" target="_blank">Thread Response Ownership Breakdown</a> to find the Slack channel of the team responsible for that data.</li>
+  <li>The data in <strong>productInfo</strong> and <strong>publishedContent</strong> is not owned by the Product Feeds team. Refer to <a href="https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown" target="blank">Thread Response Ownership Breakdown</a> to find the Slack channel of the team responsible for that data.</li>
 </ul>
 
 <p><strong>How do I know what product attributes are available for me to use to request Threads?</strong></p>
@@ -3791,7 +3791,7 @@
 
 <ul>
   <li>
-    <p><em>The feed may have failed validation and was marked inactive</em>. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/C0KEN0WQG" target="_blank">#cic-merch</a> Slack channel to check if the feed failed validation and why.</p>
+    <p><em>The feed may have failed validation and was marked inactive</em>. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="blank">#nde-product-feeds</a> Slack channel to check if the feed failed validation and why.</p>
   </li>
   <li>
     <p><em>The feed might not yet be published</em>. It can take up to 15 minutes to publish a change from AEM and have it be reflected in the Feeds API.</p>

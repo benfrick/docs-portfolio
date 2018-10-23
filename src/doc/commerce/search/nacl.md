@@ -29,4 +29,4 @@ The NDe Admin Component Library (NACL) is a modular and flexible toolkit of user
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>

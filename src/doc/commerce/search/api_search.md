@@ -67,8 +67,8 @@ Need to reach out to the Search team?
 
 |Method|Contact|
 |---|---|
-|Slack|<a href="https://nikedigital.slack.com/messages/C4MGZ8GDB" target="_blank">#search-integration</a>|
-|Confluence space|<a href="https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud" target="_blank">Content Discovery Team</a>|
+|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="blank"}</a>|
+|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="blank"}|
 |Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
 |Email the Product Manager<a name="product-owner"></a>|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
@@ -100,7 +100,7 @@ The Nike.com image below illustrates how Autocomplete and Search Preview can be 
 
 ![](/images/commerce/search/autocomplete-search-preview.png)
 
->**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the <a href="https://tourguide.prod.commerce.nikecloud.com/global-nav" target="_blank">Global Navigation Guide</a>.
+>**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="blank"}.
 
 <!--
 
