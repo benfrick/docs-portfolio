@@ -88,7 +88,7 @@
     </tr>
     <tr>
       <td>Contact Info</td>
-      <td>Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus" target="_blank">#cic-nexus</a><br />Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="_blank">Analytics Pipeline API Team</a><br /> Mailing List: <a href="mailto:Lst-Nexus.DevOps">Lst-Nexus.Devops</a><br /><a name="product-owner"></a>Product Owner: <a href="mailto:randall.davis@nike.com" target="_blank">Randy Davis</a></td>
+      <td>Slack: <a href="https://nikedigital.slack.com/messages/cic-nexus">#cic-nexus</a><br />Confluence space: <a href="https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home" target="blank">Analytics Pipeline API</a><br /> Mailing List: <a href="mailto:Lst-Nexus.DevOps">Lst-Nexus.Devops</a><br />Product Owner: <a href="mailto:randall.davis@nike.com" target="blank">Randy Davis</a></td>
     </tr>
   </tbody>
 </table>
@@ -161,7 +161,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="_blank">SEND A NEW EVENT BATCH</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md" target="blank">SEND A NEW EVENT BATCH</a></td>
       <td>/measure/uxevents/v1</td>
       <td>POST</td>
     </tr>
@@ -400,10 +400,10 @@
 <p>Forming a request body to the Analytics Pipeline v2 API requires combining the following schema information:</p>
 
 <ul>
-  <li><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json" target="_blank">Event Batch</a>: top-most level in the request structure, which is common to all event types. Includes an array of one or more events.</li>
-  <li><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json" target="_blank">Common Fields</a>: common fields to be included for each event</li>
-  <li>One of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/page.json" target="_blank">Page</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/track.json" target="_blank">Track</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/identify.json" target="_blank">Identify</a></li>
-  <li>All of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/ab-test.json" target="_blank">A-B Test</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/e-commerce.json" target="_blank">E-commerce</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/nike.json" target="_blank">Nike</a></li>
+  <li><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json" target="blank">Event Batch</a>: top-most level in the request structure, which is common to all event types. Includes an array of one or more events.</li>
+  <li><a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json" target="blank">Common Fields</a>: common fields to be included for each event</li>
+  <li>One of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/page.json" target="blank">Page</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/track.json" target="blank">Track</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/identify.json" target="blank">Identify</a></li>
+  <li>All of the following schemas: <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/ab-test.json" target="blank">A-B Test</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/e-commerce.json" target="blank">E-commerce</a>, <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/nike.json" target="blank">Nike</a></li>
 </ul>
 
 <p><img src="/images/analytics/events_v2_schema.png" alt="" /></p>
@@ -416,7 +416,7 @@
 
 <h4 id="batch--common-fields">Batch &amp; Common Fields</h4>
 
-<p>The fields in the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/batch.json" target="_blank">Batch</a> and <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json" target="_blank">Common Fields</a> schemas are described in the below table:</p>
+<p>The fields in the <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/batch.json" target="blank">Batch</a> and <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json" target="blank">Common Fields</a> schemas are described in the below table:</p>
 
 <table>
   <thead>
@@ -1211,7 +1211,7 @@
     </tr>
     <tr>
       <td>events.context.app.<strong>domain</strong></td>
-      <td>Experience domain of app, see list <a href="https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences" target="_blank">here</a></td>
+      <td>Experience domain of app, see list <a href="https://confluence.nike.com/display/DAHP/List+of+DTC+Experiences" target="blank">here</a></td>
       <td>Optional</td>
     </tr>
     <tr>
@@ -2237,10 +2237,10 @@
 
 <ol>
   <li>
-    <p>Check for validation errors logged in Splunk <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda" target="_blank">here</a></p>
+    <p>Check for validation errors logged in Splunk <a href="https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda" target="blank">here</a></p>
   </li>
   <li>
-    <p>Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="_blank">here</a> as a guide to forming valid requests for each event type.</p>
+    <p>Use the sample requests in this document or those provided <a href="https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events" target="blank">here</a> as a guide to forming valid requests for each event type.</p>
   </li>
 </ol>
 

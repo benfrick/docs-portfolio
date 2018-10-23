@@ -61,7 +61,7 @@
     </tr>
     <tr>
       <td>Contact Info</td>
-      <td>Slack: <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a><br />Confluence: <a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="_blank">CiC Order Capture</a><br />Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)</td>
+      <td>Slack: <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="blank">#cic-order-integration</a><br />Confluence: <a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="blank">CiC Order Capture</a><br />Product Owners: Dan Robertson, Saket Shrivastava, Sree Krishna (Carts v1/v2)</td>
     </tr>
   </tbody>
 </table>
@@ -163,7 +163,7 @@
 
 <h3 id="idempotence">Idempotence</h3>
 
-<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="_blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let’s break it down.</p>
+<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let’s break it down.</p>
 
 <p>Each PUT request to <em>Request Checkout Preview</em> and <em>Request a Checkout Submit</em> includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body.</p>
 
@@ -202,198 +202,46 @@
 
 <h2 id="api-endpoint-quick-reference">API Endpoint Quick Reference</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>API Name</th>
-      <th>Endpoint Name</th>
-      <th>HTTP Method</th>
-      <th>URI Path</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Carts v1</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Create or Update a Cart</a></td>
-      <td>PUT</td>
-      <td>/buy/carts/v1/{id}{?fields}</td>
-    </tr>
-    <tr>
-      <td>Carts v1</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Retrieve Carts by ID</a></td>
-      <td>GET</td>
-      <td>/buy/carts/v1/{id}/{?fields}</td>
-    </tr>
-    <tr>
-      <td>Carts v1</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Retrieve Carts by Filter</a></td>
-      <td>GET</td>
-      <td>/buy/carts/v1/{?filter,fields}</td>
-    </tr>
-    <tr>
-      <td>Carts v1</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts?tab=api" target="_blank">Delete All Items from a Cart</a></td>
-      <td>DELETE</td>
-      <td>/buy/carts/v1/{id}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Cart ID</a></td>
-      <td>PUT</td>
-      <td>/buy/carts/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Cart ID</a></td>
-      <td>PATCH</td>
-      <td>/buy/carts/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete All Items from a Cart by Cart ID</a></td>
-      <td>DELETE</td>
-      <td>/buy/carts/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Cart ID</a></td>
-      <td>GET</td>
-      <td>/buy/carts/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Query Param)</a></td>
-      <td>GET</td>
-      <td>/buy/carts/v2/?filter</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Create or Update a Cart by Filter Criteria</a></td>
-      <td>PUT</td>
-      <td>/buy/carts/v2/{country}/{brand}/{channel}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Modify a Cart by Filter Criteria</a></td>
-      <td>PATCH</td>
-      <td>/buy/carts/v2/{country}/{brand}/{channel}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Get a Cart by Filter Criteria (Path Param)</a></td>
-      <td>PATCH</td>
-      <td>/buy/carts/v2/{country}/{brand}/{channel}</td>
-    </tr>
-    <tr>
-      <td>Carts v2</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Delete all Items from a Cart by Filter Criteria</a></td>
-      <td>DELETE</td>
-      <td>/buy/carts/v2/{country}/{brand}/{channel}</td>
-    </tr>
-    <tr>
-      <td>Cart Reviews</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Augment a Cart</a></td>
-      <td>POST</td>
-      <td>/buy/cart_reviews/v1</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Create or Update a List</a></td>
-      <td>PUT</td>
-      <td>/buy/lists/v1/{id}{?fields}</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Delete a List</a></td>
-      <td>DELETE</td>
-      <td>/buy/lists/v1/{id}</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve a List by ID</a></td>
-      <td>GET</td>
-      <td>/buy/lists/v1/{id}{?fields}</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Lists for Authenticated User</a></td>
-      <td>GET</td>
-      <td>/buy/lists/v1{?filter,fields}</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Add Item to List</a></td>
-      <td>PUT</td>
-      <td>/buy/list_items/v1/{id}{?fields}</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Remove Item from List</a></td>
-      <td>DELETE</td>
-      <td>/buy/list_items/v1/{id}</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Items by List</a></td>
-      <td>GET</td>
-      <td>/buy/list_items/v1{?filter, anchor, count, fields, sort}</td>
-    </tr>
-    <tr>
-      <td>Wish Lists</td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="_blank">Retrieve Item by ID</a></td>
-      <td>GET</td>
-      <td>/buy/list_items/v1/{id}{?fields}</td>
-    </tr>
-    <tr>
-      <td>Shipping Options</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a></td>
-      <td>POST</td>
-      <td>/buy/shipping_options/v2</td>
-    </tr>
-    <tr>
-      <td>Checkouts</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Preview</a></td>
-      <td>PUT</td>
-      <td>/buy/checkout_previews/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Checkouts</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Job</a></td>
-      <td>GET</td>
-      <td>/buy/checkout_previews/v2/jobs/{id}</td>
-    </tr>
-    <tr>
-      <td>Checkouts</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Preview Results</a></td>
-      <td>GET</td>
-      <td>/buy/checkout_preview_results/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Checkouts</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit</a></td>
-      <td>PUT</td>
-      <td>/buy/checkouts/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Checkouts</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Submit Job</a></td>
-      <td>GET</td>
-      <td>/buy/checkouts/v2/jobs/{id}</td>
-    </tr>
-    <tr>
-      <td>Checkouts</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a></td>
-      <td>GET</td>
-      <td>/buy/checkout_results/v2/{id}</td>
-    </tr>
-    <tr>
-      <td>Checkouts</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a></td>
-      <td>PUT</td>
-      <td>/buy/launch_checkouts/v2/{id}</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>Carts</strong>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Create or Update a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Modify a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Delete All Items from a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Get a Cart by Cart ID</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api">Get a Cart by Filter Criteria (Query Param)</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Create or Update a Cart by Filter Criteria</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Modify a Cart by Filter Criteria</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Get a Cart by Filter Criteria (Path Param)</a>
+<a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Delete All Item from a Cart by Filter Criteria</a></p>
+
+<p><strong>Cart Reviews</strong>
+<a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="blank">Augment a Cart</a></p>
+
+<p><strong>Payment Options</strong>
+<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="blank">Get Payment Options for an Order</a>
+<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="blank">Allowable Billing Countries for a Shipping Country</a>
+<a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="blank">Validate Payments</a></p>
+
+<p><strong>Wish Lists</strong>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Create or Update a List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Delete a List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Retrieve a List by ID</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Retrieve Lists for Authenticated User</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Add Item to List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Remove Item from List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Retrieve Items by List</a>
+<a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md" target="blank">Retrieve Item by ID</a></p>
+
+<p><strong>Shipping Options</strong>
+<a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="blank">Shipping Options</a></p>
+
+<p><strong>Checkouts</strong>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="blank">Request Checkout Preview</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="blank">Retrieve Checkout Preview Job</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="blank">Retrieve Checkout Preview Results</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="blank">Request Checkout Submit</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="blank">Retrieve Checkout Submit Job</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="blank">Retrieve Checkout Results</a>
+<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="blank">Request Checkout Submit (Launch)</a></p>
 
 <h2 id="making-your-first-api-request">Making Your First API Request</h2>
 
@@ -456,7 +304,7 @@ Authorization: Bearer {your access token}
 
 <p><strong>2. Create the URL</strong></p>
 
-<p>The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">API.md</a> states that the required URL format is <code class="highlighter-rouge">/buy/carts/v2/{id}</code>.</p>
+<p>The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">API Reference</a> states that the required URL format is <code class="highlighter-rouge">/buy/carts/v2/{id}</code>.</p>
 
 <p>To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path, then append  <strong>id</strong> after “v2”. The <strong>id</strong> is the cart identifier you passed in the request body.</p>
 
@@ -627,7 +475,7 @@ Authorization: Bearer {your access token}
 
 <h3 id="create-or-update-a-cart">Create or Update a Cart</h3>
 
-<p>Create a cart by executing an HTTP PUT request with a cart ID in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format <strong>that you have generated</strong>. Update a cart with PUT request using an existing cart ID.</p>
+<p>Create a cart by executing an HTTP PUT request with a cart ID in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a> format <strong>that you have generated</strong>. Update a cart with PUT request using an existing cart ID.</p>
 
 <blockquote>
   <p><strong>Note</strong>: HTTP PATCH is not supported; for each ‘update cart’ operation, send the entire cart contents again.</p>
@@ -746,7 +594,7 @@ Authorization: Bearer {your access token}
     <tr>
       <td><strong>id</strong></td>
       <td>Required</td>
-      <td>Unique client-generated cart identifier as <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a></td>
+      <td>Unique client-generated cart identifier as <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a></td>
     </tr>
     <tr>
       <td><strong>country</strong></td>
@@ -907,10 +755,10 @@ Authorization: Bearer {your access token}
 
 <h3 id="retrieve-carts-by-id">Retrieve Carts by ID</h3>
 
-<p>Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format) that <strong>you previously created</strong>. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.</p>
+<p>Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a> format) that <strong>you previously created</strong>. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.</p>
 
 <blockquote>
-  <p><strong>TIP:</strong> Reads against this endpoint are <a href="https://en.wikipedia.org/wiki/Eventual_consistency" target="_blank">eventually consistent</a>. Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.</p>
+  <p><strong>TIP:</strong> Reads against this endpoint are <a href="https://en.wikipedia.org/wiki/Eventual_consistency" target="blank">eventually consistent</a>. Since the PUT endpoint responds with the same body as this endpoint, consume the response body from the PUT for best performance to avoid polling.</p>
 </blockquote>
 
 <h4 id="endpoint-details-1">Endpoint Details</h4>
@@ -1381,6 +1229,7 @@ Authorization: Bearer {your access token}
 </ol>
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#!/Cart_Operations/get_buy_carts_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+
 <hr />
 
 <h2 id="using-carts-v2">Using Carts v2</h2>
@@ -3620,6 +3469,7 @@ Authorization: Bearer {your access token}
 </ol>
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md?raw" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+
 <hr />
 
 <h2 id="using-cart-reviews">Using Cart Reviews</h2>
@@ -4234,6 +4084,7 @@ Authorization: Bearer {your access token}
 </ol>
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#!/Cart_Reviews/post_buy_cart_reviews_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+
 <hr />
 
 <h2 id="using-wish-lists">Using Wish Lists</h2>
@@ -6524,7 +6375,7 @@ Authorization: Bearer {your access token}
 </table>
 
 <blockquote>
-  <p><strong>TIP:</strong> The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a> format of <code class="highlighter-rouge">yyyy-mm-ddThh:mm:ss.mssZ</code> and in UTC with zero offset, e.g. <code class="highlighter-rouge">2017-07-18T18:25:45.237Z</code>. Convert to the local date (or date/time) of the shopper as necessary.</p>
+  <p><strong>TIP:</strong> The date value(s) in estimatedDelivery object are in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="blank">ISO-8601</a> format of <code class="highlighter-rouge">yyyy-mm-ddThh:mm:ss.mssZ</code> and in UTC with zero offset, e.g. <code class="highlighter-rouge">2017-07-18T18:25:45.237Z</code>. Convert to the local date (or date/time) of the shopper as necessary.</p>
 </blockquote>
 
 <p>Sample <em>Shipping Options</em> response body:</p>
@@ -6703,6 +6554,7 @@ Authorization: Bearer {your access token}
 </ol>
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#!/default/post_buy_shipping_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
+
 <hr />
 
 <h2 id="using-checkouts">Using Checkouts</h2>
@@ -6825,7 +6677,7 @@ Authorization: Bearer {your access token}
     <tr>
       <td><strong>id</strong></td>
       <td>Path</td>
-      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a>) for the checkout</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -7235,7 +7087,7 @@ Authorization: Bearer {your access token}
     <tr>
       <td><strong>id</strong></td>
       <td>Path</td>
-      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a>) for the checkout</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -7695,7 +7547,7 @@ Authorization: Bearer {your access token}
     <tr>
       <td><strong>id</strong></td>
       <td>Path</td>
-      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a>) for the checkout</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -7760,7 +7612,7 @@ guide to learn more.</p>
     <tr>
       <td><strong>id</strong></td>
       <td>Path</td>
-      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a>) for the checkout</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -8135,7 +7987,7 @@ guide to learn more.</p>
     <tr>
       <td><strong>id</strong></td>
       <td>Path</td>
-      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a>) for the checkout</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -8651,7 +8503,7 @@ guide to learn more.</p>
     <tr>
       <td><strong>id</strong></td>
       <td>Path</td>
-      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a>) for the checkout</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -8660,7 +8512,7 @@ guide to learn more.</p>
 
 <h3 id="request-checkout-submit-launch">Request Checkout Submit (Launch)</h3>
 
-<p>The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.</p>
+<p>The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.</p>
 
 <p>The Launch endpoint has the same contract as the Request Checkout Submit endpoint so for additional details see that section.</p>
 
@@ -8699,7 +8551,7 @@ guide to learn more.</p>
     <tr>
       <td><strong>id</strong></td>
       <td>Path</td>
-      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout</td>
+      <td>Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="blank">UUID</a> for the checkout</td>
       <td>string</td>
       <td><strong>Required</strong></td>
     </tr>
@@ -9564,9 +9416,9 @@ guide to learn more.</p>
 
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
-<p>For retry information by Checkout endpoint, visit <a href="https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients" target="_blank">Retry Patterns for Checkout Clients</a> in Confluence.</p>
+<p>For retry information by Checkout endpoint, visit <a href="https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients" target="blank">Retry Patterns for Checkout Clients</a> in Confluence.</p>
 
-<p>For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.</p>
+<p>For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="blank">API Error Patterns</a> on Confluence.</p>
 
 <h3 id="honor-the-etas-for-best-performance">Honor the ETAs for Best Performance</h3>
 
@@ -9636,7 +9488,7 @@ guide to learn more.</p>
 
 <h3 id="error-handling-which-json-field-had-the-error">Error Handling: Which JSON Field Had The Error?</h3>
 
-<p>In error responses from APIs, Nike uses the <a href="https://tools.ietf.org/html/rfc6901" target="_blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.</p>
+<p>In error responses from APIs, Nike uses the <a href="https://tools.ietf.org/html/rfc6901" target="blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.</p>
 
 <p>However, not all Checkout APIs are the same in this regard. This is due to some APIs having been built before Nike decided to use JSON Pointer standard.</p>
 
@@ -9683,7 +9535,7 @@ guide to learn more.</p>
     <p>Use a Splunk query (requires access) to check for issues with your request.</p>
   </li>
   <li>
-    <p>Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a> Slack channel for assistance.</p>
+    <p>Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="blank">#cic-order-integration</a> Slack channel for assistance.</p>
   </li>
 </ul>
 
