@@ -33,7 +33,7 @@ toc:
 
 # ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
 
-##### Last Updated: 10/15/2018
+##### Last Updated: 10/23/2018
 
 ## <a name="overview"></a>Overview
 
@@ -73,13 +73,12 @@ An order is created when the consumer has provided all of the necessary informat
 
 ## Step 1: <a name="order-summary"></a>List a consumer's orders
 
-Use the BFF Order Summary API to get all or a select list of a Nike consumer's orders. By making this information accessible as a self-service in your app, consumers can check the progress of product shipment as well as view their product and payment history, no phone call required.
+Use the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} to get all or a select list of orders for a Nike member or employee. By making this information accessible as a self-service in your app, members and employees can view their product and payment history without having to contact Consumer Services.
 
-The BFF Order Summary API returns limited information about each order. If you need a more in-depth picture of a consumer's order that contains pricing, tax information, shipping instructions and detailed product information, see [List
+This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest's order, see [List
 details of a consumer's order](#order-details).
 
-The BFF Order Summary API requires that you pass certain headers in the request depending upon whether the consumer
-is logged in, is a guest or an employee. For more information, see [Required Request Headers](#request-headers).
+The BFF Order Summary API requires that you pass certain request headers. For more information, see [Required Request Headers](#request-headers).
 
 ### Customizing Your Results
 
@@ -103,8 +102,9 @@ of a consumer's orders are returned. While some filters only allow one value, yo
 
 **Sorting**
 
-You can sort the consumer's orders in several ways using the `sort` query parameter. If no sorting is applied, orders are
-returned in descending order by the orderSubmitDate field. You can sort by one or more order fields, separated by a comma. If your field is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
+You can sort the consumer's orders in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
+
+>TIP: It is recommended that your app pass the sort query parameter in the request to ensure that the results are sorted appropriately for your experience.
 
 
 **Other Query Parameters**
@@ -131,16 +131,6 @@ curl -X GET \
   -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
 ```
 
-Sample CURL for BFF Order Summary for a Guest
-
-```
-curl -X GET \
-  'https://api.nike.com/order_mgmt/user_order_summary/v1' \
-  -H 'X-Nike-Visitorid: 2c83877b-10fa-44da-a92d-2451efef8671' \
-  -H 'appid: com.nike.sport.running.ios' \
-  -H 'x-nike-visitid: 2'
-```
-
 ### Parsing the Response
 
 The BFF Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#order-status) for more detail on how status is determined and what statuses to display to the consumer in your experience. See the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} for a full list of fields returned in the response.
@@ -148,14 +138,18 @@ The BFF Order Summary JSON response contains several fields relating to status. 
 
 ## Step 2: <a name="order-details"></a>List details of a consumer's order
 
-Use the BFF Order Details API to get details of one consumer order. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want to get all of a consumer's orders, see [List a consumer's orders](#order-summary).
+Use the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api) to get details of one consumer order. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a consumer's orders](#order-summary).
+
+>TIP: The BFF Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/nde-docs/doc/commerce/product/api_merch_product.html#product-image-set-by-style-color){:target="blank"} to get a list of images for a styleColor and country.
 
 The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
-is logged in, a guest, or an employee. For more information, see [Required Request Headers](#request-headers).
+is a member, guest, or employee. For more information, see [Required Request Headers](#request-headers).
 
 ### Required Request Parameters
 
-For Members and Employees, only the orderNumber path parameter is required. For validation purposes for guest consumers, the orderNumber path parameter and email address filter parameter are required. If the email address is missing from the request or does not match the shipTo email address on the guest's order, the API returns a 404.
+For members and employees, the [authentication header](#request-headers) and orderNumber path parameter are required. For validation purposes for guest consumers, the orderNumber path parameter and email address filter parameter are required. If the email address is missing from the request or does not match the shipTo email address on the guest's order, the API returns a 404.
+
+>TIP: For members and employees, the authentication header must match the user who created the order. Otherwise, the API returns a 404.
 
 ### Customizing Your Results
 
@@ -515,9 +509,9 @@ None of the endpoints described in this document support caching.
 - Contact the Orders team on the <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="_blank">#mp-athena</a> Slack channel for assistance.
 
 ## <a name="terms-of-service"></a>Terms of Service
-
+<!--
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
-
+-->
 ### <a name="authorization"></a>Authorization
 
 #### Access Tokens
@@ -558,9 +552,9 @@ Listed below are the required request headers based on user type. Since most BFF
 |**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
 |**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the consumer is logged in|X||X|
-|**x-nike-visitorid**|Unique identifier for the guest, validated by the Edge router and passed through to the service||X||
-|**x-nike-visitid**|Integer identifying the guest's session||X||
-|**appId**|Application making the API request e.g. com.nike.sport.running.ios||X||
+|**x-nike-visitorid**|Unique identifier for the guest, validated by the Edge router and passed through to the service. Applies only to BFF Order Details API.||X||
+|**x-nike-visitid**|Integer identifying the guest's session. Applies only to BFF Order Details API.||X||
+|**appId**|Application making the API request e.g. com.nike.sport.running.ios|X|X|X|
 
 >**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
@@ -576,9 +570,11 @@ Yes. The APIs are exposed publicly so it does not matter where you are calling f
 
 Need to contact the Orders team?
 
-- Slack: [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4)
-- Confluence Space: [Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="blank"}
-- Product Owner: Vishibha Anand <Vishibha.Anand@nike.com>
+
+|---|---|
+|Slack|[#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4)|
+|Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="blank"}|
+|Team Contacts|**Intake, new requirements, onboarding**<br>  Betty Ashok <Betty.Ashok@nike.com><br>   Lindsey Kiken <Lindsey.Kiken@nike.com><br>  Krishnamurthy Ramakrishnan <Krishnamurthy.Ramakrishnan@nike.com><br><br>**API or service-related issues**<br>Vishibha Anand <Vishibha.Anand@nike.com><br><br>Please fill out an [intake form](https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake){:target="blank"} to initiate a requirement request. For more information, see the [Marketplace Platform Intake Process](https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process){:target="blank"}.|
 
 ## <a name="glossary"></a>Glossary
 
@@ -588,7 +584,7 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft 10/15/2018|Initial Draft|
+|Initial draft 10/23/2018|Initial Draft|
 
 ## <a name="next-steps"></a>Next Steps
 

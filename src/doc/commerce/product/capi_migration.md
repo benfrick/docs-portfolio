@@ -29,13 +29,13 @@ toc:
 
 If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.
 
-## <a name="overview"></a>Overview
+## Overview
 
 CAPI is a legacy API that provides access to Nike product information, including inventory availability. CAPI has been replaced by Nike's Cloud-based APIs and will be deprecated after all clients have migrated to the newer APIs.
 
 ![](/images/commerce/capi/capi_to_cloud.png)
 
-## <a name="capi-vs-cloud-comparison"></a>CAPI vs. Cloud: Comparison
+## CAPI vs. Cloud: Comparison
 
 Read on to learn more about the similarities and differences between CAPI and Cloud.
 
@@ -121,7 +121,7 @@ CAPI supports both ETag and CORS. Product Feeds supports CORS only.
 
 Product Feeds caching is fixed at `cache-control:private, no-transform, max-age=30`.
 
-## <a name="migration-scenarios"></a>Migration Scenarios
+## Migration Scenarios
 
 ### Product Search Migration
 
@@ -253,7 +253,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=id(2c4282cc-
 
 https://commerce-api.nike.com/commerce/v1/US/en_US/product/00887225865153/widths?client=test-client
 
-## <a name="migration-contacts"></a>Migration Contacts
+## Migration Contacts
 
 Have a question about migrating from CAPI services to Cloud services? See team contact information below.
 
@@ -268,7 +268,7 @@ Have a question about migrating from CAPI services to Cloud services? See team c
 |**Cloud Taxonomy Service**|Don Lawson|don.lawson@nike.com|#cic-taxonomy|
 |**Prodigy Tool**|Matt Salgado|matt.salgado@nike.com||
 
-## <a name="endpoint-mapping"></a>Endpoint Mapping
+## Endpoint Mapping
 
 The following table lists all of the CAPI endpoints and the equivalent Cloud endpoint.
 
@@ -286,7 +286,7 @@ The following table lists all of the CAPI endpoints and the equivalent Cloud end
 |**Get Digital product inventory availability for one or more product identifiers**|<a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.m#inventory-product" target="_blank">Inventory: Product/Multiple Products</a>, <a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#product-availability-availability" target="_blank">Product Availability</a>|<a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#sku-availability-get-sku-availability" target="_blank">Deliver: Product Availability List/Get SKU Availability</a>|
 |**Get Retail product inventory quantities for one or more product identifiers**|<a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#inventory-product" target="_blank">Inventory: Product/Multiple Products</a>|<a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="_blank">Inventory: Get Inventory Info</a>, <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/gtins/API.MD" target="_blank">Deliver: Get GTIN Availability</a>|
 
-## <a name="field-mapping"></a>Field Mapping
+## Field Mapping
 
 ### In this section:
 
@@ -304,7 +304,7 @@ The following table lists all of the CAPI endpoints and the equivalent Cloud end
 
 The following tables describe the mapping of *response body* fields between CAPI and the equivalent Cloud endpoint.
 
-### <a name="search-free-text"></a>Search: Free Text
+### Search: Free Text
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -366,7 +366,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |pageUrls.**firstUrl**|/commerce-api.nike.com/commerce/v1/us<br>/en_US/search?page=1&query=jordan+shoes|N/A|N/A|N/A|
 |pageUrls.**lastUrl**|/commerce-api.nike.com/commerce/v1/us<br>/en_US/search?page=4554&query=jordan+shoes|N/A|N/A|N/A|
 
-### <a name="search-facet-discovery"></a>Search: Facet Discovery
+### Search: Facet Discovery
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -384,7 +384,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |facets.facetValues.links.**rel**|search|TBD|TBD|TBD|
 |facets.facetValues.links.**href**|/domain:port/commerce/v1/us/en_US/facets/8yz|TBD|TBD|TBD|
 
-### <a name="search-faceted-hash"></a>Search: Faceted Hash
+### Search: Faceted Hash
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -483,7 +483,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |pageUrls.**firstUrl**|/domain:port/commerce/v1/us<br>/en_US/facets/9hkZbqj?page=1&pageSize=10|N/A|N/A|N/A|
 |pageUrls.**lastUrl**|/domain:port/commerce/v1/us<br>/en_US/facets/9hkZbqj?page=1&pageSize=10|N/A|N/A|N/A|
 
-### <a name="details-productmultiple-productsfull-productfamily-productproduct-widths"></a>Details: Product/Multiple Products/Full Product/Family Product/Product Widths
+### Details: Product/Multiple Products/Full Product/Family Product/Product Widths
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -589,7 +589,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |reviews.**maxRating**|5|N/A|N/A|N/A|
 |reviews.**numReviews**|5|N/A|N/A|N/A|
 
-### <a name="inventory-productmultiple-products"></a>Inventory: Product/Multiple Products
+### Inventory: Product/Multiple Products
 
 **Digital**
 
@@ -636,7 +636,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 >
 ><i class="mr2-sm g72-check"></i>The **storeId** from the Cloud endpoint *Get Inventory Info* is a UUID from the <a href="https://developer.niketech.com/docs/projects/Stores" target="_blank">Stores API</a>.
 
-### <a name="product-availability"></a>Product Availability
+### Product Availability
 
 |CAPI Field Name|CAPI Example|Cloud Field Name|Cloud Example|Cloud Endpoint|
 |---|---|---|---|---|
@@ -656,14 +656,14 @@ The following tables describe the mapping of *response body* fields between CAPI
 > * With Cloud, there is no distinction between 'viewable' and 'sellable' and there is no longer a corresponding date value for both. The product is either 'available' or not based on the boolean value returned in the response.
 
 <!--
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
 |||
 -->
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

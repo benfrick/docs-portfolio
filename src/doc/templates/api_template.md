@@ -47,7 +47,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this
 
 [Related Links](#related-links)
 
-## <a name="api-at-a-glance"></a>API at a Glance
+## API at a Glance
 
 <!--
 * What does this API do?
@@ -69,15 +69,15 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this
 |Prerequisites|API Registration<br>JWT|
 |Contact Info|Slack channel, Confluence space URI, Product Owner |
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) on how to create and register your caller ID.
 
-### <a name="authorization"></a>Authorization
+### Authorization
 
 <!--Discuss any authorization requirements for calling the API-->
 
-## <a name="use-cases"></a>Use Cases
+## Use Cases
 <!--
  * What are the most common use cases of this API?
  * What endpoints are involved in each use case?
@@ -89,7 +89,7 @@ It is recommended that you send a caller ID header in every request to this API 
 |do something|API Name|
 |do something else|API Name|
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
@@ -98,15 +98,15 @@ It is recommended that you send a caller ID header in every request to this API 
 |PUT|Endpoint Name|Description|`endpoint URI`|
 |DELETE|Endpoint Name|Description|`endpoint URI`|
 
-## <a name="high-level-concept-1"></a>High-Level Concept 1
+## High-Level Concept 1
 
 <!--Discuss foundational concepts that are crucial to understanding the API and what it does-->
 
-## <a name="high-level-concept-2"></a>High-Level Concept 2
+## High-Level Concept 2
 
 <!--Discuss foundational concepts that are crucial to understanding the API and what it does-->
 
-## <a name="making-your-first-api-request"></a>Making your first API request
+## Making your first API request
 <!--
 * How do I call this API?
 * What are the parameters necessary to make a call and where do I get them?
@@ -140,17 +140,17 @@ See the output of the successful JSON 200 response below.
 
 >**TIP:** For detailed information on this service, see the [Endpoint1](#endpoint1-name) section.
 
-## <a name="using-service1"></a>Using Service1
+## Using Service1
 
 - [Service1 Overview](#service1-overview)
 
 - [Endpoint1](#endpoint1-name)
 
-### <a name="service1-overview"></a>Service1 Overview
+### Service1 Overview
 
 Describe what the service does.
 
-### <a name="endpoint1-name"></a>Endpoint1 Name
+### Endpoint1 Name
 
 <!--Describe what the endpoint does.  Is it synchronous or asynchronous? How and why would I use this?-->
 
@@ -174,14 +174,14 @@ Let's take a look at some *endpoint1* scenarios.
 |scenario|endpoint URI|
 |another scenario|endpoint URI|
 
-#### <a name="endpoint1-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|Required?|
 |---|---|
 |**headername**|description|**Required**|
 |**headername**|description|Optional|
 
-#### <a name="endpoint1-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -200,7 +200,7 @@ Sample *Endpoint1* request body:
 
 ```
 
-#### <a name="endpoint1-response-body"></a>Response Body
+#### Response Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -219,7 +219,7 @@ Sample *endpoint1* 400 response
 
 ```
 
-## <a name="upgrading-to-the-latest-version"></a>Upgrading to the latest version
+## Upgrading to the latest version
 <!--
 * Is this API nearing end of life?
 * Which version should my application call?
@@ -229,12 +229,12 @@ Sample *endpoint1* 400 response
 * When do I have to upgrade and why?
  -->
 
-## <a name="best-practices"></a>Best Practices
+## Best Practices
 <!--
  * OPTIONAL: What are best practices in calling this API e.g. caching, retries, order of calls, error handling?
  -->
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 <!--
 * What do I need to look out for?
 * What are common questions asked of the Team about the API?
@@ -243,31 +243,31 @@ Sample *endpoint1* 400 response
 
 Listed below are ways to troubleshoot unexpected responses using this API.
 
-### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
+### Use Troubleshooting Tools
 <!--Provide some specific troubleshooting tips for this API like Splunk or New Relic dashboards/queries or similar. Link to general guide (troubleshooting section)-->
 
-### <a name="common-questions"></a>Common Questions
+### Common Questions
 <!--Frequently-asked questions related to troubleshooting-->
 
-## <a name="glossary"></a>Glossary
+## Glossary
 <!--
 * What are the terms and concepts used in this API that are not common? Add them to the master glossary at the link below.
 -->
 
 See the [Glossary](/doc/commerce/reference/glossary.html)
 
-## <a name="release-notes"></a>Release Notes
+## Release Notes
 <!--
 * What is the difference in functionality between the old release and most the recent release?
 -->
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|MM/DD/YYYY|Initial Draft|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

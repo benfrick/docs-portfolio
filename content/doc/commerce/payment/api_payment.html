@@ -27,7 +27,7 @@
 
 <p>If you’ve read <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="/doc/commerce/payment/overview-payment.html">Payment Overview</a>, this guide provides the details necessary to integrate with the Nike Payment APIs.</p>
 
-<h2 id="api-at-a-glance"><a name="api-at-a-glance"></a>API at a Glance</h2>
+<h2 id="api-at-a-glance">API at a Glance</h2>
 
 <table>
   <thead>
@@ -76,11 +76,11 @@
 
 <p><img src="/images/commerce/payment/payment_flow.png" alt="" /></p>
 
-<h2 id="terms-of-service"><a name="terms-of-service"></a>Terms of Service</h2>
+<h2 id="terms-of-service">Terms of Service</h2>
 
 <p>It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the <a href="/doc/getting-started/using_nike_apis.html#registration">Using NDe APIs</a> guide on how to create and register your caller ID.</p>
 
-<h3 id="authentication"><a name="authentication"></a>Authentication</h3>
+<h3 id="authentication">Authentication</h3>
 
 <h4 id="access-tokens">Access Tokens</h4>
 
@@ -94,7 +94,7 @@
 
 <p>A few of the endpoints in the Payment APIs require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of <a href="/doc/getting-started/using_nike_apis.html#jwt-json-web-token">Using NDe APIs</a>.</p>
 
-<h2 id="use-cases"><a name="use-cases"></a>Use Cases</h2>
+<h2 id="use-cases">Use Cases</h2>
 
 <table>
   <thead>
@@ -139,7 +139,7 @@
   </tbody>
 </table>
 
-<h3 id="example-implementations"><a name="example-implementations"></a>Example Implementations</h3>
+<h3 id="example-implementations">Example Implementations</h3>
 
 <p>Payment API flows vary based on the payment method and the user experience. Listed below are a few examples of Payment API usage.</p>
 
@@ -173,7 +173,7 @@
 
 <p><img src="/images/commerce/payment/deferred_pmt_seq_dgm.png" alt="Image" /></p>
 
-<h2 id="api-endpoint-quick-reference"><a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference</h2>
+<h2 id="api-endpoint-quick-reference">API Endpoint Quick Reference</h2>
 
 <p>For source code, visit the <a href="https://bitbucket.nike.com/projects/PHYLPAY" target="_blank">PHYLON Payment Repository</a>.</p>
 
@@ -509,7 +509,7 @@
   </tbody>
 </table>
 
-<h2 id="caching-data"><a name="caching-data"></a>Caching Data</h2>
+<h2 id="caching-data">Caching Data</h2>
 
 <p>The Payment API makes use of data caching to optimize service SLAs. The first time data is fetched or when the cache expires, the Payment service makes a call to get the latest data and adds it to the cache.</p>
 
@@ -517,7 +517,7 @@
 
 <p>The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation. For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the <a href="/doc/commerce/product/api_merch_product.html">Merchandised Products API</a> to get the latest data.</p>
 
-<h2 id="making-your-first-api-request"><a name="making-your-first-api-request"></a>Making Your First API request</h2>
+<h2 id="making-your-first-api-request">Making Your First API request</h2>
 
 <p>For your first API request, send a POST request to the <em>Get Payment Options for an Order</em> endpoint of the Payment API to list the valid payment options for the country of Denmark with a Checkout total of 266.98 Euro.</p>
 
@@ -636,7 +636,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="using-payment-options"><a name="using-payment-options"></a>Using Payment Options</h2>
+<h2 id="using-payment-options">Using Payment Options</h2>
 
 <hr />
 
@@ -652,7 +652,7 @@
 
 <p>All endpoints of this service are synchronous.</p>
 
-<h3 id="get-payment-options-for-an-order"><a name="get-payment-options-for-an-order"></a>Get Payment Options for an Order</h3>
+<h3 id="get-payment-options-for-an-order">Get Payment Options for an Order</h3>
 
 <ul>
   <li>Lists valid payment options</li>
@@ -1017,7 +1017,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="allowable-billing-countries-for-a-shipping-country"><a name="allowable-billing-countries-for-a-shipping-country"></a>Allowable Billing Countries for a Shipping Country</h3>
+<h3 id="allowable-billing-countries-for-a-shipping-country">Allowable Billing Countries for a Shipping Country</h3>
 
 <hr />
 <ul>
@@ -1313,7 +1313,7 @@
   </tbody>
 </table>
 
-<h3 id="validate-payments"><a name="validate-payments"></a>Validate Payments</h3>
+<h3 id="validate-payments">Validate Payments</h3>
 
 <hr />
 
@@ -1605,7 +1605,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_validate_payments_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="using-stored-payment"><a name="using-stored-payment"></a>Using Stored Payment</h2>
+<h2 id="using-stored-payment">Using Stored Payment</h2>
 
 <hr />
 
@@ -1628,7 +1628,7 @@
 
 <p>All endpoints of this service are synchronous.</p>
 
-<h3 id="initiate-paypal-billing-agreement"><a name="initiate-paypal-billing-agreement"></a>Initiate PayPal Billing Agreement</h3>
+<h3 id="initiate-paypal-billing-agreement">Initiate PayPal Billing Agreement</h3>
 
 <p>Use this endpoint as a first step in creating a PayPal billing agreement for the PayPal payment type. For instance, the Nike Web Launch experience calls this endpoint when a customer adds PayPal as a stored payment type in Payment Settings. A PayPal Billing Agreement preauthorizes Nike to charge the customer’s PayPal account for a purchase without requiring the customer to visit the PayPal site to manually authorize the purchase. Once a customer accepts the PayPal Billing Agreement and stores it, the customer does not need to authorize each payment before submitting a Nike order. Use the requestToken and redirectURL in the response to redirect the customer to the appropriate PayPal experience to accept the PayPal Billing Agreement. It eases the barrier to purchase by avoiding redirecting the customer to PayPal during the purchase process.</p>
 
@@ -1869,7 +1869,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="save-payment-for-user-profile"><a name="save-payment-for-user-profile"></a>Save Payment for User Profile</h3>
+<h3 id="save-payment-for-user-profile">Save Payment for User Profile</h3>
 
 <hr />
 
@@ -2371,7 +2371,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#default_post_consumer_savepayment" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="delete-all-stored-payments-for-user-profile"><a name="delete-all-stored-payments-for-user-profile"></a>Delete All Stored Payments for User Profile</h3>
+<h3 id="delete-all-stored-payments-for-user-profile">Delete All Stored Payments for User Profile</h3>
 
 <hr />
 
@@ -2454,7 +2454,7 @@
 
 <p><strong>This endpoint is unavailable to Try It Out because it is JWT-restricted</strong></p>
 
-<h3 id="list-stored-payments-by-user-profile"><a name="list-stored-payments-by-user-profile"></a>List Stored Payments by User Profile</h3>
+<h3 id="list-stored-payments-by-user-profile">List Stored Payments by User Profile</h3>
 
 <hr />
 
@@ -3021,7 +3021,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="list-stored-payment-by-payment-id"><a name="list-stored-payment-by-payment-id"></a>List Stored Payment by Payment ID</h3>
+<h3 id="list-stored-payment-by-payment-id">List Stored Payment by Payment ID</h3>
 
 <hr />
 
@@ -3046,7 +3046,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-7"><a name="list-stored-payment-by-payment-id-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-7">Request Headers</h4>
 
 <table>
   <thead>
@@ -3089,7 +3089,7 @@
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="query--path-parameters-1"><a name="list-stored-payment-by-payment-id-request-parameters"></a>Query &amp; Path Parameters</h4>
+<h4 id="query--path-parameters-1">Query &amp; Path Parameters</h4>
 
 <table>
   <thead>
@@ -3119,7 +3119,7 @@
   </tbody>
 </table>
 
-<h4 id="request-body-7"><a name="list-stored-payment-by-payment-id-request-body"></a>Request Body</h4>
+<h4 id="request-body-7">Request Body</h4>
 <p>There is no body in a GET request.</p>
 
 <p>Let’s take a look at some <em>List Stored Payment by Payment ID</em> scenarios.</p>
@@ -3150,7 +3150,7 @@
 <p>Sample <em>List Stored Payment by Payment ID</em> request</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/consumer/storedpayments/79847893284923483924
 </code></pre></div></div>
-<h4 id="response-body-7"><a name="list-stored-payment-by-payment-id-response-body"></a>Response Body</h4>
+<h4 id="response-body-7">Response Body</h4>
 <p>For credit cards, the credit card account number is not returned. The <code class="highlighter-rouge">paymentToken</code> from CyberSource is returned instead which is used to look up the credit card information in CyberSource as well as in Stored Payment. Following are descriptions of the important fields in the response body:</p>
 
 <table>
@@ -3396,7 +3396,7 @@
 
 <p><strong>This endpoint is unavailable to Try It Out because it is JWT-restricted</strong></p>
 
-<h3 id="list-gift-card-by-payment-id"><a name="list-gift-card-by-payment-id"></a>List Gift Card by Payment Id</h3>
+<h3 id="list-gift-card-by-payment-id">List Gift Card by Payment Id</h3>
 
 <hr />
 
@@ -3451,7 +3451,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-8"><a name="list-giftcard-stored-payment-by-id-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-8">Request Headers</h4>
 
 <table>
   <thead>
@@ -3484,7 +3484,7 @@
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="response-body-8"><a name="list-giftcard-stored-payment-by-id-response-body"></a>Response Body</h4>
+<h4 id="response-body-8">Response Body</h4>
 
 <table>
   <thead>
@@ -3623,7 +3623,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="update-stored-payment-by-id"><a name="update-stored-payment-by-id"></a>Update Stored Payment by ID</h3>
+<h3 id="update-stored-payment-by-id">Update Stored Payment by ID</h3>
 
 <hr />
 
@@ -3675,7 +3675,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-9"><a name="update-credit-card-stored-payment-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-9">Request Headers</h4>
 
 <table>
   <thead>
@@ -3725,7 +3725,7 @@
   </tbody>
 </table>
 
-<h4 id="request-body-8"><a name="update-credit-card-stored-payment-request-body"></a>Request Body</h4>
+<h4 id="request-body-8">Request Body</h4>
 
 <table>
   <thead>
@@ -3887,7 +3887,7 @@
 }
 </code></pre></div></div>
 
-<h4 id="response-body-9"><a name="update-credit-card-stored-payment-response-body"></a>Response Body</h4>
+<h4 id="response-body-9">Response Body</h4>
 <p>The HTTP 202 response from <em>Update Credit Card by User Profile</em> contains the results because this is a synchronous endpoint. Following are descriptions of the important fields in the response body:</p>
 
 <table>
@@ -3958,7 +3958,7 @@
 </code></pre></div></div>
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h4 id="update-default-stored-payment-by-user-profile"><a name="update-default-stored-payment-by-user-profile"></a>Update Default Stored Payment by User Profile</h4>
+<h4 id="update-default-stored-payment-by-user-profile">Update Default Stored Payment by User Profile</h4>
 
 <hr />
 
@@ -4008,7 +4008,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-10"><a name="update-default-stored-payment-by-user-profile-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-10">Request Headers</h4>
 
 <table>
   <thead>
@@ -4041,7 +4041,7 @@
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-9"><a name="update-default-stored-payment-by-user-profile-request-body"></a>Request Body</h4>
+<h4 id="request-body-9">Request Body</h4>
 
 <p>No body is required.</p>
 
@@ -4050,7 +4050,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://api.nike.com/consumer/storedpayments/7661aea5d-31b6-4ac4-8830-1d61d2c7b043/default
 </code></pre></div></div>
 
-<h4 id="response-body-10"><a name="update-default-stored-payment-by-user-profile-response-body"></a>Response Body</h4>
+<h4 id="response-body-10">Response Body</h4>
 
 <p>The HTTP 202 response from <em>Update Default Stored Payment by User Profile</em> contains the results. Following are descriptions of the important fields in the response body:</p>
 
@@ -4121,7 +4121,7 @@
 </code></pre></div></div>
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id_default" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h4 id="delete-stored-payment-by-id"><a name="delete-stored-payment-by-id"></a>Delete Stored Payment by ID</h4>
+<h4 id="delete-stored-payment-by-id">Delete Stored Payment by ID</h4>
 
 <hr />
 
@@ -4167,7 +4167,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-11"><a name="delete-all-stored-payments-for-user-profile-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-11">Request Headers</h4>
 
 <table>
   <thead>
@@ -4200,7 +4200,7 @@
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-10"><a name="delete-all-stored-payments-for-user-profile-request-body"></a>Request Body</h4>
+<h4 id="request-body-10">Request Body</h4>
 
 <p>No request body required.</p>
 
@@ -4209,7 +4209,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/consumer/storedpayments/pid3798fdd8-6e0d-4f88-bddb-5ad25eefda18
 </code></pre></div></div>
 
-<h4 id="response-body-11"><a name="delete-all-stored-payments-for-user-profile-response-body"></a>Response Body</h4>
+<h4 id="response-body-11">Response Body</h4>
 
 <p>The HTTP 204 response from <em>Delete Stored Payment by ID</em> returns no content.</p>
 
@@ -4268,7 +4268,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h4 id="validate-credit-card-cvv-by-shipping-address"><a name="validate-credit-card-cvv-by-shipping-address"></a>Validate Credit Card CVV by Shipping Address</h4>
+<h4 id="validate-credit-card-cvv-by-shipping-address">Validate Credit Card CVV by Shipping Address</h4>
 
 <hr />
 
@@ -4316,7 +4316,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-12"><a name="validate-credit-card-cvv-by-shipping-address-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-12">Request Headers</h4>
 
 <table>
   <thead>
@@ -4359,7 +4359,7 @@
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-11"><a name="validate-credit-card-cvv-by-shipping-address-request-body"></a>Request Body</h4>
+<h4 id="request-body-11">Request Body</h4>
 
 <p>Shipping address is optional but if sent, the required and optional fields are listed below.</p>
 
@@ -4430,7 +4430,7 @@
 }
 </code></pre></div></div>
 
-<h5 id="response-body-12"><a name="validate-credit-card-cvv-by-shipping-address-response-body"></a>Response Body</h5>
+<h5 id="response-body-12">Response Body</h5>
 
 <table>
   <thead>
@@ -4663,7 +4663,7 @@
 
 <p><strong>This endpoint is unavailable to Try It Out because it is JWT-restricted</strong></p>
 
-<h2 id="using-payment-preview"><a name="using-payment-preview"></a>Using Payment Preview</h2>
+<h2 id="using-payment-preview">Using Payment Preview</h2>
 
 <hr />
 
@@ -4679,7 +4679,7 @@
 
 <p>Nike customers can pay by one or more gift cards/Vouchers and another payment type such as PayPal or credit card. The Payment Preview service allocates payment to the gift card/Voucher with the highest balance first and then to the rest of the gift cards on Checkout in ascending balance order. If the total balance of all gift cards/Vouchers is less than the order amount, the service allocates the balance of the order to a second payment type.</p>
 
-<h3 id="payment-preview-1"><a name="payment-preview"></a>Payment Preview</h3>
+<h3 id="payment-preview-1">Payment Preview</h3>
 
 <p>The paymentPreviewId returned by this service is a required key when calling <a href="/doc/commerce/checkout/api_checkout.html#request-checkout-submit">Request Checkout Submit</a> in the BUY API to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.</p>
 
@@ -5492,7 +5492,7 @@
 }
 </code></pre></div></div>
 
-<h4 id="response-body-13"><a name="payment-preview-response-body"></a>Response Body</h4>
+<h4 id="response-body-13">Response Body</h4>
 
 <p>The HTTP 200 response from <em>Payment Preview</em> contains information about how to retrieve the results of your job via the <em>Payment Preview Job</em> endpoint. Listed below are the response body fields.</p>
 
@@ -5777,7 +5777,7 @@
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/post_payment_preview_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="payment-preview-job-status-by-id"><a name="payment-preview-job-status-by-id"></a>Payment Preview Job Status by ID</h3>
+<h3 id="payment-preview-job-status-by-id">Payment Preview Job Status by ID</h3>
 
 <hr />
 
@@ -5845,7 +5845,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-14"><a name="payment-preview-job-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-14">Request Headers</h4>
 
 <table>
   <thead>
@@ -5887,13 +5887,13 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/preview/v2/jobs/2722be3a-0341-11e6-b512-3e1d05defe783424
 </code></pre></div></div>
 
-<h4 id="response-body-14"><a name="payment-preview-job-response-body"></a>Response Body</h4>
+<h4 id="response-body-14">Response Body</h4>
 
 <p>The <em>Payment Preview Job Status by ID</em> response is identical to the <a href="#payment-preview-response-body">Payment Preview Response Body</a> except that the resource type value is payment/preview/jobs.</p>
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="payment-preview-result-by-id"><a name="payment-preview-result-by-id-by-id"></a>Payment Preview Result by ID</h3>
+<h3 id="payment-preview-result-by-id">Payment Preview Result by ID</h3>
 
 <hr />
 
@@ -5948,7 +5948,7 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-15"><a name="payment-preview-job-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-15">Request Headers</h4>
 
 <table>
   <thead>
@@ -6113,7 +6113,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 </code></pre></div></div>
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="using-payment-approval"><a name="using-payment-approval"></a>Using Payment Approval</h2>
+<h2 id="using-payment-approval">Using Payment Approval</h2>
 
 <hr />
 
@@ -6131,7 +6131,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 
 <p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a> guide to learn more about working with asynchronous Nike APIs.</p>
 
-<h3 id="submit-order-payments-for-approval-post"><a name="submit-order-payments-for-approval-post"></a>Submit Order Payments for Approval (POST)</h3>
+<h3 id="submit-order-payments-for-approval-post">Submit Order Payments for Approval (POST)</h3>
 
 <hr />
 
@@ -6671,7 +6671,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 }
 </code></pre></div></div>
 
-<h4 id="response-body-16"><a name="submit-order-payments-for-approval-response-body"></a>Response Body</h4>
+<h4 id="response-body-16">Response Body</h4>
 
 <p>The HTTP 202 response from <em>Submit Order Payments for Approval</em> contains information about how to retrieve the results of your job via the <em>Retrieval Payment Approval Job</em> endpoint. The response body fields are listed below.</p>
 
@@ -7324,7 +7324,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 
 <p><strong>This endpoint is unavailable to Try It Out because it is JWT-restricted</strong></p>
 
-<h3 id="submit-order-payments-for-approval-put"><a name="submit-order-payments-for-approval-put"></a>Submit Order Payments for Approval (PUT)</h3>
+<h3 id="submit-order-payments-for-approval-put">Submit Order Payments for Approval (PUT)</h3>
 
 <hr />
 
@@ -7398,7 +7398,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 
 <p><strong>This endpoint is unavailable to Try It Out because it is JWT-restricted</strong></p>
 
-<h3 id="retrieve-payment-approval-job"><a name="retrieve-payment-approval-job"></a>Retrieve Payment Approval Job</h3>
+<h3 id="retrieve-payment-approval-job">Retrieve Payment Approval Job</h3>
 
 <hr />
 
@@ -7459,7 +7459,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-17"><a name="retrieve-payment-approval-job-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-17">Request Headers</h4>
 
 <table>
   <thead>
@@ -7501,7 +7501,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/preview/v2/jobs/2722be3a-0341-11e6-b512-3e1d05defe783424
 </code></pre></div></div>
 
-<h4 id="response-body-17"><a name="retrieve-payment-approval-job-response-body"></a>Response Body</h4>
+<h4 id="response-body-17">Response Body</h4>
 
 <p>The <em>Retrieval Payment Approval Job</em> response is identical to the <a href="#submit-order-payments-for-approval-response-body">Submit Order Payments for Approval Response Body</a>.</p>
 
@@ -7523,7 +7523,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 </code></pre></div></div>
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="order-payments-approval-result"><a name="order-payments-approval-result"></a>Order Payments Approval Result</h3>
+<h3 id="order-payments-approval-result">Order Payments Approval Result</h3>
 
 <hr />
 
@@ -7571,7 +7571,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-18"><a name="order-payments-approval-result-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-18">Request Headers</h4>
 
 <table>
   <thead>
@@ -7604,7 +7604,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-uri"><a name="order-payments-approval-result-request-body"></a>Request URI</h4>
+<h4 id="request-uri">Request URI</h4>
 
 <p>Sample <em>Order Payments Approval Result</em> request URI:</p>
 
@@ -8026,7 +8026,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="void-payment-approval"><a name="void-payment-approval"></a>Void Payment Approval</h3>
+<h3 id="void-payment-approval">Void Payment Approval</h3>
 
 <hr />
 
@@ -8074,7 +8074,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-19"><a name="void-payment-approval-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-19">Request Headers</h4>
 
 <table>
   <thead>
@@ -8117,7 +8117,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <strong>upmid</strong> (for logged in customers), <strong>appId</strong> and <strong>usertype</strong> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-14"><a name="void-payment-approval-request-body"></a>Request Body</h4>
+<h4 id="request-body-14">Request Body</h4>
 
 <p>There is no request body for the Void Payment Approval endpoint.</p>
 
@@ -8126,13 +8126,13 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/approval_results/v2/ae6575a7-8c0e-44ef-b91b-440bdaf2070b
 </code></pre></div></div>
 
-<h4 id="response-body-19"><a name="void-payment-approval-response-body"></a>Response Body</h4>
+<h4 id="response-body-19">Response Body</h4>
 
 <p>The HTTP 204 response from <em>Void Payment Approval</em> has no response body.</p>
 
 <p><strong>This endpoint is not available to Try It Out because it is JWT-restricted</strong></p>
 
-<h3 id="get-payment-approval-summary"><a name="payment-approval-summary"></a>Get Payment Approval Summary</h3>
+<h3 id="get-payment-approval-summary">Get Payment Approval Summary</h3>
 
 <hr />
 
@@ -8184,7 +8184,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-20"><a name="payment-approval-summary-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-20">Request Headers</h4>
 
 <table>
   <thead>
@@ -8217,7 +8217,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <strong>upmid</strong> (for logged in customers), <strong>appId</strong> and <strong>usertype</strong> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-15"><a name="payment-approval-summary-request-body"></a>Request Body</h4>
+<h4 id="request-body-15">Request Body</h4>
 
 <p>This is a GET request so there is no request body.</p>
 
@@ -8230,7 +8230,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   <p><strong>TIP:</strong> Note that this is a v1 service</p>
 </blockquote>
 
-<h4 id="response-body-20"><a name="payment-approval-summary-response-body"></a>Response Body</h4>
+<h4 id="response-body-20">Response Body</h4>
 
 <p>The HTTP 200 response from <em>Payment Approval Summary</em> contains the results. Following are descriptions of the important fields in the response body:</p>
 
@@ -8809,7 +8809,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_summary_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="using-credit-card-submit"><a name="using-credit-card-submit"></a>Using Credit Card Submit</h2>
+<h2 id="using-credit-card-submit">Using Credit Card Submit</h2>
 
 <hr />
 
@@ -8828,7 +8828,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 
 <p>This service lists, modifies, deletes and stores a customer’s credit card and Apple Pay information. This service accommodates both PCI-certified and non-PCI-certified experiences. Endpoints for non-PCI-certified experiences render an iFrame to collect and retrieve credit card and Apple Pay information. For PCI-certified experiences, it offers endpoints to manage a customer’s credit card and Apple Pay information directly.</p>
 
-<h3 id="add-credit-card-info-with-cvv"><a name="add-credit-card-info-with-cvv"></a>Add Credit Card Info with CVV</h3>
+<h3 id="add-credit-card-info-with-cvv">Add Credit Card Info with CVV</h3>
 
 <hr />
 
@@ -8876,7 +8876,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-21"><a name="add-credit-card-info-with-cvv-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-21">Request Headers</h4>
 
 <table>
   <thead>
@@ -8914,13 +8914,13 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://paymentcc.nike.com/services?id=24afd5dc-b523-491c-8282-8bed57cd2029&amp;ctx=checkout&amp;language=en
 </code></pre></div></div>
 
-<h4 id="response-body-21"><a name="add-credit-card-info-with-cvv-response-body"></a>Response Body</h4>
+<h4 id="response-body-21">Response Body</h4>
 
 <p>The response body of this endpoint is the iFrame with editable credit card number, expiration date and CVV editable fields pre-populated with values looked up based on the creditCardInfoId <code class="highlighter-rouge">id</code> path parameter.</p>
 
 <p><img src="/images/commerce/payment/number_expdate_cvv.png" alt="Image" /></p>
 
-<h3 id="add-credit-card-info-without-cvv"><a name="add-credit-card-info-without-cvv"></a>Add Credit Card Info without CVV</h3>
+<h3 id="add-credit-card-info-without-cvv">Add Credit Card Info without CVV</h3>
 
 <hr />
 
@@ -8975,7 +8975,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-22"><a name="add-credit-card-info-without-cvv-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-22">Request Headers</h4>
 
 <table>
   <thead>
@@ -9013,13 +9013,13 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://paymentcc.nike.com/services/add?id=0e13e71d-e952-46af-b3f5-e476befd43ce&amp;language=en
 </code></pre></div></div>
 
-<h4 id="response-body-22"><a name="add-credit-card-info-without-cvv-response-body"></a>Response Body</h4>
+<h4 id="response-body-22">Response Body</h4>
 
 <p>The response body of this endpoint is the iFrame with editable credit card number and expiration date fields pre-populated with values looked up based on the creditCardInfoId <code class="highlighter-rouge">id</code> path parameter.</p>
 
 <p><img src="/images/commerce/payment/number_expdate.png" alt="Image" /></p>
 
-<h3 id="add-cvv-information"><a name="add-cvv-information"></a>Add CVV Information</h3>
+<h3 id="add-cvv-information">Add CVV Information</h3>
 
 <hr />
 
@@ -9067,7 +9067,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-23"><a name="add-credit-card-info-with-cvv-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-23">Request Headers</h4>
 
 <table>
   <thead>
@@ -9105,13 +9105,13 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://paymentcc.nike.com/services/cvv?id=0e13e71d-e952-46af-b3f5-e476befd43ce&amp;language=en
 </code></pre></div></div>
 
-<h4 id="response-body-23"><a name="add-credit-card-info-with-cvv-response-body"></a>Response Body</h4>
+<h4 id="response-body-23">Response Body</h4>
 
 <p>The response body of this endpoint is the iFrame with an editable CVV field.</p>
 
 <p><img src="/images/commerce/payment/cvv.png" alt="Image" /></p>
 
-<h3 id="add-cvv-and-expiration-date"><a name="add-cvv-and-expiration-date"></a>Add CVV and Expiration Date</h3>
+<h3 id="add-cvv-and-expiration-date">Add CVV and Expiration Date</h3>
 
 <hr />
 
@@ -9136,7 +9136,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="path--query-parameters-17"><a name="add-cvv-and-expiration-date-query-parameters"></a>Path &amp; Query Parameters</h4>
+<h4 id="path--query-parameters-17">Path &amp; Query Parameters</h4>
 
 <table>
   <thead>
@@ -9159,7 +9159,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-headers-24"><a name="add-cvv-and-expiration-date-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-24">Request Headers</h4>
 
 <table>
   <thead>
@@ -9197,13 +9197,13 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://paymentcc.nike.com/services/expcvv?id=0e13e71d-e952-46af-b3f5-e476befd43ce&amp;language=en
 </code></pre></div></div>
 
-<h4 id="response-body-24"><a name="add-cvv-and-expiration-date-response-body"></a>Response Body</h4>
+<h4 id="response-body-24">Response Body</h4>
 
 <p>The response body of this endpoint is the iFrame with editable expiration date and CVV fields prepopulated with values looked up based on the creditCardInfoId <code class="highlighter-rouge">id</code> path parameter.</p>
 
 <p><img src="/images/commerce/payment/expdate_cvv.png" alt="Image" /></p>
 
-<h3 id="validate-credit-card-info"><a name="validate-credit-card-info"></a>Validate Credit Card Info</h3>
+<h3 id="validate-credit-card-info">Validate Credit Card Info</h3>
 
 <hr />
 
@@ -9228,7 +9228,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="path--query-parameters-18"><a name="validate-credit-card-info-query-parameters"></a>Path &amp; Query Parameters</h4>
+<h4 id="path--query-parameters-18">Path &amp; Query Parameters</h4>
 
 <table>
   <thead>
@@ -9292,7 +9292,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://paymentcc.nike.com/creditcardsubmit/24afd5dc-b523-491c-8282-8bed57cd2029/isValid?mode=3
 </code></pre></div></div>
 
-<h4 id="response-body-25"><a name="validate-credit-card-info-response-body"></a>Response Body</h4>
+<h4 id="response-body-25">Response Body</h4>
 
 <p>Each field in the response body is flagged either true or false. True indicates the value is valid; false indicates invalid. The fields returned in the body are:</p>
 
@@ -9369,7 +9369,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 }
 </code></pre></div></div>
 
-<h3 id="store-credit-card-info"><a name="store-credit-card-info"></a>Store Credit Card Info</h3>
+<h3 id="store-credit-card-info">Store Credit Card Info</h3>
 
 <hr />
 
@@ -9446,7 +9446,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   </tbody>
 </table>
 
-<h4 id="request-body-16"><a name="store-creditcard-info-request-body"></a>Request Body</h4>
+<h4 id="request-body-16">Request Body</h4>
 
 <table>
   <thead>
@@ -9545,7 +9545,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 
 <p>This endpoint returns no response body.</p>
 
-<h3 id="list-credit-card-info"><a name="list-credit-card-info"></a>List Credit Card Info</h3>
+<h3 id="list-credit-card-info">List Credit Card Info</h3>
 
 <hr />
 
@@ -9625,7 +9625,7 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
 <p>Sample request URI:
 https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555</p>
 
-<h4 id="response-body-27"><a name="ccinfo2-response-body"></a>Response Body</h4>
+<h4 id="response-body-27">Response Body</h4>
 
 <table>
   <thead>
@@ -9736,7 +9736,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555<
 }
 </code></pre></div></div>
 
-<h3 id="list-credit-card-info-and-validate-status"><a name="list-credit-card-info-and-validate-status"></a>List Credit Card Info and Validate Status</h3>
+<h3 id="list-credit-card-info-and-validate-status">List Credit Card Info and Validate Status</h3>
 
 <hr />
 
@@ -9791,12 +9791,12 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555<
   </tbody>
 </table>
 
-<h4 id="request-uri-1"><a name="ccinfo2-request-headers"></a>Request URI</h4>
+<h4 id="request-uri-1">Request URI</h4>
 
 <p>Sample request URI:
 https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/isValidData?mode=3</p>
 
-<h4 id="response-body-28"><a name="list-ccinfo-validate-response-body"></a>Response Body</h4>
+<h4 id="response-body-28">Response Body</h4>
 
 <table>
   <thead>
@@ -9986,7 +9986,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h2 id="using-apple-pay"><a name="using-apple-pay"></a>Using Apple Pay</h2>
+<h2 id="using-apple-pay">Using Apple Pay</h2>
 
 <hr />
 
@@ -9994,7 +9994,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <li><a href="#start-apple-pay-session">Start Apple Pay Session</a></li>
 </ul>
 
-<h3 id="apple-pay-overview"><a name="start-apple-pay-session-overview"></a>Apple Pay Overview</h3>
+<h3 id="apple-pay-overview">Apple Pay Overview</h3>
 
 <p>When paying with Apple Pay on a Safari Web browser, this service initializes an Apple Pay payment session through the Apple gateway. When you pass in a validationURL to the <em>Start Apple Pay Session</em> endpoint, the service provides the necessary information to Apple Pay to identify Nike as a merchant that accepts Apple Pay payments, and starts a new Apple Pay session.</p>
 
@@ -10010,7 +10010,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <p>The customer must complete this checklist in order for the Pay with Apple Pay button to display on SNKRs Web in Safari.</p>
 
-<h3 id="start-apple-pay-session"><a name="start-apple-pay-session"></a>Start Apple Pay Session</h3>
+<h3 id="start-apple-pay-session">Start Apple Pay Session</h3>
 
 <p>Use this endpoint to initiate an ApplePay session.</p>
 
@@ -10033,7 +10033,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-28"><a name="start-applepay-session-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-28">Request Headers</h4>
 
 <table>
   <thead>
@@ -10066,7 +10066,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-17"><a name="start-applepay-session-request-body"></a>Request Body</h4>
+<h4 id="request-body-17">Request Body</h4>
 
 <table>
   <thead>
@@ -10098,7 +10098,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<h4 id="response-body-29"><a name="start-applepay-session-response-body"></a>Response Body</h4>
+<h4 id="response-body-29">Response Body</h4>
 
 <p>The HTTP 200 response from <em>Start Apple Pay Session</em> contains the merchant session object with key/value pairs needed by Apple Pay to complete the customer’s Apple Pay purchase. Following are descriptions of the important fields in the response body:</p>
 
@@ -10196,7 +10196,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="using-payment-wallet"><a name="using-payment-wallet"></a>Using Payment Wallet</h2>
+<h2 id="using-payment-wallet">Using Payment Wallet</h2>
 
 <hr />
 
@@ -10209,13 +10209,13 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <li><a href="#paypal-details-job-by-id">PayPal Details Job Status by ID</a></li>
 </ul>
 
-<h3 id="payment-wallet-overview"><a name="paypal-wallet-overview"></a>Payment Wallet Overview</h3>
+<h3 id="payment-wallet-overview">Payment Wallet Overview</h3>
 
 <p>When paying with PayPal, this service initializes a PayPal session and generates a PayPal redirect URL and token. It also retrieves and validates PayPal meta data. There is an endpoint for PayPal Express and a separate endpoint for PayPal Mark flows. The PayPal Express flow allows the customer to choose a saved or add a new shipping and billing address at the PayPal site rather than in the Nike experience. The PayPal Mark flow allows the customer to choose an existing or add a new shipping address in the Nike experience and choose a saved or add a new billing address at the PayPal site.</p>
 
 <p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a> guide to learn more about working with asynchronous Nike APIs.</p>
 
-<h3 id="paypal-express"><a name="paypal-express"></a>PayPal Express</h3>
+<h3 id="paypal-express">PayPal Express</h3>
 
 <hr />
 
@@ -10261,7 +10261,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-29"><a name="paypalexpress-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-29">Request Headers</h4>
 
 <table>
   <thead>
@@ -10294,7 +10294,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-18"><a name="paypalexpress-request-body"></a>Request Body</h4>
+<h4 id="request-body-18">Request Body</h4>
 
 <table>
   <thead>
@@ -10539,7 +10539,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<h4 id="response-body-30"><a name="paypalexpress-response-body"></a>Response Body</h4>
+<h4 id="response-body-30">Response Body</h4>
 
 <p>The HTTP 202 response from <em>PayPal Express</em> contains information about how to retrieve the results of your job via the <em>PayPal Express Job by ID</em> endpoint. Following are descriptions of the important fields in the response body:</p>
 
@@ -10687,7 +10687,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="paypal-express-job-by-id"><a name="paypal-express-job-by-id"></a>PayPal Express Job by ID</h3>
+<h3 id="paypal-express-job-by-id">PayPal Express Job by ID</h3>
 
 <hr />
 
@@ -10756,7 +10756,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-30"><a name="paypalexpressjob-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-30">Request Headers</h4>
 
 <table>
   <thead>
@@ -10798,7 +10798,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/paypal_express/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe783424
 </code></pre></div></div>
 
-<h4 id="response-body-31"><a name="paypalexpressjob-response-body"></a>Response Body</h4>
+<h4 id="response-body-31">Response Body</h4>
 
 <p>The HTTP 200 response from <em>PayPal Express</em> contains information about how to retrieve the results of your job via the ‘PayPal Express Job’ endpoint. Following are descriptions of the important fields in the response body:</p>
 
@@ -10944,7 +10944,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="paypal-mark"><a name="paypal-mark"></a>PayPal Mark</h3>
+<h3 id="paypal-mark">PayPal Mark</h3>
 
 <hr />
 
@@ -10988,7 +10988,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-31"><a name="paypal-mark-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-31">Request Headers</h4>
 
 <table>
   <thead>
@@ -11021,7 +11021,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-19"><a name="paypal-mark-request-body"></a>Request Body</h4>
+<h4 id="request-body-19">Request Body</h4>
 
 <table>
   <thead>
@@ -11396,7 +11396,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<h4 id="response-body-32"><a name="paypal-mark-response-body"></a>Response Body</h4>
+<h4 id="response-body-32">Response Body</h4>
 
 <p>The HTTP 202 response from <em>PayPal Mark</em> contains information about how to retrieve the results of your job via the <em>PayPal Express Job by ID</em> endpoint. Following are descriptions of the important fields in the response body:</p>
 
@@ -11544,7 +11544,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="paypal-mark-job-by-id"><a name="paypal-mark-job-by-id"></a>PayPal Mark Job by ID</h3>
+<h3 id="paypal-mark-job-by-id">PayPal Mark Job by ID</h3>
 
 <hr />
 
@@ -11614,7 +11614,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-32"><a name="paypal-mark-job-by-id-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-32">Request Headers</h4>
 
 <table>
   <thead>
@@ -11655,7 +11655,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/paypal_mark/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 </code></pre></div></div>
-<h4 id="response-body-33"><a name="paypal-mark-job-by-id-response-body"></a>Response Body</h4>
+<h4 id="response-body-33">Response Body</h4>
 
 <p>The HTTP 200 response from <em>PayPal Mark</em> contains information about how to retrieve the results of your job via the <em>PayPal Mark Job by ID</em> endpoint. Following are descriptions of the important fields in the response body:</p>
 
@@ -11806,7 +11806,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="paypal-details"><a name="paypal-details"></a>PayPal Details</h3>
+<h3 id="paypal-details">PayPal Details</h3>
 
 <hr />
 
@@ -11854,7 +11854,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-33"><a name="paypal-details-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-33">Request Headers</h4>
 
 <table>
   <thead>
@@ -11887,7 +11887,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-20"><a name="paypal-details-request-body"></a>Request Body</h4>
+<h4 id="request-body-20">Request Body</h4>
 
 <table>
   <thead>
@@ -11930,7 +11930,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<h4 id="response-body-34"><a name="paypal-details-response-body"></a>Response Body</h4>
+<h4 id="response-body-34">Response Body</h4>
 
 <p>The HTTP 202 response from <em>PayPal Details</em> contains information about how to retrieve the results of your job via the <em>PayPal Details Job by ID</em> endpoint. Following are descriptions of the important fields in the response body:</p>
 
@@ -12301,7 +12301,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/post_payment_paypal_details_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h4 id="paypal-details-job-by-id"><a name="paypal-details-job-by-id"></a>PayPal Details Job by ID</h4>
+<h4 id="paypal-details-job-by-id">PayPal Details Job by ID</h4>
 
 <hr />
 
@@ -12372,7 +12372,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h5 id="request-headers-34"><a name="paypal-details-job-by-id-request-headers"></a>Request Headers</h5>
+<h5 id="request-headers-34">Request Headers</h5>
 
 <table>
   <thead>
@@ -12414,7 +12414,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/paypal_details/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 </code></pre></div></div>
 
-<h4 id="response-body-35"><a name="paypal-mark-job-by-id-response-body"></a>Response Body</h4>
+<h4 id="response-body-35">Response Body</h4>
 
 <p>The response body is the same as is returned in the <em>PayPal Details</em> response body. See the detailed response field list in the <a href="#paypal-details-response-body">PayPal Details Response Body</a></p>
 
@@ -12507,7 +12507,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="using-deferred-payment"><a name="using-deferred-payment"></a>Using Deferred Payment</h2>
+<h2 id="using-deferred-payment">Using Deferred Payment</h2>
 
 <hr />
 
@@ -12526,7 +12526,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <p>This endpoint operates <strong>asynchronously</strong> which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the <a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a> guide to learn more about working with asynchronous Nike APIs.</p>
 
-<h3 id="deferred-payment-form"><a name="deferred-payment-form"></a>Deferred Payment Form</h3>
+<h3 id="deferred-payment-form">Deferred Payment Form</h3>
 
 <hr />
 
@@ -12551,7 +12551,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-35"><a name="deferred-payment-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-35">Request Headers</h4>
 
 <table>
   <thead>
@@ -12584,7 +12584,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-21"><a name="deferred-payment-request-body"></a>Request Body</h4>
+<h4 id="request-body-21">Request Body</h4>
 
 <table>
   <thead>
@@ -12641,7 +12641,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   }
 </code></pre></div></div>
 
-<h4 id="response-body-36"><a name="deferred-payment-response-body"></a>Response Body</h4>
+<h4 id="response-body-36">Response Body</h4>
 
 <p>The HTTP 202 response from <em>Deferred Payment Form</em> contains information about how to retrieve the results of your job via the ‘Deferred Payment Form Job’ endpoint. Listed below are the response body fields.</p>
 
@@ -12855,7 +12855,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="deferred-payment-form-job-status-by-id"><a name="deferred-payment-form-job-status-by-id"></a>Deferred Payment Form Job Status by Id</h3>
+<h3 id="deferred-payment-form-job-status-by-id">Deferred Payment Form Job Status by Id</h3>
 
 <hr />
 
@@ -12921,7 +12921,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-36"><a name="deferred-payment-job-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-36">Request Headers</h4>
 
 <table>
   <thead>
@@ -12963,13 +12963,13 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/deferred_payment_forms/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 </code></pre></div></div>
 
-<h4 id="response-body-37"><a name="deferred-payment-job-response-body"></a>Response Body</h4>
+<h4 id="response-body-37">Response Body</h4>
 
 <p>The HTTP 202 response from <em>Deferred Payment Form Job</em> contains information about how to retrieve the results of your job via the ‘Deferred Payment Form Job’ endpoint. The response body is the same as is returned in the <a href="#deferred-payment-response-body">Deferred Payment Form</a> except that the resourceType is payment/deferred_payment_forms.</p>
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="deferred-payment-status"><a name="deferred-payment-status"></a>Deferred Payment Status</h3>
+<h3 id="deferred-payment-status">Deferred Payment Status</h3>
 
 <hr />
 
@@ -13015,7 +13015,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-37"><a name="deferred-payment-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-37">Request Headers</h4>
 
 <table>
   <thead>
@@ -13048,7 +13048,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-22"><a name="deferred-payment-request-body"></a>Request Body</h4>
+<h4 id="request-body-22">Request Body</h4>
 
 <table>
   <thead>
@@ -13124,7 +13124,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<h4 id="response-body-38"><a name="deferred-payment-job-response-body"></a>Response Body</h4>
+<h4 id="response-body-38">Response Body</h4>
 
 <p>The HTTP 200 response from <em>Deferred Payment Status</em> contains information about how to retrieve the results of your job via the <em>Deferred Payment Status Job</em> endpoint. Listed below are the response body fields:</p>
 
@@ -13289,7 +13289,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="deferred-payment-status-job-status-by-id"><a name="deferred-payment-status-job-status-by-id"></a>Deferred Payment Status Job Status by Id</h3>
+<h3 id="deferred-payment-status-job-status-by-id">Deferred Payment Status Job Status by Id</h3>
 
 <hr />
 
@@ -13355,7 +13355,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-38"><a name="deferred-payment-status-job-status-by-id-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-38">Request Headers</h4>
 
 <table>
   <thead>
@@ -13397,7 +13397,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/deferred_payment_status/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 </code></pre></div></div>
 
-<h4 id="response-body-39"><a name="deferred-payment-status-job-status-by-id-response-body"></a>Response Body</h4>
+<h4 id="response-body-39">Response Body</h4>
 
 <p>The HTTP 200 response from <em>Deferred Payment Status Job</em> contains information about how to retrieve the results of your job via the ‘Deferred Payment Status Job’ endpoint. The fields in the response are the same as those returned from the <a href="#deferred-payment-job-response-body">Deferred Payment Status</a> except the resourceType is payment/deferred_payment_status/jobs.</p>
 
@@ -13436,7 +13436,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="deferred-payment-wechat"><a name="deferred-payment-wechat"></a>Deferred Payment WeChat</h3>
+<h3 id="deferred-payment-wechat">Deferred Payment WeChat</h3>
 
 <hr />
 
@@ -13482,7 +13482,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-39"><a name="deferred-wechat-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-39">Request Headers</h4>
 
 <table>
   <thead>
@@ -13515,7 +13515,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> When calling this endpoint through the public router, the <code class="highlighter-rouge">upmid</code> (for logged in customers), <code class="highlighter-rouge">appId</code> and <code class="highlighter-rouge">usertype</code> headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.</p>
 </blockquote>
 
-<h4 id="request-body-23"><a name="deferred-payment-request-body"></a>Request Body</h4>
+<h4 id="request-body-23">Request Body</h4>
 
 <table>
   <thead>
@@ -13565,7 +13565,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<h4 id="-response-body"><a name="deferred-payment-response-body"></a> Response Body</h4>
+<h4 id="response-body-40">Response Body</h4>
 
 <p>The HTTP 200 response from <em>Deferred Payment WeChat</em> contains information about how to retrieve the results of your job via the <em>Deferred Payment WeChat Job</em> endpoint. The response body fields are listed below.</p>
 
@@ -13731,7 +13731,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h3 id="deferred-wechat-payment-job-status-by-id"><a name="deferred-wechat-payment-job-status-by-id"></a>Deferred WeChat Payment Job Status by Id</h3>
+<h3 id="deferred-wechat-payment-job-status-by-id">Deferred WeChat Payment Job Status by Id</h3>
 
 <hr />
 
@@ -13797,7 +13797,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h4 id="request-headers-40"><a name="deferred-wechat-payment-job-request-headers"></a>Request Headers</h4>
+<h4 id="request-headers-40">Request Headers</h4>
 
 <table>
   <thead>
@@ -13839,7 +13839,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/payment/deferred_wechat_payments/v1/jobs/2722be3a-0341-11e6-b512-3e1d05defe78
 </code></pre></div></div>
 
-<h4 id="response-body-40"><a name="deferred-payment-job-response-body"></a>Response Body</h4>
+<h4 id="response-body-41">Response Body</h4>
 
 <p>The HTTP 200 response from <em>Deferred WeChat Payment Job</em> contains information about how to retrieve the results of your job via the ‘Deferred WeChat Payment Job’ endpoint. The response body fields are the same as those returned in the <a href="#deferred-payment-response-body">Deferred Payment WeChat</a> response except the resourceType is payment/deferred_wechat_payments/jobs.</p>
 
@@ -13901,11 +13901,11 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-<h2 id="upgrading-to-the-latest-version"><a name="upgrading-to-the-latest-version"></a>Upgrading to the latest version</h2>
+<h2 id="upgrading-to-the-latest-version">Upgrading to the latest version</h2>
 
 <p>All experiences are using the versions listed in the <a href="#api-at-a-glance">API at a Glance</a> section above. There are no upgrade instructions at this time.</p>
 
-<h2 id="best-practices"><a name="best-practices"></a>Best Practices</h2>
+<h2 id="best-practices">Best Practices</h2>
 
 <h3 id="polling">Polling</h3>
 
@@ -13917,7 +13917,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <p>The exception to the 4xx response rule is the 429 response, indicating that there are too many requests coming in for the service to handle. When a service returns a 429, the call should be retried a maximum of two times, using the value returned in the <code class="highlighter-rouge">Retry-After</code> header to determine when to make the follow-up call.</p>
 
-<h2 id="troubleshooting"><a name="troubleshooting"></a>Troubleshooting</h2>
+<h2 id="troubleshooting">Troubleshooting</h2>
 
 <p>Listed below are some techniques to troubleshoot problems using the Payment API.</p>
 
@@ -13941,7 +13941,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   <p><strong>TIP:</strong> While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.</p>
 </blockquote>
 
-<h2 id="glossary"><a name="glossary"></a>Glossary</h2>
+<h2 id="glossary">Glossary</h2>
 
 <table>
   <thead>
@@ -14030,7 +14030,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 
 <p>See the <a href="https://confluence.nike.com/pages/viewpage.action?pageId=162870810" target="_blank">Global Payment Options</a> for a list of supported payment types by shipping and billing country.</p>
 
-<h2 id="document-change-log"><a name="document-change-log"></a>Document Change Log</h2>
+<h2 id="document-change-log">Document Change Log</h2>
 
 <table>
   <thead>
@@ -14079,7 +14079,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<h2 id="related-links"><a name="related-links"></a>Related Links</h2>
+<h2 id="related-links">Related Links</h2>
 
 <p><a href="/index.html">NDe Docs Home</a></p>
 
@@ -14102,16 +14102,16 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 			</li>
 			
 			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
+				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
+					Rollup Threads
 					
 				</a>
 				
 			</li>
 			
 			<li>
-				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
-					Rollup Threads
+				<a href="/doc/commerce/product/api_merch_product.html" class="">
+					Merch Product
 					
 				</a>
 				

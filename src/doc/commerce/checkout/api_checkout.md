@@ -43,7 +43,7 @@ toc:
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and the [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
-## <a name="api-at-a-glance"></a>API at a Glance
+## API at a Glance
 
 |Topic|Details|
 |---|---|
@@ -57,11 +57,11 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 
 >**TIP:** SLAs vary per endpoint for many of the Buy APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown. Ask the Product Owner to get specific SLA info for each endpoint.
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 
-### <a name="authentication"></a>Authentication
+### Authentication
 
 #### Access Tokens
 
@@ -75,7 +75,7 @@ To find out more on how to call Unite services to obtain access tokens, see the 
 
 Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#jwt-json-web-token).
 
-## <a name="use-cases"></a>Use Cases
+## Use Cases
 
 |I want to...|API(s) to use|
 |---|---|
@@ -87,7 +87,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 |Validate product and shipping info. Get product, tax, and shipping prices|Checkouts API|
 |Submit a checkout for fulfillment|Checkouts API|
 
-### <a name="example-implementation-diagram"></a>Example Implementation Diagram
+### Example Implementation Diagram
 
 Here is an example of a sequence of API calls to execute an entire checkout:
 
@@ -130,7 +130,7 @@ There are 4 possible scenarios:
 
 >**TIP:** For more, see the Idempotence Guarantee section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#idempotence-guarantee) guide.
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 |API Name|Endpoint Name|HTTP Method|URI Path|
 |---|---|---|---|
@@ -165,7 +165,7 @@ There are 4 possible scenarios:
 |Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Retrieve Checkout Results</a>|GET|/buy/checkout_results/v2/{id}|
 |Checkouts|<a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Request Checkout Submit (Launch)</a>|PUT|/buy/launch_checkouts/v2/{id}|
 
-## <a name="making-your-first-api-request"></a>Making Your First API Request
+## Making Your First API Request
 
 For your first API request, send a request to the *Create or Update a Cart by Cart ID* endpoint of the Carts v2 API and create your first cart.
 
@@ -317,7 +317,7 @@ curl -X GET \
 
 The response body from the *Get a Cart for a Cart ID* endpoint is the same as *Create or Update a Cart by Cart ID*, so the process of parsing it is also the same.
 
-## <a name="using-carts-v1"></a>Using Carts v1
+## Using Carts v1
 
 **NOTE: Carts v1 has been replaced with Carts v2 and will be deprecated. Use Carts v2 for any new integrations. For more info, see the [Using Carts v2](#using-carts-v2) section of this document.**
 
@@ -333,7 +333,7 @@ The response body from the *Get a Cart for a Cart ID* endpoint is the same as *C
 
 - [Carts v1 Error Handling](#carts-v1-error-handling)
 
-### <a name="carts-v1-overview"></a>Carts v1 Overview
+### Carts v1 Overview
 
 In e-commerce, the cart (also called basket or bag) allows customers to collect and compare items that they are considering for purchase before starting the checkout process. At Nike, a cart contains items, quantities, and associated value-added services (if any).
 
@@ -363,7 +363,7 @@ The Carts API helps you manage carts. It provides storage, validation, and prici
 
 The following sections describe each endpoint of the Carts API in detail:
 
-### <a name="create-or-update-a-cart"></a>Create or Update a Cart
+### Create or Update a Cart
 
 Create a cart by executing an HTTP PUT request with a cart ID in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format **that you have generated**. Update a cart with PUT request using an existing cart ID.
 
@@ -382,7 +382,7 @@ Create a cart by executing an HTTP PUT request with a cart ID in <a href="https:
 |**id**|Path|Unique identifier for the cart|string|**Required**|
 |**fields**|Query|Fields to be included in the response (all fields included by default)|string|Optional|
 
-#### <a name="cart-put-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -395,7 +395,7 @@ Required request headers:
 
 >**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
-#### <a name="cart-put-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Required?|Description|
 |---|---|---|
@@ -463,7 +463,7 @@ Sample *Create or Update Cart* Request Body:
    }
 ```
 
-#### <a name="cart-put-response-body"></a>Response Body
+#### Response Body
 
 Sample *Create or Update Cart* response body without errors:
 ```
@@ -507,7 +507,7 @@ Sample *Create or Update Cart* response body without errors:
 
 Some of the values in the response are exactly as sent in the request, but the values in the **totals** section provides a cart pricing summary and the **priceInfo** section provides the latest item pricing details.
 
-### <a name="retrieve-carts-by-id"></a>Retrieve Carts by ID
+### Retrieve Carts by ID
 
 Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a> format) that **you previously created**. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals. You can also choose which fields you want to receive in the response, using the fields query parameter in the URL.
 
@@ -526,7 +526,7 @@ Get the details of a cart using the ID (in <a href="https://en.wikipedia.org/wik
 |**id**|Path|Unique client-generated identifier for the cart|string|**Required**|
 |**fields**|Query|Fields to be included in the response (all fields included by default)|string|Optional|
 
-#### <a name="cart-get1-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -537,15 +537,15 @@ Required request headers:
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 
-#### <a name="cart-get1-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a GET request.
 
-#### <a name="cart-get1-response-body"></a>Response Body
+#### Response Body
 
 See the response body from the *Create or Update Cart* endpoint as it is the same as this endpoint.
 
-### <a name="retrieve-carts-by-filter"></a>Retrieve Carts by Filter
+### Retrieve Carts by Filter
 
 Retrieve a user's cart(s) by country, brand, and (optionally) channel. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.
 
@@ -562,7 +562,7 @@ Retrieve a user's cart(s) by country, brand, and (optionally) channel. The defau
 |**filter**|Query|Values by which to limit the cart results: **country**: ISO 3166-1 [two-letter code](/doc/commerce/checkout/checkout_country_currency.html) **Required**<br>**brand**: NIKE brand name, only NIKE is supported **Required**<br>channel: sales channel, only NIKECOM is supported, optional|string|**Required**|
 |**fields**|Query|Fields to be included in the response (all fields included by default)|string|Optional|
 
-#### <a name="cart-get2-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -573,15 +573,15 @@ Required request headers:
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 
-#### <a name="cart-get2-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a GET request.
 
-#### <a name="cart-get2-response-body"></a>Response Body
+#### Response Body
 
 See the response body from the *Create or Update Cart* endpoint as it is the same as this endpoint.
 
-### <a name="delete-all-items-from-a-cart"></a>Delete All Items From A Cart
+### Delete All Items From A Cart
 
 Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
@@ -599,7 +599,7 @@ Delete all items in a cart by its ID and receive a HTTP 204 response if successf
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier for the cart|string|**Required**|
 
-#### <a name="cart-delete-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
@@ -608,15 +608,15 @@ Delete all items in a cart by its ID and receive a HTTP 204 response if successf
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 
-#### <a name="cart-delete-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a DELETE request.
 
-#### <a name="cart-delete-response-body"></a>Response Body
+#### Response Body
 
 The HTTP 204 response (successful delete) returns an empty response body.
 
-### <a name="carts-v1-error-handling"></a>Carts v1 Error Handling
+### Carts v1 Error Handling
 
 Following is a summary of the errors and warnings that can come back in responses from the Carts API:
 
@@ -692,7 +692,7 @@ Following is a summary of the errors and warnings that can come back in response
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/carts/API.md?raw#!/Cart_Operations/get_buy_carts_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 ---
 
-## <a name="using-carts-v2"></a>Using Carts v2
+## Using Carts v2
 
 - [Carts v2 Overview](#carts-v2-overview)
 
@@ -716,11 +716,11 @@ Following is a summary of the errors and warnings that can come back in response
 
 - [Carts v2 Error Handling](#carts-v2-error-handling)
 
-### <a name="carts-v2-overview"></a>Carts v2 Overview
+### Carts v2 Overview
 
 Manage a user's shopping cart by either the cart ID or by a set of filter criteria.
 
-### <a name="create-or-update-a-cart-by-cart-id"></a>Create or Update a Cart by Cart ID
+### Create or Update a Cart by Cart ID
 
 Create a cart by executing an HTTP PUT request with a cart ID that you have generated. Update a cart with a PUT request using an existing cart ID.
 
@@ -736,7 +736,7 @@ Create a cart by executing an HTTP PUT request with a cart ID that you have gene
 |---|---|---|---|---|
 |**id**|Path|Unique identifier for the cart|string|**Required**|
 
-#### <a name="cart-put-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -751,7 +751,7 @@ Required request headers:
 
 >**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
-#### <a name="cart-put-v2-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -819,7 +819,7 @@ Sample *Create or Update Cart by Cart ID* Request Body:
 }
 ```
 
-#### <a name="cart-put-v2-response-body"></a>Response Body
+#### Response Body
 
 Some of the values in the response are exactly as sent in the request, but the values in the **totals** section provides a cart pricing summary and the **priceInfo** section provides the latest item pricing details.
 
@@ -934,7 +934,7 @@ Sample *Create or Update Cart by Cart ID* response body without errors:
 
 >**TIP:** Prices and subtotals are recalculated and returned in the response to each call.
 
-### <a name="modify-a-cart-by-cart-id"></a>Modify a Cart by Cart ID
+### Modify a Cart by Cart ID
 
 Create or update a cart by executing a HTTP PATCH request with a Cart ID. Add or remove a line item or promotion code from a user's cart, or to create or replace the entire cart contents.
 
@@ -950,7 +950,7 @@ Create or update a cart by executing a HTTP PATCH request with a Cart ID. Add or
 |---|---|---|---|---|
 |**id**|Path|Unique identifier for the cart|string|**Required**|
 
-#### <a name="cart-patch-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -963,7 +963,7 @@ Required request headers:
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
-#### <a name="cart-patch-v2-request-body"></a>Request Body
+#### Request Body
 
 The request must contain at least **ONE OF** the following schemas:
 
@@ -1019,7 +1019,7 @@ Sample *Modify a Cart by Cart ID* Request Body:
 ]
 ```
 
-#### <a name="cart-patch-v2-response-body"></a>Response Body
+#### Response Body
 
 Some of the values in the response are exactly as sent in the request, but the values in the **totals** section provides a cart pricing summary and the **priceInfo** section provides the latest item pricing details.
 
@@ -1079,7 +1079,7 @@ Sample *Modify a Cart by Cart ID* response body without errors:
 }
 ```
 
-### <a name="delete-all-items-from-a-cart-by-cart-id"></a>Delete All Items from a Cart by Cart ID
+### Delete All Items from a Cart by Cart ID
 
 Delete all items in a cart by its ID and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
@@ -1097,7 +1097,7 @@ Delete all items in a cart by its ID and receive a HTTP 204 response if successf
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier for the cart|string|**Required**|
 
-#### <a name="cart-delete-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
@@ -1108,15 +1108,15 @@ Delete all items in a cart by its ID and receive a HTTP 204 response if successf
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
-#### <a name="cart-delete-v2-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a DELETE request.
 
-#### <a name="cart-delete-v2-response-body"></a>Response Body
+#### Response Body
 
 The HTTP 204 response (successful delete) returns an empty response body.
 
-### <a name="get-a-cart-by-cart-id"></a>Get a Cart by Cart ID
+### Get a Cart by Cart ID
 
 Get the details of a cart using the Cart ID. The default HTTP 200 response includes a list of items in a cart with prices, quantities, discounts, value-added services, and totals.
 
@@ -1132,7 +1132,7 @@ Get the details of a cart using the Cart ID. The default HTTP 200 response inclu
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier for the cart|string|**Required**|
 
-#### <a name="cart-get-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -1145,15 +1145,15 @@ Required request headers:
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
-#### <a name="cart-get-v2-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a GET request.
 
-#### <a name="cart-get-v2-response-body"></a>Response Body
+#### Response Body
 
 See the response body from the [*Create or Update Cart by Cart ID* endpoint](#cart-put-v2-response-body) as it is the same for this endpoint.
 
-### <a name="get-a-cart-by-filter-criteria-query-param"></a>Get a Cart by Filter Criteria (Query Param)
+### Get a Cart by Filter Criteria (Query Param)
 
 Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** values sent as `?filter` query parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.
 
@@ -1171,7 +1171,7 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 |---|---|---|---|---|
 |**filter**|Query|Values by which to limit the cart results * **country**: ISO 3166-1 [two-letter code](/doc/commerce/checkout/checkout_country_currency.html) **Required** * **brand**: Brand name, e.g. 'NIKE' **Required** * channel: Sales channel, optional|string|**Required**|
 
-#### <a name="cart-get2-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -1184,15 +1184,15 @@ Required request headers:
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
-#### <a name="cart-get2-v2-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a GET request.
 
-#### <a name="cart-get2-v2-response-body"></a>Response Body
+#### Response Body
 
 See the response body from the [*Create or Update Cart by Cart ID*](#cart-put-v2-response-body) endpoint as it is the same for this endpoint.
 
-### <a name="create-or-update-a-cart-by-filter-criteria"></a>Create or Update a Cart by Filter Criteria
+### Create or Update a Cart by Filter Criteria
 
 Create or update a cart by executing an HTTP PUT request with country, brand, and (optionally) channel path parameters included. The format of each cart in the HTTP 200 response is the same as doing a PUT by Cart ID.
 
@@ -1210,19 +1210,19 @@ Create or update a cart by executing an HTTP PUT request with country, brand, an
 |**brand**|Path|Brand name of the shopping cart|string|**Required**|
 |**channel**|Path|Sales channel of the shopping cart|string|**Required**|
 
-#### <a name="cart-put2-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 See the required request headers of the [*Create or Update a Cart by Cart ID*](#cart-put-v2-request-headers) endpoint as it is the same for this endpoint.
 
-#### <a name="cart-put2-v2-request-body"></a>Request Body
+#### Request Body
 
 See the request body format and sample request of the [*Create or Update a Cart by Cart ID*](#cart-put-v2-request-body) endpoint as it is the same for this endpoint.
 
-#### <a name="cart-put2-v2-response-body"></a>Response Body
+#### Response Body
 
 See the response body format and sample response of the [*Create or Update a Cart by Cart ID*](#cart-put-v2-response-body) endpoint as it is the same for this endpoint.
 
-### <a name="modify-a-cart-by-filter-criteria"></a>Modify a Cart by Filter Criteria
+### Modify a Cart by Filter Criteria
 
 Create or update a cart by executing an HTTP PUT request with country, brand, and (optionally) channel path parameters included. The format of each cart in the HTTP 200 response is the same as doing a PUT by Cart ID.
 
@@ -1240,19 +1240,19 @@ Create or update a cart by executing an HTTP PUT request with country, brand, an
 |**brand**|Path|Brand name of the shopping cart|string|**Required**|
 |**channel**|Path|Sales channel of the shopping cart|string|**Required**|
 
-#### <a name="cart-patch2-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 See the required request headers of the [*Modify a Cart by Cart ID*](#cart-patch-v2-request-headers) endpoint as it is the same for this endpoint.
 
-#### <a name="cart-patch2-v2-request-body"></a>Request Body
+#### Request Body
 
 See the request body format and sample request of the [*Modify a Cart by Cart ID*](#cart-patch-v2-request-body) endpoint as it is the same for this endpoint.
 
-#### <a name="cart-patch2-v2-response-body"></a>Response Body
+#### Response Body
 
 See the response body format and sample response of the [*Modify a Cart by Cart ID*](#cart-patch-v2-response-body) endpoint as it is the same for this endpoint.
 
-### <a name="get-a-cart-by-filter-criteria-path-param"></a>Get a Cart by Filter Criteria (Path Param)
+### Get a Cart by Filter Criteria (Path Param)
 
 Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** values sent as path parameters. The default format of each cart in the HTTP 200 response is the same as doing a GET by ID.
 
@@ -1270,7 +1270,7 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 |**brand**|Path|Brand name, e.g. 'NIKE'|string|Required|
 |**channel**|Path|Sales channel|string|Optional|
 
-#### <a name="cart-get2-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -1283,15 +1283,15 @@ Required request headers:
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
-#### <a name="cart-get2-v2-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a GET request.
 
-#### <a name="cart-get2-v2-response-body"></a>Response Body
+#### Response Body
 
 See the response body from the [*Create or Update Cart by Cart ID*](#cart-put-v2-response-body) endpoint as it is the same for this endpoint.
 
-### <a name="delete-all-items-from-a-cart-by-filter-criteria"></a>Delete All Items from a Cart by Filter Criteria
+### Delete All Items from a Cart by Filter Criteria
 
 Delete all items in a cart by **country**, **brand**, and (optionally) **channel** values sent as path parameters and receive a HTTP 204 response if successful. Subsequent calls to GET that same cart ID will return a HTTP 404 status ('Not Found').
 
@@ -1309,7 +1309,7 @@ Delete all items in a cart by **country**, **brand**, and (optionally) **channel
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier for the cart|string|**Required**|
 
-#### <a name="cart-delete-v2-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
@@ -1320,15 +1320,15 @@ Delete all items in a cart by **country**, **brand**, and (optionally) **channel
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
-#### <a name="cart-delete-v2-request-body"></a>Request Body
+#### Request Body
 
 There is no body on a DELETE request.
 
-#### <a name="cart-delete-v2-response-body"></a>Response Body
+#### Response Body
 
 The HTTP 204 response (successful delete) returns an empty response body.
 
-### <a name="carts-v2-error-handling"></a>Carts v2 Error Handling
+### Carts v2 Error Handling
 
 Following is a summary of the errors and warnings that can come back in responses from the Carts v2 API:
 
@@ -1406,7 +1406,7 @@ Following is a summary of the errors and warnings that can come back in response
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/API.md?raw" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 ---
 
-## <a name="using-cart-reviews"></a>Using Cart Reviews
+## Using Cart Reviews
 
 - [Cart Reviews Overview](#cart-reviews-overview)
 
@@ -1414,7 +1414,7 @@ Following is a summary of the errors and warnings that can come back in response
 
 - [Cart Reviews Error Handling](#cart-reviews-error-handling)
 
-### <a name="cart-reviews-overview"></a>Cart Reviews Overview
+### Cart Reviews Overview
 
 After the customer has provided a shipping address and chosen a shipping method, use this service to retrieve an enhanced cart summary before the customer proceeds to the checkout process. Use the Cart Reviews API in conjunction with the Carts API to achieve this.
 
@@ -1444,7 +1444,7 @@ Cart Reviews returns sales and shipping taxes, estimated delivery date(s), and s
 
 The following section describes the endpoint of the Cart Reviews API in detail:
 
-### <a name="augment-a-cart"></a>Augment a Cart
+### Augment a Cart
 
 #### Endpoint Details
 
@@ -1458,7 +1458,7 @@ The following section describes the endpoint of the Cart Reviews API in detail:
 |---|---|---|---|---|
 |fields|Query|Fields to be included in the response (all fields included by default)|string|Optional|
 
-#### <a name="cart-augment-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -1469,7 +1469,7 @@ Required request headers:
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 
-#### <a name="cart-augment-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1554,7 +1554,7 @@ Sample *Cart Reviews* request body:
 }
 ```
 
-#### <a name="cart-augment-response-body"></a>Response Body
+#### Response Body
 
 Sample *Cart Reviews* response body:
 
@@ -1661,7 +1661,7 @@ Sample *Cart Reviews* response body:
 }
 ```
 
-### <a name="cart-reviews-error-handling"></a>Cart Reviews Error Handling
+### Cart Reviews Error Handling
 
 Following is a summary of the errors and warnings that can come back in responses from the Cart Reviews API:
 
@@ -1796,7 +1796,7 @@ Following is a summary of the errors and warnings that can come back in response
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/cartreviews/API.md?raw#!/Cart_Reviews/post_buy_cart_reviews_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 ---
 
-## <a name="using-wish-lists"></a>Using Wish Lists
+## Using Wish Lists
 
 Manage a Nike member/employee's Wish Lists using the Wish Lists API.
 
@@ -1818,7 +1818,7 @@ Manage a Nike member/employee's Wish Lists using the Wish Lists API.
 
 - [Retrieve Item by ID](#retrieve-item-by-id)
 
-### <a name="wish-lists-overview"></a>Wish Lists Overview
+### Wish Lists Overview
 
 The Wish Lists API allows Nike members and employees to save lists of products to consider for purchase.
 
@@ -1834,7 +1834,7 @@ Features:
 
 ![](/images/commerce/buy/wishlists_flow.png)
 
-### <a name="create-or-update-a-list"></a>Create or Update a List
+### Create or Update a List
 
 Create or update header-level information for a Wish List using this endpoint.
 
@@ -1857,14 +1857,14 @@ Create or update header-level information for a Wish List using this endpoint.
 |**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
 
-#### <a name="create-list-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="create-list-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1892,7 +1892,7 @@ Sample *Create or Update a List* request body:
 
 ```
 
-#### <a name="create-list-response-body"></a>Response Body
+#### Response Body
 
 Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -1937,7 +1937,7 @@ Sample *Create or Update a List* 400 response:
 }
 ```
 
-### <a name="delete-a-list"></a>Delete a List
+### Delete a List
 
 Delete a Wish List using this endpoint. Note that **all** of the items on the list will be removed.
 
@@ -1953,14 +1953,14 @@ Delete a Wish List using this endpoint. Note that **all** of the items on the li
 |---|---|---|---|---|
 |**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
 
-#### <a name="delete-list-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="delete-list-request-body"></a>Request Body
+#### Request Body
 
 There is no request body for a DELETE request.
 
@@ -1969,11 +1969,11 @@ Sample *Delete a List* request URI:
 https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-#### <a name="delete-list-response-body"></a>Response Body
+#### Response Body
 
 There is no response body for a successful HTTP response to a DELETE request.
 
-### <a name="retrieve-a-list-by-id"></a>Retrieve a List by ID
+### Retrieve a List by ID
 
 Call this endpoint to retrieve header info for a single list using the list identifier that you previously created. The list items are **not** included in the response. To get the list items, separately call the *Retrieve Items by List* endpoint with the appropriate list identifier.
 
@@ -1990,14 +1990,14 @@ Call this endpoint to retrieve header info for a single list using the list iden
 |**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
 
-#### <a name="retrieve-id-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="retrieve-id-request-body"></a>Request Body
+#### Request Body
 
 There is no request body on a GET request.
 
@@ -2006,7 +2006,7 @@ Sample *Retrieve a List by ID* request URI:
 https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-#### <a name="retrieve-id-response-body"></a>Response Body
+#### Response Body
 
 Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2037,7 +2037,7 @@ Sample *Retrieve a List by ID* 200 response:
 }
 ```
 
-### <a name="retrieve-lists-for-authenticated-user"></a>Retrieve Lists for Authenticated User
+### Retrieve Lists for Authenticated User
 
 Retrieve header info for all lists for a single authenticated user with this endpoint. The list items are **not** included in the response. To get the list items, separately call the *Retrieve Items by List* endpoint with the appropriate list identifier.
 
@@ -2054,14 +2054,14 @@ Retrieve header info for all lists for a single authenticated user with this end
 |**filter**|Query|Limit the results to those matching the specified filters: **country** (string, required) - ISO 3166 country code(s)<br>name (string, optional) - List name|String|**Required**|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
 
-#### <a name="retrieve-auth-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="retrieve-auth-request-body"></a>Request Body
+#### Request Body
 
 There is no request body on a GET request.
 
@@ -2070,7 +2070,7 @@ Sample *Retrieve Lists for Authenticated User* request URI:
 https://www.api.nike.com/buy/lists/v1?filter=country(US)
 ```
 
-#### <a name="retrieve-auth-response-body"></a>Response Body
+#### Response Body
 
 Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2132,7 +2132,7 @@ Sample *Retrieve Lists for Authenticated User* 400 response:
       }
 ```
 
-### <a name="add-item-to-list"></a>Add Item to List
+### Add Item to List
 
 Add an item to an existing list using the list identifier and get current product pricing in the response.
 
@@ -2152,14 +2152,14 @@ Add an item to an existing list using the list identifier and get current produc
 |**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
 
-#### <a name="add-item-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="add-item-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2197,7 +2197,7 @@ Sample *Add Item to List* request body:
 }
 ```
 
-#### <a name="add-item-response-body"></a>Response Body
+#### Response Body
 
 Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2262,7 +2262,7 @@ Sample *Add Item to List* 400 response:
 }
 ```
 
-### <a name="remove-item-from-list"></a>Remove Item from List
+### Remove Item from List
 
 Delete a single item from a list using the list **item** identifier that you previously created, and get a HTTP 200 response if successful.
 
@@ -2278,14 +2278,14 @@ Delete a single item from a list using the list **item** identifier that you pre
 |---|---|---|---|---|
 |**id**|Path|List item identifier, **client-generated UUID**|String|**Required**|
 
-#### <a name="remove-item-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="remove-item-request-body"></a>Request Body
+#### Request Body
 
 There is no request body on a DELETE request.
 
@@ -2295,11 +2295,11 @@ Sample *Remove Item from List* request URI:
 https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-#### <a name="remove-item-response-body"></a>Response Body
+#### Response Body
 
 There is no response body for a successful HTTP response to a DELETE request.
 
-### <a name="retrieve-items-by-list"></a>Retrieve Items by List
+### Retrieve Items by List
 
 Retrieve all items in a list by its list identifier, which you previously created. Add optional filter, sort, count, or anchor criteria query parameters to further manipulate the data in the response.
 
@@ -2319,14 +2319,14 @@ Retrieve all items in a list by its list identifier, which you previously create
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list item contents.|String|Optional|
 |**sort**|Query|To sort the items in the list, indicate the field to be sorted on along with the sort order(field+order)|String|Optional|
 
-#### <a name="retrieve-items-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="retrieve-items-request-body"></a>Request Body
+#### Request Body
 
 There is no request body for a GET request.
 
@@ -2335,7 +2335,7 @@ Sample *Retrieve Items by List* request URI:
 https://www.api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
 ```
 
-#### <a name="retrieve-items-response-body"></a>Response Body
+#### Response Body
 
 Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2444,7 +2444,7 @@ Sample *Retrieve Items from List* 400 response:
 }
 ```
 
-### <a name="retrieve-item-by-id"></a>Retrieve Item by ID
+### Retrieve Item by ID
 
 Retrieve a list item by the list item identifier that you previously created.
 
@@ -2461,14 +2461,14 @@ Retrieve a list item by the list item identifier that you previously created.
 |**id**|Path|List identifier, **client-generated UUID**|String|**Required**|
 |**fields**|Query|Filter the fields returned in the response. When not provided, the response will include all list contents.|String|Optional|
 
-#### <a name="retrieve-id-request-headers"></a>Request Headers
+#### Request Headers
 
 |Header Name|Description|
 |---|---|
 |**Content-Type**|Content type of the request, application/json is only value allowed|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|
 
-#### <a name="retrieve-id-request-body"></a>Request Body
+#### Request Body
 
 There is no request body for a GET request.
 
@@ -2477,7 +2477,7 @@ Sample *Retrieve Item by ID* request URI:
 https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-#### <a name="retrieve-id-response-body"></a>Response Body
+#### Response Body
 
 Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2531,7 +2531,7 @@ Sample *Retrieve Item by ID* 200 response:
 ```
 ---
 
-## <a name="using-shipping-options"></a>Using Shipping Options
+## Using Shipping Options
 
 - [Shipping Options Overview](#shipping-options-overview)
 
@@ -2539,7 +2539,7 @@ Sample *Retrieve Item by ID* 200 response:
 
 - [Shipping Options Error Handling](#shipping-options-error-handling)
 
-### <a name="shipping-options-overview"></a>Shipping Options Overview
+### Shipping Options Overview
 
 Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to present to them, based on their shopping context?
 
@@ -2547,7 +2547,7 @@ Use the Shipping Options v2 API to retrieve the customer's available shipping me
 
 >**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
-### <a name="shipping-options"></a>Shipping Options
+### Shipping Options
 
 Send a request with a country code, currency code, item information and (optionally) shipping address information to this endpoint to get the list of available shipping methods, along with associated costs/taxes and estimated delivery date(s). This endpoint calculates shipping discounts such as free shipping for members.
 
@@ -2557,7 +2557,7 @@ Send a request with a country code, currency code, item information and (optiona
 |---|---|---|
 |**POST**|`/buy/shipping_options/v2`|no|
 
-#### <a name="shipping-options-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -2568,7 +2568,7 @@ Required request headers:
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 
-#### <a name="shipping-options-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2631,7 +2631,7 @@ Sample *Shipping Options* request body:
 }
 ```
 
-#### <a name="shipping-options-response-body"></a>Response Body
+#### Response Body
 
 The HTTP 200 success response from *Shipping Options* reflects back many elements from the request body and also includes the following new information to the client:
 
@@ -2720,7 +2720,7 @@ Sample *Shipping Options* response body:
 }
 ```
 
-### <a name="shipping-options-error-handling"></a>Shipping Options Error Handling
+### Shipping Options Error Handling
 
 Following is a summary of the errors and warnings that can come back in responses from the Shipping Options API:
 
@@ -2790,7 +2790,7 @@ Following is a summary of the errors and warnings that can come back in response
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/shippingoptions/API.md?raw#!/default/post_buy_shipping_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 ---
 
-## <a name="using-checkouts"></a>Using Checkouts
+## Using Checkouts
 
 - [Checkouts Overview](#checkouts-overview)
 
@@ -2810,7 +2810,7 @@ Following is a summary of the errors and warnings that can come back in response
 
 - [Checkouts Error Handling](#checkouts-error-handling)
 
-### <a name="checkouts-overview"></a>Checkouts Overview
+### Checkouts Overview
 
 The Checkouts v2 API allows you to create, validate, and submit a checkout to Nike for fulfillment. What exactly is a checkout? (Hint: it's like an order).
 
@@ -2832,7 +2832,7 @@ Through calls to Checkout and other Nike APIs, you can maintain the state of the
 
 >**TIP:** It is a best practice to send all of the optional request headers and request body fields, if the data is available, to avoid unexpected responses.
 
-### <a name="request-checkout-preview"></a>Request Checkout Preview
+### Request Checkout Preview
 
 The *Request a Checkout Preview* endpoint allows you to check that the items, shipping method(s), and shipping address(es) included in a checkout are valid based on Nike pricing and address rules. Additionally, you'll get item pricing and tax, shipping fee and tax, and checkout subtotals in the response.
 
@@ -2862,7 +2862,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
-#### <a name="checkout-preview-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -2874,7 +2874,7 @@ Required request headers:
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**appId**|Your application identifier||X||
 
-#### <a name="checkout-preview-request-body"></a>Request Body
+#### Request Body
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
@@ -2980,7 +2980,7 @@ Sample *Request a Checkout Preview* request body:
    }
 ```
 
-#### <a name="checkout-preview-response-body"></a>Response Body
+#### Response Body
 
 The HTTP 202 response from *Request Checkout Preview* contains information about how to retrieve the results of your job via the 'Retrieve Checkout Preview Job' endpoint. Following are the descriptions of the important fields in the response body:
 
@@ -3005,7 +3005,7 @@ The HTTP 202 response from *Request Checkout Preview* contains information about
 }
 ```
 
-### <a name="retrieve-checkout-preview-job"></a>Retrieve Checkout Preview Job
+### Retrieve Checkout Preview Job
 
 After calling *Request Checkout Preview* and receiving a HTTP 202 response, call *Retrieve Checkout Preview Job* using the same checkout ID to check the status of your job.
 
@@ -3033,7 +3033,7 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
-#### <a name="checkout-preview-job-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -3045,11 +3045,11 @@ Required request headers:
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**appId**|Your application identifier||X||
 
-#### <a name="checkout-preview-job-request-body"></a>Request Body
+#### Request Body
 
 There is no body for a GET request.
 
-#### <a name="checkout-preview-job-response-body"></a>Response Body
+#### Response Body
 
 For a job that is in either "PENDING" or "IN_PROGRESS" status, the response is abbreviated and only contains the following:
 
@@ -3228,7 +3228,7 @@ Sample *Retrieve Checkout Preview Job* response body with "COMPLETED" status:
 }
 ```
 
-### <a name="retrieve-checkout-preview-results"></a>Retrieve Checkout Preview Results
+### Retrieve Checkout Preview Results
 
 After calling both the *Request Checkout Preview* and *Retrieve Checkout Preview Job* endpoints, you can call this endpoint to retrieve the result of your Checkout Preview request. This step is optional, as the same result is already available in the response from the *Retrieve Checkout Submit Job* endpoint.
 
@@ -3242,7 +3242,7 @@ After calling both the *Request Checkout Preview* and *Retrieve Checkout Preview
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
-### <a name="request-checkout-submit"></a>Request Checkout Submit
+### Request Checkout Submit
 
 Call the *Request Checkout Submit* endpoint when your user is ready to complete their purchase.
 
@@ -3271,7 +3271,7 @@ guide to learn more.
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
-#### <a name="checkout-submit-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -3293,7 +3293,7 @@ Optional request headers:
 |**usertype**|nike:swoosh for Nike Employees, nike:plus for Nike+ Customers, otherwise do not send|X||X|
 |**Origin-Order-ID**|During v1 to v2 cutover, represents the legacy order id associated to the checkout and is used by downstream systems|X|X|X|
 
-#### <a name="checkout-submit-request-body"></a>Request Body
+#### Request Body
 
 Required parts of the request body:
 
@@ -3379,7 +3379,7 @@ Sample *Request Checkout Submit* request body:
    }
 ```
 
-#### <a name="checkout-submit-response-body"></a>Response Body
+#### Response Body
 
 The HTTP 202 response from *Request Checkout Submit* contains information about how to retrieve the results of your job from the *Retrieve Checkout Submit Job* endpoint. Following are descriptions of the important fields in the response body:
 
@@ -3432,7 +3432,7 @@ Once you observe a job status of COMPLETED, get the results of your job by parsi
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
-#### <a name="checkout-submit-job-request-headers"></a>Request Headers
+#### Request Headers
 
 Required request headers:
 
@@ -3444,11 +3444,11 @@ Required request headers:
 |**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**appId**|Your application identifier||X||
 
-#### <a name="checkout-submit-job-request-body"></a>Request Body
+#### Request Body
 
 There is no body for a GET request.
 
-#### <a name="checkout-submit-job-response-body"></a>Response Body
+#### Response Body
 
 For a job that is in either "PENDING" or "IN_PROGRESS" status, the response is abbreviated and only contains the following:
 
@@ -3657,7 +3657,7 @@ Sample *Retrieve Checkout Submit Job* response body with "COMPLETED" status:
 }
 ```
 
-### <a name="retrieve-checkout-results"></a>Retrieve Checkout Results
+### Retrieve Checkout Results
 
 After calling both the Request Checkout Submit and Retrieve Checkout Submit Job endpoints, you can call this endpoint to retrieve the result of your request. This step is optional, as the same result is already available in the response from the Retrieve Checkout Submit Job endpoint.
 
@@ -3673,7 +3673,7 @@ After calling both the Request Checkout Submit and Retrieve Checkout Submit Job 
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
-### <a name="request-checkout-submit-launch"></a>Request Checkout Submit (Launch)
+### Request Checkout Submit (Launch)
 
 The Request Checkout Submit (Launch) endpoint is used exclusively for Nike Launch experiences and features <a href="https://jwt.io/introduction/" target="_blank">JWT</a> authentication to enforce that. All other types of checkouts need to be sent to the regular Request Checkout Submit endpoint.
 
@@ -3691,7 +3691,7 @@ The Launch endpoint has the same contract as the Request Checkout Submit endpoin
 |---|---|---|---|---|
 |**id**|Path|Unique client-generated identifier (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>) for the checkout|string|**Required**|
 
-### <a name="checkouts-error-handling"></a>Checkouts Error Handling
+### Checkouts Error Handling
 
 Following is a summary of the errors and warnings that can come back in responses from the Checkouts API:
 
@@ -4117,7 +4117,7 @@ Following is a summary of the errors and warnings that can come back in response
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLORD/repos/v2-order-api/browse/checkouts/API.md?raw#!/Checkout/get_buy_checkout_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-## <a name="upgrading-to-the-latest-version"></a>Upgrading to the Latest Version
+## Upgrading to the Latest Version
 
 Here is the version status of each of the APIs described in this document, along with notes about upgrade paths:
 
@@ -4211,7 +4211,7 @@ The Cart Reviews endpoint are in v1 due to being released more recently. If a v2
 
 The Shipping Options endpoint is in v2. If a v3 of this endpoint becomes available, then the process of upgrading will be documented here.
 
-## <a name="best-practices"></a>Best Practices
+## Best Practices
 
 ### Conditions for Retries
 
@@ -4302,11 +4302,11 @@ Carts (built after adopting JSON Pointer standard):
 
 If you are a client of both of the above APIs, you will need to parse error responses in two different ways.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 Listed below are ways to troubleshoot unexpected responses using this API.
 
-### <a name="use-troubleshooting-tools"></a>Use Troubleshooting Tools
+### Use Troubleshooting Tools
 
 - Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
@@ -4314,7 +4314,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="_blank">#cic-order-integration</a> Slack channel for assistance.
 
-### <a name="common-questions"></a>Common Questions
+### Common Questions
 
 **Is it okay to call Checkout APIs if my app is hosted in an Amazon Web Services VPC?**
 
@@ -4324,11 +4324,11 @@ Yes. The APIs are exposed publicly so it shouldn't matter where you are calling 
 
 Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of which is somewhat unpredictable. Depending on the total volume of requests happening at the time your request was submitted, combined with the payment method and shipping country selected by the user, it may take several seconds to get a completed job. Best case is about 5 seconds, worst case can be well over a minute. If the job times out, you will get a 'completed with error' job status.
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 See the [Glossary](/doc/commerce/reference/glossary.html)
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
@@ -4340,7 +4340,7 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 |Added 'Required?' to tables|06/26/2018|Added required column to tables that were missing it|
 |Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

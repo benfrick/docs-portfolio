@@ -119,11 +119,11 @@ This guide provides general information about using NDe (Nike Digital engineerin
 
 [Related Links](#related-links)
 
-## <a name="industry-standards"></a>Industry Standards
+## Industry Standards
 
 Learn how NDe APIs were designed with industry standards in mind.
 
-### <a name="rest-architecture"></a>REST Architecture
+### REST Architecture
 
 NDe uses the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a> (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses.
 
@@ -139,7 +139,7 @@ Why is this desirable? Being stateless allows an API to be scaled across multipl
 
 REST is widely used in the industry because the syntax and protocols used (HTTP, JSON, the URI addressing protocol) are how you already use the web. **This means less work for you to to get your app up and running**.
 
-### <a name="json-formatted-http-requests-and-responses"></a>JSON-formatted HTTP Requests and Responses
+### JSON-formatted HTTP Requests and Responses
 
 The standard format for exchanging data with NDe APIs is <a href="http://www.json.org/" target="_blank">JSON</a> (**J**ava**S**cript **O**bject **N**otation).
 
@@ -187,7 +187,7 @@ Example of a JSON-formatted request body that was sent to a NDe API:
 }
 ```
 
-### <a name="json-schema-helps-define-api-contracts"></a>JSON Schema Helps Define API Contracts
+### JSON Schema Helps Define API Contracts
 
 The structures of the request and response bodies for NDe APIs are defined in each contract (an API.md file, commonly) using <a href="http://json-schema.org/" target="_blank">JSON Schema</a>.
 
@@ -537,7 +537,7 @@ For example the schema for the request body above is:
 }
 ```
 
-### <a name="idempotence-guarantee"></a>Idempotence Guarantee
+### Idempotence Guarantee
 
 In complex distributed systems, guaranteeing that an API request will be received only once by an application can be very difficult to achieve and validate when that application is hosted across geographic regions.
 
@@ -545,11 +545,11 @@ Our idempotence guarantee states that **subsequent duplicate requests to mutate 
 
 This can simplify the design when creating an eventually-consistent system, particularly when defining recovery scenarios that may need to replay API requests.
 
-### <a name="security-and-privacy"></a>Security and Privacy
+### Security and Privacy
 
 The security and privacy of your consumer's data is our #1 concern. Whether in-flight or at rest, your consumer's personally-identifiable information are protected according to the latest standards.
 
-## <a name="well-defined-well-documented"></a>Well-Defined, Well-Documented
+## Well-Defined, Well-Documented
 
 In addition to the guides on the Developer Portal, all NDe APIs have the following documents available at the root directory of the Bitbucket repository:
 
@@ -577,11 +577,11 @@ In addition to the guides on the Developer Portal, all NDe APIs have the followi
 
 - A CHANGES.md file listing the change history
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
 Find out what you need in order to start using NDe APIs.
 
-### <a name="registration"></a>Registration
+### Registration
 
 The NDe API registration process helps identify the software (including software version and who maintains it) that is calling an API.
 
@@ -609,7 +609,7 @@ For this process to work between your app and a particular NDe API, make sure th
 
 Example caller ID: `com.nike:brand.ios.ntc:2.1`
 
-### <a name="authorization"></a>Authorization
+### Authorization
 
 Many endpoints require that the customer has logged into their Nike account. This requires that your app prove that it is authorized to perform the requested operation on behalf of the customer by sending certain headers.
 
@@ -634,7 +634,7 @@ Send the **upmid** header, and for those endpoints that require it, the **appid*
 
 >**TIP:** To learn how to obtain an access token see the <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md" target="_blank">Generating an Access Token</a> guide.
 
-### <a name="jwt-json-web-token"></a>JWT (JSON Web Token)
+### JWT (JSON Web Token)
 
 Some endpoints such as [*Submit Order Payments for Approval*](/doc/commerce/payment/api_payment.html#submit-payments-for-approval) require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="_blank">JWT</a> that is signed for a service authorized to call the endpoint.
 
@@ -651,7 +651,7 @@ See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Re
 
 >**TIP:** You will need both a Production and Test JWT when calling JWT-required endpoints in those respective environments.
 
-## <a name="url-patterns"></a>URL Patterns
+## URL Patterns
 
 The standard URL pattern used for NDe APIs (v2 or later) is as follows:
 
@@ -665,7 +665,7 @@ The resource section of the URL varies depending on the endpoint, e.g. https://a
 
 >**TIP:** Always check the API Developer Guide to confirm the correct URL format for a particular API.
 
-### <a name="path-parameters"></a>Path Parameters
+### Path Parameters
 
 Path parameters are variable parts of a URL path. A URL can have one or more path parameters, each denoted with curly braces `{ }`.
 
@@ -673,7 +673,7 @@ For example, in the path /buy/carts/v1/<font color="red">{id}</font> the id is t
 
 NDe API path parameters are always required.
 
-### <a name="query-parameters"></a>Query Parameters
+### Query Parameters
 
 Query parameters can be added to the end of the URL and they allow you to be more specific about what you are requesting.
 
@@ -753,17 +753,17 @@ https://api.nike.com/product_feed/feeds/v2?filter=channelId(008be467-6c78-4079-9
 
 >**TIP:** Always check the Developer API Guide for the specific implementation of path and query parameters for a particular API.
 
-## <a name="request-components"></a>Request Components
+## Request Components
 
 Read about the common components of HTTP requests sent to NDe APIs. Also see the related [Response Components](#response-components) section.
 
-### <a name="uri-universal-resource-identifier"></a>URI (Universal Resource Identifier)
+### URI (Universal Resource Identifier)
 
 By sending a request to a NDe API, you access a resource using a particular URI (<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">Universal Resource Identifier</a>) comprised of a string of characters.
 
 For more info, see the [URL Patterns](#url-patterns) section.
 
-### <a name="http-methods"></a>HTTP Methods
+### HTTP Methods
 
 Access API resources via standard HTTP methods, noting that not all APIs support all methods.
 
@@ -782,7 +782,7 @@ Examples:
 	POST /persons -- Add a new person
 	DELETE /persons -- Delete all persons
 
-### <a name="request-headers"></a>Request Headers
+### Request Headers
 
 The required request headers vary per API and are described in the detailed per-API guides.
 
@@ -813,7 +813,7 @@ This section describes the commonly-used headers by category.
 
 See the [Prerequisites](#prerequisites) section for more info on Authorization headers.
 
-### <a name="request-body"></a>Request Body
+### Request Body
 
 #### Format
 
@@ -862,11 +862,11 @@ See the [URL Patterns](#url-patterns) section for more info about how to use the
 
 See the detailed per-API guides for examples of how to make your first API request!
 
-## <a name="response-components"></a>Response Components
+## Response Components
 
 Learn about the common components of HTTP responses returned by NDe APIs. Also see the related [Request Components](#request-components) section.
 
-### <a name="http-status-codes"></a>HTTP Status Codes
+### HTTP Status Codes
 
 The HTTP protocol defines status codes to clearly describe the result of an API call. Here is a sampling of standard response codes you may see in responses:
 
@@ -890,7 +890,7 @@ The HTTP protocol defines status codes to clearly describe the result of an API 
 |500 (Internal Server Error)|Server error (details provided in the body)|
 |503 (Service Unavailable)|Service is down|
 
-### <a name="response-headers"></a>Response Headers
+### Response Headers
 
 Every API response includes headers, but the headers sent will vary. Some of the typical headers for NDe APIs are described below by category:
 
@@ -960,7 +960,7 @@ x-nike-environment:prod
 x-nike-version:1.0.0.179
 ```
 
-### <a name="response-body"></a>Response Body
+### Response Body
 
 Your responses will usually include a body but there are certain HTTP methods that don't require response bodies to be sent.
 
@@ -976,7 +976,7 @@ See the per-API guides in each endpoint section for detailed error/warning infor
 
 For additional general error handling info, see the [Error Handling](#error-handling) section.
 
-## <a name="using-the-api-reference"></a>Using the API Reference
+## Using the API Reference
 
 This section describes how to use the NDe API Reference documents.
 
@@ -1010,7 +1010,7 @@ The steps for accessing the API Reference on the Developer Portal are as follows
 >
 ><i class="mr2-sm g72-check"></i>For more on how to use the Developer Portal, see the [Developer Portal User Guide](/guide)
 
-## <a name="versioning"></a>Versioning
+## Versioning
 
 As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to <a href="http://semver.org/" target="_blank">Semantic Versioning</a> guidelines.
 
@@ -1022,7 +1022,7 @@ Some high-level considerations:
 
 >**TIP:** For more details about the versioning of NDe APIs, see the <a href="https://confluence.nike.com/display/DAHP/API+Versioning+Strategy" target="_blank">API Versioning Strategy</a> document.
 
-## <a name="caching"></a>Caching
+## Caching
 
 NDe APIs take advantage of three layers of caching in order to keep service performance optimal even in periods of high request volume. The caching layers are:
 
@@ -1032,7 +1032,7 @@ NDe APIs take advantage of three layers of caching in order to keep service perf
 
 3. Device/Browser
 
-### <a name="akamai-caching"></a>Akamai Caching
+### Akamai Caching
 
 NDe uses the <a href="https://www.akamai.com/us/en/cdn/" target="_blank">Akamai Content Delivery Framework</a> as the Edge caching solution for public service requests. It is utilized when the client makes a request for a NDe public resource configured to go through Akamai's Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai.
 
@@ -1045,11 +1045,11 @@ Listed below are the Production domains that are routed to Akamai's Edge caching
 |www.nike.com|For unauthenticated, public experiences, services and assets|
 |api.nike.com|For authenticated public experiences|
 
-### <a name="service-caching"></a>Service Caching
+### Service Caching
 
 NDe Architecture encourages caching at the individual service level and discourages implementing custom distributed caching solutions, due to high development costs. Not all NDe Cloud services support caching and cache times vary across services. Check the Caching section of the NDe API Documentation you are interested in for cache information by service.
 
-### <a name="devicebrowser-caching"></a>Device/Browser Caching
+### Device/Browser Caching
 
 Caching can also be done on the Browser/Phone device itself. This type of caching is controlled by exchanging a series of request and response headers as is demonstrated in the flow below.
 
@@ -1071,7 +1071,7 @@ Caching can also be done on the Browser/Phone device itself. This type of cachin
 
 9. If the **ETag** value doesn't match, the service returns the full response and an updated value in the **ETag** header and the process restarts.
 
-### <a name="cache-related-headers"></a>Cache-Related Headers
+### Cache-Related Headers
 
 #### Request
 
@@ -1099,13 +1099,13 @@ Caching can also be done on the Browser/Phone device itself. This type of cachin
 
 ><i class="g72-link"></i> <a href="https://confluence.nike.com/display/DAHP/Akamai" target="_blank">Akamai Technical Reference</a>
 
-## <a name="cors"></a>CORS
+## CORS
 
 Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error.
 
 One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. http://api.nike.com) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS" target="_blank">HTTP Access Control (CORS)</a>.
 
-### <a name="implementation-recommendations"></a>Implementation Recommendations
+### Implementation Recommendations
 
 Developers implementing Cloud Services should keep the following best practices in mind:
 
@@ -1114,7 +1114,7 @@ Developers implementing Cloud Services should keep the following best practices 
 * Control restriction of Access-Control-Allow-Headers, Access-Control-Expose-Headers, Access-Control-Allow-Methods, and Access-Control-Allow-Origin headers for both requests and responses at the service level, perhaps through the use of a Servlet Filter.
 * Avoid setting Allow-Control-Allow-Credentials to true unless the service requires cookies. This value is false by default.
 
-## <a name="asynchronous-operation"></a>Asynchronous Operation
+## Asynchronous Operation
 
 A **synchronous** endpoint returns the result immediately because both the request and work performed execute in the same thread. Synchronous endpoints are quick-running.
 
@@ -1126,7 +1126,7 @@ Asynchronous jobs are either in PENDING, IN_PROGRESS, or COMPLETED status. PENDI
 
 There are two or three endpoints involved in an asynchronous service: job request, job status and job result. Job status and job result endpoints are sometimes combined.
 
-### <a name="job-request"></a>Job Request
+### Job Request
 
 This endpoint returns a unique job id in UUID format, a status, eta of when the job will be finished and a **self** link to the job result to poll for job status. Notice that the **self** link contains the same UUID as the job id. In this case, the caller should wait 3000ms before polling the job result link.
 
@@ -1144,7 +1144,7 @@ This endpoint returns a unique job id in UUID format, a status, eta of when the 
 }
 ```
 
-### <a name="job-status"></a>Job Status
+### Job Status
 
 This endpoint is called by passing the **id** returned form the Job Request response above. Because the job status is not `COMPLETED`, the calling service should wait 500ms before polling the job status again.
 
@@ -1162,7 +1162,7 @@ This endpoint is called by passing the **id** returned form the Job Request resp
 }
 ```
 
-### <a name="job-result"></a>Job Result
+### Job Result
 
 The job is now `COMPLETED` and resulted in an error. The errors array lists details about each error including the error message and error code.
 
@@ -1188,11 +1188,11 @@ The job is now `COMPLETED` and resulted in an error. The errors array lists deta
 }
 ```
 
-## <a name="error-handling"></a>Error Handling
+## Error Handling
 
 Use this guide to understand what to expect from NDe API error responses and learn some tips on how to handle them.
 
-### <a name="general-error-response-components"></a>General Error Response Components
+### General Error Response Components
 
 Error responses from NDe APIs contain the following:
 
@@ -1218,7 +1218,7 @@ Note: not all HTTP responses include a body, e.g. 204 or 304.
 
 >**TIP:** For more about how to use Trace IDs, see the [Troubleshooting](#troubleshooting) section.
 
-### <a name="common-errors"></a>Common Errors
+### Common Errors
 
 Examples error responses are provided below, along with the status code and scenario in which they occurred. A few considerations:
 
@@ -1354,7 +1354,7 @@ Notes: retry with a never-used ID in the request (if applicable).
 
 (no response available)
 
-### <a name="which-json-field-had-the-error"></a>Which JSON Field Had The Error?
+### Which JSON Field Had The Error?
 
 NDe uses the <a href="https://tools.ietf.org/html/rfc6901" target="_blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.
 
@@ -1375,7 +1375,7 @@ The field names are separated by `/` to indicated nesting in the structure of th
 
 >**TIP:** Some NDe APIs use dot notation instead of JSON Pointer, due to being built before NDe switched to the JSON Pointer standard. Check the Developer Guide for the API to confirm the error format.
 
-### <a name="retries"></a>Retries
+### Retries
 
 Depending on the returned HTTP status code, retrying an operation might make sense or not.
 
@@ -1397,9 +1397,9 @@ Here are some recommendations for retries:
 
 >NOTE: The JSON Schemas found in the API.md file should enumerate many of the possible error messages you could receive in responses. However, JSON Schemas do not include all possible error codes or messages. Specific errors can be added by each domain and are not part of these schemas.
 
-## <a name="data-reference"></a>Data Reference
+## Data Reference
 
-### <a name="user-types"></a>User Types
+### User Types
 
 NDe APIs support 3 distinct user types for commerce applications. In this guide, we will define them and discuss some ways that it can affect how you interact with the APIs.
 
@@ -1423,21 +1423,21 @@ The third type of user is an employee of Nike or one of it's subsidiaries (or an
 
 For API calls involving employees, the same **Authorization** request header is used like for members.
 
-## <a name="testing"></a>Testing
+## Testing
 
-### <a name="testing-prerequisites"></a>Testing Prerequisites
+### Testing Prerequisites
 
 The same prerequisites for interacting with APIs in the production environment also apply to test environments, i.e. registration, authorization, and JWT. Note that tokens are often unique to an environment, so your production tokens will not work in test and vice versa.
 
 See the [Prerequisites](#prerequisites) section for more info.
 
-### <a name="test-environments"></a>Test Environments
+### Test Environments
 
 The ability to test in an environment other than production varies per API. For many APIs, functional test environments exist and should be used. For others that do not, testing in production may be an option.
 
 Contact the Product Owner of the API (listed in each Developer API Guide, At-a-Glance section) for recommendations on the best environment to use for testing.
 
-### <a name="testing-tips"></a>Testing Tips
+### Testing Tips
 
 When testing isolated API calls from your local machine, here are a few tips:
 
@@ -1453,11 +1453,11 @@ When testing isolated API calls from your local machine, here are a few tips:
 
 - To save time, modify the sample requests in the API guide rather than building your own.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 Stuck on something with a particular API? See the below troubleshooting tips.
 
-### <a name="query-logs-with-a-trace-id"></a>Query Logs With a Trace ID
+### Query Logs With a Trace ID
 
 If you get unexpected or confusing responses from an API, use the Trace ID from the response header to query the Nike CDT Splunk logs to get more information.
 
@@ -1469,7 +1469,7 @@ If you get unexpected or confusing responses from an API, use the Trace ID from 
 
 After looking at Splunk, if you still need assistance with troubleshooting a particular request, post a question on the relevant Slack channel (found in the Developer API Guide) and be sure to include your Trace ID.
 
-### <a name="inspect-browser-activity-in-a-live-experience"></a>Inspect Browser Activity in a Live Experience
+### Inspect Browser Activity in a Live Experience
 
 Use your browser's built-in tools for inspecting the web service calls which occur for a live Nike experience like <a href="https://www.nike.com/launch" target="_blank">Nike SNKRS Web</a>. Sometimes seeing what other experiences are doing might address your question or concern.
 
@@ -1489,15 +1489,15 @@ For example, to follow the order of calls made when changing a shipping address 
 
 5. Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?
 
-## <a name="circuit-breaker-best-practices"></a>Circuit Breaker Best Practices
+## Circuit Breaker Best Practices
 
 Be a good client by following these [circuit breaker best practices](/doc/commerce/reference/caller_best_practices.html) when calling Nike APIs.
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 For a master glossary of terms for Nike APIs, see the [Glossary](/doc/commerce/reference/glossary.html).
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

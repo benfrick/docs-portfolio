@@ -32,7 +32,7 @@ The following describes the shipping countries supported by the Nike Checkout AP
 |SI|Slovenia|EUR|
 |US|United States|USD|
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 
