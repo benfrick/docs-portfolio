@@ -63,7 +63,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 |SLA response time (rt) and requests per second (rps)|Payment Applepay rt: 350ms rps:40<br>Payment Approval rt: 250ms rps: 200<br>Payment Credit Card Submit ?ms<br>Payment Deferred Payment ?ms<br>Payment Options rt: 250ms rps:700<br>Payment Preview rt: 250ms rps:300<br>Stored Payment ?ms<br>Payment Wallet rt: 300ms rps: 200|
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
-|Contact Info|Slack [#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="blank"}<br>Confluence space: [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="blank"}<br><a name="product-owner"></a>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
+|Contact Info|Slack [#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="blank"}<br>Confluence space: [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="blank"}<br>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
 
 >**TIP:** SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
 
@@ -1797,7 +1797,7 @@ This is a synchronous endpoint.
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"})</a> of Stored Payment to make default|String|Required|
+|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"}) of Stored Payment to make default|String|Required|
 
 #### Request Headers
 
@@ -5832,7 +5832,7 @@ Try using your browser's built-in tools for inspecting web service calls made fr
 |[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="blank"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
 |Void (of payment)|reverses a successful Authorization|
 
-**<a name="supported-stored-payment-types"></a>Supported Stored Payment Types**
+### Supported Stored Payment Types
 
 The Stored Payment Service supports storing these types of payment:
 
@@ -5847,7 +5847,7 @@ The Stored Payment Service supports storing these types of payment:
 |UnionPay|**UnionPay**|1|
 |WeChat|**WeChat**|1|
 
-**<a name="pay-options-by-country"></a>Payment Options by Country**
+### Payment Options by Country
 
 See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="blank"} for a list of supported payment types by shipping and billing country.
 

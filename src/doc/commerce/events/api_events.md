@@ -79,7 +79,7 @@ The following table describes the key details of the API:
 |SLAs|Response time (RT) and requests per second (RPS): <br>RT: 500 ms <br>RPS: 500|
 |Domain|Commerce|
 |Prerequisites|None|
-|Contact Info|Slack: [#cic-nexus](https://nikedigital.slack.com/messages/cic-nexus){:target="blank"}<br>Confluence space: [Analytics Pipeline API Team](https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home){:target="blank"}<br> Mailing List: [Lst-Nexus.Devops](mailto:Lst-Nexus.DevOps)<br><a name="product-owner"></a>Product Owner: [Randy Davis](mailto:randall.davis@nike.com){:target="blank"}|
+|Contact Info|Slack: [#cic-nexus](https://nikedigital.slack.com/messages/cic-nexus){:target="blank"}<br>Confluence space: [Analytics Pipeline API Team](https://confluence.nike.com/display/CN/CiC+UX+Foundation+Home){:target="blank"}<br> Mailing List: [Lst-Nexus.Devops](mailto:Lst-Nexus.DevOps)<br>Product Owner: [Randy Davis](mailto:randall.davis@nike.com){:target="blank"}|
 
 ### A Note about Segment
 

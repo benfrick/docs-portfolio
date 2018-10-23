@@ -35,7 +35,7 @@
 
 - **c** The Search Service gathers and returns Thread data to the Product Feed service based on the search criteria.
 
-## <a name="related-links"></a>Related Links
+## Related Links
 
 [NDe Docs Home](/index.html)
 

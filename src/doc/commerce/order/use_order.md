@@ -35,7 +35,7 @@ toc:
 
 ##### Last Updated: 10/23/2018
 
-## <a name="overview"></a>Overview
+## Overview
 
 Retrieve a complete order history for your consumers.
 
@@ -71,7 +71,7 @@ An order consists of all data necessary for defining the following:
 An order is created when the consumer has provided all of the necessary information and chooses to submit it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the lifecycle. See [Understanding Order Status](#order-status) for more detail. By giving consumers the ability to check the status of their Nike order in your experience, you are providing consumers a vital self-service.
 
 
-## Step 1: <a name="order-summary"></a>List a consumer's orders
+## Step 1: List a consumer's orders
 
 Use the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} to get all or a select list of orders for a Nike member or employee. By making this information accessible as a self-service in your app, members and employees can view their product and payment history without having to contact Consumer Services.
 
@@ -136,7 +136,7 @@ curl -X GET \
 The BFF Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#order-status) for more detail on how status is determined and what statuses to display to the consumer in your experience. See the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} for a full list of fields returned in the response.
 
 
-## Step 2: <a name="order-details"></a>List details of a consumer's order
+## Step 2: List details of a consumer's order
 
 Use the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api) to get details of one consumer order. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a consumer's orders](#order-summary).
 
@@ -187,7 +187,7 @@ curl -X GET \
 
 The BFF Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#order-status) for more detail on how status is determined and what statuses to display to the consumer in your experience. See the [Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api){:target="blank"} for a full list of fields returned in the response.
 
-## <a name="order-status"></a>Understanding Order Status
+## Understanding Order Status
 
 An order contains three types of statuses:
 - order
@@ -258,7 +258,7 @@ In the scenario illustrated by the BFF Order Details response below, a consumer 
 Let's look at a slightly more complex example. As illustrated by the BFF Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the rolledUpStatus of the order line is "Delivered". The highest rolledUpStatus of the order is "Delivered", so the overall order status is "Partially Delivered".
 
 
-````
+```
 {
 "status": "Partially Delivered",
 ...
@@ -471,7 +471,7 @@ Listed below are the order line statuses and status codes. The first column list
 |CREATED||Created (Only for Reserve Orders)|
 |UNRESERVED||UnReserved(Only for Reserve Orders)|
 
-## <a name="api-endpoint-quick-reference"></a>API Endpoint Quick Reference
+## API Endpoint Quick Reference
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
@@ -479,13 +479,13 @@ Listed below are the order line statuses and status codes. The first column list
 |[BFF ORDER DETAIL](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api){:target="blank"}|/order_mgmt/user_order_detail/v1/{orderNumber}|GET|
 
 
-## <a name="best-practices"></a>Best Practices
+## Best Practices
 
 Listed below are some best practices for working with BFF Order Summary and BFF Order Details.
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="_blank">API Error Patterns</a> on Confluence.
+For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="blank"} on Confluence.
 
 ### Test Environment
 
@@ -500,19 +500,19 @@ There are boundaries for testing in production:
 None of the endpoints described in this document support caching.
 
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting
 
 - Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Orders team on the <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="_blank">#mp-athena</a> Slack channel for assistance.
+- Contact the Orders team on the [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="blank"} Slack channel for assistance.
 
-## <a name="terms-of-service"></a>Terms of Service
+## Terms of Service
 <!--
 It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
 -->
-### <a name="authorization"></a>Authorization
+### Authorization
 
 #### Access Tokens
 
@@ -543,7 +543,7 @@ The BFF Order APIs support 3 distinct user types:
 
 - Employee: user is an employee of Nike or a subsidiary and has logged in with swoosh.com credentials (also known as Swoosh user type)
 
-#### <a name="request-headers"></a>Required Request Headers
+#### Required Request Headers
 
 Listed below are the required request headers based on user type. Since most BFF Order Summary and BFF Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token and passes that token in the request.
 
@@ -560,13 +560,13 @@ Listed below are the required request headers based on user type. Since most BFF
 
 See the User Types section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#user-types) guide for more information.
 
-### <a name="common-questions"></a>Common Questions
+### Common Questions
 
 **Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?**
 
 Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4) for help.
 
-## <a name="contacting-team"></a>Contacting the Team
+## Contacting the Team
 
 Need to contact the Orders team?
 
@@ -576,17 +576,17 @@ Need to contact the Orders team?
 |Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="blank"}|
 |Team Contacts|**Intake, new requirements, onboarding**<br>  Betty Ashok <Betty.Ashok@nike.com><br>   Lindsey Kiken <Lindsey.Kiken@nike.com><br>  Krishnamurthy Ramakrishnan <Krishnamurthy.Ramakrishnan@nike.com><br><br>**API or service-related issues**<br>Vishibha Anand <Vishibha.Anand@nike.com><br><br>Please fill out an [intake form](https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake){:target="blank"} to initiate a requirement request. For more information, see the [Marketplace Platform Intake Process](https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process){:target="blank"}.|
 
-## <a name="glossary"></a>Glossary
+## Glossary
 
 See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
-## <a name="document-change-log"></a>Document Change Log
+## Document Change Log
 
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft 10/23/2018|Initial Draft|
 
-## <a name="next-steps"></a>Next Steps
+## Next Steps
 
 You've learned how to add Order History to your experience. Here are some next steps.
 

@@ -1969,7 +1969,7 @@ The following table describes how the response body fields map from the v1 to th
 
 >**TIP:** For the v2 URI format and available parameters, see the [Product Thread by ID](#product-thread-by-id) and [Product Threads List](#product-threads-list) sections of this document.
 
-### <a name ="url-patterns-by-version"></a>URL Patterns By Version
+### URL Patterns By Version
 
 The URL pattern used by the Product Feeds API's varies depending on the version, as described here:
 
@@ -2019,7 +2019,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - Use the [Product Feeds v2 Overview](https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419){:target="blank"} dashboard in Insights (requires access) to see if the service is up and healthy.
 
-- Contact the Product Feeds Team on the <a href="https://nikedigital.slack.com/messages/C0KEN0WQG">#cic-merch</a> Slack channel for assistance.
+- Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"} Slack channel for assistance.
 
 ### Common Questions
 

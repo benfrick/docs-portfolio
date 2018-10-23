@@ -66,7 +66,7 @@ The following table describes the key details of the API:
 |SLAs|Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms|
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using_nike_apis.html#registration)|
-|Contact Info|Slack [#pdm-merch-product](https://nikedigital.slack.com/messages/pdm-merch-product){:target="blank"}<br>Confluence space: [Merchandised Products API Team](https://confluence.nike.com/collector/pages.action?key=MPA){:target="blank"}<br> Mailing List: [Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)<br><a name="product-owner"></a>Product Owner: [Arun KannanGeetha](mailto:arun.kannangeetha@nike.com)|
+|Contact Info|Slack [#pdm-merch-product](https://nikedigital.slack.com/messages/pdm-merch-product){:target="blank"}<br>Confluence space: [Merchandised Products API Team](https://confluence.nike.com/collector/pages.action?key=MPA){:target="blank"}<br> Mailing List: [Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)<br>Product Owner: [Arun KannanGeetha](mailto:arun.kannangeetha@nike.com)|
 
 ## Terms of Service
 
