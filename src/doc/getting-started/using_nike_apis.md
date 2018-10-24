@@ -1,4 +1,46 @@
 ---
+tags: pdf
+category: get-started
+position: 2
+title: Using NDe APIs
+url: /getting-started/using_nike_apis.html
+toc:
+  - h2: Industry Standards
+    url: /doc/getting-started/using_nike_apis.html#industry-standards
+  - h2: Well-Defined, Well-Documented
+    url: /doc/getting-started/using_nike_apis.html#well-defined-well-documented
+  - h2: Prerequisites
+    url: /doc/getting-started/using_nike_apis.html#prerequisites
+  - h2: URL Patterns
+    url: /doc/getting-started/using_nike_apis.html#url-patterns
+  - h2: Request Components
+    url: /doc/getting-started/using_nike_apis.html#request-components
+  - h2: Response Components
+    url: /doc/getting-started/using_nike_apis.html#response-components
+  - h2: Using the API Reference
+    url: /doc/getting-started/using_nike_apis.html#using-the-api-reference
+  - h2: Versioning
+    url: /doc/getting-started/using_nike_apis.html#versioning
+  - h2: Caching
+    url: /doc/getting-started/using_nike_apis.html#caching
+  - h2: CORS
+    url: /doc/getting-started/using_nike_apis.html#cors
+  - h2: Asynchronous Operation
+    url: /doc/getting-started/using_nike_apis.html#asynchronous-operation
+  - h2: Error Handling
+    url: /doc/getting-started/using_nike_apis.html#error-handling
+  - h2: Data Reference
+    url: /doc/getting-started/using_nike_apis.html#data-reference
+  - h2: Testing
+    url: /doc/getting-started/using_nike_apis.html#testing
+  - h2: Troubleshooting
+    url: /doc/getting-started/using_nike_apis.html#troubleshooting
+  - h2: Circuit Breaker Best Practices
+    url: /doc/getting-started/using_nike_apis.html#circuit-breaker-best-practices
+  - h2: Glossary
+    url: /doc/getting-started/using_nike_apis.html#glossary
+  - h2: Related Links
+    url: /doc/getting-started/using_nike_apis.html#related-links
 ---
 
 # USING NDE APIS &nbsp;<i class="g72-swoosh"></i>

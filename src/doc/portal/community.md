@@ -1,5 +1,5 @@
 ---
-category: reference
+category:
 position: 2
 title: Community
 url: /doc/portal/community.html

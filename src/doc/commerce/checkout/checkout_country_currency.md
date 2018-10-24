@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: reference
+position: 5
+title: Countries & Currencies
+url: /commerce/checkout/checkout_country_currency.html
 ---
 
 # Checkout: Supported Countries/Currencies <i class="g72-swoosh"></i>

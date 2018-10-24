@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: overview
+position: 6
+title: Cart & Checkout
+url: /commerce/checkout/overview-checkout.html
 ---
 
 # Cart and Checkout Overview

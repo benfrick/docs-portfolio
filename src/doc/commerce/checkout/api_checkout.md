@@ -1,7 +1,7 @@
 ---
 tags: pdf
 category: use-case
-position: 5
+position: 6
 title: Cart & Checkout
 url: /commerce/checkout/api_checkout.html
 toc:

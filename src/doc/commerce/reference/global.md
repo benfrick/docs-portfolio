@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: reference
+position: 6
+title: Countries, Channels, Brands
+url: /commerce/reference/global.html
 ---
 
 # COUNTRIES, CHANNELS, BRANDS &nbsp;<i class="g72-swoosh"></i>

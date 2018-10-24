@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: overview
+position: 1
+title: Product Feeds
+url: /commerce/product/overview-product-feeds.html
 ---
 
 # Product Feeds Overview
