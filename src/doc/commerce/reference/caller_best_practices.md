@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: reference
+position: 6
+title: Circuit Breaker Best Practices
+url: /commerce/reference/caller_best_practices.html
 ---
 
 # CIRCUIT BREAKER BEST PRACTICES <i class="g72-swoosh"></i>

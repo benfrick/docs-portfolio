@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: overview
+position: 8
+title: Events
+url: /commerce/events/overview-events.html
 ---
 
 # Analytics Pipeline Overview

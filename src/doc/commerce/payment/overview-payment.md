@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: overview
+position: 7
+title: Payment
+url: /commerce/payment/overview-payment.html
 ---
 
 # Payment Overview

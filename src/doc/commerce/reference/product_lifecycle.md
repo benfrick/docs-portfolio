@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: reference
+position: 6
+title: Product Life Cycle
+url: /commerce/reference/product_lifecycle.html
 ---
 
 # PRODUCT LIFE CYCLE &nbsp;<i class="g72-swoosh"></i>
