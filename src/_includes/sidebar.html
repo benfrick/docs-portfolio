@@ -1,13 +1,13 @@
 <div id="sidebar" class="sidebar">
 	<section>
 		<a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-		<h6><a href="/index.html"><i class="fas fa-home"></i>{{- page.toctitle -}}</a></h6>
+		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;{{- page.toctitle -}}</a></h6>
 		{%- assign grouped_pages = site.pages | group_by: "category" -%}
 		{%- for cat in site.category-order -%}
-		{%- assign sorted_pages = grouped_pages | where: 'name', cat | first -%}
-		{%- if sorted_pages.name == "use-case" -%}<i class="fas fa-map"></i>  Guides{%- elsif sorted_pages.name == "overview" -%}<i class="fas fa-cogs"></i>  Overview{%- elsif sorted_pages.name == "get-started" -%}<hr><i class="fas fa-walking"></i>  Get Started{%- elsif sorted_pages.name == "reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}
-		<ul>
-			{%- for doc in sorted_pages.items -%}
+		{%- assign sorted_cats = grouped_pages | where: 'name', cat | first -%}
+		<h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "use-case" -%}<i class="fas fa-map"></i>  Guides{%- elsif sorted_cats.name == "overview" -%}<i class="fas fa-cogs"></i>  Overview{%- elsif sorted_cats.name == "get-started" -%}<i class="fas fa-walking"></i>  Get Started{%- elsif sorted_cats.name == "reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
+		<ul id="{{ sorted_cats.name }}" class="{%- if sorted_cats.name != page.category -%}hide{%- endif -%}">
+			{%- for doc in sorted_cats.items -%}
 			{%- if doc.category == "overview" or doc.category == "use-case" or doc.category == "get-started" or doc.category == "reference" -%}
 			<li>
 				<a href="{{- doc.url -}}" class="{%- if doc.url == page.url -%}active{%- endif -%}">
@@ -31,7 +31,6 @@
 						</li>
 						{%- endfor -%}
 					</ul>
-					{%- else -%}
 					{%- endif -%}
 					{%- endfor -%}
 				</ul>
@@ -40,9 +39,10 @@
 			<li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li>
 			{%- endif -%}
 			</li>
-			{%- else -%}{%- endif -%}
-			{%- endfor -%}</ul>
+			{%- endif -%}
+			{%- endfor -%}
+		</ul>
 		{%- endfor -%}
-		<i class="far fa-comments"></i>  Community<ul><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
+		<h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
 	</section>
 </div>
