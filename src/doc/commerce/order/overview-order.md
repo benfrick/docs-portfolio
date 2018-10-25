@@ -28,8 +28,8 @@ Use the Order APIs in your experience so consumers can check the status of an or
 Step through the Use Cases below to incorporate Orders into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use_order.html#order-summary)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List the order details for a member or guest.](/doc/commerce/order/use_order.html#order-details)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use_order.html#step-1-list-a-members-orders)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the order details for a member or guest.](/doc/commerce/order/use_order.html#step-2-list-order-details-for-a-member-or-guest)|
 
 <h3>Related Information</h3>
 <aside class="note">

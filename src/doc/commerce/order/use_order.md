@@ -68,12 +68,12 @@ An order consists of all data related to:
 
 - Status
 
-An order is created when the consumer has provided all of the necessary order information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the order lifecycle. See [Understanding Order Status](#understanding-order-status) for more detail. By giving consumers the ability to check the status of their Nike order in your experience, you are providing consumers a vital self-service.
+An order is created in the last step of [Checkout](/doc/commerce/checkout/api_checkout.html) when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the order lifecycle. See [Understanding Order Status](#understanding-order-status) for more detail.
 
 
 ## Step 1: List a member's orders
 
-Use the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} to get all or a filtered list of orders for a Nike member or employee. By making this information accessible as a self-service in your app, members and employees can view their product and payment history without having to contact Consumer Services.
+Use the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
 
 This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest's order, see [List
 order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
