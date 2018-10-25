@@ -67,7 +67,7 @@
 
 <h3 id="country--language-support">Country &amp; Language Support</h3>
 
-<p>All of the countries and languages supported by CAPI are also supported by Cloud, and more. For the complete list of supported languages for Product Feeds v2 (Cloud), see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="_blank">here</a>.</p>
+<p>All of the countries and languages supported by CAPI are also supported by Cloud, and more. For the complete list of supported languages for Product Feeds v2 (Cloud), see <a href="https://confluence.nike.com/display/DEN/Product+Feeds+Supported+Languages+and+Locales" target="blank">here</a>.</p>
 
 <h3 id="product-identifiers">Product Identifiers</h3>
 
@@ -101,7 +101,7 @@
 
 <h4 id="gender-codes">Gender Codes</h4>
 
-<p>CAPI uses gender codes like ‘1’ for Mens, ‘2’ for Womens, etc. while cloud uses the gender name as the identifier (i.e. ‘Mens’). Eventually these values will be replaced by UUIDs originating in the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="_blank">Taxonomy service</a>.</p>
+<p>CAPI uses gender codes like ‘1’ for Mens, ‘2’ for Womens, etc. while cloud uses the gender name as the identifier (i.e. ‘Mens’). Eventually these values will be replaced by UUIDs originating in the <a href="https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md" target="blank">Taxonomy service</a>.</p>
 
 <h3 id="prices">Prices</h3>
 
@@ -117,7 +117,7 @@
 
 <h3 id="inventory">Inventory</h3>
 
-<p>CAPI provides access to both Retail store on-hand inventory quantity and Digital inventory availability (true/false) by calling with a product ID, style-color code, or GTIN. Cloud offers Retail store on-hand inventory quantity by a combination of Store UUID and one or more GTINs in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="_blank">Inventory API</a>. Cloud offers Digital inventory availability (true/false) by either Product ID or SKU ID in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="_blank">Availability API</a> and also in the Product Feeds API.</p>
+<p>CAPI provides access to both Retail store on-hand inventory quantity and Digital inventory availability (true/false) by calling with a product ID, style-color code, or GTIN. Cloud offers Retail store on-hand inventory quantity by a combination of Store UUID and one or more GTINs in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="blank">Inventory API</a>. Cloud offers Digital inventory availability (true/false) by either Product ID or SKU ID in the <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD" target="blank">Availability API</a> and also in the Product Feeds API.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> Both the Inventory API and the Product Feeds API offer Digital inventory availability as a boolean (TRUE or FALSE), but the Inventory API has one additional field for inventory <strong>level</strong> (HIGH, MEDIUM, or LOW).</p>
@@ -151,7 +151,7 @@
 
 <p><strong>Cloud</strong></p>
 
-<p>One option is to use the Cloud <a href="https://bitbucket.nike.com/projects/PHYLCDSB/repos/searchtypeahead/browse/API.md" target="_blank">Type Ahead Service</a> and the <a href="https://bitbucket.nike.com/projects/PHYLCDSB/repos/visualsearchservice/browse/API.md" target="_blank">Visual Search Service</a>. This is a two-step process. The first step generates a list of suggested search terms based on customer input and the second step generates a list of suggested products with that search term in the name.</p>
+<p>One option is to use the Cloud <a href="https://bitbucket.nike.com/projects/PHYLCDSB/repos/searchtypeahead/browse/API.md" target="blank">Type Ahead Service</a> and the <a href="https://bitbucket.nike.com/projects/PHYLCDSB/repos/visualsearchservice/browse/API.md" target="blank">Visual Search Service</a>. This is a two-step process. The first step generates a list of suggested search terms based on customer input and the second step generates a list of suggested products with that search term in the name.</p>
 
 <p>For example, when a customer types <code class="highlighter-rouge">vap</code> (enough to form a search term suggestion), call the search suggestion endpoint. The URL below requests search term suggestions with <code class="highlighter-rouge">vap</code> in the English name in the US. It returns <code class="highlighter-rouge">vaporfly</code> and <code class="highlighter-rouge">vapormax</code> searchTerms.</p>
 
@@ -365,43 +365,43 @@ Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exi
   <tbody>
     <tr>
       <td><strong>Get general product info by keyword</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#search-free-text" target="_blank">Search: Free Text</a></td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md#Threads_get_product_feed_threads_v2" target="_blank">Product Feeds: Threads List</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#search-free-text" target="blank">Search: Free Text</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md#Threads_get_product_feed_threads_v2" target="blank">Product Feeds: Threads List</a></td>
     </tr>
     <tr>
       <td><strong>Get general product info by the hash of one or more facets</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#search-faceted-hash-search" target="_blank">Search: Faceted Hash</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#search-faceted-hash-search" target="blank">Search: Faceted Hash</a></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td><strong>Get top-level facets available for product searches</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#search-facet-discovery" target="_blank">Search: Facet Discovery</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#search-facet-discovery" target="blank">Search: Facet Discovery</a></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td><strong>Get general product info for one or more product identifiers</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#details-product" target="_blank">Details: Product/Multiple Products/Full Product/Family Product/Product Widths</a></td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md#Threads_get_product_feed_threads_v2" target="_blank">Product Feeds: Threads List</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#details-product" target="blank">Details: Product/Multiple Products/Full Product/Family Product/Product Widths</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md#Threads_get_product_feed_threads_v2" target="blank">Product Feeds: Threads List</a></td>
     </tr>
     <tr>
       <td><strong>Get product reviews, ratings, recommendations</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#details-full-product" target="_blank">Details: Full Product</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#details-full-product" target="blank">Details: Full Product</a></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td><strong>Get Nike-curated outfits</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#outfit-outfit-summary" target="_blank">Outfit: Summary/Details/Full/Reviews/Highest Rated/Most Commented/Recommendations</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#outfit-outfit-summary" target="blank">Outfit: Summary/Details/Full/Reviews/Highest Rated/Most Commented/Recommendations</a></td>
       <td>None/Deprecated</td>
     </tr>
     <tr>
       <td><strong>Get Digital product inventory availability for one or more product identifiers</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.m#inventory-product" target="_blank">Inventory: Product/Multiple Products</a>, <a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#product-availability-availability" target="_blank">Product Availability</a></td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#sku-availability-get-sku-availability" target="_blank">Deliver: Product Availability List/Get SKU Availability</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.m#inventory-product" target="blank">Inventory: Product/Multiple Products</a>, <a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#product-availability-availability" target="blank">Product Availability</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/API.MD#sku-availability-get-sku-availability" target="blank">Deliver: Product Availability List/Get SKU Availability</a></td>
     </tr>
     <tr>
       <td><strong>Get Retail product inventory quantities for one or more product identifiers</strong></td>
-      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#inventory-product" target="_blank">Inventory: Product/Multiple Products</a></td>
-      <td><a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="_blank">Inventory: Get Inventory Info</a>, <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/gtins/API.MD" target="_blank">Deliver: Get GTIN Availability</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/CA/repos/commerce-api/browse/README.md#inventory-product" target="blank">Inventory: Product/Multiple Products</a></td>
+      <td><a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/inventory/API.md" target="blank">Inventory: Get Inventory Info</a>, <a href="https://bitbucket.nike.com/projects/PHYLINV/repos/v2-deliver-api/browse/availability/gtins/API.MD" target="blank">Deliver: Get GTIN Availability</a></td>
     </tr>
   </tbody>
 </table>
@@ -2585,7 +2585,7 @@ Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exi
 
   <p><i class="mr2-sm g72-check"></i>With CAPI, Digital inventory availability could be requested by product ID (PID), style-color code, or GTIN (i.e. size). With Cloud, the same can be requested by Product ID (i.e. style-color) or SKU ID (i.e. size).</p>
 
-  <p><i class="mr2-sm g72-check"></i>The <strong>storeId</strong> from the Cloud endpoint <em>Get Inventory Info</em> is a UUID from the <a href="https://developer.niketech.com/docs/projects/Stores" target="_blank">Stores API</a>.</p>
+  <p><i class="mr2-sm g72-check"></i>The <strong>storeId</strong> from the Cloud endpoint <em>Get Inventory Info</em> is a UUID from the <a href="https://developer.niketech.com/docs/projects/Stores" target="blank">Stores API</a>.</p>
 </blockquote>
 
 <h3 id="product-availability">Product Availability</h3>
@@ -2703,144 +2703,51 @@ Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exi
     <div id="sidebar" class="sidebar">
 	<section>
 		<a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>NDe Docs Home</a></h6>
-		<ul>
-			
-			<li>
-				<a href="/doc/commerce/product/api_product_feeds.html" class="">
-					Product Feeds
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
-					Rollup Threads
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/product/capi_migration.html" class="active">
-					CAPI Migration
-					
-				</a>
-				
-				<ul>
-					
-					<li>
+		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="overview" class="toggle"><i class="fas fa-cogs"></i>  Overview</span></h6>
+		<ul id="overview" class="hide"><li>
+				<a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li><li>
+				<a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
+				<a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
+				<a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li>
+				<a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
+				<a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li></ul><h6><span name="use-case" class="toggle"><i class="fas fa-map"></i>  Guides</span></h6>
+		<ul id="use-case" class=""><li>
+				<a href="/doc/commerce/checkout/api_checkout.html" class="">Cart & Checkout</a></li><li>
+				<a href="/doc/commerce/events/api_eventsv2.html" class="">Events</a></li><li>
+				<a href="/doc/commerce/product/api_merch_product.html" class="">Merch Product</a></li><li>
+				<a href="/doc/commerce/payment/api_payment.html" class="">Payment</a></li><li>
+				<a href="/doc/commerce/product/api_product_feeds.html" class="">Product Feeds</a></li><li>
+				<a href="/doc/commerce/product/api_rollup_threads.html" class="">Rollup Threads</a></li><li>
+				<a href="/doc/commerce/search/api_search.html" class="">Search</a></li><li>
+				<a href="/doc/commerce/product/capi_migration.html" class="active">CAPI Migration</a><ul><li>
 						<a href="/doc/commerce/product/capi_migration.html#overview"
 						   class="">Overview</a>
-					</li>
-					
-					<li>
+					</li><li>
 						<a href="/doc/commerce/product/capi_migration.html#capi-vs-cloud-comparison"
 						   class="">CAPI vs. Cloud</a>
-					</li>
-					
-					<li>
+					</li><li>
 						<a href="/doc/commerce/product/capi_migration.html#endpoint-mapping"
 						   class="">Endpoint Mapping</a>
-					</li>
-					
-					<li>
+					</li><li>
 						<a href="/doc/commerce/product/capi_migration.html#migration-scenarios"
 						   class="">Migration Scenarios</a>
-					</li>
-					
-					<li>
+					</li><li>
 						<a href="/doc/commerce/product/capi_migration.html#migration-contacts"
 						   class="">Migration Contacts</a>
-					</li>
-					
-					<li>
+					</li><li>
 						<a href="/doc/commerce/product/capi_migration.html#field-mapping"
 						   class="">Field Mapping</a>
-					</li>
-					
-				</ul>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/search/api_search.html" class="">
-					Search
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/checkout/api_checkout.html" class="">
-					Cart & Checkout
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/payment/api_payment.html" class="">
-					Payment
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/events/api_eventsv2.html" class="">
-					Events
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/uxf/overview-uxf.html" class="">
-					UX Foundation
-					
-				</a>
-				
-			</li>
-			
-		</ul>
-        <hr>
-        <ul>
-            
-            <li>
-                <a href="/doc/getting-started/get-started.html" class="">
-                    Get Started
-                    
-                </a>
-                
-            </li>
-			
-            <li>
-                <a href="/doc/portal/community.html" class="">
-                    Community
-                    
-                </a>
-                
-            </li>
-			
-            <li>
-                <a href="/doc/commerce/reference/reference.html" class="">
-                    Reference
-                    
-                </a>
-                
-            </li>
-			
-        </ul>
+					</li></ul></li></ul><h6><span name="get-started" class="toggle"><i class="fas fa-walking"></i>  Get Started</span></h6>
+		<ul id="get-started" class="hide"><li>
+				<a href="/doc/getting-started/using_nike_apis.html" class="">Using NDe APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="" class="toggle"></span></h6>
+		<ul id="" class="hide"></ul><h6><span name="reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
+		<ul id="reference" class="hide"><li>
+				<a href="/doc/commerce/reference/caller_best_practices.html" class="">Circuit Breaker Best Practices</a></li><li>
+				<a href="/doc/commerce/checkout/checkout_country_currency.html" class="">Countries & Currencies</a></li><li>
+				<a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li>
+				<a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li>
+				<a href="/doc/commerce/product/merch_product_field_reference.html" class="">Merch Product Fields</a></li><li>
+				<a href="/doc/commerce/reference/product_lifecycle.html" class="">Product Life Cycle</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
 	</section>
 </div>
 </header>

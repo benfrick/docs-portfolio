@@ -1,11 +1,16 @@
 ---
+tags: pdf
+category: overview
+position: 1
+title: Product Feeds
+url: /commerce/product/overview-product-feeds.html
 ---
 
 # Product Feeds Overview
 
 ---
 
-Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase Nike products and make them available for purchase. But how is all that visual content pulled together? It's done with <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds</a> and you can use it, too.
+Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase Nike products and make them available for purchase. But how is all that visual content pulled together? It's done with [Product Feeds](/doc/commerce/product/api_product_feeds.html) and you can use it, too.
 
 <aside class="button"><a href="/doc/commerce/product/api_product_feeds.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
 
@@ -44,4 +49,4 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

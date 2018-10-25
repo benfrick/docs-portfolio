@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: overview
+position: 6
+title: Cart & Checkout
+url: /commerce/checkout/overview-checkout.html
 ---
 
 # Cart and Checkout Overview
@@ -66,4 +71,4 @@ Your customer finds a Nike a product they love in your app. What happens next? S
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

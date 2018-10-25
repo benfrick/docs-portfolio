@@ -6,7 +6,7 @@ title: Search
 url: /commerce/search/api_search.html
 ---
 
-# <a href="#understanding-your-e-commerce-search-results-draft"></a><span class="new-indicator-lg"><span>UNDERSTANDING YOUR SEARCH RESULTS
+# UNDERSTANDING YOUR SEARCH RESULTS
 
 ##### Last Updated: 8/7/2018
 
@@ -67,10 +67,10 @@ Need to reach out to the Search team?
 
 |Method|Contact|
 |---|---|
-|Slack|<a href="https://nikedigital.slack.com/messages/C4MGZ8GDB" target="_blank">#search-integration</a>|
-|Confluence space|<a href="https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud" target="_blank">Content Discovery Team</a>|
+|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="blank"}|
+|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="blank"}|
 |Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
-|Email the Product Manager<a name="product-owner"></a>|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
+|Email the Product Manager|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
 ## E-commerce Search Types
 
@@ -100,7 +100,7 @@ The Nike.com image below illustrates how Autocomplete and Search Preview can be 
 
 ![](/images/commerce/search/autocomplete-search-preview.png)
 
->**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the <a href="https://tourguide.prod.commerce.nikecloud.com/global-nav" target="_blank">Global Navigation Guide</a>.
+>**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="blank"}.
 
 <!--
 
@@ -136,7 +136,7 @@ Smart Search culls data from several sources and utilizes a robust rules engine 
 
 Smart Search rules play a key role in determining e-commerce search results and rankings. Each channel has a default rule and may also have custom rules.
 
-Custom rules are administered in the Apollo rule management tool and are specific to a channel. Authorized Apollo users can add actions to rules to influence the search rankings such as boosting, burying, and hiding. Custom rules layer on top of the default rule to either work in concert with or override the default rule.  Contact the <a href="#contacting-the-team">Apollo Product Owner</a> for access to the tool.
+Custom rules are administered in the Apollo rule management tool and are specific to a channel. Authorized Apollo users can add actions to rules to influence the search rankings such as boosting, burying, and hiding. Custom rules layer on top of the default rule to either work in concert with or override the default rule. Contact the Apollo Product Owner for access to the tool.
 
 Rules are triggered either by customer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.
 
@@ -284,4 +284,4 @@ Ensure that the product is set up correctly to be found by search. If you know t
 
 If you are unable to locate the product in Merchandised Product, you may need to go even further upstream in the product life cycle. Check the Prodigy Merchandising Tool to troubleshoot why the product has not streamed into the Merchandised Product system yet.
 
-Still need help? <a href="#contacting-the-team">Contact the Search Team</a>.
+Still need help? [Contact the Search Team](#contacting-the-team).

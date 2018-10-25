@@ -44,11 +44,11 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and t
 |Use these APIs to|Display a product grid wall in a digital experience|
 |Who calls this API?|Bootroom, Nike.com, Nike Running Club app (future)|
 |Versions|v2|
-|Supported Locales|See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="_blank">Language/Locale Mapping</a>|
+|Supported Locales|See [Language/Locale Mapping](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json){:target="blank"}|
 |SLA|<br>Response time: 500ms <br>Requests per second: 5 max (via edge router constraint)|
 |Domain|Commerce|
 |Prerequisites|API Registration|
-|Contact Info|Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a><br>Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="_blank">Product and Feeds API</a><br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)<br>Apollo Product Owner: [Patricia Cousins](mailto:patricia.cousins@nike.com)|
+|Contact Info|Slack: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"}<br>Confluence: [Product and Feeds API](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="blank"}<br>Product Owner: [Andy Sun](mailto:andy.sun@nike.com)<br>Apollo Product Owner: [Patricia Cousins](mailto:patricia.cousins@nike.com)|
 
 ## Terms of Service
 
@@ -64,7 +64,7 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 - **Obtain a Consumer Channel ID -- REQUIRED**
 
-  <a href="https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel" target="_blank">Fill out a request form</a> to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
+  [Fill out a request form](https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel){:target="blank"} to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
 
 - **Configure Custom Search Rules -- OPTIONAL**
 
@@ -135,7 +135,7 @@ For your first request, send a request to get all the Rollup Threads for a parti
 
 1. **Gather Data Needed for the Request**
 
-    Study the <a href="https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedrollupsv2/browse/API.md" target="_blank">API.md</a> or the [Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2) section of this document.
+    Study the [API Reference](https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedrollupsv2/browse/API.md){:target="blank"} or the [Using Product Feed Rollup Threads v2](#using-product-feed-rollup-threads-v2) section of this document.
 
     - Only the HTTP GET method is supported, which means no request body is required
     - No request headers are required
@@ -949,18 +949,18 @@ https://api.nike.com/commerce/product_feed/rollup_threads/v2?consumerChannelId=d
 |objects.**language**|string|BCP-47 language code|Required|
 |objects.**lastFetchTime**|string|Time when the data was aggregated in ISO-8601 compliant format: `yyyy-MM-ddTHH:mm:ss.SSSZZ`|Required|
 |objects.**active**|boolean|Indicator for whether or not this thread is currently available for general use|Optional|
-|objects.**publishedContent**|object|<a href="https://developer.niketech.com/docs/projects/CMS%20Published%20Content%20API?tab=api" target="_blank">API.md link</a>|Required|
+|objects.**publishedContent**|object|[API Reference](https://developer.niketech.com/docs/projects/CMS%20Published%20Content%20API?tab=api){:target="blank"}|Required|
 |objects.**productInfo**|array|Array of responses from other APIs with product info|Optional|
-|objects.productInfo.**merchProduct**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="_blank">API.md link</a>|Required|
-|objects.productInfo.**merchPrice**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="_blank">API.md link</a>|Required|
-|objects.productInfo.**skus**|object|<a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
-|objects.productInfo.**availability**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
-|objects.productInfo.**availableSkus**|object|<a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="_blank">API.md link</a>|Optional|
-|objects.productInfo.**productContent**|object|<a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="_blank">API.md link</a>|Optional|
-|objects.productInfo.**launchView**|object|<a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**merchProduct**|object|[API Reference](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="blank"}|Required|
+|objects.productInfo.**merchPrice**|object|[API Reference](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="blank"}|Required|
+|objects.productInfo.**skus**|object|[API Reference](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="blank"}|Optional|
+|objects.productInfo.**availability**|object|[API Reference](https://developer.niketech.com/docs/projects/Availability?tab=api){:target="blank"}|Optional|
+|objects.productInfo.**availableSkus**|object|[API Reference](https://developer.niketech.com/docs/projects/Availability?tab=api){:target="blank"}|Optional|
+|objects.productInfo.**productContent**|object|[API Reference](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|Optional|
+|objects.productInfo.**launchView**|object|[API Reference](https://developer.niketech.com/docs/projects/Launch%20Views?tab=api){:target="blank"}|Optional|
 |objects.productInfo.**imageUrls**|object|Object containing product image URL|Optional|
 |objects.productInfo.imageUrls.**productImageUrl**|string|URL for product image|Optional|
-|objects.productInfo.**customizedPreBuild**|object|<a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="_blank">API.md link</a>|Optional|
+|objects.productInfo.**customizedPreBuild**|object|[API Reference](https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api){:target="blank"}|Optional|
 |objects.**rollup**|object|Object containing rollup info|Optional|
 |objects.rollup.**totalThreads**|integer|The total threads available in the rollup response including the master thread|Optional|
 |objects.rollup.**threads**|array|Array of threads that are related by a rollup key|Optional|
@@ -1652,7 +1652,7 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 
 - Check your Smart Search rules configuration in the Apollo application to ensure that the rules are correct.
 - Check the rollup key & type from Prodigy for the Parent Thread is as expected.
-- Reach out to Product Feeds team on Slack for assistance: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="_blank">#nde-product-feeds</a>
+- Reach out to Product Feeds team on Slack for assistance: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"}
 
 >TIP: See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html#troubleshooting) for more general troubleshooting information.
 

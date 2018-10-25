@@ -110,4 +110,16 @@ jQuery(function() {
 		$sidebar.find('a').removeClass('active');
 		$(this).addClass('active');
 	});
+
+	$sidebar.find('span.toggle').click(function() {
+	    var section = $(this).attr('name');
+	    var $child = $('#'+section);
+	   if ($child.hasClass('hide')) {
+	       $child.removeClass('hide');
+	       $child.addClass('show');
+	    } else {
+	        $child.removeClass('show');
+	        $child.addClass('hide');
+	    }
+	});
 });

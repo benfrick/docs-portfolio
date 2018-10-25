@@ -33,13 +33,15 @@
     
   
     
+./content/doc/commerce/reference/caller_best_practices.html
+    
   
     
 ./content/doc/commerce/product/capi_migration.html
     
   
     
-  
+./content/doc/commerce/checkout/checkout_country_currency.html
     
   
     
@@ -47,15 +49,29 @@
     
   
     
+./content/doc/commerce/reference/global.html
+    
   
+    
+./content/doc/commerce/reference/glossary.html
     
   
     
   
     
-  
+./content/doc/commerce/product/merch_product_field_reference.html
     
   
+    
+./content/doc/commerce/search/nacl.html
+    
+  
+    
+./content/doc/commerce/checkout/overview-checkout.html
+    
+  
+    
+./content/doc/commerce/events/overview-events.html
     
   
     
@@ -63,7 +79,11 @@
     
   
     
+./content/doc/commerce/payment/overview-payment.html
+    
   
+    
+./content/doc/commerce/product/overview-product-feeds.html
     
   
     
@@ -72,6 +92,8 @@
   
     
   
+    
+./content/doc/commerce/reference/product_lifecycle.html
     
   
     
@@ -86,5 +108,7 @@
 ./content/doc/commerce/order/use_order.html
     
   
+    
+./content/doc/getting-started/using_nike_apis.html
     
   

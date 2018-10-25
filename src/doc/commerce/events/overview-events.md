@@ -1,11 +1,16 @@
 ---
+tags: pdf
+category: overview
+position: 8
+title: Events
+url: /commerce/events/overview-events.html
 ---
 
 # Analytics Pipeline Overview
 
 ---
 
-Learn how to use <a href="/doc/commerce/events/api_eventsv2.html">Analytics Pipeline</a>, your single destination to record analytics events.
+Learn how to use [Analytics Pipeline](/doc/commerce/events/api_eventsv2.html), your single destination to record analytics events.
 
 <aside class="button"><a href="/doc/commerce/events/api_eventsv2.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
 
@@ -47,4 +52,4 @@ Want to know what your users are up to? Step through the Use Cases below to inco
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> <a href="https://nikedigital.slack.com/messages/C9Q1MNJ1J" target="_blank">#Slack</a>&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> <a href="mailto:developer.relations@nike.com">Email</a>
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
