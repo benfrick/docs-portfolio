@@ -296,3 +296,9 @@ aside.button i {
 .tile-sm li h5, .tile-med li h5 {
     line-height: 0.3;
 }
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}

@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: reference
+position: 6
+title: Merch Product Fields
+url: /commerce/product/merch_product_field_reference.html
 ---
 
 # MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i>

@@ -29,114 +29,6 @@
   <p><strong>TIP:</strong> Also check out the <a href="https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics" target="blank">API Basics</a> course offered by NDe Architecture team.</p>
 </blockquote>
 
-<h2 id="in-this-guide"><strong>In This Guide:</strong></h2>
-
-<p><a href="#industry-standards">Industry Standards</a></p>
-
-<p><span class="toc-pad"><a href="#rest-architecture">REST Architecture</a></span></p>
-
-<p><span class="toc-pad"><a href="#json-formatted-http-requests-and-responses">JSON-formatted HTTP Requests and Responses</a></span></p>
-
-<p><span class="toc-pad"><a href="#json-schema-helps-define-api-contracts">JSON Schema Helps Define API Contracts</a></span></p>
-
-<p><span class="toc-pad"><a href="#idempotence-guarantee">Idempotence Guarantee</a></span></p>
-
-<p><span class="toc-pad"><a href="#security-and-privacy">Security and Privacy</a></span></p>
-
-<p><a href="#well-defined-well-documented">Well-Defined, Well-Documented</a></p>
-
-<p><a href="#prerequisites">Prerequisites</a></p>
-
-<p><span class="toc-pad"><a href="#registration">Registration</a></span></p>
-
-<p><span class="toc-pad"><a href="#authorization">Authorization</a></span></p>
-
-<p><span class="toc-pad"><a href="#jwt-json-web-token">JWT (JSON Web Token)</a></span></p>
-
-<p><a href="#url-patterns">URL Patterns</a></p>
-
-<p><span class="toc-pad"><a href="#path-parameters">Path Parameters</a></span></p>
-
-<p><span class="toc-pad"><a href="#query-parameters">Query Parameters</a></span></p>
-
-<p><a href="#request-components">Request Components</a></p>
-
-<p><span class="toc-pad"><a href="#uri-universal-resource-identifier">URI (Universal Resource Identifier)</a></span></p>
-
-<p><span class="toc-pad"><a href="#http-methods">HTTP Methods</a></span></p>
-
-<p><span class="toc-pad"><a href="#request-headers">Request Headers</a></span></p>
-
-<p><span class="toc-pad"><a href="#request-body">Request Body</a></span></p>
-
-<p><a href="#response-components">Response Components</a></p>
-
-<p><span class="toc-pad"><a href="#http-status-codes">HTTP Status Codes</a></span></p>
-
-<p><span class="toc-pad"><a href="#response-headers">Response Headers</a></span></p>
-
-<p><span class="toc-pad"><a href="#response-body">Response Body</a></span></p>
-
-<p><a href="#using-the-api-reference">Using the API Reference</a></p>
-
-<p><a href="#versioning">Versioning</a></p>
-
-<p><a href="#caching">Caching</a></p>
-
-<p><span class="toc-pad"><a href="#akamai-caching">Akamai Caching</a></span></p>
-
-<p><span class="toc-pad"><a href="#service-caching">Service Caching</a></span></p>
-
-<p><span class="toc-pad"><a href="#devicebrowser-caching">Device/Browser Caching</a></span></p>
-
-<p><span class="toc-pad"><a href="#cache-related-headers">Cache-Related Headers</a></span></p>
-
-<p><a href="#cors">CORS</a></p>
-
-<p><span class="toc-pad"><a href="#implementation-recommendations">Implementation Recommendations</a></span></p>
-
-<p><a href="#asynchronous-operation">Asynchronous Operation</a></p>
-
-<p><span class="toc-pad"><a href="#job-request">Job Request</a></span></p>
-
-<p><span class="toc-pad"><a href="#job-status">Job Status</a></span></p>
-
-<p><span class="toc-pad"><a href="#job-result">Job Result</a></span></p>
-
-<p><a href="#error-handling">Error Handling</a></p>
-
-<p><span class="toc-pad"><a href="#general-error-response-components">General Error Response Components</a></span></p>
-
-<p><span class="toc-pad"><a href="#common-errors">Common Errors</a></span></p>
-
-<p><span class="toc-pad"><a href="#which-json-field-had-the-error">Which JSON Field Had The Error?</a></span></p>
-
-<p><span class="toc-pad"><a href="#retries">Retries</a></span></p>
-
-<p><a href="#data-reference">Data Reference</a></p>
-
-<p><span class="toc-pad"><a href="#user-types">User Types</a></span></p>
-
-<p><a href="#testing">Testing</a></p>
-
-<p><span class="toc-pad"><a href="#testing-prerequisites">Testing Prerequisites</a></span></p>
-
-<p><span class="toc-pad"><a href="#test-environments">Test Environments</a></span></p>
-
-<p><span class="toc-pad"><a href="#testing-tips">Testing Tips</a></span></p>
-
-<p><a href="#troubleshooting">Troubleshooting</a></p>
-
-<p><span class="toc-pad"><a href="#query-logs-with-a-trace-id">Query Logs With a Trace ID</a></span></p>
-
-<p><span class="toc-pad"><a href="#inspect-browser-activity-in-a-live-experience">Inspect Browser Activity in a Live Experience</a></span></p>
-
-<p><a href="#circuit-breaker-best-practices">Circuit Breaker Best Practices</a></p>
-
-<p><a href="#glossary">Glossary</a></p>
-
-<p><a href="#related-links">Related Links</a></p>
-
 <h2 id="industry-standards">Industry Standards</h2>
 
 <p>Learn how NDe APIs were designed with industry standards in mind.</p>
@@ -2111,110 +2003,87 @@ x-nike-version:1.0.0.179
     <div id="sidebar" class="sidebar">
 	<section>
 		<a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-		<h6><a href="/index.html"><i class="mr2-sm g72-home"></i>NDe Docs Home</a></h6>
-		<ul>
-			
-			<li>
-				<a href="/doc/commerce/product/api_product_feeds.html" class="">
-					Product Feeds
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/product/api_rollup_threads.html" class="">
-					Rollup Threads
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/product/api_merch_product.html" class="">
-					Merch Product
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/product/capi_migration.html" class="">
-					CAPI Migration
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/search/api_search.html" class="">
-					Search
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/checkout/api_checkout.html" class="">
-					Cart & Checkout
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/payment/api_payment.html" class="">
-					Payment
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/events/api_eventsv2.html" class="">
-					Events
-					
-				</a>
-				
-			</li>
-			
-			<li>
-				<a href="/doc/commerce/uxf/overview-uxf.html" class="">
-					UX Foundation
-					
-				</a>
-				
-			</li>
-			
-		</ul>
-        <hr>
-        <ul>
-            
-            <li>
-                <a href="/doc/getting-started/get-started.html" class="">
-                    Get Started
-                    
-                </a>
-                
-            </li>
-			
-            <li>
-                <a href="/doc/portal/community.html" class="">
-                    Community
-                    
-                </a>
-                
-            </li>
-			
-            <li>
-                <a href="/doc/commerce/reference/reference.html" class="">
-                    Reference
-                    
-                </a>
-                
-            </li>
-			
-        </ul>
+		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="overview" class="toggle"><i class="fas fa-cogs"></i>  Overview</span></h6>
+		<ul id="overview" class="hide"><li>
+				<a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li><li>
+				<a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
+				<a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
+				<a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li>
+				<a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
+				<a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li></ul><h6><span name="use-case" class="toggle"><i class="fas fa-map"></i>  Guides</span></h6>
+		<ul id="use-case" class="hide"><li>
+				<a href="/doc/commerce/checkout/api_checkout.html" class="">Cart & Checkout</a></li><li>
+				<a href="/doc/commerce/events/api_eventsv2.html" class="">Events</a></li><li>
+				<a href="/doc/commerce/product/api_merch_product.html" class="">Merch Product</a></li><li>
+				<a href="/doc/commerce/payment/api_payment.html" class="">Payment</a></li><li>
+				<a href="/doc/commerce/product/api_product_feeds.html" class="">Product Feeds</a></li><li>
+				<a href="/doc/commerce/product/api_rollup_threads.html" class="">Rollup Threads</a></li><li>
+				<a href="/doc/commerce/search/api_search.html" class="">Search</a></li><li>
+				<a href="/doc/commerce/product/capi_migration.html" class="">CAPI Migration</a></li></ul><h6><span name="get-started" class="toggle"><i class="fas fa-walking"></i>  Get Started</span></h6>
+		<ul id="get-started" class=""><li>
+				<a href="/doc/getting-started/using_nike_apis.html" class="active">Using NDe APIs</a><ul><li>
+						<a href="/doc/getting-started/using_nike_apis.html#industry-standards"
+						   class="">Industry Standards</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#well-defined-well-documented"
+						   class="">Well-Defined, Well-Documented</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#prerequisites"
+						   class="">Prerequisites</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#url-patterns"
+						   class="">URL Patterns</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#request-components"
+						   class="">Request Components</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#response-components"
+						   class="">Response Components</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#using-the-api-reference"
+						   class="">Using the API Reference</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#versioning"
+						   class="">Versioning</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#caching"
+						   class="">Caching</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#cors"
+						   class="">CORS</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#asynchronous-operation"
+						   class="">Asynchronous Operation</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#error-handling"
+						   class="">Error Handling</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#data-reference"
+						   class="">Data Reference</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#testing"
+						   class="">Testing</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#troubleshooting"
+						   class="">Troubleshooting</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#circuit-breaker-best-practices"
+						   class="">Circuit Breaker Best Practices</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#glossary"
+						   class="">Glossary</a>
+					</li><li>
+						<a href="/doc/getting-started/using_nike_apis.html#related-links"
+						   class="">Related Links</a>
+					</li></ul><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="" class="toggle"></span></h6>
+		<ul id="" class="hide"></ul><h6><span name="reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
+		<ul id="reference" class="hide"><li>
+				<a href="/doc/commerce/reference/caller_best_practices.html" class="">Circuit Breaker Best Practices</a></li><li>
+				<a href="/doc/commerce/checkout/checkout_country_currency.html" class="">Countries & Currencies</a></li><li>
+				<a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li>
+				<a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li>
+				<a href="/doc/commerce/product/merch_product_field_reference.html" class="">Merch Product Fields</a></li><li>
+				<a href="/doc/commerce/reference/product_lifecycle.html" class="">Product Life Cycle</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
 	</section>
 </div>
 </header>

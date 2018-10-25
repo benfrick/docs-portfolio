@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: overview
+position: 10
+title: Admin Client Library
+url: /commerce/search/nacl.html
 ---
 
 # Admin Client Library Overview

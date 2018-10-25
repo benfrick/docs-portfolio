@@ -1,4 +1,9 @@
 ---
+tags: pdf
+category: reference
+position: 6
+title: Glossary
+url: /commerce/reference/glossary.html
 ---
 
 # GLOSSARY <i class="g72-swoosh"></i>

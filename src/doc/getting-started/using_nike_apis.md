@@ -1,4 +1,46 @@
 ---
+tags: pdf
+category: get-started
+position: 2
+title: Using NDe APIs
+url: /getting-started/using_nike_apis.html
+toc:
+  - h2: Industry Standards
+    url: /doc/getting-started/using_nike_apis.html#industry-standards
+  - h2: Well-Defined, Well-Documented
+    url: /doc/getting-started/using_nike_apis.html#well-defined-well-documented
+  - h2: Prerequisites
+    url: /doc/getting-started/using_nike_apis.html#prerequisites
+  - h2: URL Patterns
+    url: /doc/getting-started/using_nike_apis.html#url-patterns
+  - h2: Request Components
+    url: /doc/getting-started/using_nike_apis.html#request-components
+  - h2: Response Components
+    url: /doc/getting-started/using_nike_apis.html#response-components
+  - h2: Using the API Reference
+    url: /doc/getting-started/using_nike_apis.html#using-the-api-reference
+  - h2: Versioning
+    url: /doc/getting-started/using_nike_apis.html#versioning
+  - h2: Caching
+    url: /doc/getting-started/using_nike_apis.html#caching
+  - h2: CORS
+    url: /doc/getting-started/using_nike_apis.html#cors
+  - h2: Asynchronous Operation
+    url: /doc/getting-started/using_nike_apis.html#asynchronous-operation
+  - h2: Error Handling
+    url: /doc/getting-started/using_nike_apis.html#error-handling
+  - h2: Data Reference
+    url: /doc/getting-started/using_nike_apis.html#data-reference
+  - h2: Testing
+    url: /doc/getting-started/using_nike_apis.html#testing
+  - h2: Troubleshooting
+    url: /doc/getting-started/using_nike_apis.html#troubleshooting
+  - h2: Circuit Breaker Best Practices
+    url: /doc/getting-started/using_nike_apis.html#circuit-breaker-best-practices
+  - h2: Glossary
+    url: /doc/getting-started/using_nike_apis.html#glossary
+  - h2: Related Links
+    url: /doc/getting-started/using_nike_apis.html#related-links
 ---
 
 # USING NDE APIS &nbsp;<i class="g72-swoosh"></i>
@@ -10,114 +52,6 @@
 This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the detailed guides.
 
 >**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics){:target="blank"} course offered by NDe Architecture team.
-
-## **In This Guide:**
-
-[Industry Standards](#industry-standards)
-
-<span class="toc-pad">[REST Architecture](#rest-architecture)
-
-<span class="toc-pad">[JSON-formatted HTTP Requests and Responses](#json-formatted-http-requests-and-responses)
-
-<span class="toc-pad">[JSON Schema Helps Define API Contracts](#json-schema-helps-define-api-contracts)
-
-<span class="toc-pad">[Idempotence Guarantee](#idempotence-guarantee)
-
-<span class="toc-pad">[Security and Privacy](#security-and-privacy)
-
-[Well-Defined, Well-Documented](#well-defined-well-documented)
-
-[Prerequisites](#prerequisites)
-
-<span class="toc-pad">[Registration](#registration)
-
-<span class="toc-pad">[Authorization](#authorization)
-
-<span class="toc-pad">[JWT (JSON Web Token)](#jwt-json-web-token)
-
-[URL Patterns](#url-patterns)
-
-<span class="toc-pad">[Path Parameters](#path-parameters)
-
-<span class="toc-pad">[Query Parameters](#query-parameters)
-
-[Request Components](#request-components)
-
-<span class="toc-pad">[URI (Universal Resource Identifier)](#uri-universal-resource-identifier)
-
-<span class="toc-pad">[HTTP Methods](#http-methods)
-
-<span class="toc-pad">[Request Headers](#request-headers)
-
-<span class="toc-pad">[Request Body](#request-body)
-
-[Response Components](#response-components)
-
-<span class="toc-pad">[HTTP Status Codes](#http-status-codes)
-
-<span class="toc-pad">[Response Headers](#response-headers)
-
-<span class="toc-pad">[Response Body](#response-body)
-
-[Using the API Reference](#using-the-api-reference)
-
-[Versioning](#versioning)
-
-[Caching](#caching)
-
-<span class="toc-pad">[Akamai Caching](#akamai-caching)
-
-<span class="toc-pad">[Service Caching](#service-caching)
-
-<span class="toc-pad">[Device/Browser Caching](#devicebrowser-caching)
-
-<span class="toc-pad">[Cache-Related Headers](#cache-related-headers)
-
-[CORS](#cors)
-
-<span class="toc-pad">[Implementation Recommendations](#implementation-recommendations)
-
-[Asynchronous Operation](#asynchronous-operation)
-
-<span class="toc-pad">[Job Request](#job-request)
-
-<span class="toc-pad">[Job Status](#job-status)
-
-<span class="toc-pad">[Job Result](#job-result)
-
-[Error Handling](#error-handling)
-
-<span class="toc-pad">[General Error Response Components](#general-error-response-components)
-
-<span class="toc-pad">[Common Errors](#common-errors)
-
-<span class="toc-pad">[Which JSON Field Had The Error?](#which-json-field-had-the-error)
-
-<span class="toc-pad">[Retries](#retries)
-
-[Data Reference](#data-reference)
-
-<span class="toc-pad">[User Types](#user-types)
-
-[Testing](#testing)
-
-<span class="toc-pad">[Testing Prerequisites](#testing-prerequisites)
-
-<span class="toc-pad">[Test Environments](#test-environments)
-
-<span class="toc-pad">[Testing Tips](#testing-tips)
-
-[Troubleshooting](#troubleshooting)
-
-<span class="toc-pad">[Query Logs With a Trace ID](#query-logs-with-a-trace-id)
-
-<span class="toc-pad">[Inspect Browser Activity in a Live Experience](#inspect-browser-activity-in-a-live-experience)
-
-[Circuit Breaker Best Practices](#circuit-breaker-best-practices)
-
-[Glossary](#glossary)
-
-[Related Links](#related-links)
 
 ## Industry Standards
 
