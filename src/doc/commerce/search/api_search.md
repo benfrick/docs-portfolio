@@ -14,22 +14,8 @@ url: /commerce/search/api_search.html
 
 E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/api_rollup_threads.html) first.
 
-
-## **In this guide:**
-
-[Use Cases](#use-cases)
-
-[Glossary](#glossary)
-
-[Contacting the Team](#contacting-the-team)
-
-[Search Types](#search-types)
-
-[Rules, Results and Rankings](#rules-results-rankings)
-
-[Troubleshooting](#troubleshooting)
-
 ## Use Cases
+
 Here are just some of the ways e-commerce search can be used to drive your experience:
 
 - Quickly return e-commerce search results using Simple Search, no rule configuration necessary
