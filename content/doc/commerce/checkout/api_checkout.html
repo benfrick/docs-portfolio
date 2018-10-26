@@ -78,11 +78,9 @@
 
 <h4 id="access-tokens">Access Tokens</h4>
 
-<p>Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user.</p>
+<p>Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user. Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.</p>
 
-<p>Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.</p>
-
-<p>To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the <a href="/doc/getting-started/using_nike_apis.html#authorization">Using NDe APIs</a> guide.</p>
+<p>See <a href="/doc/getting-started/using_nike_apis.html#authorization">Using NDe APIs</a> guide for more on how to call Unite services.</p>
 
 <h4 id="json-web-token">JSON Web Token</h4>
 
@@ -161,13 +159,59 @@
 
 <p>See the User Types section of the <a href="/doc/getting-started/using_nike_apis.html#user-types">Using NDe APIs</a> guide for more information.</p>
 
+<h3 id="request-headers">Request Headers</h3>
+
+<p>The following request headers are common to all of the Checkout APIs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Header Name</th>
+      <th>Description</th>
+      <th>Member</th>
+      <th>Guest</th>
+      <th>Employee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Accept</strong></td>
+      <td>Content type you will accept in response, application/json is only value allowed</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td><strong>Content-Type</strong></td>
+      <td>Content type of the request, application/json is only value allowed</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization</strong></td>
+      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
+      <td>X</td>
+      <td> </td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td><strong>x-nike-visitorid</strong></td>
+      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
+      <td> </td>
+      <td>X</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
+</blockquote>
+
 <h3 id="idempotence">Idempotence</h3>
 
-<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let’s break it down.</p>
-
-<p>Each PUT request to <em>Request Checkout Preview</em> and <em>Request a Checkout Submit</em> includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body.</p>
-
-<p>There are 4 possible scenarios:</p>
+<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Each PUT request to <em>Request Checkout Preview</em> and <em>Request a Checkout Submit</em> includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:</p>
 
 <table>
   <thead>
@@ -259,7 +303,7 @@
 
 <p>For your first API request, send a request to the <em>Create or Update a Cart by Cart ID</em> endpoint of the Carts v2 API and create your first cart.</p>
 
-<p><strong>1. Gather Data Needed For The Request</strong></p>
+<h5 id="1-gather-data-needed-for-the-request">1. Gather Data Needed For The Request</h5>
 
 <p>Our example endpoint, <em>Create or Update a Cart by Cart ID</em>, only supports the HTTP PUT method. To create a cart, send a PUT request with (at minimum) the required request headers and the required parts of the request body.</p>
 
@@ -269,14 +313,14 @@
 
 <p>For the request headers, the following considerations apply (at minimum):</p>
 
-<ol>
+<ul>
   <li>
     <p>Always send <code class="highlighter-rouge">application/json</code> in both the <strong>Accept</strong> and <strong>Content-Type</strong> headers.</p>
   </li>
   <li>
     <p>Send the user’s access token as obtained from Unite services in the <strong>Authorization</strong> header.</p>
   </li>
-</ol>
+</ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept: application/json
 Content-Type: application/json
@@ -390,7 +434,7 @@ Authorization: Bearer {your access token}
 
 <p>Some values in the response are exactly what you sent in the request, but the values in the <strong>totals</strong> section provide a cart pricing summary and the values in items.<strong>priceInfo</strong> section provide the current item pricing details.</p>
 
-<p><strong>Another Example</strong></p>
+<h4 id="another-example">Another Example</h4>
 
 <p>For your next request, send a GET request to the <em>Get a Cart for a Cart ID</em> endpoint of the Carts v2 API, using the cart <strong>id</strong> that you created in the previous step.</p>
 
@@ -542,55 +586,9 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers">Request Headers</h4>
+<h4 id="request-headers-1">Request Headers</h4>
 
-<p>Required request headers:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Header Name</th>
-      <th>Description</th>
-      <th>Member</th>
-      <th>Guest</th>
-      <th>Employee</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
-</blockquote>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
 
 <h4 id="request-body">Request Body</h4>
 
@@ -822,51 +820,9 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-1">Request Headers</h4>
+<h4 id="request-headers-2">Request Headers</h4>
 
-<p>Required request headers:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Header Name</th>
-      <th>Description</th>
-      <th>Member</th>
-      <th>Guest</th>
-      <th>Employee</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
 
 <h4 id="request-body-1">Request Body</h4>
 
@@ -929,51 +885,9 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-2">Request Headers</h4>
+<h4 id="request-headers-3">Request Headers</h4>
 
-<p>Required request headers:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Header Name</th>
-      <th>Description</th>
-      <th>Member</th>
-      <th>Guest</th>
-      <th>Employee</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
 
 <h4 id="request-body-2">Request Body</h4>
 
@@ -1033,49 +947,9 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-3">Request Headers</h4>
+<h4 id="request-headers-4">Request Headers</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Header Name</th>
-      <th>Description</th>
-      <th>Member</th>
-      <th>Guest</th>
-      <th>Employee</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
 
 <h4 id="request-body-3">Request Body</h4>
 
@@ -1332,9 +1206,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-4">Request Headers</h4>
+<h4 id="request-headers-5">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -1347,34 +1223,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>x-nike-visitid</strong></td>
       <td>Count of visits by the guest user</td>
@@ -1391,10 +1239,6 @@ Authorization: Bearer {your access token}
     </tr>
   </tbody>
 </table>
-
-<blockquote>
-  <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
-</blockquote>
 
 <h4 id="request-body-4">Request Body</h4>
 
@@ -2228,9 +2072,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-5">Request Headers</h4>
+<h4 id="request-headers-6">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -2243,34 +2089,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>x-nike-visitid</strong></td>
       <td>Count of visits by the guest user</td>
@@ -2589,7 +2407,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-6">Request Headers</h4>
+<h4 id="request-headers-7">Request Headers</h4>
+
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -2602,34 +2424,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>x-nike-visitid</strong></td>
       <td>Count of visits by the guest user</td>
@@ -2701,9 +2495,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-7">Request Headers</h4>
+<h4 id="request-headers-8">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -2716,34 +2512,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>x-nike-visitid</strong></td>
       <td>Count of visits by the guest user</td>
@@ -2819,9 +2587,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-8">Request Headers</h4>
+<h4 id="request-headers-9">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -2834,34 +2604,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>x-nike-visitid</strong></td>
       <td>Count of visits by the guest user</td>
@@ -2947,7 +2689,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-9">Request Headers</h4>
+<h4 id="request-headers-10">Request Headers</h4>
 
 <p>See the required request headers of the <a href="#cart-put-v2-request-headers"><em>Create or Update a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
@@ -3019,7 +2761,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-10">Request Headers</h4>
+<h4 id="request-headers-11">Request Headers</h4>
 
 <p>See the required request headers of the <a href="#cart-patch-v2-request-headers"><em>Modify a Cart by Cart ID</em></a> endpoint as it is the same for this endpoint.</p>
 
@@ -3091,9 +2833,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-11">Request Headers</h4>
+<h4 id="request-headers-12">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -3106,34 +2850,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>x-nike-visitid</strong></td>
       <td>Count of visits by the guest user</td>
@@ -3209,7 +2925,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-12">Request Headers</h4>
+<h4 id="request-headers-13">Request Headers</h4>
+
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -3222,34 +2942,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>x-nike-visitid</strong></td>
       <td>Count of visits by the guest user</td>
@@ -3587,51 +3279,9 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-13">Request Headers</h4>
+<h4 id="request-headers-14">Request Headers</h4>
 
-<p>Required request headers:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Header Name</th>
-      <th>Description</th>
-      <th>Member</th>
-      <th>Guest</th>
-      <th>Employee</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
 
 <h4 id="request-body-13">Request Body</h4>
 
@@ -4214,7 +3864,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-14">Request Headers</h4>
+<h4 id="request-headers-15">Request Headers</h4>
 
 <table>
   <thead>
@@ -4466,7 +4116,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-15">Request Headers</h4>
+<h4 id="request-headers-16">Request Headers</h4>
 
 <table>
   <thead>
@@ -4552,7 +4202,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-16">Request Headers</h4>
+<h4 id="request-headers-17">Request Headers</h4>
 
 <table>
   <thead>
@@ -4735,7 +4385,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-17">Request Headers</h4>
+<h4 id="request-headers-18">Request Headers</h4>
 
 <table>
   <thead>
@@ -4959,7 +4609,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-18">Request Headers</h4>
+<h4 id="request-headers-19">Request Headers</h4>
 
 <table>
   <thead>
@@ -5322,7 +4972,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-19">Request Headers</h4>
+<h4 id="request-headers-20">Request Headers</h4>
 
 <table>
   <thead>
@@ -5430,7 +5080,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-20">Request Headers</h4>
+<h4 id="request-headers-21">Request Headers</h4>
 
 <table>
   <thead>
@@ -5792,7 +5442,7 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-21">Request Headers</h4>
+<h4 id="request-headers-22">Request Headers</h4>
 
 <table>
   <thead>
@@ -6070,51 +5720,9 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-22">Request Headers</h4>
+<h4 id="request-headers-23">Request Headers</h4>
 
-<p>Required request headers:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Header Name</th>
-      <th>Description</th>
-      <th>Member</th>
-      <th>Guest</th>
-      <th>Employee</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
 
 <h4 id="request-body-22">Request Body</h4>
 
@@ -6696,9 +6304,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-23">Request Headers</h4>
+<h4 id="request-headers-24">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -6711,34 +6321,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>appId</strong></td>
       <td>Your application identifier</td>
@@ -7106,9 +6688,11 @@ Authorization: Bearer {your access token}
   </tbody>
 </table>
 
-<h4 id="request-headers-24">Request Headers</h4>
+<h4 id="request-headers-25">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -7121,34 +6705,6 @@ Authorization: Bearer {your access token}
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>appId</strong></td>
       <td>Your application identifier</td>
@@ -7631,9 +7187,11 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h4 id="request-headers-25">Request Headers</h4>
+<h4 id="request-headers-26">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -7646,34 +7204,6 @@ guide to learn more.</p>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>appId</strong></td>
       <td>Your application identifier</td>
@@ -8006,9 +7536,11 @@ guide to learn more.</p>
   </tbody>
 </table>
 
-<h4 id="request-headers-26">Request Headers</h4>
+<h4 id="request-headers-27">Request Headers</h4>
 
-<p>Required request headers:</p>
+<p>Go to <a href="#request-headers">Request Headers</a> to see the required, common headers for all Checkout APIs.</p>
+
+<p>Other required request headers for this API are:</p>
 
 <table>
   <thead>
@@ -8021,34 +7553,6 @@ guide to learn more.</p>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Accept</strong></td>
-      <td>Content type you will accept in response, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Content-Type</strong></td>
-      <td>Content type of the request, application/json is only value allowed</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>Authorization</strong></td>
-      <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the customer is logged in</td>
-      <td>X</td>
-      <td> </td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <td><strong>x-nike-visitorid</strong></td>
-      <td>Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service</td>
-      <td> </td>
-      <td>X</td>
-      <td> </td>
-    </tr>
     <tr>
       <td><strong>appId</strong></td>
       <td>Your application identifier</td>
@@ -9250,7 +8754,7 @@ guide to learn more.</p>
 
 <h4 id="carts-v1-to-v2-other-changes">Carts v1-to-v2 Other Changes</h4>
 
-<h5 id="request-headers-27">Request Headers</h5>
+<h5 id="request-headers-28">Request Headers</h5>
 
 <p>For all v2 endpoints, the following additional request headers are required for guest (i.e. non-logged-in) users:</p>
 

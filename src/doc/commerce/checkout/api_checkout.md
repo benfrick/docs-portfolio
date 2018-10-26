@@ -65,11 +65,9 @@ It is recommended that you send a caller ID header in every request to this API 
 
 #### Access Tokens
 
-Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user.
+Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user. Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
-
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#authorization) guide.
+See [Using NDe APIs](/doc/getting-started/using_nike_apis.html#authorization) guide for more on how to call Unite services.
 
 #### JSON Web Token
 
@@ -113,13 +111,22 @@ Depending on user type, certain aspects of the calls that you make to the Checko
 
 See the User Types section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#user-types) guide for more information.
 
+### Request Headers
+
+The following request headers are common to all of the Checkout APIs:
+
+|Header Name|Description|Member|Guest|Employee|
+|---|---|---|---|---|
+|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
+|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
+|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
+|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
+
+>**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
+
 ### Idempotence
 
-[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="blank"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Let's break it down.
-
-Each PUT request to *Request Checkout Preview* and *Request a Checkout Submit* includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body.
-
-There are 4 possible scenarios:
+[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="blank"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Each PUT request to *Request Checkout Preview* and *Request a Checkout Submit* includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:
 
 |Scenario|Result|
 |---|---|
@@ -177,7 +184,7 @@ There are 4 possible scenarios:
 
 For your first API request, send a request to the *Create or Update a Cart by Cart ID* endpoint of the Carts v2 API and create your first cart.
 
-**1. Gather Data Needed For The Request**
+##### 1. Gather Data Needed For The Request
 
 Our example endpoint, *Create or Update a Cart by Cart ID*, only supports the HTTP PUT method. To create a cart, send a PUT request with (at minimum) the required request headers and the required parts of the request body.
 
@@ -187,9 +194,9 @@ Assume that user for whom you are creating the cart is a Nike+ member who has lo
 
 For the request headers, the following considerations apply (at minimum):
 
-1. Always send `application/json` in both the **Accept** and **Content-Type** headers.
+- Always send `application/json` in both the **Accept** and **Content-Type** headers.
 
-2. Send the user's access token as obtained from Unite services in the **Authorization** header.
+- Send the user's access token as obtained from Unite services in the **Authorization** header.
 
 ```
 Accept: application/json
@@ -300,7 +307,7 @@ Assuming no errors, you will receive a response body similar to the following:
 
 Some values in the response are exactly what you sent in the request, but the values in the **totals** section provide a cart pricing summary and the values in items.**priceInfo** section provide the current item pricing details.
 
-**Another Example**
+#### Another Example
 
 For your next request, send a GET request to the *Get a Cart for a Cart ID* endpoint of the Carts v2 API, using the cart **id** that you created in the previous step.
 
@@ -392,16 +399,7 @@ Create a cart by executing an HTTP PUT request with a cart ID in [UUID](https://
 
 #### Request Headers
 
-Required request headers:
-
-|Header Name|Description|Member|Guest|Employee|
-|---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
-
->**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
 
 #### Request Body
 
@@ -536,14 +534,7 @@ Get the details of a cart using the ID (in [UUID](https://en.wikipedia.org/wiki/
 
 #### Request Headers
 
-Required request headers:
-
-|Header Name|Description|Member|Guest|Employee|
-|---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
 
 #### Request Body
 
@@ -572,14 +563,7 @@ Retrieve a user's cart(s) by country, brand, and (optionally) channel. The defau
 
 #### Request Headers
 
-Required request headers:
-
-|Header Name|Description|Member|Guest|Employee|
-|---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
 
 #### Request Body
 
@@ -609,12 +593,7 @@ Delete all items in a cart by its ID and receive a HTTP 204 response if successf
 
 #### Request Headers
 
-|Header Name|Description|Member|Guest|Employee|
-|---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
 
 #### Request Body
 
@@ -747,18 +726,15 @@ Create a cart by executing an HTTP PUT request with a cart ID that you have gene
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
->**TIP:** For the Authorization header, use the token for the user's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.
 
 #### Request Body
 
@@ -961,14 +937,12 @@ Create or update a cart by executing a HTTP PATCH request with a Cart ID. Add or
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
@@ -1108,12 +1082,12 @@ Delete all items in a cart by its ID and receive a HTTP 204 response if successf
 
 #### Request Headers
 
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
+
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
@@ -1143,14 +1117,12 @@ Get the details of a cart using the Cart ID. The default HTTP 200 response inclu
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
@@ -1182,14 +1154,12 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
@@ -1281,14 +1251,12 @@ Retrieve a user's cart by **country**, **brand**, and (optionally) **channel** v
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
@@ -1320,12 +1288,12 @@ Delete all items in a cart by **country**, **brand**, and (optionally) **channel
 
 #### Request Headers
 
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
+
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**x-nike-visitid**|Count of visits by the guest user||X||
 |**appId**|Unique application identifier of the calling app||X||
 
@@ -1470,14 +1438,7 @@ The following section describes the endpoint of the Cart Reviews API in detail:
 
 #### Request Headers
 
-Required request headers:
-
-|Header Name|Description|Member|Guest|Employee|
-|---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
 
 #### Request Body
 
@@ -2570,14 +2531,7 @@ Send a request with a country code, currency code, item information and (optiona
 
 #### Request Headers
 
-Required request headers:
-
-|Header Name|Description|Member|Guest|Employee|
-|---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
 
 #### Request Body
 
@@ -2876,14 +2830,12 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**appId**|Your application identifier||X||
 
 #### Request Body
@@ -3047,14 +2999,12 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**appId**|Your application identifier||X||
 
 #### Request Body
@@ -3285,14 +3235,12 @@ guide to learn more.
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**appId**|Your application identifier||X||
 |**True-Client-IP**|IP address of the client, required if **X-Forwarded-For** is null|X|X|X
 |**X-Forwarded-For**|Used to derive the IP address of the client, required if **True-Client-IP** is null|X|X|X|
@@ -3446,14 +3394,12 @@ Once you observe a job status of COMPLETED, get the results of your job by parsi
 
 #### Request Headers
 
-Required request headers:
+Go to [Request Headers](#request-headers) to see the required, common headers for all Checkout APIs.
+
+Other required request headers for this API are:
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
-|**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
-|**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
-|**Authorization**|Your access token in the format of `Bearer {token}` indicating the customer is logged in|X||X|
-|**x-nike-visitorid**|Identifier for the guest (i.e. not logged-in) user, validated by the Edge router and passed through to the service||X||
 |**appId**|Your application identifier||X||
 
 #### Request Body
