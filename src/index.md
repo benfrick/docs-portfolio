@@ -1,5 +1,6 @@
 ---
-layout: no-toc
+title: NDe Docs Home
+url: /index.html
 ---
 
 # NDe Commerce Docs &nbsp;<i class="g72-swoosh"></i>
