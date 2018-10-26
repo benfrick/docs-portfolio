@@ -19,7 +19,7 @@
 <div class="main">
     <h1 id="adding-order-history-to-your-experience-draft">ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br />DRAFT</h1>
 
-<h5 id="last-updated-10232018">Last Updated: 10/23/2018</h5>
+<h5 id="last-updated-10252018">Last Updated: 10/25/2018</h5>
 
 <h2 id="overview">Overview</h2>
 
@@ -31,16 +31,16 @@
 
 <p>Adding order history to your app is a two-step process.</p>
 
-<p><i class="numberCircle gray">1</i>Your application makes a BFF (backend-for-frontend) Order Summary API request to retrieve all or a filtered <a href="#order-summary">list of a
-consumer’s
+<p><i class="numberCircle gray">1</i>Your application makes a BFF (backend-for-frontend) Order Summary API request to retrieve all or a filtered <a href="#step-1-list-a-members-orders">list of a
+member’s
 orders</a>.</p>
 
 <p><i class="numberCircle gray">2</i>Using an order ID returned in the BFF Order Summary response, your application makes a BFF Order Details API
-request to <a href="#order-details">list details of a consumer’s order</a>.</p>
+request to <a href="#step-2-list-order-details-for-a-member-or-guest">list order details for a member or guest</a>.</p>
 
 <h3 id="what-is-an-order">What is an Order?</h3>
 
-<p>An order consists of all data necessary for defining the following:</p>
+<p>An order consists of all data related to:</p>
 
 <ul>
   <li>
@@ -66,16 +66,16 @@ request to <a href="#order-details">list details of a consumer’s order</a>.</p
   </li>
 </ul>
 
-<p>An order is created when the consumer has provided all of the necessary information and chooses to submit it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of <code class="highlighter-rouge">CREATED</code>. The order is assigned different statuses as it progresses through the lifecycle. See <a href="#order-status">Understanding Order Status</a> for more detail. By giving consumers the ability to check the status of their Nike order in your experience, you are providing consumers a vital self-service.</p>
+<p>An order is created in the last step of <a href="/doc/commerce/checkout/api_checkout.html">Checkout</a> when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of <code class="highlighter-rouge">CREATED</code>. The order is assigned different statuses as it progresses through the order lifecycle. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail.</p>
 
-<h2 id="step-1-list-a-consumers-orders">Step 1: List a consumer’s orders</h2>
+<h2 id="step-1-list-a-members-orders">Step 1: List a member’s orders</h2>
 
-<p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF Order Summary API</a> to get all or a select list of orders for a Nike member or employee. By making this information accessible as a self-service in your app, members and employees can view their product and payment history without having to contact Consumer Services.</p>
+<p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF Order Summary API</a> to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.</p>
 
-<p>This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest’s order, see <a href="#order-details">List
-details of a consumer’s order</a>.</p>
+<p>This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest’s order, see <a href="#step-2-list-order-details-for-a-member-or-guest">List
+order details for a member or guest</a>.</p>
 
-<p>The BFF Order Summary API requires that you pass certain request headers. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
+<p>The BFF Order Summary API requires that you pass certain request headers. For more information, see <a href="#required-request-headers">Required Request Headers</a>.</p>
 
 <h3 id="customizing-your-results">Customizing Your Results</h3>
 
@@ -84,8 +84,8 @@ details of a consumer’s order</a>.</p>
 <p><strong>Filtering</strong></p>
 
 <p>The table below lists the fields by which you can filter your BFF Order Summary results. If no filter is applied, all
-of a consumer’s orders are returned. While some filters only allow one value, you can filter by
- different types of filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
+of a member’s orders are returned. While some filters only allow one value, you can send multiple
+ filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
   allowed, you can request a BFF Order Summary filtered by orderSubmitDateAfter and status. Note that filter parameter names
    and values are case sensitive.</p>
 
@@ -123,7 +123,7 @@ of a consumer’s orders are returned. While some filters only allow one value, 
 
 <p><strong>Sorting</strong></p>
 
-<p>You can sort the consumer’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a>.</p>
+<p>You can sort a member’s orders in several ways using the <code class="highlighter-rouge">sort</code> query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the <a href="/doc/getting-started/using_nike_apis.html#query-parameters">Query Parameters</a> section of <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a>.</p>
 
 <blockquote>
   <p>TIP: It is recommended that your app pass the sort query parameter in the request to ensure that the results are sorted appropriately for your experience.</p>
@@ -138,7 +138,7 @@ of a consumer’s orders are returned. While some filters only allow one value, 
 <table>
   <thead>
     <tr>
-      <th>I want to list for a Consumer</th>
+      <th>I want to list for a member</th>
       <th>Sample Query</th>
     </tr>
   </thead>
@@ -177,25 +177,25 @@ of a consumer’s orders are returned. While some filters only allow one value, 
 
 <h3 id="parsing-the-response">Parsing the Response</h3>
 
-<p>The BFF Order Summary JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF Order Summary API</a> for a full list of fields returned in the response.</p>
+<p>The BFF Order Summary JSON response contains several fields relating to status. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail about how status is determined and the suggested order statuses to display in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF Order Summary API</a> for a full list of fields returned in the response.</p>
 
-<h2 id="step-2-list-details-of-a-consumers-order">Step 2: List details of a consumer’s order</h2>
+<h2 id="step-2-list-order-details-for-a-member-or-guest">Step 2: List order details for a member or guest</h2>
 
-<p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api">BFF Order Details API</a> to get details of one consumer order. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see <a href="#order-summary">List a consumer’s orders</a>.</p>
+<p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api">BFF Order Details API</a> to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see <a href="#step-1-list-a-members-orders">List a member’s orders</a>.</p>
 
 <blockquote>
-  <p>TIP: The BFF Order Details API does not return image URL but you can call the <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/api_merch_product.html#product-image-set-by-style-color" target="blank">Merchandised Product API</a> to get a list of images for a styleColor and country.</p>
+  <p>TIP: The BFF Order Details API does not return image URL but you can call the <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/api_merch_product.html#product-image-set-by-style-color" target="blank">Merchandised Product API</a> using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.</p>
 </blockquote>
 
 <p>The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
-is a member, guest, or employee. For more information, see <a href="#request-headers">Required Request Headers</a>.</p>
+is a member, guest, or employee. For more information, see <a href="#required-request-headers">Required Request Headers</a>.</p>
 
 <h3 id="required-request-parameters">Required Request Parameters</h3>
 
-<p>For members and employees, the <a href="#request-headers">authentication header</a> and orderNumber path parameter are required. For validation purposes for guest consumers, the orderNumber path parameter and email address filter parameter are required. If the email address is missing from the request or does not match the shipTo email address on the guest’s order, the API returns a 404.</p>
+<p>For members and employees, the orderNumber path parameter is required. For validation purposes for guest consumers, the orderNumber path parameter and email address filter parameter are required.</p>
 
 <blockquote>
-  <p>TIP: For members and employees, the authentication header must match the user who created the order. Otherwise, the API returns a 404.</p>
+  <p>TIPs: To avoid a 404 response, the authentication header for a member request must match the member who created the order.<br />For guests, the email address must match the shipTo email address on the order.</p>
 </blockquote>
 
 <h3 id="customizing-your-results-1">Customizing Your Results</h3>
@@ -213,11 +213,11 @@ is a member, guest, or employee. For more information, see <a href="#request-hea
   </thead>
   <tbody>
     <tr>
-      <td>list the details for order ID C00011554850 for a logged in user</td>
+      <td>list the details for order ID C00011554850 for a member</td>
       <td>https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850</td>
     </tr>
     <tr>
-      <td>list the ID,status and shipping method fields for orderNumber C00011554850</td>
+      <td>list the ID, status and shipping method fields for orderNumber C00011554850 for a guest</td>
       <td><code class="highlighter-rouge">https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email(my.email@address.com)&amp;fields=id,status,orderLines.shippingMethod</code></td>
     </tr>
   </tbody>
@@ -225,14 +225,14 @@ is a member, guest, or employee. For more information, see <a href="#request-hea
 
 <h3 id="executing-the-request-1">Executing the Request</h3>
 
-<p>Sample CURL for BFF Order Details C00011554850 for a Member/Employee:</p>
+<p>Sample CURL for BFF Order Details C00011554850 for a member/employee:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
   https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850 \
   -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
 </code></pre></div></div>
 
-<p>Sample CURL for BFF Order Details C00011554850 for a Guest:</p>
+<p>Sample CURL for BFF Order Details C00011554850 for a guest:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X GET \
   'https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email%28my.email@address.com%29' \
@@ -243,7 +243,7 @@ is a member, guest, or employee. For more information, see <a href="#request-hea
 
 <h3 id="parsing-the-response-1">Parsing the Response</h3>
 
-<p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#order-status">Understanding Order Status</a> for more detail on how status is determined and what statuses to display to the consumer in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="blank">Order Details API</a> for a full list of fields returned in the response.</p>
+<p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail about how status is determined and the suggested order statuses to display in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="blank">BFF Order Details API</a> for a full list of fields returned in the response.</p>
 
 <h2 id="understanding-order-status">Understanding Order Status</h2>
 
@@ -279,12 +279,12 @@ is a member, guest, or employee. For more information, see <a href="#request-hea
     </tr>
     <tr>
       <td>orderLines.maxOrderLineStatus</td>
-      <td>Status of the highest status code on this order line. Matches orderLines.rolledUpStatus. This status is included in orderLines.statuses.</td>
+      <td>Status of the highest status code on this order line e.g “Shipped”. Matches orderLines.rolledUpStatus. This status is included in orderLines.statuses.</td>
       <td>BFF Order Details</td>
     </tr>
     <tr>
       <td>orderLines.minOrderLineStatus</td>
-      <td>Status of the lowest status code on this order line. This status is included in orderLines.statuses.</td>
+      <td>Status of the lowest status code on this order line e.g. “Factory Delayed”. This status is included in orderLines.statuses.</td>
       <td>BFF Order Details</td>
     </tr>
     <tr>
@@ -347,7 +347,7 @@ is a member, guest, or employee. For more information, see <a href="#request-hea
 
 </code></pre></div></div>
 
-<p>Let’s look at a slightly more complex example. As illustrated by the BFF Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of “Delivered”, another short was delivered and returned and has a status of “Return Processed”, and one short was shipped and has a status of “Shipped”. Because the “Delivered” status has the highest status code of the order line, the rolledUpStatus of the order line is “Delivered”. The highest rolledUpStatus of the order is “Delivered”, so the overall order status is “Partially Delivered”.</p>
+<p>Let’s look at a slightly more complex example. As illustrated by the BFF Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of “Delivered”, another short was delivered and returned and has a status of “Return Processed”, and one short was shipped and has a status of “Shipped”. Because the “Delivered” status has the highest status code of the order line, the rolledUpStatus of the order line is “Delivered”. The highest rolledUpStatus of the order is “Delivered”, so the order status is “Partially Delivered”.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
 "status": "Partially Delivered",
@@ -419,14 +419,20 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 -->
 
-<p>Listed below are the order line statuses and status codes. The first column lists the order line statuses returned by both the BFF Order Summary and BFF Order Details APIs. Both APIs use the status codes in the second column to determine status ranking, but these status codes are not returned by either API. The third column contains a simple status that is not returned by either API but is provided as a sample consumer-friendly status. Your experience could perform a similar status-to-simple-status mapping to display to the consumer.</p>
+<p>Listed below are the order line statuses, status codes, and simple status.</p>
+
+<p><strong>STATUS</strong>: The order line status is returned by both the BFF Order Summary and BFF Order Details APIs.</p>
+
+<p><strong>STATUS CODE</strong>: Behind the scenes, status code is used by both APIs to calculate status ranking. However, the status code is not returned by either the BFF Order Summary or BFF Order Details API.</p>
+
+<p><strong>SIMPLE STATUS</strong>: The simple status is not returned by either the BFF Order Summary or BFF Order Details API but is provided as a sample, consumer-friendly status. Your experience could perform a similar status-to-simple-status mapping to display status to the consumer.</p>
 
 <table>
   <thead>
     <tr>
       <th>STATUS</th>
-      <th>STATUS CODE<br />(not returned by API)</th>
-      <th>SIMPLE STATUS<br />(not returned by API)</th>
+      <th>STATUS CODE<br />* not returned by either API</th>
+      <th>SIMPLE STATUS<br />* not returned by either API</th>
     </tr>
   </thead>
   <tbody>
@@ -1148,7 +1154,7 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
-<p>For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&amp;title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode" target="blank">API Error Patterns</a> on Confluence.</p>
+<p>For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors" target="blank">API Error Patterns</a> on Confluence.</p>
 
 <h3 id="test-environment">Test Environment</h3>
 
@@ -1229,7 +1235,7 @@ authorization
       <th>Header Name</th>
       <th>Description</th>
       <th>Member</th>
-      <th>Guest</th>
+      <th>Guest<br />* guest consumers are supported in the BFF Order Details API only</th>
       <th>Employee</th>
     </tr>
   </thead>
@@ -1252,7 +1258,7 @@ authorization
       <td><strong>Authorization</strong></td>
       <td>Your access token in the format of <code class="highlighter-rouge">Bearer {token}</code> indicating the consumer is logged in</td>
       <td>X</td>
-      <td> </td>
+      <td>X</td>
       <td>X</td>
     </tr>
     <tr>
@@ -1280,7 +1286,7 @@ authorization
 </table>
 
 <blockquote>
-  <p><strong>TIP:</strong> For the Authorization header, use the token for the user’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the user.</p>
+  <p><strong>TIP:</strong> For the Authorization header, use the token for the consumer’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.</p>
 </blockquote>
 
 <p>See the User Types section of the <a href="/doc/getting-started/using_nike_apis.html#user-types">Using NDe APIs</a> guide for more information.</p>
@@ -1289,7 +1295,7 @@ authorization
 
 <p><strong>Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
 
-<p>Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4">#mp-athena</a> for help.</p>
+<p>Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="blank">#mp-athena</a> for help.</p>
 
 <h2 id="contacting-the-team">Contacting the Team</h2>
 
@@ -1299,7 +1305,7 @@ authorization
   <tbody>
     <tr>
       <td>Slack</td>
-      <td><a href="https://nikedigital.slack.com/messages/C1H7ZM7J4">#mp-athena</a></td>
+      <td><a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="blank">#mp-athena</a></td>
     </tr>
     <tr>
       <td>Confluence Space</td>
@@ -1307,7 +1313,11 @@ authorization
     </tr>
     <tr>
       <td>Team Contacts</td>
-      <td><strong>Intake, new requirements, onboarding</strong><br />  Betty Ashok <a href="mailto:Betty.Ashok@nike.com">Betty.Ashok@nike.com</a><br />   Lindsey Kiken <a href="mailto:Lindsey.Kiken@nike.com">Lindsey.Kiken@nike.com</a><br />  Krishnamurthy Ramakrishnan <a href="mailto:Krishnamurthy.Ramakrishnan@nike.com">Krishnamurthy.Ramakrishnan@nike.com</a><br /><br /><strong>API or service-related issues</strong><br />Vishibha Anand <a href="mailto:Vishibha.Anand@nike.com">Vishibha.Anand@nike.com</a><br /><br />Please fill out an <a href="https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&amp;RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake" target="blank">intake form</a> to initiate a requirement request. For more information, see the <a href="https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process" target="blank">Marketplace Platform Intake Process</a>.</td>
+      <td><strong>Intake, new requirements, onboarding</strong><br />  Betty Ashok <a href="mailto:Betty.Ashok@nike.com">Betty.Ashok@nike.com</a><br />   Lindsey Kiken <a href="mailto:Lindsey.Kiken@nike.com">Lindsey.Kiken@nike.com</a><br />  Krishnamurthy Ramakrishnan <a href="mailto:Krishnamurthy.Ramakrishnan@nike.com">Krishnamurthy.Ramakrishnan@nike.com</a><br /><br /><strong>API or service-related issues</strong><br />Vishibha Anand <a href="mailto:Vishibha.Anand@nike.com">Vishibha.Anand@nike.com</a></td>
+    </tr>
+    <tr>
+      <td>Intake</td>
+      <td>Please fill out an <a href="https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&amp;RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake" target="blank">intake form</a> to initiate a requirement request. For more information, see the <a href="https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process" target="blank">Marketplace Platform Intake Process</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -1328,7 +1338,7 @@ authorization
   </thead>
   <tbody>
     <tr>
-      <td>Initial draft 10/23/2018</td>
+      <td>Initial draft 10/25/2018</td>
       <td>Initial Draft</td>
       <td> </td>
     </tr>
@@ -1349,7 +1359,7 @@ authorization
     <div id="sidebar" class="sidebar">
 	<section>
 		<a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
+		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="overview" class="toggle"><i class="fas fa-cogs"></i>  Overview</span></h6>
 		<ul id="overview" class="hide"><li>
 				<a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li><li>
 				<a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
@@ -1357,7 +1367,7 @@ authorization
 				<a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li>
 				<a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
 				<a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li></ul><h6><span name="use-case" class="toggle"><i class="fas fa-map"></i>  Guides</span></h6>
-		<ul id="use-case" class="hide"><li>
+		<ul id="use-case" class=""><li>
 				<a href="/doc/commerce/checkout/api_checkout.html" class="">Cart & Checkout</a></li><li>
 				<a href="/doc/commerce/events/api_eventsv2.html" class="">Events</a></li><li>
 				<a href="/doc/commerce/product/api_merch_product.html" class="">Merch Product</a></li><li>
@@ -1365,10 +1375,47 @@ authorization
 				<a href="/doc/commerce/product/api_product_feeds.html" class="">Product Feeds</a></li><li>
 				<a href="/doc/commerce/product/api_rollup_threads.html" class="">Rollup Threads</a></li><li>
 				<a href="/doc/commerce/search/api_search.html" class="">Search</a></li><li>
-				<a href="/doc/commerce/product/capi_migration.html" class="">CAPI Migration</a></li></ul><h6><span name="get-started" class="toggle"><i class="fas fa-walking"></i>  &nbsp;Get Started</span></h6>
+				<a href="/doc/commerce/product/capi_migration.html" class="">CAPI Migration</a></li><li>
+				<a href="/doc/commerce/order/use_order.html" class="active">Orders</a><ul><li>
+						<a href="/doc/commerce/order/use_order.html#overview"
+						   class="">Overview</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#step-1-list-a-members-orders"
+						   class="">List a Member's Orders</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#step-2-list-order-details-for-a-member-or-guest"
+						   class="">List Order Details for a Member or Guest</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#understanding-order-status"
+						   class="">Understanding Order Status</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#api-endpoint-quick-reference"
+						   class="">API Endpoint Quick Reference</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#best-practices"
+						   class="">Best Practices</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#troubleshooting"
+						   class="">Troubleshooting</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#terms-of-service"
+						   class="">Terms of Service</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#contacting-the-team"
+						   class="">Contacting the Team</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#glossary"
+						   class="">Glossary</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#document-change-log"
+						   class="">Document Change Log</a>
+					</li><li>
+						<a href="/doc/commerce/order/use_order.html#next-steps"
+						   class="">Next Steps</a>
+					</li></ul></li></ul><h6><span name="get-started" class="toggle"><i class="fas fa-walking"></i>  Get Started</span></h6>
 		<ul id="get-started" class="hide"><li>
 				<a href="/doc/getting-started/using_nike_apis.html" class="">Using NDe APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="" class="toggle"></span></h6>
-		<ul id="" class=""></ul><h6><span name="reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
+		<ul id="" class="hide"></ul><h6><span name="reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
 		<ul id="reference" class="hide"><li>
 				<a href="/doc/commerce/reference/caller_best_practices.html" class="">Circuit Breaker Best Practices</a></li><li>
 				<a href="/doc/commerce/checkout/checkout_country_currency.html" class="">Countries & Currencies</a></li><li>
