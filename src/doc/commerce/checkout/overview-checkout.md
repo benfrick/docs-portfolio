@@ -12,7 +12,7 @@ url: /commerce/checkout/overview-checkout.html
 
 Learn how to use [Cart and Checkout](/doc/commerce/checkout/api_checkout.html), our solution to allow customers to purchase Nike products and services.
 
-<aside class="button"><a href="/doc/commerce/checkout/api_checkout.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+<aside class="button"><a href="/doc/commerce/checkout/api_checkout.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h4>Developer's Guide</h4></li></ul></a></aside>
 
 ### Nike Checkout gives customers fast and easy access to make purchases
 
