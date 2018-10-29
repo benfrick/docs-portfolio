@@ -269,6 +269,7 @@ aside.button ul {
     float: right;
     background:#f7f7f7;
     border: 1px solid #f0f4f7;
+    margin-left: 10px;
 }
 a.guide-button:hover {
     background: #C1C1C1;
