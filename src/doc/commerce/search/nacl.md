@@ -10,6 +10,8 @@ url: /commerce/search/nacl.html
 
 ---
 
+<a href="https://pages.github.nike.com/UXFoundation/premium-experience-toolkit/?selectedKind=Admin%7CAppBar&selectedStory=Decorated&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs" target="_blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO STORY BOOK</a>
+
 The NDe Admin Component Library (NACL) is a modular and flexible toolkit of user interface components that you can use in your internal Nike applications.
 
 ### Plug in the pieces you need and quickly build your UI

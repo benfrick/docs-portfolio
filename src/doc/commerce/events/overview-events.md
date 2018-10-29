@@ -10,9 +10,9 @@ url: /commerce/events/overview-events.html
 
 ---
 
-Learn how to use [Analytics Pipeline](/doc/commerce/events/api_eventsv2.html), your single destination to record analytics events.
+<a href="/doc/commerce/events/api_eventsv2.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
 
-<a href="/doc/commerce/checkout/api_checkout.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
+Learn how to use [Analytics Pipeline](/doc/commerce/events/api_eventsv2.html), your single destination to record analytics events.
 
 #### Track consumer and application behavior
 
