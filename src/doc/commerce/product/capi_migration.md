@@ -5,8 +5,6 @@ position: 3
 title: CAPI Migration
 url: /commerce/product/capi_migration.html
 toc:
-  - h2: Overview
-    url: /doc/commerce/product/capi_migration.html#overview
   - h2: CAPI vs. Cloud
     url: /doc/commerce/product/capi_migration.html#capi-vs-cloud-comparison
   - h2: Endpoint Mapping
@@ -29,7 +27,6 @@ toc:
 
 If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.
 
-## Overview
 
 CAPI is a legacy API that provides access to Nike product information, including inventory availability. CAPI has been replaced by Nike's Cloud-based APIs and will be deprecated after all clients have migrated to the newer APIs.
 
