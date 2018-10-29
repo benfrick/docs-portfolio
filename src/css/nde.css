@@ -243,33 +243,12 @@ aside.note {
     position: relative;
     z-index: 2;
 }
-aside.button {
-    margin-top: 0;
-    border-radius: 5px;
-    border: 1px solid #f0f4f7;
-    margin: 0px 0 20px 40px;
-    position: relative;
-    z-index: 2;
-    background:#f7f7f7;
-    width:130px;
-    text-align: center;
-}
-aside.button li {
-    list-style: none;
-    padding: 5px;
-}
-aside.button i {
-    float: none;
-    padding-top: 5px;
-}
-aside.button ul {
-    padding: 0px;
-}
 .guide-button {
     float: right;
     background:#f7f7f7;
     border: 1px solid #f0f4f7;
     margin-left: 10px;
+    border-radius: 5px;
 }
 a.guide-button:hover {
     background: #C1C1C1;
