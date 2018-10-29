@@ -265,6 +265,14 @@ aside.button i {
 aside.button ul {
     padding: 0px;
 }
+.guide-button {
+    float: right;
+    background:#f7f7f7;
+    border: 1px solid #f0f4f7;
+}
+a.guide-button:hover {
+    background: #C1C1C1;
+}
 .group-header {
     padding-top: 8px;
 }
