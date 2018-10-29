@@ -12,7 +12,7 @@ url: /commerce/events/overview-events.html
 
 Learn how to use [Analytics Pipeline](/doc/commerce/events/api_eventsv2.html), your single destination to record analytics events.
 
-<aside class="button"><a href="/doc/commerce/events/api_eventsv2.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+<aside class="button"><a href="/doc/commerce/events/api_eventsv2.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h4>Developer's Guide</h4></li></ul></a></aside>
 
 #### Track consumer and application behavior
 

@@ -7,17 +7,17 @@ navgroup: Order
 url: /commerce/order/overview-order.html
 ---
 
-# Order Overview
+# Order Overview - DRAFT
 
 ---
 
-Apps like NRC, NTC, WeChat Mini and Facebook provide consumers with the self-service of order history. See how easy it is to add [Orders](/doc/commerce/order/use_order.html) to your app.
+Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Orders](/doc/commerce/order/use_order.html) to your app.
 
-<aside class="button"><a href="/doc/commerce/order/use_order.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+<aside class="button"><a href="/doc/commerce/order/use_order.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h4>Developer's Guide</h4></li></ul></a></aside>
 
 #### Happy consumers are a good thing. What keeps them happy? Assuring them that their order is on the way.
 
-Use the Order APIs in your experience so consumers can check the status of a recent order and view their complete order history without contacting consumer services. Imagine that.
+Use the Order APIs in your experience so consumers can check the status of an order and view their complete order history without contacting Consumer Services. Imagine that.
 
 <br>
 
@@ -25,11 +25,11 @@ Use the Order APIs in your experience so consumers can check the status of a rec
 
 ## Use Cases
 
-Step through the Use Cases below to incorporate Order capabilities into your experience.
+Step through the Use Cases below to incorporate Orders into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a consumer's orders](/doc/commerce/order/use_order.html#order-summary)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List the details of a consumer's order](/doc/commerce/order/use_order.html#order-details)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use_order.html#step-1-list-a-members-orders)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the order details for a member or guest.](/doc/commerce/order/use_order.html#step-2-list-order-details-for-a-member-or-guest)|
 
 <h3>Related Information</h3>
 <aside class="note">
