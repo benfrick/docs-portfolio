@@ -6,14 +6,6 @@ url: /doc/portal/overview-doc-team.html
 # NDe Doc Team Overview
 
 ---
-<aside class="note"><h3>Resources</h3>
-<ul>
-<li>Product Manager: <a href="mailto:jeremy.geiger@nike.com">Jeremy Geiger</a></li>
-<li>Slack: <a href="https://nikedigital.slack.com/messages/C6A18NT7W">#nde-doc</a></li>
-<li>Confluence: <a href="https://confluence.nike.com/display/APID">NDe Doc Team</a></li>
-<li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail">NDe Doc Project</a></li>
-</ul>
-</aside>
 
 Hi, we are the NDe Doc Team! We document technologies for the [Nike Developer Portal](/) and more, in order to **enhance the developer experience**.
 
@@ -35,6 +27,15 @@ Need new content from scratch? We can create any of the following for you:
 
 We use a [Doc Lifecycle](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done) process to create and maintain content.
 
+<aside class="note"><h3>Resources</h3>
+<ul>
+<li>Product Manager: <a href="mailto:jeremy.geiger@nike.com">Jeremy Geiger</a></li>
+<li>Slack: <a href="https://nikedigital.slack.com/messages/C6A18NT7W">#nde-doc</a></li>
+<li>Confluence: <a href="https://confluence.nike.com/display/APID">NDe Doc Team</a></li>
+<li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail">NDe Doc Project</a></li>
+</ul>
+</aside>
+
 ### <i class="fas fa-edit"></i> &nbsp;Edit the Docs
 
 Have content that is outdated or that needs to be edited for style and/or content?
@@ -45,6 +46,7 @@ See the [NDe Doc Style Guide](https://confluence.nike.com/display/APID/NDe+Doc+S
 
 Have finished documentation and need help publishing it to the developer portal or creating a PDF? We can help!
 
+<!--
 ### <i class="fas fa-people-carry"></i> &nbsp;Self-Service Doc Updates
 
 If you have existing content on the Developer Portal, you can update it yourself directly in our [GitHub repo](https://github.nike.com/ngp/nde-devportal-docs).
@@ -52,3 +54,4 @@ If you have existing content on the Developer Portal, you can update it yourself
 At minimum, you need to be able to write in [Markdown](https://www.markdownguide.org/cheat-sheet/), and coordinate with us to publish the changes.
 
 See [here](#) for details about self-service doc updates.
+-->
