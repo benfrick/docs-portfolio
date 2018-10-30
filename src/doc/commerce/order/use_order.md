@@ -5,8 +5,6 @@ position: 2
 title: Orders
 url: /doc/commerce/order/use_order.html
 toc:
-  - h2: Overview
-    url: /doc/commerce/order/use_order.html#overview
   - h2: List a Member's Orders
     url: /doc/commerce/order/use_order.html#step-1-list-a-members-orders
   - h2: List Order Details for a Member or Guest
@@ -34,8 +32,6 @@ toc:
 # ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
 
 ##### Last Updated: 10/25/2018
-
-## Overview
 
 Retrieve a complete order history for your consumers.
 
