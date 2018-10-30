@@ -4,6 +4,21 @@ category: reference
 position: 6
 title: Circuit Breaker Best Practices
 url: /commerce/reference/caller_best_practices.html
+toc:
+  - h2: Service Call Best Practices
+    url: /doc/commerce/reference/caller_best_practices.html#service-call-best-practices
+  - h2: Buy Service
+    url: /doc/commerce/reference/caller_best_practices.html#buy-service
+  - h2: Availability
+    url: /doc/commerce/reference/caller_best_practices.html#availability
+  - h2: Launch Service
+    url: /doc/commerce/reference/caller_best_practices.html#launch-service
+  - h2: Merchandised Product Service
+    url: /doc/commerce/reference/caller_best_practices.html#merchandised-product-service
+  - h2: Payment Service
+    url: /doc/commerce/reference/caller_best_practices.html#payment-service
+  - h2: Product Feeds Service
+    url: /doc/commerce/reference/caller_best_practices.html#product-feeds-service
 ---
 
 # CIRCUIT BREAKER BEST PRACTICES <i class="g72-swoosh"></i>
@@ -13,14 +28,6 @@ url: /commerce/reference/caller_best_practices.html
 ---
 
 This guide discusses best practices for calling NDe services in peak traffic periods such as during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the [Service Call Best Practices](#service-call-best-practices) section, specific performance, retry and fallback best practices are listed by service.
-
-- [Service Call Best Practices](#service-call-best-practices)
-- [Availability Service](#availability)
-- [Buy Service](#buy-service)
-- [Launch Service](#launch-service)
-- [Merchandised Product Service](#merchandised-product-service)
-- [Payment Service](#payment-service)
-- [Product Feeds Service](#product-feeds-service)
 
 ## Service Call Best Practices
 
