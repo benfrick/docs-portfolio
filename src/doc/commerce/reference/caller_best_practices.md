@@ -6,19 +6,19 @@ title: Circuit Breaker Best Practices
 url: /commerce/reference/caller_best_practices.html
 toc:
   - h2: Service Call Best Practices
-    url: /doc/commerce/reference/caller_best_practices#service-call-best-practices
+    url: /doc/commerce/reference/caller_best_practices.html#service-call-best-practices
   - h2: Buy Service
-    url: /doc/commerce/reference/caller_best_practices#buy-service
+    url: /doc/commerce/reference/caller_best_practices.html#buy-service
   - h2: Availability
-    url: /doc/commerce/reference/caller_best_practices#availability
+    url: /doc/commerce/reference/caller_best_practices.html#availability
   - h2: Launch Service
-    url: /doc/commerce/reference/caller_best_practices#launch-service
+    url: /doc/commerce/reference/caller_best_practices.html#launch-service
   - h2: Merchandised Product Service
-    url: /doc/commerce/reference/caller_best_practices#merchandised-product-service
+    url: /doc/commerce/reference/caller_best_practices.html#merchandised-product-service
   - h2: Payment Service
-    url: /doc/commerce/reference/caller_best_practices#payment-service
+    url: /doc/commerce/reference/caller_best_practices.html#payment-service
   - h2: Product Feeds Service
-    url: /doc/commerce/reference/caller_best_practices#product-feeds-service
+    url: /doc/commerce/reference/caller_best_practices.html#product-feeds-service
 ---
 
 # CIRCUIT BREAKER BEST PRACTICES <i class="g72-swoosh"></i>

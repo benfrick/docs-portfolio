@@ -6,11 +6,11 @@ title: Countries, Channels, Brands
 url: /commerce/reference/global.html
 toc:
   - h2: Countries, Channels and Brands
-    url: /doc/commerce/reference/global#countries-languages-and-currencies
+    url: /doc/commerce/reference/global.html#countries-languages-and-currencies
   - h2: Sales Channels
-    url: /doc/commerce/reference/global#sales-channels
+    url: /doc/commerce/reference/global.html#sales-channels
   - h2: Brands
-    url: /doc/commerce/reference/global#brands
+    url: /doc/commerce/reference/global.html#brands
 ---
 
 # COUNTRIES, CHANNELS, BRANDS &nbsp;<i class="g72-swoosh"></i>

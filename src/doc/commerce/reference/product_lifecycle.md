@@ -6,9 +6,9 @@ title: Product Life Cycle
 url: /commerce/reference/product_lifecycle.html
 toc:
   - h2: Where Product Data Comes From
-    url: /doc/commerce/reference/product_lifecycle#where-product-data-comes-from
+    url: /doc/commerce/reference/product_lifecycle.html#where-product-data-comes-from
   - h2: How Product Data Gest To the Customer
-    url: /doc/commerce/reference/product_lifecycle#how-product-data-gets-to-the-customer
+    url: /doc/commerce/reference/product_lifecycle.html#how-product-data-gets-to-the-customer
 ---
 
 # PRODUCT LIFE CYCLE &nbsp;<i class="g72-swoosh"></i>

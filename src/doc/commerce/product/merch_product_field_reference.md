@@ -6,17 +6,17 @@ title: Merch Product Fields
 url: /commerce/product/merch_product_field_reference.html
 toc:
   - h2: Status Codes
-    url: /doc/commerce/product/merch_product_field_reference#status-codes
+    url: /doc/commerce/product/merch_product_field_reference.html#status-codes
   - h2: Merchandising Groups
-    url: /doc/commerce/product/merch_product_field_reference#merchandising-groups
+    url: /doc/commerce/product/merch_product_field_reference.html#merchandising-groups
   - h2: Genders
-    url: /doc/commerce/product/merch_product_field_reference#genders
+    url: /doc/commerce/product/merch_product_field_reference.html#genders
   - h2: Product Types
-    url: /doc/commerce/product/merch_product_field_reference#product-types
+    url: /doc/commerce/product/merch_product_field_reference.html#product-types
   - h2: Style Types
-    url: /doc/commerce/product/merch_product_field_reference#style-types
+    url: /doc/commerce/product/merch_product_field_reference.html#style-types
   - h2: Publish Types
-    url: /doc/commerce/product/merch_product_field_reference#publish-types
+    url: /doc/commerce/product/merch_product_field_reference.html#publish-types
 ---
 
 # MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i>
