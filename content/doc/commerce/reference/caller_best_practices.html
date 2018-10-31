@@ -25,16 +25,6 @@
 
 <p>This guide discusses best practices for calling NDe services in peak traffic periods such as during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the <a href="#service-call-best-practices">Service Call Best Practices</a> section, specific performance, retry and fallback best practices are listed by service.</p>
 
-<ul>
-  <li><a href="#service-call-best-practices">Service Call Best Practices</a></li>
-  <li><a href="#availability">Availability Service</a></li>
-  <li><a href="#buy-service">Buy Service</a></li>
-  <li><a href="#launch-service">Launch Service</a></li>
-  <li><a href="#merchandised-product-service">Merchandised Product Service</a></li>
-  <li><a href="#payment-service">Payment Service</a></li>
-  <li><a href="#product-feeds-service">Product Feeds Service</a></li>
-</ul>
-
 <h2 id="service-call-best-practices">Service Call Best Practices</h2>
 
 <p>Many factors can affect microservice performance and availability such as heavy network traffic and instance and database under scaling.  Eureka instability also contributes to the problem by leaving services unable to know where to send requests. While these factors are not in the control of the service caller, there are actions that callers should take to help ensure system health.</p>
@@ -914,7 +904,7 @@
     <div id="sidebar" class="sidebar">
 	<section>
 		<a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="overview" class="toggle"><i class="fas fa-cogs"></i>  Overview</span></h6>
+		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
 		<ul id="overview" class="hide"><li>
 				<a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li><li>
 				<a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
@@ -930,12 +920,34 @@
 				<a href="/doc/commerce/product/api_product_feeds.html" class="">Product Feeds</a></li><li>
 				<a href="/doc/commerce/product/api_rollup_threads.html" class="">Rollup Threads</a></li><li>
 				<a href="/doc/commerce/search/api_search.html" class="">Search</a></li><li>
-				<a href="/doc/commerce/product/capi_migration.html" class="">CAPI Migration</a></li></ul><h6><span name="get-started" class="toggle"><i class="fas fa-walking"></i>  Get Started</span></h6>
+				<a href="/doc/commerce/product/capi_migration.html" class="">CAPI Migration</a></li><li>
+				<a href="/doc/commerce/order/use_order.html" class="">Orders</a></li></ul><h6><span name="get-started" class="toggle"><i class="fas fa-walking"></i>  &nbsp;Get Started</span></h6>
 		<ul id="get-started" class="hide"><li>
 				<a href="/doc/getting-started/using_nike_apis.html" class="">Using NDe APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="" class="toggle"></span></h6>
 		<ul id="" class="hide"></ul><h6><span name="reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
 		<ul id="reference" class=""><li>
-				<a href="/doc/commerce/reference/caller_best_practices.html" class="active">Circuit Breaker Best Practices</a></li><li>
+				<a href="/doc/commerce/reference/caller_best_practices.html" class="active">Circuit Breaker Best Practices</a><ul><li>
+						<a href="/doc/commerce/reference/caller_best_practices.html#service-call-best-practices"
+						   class="">Service Call Best Practices</a>
+					</li><li>
+						<a href="/doc/commerce/reference/caller_best_practices.html#buy-service"
+						   class="">Buy Service</a>
+					</li><li>
+						<a href="/doc/commerce/reference/caller_best_practices.html#availability"
+						   class="">Availability</a>
+					</li><li>
+						<a href="/doc/commerce/reference/caller_best_practices.html#launch-service"
+						   class="">Launch Service</a>
+					</li><li>
+						<a href="/doc/commerce/reference/caller_best_practices.html#merchandised-product-service"
+						   class="">Merchandised Product Service</a>
+					</li><li>
+						<a href="/doc/commerce/reference/caller_best_practices.html#payment-service"
+						   class="">Payment Service</a>
+					</li><li>
+						<a href="/doc/commerce/reference/caller_best_practices.html#product-feeds-service"
+						   class="">Product Feeds Service</a>
+					</li></ul></li><li>
 				<a href="/doc/commerce/checkout/checkout_country_currency.html" class="">Countries & Currencies</a></li><li>
 				<a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li>
 				<a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li>

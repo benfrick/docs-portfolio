@@ -11,9 +11,9 @@ url: /commerce/order/overview-order.html
 
 ---
 
-Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Orders](/doc/commerce/order/use_order.html) to your app.
+<a href="/doc/commerce/order/use_order.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
 
-<aside class="button"><a href="/doc/commerce/order/use_order.html"><ul><li><i class="fas fa-arrow-alt-circle-right fa-2x"></i><h3>Developer's Guide</h3></li></ul></a></aside>
+Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Orders](/doc/commerce/order/use_order.html) to your app.
 
 #### Happy consumers are a good thing. What keeps them happy? Assuring them that their order is on the way.
 

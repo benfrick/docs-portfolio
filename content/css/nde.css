@@ -60,13 +60,12 @@ p {
 ol {
   display: block;
   list-style-type: decimal;
-  padding-left: 2em;
+  padding: 10px 10px 10px 30px;
 }
 ul {
   display: block;
   list-style-type: disc;
-  padding-left: 2em;
-  padding: 10px;
+  padding: 10px 10px 10px 30px;
 }
 pre {
   white-space: pre-wrap;
@@ -79,7 +78,7 @@ pre {
   border-top: 10px solid rgb(201,227,253);
   border-bottom: 10px solid rgb(201,227,253);
   border-left: 1px solid rgb(201,227,253);
-  width:70%;
+  width: 80%;
 }
 code, code span {
     font-family: Courier;
@@ -87,6 +86,11 @@ code, code span {
 a {
     color: #3498db;
     text-decoration: none;
+}
+img.border {
+    display: inline-block;
+    margin: 10px 0px 10px 0px;
+    border:1px solid lightgrey;
 }
 .sidebar a {
     color: #4c555a;
@@ -101,8 +105,8 @@ blockquote {
     border: 1px solid rgba(58,193,51,.12);
     background-color: #f6fff5;
     border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    width: 40%;
+    padding: 20px;
+    width: 70%;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -244,24 +248,15 @@ aside.note {
     position: relative;
     z-index: 2;
 }
-aside.button {
-    margin-top: 0;
-    border-radius: 5px;
-    border: 1px solid #f0f4f7;
-    border-left-width: 2px;
-    padding: 16px;
-    margin: 0px 0 20px 40px;
-    position: relative;
-    z-index: 2;
+.guide-button {
+    float: right;
     background:#f7f7f7;
-    width:200px;
-    text-align: center;
+    border: 1px solid #f0f4f7;
+    margin-left: 10px;
+    border-radius: 5px;
 }
-aside.button li {
-    list-style: none;
-}
-aside.button i {
-    float: none;
+a.guide-button:hover {
+    background: #C1C1C1;
 }
 .group-header {
     padding-top: 8px;

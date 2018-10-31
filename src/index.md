@@ -1,5 +1,6 @@
 ---
-layout: no-toc
+title: NDe Docs Home
+url: /index.html
 ---
 
 # NDe Commerce Docs &nbsp;<i class="g72-swoosh"></i>
@@ -114,3 +115,7 @@ Explore the guides below to get familiar with product features and experience ho
             </ul>
         </div>
     </div>
+ 
+<hr>
+
+<h5>Need some new or updated documentation of your own? Read about the <a href="/doc/portal/overview-doc-team.html">services offered by the NDe Docs team</a>.</h5>

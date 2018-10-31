@@ -4,6 +4,13 @@ category: reference
 position: 6
 title: Countries, Channels, Brands
 url: /commerce/reference/global.html
+toc:
+  - h2: Countries, Channels and Brands
+    url: /doc/commerce/reference/global.html#countries-languages-and-currencies
+  - h2: Sales Channels
+    url: /doc/commerce/reference/global.html#sales-channels
+  - h2: Brands
+    url: /doc/commerce/reference/global.html#brands
 ---
 
 # COUNTRIES, CHANNELS, BRANDS &nbsp;<i class="g72-swoosh"></i>
@@ -13,10 +20,6 @@ url: /commerce/reference/global.html
 ---
 
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
-
-- [Countries, Languages and Currencies](#countries-languages-and-currencies)
-- [Sales Channels](#sales-channels)
-- [Brands](#brands)
 
 ## Countries, Languages and Currencies
 
