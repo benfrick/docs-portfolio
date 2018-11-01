@@ -87,6 +87,11 @@ a {
     color: #3498db;
     text-decoration: none;
 }
+img.border {
+    display: inline-block;
+    margin: 10px 0px 10px 0px;
+    border:1px solid lightgrey;
+}
 .sidebar a {
     color: #4c555a;
     text-decoration: none;
