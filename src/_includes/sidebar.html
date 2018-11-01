@@ -1,48 +1,48 @@
 <div id="sidebar" class="sidebar">
-	<section>
-		<a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-		<h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;{{- page.toctitle -}}</a></h6>
-		{%- assign grouped_pages = site.pages | group_by: "category" -%}
-		{%- for cat in site.category-order -%}
-		{%- assign sorted_cats = grouped_pages | where: 'name', cat | first -%}
-		<h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "use-case" -%}<i class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "overview" -%}<i class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "get-started" -%}<i class="fas fa-walking"></i>  &nbsp;Get Started{%- elsif sorted_cats.name == "reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
-		<ul id="{{ sorted_cats.name }}" class="{%- if sorted_cats.name != page.category -%}hide{%- endif -%}">
-			{%- for doc in sorted_cats.items -%}
-			{%- if doc.category == "overview" or doc.category == "use-case" or doc.category == "get-started" or doc.category == "reference" -%}
-			<li>
-				<a href="{{- doc.url -}}" class="{%- if doc.url == page.url -%}active{%- endif -%}">
-					{{- doc.title -}}
-					{%- if doc.type -%}<span class="endpoint {{- doc.type -}}"></span>{%- endif -%}
-				</a>
-				{%- if doc.url == page.url and doc.toc and doc.toc[0] -%}
-				<ul>
-					{%- for firstlevel in doc.toc -%}
-					<li>
-						<a href="{{- firstlevel.url -}}"
-						   class="{%- if page.url == firstlevel.url -%}active{%- endif -%}">{{- firstlevel.h2 -}}</a>
-					</li>
-					{%- if firstlevel.subheadings[0] -%}
-					<ul>
-						{%- for secondlevel in firstlevel.subheadings -%}
-						<li>
-							<a href="{{- secondlevel.url -}}"
-							   class="{%- if page.url == secondlevel.url -%}active{%- endif -%}">{{-
-								secondlevel.h3-}}</a>
-						</li>
-						{%- endfor -%}
-					</ul>
-					{%- endif -%}
-					{%- endfor -%}
-				</ul>
-				{%- endif -%}
-				{%- if doc.category == "get-started" and forloop.index == 1 -%}
-			<li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li>
-			{%- endif -%}
-			</li>
-			{%- endif -%}
-			{%- endfor -%}
-		</ul>
-		{%- endfor -%}
-		<h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
-	</section>
+    <section>
+        <a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+        <h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;{{- page.toctitle -}}</a></h6>
+        {%- assign grouped_pages = site.pages | group_by: "category" | sort: "name" -%}
+        {%- for sorted_cats in grouped_pages -%}
+        <h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "b-use-case" -%}<i class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "a-overview" -%}<i class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "c-get-started" -%}<i class="fas fa-walking"></i>  &nbsp;Get Started{%- elsif sorted_cats.name == "d-reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
+        <ul id="{{ sorted_cats.name }}" class="{%- if sorted_cats.name != page.category -%}hide{%- endif -%}">
+            {%- assign docs = sorted_cats.items | sort: "position" -%}
+            {%- for doc in docs -%}
+            {%- if doc.category == "a-overview" or doc.category == "b-use-case" or doc.category == "c-get-started" or doc.category == "d-reference" -%}
+            <li>
+                <a href="{{- doc.url -}}" class="{%- if doc.url == page.url -%}active{%- endif -%}">
+                    {{- doc.title -}}
+                    {%- if doc.type -%}<span class="endpoint {{- doc.type -}}"></span>{%- endif -%}
+                </a>
+                {%- if doc.url == page.url and doc.toc and doc.toc[0] -%}
+                <ul>
+                    {%- for firstlevel in doc.toc -%}
+                    <li>
+                        <a href="{{- firstlevel.url -}}"
+                           class="{%- if page.url == firstlevel.url -%}active{%- endif -%}">{{- firstlevel.h2 -}}</a>
+                    </li>
+                    {%- if firstlevel.subheadings[0] -%}
+                    <ul>
+                        {%- for secondlevel in firstlevel.subheadings -%}
+                        <li>
+                            <a href="{{- secondlevel.url -}}"
+                               class="{%- if page.url == secondlevel.url -%}active{%- endif -%}">{{-
+                                secondlevel.h3-}}</a>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                    {%- endif -%}
+                    {%- endfor -%}
+                </ul>
+                {%- endif -%}
+                {%- if doc.category == "get-started" and forloop.index == 1 -%}
+            <li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li>
+            {%- endif -%}
+            </li>
+            {%- endif -%}
+            {%- endfor -%}
+        </ul>
+        {%- endfor -%}
+        <h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
+    </section>
 </div>

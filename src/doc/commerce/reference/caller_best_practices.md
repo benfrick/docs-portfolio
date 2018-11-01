@@ -1,7 +1,7 @@
 ---
 tags: pdf
-category: reference
-position: 6
+category: d-reference
+position: 1
 title: Circuit Breaker Best Practices
 url: /commerce/reference/caller_best_practices.html
 toc:

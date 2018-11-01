@@ -1,6 +1,6 @@
 ---
 tags: pdf
-category: use-case
+category: b-use-case
 position: 1
 title: Product Feeds
 url: /commerce/product/api_product_feeds.html
