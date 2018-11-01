@@ -1,7 +1,7 @@
 ---
 tags: pdf
-category: reference
-position: 6
+category: d-reference
+position: 4
 title: Product Life Cycle
 url: /commerce/reference/product_lifecycle.html
 toc:

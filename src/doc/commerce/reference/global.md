@@ -1,6 +1,6 @@
 ---
 tags: pdf
-category: reference
+category: d-reference
 position: 6
 title: Countries, Channels, Brands
 url: /commerce/reference/global.html

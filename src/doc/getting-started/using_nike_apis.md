@@ -1,7 +1,7 @@
 ---
 tags: pdf
-category: get-started
-position: 2
+category: c-get-started
+position: 1
 title: Using NDe APIs
 url: /getting-started/using_nike_apis.html
 toc:

@@ -1,7 +1,7 @@
 ---
 tags: pdf
-category: reference
-position: 6
+category: d-reference
+position: 3
 title: Glossary
 url: /commerce/reference/glossary.html
 ---

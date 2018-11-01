@@ -1,6 +1,6 @@
 ---
 tags: pdf
-category: reference
+category: d-reference
 position: 6
 title: Merch Product Fields
 url: /commerce/product/merch_product_field_reference.html
