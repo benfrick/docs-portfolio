@@ -9,7 +9,7 @@ url: /doc/portal/overview-doc-team.html
 
 Hi, we are the NDe Doc Team! We document technologies for the [Nike Developer Portal](/){:target="blank"} and more, in order to **enhance the developer experience**.
 
-The documentation serves four audiences:
+The documentation serves many audiences. Here are four:
 
 1. New Developers looking to **discover and learn the fundamentals**
 2. Experienced Developers fixing a bug or implementing a new feature who need **quick, specific answers**
