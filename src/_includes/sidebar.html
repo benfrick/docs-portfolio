@@ -5,7 +5,7 @@
 		{%- assign grouped_pages = site.pages | group_by: "category" -%}
 		{%- for cat in site.category-order -%}
 		{%- assign sorted_cats = grouped_pages | where: 'name', cat | first -%}
-		<h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "use-case" -%}<i class="fas fa-map"></i>  Guides{%- elsif sorted_cats.name == "overview" -%}<i class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "get-started" -%}<i class="fas fa-walking"></i>  &nbsp;Get Started{%- elsif sorted_cats.name == "reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
+		<h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "use-case" -%}<i class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "overview" -%}<i class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "get-started" -%}<i class="fas fa-walking"></i>  &nbsp;Get Started{%- elsif sorted_cats.name == "reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
 		<ul id="{{ sorted_cats.name }}" class="{%- if sorted_cats.name != page.category -%}hide{%- endif -%}">
 			{%- for doc in sorted_cats.items -%}
 			{%- if doc.category == "overview" or doc.category == "use-case" or doc.category == "get-started" or doc.category == "reference" -%}
