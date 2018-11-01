@@ -1,0 +1,11 @@
+html {
+   background-color: white !important;
+}
+pre {
+ border: none !important;
+ width: 100% !important;
+ white-space: nowrap;
+}
+.main {
+ border: none !important;
+}
