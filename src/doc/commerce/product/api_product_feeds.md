@@ -28,12 +28,13 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/api_product_feeds.html#glossary
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/api_product_feeds.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
-# PRODUCT FEEDS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
-
-##### Last Updated: 08/13/2018
+# PRODUCT FEEDS <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
 ---
+
+##### Last Updated: 08/13/2018
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html), this guide provides the additional details necessary to integrate with Product Feeds.
 

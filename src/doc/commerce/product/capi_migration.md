@@ -16,17 +16,17 @@ toc:
   - h2: Field Mapping
     url: /doc/commerce/product/capi_migration.html#field-mapping
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/capi_migration.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide
 
-##### Last Updated: 10/11/2018
-
 ---
+
+##### Last Updated: 10/11/2018
 
 > The CAPI API is in KLO. No feature requests or enhancements are being accepted. If CAPI does not provide the data or functionality you require, migrate to the appropriate Cloud services.
 
 If you are a current Commerce API (CAPI) client, use this guide to help with migration to the Nike Cloud APIs.
-
 
 CAPI is a legacy API that provides access to Nike product information, including inventory availability. CAPI has been replaced by Nike's Cloud-based APIs and will be deprecated after all clients have migrated to the newer APIs.
 

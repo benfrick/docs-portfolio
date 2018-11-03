@@ -42,12 +42,13 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/api_merch_product.html#glossary
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/api_merch_product.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
-# MERCHANDISED PRODUCTS API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
-
-##### Last Updated: 10/01/2018
+# MERCHANDISED PRODUCTS <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
 ---
+
+##### Last Updated: 10/01/2018
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
 
@@ -234,11 +235,8 @@ In the Nike data ecosystem, every product has the following fundamental characte
 - A set of product images
 
 These items are divided into a set of microservices. The relationship between the Merchandised Products objects is illustrated below.
-<br>
-<br>
-<br>
 
-![](/images/commerce/merch_product/relationships.png)
+![](/images/commerce/merch_product/relationships.png){:width="40%"}
 
 ### Finding the Data Points You Need
 

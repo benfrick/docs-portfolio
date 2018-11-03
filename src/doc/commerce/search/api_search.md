@@ -5,12 +5,13 @@ position: 4
 title: Search
 url: /commerce/search/api_search.html
 ---
+<a markdown="1" style="color:black;margin-top:20px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/search/api_search.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
-# UNDERSTANDING YOUR SEARCH RESULTS
-
-##### Last Updated: 8/7/2018
+# UNDERSTANDING SEARCH RESULTS
 
 ---
+
+##### Last Updated: 8/7/2018
 
 E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/api_rollup_threads.html) first.
 
@@ -84,7 +85,7 @@ Search Preview is a simple type of search that uses one or more search keywords 
 
 The Nike.com image below illustrates how Autocomplete and Search Preview can be used together to quickly lead customers to the products they want.
 
-![](/images/commerce/search/autocomplete-search-preview.png)
+![](/images/commerce/search/autocomplete-search-preview.png){:class="border"}
 
 >**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="blank"}.
 
@@ -271,3 +272,9 @@ Ensure that the product is set up correctly to be found by search. If you know t
 If you are unable to locate the product in Merchandised Product, you may need to go even further upstream in the product life cycle. Check the Prodigy Merchandising Tool to troubleshoot why the product has not streamed into the Merchandised Product system yet.
 
 Still need help? [Contact the Search Team](#contacting-the-team).
+
+## Related Links
+
+[NDe Docs Home](/index.html)
+
+[Get Started](/doc/getting-started/get-started.html)

@@ -5,16 +5,17 @@ position: 7
 title: Payment
 url: /commerce/payment/overview-payment.html
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/payment/overview-payment.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # Payment Overview
 
 ---
 
-<a href="/doc/commerce/payment/api_payment.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
-
 Learn how to use [Payment](/doc/commerce/payment/api_payment.html), our solution to allow customers to pay for purchases of Nike products and services.
 
-#### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe:
+<a href="/doc/commerce/payment/api_payment.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
+
+#### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe.
 
 <img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;"
      src="/images/icons/visa_logo.png" alt="Visa Logo"/>
@@ -33,15 +34,9 @@ Learn how to use [Payment](/doc/commerce/payment/api_payment.html), our solution
 <img style="display: inline-block; width: 65px; height:32px; vertical-align: middle;"
      src="/images/icons/ideal_logo.png" alt="iDeal Logo"/>
 
-<br>
-
-Build simple payment flows into your experience:
-
-<br>
-
-![SNKRS App Payment](/images/commerce/payment/snkrs_payment.png)
-
-## Use Cases
+![SNKRS App Payment](/images/commerce/payment/snkrs_payment-md.png)
+     
+#### Use Cases
 
 Step through the Use Cases below to incorporate Payment capabilities into your experience.
 
@@ -53,8 +48,9 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a wallet transaction like Paypal Express/Mark.](/doc/commerce/payment/api_payment.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/api_payment.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Save and get sensitive credit card information including CVV code.](/doc/commerce/payment/api_payment.html)|
+{:max-width="85%"}
 
-<h3>Related Information</h3>
+<h4>Related Information</h4>
 <aside class="note">
     <h5>APIs:</h5>
     <ul>
@@ -83,7 +79,7 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 </aside>
             
 * [Adding Cart & Checkout to Your Experience:](/doc/commerce/checkout/api_checkout.html) Learn how to add Cart & Checkout to your experience
-* [Supported Countries and Currencies:](/doc/commerce/checkout/checkout_country_currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart and Checkout.
+* [Supported Countries and Currencies:](/doc/commerce/checkout/checkout_country_currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 * [Product Life Cycle:](/doc/commerce/reference/product_lifecycle.html) Discover how Nike products become available for purchase in an experience.
