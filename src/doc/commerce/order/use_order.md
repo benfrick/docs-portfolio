@@ -1,7 +1,7 @@
 ---
 tags: pdf
-category: use-case
-position: 2
+category: b-use-case
+position: 9
 title: Orders
 url: /doc/commerce/order/use_order.html
 toc:

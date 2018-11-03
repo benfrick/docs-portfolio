@@ -1,6 +1,6 @@
 ---
 tags: pdf
-category: use-case
+category: b-use-case
 position: 3
 title: CAPI Migration
 url: /commerce/product/capi_migration.html

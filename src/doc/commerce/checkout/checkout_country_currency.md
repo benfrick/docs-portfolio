@@ -1,6 +1,6 @@
 ---
 tags: pdf
-category: reference
+category: d-reference
 position: 5
 title: Countries & Currencies
 url: /commerce/checkout/checkout_country_currency.html
