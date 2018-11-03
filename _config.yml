@@ -35,14 +35,6 @@ destination: ./content/
 # only convert changed files
 incremental: true
 
-# defines category order in sidenav
-category-order:
-  - overview
-  - use-case
-  - get-started
-  - community
-  - reference
-
 # -----------
 # CloudCannon
 

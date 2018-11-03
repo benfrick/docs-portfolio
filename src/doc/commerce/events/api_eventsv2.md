@@ -1,6 +1,6 @@
 ---
 tags: pdf
-category: use-case
+category: b-use-case
 position: 7
 title: Events
 url: /commerce/events/api_eventsv2.html
