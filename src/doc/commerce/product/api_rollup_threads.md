@@ -81,7 +81,7 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|Rollup Threads|Get a product Thread with related Threads nested within|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
+|GET|Rollup Threads|[Get a product Thread with related Threads nested within](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api)|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
 
 ## What is a Rollup Thread?
 
