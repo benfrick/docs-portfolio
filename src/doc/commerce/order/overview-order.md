@@ -6,6 +6,7 @@ title: Overview
 navgroup: Order
 url: /commerce/order/overview-order.html
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/order/overview-order.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # Order Overview - DRAFT
 
@@ -19,9 +20,7 @@ Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-ser
 
 Use the Order APIs in your experience so consumers can check the status of an order and view their complete order history without contacting Consumer Services. Imagine that.
 
-<br>
-
-![WeChat Order History](/images/commerce/order/wechat-order-history.png)
+![WeChat Order History](/images/commerce/order/wechat-order-history.png){:class="border"}
 
 ## Use Cases
 
@@ -48,4 +47,4 @@ Step through the Use Cases below to incorporate Orders into your experience.
 
 ### Connect
 
-We're here to help.   <i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}  <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

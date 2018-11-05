@@ -8,7 +8,6 @@ body {
     padding: 20px;
     width: 100%;
     font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h1 {
     font-weight: bold;
@@ -58,27 +57,27 @@ p {
     padding-bottom: 1px;
 }
 ol {
-  display: block;
-  list-style-type: decimal;
-  padding: 10px 10px 10px 30px;
+    display: block;
+    list-style-type: decimal;
+    padding: 5px 5px 5px 20px;
 }
 ul {
-  display: block;
-  list-style-type: disc;
-  padding: 10px 10px 10px 30px;
+    display: block;
+    list-style-type: disc;
+    padding: 5px 5px 5px 20px;
 }
 pre {
-  white-space: pre-wrap;
-  overflow-y: scroll;
-  max-height: 500px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  border-top: 10px solid rgb(201,227,253);
-  border-bottom: 10px solid rgb(201,227,253);
-  border-left: 1px solid rgb(201,227,253);
-  width: 80%;
+    white-space: pre-wrap;
+    overflow-y: scroll;
+    max-height: 500px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border-top: 10px solid rgb(201,227,253);
+    border-bottom: 10px solid rgb(201,227,253);
+    border-left: 1px solid rgb(201,227,253);
+    width: 80%;
 }
 code, code span {
     font-family: Courier;
@@ -87,10 +86,13 @@ a {
     color: #3498db;
     text-decoration: none;
 }
+img {
+    margin: 10px 0px 10px 0px;
+}
 img.border {
     display: inline-block;
-    margin: 10px 0px 10px 0px;
     border:1px solid lightgrey;
+    padding: 3px;
 }
 .sidebar a {
     color: #4c555a;

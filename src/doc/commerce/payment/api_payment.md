@@ -42,12 +42,13 @@ toc:
   - h2: Glossary
     url: /doc/commerce/payment/api_payment.html#glossary
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/payment/api_payment.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # PAYMENT DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 10/01/2018
-
 ---
+
+##### Last Updated: 10/01/2018
 
 Use the Payment API to allow customers to pay for Nike products.
 
@@ -66,8 +67,6 @@ If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [
 |Contact Info|Slack [#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="blank"}<br>Confluence space: [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="blank"}<br>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
 
 >**TIP:** SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
-
-<br>
 
 ![](/images/commerce/payment/payment_flow.png)
 
@@ -110,31 +109,31 @@ Payment API flows vary based on the payment method and the user experience. List
 
 In this Payment flow, the customer chooses to pay by Credit Card that is saved as a stored payment method. The customer must provide the CVV for validation because the shipping address passed into the call is either new or different from previous shipping addresses on past orders.
 
-![Image](/images/commerce/payment/creditcard_seq_dgm.png)
+![Image](/images/commerce/payment/creditcard_seq_dgm.png){:class="border"}
 
 **Sample PayPal Express flow**
 
 In this flow, the customer is redirected to the PayPal site after choosing to pay by PayPal Express in the Nike experience. The customer selects the shipping and billing addresses on the PayPal site. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
-![Image](/images/commerce/payment/paypal_express_seq_dgm.png)
+![Image](/images/commerce/payment/paypal_express_seq_dgm.png){:class="border"}
 
 **Sample PayPal Mark flow**
 
 In this flow, the customer chooses to pay by PayPal Mark and provides the shipping address in the Nike experience. From order review, the customer is redirected to the PayPal site to select the billing address and pay. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
-![Image](/images/commerce/payment/paypal_mark_seq_dgm.png)
+![Image](/images/commerce/payment/paypal_mark_seq_dgm.png){:class="border"}
 
 **Sample Apple Pay flow**
 
 In the example Payment API flow below, the customer chooses to pay by Apple Pay in a Safari web browser.
 
-![Image](/images/commerce/payment/applepay_seq_dgm.png)
+![Image](/images/commerce/payment/applepay_seq_dgm.png){:class="border"}
 
 **Sample Deferred Payment flow**
 
 In this flow, the customer chooses to pay by a payment method that will be authorized and captured after the Nike order has been placed. This is a typical flow for China payment methods such as WeChat and Alipay.
 
-![Image](/images/commerce/payment/deferred_pmt_seq_dgm.png)
+![Image](/images/commerce/payment/deferred_pmt_seq_dgm.png){:class="border"}
 
 ## API Endpoint Quick Reference
 
@@ -328,12 +327,9 @@ Listed in the response are the the `country` and `billingCountry` passed in the 
 
 ## Using Payment Options
 
----
-
 - [Get Payment Options for an Order](#get-payment-options-for-an-order)
 - [Allowable Billing Countries for a Shipping Country](#allowable-billing-countries-for-a-shipping-country)
 - [Validate Payments](#validate-payments)
-
 
 ### Payment Options Overview
 
@@ -507,7 +503,6 @@ Sample *Get Payment Options for an Order* 400 Error Response
 
 ### Allowable Billing Countries for a Shipping Country
 
----
 - Lists supported billing countries for a shipping country
 - Results are unsorted
 
@@ -666,8 +661,6 @@ Sample *Allowable Billing Countries for a Shipping Country* 400 Error response
 
 ### Validate Payments
 
----
-
 Use this endpoint to validate a list of payment options for a given shipping country.
 
 #### Endpoint Details
@@ -825,8 +818,6 @@ Sample *Validate Payments* 400 Error Response
 
 ## Using Stored Payment
 
----
-
 - [Initiate PayPal Billing Agreement](#initiate-paypal-billing-agreement)
 - [Save Payment by User Profile](#save-payment-for-user-profile)
 - [Delete All Stored Payments by User Profile](#delete-all-stored-payments-for-user-profile)
@@ -925,8 +916,6 @@ The next Stored Payment endpoints you might want to call for the PayPal Billing 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Save Payment for User Profile
-
----
 
 Use this endpoint to save a payment type for a Nike UPMID. See [Supported Stored Payment Types](#supported-stored-payment-types) to view types and storage limits. The request body varies depending upon the payment type and whether the endpoint is called pre-authorization or post-authorization. The typical flow for saving a Credit Card for user profile is:
 1. [`Store Credit Card Info`](#store-credit-card-info) to securely transmit credit card information to the PCI-certified Credit Cards submit service, passing a new UUID as the creditCardInfoId
@@ -1132,8 +1121,6 @@ This is a sample *Save Payment for User Profile* POST request to save Alipay Def
 
 ### Delete All Stored Payments for User Profile
 
----
-
 Use this endpoint to delete all Stored Payments for a Nike UPMID. This is a synchronous endpoint that is restricted.
 
 #### Endpoint Details
@@ -1171,8 +1158,6 @@ There is no content returned for a successful response.
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
 
 ### List Stored Payments by User Profile
-
----
 
 Use this endpoint to list the stored payment types for a Nike UPMID. Account numbers are masked in the response.
 
@@ -1423,8 +1408,6 @@ The sample *List Stored Payments by User Profile* 400 Error Response is returned
 
 ### List Stored Payment by Payment ID
 
----
-
 Use this endpoint to list stored payment details for a paymentId. This endpoint is primarily for gift cards but it can be called for any type of stored payment. When listing a gift card payment type and you don't need the balance, pass includebalance=false as a URI parameter for a quicker response. Setting this parameter to false prevents the Stored Payments service from making a balance call to the gift card provider. Because this endpoint returns sensitive information, it requires the JWT `X-Nike-Authorization` and `X-Nike-AppId` headers. It is a synchronous endpoint.
 
 #### Endpoint Details
@@ -1569,8 +1552,6 @@ Sample *List Stored Payment by ID* Alipay type response body:
 
 ### List Gift Card by Payment Id
 
----
-
 Use this endpoint to list a details for a customer's saved gift card. This is a synchronous service.
 
 #### Endpoint Details
@@ -1648,8 +1629,6 @@ Sample *List Gift Card by Payment Id* 400 error response:
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Update Stored Payment by ID
-
----
 
 Use this endpoint to update a customer's CreditCard or GiftCard type Stored Payment. No other payment types can be updated using this endpoint. You can update the credit card expiration month, expiration year, billing address and default payment type flag. The credit card account number cannot be changed.
 
@@ -1781,8 +1760,6 @@ Sample 404 error *Update Credit Card by User Profile* response body:
 
 #### Update Default Stored Payment by User Profile
 
----
-
 Use this endpoint to set a Stored Payment to the default payment. It removes the default flag on the current default Saved Payment and adds it to the Saved Payment matching the payment_id path parameter. The default payment type is typically used by the client to pre-select a payment method in the shopping flow.
 
 This is a synchronous endpoint.
@@ -1854,8 +1831,6 @@ Sample 404 error *Update Default Stored Payment by User Profile* response body:
 
 #### Delete Stored Payment by ID
 
----
-
 Use this endpoint to delete a stored payment by id. For example, this endpoint would be called when the customer deletes a stored payment when managing their payment information in the experience.
 
 #### Endpoint Details
@@ -1916,8 +1891,6 @@ Sample 400 error response:
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 #### Validate Credit Card CVV by Shipping Address
-
----
 
 This endpoint validates a CVV based on the request shipping address. If the shipping address does not match a shipping address on a past order or is not sent, the response indicates that the CVV needs to be validated. Note that billing address is returned.
 
@@ -2037,8 +2010,6 @@ Sample *Validate Credit Card CVV by Shipping Address* 200 response body for cred
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
 
 ## Using Payment Preview
-
----
 
 - [Payment Preview](#payment-preview)
 - [Payment Preview Job Status by ID](#payment-preview-job-status-by-id)
@@ -2610,8 +2581,6 @@ Sample *Payment Preview* request with "COMPLETED" status with the amount allocat
 
 ### Payment Preview Job Status by ID
 
----
-
 Use this endpoint to check the status of the *Payment Preview* job. After receiving a HTTP 202 from the *Payment Preview* call and waiting the duration of the **eta** time, call *Payment Preview Job Status by ID* using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
 To know if the job is done, check the value of the status field in the response body as follows:
@@ -2663,8 +2632,6 @@ The *Payment Preview Job Status by ID* response is identical to the [Payment Pre
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Payment Preview Result by ID
-
----
 
 After calling the *Payment Preview* to start the job and *Payment Preview Job* to check that the status of the job is "COMPLETED", you can optionally call the *Payment Preview Result by ID* endpoint to retrieve the result of the Payment Preview job. It is optional because the Payment Preview result is also returned in the *Payment Preview Job* when it is in "COMPLETED" status.
 
@@ -2754,8 +2721,6 @@ Sample Payment Preview Results response for two gift cards and a credit card:
 
 ## Using Payment Approval
 
----
-
 - [Submit Order Payments for Approval](#submit-order-payments-for-approval-post)
 - [Submit Order Payments for Approval](#submit-order-payments-for-approval-put)
 - [Retrieve Payment Approval Job](#retrieve-payment-approval-job)
@@ -2769,8 +2734,6 @@ This service performs fraud check, validation and authorization/debit for all pa
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 ### Submit Order Payments for Approval (POST)
-
----
 
 This service validates the payment allocation performed by the Payment Preview service, recalculating if necessary, and evaluates that the selected payment methods and items on Checkout are valid. If one or more payment type validations fail, all payment type authorizations (in the case of credit cards and PayPal)/debits (in the case of gift cards) are rolled back. There is no need to pass in the Checkout payment types in the body as the service looks them up using the checkoutId and paymentPreviewId in the request body.
 
@@ -3242,8 +3205,6 @@ Sample PayPal **Submit Order Payments for Approval** response body with "COMPLET
 
 ### Submit Order Payments for Approval (PUT)
 
----
-
 This service is identical to the [Submit Order Payments for Approval (POST)](#submit-order-payments-for-approval-post) endpoint except that it allows the calling service to determine the Payment Approval id to be passed in as a path parameter. This is helpful if the Payment Approval response times out and the calling service needs to call [Void Payment Approval](#void-payment-approval) endpoint with the paymentApprovalId to reverse the Payment Approval request.
 
 >**TIP:** This endpoint is intended to be a service-to-service call. [Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
@@ -3271,8 +3232,6 @@ See the [Submit Checkouts Payment for Approval (POST)](#submit-order-payments-fo
 **This endpoint is unavailable to Try It Out because it is JWT-restricted**
 
 ### Retrieve Payment Approval Job
-
----
 
 Use this endpoint to check the status of the *Submit Checkouts Payment for Approval* job. After receiving a HTTP 202 from the *Submit Checkouts Payment for Approval* call and waiting the duration of the eta time, call *Retrieval Payment Approval Job* endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
@@ -3341,8 +3300,6 @@ Sample *Retrieval Payment Approval Job* response body with "IN_PROGRESS" status:
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Order Payments Approval Result
-
----
 
 After calling *Submit Checkouts Payment for Approval* to start the job and *Retrieve Payment Approval Job* to verify the status of the job is "COMPLETED", you can optionally call this endpoint to retrieve the result of your Payment Approval job. This step is optional because the Payment Approval result is also returned in the *Retrieve Payment Approval Job* when it is in `COMPLETED` status. The Document Order Management System (DOMS) is currently the only service that calls this endpoint.
 
@@ -3453,8 +3410,6 @@ The response is identical to the *Retrieval Payment Approval Job* endpoint excep
 
 ### Void Payment Approval
 
----
-
 This endpoint voids a Payment Approval request. If a credit card was used in the original Payment Approval request, this endpoint reverses the authorization. If a gift card was used in the original Payment Approval request, it reverses the debit.
 
 #### Endpoint Details
@@ -3498,8 +3453,6 @@ The HTTP 204 response from *Void Payment Approval* has no response body.
 **This endpoint is not available to Try It Out because it is JWT-restricted**
 
 ### Get Payment Approval Summary
-
----
 
 Use this endpoint to retrieve a summary of a Payment Approval call that completed successfully. It returns masked account numbers and is available for 30 minutes. Unlike the [Payment Approval](#using-payment-approval) endpoint, this endpoint can be called by either a client or another service. The results of this endpoint can be used to display payment approval results on an order confirmation page.
 
@@ -3781,8 +3734,6 @@ Error Code                           | Error Message                            
 
 ## Using Credit Card Submit
 
----
-
 - [Add Credit Card Info with CVV](#add-credit-card-info-with-cvv)
 - [Add Credit Card Info without CVV](#add-credit-card-info-without-cvv)
 - [Add CVV](#add-cvv-information)
@@ -3797,8 +3748,6 @@ Error Code                           | Error Message                            
 This service lists, modifies, deletes and stores a customer's credit card and Apple Pay information. This service accommodates both PCI-certified and non-PCI-certified experiences. Endpoints for non-PCI-certified experiences render an iFrame to collect and retrieve credit card and Apple Pay information. For PCI-certified experiences, it offers endpoints to manage a customer's credit card and Apple Pay information directly.
 
 ### Add Credit Card Info with CVV
-
----
 
 This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with the masked credit card number, expiration date, and CVV matching the creditCardInfoId passed in the path parameter. If the creditCardInfoId is not found, the iFrame renders blank credit card number, date and CVV fields for editing. When each field has a value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores new or updated values. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the new or updated credit card data.
 
@@ -3834,11 +3783,9 @@ https://paymentcc.nike.com/services?id=24afd5dc-b523-491c-8282-8bed57cd2029&ctx=
 
 The response body of this endpoint is the iFrame with editable credit card number, expiration date and CVV editable fields pre-populated with values looked up based on the creditCardInfoId `id` path parameter.
 
-![Image](/images/commerce/payment/number_expdate_cvv.png)
+![Image](/images/commerce/payment/number_expdate_cvv.png){:class="border"}
 
 ### Add Credit Card Info without CVV
-
----
 
 This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with the masked credit card number and expiration date matching the creditCardInfoId passed in the path parameter. If the creditCardInfoId is not found, the iFrame renders blank credit card number and date fields for editing. When each field has a value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores new or updated values. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the new or updated credit card data.
 
@@ -3879,8 +3826,6 @@ The response body of this endpoint is the iFrame with editable credit card numbe
 
 ### Add CVV Information
 
----
-
 This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable CVV field. When the customer provides a CVV value, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores the CVV if it found a credit card matching the credit card Info id path parameter. As a last step, the iFrame calls the [Validate Credit Card Info](#validate-credit-card-info) endpoint to validate the updated CVV.
 
 #### Endpoint Details
@@ -3919,8 +3864,6 @@ The response body of this endpoint is the iFrame with an editable CVV field.
 
 ### Add CVV and Expiration Date
 
----
-
 This endpoint is intended to be called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable credit card expiration date and CVV fields. When the customer provides the appropriate values, the iFrame calls the [Store Credit Card Info](#store-credit-card-info) endpoint and temporarily stores the data if it found a credit card matching the credit card Info id path parameter. As a last step, the iFrame calls the [Validate credit card Info](#validate-credit-card-info) endpoint to validate the updated expiration date and CVV values.
 
 #### Endpoint Details
@@ -3958,8 +3901,6 @@ The response body of this endpoint is the iFrame with editable expiration date a
 ![Image](/images/commerce/payment/expdate_cvv.png)
 
 ### Validate Credit Card Info
-
----
 
 This endpoint is typically called immediately after the [Store Credit Card Info](#store-credit-card-info) endpoint to validate credit card information. The mode query parameter determines which credit card values to validate. It is a synchronous endpoint.
 
@@ -4043,8 +3984,6 @@ Sample *Validate Credit Card Info* response body for mode=4:
 
 ### Store Credit Card Info
 
----
-
 This endpoint temporarily stores credit card information for validation and purchase.
 
 #### Endpoint Details
@@ -4103,8 +4042,6 @@ https://paymentcc.nike.com/services/creditcardsubmit/0e13e71d-e952-46af-b3f5-e47
 This endpoint returns no response body.
 
 ### List Credit Card Info
-
----
 
 This endpoint updates and retrieves masked credit card information for a creditCardInfoId.
 
@@ -4180,8 +4117,6 @@ Sample *List Credit Card Info* Apple Pay response body:
 ```
 
 ### List Credit Card Info and Validate Status
-
----
 
 This endpoint retrieves masked credit card information and validation status of individual credit card fields for a creditCardInfoId.
 
@@ -4274,8 +4209,6 @@ Sample *List Credit Card Info and Validate Status* Apple Pay response body:
 |PAYMENT_DATA_NOT_VALID|Returned when the ApplePay payment data length is invalid|
 
 ## Using Apple Pay
-
----
 
 - [Start Apple Pay Session](#start-apple-pay-session)
 
@@ -4370,8 +4303,6 @@ Sample *Start Apple Pay Session* response body:
 
 ## Using Payment Wallet
 
----
-
 - [PayPal Express](#paypal-express)
 - [PayPal Express Job Status by ID](#paypal-express-job-by-id)
 - [PayPal Mark](#paypal-mark)
@@ -4386,8 +4317,6 @@ When paying with PayPal, this service initializes a PayPal session and generates
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 ### PayPal Express
-
----
 
 This endpoint passes in Checkout information including totals, items, pricing and other information so a session can be initiated at PayPal. The service returns a paypalToken and redirectURL in the response. When the customer is ready to Pay, the experience redirects to the PayPal redirectURL passing the paypalToken. PayPal uses the token to look up the session and permits the customer to pay. When the customer successfully pays or cancels the payment on the PayPal site, PayPal redirects the customer to either the returnURL or cancelURL passed in the request body.
 
@@ -4535,8 +4464,6 @@ Sample *PayPal Express* response body:
 
 ### PayPal Express Job by ID
 
----
-
 Use this endpoint to check the status of the *PayPal Express* job. After receiving a HTTP 202 from the *PayPal Express* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
 To know if the job is done, check the value of the status field in the response body as follows:
@@ -4630,8 +4557,6 @@ Sample *PayPal Express Job by ID* response body:
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### PayPal Mark
-
----
 
 Similar to the [PayPal Express](#paypal-express) endpoint, the PayPal Mark endpoint passes in Checkout information including totals, items, pricing, shipping address and other information so a Mark session can be initiated at PayPal. The service returns a paypalToken and redirectURL in the response. When the customer is ready to Pay, the experience redirects to the PayPal redirectURL passing the paypalToken. PayPal uses the token to look up the session and permits the customer to pay. When the customer successfully pays or cancels the payment on the PayPal site, PayPal redirects the customer to either the returnURL or cancelURL passed in the request body.
 
@@ -4824,8 +4749,6 @@ Sample *PayPal Mark* response body in "PENDING" status:
 
 ### PayPal Mark Job by ID
 
----
-
 Use this endpoint to check the status of the *PayPal Mark* job. After receiving a HTTP 202 from the *PayPal Mark* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
 #### Endpoint Details
@@ -4919,8 +4842,6 @@ Sample *PayPal Mark Job by ID* response body:
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### PayPal Details
-
----
 
 This endpoint retrieves and validates PayPal data, including shipping and billing information and the PayPal token. Call this endpoint after calling either the *PayPal Mark* or *PayPal Express* endpoint.
 
@@ -5065,8 +4986,6 @@ Sample *PayPal Details* 400 response body:
 
 #### PayPal Details Job by ID
 
----
-
 Use this endpoint to check the status of the *PayPal Details* job. After receiving a HTTP 202 from the *PayPal Details* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
 #### Endpoint Details
@@ -5191,11 +5110,7 @@ Sample *PayPal Details Job by ID* 200 response body in "COMPLETED" status:
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
-
-
 ## Using Deferred Payment
-
----
 
 - [Deferred Payment Form](#deferred-payment-form)
 - [Deferred Payment Form Job](#deferred-payment-form-job-status-by-id)
@@ -5211,8 +5126,6 @@ When paying for a Nike Checkout through a third-party vendor, this service gener
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 ### Deferred Payment Form
-
----
 
 Use this endpoint to generate a signed link used to redirect the customer to pay at a third-party site or app. In the case of WeChat, see the [Deferred Payment WeChat](#deferred-payment-wechat) endpoint.
 
@@ -5331,8 +5244,6 @@ Sample *Deferred Payment Form* 400 response:
 
 ### Deferred Payment Form Job Status by Id
 
----
-
 Use this endpoint to check the status of the *Deferred Payment Form* job. After receiving a HTTP 202 from the *Deferred Payment Form* call and waiting the duration of the eta time, call *Deferred Payment Form Job Status by Id* using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status. In the case of WeChat, see the [Deferred Payment WeChat](#deferred-payment-wechat) endpoint.
 
 To know if the job is done, check the value of the `status` field in the response body as follows:
@@ -5385,8 +5296,6 @@ The HTTP 202 response from *Deferred Payment Form Job* contains information abou
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Deferred Payment Status
-
----
 
 Use this endpoint to validate the Deferred Payment with the third-party Vendor.
 
@@ -5500,8 +5409,6 @@ Sample *Deferred Payment Status* response in "PENDING" status:
 
 ### Deferred Payment Status Job Status by Id
 
----
-
 Use this endpoint to check the status of the *Deferred Payment Status* job. After receiving a HTTP 202 from the *Deferred Payment Status* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
 #### Endpoint Details
@@ -5589,8 +5496,6 @@ Sample *Deferred Payment Status Job* response in "COMPLETED" status:
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Deferred Payment WeChat
-
----
 
 Use this endpoint to generate the necessary values to initiate a session in the WeChat Pay Browser Phone App from the browser. See [JSAPI WeChat Browser](https://confluence.nike.com/display/ocp/jsapi+wechat+browser){:target="blank"} and [WeChat Documentation](http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html){:target="blank"} for JavaScript implementation details. Note that this endpoint should be used for the Mobile Web or Desktop/WeChat flows only. The Mobile Web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkout; the Desktop flow generates a QR code when it is time to pay for the Nike Checkout that when followed, opens the WeChat Payment App on the customer's Mobile device.
 
@@ -5687,8 +5592,6 @@ Sample *Deferred Payment WeChat* response in "PENDING" status:
 
 
 ### Deferred WeChat Payment Job Status by Id
-
----
 
 Use this endpoint to check the status of the *Deferred WeChat Payment* job. After receiving a HTTP 202 from the *Deferred WeChat Payment* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 

@@ -5,6 +5,7 @@ position: 8
 title: Events
 url: /commerce/events/overview-events.html
 ---
+<a markdown="1" style="color:black;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/events/overview-events.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # Analytics Pipeline Overview
 
@@ -26,7 +27,7 @@ Analytics events sent to this API are transformed and sent to multiple downstrea
 
 ![Analytics Context Diagram](/images/analytics/events.png)
 
-## Use Cases
+#### Use Cases
 
 Want to know what your users are up to? Step through the Use Cases below to incorporate Analytics Pipeline capabilities into your experience.
 
@@ -36,7 +37,7 @@ Want to know what your users are up to? Step through the Use Cases below to inco
 |<i class="g72-check"></i>&nbsp;&nbsp;[Track the success of new features (A/B testing)](/doc/commerce/events/api_eventsv2.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Alert on traffic anomalies](/doc/commerce/events/api_eventsv2.html)|
 
-<h3>Related Information</h3>
+<h4>Related Information</h4>
 <aside class="note">
     <h5>APIs:</h5>
     <ul>
@@ -50,6 +51,6 @@ Want to know what your users are up to? Step through the Use Cases below to inco
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 * [Using Nike APIs:](/doc/getting-started/using_nike_apis.html) Discover common NDe API features, standards, conventions, and other helpful info.
 
-### Connect
+#### Connect
 
  We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

@@ -1,7 +1,7 @@
 ---
 ---
 
-# ANALYTICS PIPELINE API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
+# ANALYTICS PIPELINE v1 <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE (DRAFT)
 
 ##### Last Updated: 04/19/2018
 

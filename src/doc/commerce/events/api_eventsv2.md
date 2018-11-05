@@ -14,9 +14,9 @@ toc:
   - h2: Endpoint Quick Reference
     url: /doc/commerce/events/api_eventsv2.html#api-endpoint-quick-reference
   - h2: Making Your First Request
-    url: /doc/commerce/events/api_eventsv2.html#making-your-first-api-request
+    url: /doc/commerce/events/api_eventsv2.html#making-your-first-request
   - h2: Using Analytics Pipeline
-    url: /doc/commerce/events/api_eventsv2.html#using-analytics-v2-pipeline
+    url: /doc/commerce/events/api_eventsv2.html#using-analytics-pipeline
   - h2: Upgrading to the Latest Version
     url: /doc/commerce/events/api_eventsv2.html#upgrading-to-the-latest-version
   - h2: Best Practices
@@ -26,24 +26,25 @@ toc:
   - h2: Glossary
     url: /doc/commerce/events/api_eventsv2.html#glossary
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/events/api_eventsv2.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
-# ANALYTICS PIPELINE v2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
-
-##### Last Updated: 10/01/2018
+# ANALYTICS PIPELINE <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
 ---
 
-If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Analytics Pipeline Overview](/doc/commerce/events/overview-events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline v2 API.
+##### Last Updated: 10/01/2018
+
+If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and [Analytics Pipeline Overview](/doc/commerce/events/overview-events.html), this guide provides the details necessary to integrate with the Nike Analytics Pipeline API.
 
 ## API at a Glance
 
-The <b>Analytics Pipeline v2 API</b> is your single destination to record analytics events, helping both user experiences and web services to track consumer and application behavior.
+The <b>Analytics Pipeline API</b> is your single destination to record analytics events, helping both user experiences and web services to track consumer and application behavior.
 
 Because Analytics Pipeline is server-side and Nike-authored, it is much more customizable to your needs than a proprietary, client-side analytics solution.
 
 Analytics events sent to this API are transformed and sent to multiple downstream systems/partners in real-time, allowing many needs to be fulfilled by sending a single event. Future integrations with other partners can be done without necessarily changing the contract of this API, thus making it easier (if not completely transparent) to you.
 
-![](/images/analytics/events.png)
+![](/images/analytics/events.png){:style="margin:10px 0px 10px 0px;"}
 
 Here are a few ways in which analytics event data can be used:
 
@@ -62,7 +63,7 @@ The following table describes the key details of the API:
 |---|---|
 |Use this API to|Send all consumer and application tracking events to a single endpoint|
 |Who calls this API|TBD|
-|Current Version|Analytics Pipeline v2|
+|Current Version|v2|
 |Scope/Limitations|Analytics events only. All countries supported. Do not use for sales, revenue, or available inventory information|
 |SLAs|Response time (RT) and requests per second (RPS): <br>RT: 500 ms <br>RPS: 500|
 |Domain|Commerce|
@@ -77,17 +78,17 @@ Reach out to the Analytics API Product Owner, [Randy Davis](mailto:randall.davis
 
 ## Terms of Service
 
-- Clients must not use analytics data collected with the Analytics Pipeline v2 API for sales, revenue, or available inventory data.
+- Clients must not use analytics data collected with the Analytics Pipeline API for sales, revenue, or available inventory data.
 - High usage from a single IP address may be flagged by Nike bot detection and blocked.
 - This API is not intended for application monitoring, logging, or reporting on server-side errors.
 
 ### Authorization
 
-No authentication or authorization is required to use the Analytics Pipeline v2 API.
+No authentication or authorization is required to use the Analytics Pipeline API.
 
 ## Use Cases
 
-With the Analytics Pipeline v2 API you can track:
+With the Analytics Pipeline API you can track:
 
 - User-generated actions like clicks, taps, selections of options from a list, text entry, changes of view
 - User-submitted searches
@@ -107,29 +108,23 @@ The data you send to this API is transformed (in most cases) to meet the require
 
 Here are some screenshots from Adobe Analytics to illustrate what kind of insights you can gain from sending events through this API:
 
-<br>
+![](/images/analytics/adobe1.png){:class="border"}
 
-![](/images/analytics/adobe1.png)
-
-<br>
-
-![](/images/analytics/adobe2.png)
-
-<br>
+![](/images/analytics/adobe2.png){:class="border"}
 
 ## API Endpoint Quick Reference
 
 For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.
 
-### Analytics Pipeline v2 API
+### Analytics Pipeline API
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
 |[SEND A NEW EVENT BATCH](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/API.md){:target="blank"}|/measure/uxevents/v1|POST|
 
-## Making Your First API Request
+## Making Your First Request
 
-For your first Analytics Pipeline v2 API request, send an event that corresponds to a user clicking 'Change Billing Country' in the context of completing checkout in a web app.
+For your first Analytics Pipeline API request, send an event that corresponds to a user clicking 'Change Billing Country' in the context of completing checkout in a web app.
 
 ### Gather Data Needed for the Request
 
@@ -137,7 +132,7 @@ First, gather the data needed to make the request.
 
 #### URL
 
-In production, all requests to the Analytics Pipeline v2 API go to the same endpoint URL using the POST method:
+In production, all requests to the Analytics Pipeline API go to the same endpoint URL using the POST method:
 
 |HTTP Method|Endpoint URL|
 |---|---|
@@ -258,7 +253,7 @@ curl -X POST \
 
 ### Parse the Response
 
-The responses from the Analytics Pipeline v2 API are simple to parse. If the event was successfully recorded, you will get an HTTP 200 response as shown below:
+The responses from the Analytics Pipeline API are simple to parse. If the event was successfully recorded, you will get an HTTP 200 response as shown below:
 
 ```
 {
@@ -268,7 +263,7 @@ The responses from the Analytics Pipeline v2 API are simple to parse. If the eve
 
 If you receive any other response than this, something went wrong. See the [Response Body](#response-body) section for info on error responses.
 
-## Using Analytics v2 Pipeline
+## Using Analytics Pipeline
 
 - [Analytics Pipeline Overview](#analytics-pipeline-overview)
 - [Endpoint Details](#endpoint-details)
@@ -279,7 +274,7 @@ If you receive any other response than this, something went wrong. See the [Resp
 
 ### Analytics Pipeline Overview
 
-Use the Analytics Pipeline v2 API as a single destination for tracking your user experience, service, or application events.
+Use the Analytics Pipeline API as a single destination for tracking your user experience, service, or application events.
 
 ### Endpoint Details
 
@@ -289,7 +284,7 @@ Use the Analytics Pipeline v2 API as a single destination for tracking your user
 
 ### Path & Query Parameters
 
-There are no path nor query parameters to be used with the Analytics Pipeline v2 API.
+There are no path nor query parameters to be used with the Analytics Pipeline API.
 
 ### Request Headers
 
@@ -299,14 +294,14 @@ There are no path nor query parameters to be used with the Analytics Pipeline v2
 
 ### Request Body
 
-Forming a request body to the Analytics Pipeline v2 API requires combining the following schema information:
+Forming a request body to the Analytics Pipeline API requires combining the following schema information:
 
 - [Event Batch](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v1/eventBatch.json){:target="blank"}: top-most level in the request structure, which is common to all event types. Includes an array of one or more events.
 - [Common Fields](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/common-fields.json){:target="blank"}: common fields to be included for each event
 - One of the following schemas: [Page](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/page.json){:target="blank"}, [Track](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/track.json){:target="blank"}, [Identify](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/identify.json){:target="blank"}
 - All of the following schemas: [A-B Test](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/ab-test.json){:target="blank"}, [E-commerce](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/e-commerce.json){:target="blank"}, [Nike](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/schemas/v2/segment/nike.json){:target="blank"}
 
-![](/images/analytics/events_v2_schema.png)
+![](/images/analytics/events_v2_schema.png){:width="40%"}
 
 >Note: the Nike schema contains a field, **eventType**, that is a direct carryover from v1 (i.e. same exact values must be used). See more below on [Event Types](#event-types).
 

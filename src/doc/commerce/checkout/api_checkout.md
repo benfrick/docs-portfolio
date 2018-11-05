@@ -34,12 +34,13 @@ toc:
   - h2: Glossary
     url: /doc/commerce/checkout/api_checkout.html#glossary
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/checkout/api_checkout.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
-##### Last Updated: 10/01/2018
-
 ---
+
+##### Last Updated: 10/01/2018
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and the [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html), this guide provides the additional details necessary to integrate with the Buy Domain APIs.
 
@@ -89,9 +90,7 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 
 Here is an example of a sequence of API calls to execute an entire checkout:
 
-![](/images/commerce/buy/checkout_seq_dgm.png)
-
-<br>
+![](/images/commerce/buy/checkout_seq_dgm.png){:class="border"}
 
 ### Sample Requests
 
@@ -1804,7 +1803,7 @@ Features:
 
 #### Life Cycle of Wish List
 
-![](/images/commerce/buy/wishlists_flow.png)
+![](/images/commerce/buy/wishlists_flow.png){:width="70%"}
 
 ### Create or Update a List
 
