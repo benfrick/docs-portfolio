@@ -28,8 +28,11 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/order/use_order.html#next-steps
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/order/use_order.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
+
+---
 
 ##### Last Updated: 10/25/2018
 
@@ -65,7 +68,6 @@ An order consists of all data related to:
 - Status
 
 An order is created in the last step of [Checkout](/doc/commerce/checkout/api_checkout.html) when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the order lifecycle. See [Understanding Order Status](#understanding-order-status) for more detail.
-
 
 ## Step 1: List a member's orders
 
@@ -245,9 +247,6 @@ In the scenario illustrated by the BFF Order Details response below, a consumer 
         }
     ]
 }
-
-
-
 ```
 
 Let's look at a slightly more complex example. As illustrated by the BFF Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the rolledUpStatus of the order line is "Delivered". The highest rolledUpStatus of the order is "Delivered", so the order status is "Partially Delivered".
@@ -570,7 +569,6 @@ Yes. The APIs are exposed publicly so it does not matter where you are calling f
 ## Contacting the Team
 
 Need to contact the Orders team?
-
 
 |---|---|
 |Slack|[#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="blank"}|

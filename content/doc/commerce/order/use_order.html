@@ -17,7 +17,11 @@
 </head>
 <body>
 <div class="main">
-    <h1 id="adding-order-history-to-your-experience-draft">ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br />DRAFT</h1>
+    <p><a style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/order/use_order.pdf" target="_blank">PDF  <img src="/images/icons/PDF_32.png" alt="PDF icon" style="margin: 5px 0px 5px 0px;" /></a></p>
+
+<h1 id="adding-order-history-to-your-experience-draft">ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br />DRAFT</h1>
+
+<hr />
 
 <h5 id="last-updated-10252018">Last Updated: 10/25/2018</h5>
 
@@ -340,9 +344,6 @@ is a member, guest, or employee. For more information, see <a href="#required-re
         }
     ]
 }
-
-
-
 </code></pre></div></div>
 
 <p>Let’s look at a slightly more complex example. As illustrated by the BFF Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of “Delivered”, another short was delivered and returned and has a status of “Return Processed”, and one short was shipped and has a status of “Shipped”. Because the “Delivered” status has the highest status code of the order line, the rolledUpStatus of the order line is “Delivered”. The highest rolledUpStatus of the order is “Delivered”, so the order status is “Partially Delivered”.</p>
