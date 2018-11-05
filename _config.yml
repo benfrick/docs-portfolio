@@ -33,7 +33,7 @@ source: src
 destination: ./content/
 
 # only convert changed files
-incremental: true
+#incremental: true
 
 # -----------
 # CloudCannon

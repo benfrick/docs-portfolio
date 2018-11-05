@@ -1,7 +1,7 @@
 ---
 tags: pdf
 category: a-overview
-position: 8
+position: 9
 title: Events
 url: /commerce/events/overview-events.html
 ---
