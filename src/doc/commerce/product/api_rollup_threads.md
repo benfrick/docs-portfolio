@@ -28,12 +28,13 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/api_rollup_threads.html#glossary
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/api_rollup_threads.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
-# PRODUCT FEED ROLLUP THREADS V2 API <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
-
-##### Last Updated: 10/01/2018
+# ROLLUP THREADS <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
 ---
+
+##### Last Updated: 10/01/2018
 
 If you've read [Using NDe APIs](/doc/getting-started/using_nike_apis.html) and the [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html), this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.
 

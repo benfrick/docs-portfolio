@@ -62,6 +62,13 @@ Explore the guides below to get familiar with product features and experience ho
         </div>-->
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
+                <i class="fas fa-list-ul fa-2x"></i>
+                <li class="group-header"><h4>Self-Service</h4></li>
+                <li><a href="/doc/commerce/order/overview-order.html"><h5>Order History</h5></a></li>
+            </ul>
+        </div>
+        <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
+            <ul>
                 <i class="fas fa-chart-line fa-2x"></i>
                 <li class="group-header"><h4>Analyze</h4></li>
                 <li><a href="/doc/commerce/events/overview-events.html"><h5>Events</h5></a></li>

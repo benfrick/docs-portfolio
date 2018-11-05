@@ -1,11 +1,11 @@
 ---
 tags: pdf
-category:
-position: 1
-title: Overview
-navgroup: Order
+category: a-overview
+position: 8
+title: Order
 url: /commerce/order/overview-order.html
 ---
+<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/order/overview-order.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
 
 # Order Overview - DRAFT
 
@@ -13,19 +13,17 @@ url: /commerce/order/overview-order.html
 
 <a href="/doc/commerce/order/use_order.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
 
-Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Orders](/doc/commerce/order/use_order.html) to your app.
+Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Order](/doc/commerce/order/use_order.html) to your app.
 
 #### Happy consumers are a good thing. What keeps them happy? Assuring them that their order is on the way.
 
 Use the Order APIs in your experience so consumers can check the status of an order and view their complete order history without contacting Consumer Services. Imagine that.
 
-<br>
-
-![WeChat Order History](/images/commerce/order/wechat-order-history.png)
+![WeChat Order History](/images/commerce/order/wechat-order-history.png){:class="border"}
 
 ## Use Cases
 
-Step through the Use Cases below to incorporate Orders into your experience.
+Step through the Use Cases below to incorporate Order into your experience.
 
 |---|
 |<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use_order.html#step-1-list-a-members-orders)|
@@ -48,4 +46,4 @@ Step through the Use Cases below to incorporate Orders into your experience.
 
 ### Connect
 
-We're here to help.   <i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}  <i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
