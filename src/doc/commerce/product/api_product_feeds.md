@@ -86,8 +86,8 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|Product Threads List|Get all threads for a channel, marketplace, language combination|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
-|GET|Product Thread by ID|Get a specific thread by its identifier|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
+|GET|Product Threads List|[Get all threads for a channel, marketplace, language combination](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api)|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
+|GET|Product Thread by ID|[Get a specific thread by its identifier](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api)|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
 
 ## Cards, Threads, and Feeds
 
