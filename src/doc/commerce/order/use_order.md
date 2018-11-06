@@ -2,7 +2,7 @@
 tags: pdf
 category: b-use-case
 position: 9
-title: Orders
+title: Order
 url: /doc/commerce/order/use_order.html
 toc:
   - h2: List a Member's Orders
