@@ -3,17 +3,15 @@ tags: pdf
 category: a-overview
 position: 6
 title: Cart & Checkout
-url: /commerce/checkout/overview-checkout.html
+url: /doc/commerce/checkout/overview-checkout.html
 ---
-<a markdown="1" style="color:black;margin-left:15px;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/checkout/overview-checkout.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/checkout/api_checkout.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Cart & Checkout Overview
 
 ---
 
 Learn how to use [Cart and Checkout](/doc/commerce/checkout/api_checkout.html) to enable the purchase of Nike products and services in your app.
-
-<a href="/doc/commerce/checkout/api_checkout.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
 
 ### Nike Checkout gives consumers fast and easy purchases
 

@@ -3,9 +3,9 @@ tags: pdf
 category: b-use-case
 position: 4
 title: Search
-url: /commerce/search/api_search.html
+url: /doc/commerce/search/api_search.html
 ---
-<a markdown="1" style="color:black;margin-top:20px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/search/api_search.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # UNDERSTANDING SEARCH RESULTS
 
