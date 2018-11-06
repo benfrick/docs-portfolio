@@ -3,17 +3,15 @@ tags: pdf
 category: a-overview
 position: 7
 title: Payment
-url: /commerce/payment/overview-payment.html
+url: /doc/commerce/payment/overview-payment.html
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/payment/overview-payment.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/payment/api_payment.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Payment Overview
 
 ---
 
 Learn how to use [Payment](/doc/commerce/payment/api_payment.html), our solution to allow customers to pay for purchases of Nike products and services.
-
-<a href="/doc/commerce/payment/api_payment.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
 
 #### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe.
 

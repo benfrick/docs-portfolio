@@ -3,15 +3,13 @@ tags: pdf
 category: a-overview
 position: 9
 title: Events
-url: /commerce/events/overview-events.html
+url: /doc/commerce/events/overview-events.html
 ---
-<a markdown="1" style="color:black;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/events/overview-events.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/events/api_eventsv2.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Analytics Pipeline Overview
 
 ---
-
-<a href="/doc/commerce/events/api_eventsv2.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
 
 Learn how to use [Analytics Pipeline](/doc/commerce/events/api_eventsv2.html), your single destination to record analytics events.
 

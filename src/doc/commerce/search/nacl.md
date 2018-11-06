@@ -3,15 +3,13 @@ tags: pdf
 category: a-overview
 position: 10
 title: Admin Client Library
-url: /commerce/search/nacl.html
+url: /doc/commerce/search/nacl.html
 ---
-<a markdown="1" style="color:black;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/search/nacl.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="https://pages.github.nike.com/UXFoundation/premium-experience-toolkit/?selectedKind=Admin%7CAppBar&selectedStory=Decorated&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs" target="_blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> STORY BOOK</a>
 
 # Admin Client Library Overview
 
 ---
-
-<a href="https://pages.github.nike.com/UXFoundation/premium-experience-toolkit/?selectedKind=Admin%7CAppBar&selectedStory=Decorated&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs" target="_blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO STORY BOOK</a>
 
 The NDe Admin Component Library (NACL) is a modular and flexible toolkit of user interface components that you can use in your internal Nike applications.
 
