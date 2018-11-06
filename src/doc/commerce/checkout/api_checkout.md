@@ -1,4 +1,5 @@
 ---
+id: api_checkout
 tags: pdf
 category: b-use-case
 position: 6

@@ -1,4 +1,5 @@
 ---
+id: glossary
 tags: pdf
 category: d-reference
 position: 3

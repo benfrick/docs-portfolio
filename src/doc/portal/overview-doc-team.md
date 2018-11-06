@@ -1,6 +1,7 @@
 ---
 title: NDe Doc Team Services
 url: /doc/portal/overview-doc-team.html
+excluded_in_search: true
 ---
 
 # NDe Doc Team Services

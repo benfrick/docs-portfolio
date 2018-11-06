@@ -1,4 +1,5 @@
 ---
+id: api_eventsv2
 tags: pdf
 category: b-use-case
 position: 7

@@ -1,4 +1,5 @@
 ---
+id: product_lifecycle
 tags: pdf
 category: d-reference
 position: 4
