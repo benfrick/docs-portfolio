@@ -271,6 +271,9 @@ aside.note {
 a.guide-button:hover {
     background: #C1C1C1;
 }
+header form {
+    margin-right: 15px;
+}
 .group-header {
     padding-top: 8px;
 }

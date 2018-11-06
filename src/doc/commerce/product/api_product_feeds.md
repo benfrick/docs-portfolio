@@ -1,4 +1,5 @@
 ---
+id: api_product_feeds
 tags: pdf
 category: b-use-case
 position: 1

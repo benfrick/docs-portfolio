@@ -1,4 +1,5 @@
 ---
+id: using_nike_apis
 tags: pdf
 category: c-get-started
 position: 1

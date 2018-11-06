@@ -1,4 +1,5 @@
 ---
+id: api_merch_product
 tags: pdf
 category: b-use-case
 position: 8
