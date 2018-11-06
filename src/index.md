@@ -105,7 +105,7 @@ Explore the guides below to get familiar with product features and experience ho
     <div class="ncss-row">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-sm">
             <ul>
-            <i class="fas fa-walking fa-3x"></i>
+            <i class="fas fa-play-circle fa-3x"></i>
             <li class="group-header"><h4><a href="/doc/getting-started/get-started.html">Get Started</a></h4></li>
             </ul>
         </div>
