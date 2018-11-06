@@ -3,7 +3,7 @@ tags: pdf
 category:
 position:
 title: Cart & Checkout Guide
-url: /commerce/checkout/use_checkout.html
+url: /doc/commerce/checkout/use_checkout.html
 toc:
   - h2: Overview
     url: /commerce/checkout/use_checkout.html#overview

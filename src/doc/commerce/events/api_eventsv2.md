@@ -3,7 +3,7 @@ tags: pdf
 category: b-use-case
 position: 7
 title: Events
-url: /commerce/events/api_eventsv2.html
+url: /doc/commerce/events/api_eventsv2.html
 toc:
   - h2: API at a Glance
     url: /doc/commerce/events/api_eventsv2.html#api-at-a-glance
@@ -26,7 +26,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/events/api_eventsv2.html#glossary
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/events/api_eventsv2.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ANALYTICS PIPELINE <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
