@@ -4,7 +4,7 @@ html {
 pre {
  border: none !important;
  width: 100% !important;
- white-space: nowrap;
+ max-height: none !important;
 }
 .main {
  border: none !important;
