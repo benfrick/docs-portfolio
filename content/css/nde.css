@@ -102,6 +102,15 @@ img.border {
     color: #3498db;
     text-decoration: none;
 }
+.sidebar h6 {
+    font-size: .90em;
+    color: #4c555a;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.sidebar a {
+    padding-left: 11px;
+}
 blockquote {
     /*border: 2px solid #dfdfdf;*/
     border: 1px solid rgba(58,193,51,.12);

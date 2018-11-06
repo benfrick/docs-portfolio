@@ -4,7 +4,7 @@
         <h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;{{- page.toctitle -}}</a></h6>
         {%- assign grouped_pages = site.pages | group_by: "category" | sort: "name" -%}
         {%- for sorted_cats in grouped_pages -%}
-        <h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "b-use-case" -%}<i class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "a-overview" -%}<i class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "c-get-started" -%}<i class="fas fa-walking"></i>  &nbsp;Get Started{%- elsif sorted_cats.name == "d-reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
+        <h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "b-use-case" -%}<i class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "a-overview" -%}<i class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "c-get-started" -%}<i class="fas fa-play-circle"></i> Get Started{%- elsif sorted_cats.name == "d-reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
         <ul id="{{ sorted_cats.name }}" class="{%- if sorted_cats.name != page.category -%}hide{%- endif -%}">
             {%- assign docs = sorted_cats.items | sort: "position" -%}
             {%- for doc in docs -%}
