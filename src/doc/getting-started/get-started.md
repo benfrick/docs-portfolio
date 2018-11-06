@@ -4,7 +4,7 @@ title: Get Started
 url: /doc/getting-started/get-started.html
 ---
 
-# <i class="fas fa-walking"></i>&nbsp; Get Started
+# <i class="fas fa-play-circle"></i>&nbsp; Get Started
 
 ---
 
