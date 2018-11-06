@@ -90,7 +90,7 @@
 		searchQueryEl = document.getElementById("search-query"),
 		searchInputEl = document.getElementById("search-input");
 
-	//searchInputEl.value = query;
+	searchInputEl.value = query;
 	searchQueryEl.innerText = query;
 	searchQueryContainerEl.style.display = "inline";
 
