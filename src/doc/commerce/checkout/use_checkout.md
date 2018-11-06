@@ -1,6 +1,5 @@
 ---
 tags: pdf
-category:
 position:
 title: Cart & Checkout Guide
 url: /doc/commerce/checkout/use_checkout.html
