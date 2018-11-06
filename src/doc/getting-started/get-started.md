@@ -1,5 +1,4 @@
 ---
-category:
 position: 1
 title: Get Started
 url: /doc/getting-started/get-started.html

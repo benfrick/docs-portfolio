@@ -1,9 +1,10 @@
 <div id="sidebar" class="sidebar">
     <section>
         <a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-        <h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;{{- page.toctitle -}}</a></h6>
+        <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;{{- page.toctitle -}}</a></h6>
         {%- assign grouped_pages = site.pages | group_by: "category" | sort: "name" -%}
         {%- for sorted_cats in grouped_pages -%}
+        {%- if sorted_cats.name != "" -%}
         <h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "b-use-case" -%}<i class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "a-overview" -%}<i class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "c-get-started" -%}<i class="fas fa-play-circle"></i> Get Started{%- elsif sorted_cats.name == "d-reference" -%}<i class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
         <ul id="{{ sorted_cats.name }}" class="{%- if sorted_cats.name != page.category -%}hide{%- endif -%}">
             {%- assign docs = sorted_cats.items | sort: "position" -%}
@@ -42,6 +43,7 @@
             {%- endif -%}
             {%- endfor -%}
         </ul>
+        {%- else -%}{%- endif -%}
         {%- endfor -%}
         <h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
     </section>

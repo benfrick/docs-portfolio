@@ -97,6 +97,7 @@ img.border {
 .sidebar a {
     color: #4c555a;
     text-decoration: none;
+    padding-left: 11px;
 }
 .sidebar a.active {
     color: #3498db;
@@ -105,11 +106,12 @@ img.border {
 .sidebar h6 {
     font-size: .90em;
     color: #4c555a;
-    padding-top: 1px;
+    padding-top: 2px;
     padding-bottom: 1px;
 }
-.sidebar a {
-    padding-left: 11px;
+.sidebar a.toctitle {
+    padding-left: 0;
+    font-size: inherit;
 }
 blockquote {
     /*border: 2px solid #dfdfdf;*/
