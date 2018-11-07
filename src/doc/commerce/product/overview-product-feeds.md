@@ -1,11 +1,12 @@
 ---
+id: overview-product-feeds
 tags: pdf
 category: a-overview
 position: 1
 title: Product Feeds
-url: /commerce/product/overview-product-feeds.html
+url: /doc/commerce/product/overview-product-feeds.html
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/overview-product-feeds.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/product/api_product_feeds.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Product Feeds Overview
 
@@ -13,8 +14,6 @@ url: /commerce/product/overview-product-feeds.html
 
 Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase Nike products and make them available for purchase. But how is all that visual content pulled together? It's done with [Product Feeds](/doc/commerce/product/api_product_feeds.html) and you can use it, too.
 
-<a href="/doc/commerce/product/api_product_feeds.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
-    
 #### Use Product Feeds to tell amazing Nike stories with digital product data and authored content.
 
 Product Feeds is simple and easy to use: it does all the heavy lifting of gathering the content for you.

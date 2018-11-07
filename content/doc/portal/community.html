@@ -48,11 +48,14 @@
 
 </div>
 <header>
+    <form action="/search/index.html" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
     <div id="sidebar" class="sidebar">
     <section>
         <a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
-        <h6><a href="/index.html"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="" class="toggle"></span></h6>
-        <ul id="" class="hide"></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
+        <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
         <ul id="a-overview" class="hide"><li>
                 <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
                 <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
@@ -70,7 +73,7 @@
                 <a href="/doc/commerce/payment/api_payment.html" class="">Payment</a></li><li>
                 <a href="/doc/commerce/events/api_eventsv2.html" class="">Events</a></li><li>
                 <a href="/doc/commerce/product/api_merch_product.html" class="">Merch Product</a></li><li>
-                <a href="/doc/commerce/order/use_order.html" class="">Orders</a></li></ul><h6><span name="c-get-started" class="toggle"><i class="fas fa-walking"></i>  &nbsp;Get Started</span></h6>
+                <a href="/doc/commerce/order/use_order.html" class="">Order</a></li></ul><h6><span name="c-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
         <ul id="c-get-started" class="hide"><li>
                 <a href="/doc/getting-started/using_nike_apis.html" class="">Using NDe APIs</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
         <ul id="d-reference" class="hide"><li>

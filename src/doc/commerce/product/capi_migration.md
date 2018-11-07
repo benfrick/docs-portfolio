@@ -1,9 +1,10 @@
 ---
+id: capi_migration
 tags: pdf
 category: b-use-case
 position: 3
 title: CAPI Migration
-url: /commerce/product/capi_migration.html
+url: /doc/commerce/product/capi_migration.html
 toc:
   - h2: CAPI vs. Cloud
     url: /doc/commerce/product/capi_migration.html#capi-vs-cloud-comparison
@@ -16,7 +17,7 @@ toc:
   - h2: Field Mapping
     url: /doc/commerce/product/capi_migration.html#field-mapping
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/capi_migration.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # Commerce API (CAPI) <i class="g72-swoosh"></i><br>Migration Guide
 

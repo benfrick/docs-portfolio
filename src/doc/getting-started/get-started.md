@@ -1,11 +1,11 @@
 ---
-category:
 position: 1
 title: Get Started
 url: /doc/getting-started/get-started.html
+excluded_in_search: true
 ---
 
-# <i class="fas fa-walking"></i>&nbsp; Get Started
+# <i class="fas fa-play-circle"></i>&nbsp; Get Started
 
 ---
 

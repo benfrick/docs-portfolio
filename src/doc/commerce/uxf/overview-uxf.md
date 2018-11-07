@@ -1,4 +1,5 @@
 ---
+id: overview-uxf
 category: a-overview
 position: 9
 title: UX Foundation
@@ -9,7 +10,7 @@ url: /commerce/uxf/overview-uxf.html
 
 ---
 
-<a href="https://tourguide.prod.commerce.nikecloud.com/" target="_blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> GO TO TOUR GUIDE</a>
+<a href="https://tourguide.prod.commerce.nikecloud.com/" target="_blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i>  TOUR GUIDE</a>
 
 UX Foundation offers products that solve common problems for hosted user experiences. The documentation is available on [Tour Guide:](https://tourguide.prod.commerce.nikecloud.com/){:target="blank"}
 

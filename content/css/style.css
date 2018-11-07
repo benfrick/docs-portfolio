@@ -358,7 +358,7 @@ header {
   header h1 {
     height: 60px;
     box-sizing: border-box;
-    background-color: #35d69b;
+    background-color: #3498db;
     color: #fff;
     margin: 0;
     font-size: 1.7rem;
@@ -421,7 +421,7 @@ header {
   line-height: 1.8; }
   #search-input:focus {
     outline: none;
-    border-left: 5px solid #35d69b;
+    border-left: 5px solid #3498db;
     padding-left: 15px; }
 
 .search-page {

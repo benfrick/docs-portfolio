@@ -1,9 +1,10 @@
 ---
+id: api_product_feeds
 tags: pdf
 category: b-use-case
 position: 1
 title: Product Feeds
-url: /commerce/product/api_product_feeds.html
+url: /doc/commerce/product/api_product_feeds.html
 toc:
   - h2: API at a Glance
     url: /doc/commerce/product/api_product_feeds.html#api-at-a-glance
@@ -28,7 +29,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/api_product_feeds.html#glossary
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/api_product_feeds.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # PRODUCT FEEDS <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
@@ -86,8 +87,8 @@ Here is an example of a sequence of API calls to get content from Product Feeds 
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|Product Threads List|Get all threads for a channel, marketplace, language combination|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
-|GET|Product Thread by ID|Get a specific thread by its identifier|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
+|GET|Product Threads List|[Get all threads for a channel, marketplace, language combination](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api)|`/product_feed/threads/v2{?filter,fields,anchor,count,sort,searchTerms}`|
+|GET|Product Thread by ID|[Get a specific thread by its identifier](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api)|`/product_feed/threads/v2/{id}{?channel,marketplace,language,fields,preview}`|
 
 ## Cards, Threads, and Feeds
 

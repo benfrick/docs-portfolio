@@ -1,9 +1,10 @@
 ---
+id: api_rollup_threads
 tags: pdf
 category: b-use-case
 position: 2
 title: Rollup Threads
-url: /commerce/product/api_rollup_threads.html
+url: /doc/commerce/product/api_rollup_threads.html
 toc:
   - h2: API at a Glance
     url: /doc/commerce/product/api_rollup_threads.html#api-at-a-glance
@@ -28,7 +29,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/api_rollup_threads.html#glossary
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/product/api_rollup_threads.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ROLLUP THREADS <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 
@@ -81,7 +82,7 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|Rollup Threads|Get a product Thread with related Threads nested within|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
+|GET|Rollup Threads|[Get a product Thread with related Threads nested within](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api)|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
 
 ## What is a Rollup Thread?
 

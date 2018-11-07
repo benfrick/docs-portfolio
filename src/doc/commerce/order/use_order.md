@@ -1,8 +1,9 @@
 ---
+id: use_order
 tags: pdf
 category: b-use-case
 position: 9
-title: Orders
+title: Order
 url: /doc/commerce/order/use_order.html
 toc:
   - h2: List a Member's Orders
@@ -28,9 +29,9 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/order/use_order.html#next-steps
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/order/use_order.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
+# ADDING ORDER HISTORY TO YOUR EXPERIENCE <i class="g72-swoosh"></i>
 
 ---
 

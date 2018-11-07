@@ -13,22 +13,26 @@ permalink: /search/
 
 <script>
 	window.data = {
-		{%- for item in site.pages -%}
-				{%- if item.title -%}
-					{%- unless item.excluded_in_search -%}
-						{%- if added -%},{%- endif -%}
-						{%- assign added = false -%}
+		{% for collection in site.collections %}
+			{% for item in collection.docs %}
+				{% if item.title %}
+					{% unless item.excluded_in_search %}
+						{% if added %},{% endif %}
+						{% assign added = false %}
 						"{{ item.id | slugify }}": {
 							"id": "{{ item.id | slugify }}",
 							"title": "{{ item.title | xml_escape }}",
-							"category": "{{ item.category | xml_escape }}",
-							"url": "{{ item.url | xml_escape }}",
+							"category": "{{ collection.label | xml_escape }}",
+							"description": "{{item.description | xml_escape }}",
+		  				"type": "{{item.type | xml_escape}}",
+							"url": "{{ site.baseurl }}/#{{ item.id | replace: '/', '' | replace: '.', '' | xml_escape }}",
 							"content": {{ item.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
 						}
-						{%- assign added = true -%}
-					{%- endunless -%}
-				{%- endif -%}
-		{%- endfor -%}
+						{% assign added = true %}
+					{% endunless %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
 	};
 </script>
 <script src="{{ site.baseurl }}/js/lunr.min.js"></script>

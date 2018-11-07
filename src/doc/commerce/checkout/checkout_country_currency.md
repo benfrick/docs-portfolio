@@ -1,4 +1,5 @@
 ---
+id: checkout_country_currency
 tags: pdf
 category: d-reference
 position: 5

@@ -1,9 +1,10 @@
 ---
+id: api_checkout
 tags: pdf
 category: b-use-case
 position: 6
 title: Cart & Checkout
-url: /commerce/checkout/api_checkout.html
+url: /doc/commerce/checkout/api_checkout.html
 toc:
   - h2: API at a Glance
     url: /doc/commerce/checkout/api_checkout.html#api-at-a-glance
@@ -34,7 +35,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/checkout/api_checkout.html#glossary
 ---
-<a markdown="1" style="color:black;margin-top:8px;" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm" href="/doc/commerce/checkout/api_checkout.pdf" target="_blank">PDF  ![PDF icon](/images/icons/PDF_32.png){:style="margin: 5px 0px 5px 0px;"}</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # BUY DOMAIN <i class="g72-swoosh"></i><br>DEVELOPER'S GUIDE
 

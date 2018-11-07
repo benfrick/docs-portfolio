@@ -20,6 +20,10 @@
     {{ content }}
 </div>
 <header>
+    <form action="{{ site.baseurl }}/search/index.html" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
     {% include sidebar.html %}
 </header>
 </body>
