@@ -1,4 +1,5 @@
 ---
+id: global
 tags: pdf
 category: d-reference
 position: 6

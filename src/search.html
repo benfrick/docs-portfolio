@@ -22,9 +22,7 @@ permalink: /search/
 							"id": "{{ item.id | slugify }}",
 							"title": "{{ item.title | xml_escape }}",
 							"category": "{{ item.category | xml_escape }}",
-							"description": "{{item.description | xml_escape }}",
-		  				"type": "{{item.type | xml_escape}}",
-							"url": "{{ item.url }}/#{{ item.id | replace: '/', '' | replace: '.', '' | xml_escape }}",
+							"url": "{{ item.url | xml_escape }}",
 							"content": {{ item.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
 						}
 						{%- assign added = true -%}

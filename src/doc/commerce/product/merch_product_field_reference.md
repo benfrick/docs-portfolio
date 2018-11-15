@@ -1,4 +1,5 @@
 ---
+id: merch_product_field_reference
 tags: pdf
 category: d-reference
 position: 6
