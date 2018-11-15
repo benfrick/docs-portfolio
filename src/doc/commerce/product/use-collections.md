@@ -1,4 +1,5 @@
 ---
+excluded_in_search: true
 tags: pdf
 category:
 #category: b-use-case
