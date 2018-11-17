@@ -1,17 +1,20 @@
 ---
 excluded_in_search: true
 tags: pdf
-category:
 #category: b-use-case
 position: 
 title: Collections
 url: /doc/commerce/product/use-collections.html
 #toc:
+#  - h2: What are Collections & Terms?
+#    url: /doc/commerce/product/use-collections.html#what-are-collections--terms
 #  - h2: Step 1: Create Terms & Collections
-#    url:  /doc/commerce/product/use-collections.html#step-1
+#    url:  /doc/commerce/product/use-collections.html#step-1-create-terms--collections
 #  - h2: Step 2: Call Rollup Threads
-#    url:  /doc/commerce/product/use-collections.html#step-2
+#    url:  /doc/commerce/product/use-collections.html#step-2-create-search-rule
 #  - h2: API Endpoint Quick Reference
+#  - h2: Step 3: Call Rollup Threads
+#    url: /doc/commerce/product/use-collections.html#step-3-call-rollup-threads
 #    url:  /doc/commerce/product/use-collections.html#api-endpoint-quick-reference
 #  - h2: Best Practices
 #    url:  /doc/commerce/product/use-collections.html#best-practices
@@ -36,15 +39,15 @@ url: /doc/commerce/product/use-collections.html
 
 ##### Last Updated: 11/10/2018
 
-### Use Collections to add a custom set of products to your experience.
+Add a custom set of products to your experience with Collections.
 
->**TIP**: Before using this guide, you should have already completed [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html) and [Rollup Threads Developer's Guide](/doc/commerce/product/api_rollup_threads.html).
+>**TIP**: Before using this guide, you should have already completed [Rollup Threads Developer's Guide](/doc/commerce/product/api_rollup_threads.html) and [Product Feeds Developer's Guide](/doc/commerce/product/api_product_feeds.html).
 
-## What are Terms & Collections?
+## What are Collections & Terms?
 
-- **Collection**: a custom set of one or more [Product Threads](/doc/commerce/product/api_product_feeds.html#cards-threads-and-feeds) for a specific combination of marketplaces and channels.
+- **Collection**: a set of one or more [Product Threads](/doc/commerce/product/api_product_feeds.html#cards-threads-and-feeds), restricted to a combination of channels and marketplaces.
 
-- **Term**: a set of one or more Collections, grouped in a way that reflects a broader concept.
+- **Term**: a set of one or more Collections that are related.
 
 ![Collections Overview](../../../images/commerce/product_feeds/collections-overview.png)
 
@@ -78,59 +81,27 @@ By calling the Rollup Threads API with the Term, selecting marketplace as US, di
 
 ## Step 1: Create Terms & Collections
 
-To create Terms and Collections, use the [Collections admin app](https://adminops.prod.commerce.nikecloud.com/collectionsui/terms){:target="blank"}.
+Terms and Collections are created in the [Collections admin app](https://adminops.prod.commerce.nikecloud.com/collectionsui/terms){:target="blank"}. See [Create a Collection](https://confluence.nike.com/display/APOLLO/Create+a+Collection) for a step-by-step guide.
 
-### Create a Term
+Save the **Term UUID**, the unique identifier for the Term, e.g. `69c1f58b-c36b-45d6-b3bb-afb160c9ab0c`, since you will need it in [Step 3](#step-3-call-rollup-threads).
 
-A Term has the following attributes:
+When you add Product Threads to a Collection, the Threads get automatically updated with that Collection's Term UUID. Then, you can get the Threads from the [Rollup Threads API](/doc/commerce/product/api_rollup_threads.html).
 
-|Attribute|Description|
-|---|---|
-|Term Type|The type of term, Global or Local|
-|Term Name|The name of the term. Only shows within Collections admin|
-|Term UUID|The unique identifier for the term that is **generated automatically by Collections admin**|
-|Description|The description of the Term. Only shows within the Collections admin|
+>**TIP**: It typically takes 5 minutes or less for changes to a Collection to become available in the Rollup Threads API.
 
->**TIP**: Make note of the Term UUID as you will use it in Step 2.
+## Step 2: Create Search Rule
 
-### Create Collections
+This step is **OPTIONAL**. If you want to further customize a Collection, for example to change the sort order of the response from Rollup Threads, you can take the optional step of creating a Search Rule in the [Apollo admin app](https://adminops.prod.commerce.nikecloud.com/apollov1/).
 
-Next, create one or more Collections to go with the Term you previously created.
+## Step 3: Call Rollup Threads
 
-A Collection has the following attributes:
+Use the **Term UUID** obtained in Step 1 to call the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api) with query parameter `filter=attributeIds(<term UUID>)`, along with other required or optional `filter` and `sort` query parameter values.
 
-|Attribute|Description|
-|---|---|
-|Name|The name of the Collection|
-|Term UUID|The UUID of the Term to which the Collection is associated|
-|Marketplaces|The marketplaces (countries) defined for the Collection|
-|Channels|The sales channels defined for the Collection|
-|Resources|The product threads that are added to the Collection|
-
-Add resources into the Collection by selecting from **Add Thread By** dropdown and entering one of the following about the product:
-
-- Thread UUID
-- Pre-Build ID
-- Product ID
-- Product UUID
-- Style Code
-- Style-Color
-
-**Why have multiple Collections for a Term?**
-
-The reason to have multiple Collections for a Term is to assign unique sets of products for different marketplace and channel combinations.
-
->**TIP**: For each product added into the Collection, an association is automatically created between the Term and the corresponding product threads in the Product Feeds API.
-
-## Step 2: Call Rollup Threads
-
-Use the **term UUID** obtained in Step 1 to call the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api) with query parameter `filter=attributeIds(<term UUID>)`, along with other required or optional `filter` and `sort` query parameter values.
+The Rollup Threads API response contains the requested product threads, which you can use to display products in your experience.
 
 ### Filtering by Channel & Marketplace
 
-Channel and marketplace are both required parameters for Rollup Threads, so you have the opportunity to filter the products in the Term even further and essentially. 
-
-The Rollup Threads API response contains the requested product threads.
+Channel and marketplace are both required parameters for Rollup Threads. Combine channel and marketplace combinations to apply another level of filtering to the Threads in the Term.
 
 >**TIPS:**
 >
@@ -156,12 +127,9 @@ CURL goes here
 
 ### Parsing the Response
 
-The Rollup Threads response in specified in the [API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api), but here's a few things to know about:
+The Rollup Threads response is specified in the [API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api), but here's a few things to know about:
 
-- All of the product threads that are stamped 
 - Rollup Threads returns only active product threads. If you want inactive threads included in the response, call [Product Feeds Threads List](https://developer.niketech.com/nde-docs/doc/commerce/product/api_product_feeds.html#product-threads-list) instead.
-- 
-
 
 {Some hints/callouts about the data in the response and how it could be handled}
 
@@ -200,11 +168,11 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft 11/10/2018|Initial Draft|
+|Initial draft 11/15/2018|Initial Draft|
 
 ## Next Steps
 
-You've learned how to add {} to your experience. Here are some next steps.
+You've learned how to add Collections to your experience. Here are some next steps.
 
 - [Capturing User Events](/doc/commerce/events/api_eventsv2.html)
 - [Using NDe APIs](/doc/getting-started/using_nike_apis.html)
