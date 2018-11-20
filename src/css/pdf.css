@@ -1,11 +1,14 @@
+.guide-button {
+  display: none !important;
+}
 html {
-   background-color: white !important;
+  background-color: white !important;
 }
 pre {
- border: none !important;
- width: 100% !important;
- max-height: none !important;
+  border: none !important;
+  width: 100% !important;
+  max-height: none !important;
 }
 .main {
- border: none !important;
+  border: none !important;
 }
