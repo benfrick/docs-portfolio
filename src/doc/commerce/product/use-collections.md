@@ -33,7 +33,7 @@ url: /doc/commerce/product/use-collections.html
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING COLLECTIONS TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>(DRAFT)
+# ADDING COLLECTIONS <br>TO YOUR EXPERIENCE (DRAFT)
 
 ---
 
