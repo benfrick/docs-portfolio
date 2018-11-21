@@ -13,7 +13,7 @@ toc:
     url: /commerce/checkout/use_checkout.html#step-2-adding-shipping-options
 ---
 
-# ADDING CHECKOUT TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>
+# ADDING CART & CHECKOUT <br>TO YOUR EXPERIENCE
 
 ##### Last Updated: 09/13/2018
 
