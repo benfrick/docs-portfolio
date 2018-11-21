@@ -7,7 +7,7 @@ title: Countries & Currencies
 url: /commerce/checkout/checkout_country_currency.html
 ---
 
-# Checkout: Supported Countries/Currencies <i class="g72-swoosh"></i>
+# Checkout: Supported Countries/Currencies
 
 ##### Last Updated: 04/19/2018
 

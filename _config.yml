@@ -15,7 +15,6 @@ timezone: Etc/UTC
 # exclude these files (relative to source directory) from the conversion
 exclude:
   - templates/
-  - prince-list.txt
 
 defaults:
   -

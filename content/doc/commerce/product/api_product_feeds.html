@@ -19,11 +19,11 @@
 <div class="main">
     <p><a href="/doc/commerce/product/api_product_feeds.pdf" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
 
-<h1 id="product-feeds-developers-guide">PRODUCT FEEDS <i class="g72-swoosh"></i><br />DEVELOPER’S GUIDE</h1>
+<h1 id="adding-product-feeds-to-your-experience">ADDING PRODUCT FEEDS <br />TO YOUR EXPERIENCE</h1>
 
 <hr />
 
-<h5 id="last-updated-08132018">Last Updated: 08/13/2018</h5>
+<h5 id="last-updated-11202018">Last Updated: 11/20/2018</h5>
 
 <p>If you’ve read <a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a> and <a href="/doc/commerce/product/overview-product-feeds.html">Product Feeds Overview</a>, this guide provides the additional details necessary to integrate with Product Feeds.</p>
 
@@ -302,9 +302,7 @@
 
 <p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">API Reference</a> states that the required URL format is <code class="highlighter-rouge">[/product_feed/threads/v2{?filter,fields,anchor,count}]</code>.</p>
 
-<p>To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path, then append after ‘v2’ with the required <strong>filter</strong> query parameter. The resulting full URL would be:</p>
-
-<p><code class="highlighter-rouge">https://api.nike.com/product_feed/threads/v2?filter="channelId(your_channel_Id_here)"</code>.</p>
+<p>To build the full URL, prepend https://api.nike.com to the above path, then append after ‘v2’ with the required <strong>filter</strong> query parameter. The resulting full URL would be: https://api.nike.com/product_feed/threads/v2?filter=”channelId(your_channel_id_here)”.</p>
 
 <p><strong>3. Execute the request</strong></p>
 
@@ -318,156 +316,165 @@
 <p>You will receive a response body from the Threads List endpoint similar to the JSON below.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "pages": {
-      "prev": "",
-      "next": ""
-    },
-    "objects": [
-      {
-        "id": "80bbdb01-114d-474f-a4e3-99e4e70f4931",
+  "pages": {
+    "prev": "",
+    "next": ""
+  },
+  "objects": [
+    {
+      "id": "80bbdb01-114d-474f-a4e3-99e4e70f4931",
+      "marketplace": "US",
+      "language": "en",
+      "lastFetchTime": "2017-02-23T16:42:00.711Z",
+      "publishedContent": {
+        "collectionGroupId": "008be467-6c78-4079-94f0-70e2d6cc4003",
         "marketplace": "US",
         "language": "en",
-        "lastFetchTime": "2017-02-23T16:42:00.711Z",
-        "publishedContent": {
-          "collectionGroupId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-          "marketplace": "US",
-          "language": "en",
-          "resourceType": "publishedContent",
-          "id": "80bbdb01-114d-474f-a4e3-99e4e70f4931",
-          "relationalId": "80bbdb01-114d-474f-a4e3-99e4e70f4931",
-          "version": "1487089517266",
-          "type": "thread",
-          "subType": "thread",
-          "publishStartDate": "2017-02-10T17:15:00.000Z",
-          "publishEndDate": "2999-01-01T08:00:00.000Z",
-          "viewStartDate": "2017-02-10T17:15:00.000Z",
-          "supportedLanguages": [],
-          "properties": {
-            "title": "BEHIND THE DESIGN",
-            "coverCard": {
-              "id": "f97b6bfa-4231-4e69-a3fe-7f83cae4829a",
-              "version": "1486746663030",
-              "type": "card",
-              "subType": "image",
-              "properties": {
-                "altText": "",
-                "colorTheme": "light",
-                "landscapeURL": "https://static.nike.com/images/h54tkibftysvmsjkymg9/image.jpg",
-                "portraitURL": "",
-                "squarishURL": "",
-                "subtitle": "Insights from Inside",
-                "title": "BEHIND THE DESIGN",
-                "custom": {
-                  "feedImageOverride": "landscape"
-                }
-              }
-            },
-            "subtitle": "",
-            "seo": {
-              "slug": "behind-the-design"
-            },
-            "publish": {
-              "countries": [
-                "US"
-              ],
-              "collectionGroups": [
-                "d9a5bc42-4b9c-4976-858a-f159cf99c647"
-              ],
-              "collections": [
-                "514dcaea-b752-11e6-80f5-76304dec7eb7"
-              ]
-            },
-            "threadType": "editorial",
-            "products": [],
-            "consumerLabels": [],
-            "custom": {
-              "snkrsDiscover": {
-                "order": "6",
-                "query": [
-                  "Behind the Design"
-                ]
+        "resourceType": "publishedContent",
+        "id": "80bbdb01-114d-474f-a4e3-99e4e70f4931",
+        "relationalId": "80bbdb01-114d-474f-a4e3-99e4e70f4931",
+        "version": "1487089517266",
+        "type": "thread",
+        "subType": "thread",
+        "publishStartDate": "2017-02-10T17:15:00.000Z",
+        "publishEndDate": "2999-01-01T08:00:00.000Z",
+        "viewStartDate": "2017-02-10T17:15:00.000Z",
+        "supportedLanguages": [],
+        "properties": {
+          "title": "BEHIND THE DESIGN",
+          "coverCard": {
+            "id": "f97b6bfa-4231-4e69-a3fe-7f83cae4829a",
+            "version": "1486746663030",
+            "type": "card",
+            "subType": "image",
+            "properties": {
+              "altText": "",
+              "colorTheme": "light",
+              "landscapeURL": "https://static.nike.com/images/h54tkibftysvmsjkymg9/image.jpg",
+              "portraitURL": "",
+              "squarishURL": "",
+              "subtitle": "Insights from Inside",
+              "title": "BEHIND THE DESIGN",
+              "custom": {
+                "feedImageOverride": "landscape"
               }
             }
           },
-          "nodes": [
+          "subtitle": "",
+          "seo": {
+            "slug": "behind-the-design"
+          },
+          "publish": {
+            "countries": [
+              "US"
+            ],
+            "collectionGroups": [
+              "008be467-6c78-4079-94f0-70e2d6cc4003"
+            ],
+            "collections": [
+              "514dcaea-b752-11e6-80f5-76304dec7eb7"
+            ]
+          },
+          "threadType": "editorial",
+          "products": [
             {
-              "id": "556b8a85-b58d-46ce-bb50-81a17200b44c",
-              "version": "1486746676247",
-              "type": "card",
-              "subType": "image",
-              "properties": {
-                "landscapeURL": "https://static.nike.com/images/yqbuzhb5zypbdz2jfirn/image.jpg",
-                "title": "",
-                "colorTheme": "dark",
-                "subtitle": "",
-                "squarishURL": "",
-                "portraitURL": "",
-                "altText": "",
-                "custom": {
-                  "threadImageOverride": "landscape"
-                }
-              }
-            },
-            {
-              "id": "3b0e3594-2875-48a5-9367-c05110d0d04c",
-              "version": "1487089477265",
-              "type": "card",
-              "subType": "text",
-              "properties": {
-                "body": "Explore the design process with an inside look at the exclusive designer interviews, original sketches and prototypes.\n",
-                "title": "BEHIND THE DESIGN",
-                "subtitle": "INSIGHTS FROM THE INSIDE"
-              }
+              "styleColor": "AH8605-800",
+              "productId": "54c0191f-4c53-56e7-ab8e-5a3dae503090"
             }
           ],
-          "links": {
-            "self": "/content/threads/v1/80bbdb01-114d-474f-a4e3-99e4e70f4931?collectionGroupId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;language=en"
-          },
-          "classifications": []
-        },
-        "productInfo": [],
-        "resourceType": "thread",
-        "links": {
-          "self": {
-            "ref": "/product_feed/threads/v2/80bbdb01-114d-474f-a4e3-99e4e70f4931?channel=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;langauge=en"
+          "consumerLabels": [],
+          "custom": {
+            "snkrsDiscover": {
+              "order": "6",
+              "query": [
+                "Behind the Design"
+              ]
+            }
           }
+        },
+        "nodes": [
+          {
+            "id": "556b8a85-b58d-46ce-bb50-81a17200b44c",
+            "version": "1486746676247",
+            "type": "card",
+            "subType": "image",
+            "properties": {
+              "landscapeURL": "https://static.nike.com/images/yqbuzhb5zypbdz2jfirn/image.jpg",
+              "title": "",
+              "colorTheme": "dark",
+              "subtitle": "",
+              "squarishURL": "",
+              "portraitURL": "",
+              "altText": "",
+              "custom": {
+                "threadImageOverride": "landscape"
+              }
+            }
+          },
+          {
+            "id": "3b0e3594-2875-48a5-9367-c05110d0d04c",
+            "version": "1487089477265",
+            "type": "card",
+            "subType": "text",
+            "properties": {
+              "body": "Explore the design process with an inside look at the exclusive designer interviews, original sketches and prototypes.\n",
+              "title": "BEHIND THE DESIGN",
+              "subtitle": "INSIGHTS FROM THE INSIDE"
+            }
+          }
+        ],
+        "links": {
+          "self": "/content/threads/v1/80bbdb01-114d-474f-a4e3-99e4e70f4931?collectionGroupId=008be467-6c78-4079-94f0-70e2d6cc4003&amp;marketplace=US&amp;language=en"
+        },
+        "classifications": []
+      },
+      "productInfo": [
+        {
+          "merchProduct": {},
+          "merchPrice": {},
+          "availability": {},
+          "productContent": {},
+          "imageUrls": {},
+          "skus": [],
+          "availableSkus": [],
+          "customizedPreBuild": {},
+          "socialInterest": {}
+        }
+      ],
+      "resourceType": "thread",
+      "links": {
+        "self": {
+          "ref": "/product_feed/threads/v2/80bbdb01-114d-474f-a4e3-99e4e70f4931?channel=008be467-6c78-4079-94f0-70e2d6cc4003&amp;marketplace=US&amp;langauge=en"
         }
       }
-    ]
-  }
+    }
+  ]
+}
 </code></pre></div></div>
 
 <p><strong>More Complex Examples</strong></p>
 
-<p>Next, let’s call the Threads List endpoint from the Product Feeds v2 API with a combination of query parameters.</p>
+<ol>
+  <li>Query by SEO Slug</li>
+</ol>
 
-<p>Pretend that you only want to display Thread content for a NBA Finals campaign called “FINALS FRESH” for the US market and you know that the related SEO slug is ‘finals-fresh’.</p>
+<p>Display Thread content for a NBA Finals campaign called “FINALS FRESH” for the US by specifying the SEO slug ‘finals-fresh’ in the request.</p>
 
-<p>You can send a request with the additional parameters <strong>marketplace</strong>, <strong>language</strong>, and <strong>publishedContentproperties.seo.slug</strong> and get just that.</p>
+<p>Include filter parameters <strong>marketplace</strong>, <strong>language</strong>, and <strong>publishedContentproperties.seo.slug</strong> as follows:</p>
 
-<p><strong>filter=marketplace(US)</strong></p>
+<p>/product_feed/threads/v2?filter=channelId(<UUID>)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=publishedContent.properties.seo.slug(finals-fresh)</UUID></p>
 
-<p><strong>filter=language(en)</strong></p>
+<ol>
+  <li>Query by Style-color Code</li>
+</ol>
 
-<p><strong>filter=publishedContent.properties.seo.slug(finals-fresh)</strong></p>
+<p>Display all Threads for a specific soccer boot with a style-color code of ‘AA0612-706’.</p>
 
-<p>Your full URL would be:</p>
+<p>Include parameter <strong>filter=publishedContent.properties.products.styleColor</strong> as follows:</p>
 
-<p>https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_id_here)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=publishedContent.properties.seo.slug(finals-fresh)</p>
+<p>/product_feed/threads/v2?filter=channelId(<UUID>)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;count=50&amp;filter=publishedContent.properties.products.styleColor(AA0612-706)</UUID></p>
 
-<p>Finally, query the Threads List endpoint by the Nike style-color code.</p>
-
-<p>Pretend that you want to display all Threads for a specific soccer boot and you know that the Nike style-color code is AA0612-706.</p>
-
-<p>You can send a request with the parameter <strong>filter=publishedContent.properties.products.styleColor</strong> and include that style-color code:</p>
-
-<p><strong>filter=publishedContent.properties.products.styleColor(AA0612-706)</strong></p>
-
-<p>Your full URL would be:</p>
-
-<p>https://api.nike.com/product_feed/threads/v2?filter=channelId(your_channel_here)&amp;filter=marketplace(US)&amp;filter=language(en)&amp;count=50&amp;filter=publishedContent.properties.products.styleColor(AA0612-706)</p>
-
-<h2 id="using-product-feeds-v2">Using Product Feeds v2</h2>
+<h2 id="using-product-feeds">Using Product Feeds</h2>
 
 <ul>
   <li>
@@ -481,7 +488,7 @@
   </li>
 </ul>
 
-<p>The following sections explain each Product Feeds endpoint in detail, concluding with a section on error handling.</p>
+<p>The following sections explain each Product Feeds endpoint in detail.</p>
 
 <h3 id="product-threads-list">Product Threads List</h3>
 
@@ -785,653 +792,6 @@
 
 <p>If the query results contain thousands of items, the max limit that can be paged through is 10,000. When the anchor exceeds 10,000 items you should expect to get an error. This is an intentional limitation imposed on the backend data store for performance reasons. If you make a request whose response would contain the 10,000th item, the next link returned will be empty.</p>
 
-<h4 id="request-headers">Request Headers</h4>
-
-<p>There are no required request headers.</p>
-
-<h4 id="request-body">Request Body</h4>
-
-<p>There is no body for a GET request.</p>
-
-<h4 id="response-body">Response Body</h4>
-
-<p>The important elements of the <em>Threads List</em> response body are as follows:</p>
-
-<blockquote>
-  <p><strong>NOTE</strong>: The <strong>productInfo</strong> array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>Element Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>pages</strong></td>
-      <td>object</td>
-      <td>Object at top level containing link to previous and next pages of results</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>pages.<strong>prev</strong></td>
-      <td>string</td>
-      <td>Link to previous page of results</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>pages.<strong>next</strong></td>
-      <td>string</td>
-      <td>Link to next page of results</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td><strong>objects</strong></td>
-      <td>array</td>
-      <td>Array at top level containing feed data</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>id</strong></td>
-      <td>string</td>
-      <td>Unique identifier for the feed in UUID format</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>channelId</strong></td>
-      <td>string</td>
-      <td>UUID for the channel (collectionGroupId)</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>channelName</strong></td>
-      <td>string</td>
-      <td>Human-readable name for the channel</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>marketplace</strong></td>
-      <td>string</td>
-      <td>ISO 3166 two-letter country code for the user’s current location</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>language</strong></td>
-      <td>string</td>
-      <td>BCP-47 language code</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>lastFetchTime</strong></td>
-      <td>string</td>
-      <td>Time when the data was aggregated in ISO-8601 compliant format: <code class="highlighter-rouge">yyyy-MM-ddTHH:mm:ss.SSSZZ</code></td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>resourceType</strong></td>
-      <td>string</td>
-      <td>Type of HTTP resource being returned</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.links.self.<strong>ref</strong></td>
-      <td>string</td>
-      <td>Self-link of the HTTP resource</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>publishedContent</strong></td>
-      <td>object</td>
-      <td>Object containing display-oriented information, such as image links and prose descriptions</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>collectionGroupId</strong></td>
-      <td>string</td>
-      <td>Identifier for CMS collection group in UUID format. Synonymous to channelId</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>marketplace</strong></td>
-      <td>string</td>
-      <td>Marketplace of the thread as ISO 3166 country code format, e.g. ‘US’</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>language</strong></td>
-      <td>string</td>
-      <td>Language of the thread using BCP 47 format</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>id</strong></td>
-      <td>string</td>
-      <td>Thread identifier in UUID format</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>relationalId</strong></td>
-      <td>string</td>
-      <td>Identifier of parent thread in UUID format. Ties various language threads to the source version</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>version</strong></td>
-      <td>string</td>
-      <td>Version of CMS content node</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>type</strong></td>
-      <td>string</td>
-      <td>Type of content</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>subtype</strong></td>
-      <td>string</td>
-      <td>Subtype of thread or card</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>publishStartDate</strong></td>
-      <td>string</td>
-      <td>Date-time string of when the publishing schedule is set to start</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>publishEndDate</strong></td>
-      <td>string</td>
-      <td>Date-time string of when the publishing schedule is set to end</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>viewStartDate</strong></td>
-      <td>string</td>
-      <td>Date-time string of when the thread can be viewed on client apps</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>supportedLanguages</strong></td>
-      <td>array</td>
-      <td>Array containing list of languages that are currently available</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>properties</strong></td>
-      <td>object</td>
-      <td>Free-form JSON object that contains properties for the thread</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>title</strong></td>
-      <td>string</td>
-      <td>Thread title</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>products</strong></td>
-      <td>array</td>
-      <td>Array containing thread products</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.products.<strong>styleColor</strong></td>
-      <td>string</td>
-      <td>Identifier for product style-color, e.g. 831958-616</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.products.<strong>productId</strong></td>
-      <td>string</td>
-      <td>Product identifier in UUID format</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>publish</strong></td>
-      <td>array</td>
-      <td>Array containing relational data about thread</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.publish.<strong>countries</strong></td>
-      <td>array</td>
-      <td>List of ISO 3166 country codes that the thread has been published to</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.publish.<strong>collectionGroups</strong></td>
-      <td>array</td>
-      <td>List of collection groups (UUID) that the thread belongs to</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.publish.<strong>collections</strong></td>
-      <td>array</td>
-      <td>List of collections (UUID) that the thread belongs to</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>consumerLabels</strong></td>
-      <td>array</td>
-      <td>Array of tags/classifications on the thread</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.<strong>classification</strong></td>
-      <td>object</td>
-      <td>Object containing classification info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.classification.<strong>type</strong></td>
-      <td>string</td>
-      <td>Type of classification, e.g. TAXONOMY</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.classification.<strong>id</strong></td>
-      <td>string</td>
-      <td>Identifier of the classification value in UUID format</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.classification.<strong>text</strong></td>
-      <td>string</td>
-      <td>Text value for the classification</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.<strong>value</strong></td>
-      <td>object</td>
-      <td>Object containing classification value info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.value.<strong>type</strong></td>
-      <td>string</td>
-      <td>Type of classification value, e.g. TAXONOMY</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.value.<strong>id</strong></td>
-      <td>string</td>
-      <td>Identifier of the classification value in UUID format</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.consumerLabels.value.<strong>text</strong></td>
-      <td>string</td>
-      <td>Text for the classification value</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>threadType</strong></td>
-      <td>string</td>
-      <td>Type of thread, e.g. product</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>relatedThreads</strong></td>
-      <td>array</td>
-      <td>Array containing a list of related threads by their UUIDs</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>seo</strong></td>
-      <td>object</td>
-      <td>Object containing SEO info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.seo.<strong>title</strong></td>
-      <td>string</td>
-      <td>Title tag for SEO</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.seo.<strong>description</strong></td>
-      <td>string</td>
-      <td>Meta description for SEO</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.seo.<strong>slug</strong></td>
-      <td>string</td>
-      <td>URL SEO slug of the thread</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.<strong>coverCard</strong></td>
-      <td>object</td>
-      <td>Object containing info about the cover card</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.<strong>id</strong></td>
-      <td>string</td>
-      <td>Identifier of cover card in UUID format</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.<strong>version</strong></td>
-      <td>string</td>
-      <td>Specific version number of the cover card</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.<strong>type</strong></td>
-      <td>string</td>
-      <td>Type of content, e.g. card</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.<strong>subType</strong></td>
-      <td>string</td>
-      <td>Subtype of card, e.g. image, video, carousel, text</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.<strong>properties</strong></td>
-      <td>object</td>
-      <td>Free-form JSON object that contains properties for the card</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.properties.<strong>altText</strong></td>
-      <td>string</td>
-      <td>Cover card image alternate text</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.properties.<strong>colorTheme</strong></td>
-      <td>string</td>
-      <td>Cover card image color theme, i.e. dark</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.properties.<strong>landscapeURL</strong></td>
-      <td>string</td>
-      <td>URL for landscape cover card image</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.properties.<strong>portraitURL</strong></td>
-      <td>string</td>
-      <td>URL for portrait cover card image</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.properties.<strong>squarishURL</strong></td>
-      <td>string</td>
-      <td>URL for squarish cover card image</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.properties.<strong>subtitle</strong></td>
-      <td>string</td>
-      <td>Cover card image subtitle</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.properties.coverCard.properties.<strong>title</strong></td>
-      <td>string</td>
-      <td>Cover card image title</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>nodes</strong></td>
-      <td>array</td>
-      <td>Array of card info</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.<strong>id</strong></td>
-      <td>string</td>
-      <td>Card identifier in UUID format</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.<strong>version</strong></td>
-      <td>string</td>
-      <td>Card version identifier</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.<strong>type</strong></td>
-      <td>string</td>
-      <td>Card type, i.e. ‘card’</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.<strong>subType</strong></td>
-      <td>string</td>
-      <td>Card subtype (text, image, video, carousel)</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.<strong>properties</strong></td>
-      <td>object</td>
-      <td>Object containing info about the card, varies by card type</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>loop</strong></td>
-      <td>boolean</td>
-      <td>Boolean for whether video will loop or not</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>providerId</strong></td>
-      <td>string</td>
-      <td>Name of video provider</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>subtitle</strong></td>
-      <td>string</td>
-      <td>Subtitle for video</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>colorTheme</strong></td>
-      <td>string</td>
-      <td>Color theme for video, i.e. dark</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>videoId</strong></td>
-      <td>string</td>
-      <td>Identifier for video</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>autoPlay</strong></td>
-      <td>boolean</td>
-      <td>Boolean for whether video will auto-play or not</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>title</strong></td>
-      <td>string</td>
-      <td>Card title</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>body</strong></td>
-      <td>string</td>
-      <td>Card body text</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>actions</strong></td>
-      <td>array</td>
-      <td>Array of action info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.actions.<strong>actionType</strong></td>
-      <td>string</td>
-      <td>Type of action</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.actions.<strong>product</strong></td>
-      <td>object</td>
-      <td>Object containing product info for the action</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.actions.product.<strong>styleColor</strong></td>
-      <td>string</td>
-      <td>Style-color code</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.actions.product.<strong>productId</strong></td>
-      <td>string</td>
-      <td>Product identifier in UUID format</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.actions.<strong>destinationType</strong></td>
-      <td>string</td>
-      <td>Type of destination, i.e link</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.actions.<strong>destinationId</strong></td>
-      <td>string</td>
-      <td>Identifier for destination, i.e. a URL</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.nodes.properties.<strong>speed</strong></td>
-      <td>string</td>
-      <td>Speed of video</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.<strong>classifications</strong></td>
-      <td>array</td>
-      <td>Array of classifications</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.classifications.<strong>classification</strong></td>
-      <td>object</td>
-      <td>Object containing classification info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.classifications.classification.<strong>type</strong></td>
-      <td>string</td>
-      <td>Type of classification</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.classifications.classification.<strong>id</strong></td>
-      <td>string</td>
-      <td>Identifier of the classification value</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.classifications.classification.<strong>text</strong></td>
-      <td>string</td>
-      <td>Text value for the classification</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.classifications.value.<strong>type</strong></td>
-      <td>string</td>
-      <td>Type of classification value</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.classifications.value.<strong>id</strong></td>
-      <td>string</td>
-      <td>Identifier of the classification value</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.publishedContent.classifications.value.<strong>text</strong></td>
-      <td>string</td>
-      <td>Text for the classification value</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>productInfo</strong></td>
-      <td>array</td>
-      <td>Array of responses from other APIs with product info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>merchProduct</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>merchPrice</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>availability</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>productContent</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>imageUrls</strong></td>
-      <td>object</td>
-      <td>Object containing product image URL</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.imageUrls.<strong>productImageUrl</strong></td>
-      <td>string</td>
-      <td>URL for product image</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>skus</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>availableSkus</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>launchView</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>customizedPreBuild</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-  </tbody>
-</table>
-
 <h5 id="what-is-the-customized-prebuild-section-of-the-response">What is the Customized PreBuild Section of the Response?</h5>
 
 <p>If you are getting data in the <strong>objects.productInfo.customizedPreBuild</strong> section of the response, then one of the threads that you’ve requested contains a customizable prebuild product.</p>
@@ -1440,1179 +800,7 @@
 
 <p>You will be able to identify the presence of prebuilds when <strong>objects.publishedContent.properties.threadType</strong> field contains the value <strong>nikeid_soldier</strong>.</p>
 
-<p>Sample <em>Threads List</em> response body (HTTP 200):</p>
-
-<blockquote>
-  <p><strong>TIP:</strong> Scroll to the right to see the entire code snippet.</p>
-</blockquote>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "pages": {
-        "prev": "",
-        "next": ""
-    },
-    "objects": [
-        {
-            "id": "2383e522-7d71-4ad7-8d9f-506aad2d8923",
-            "channelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-            "channelName": "BOOTROOM",
-            "marketplace": "US",
-            "language": "en",
-            "lastFetchTime": "2017-10-19T05:28:29.983Z",
-            "active": true,
-            "publishedContent": {
-                "collectionGroupId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
-                "marketplace": "US",
-                "language": "en",
-                "resourceType": "publishedContent",
-                "id": "2383e522-7d71-4ad7-8d9f-506aad2d8923",
-                "relationalId": "2383e522-7d71-4ad7-8d9f-506aad2d8923",
-                "version": "1498255226090",
-                "type": "thread",
-                "subType": "thread",
-                "publishStartDate": "2017-06-07T19:50:00.000Z",
-                "publishEndDate": "3000-01-01T16:00:00.000Z",
-                "viewStartDate": "2017-06-07T19:50:00.000Z",
-                "supportedLanguages": [
-                    "de",
-                    "en-GB",
-                    "fr",
-                    "nl",
-                    "cs",
-                    "da",
-                    "ca",
-                    "es-ES",
-                    "el",
-                    "hu",
-                    "it",
-                    "pl",
-                    "pt-PT",
-                    "sv",
-                    "zh-Hans",
-                    "ja"
-                ],
-                "properties": {
-                    "custom": {},
-                    "title": "TIEMPO LEGEND VI SE FG",
-                    "products": [
-                        {
-                            "styleColor": "AA0612-706",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e"
-                        }
-                    ],
-                    "subtitle": " ",
-                    "publish": {
-                        "countries": [
-                            "AT",
-                            "BE",
-                            "CZ",
-                            "DE",
-                            "DK",
-                            "ES",
-                            "FI",
-                            "FR",
-                            "GB",
-                            "GR",
-                            "HU",
-                            "IE",
-                            "IT",
-                            "LU",
-                            "NL",
-                            "PL",
-                            "PT",
-                            "SE",
-                            "SI",
-                            "CN",
-                            "JP",
-                            "US"
-                        ],
-                        "collectionGroups": [
-                            "d9a5bc42-4b9c-4976-858a-f159cf99c647"
-                        ],
-                        "collections": [
-                            "a4f722b8-e77f-43b3-b909-168e5f43ac60"
-                        ]
-                    },
-                    "consumerLabels": [
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "a880358e-2cb6-4f11-8cc0-8de12162f648",
-                                "text": "Color"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "c62f73e2-a112-484e-aae4-563aefadca49",
-                                "text": "Gold"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "d6508c32-7d4a-4861-be62-bf28cdb0e72e",
-                                "text": "Silo"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "d443095b-49d6-4a49-80e9-220c80d7e18f",
-                                "text": "Tiempo"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "d81ea26f-df7c-45c8-bc4a-300c37bbcbf1",
-                                "text": "Style Name"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "43c86c3d-3edf-4134-bd30-4e234f051649",
-                                "text": "Legend"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "ed39d5df-144e-4221-979f-acdec01ad858",
-                                "text": "Shoe Height"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "8d81614a-76b0-43a6-ac36-705b117d34fd",
-                                "text": "Low Top"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "a0ae624a-4e4a-47bf-8b7c-ea2a9bfb3df5",
-                                "text": "Year"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "5ce4ba73-630f-41ea-bef9-3aa70a6370b7",
-                                "text": "2017"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "0f223443-18a7-4da1-82ed-334035f03918",
-                                "text": "Edition"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "ceb79b72-d215-453b-a186-7c119ec3a9aa",
-                                "text": "Player Edition"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "7f69c76f-4b72-4864-8393-10f399ce0bdd",
-                                "text": "Athlete"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "af9aa80a-c68a-4d5e-8ea8-e698fca4ba9a",
-                                "text": "Francisco Totti"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "93d3e764-b222-43cb-b94a-574358c9e16c",
-                                "text": "Team Global Football Club"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "985310f9-851b-4d2d-b4b8-10efdc25cad2",
-                                "text": "AS Roma"
-                            }
-                        },
-                        {
-                            "classification": {
-                                "type": "TAXONOMY",
-                                "id": "98dba0fb-df14-42c4-a43c-db51eecc134e",
-                                "text": "Material"
-                            },
-                            "value": {
-                                "type": "TAXONOMY",
-                                "id": "c9214ec5-c7a6-4d9a-9391-444b80901bbf",
-                                "text": "Leather"
-                            }
-                        }
-                    ],
-                    "threadType": "product",
-                    "relatedThreads": [
-                        "cf143512-03ab-4f86-866c-47c69035a365",
-                        "b41e3514-8176-44ef-a3a6-62d9a47239dd",
-                        "01ea3953-f3eb-4160-84e6-4cd41768d2d4",
-                        "29806d50-3bea-4074-b49d-15a470db367b",
-                        "a726484a-d2ae-4d5e-b90a-005e8f1774cf",
-                        "ab73ec83-adcb-46ea-bbf9-4e71d428911d"
-                    ],
-                    "seo": {
-                        "title": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                        "description": "Score the Nike Tiempo Legend 6 'Totti Gladiator'. Stay a step ahead of the competition and score the newest releases.",
-                        "keywords": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                        "slug": "tiempo-legend-6-totti-gladiator"
-                    },
-                    "coverCard": {
-                        "id": "e4e83656-9148-4f56-bbd1-7f5dd6bb624b",
-                        "version": "1498255206913",
-                        "type": "card",
-                        "subType": "image",
-                        "properties": {
-                            "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                            "colorTheme": "light",
-                            "landscapeURL": "https://c.static-nike.com/a/images/w_1920,c_limit/cizvemmljfyngf1zxikt/tiempo-totti.jpg",
-                            "portraitURL": "",
-                            "squarishURL": "https://static.nike.com/images/w_960,c_limit/tcjk3q8of4pg1eqlkdyw/tiempo-totti.jpg",
-                            "subtitle": "TIEMPO LEGEND VI SE FG",
-                            "title": "TIEMPO TOTTI"
-                        }
-                    }
-                },
-                "nodes": [
-                    {
-                        "id": "92219a2e-1db7-4af1-8a5b-d63af8e9ec39",
-                        "version": "1496770012134",
-                        "type": "card",
-                        "subType": "video",
-                        "properties": {
-                            "loop": false,
-                            "providerId": "brightcove",
-                            "subtitle": "",
-                            "colorTheme": "dark",
-                            "videoId": "5394526689001",
-                            "autoPlay": false,
-                            "title": ""
-                        }
-                    },
-                    {
-                        "id": "2c7f78ff-8cbd-40af-af29-77ab4566aa40",
-                        "version": "1496877033307",
-                        "type": "card",
-                        "subType": "carousel",
-                        "properties": {
-                            "loop": false,
-                            "subtitle": "TIEMPO TOTTI LEGEND VI",
-                            "colorTheme": "dark",
-                            "autoPlay": false,
-                            "title": "LIMITED EDITION",
-                            "body": "Celebrate history with the limited edition Tiempo Totti, commemorating one of the most distinguished careers in world football. Having donned the colours of AS Roma for 25 years - scoring 307 goals in 782 appearances - 2500 individually marked pairs recognize Francesco Totti’s unrivaled legacy.",
-                            "actions": [
-                                {
-                                    "actionType": "cta_buying_tools",
-                                    "product": {
-                                        "styleColor": "AA0612-706",
-                                        "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e"
-                                    },
-                                    "destinationId": "AA0612-706"
-                                }
-                            ],
-                            "speed": 6000
-                        },
-                        "nodes": [
-                            {
-                                "id": "8f0743ec-61e9-40c1-a4c6-0d789484e3a7",
-                                "version": "1496850820074",
-                                "type": "card",
-                                "subType": "image",
-                                "properties": {
-                                    "squarishURL": "https://static.nike.com/images/t_prod_ss/w_960,c_limit/cbztdyhlnfsocwcvii4d/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                                    "portraitURL": "https://static.nike.com/images/t_prod_ps/w_1536,c_limit/cbztdyhlnfsocwcvii4d/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "landscapeURL": "https://static.nike.com/images/t_prod_ls/w_1920,c_limit/cbztdyhlnfsocwcvii4d/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "subtitle": "",
-                                    "custom": {},
-                                    "colorTheme": "dark",
-                                    "title": ""
-                                }
-                            },
-                            {
-                                "id": "cdcebfd0-b478-4cf2-b782-9c20bbe5c9d5",
-                                "version": "1496703452040",
-                                "type": "card",
-                                "subType": "image",
-                                "properties": {
-                                    "squarishURL": "https://static.nike.com/images/t_prod_ss/w_960,c_limit/a6fucmc3powusybmypcj/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                                    "portraitURL": "https://static.nike.com/images/t_prod_ps/w_1536,c_limit/a6fucmc3powusybmypcj/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "landscapeURL": "https://static.nike.com/images/t_prod_ls/w_1920,c_limit/a6fucmc3powusybmypcj/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "subtitle": "",
-                                    "custom": {},
-                                    "colorTheme": "dark",
-                                    "title": ""
-                                }
-                            },
-                            {
-                                "id": "ebe78c05-57e7-4cfe-bb02-8e0c26e01cd2",
-                                "version": "1496703441653",
-                                "type": "card",
-                                "subType": "image",
-                                "properties": {
-                                    "squarishURL": "https://static.nike.com/images/t_prod_ss/w_960,c_limit/h28uelvln7kwsgxch8rs/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                                    "portraitURL": "https://static.nike.com/images/t_prod_ps/w_1536,c_limit/h28uelvln7kwsgxch8rs/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "landscapeURL": "https://static.nike.com/images/t_prod_ls/w_1920,c_limit/h28uelvln7kwsgxch8rs/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "subtitle": "",
-                                    "custom": {},
-                                    "colorTheme": "dark",
-                                    "title": ""
-                                }
-                            },
-                            {
-                                "id": "df56862e-5a64-4954-a9fa-9a29fea9fa0f",
-                                "version": "1496703445048",
-                                "type": "card",
-                                "subType": "image",
-                                "properties": {
-                                    "squarishURL": "https://static.nike.com/images/t_prod_ss/w_960,c_limit/qsicmwkuxsu6drmurmja/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                                    "portraitURL": "https://static.nike.com/images/t_prod_ps/w_1536,c_limit/qsicmwkuxsu6drmurmja/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "landscapeURL": "https://static.nike.com/images/t_prod_ls/w_1920,c_limit/qsicmwkuxsu6drmurmja/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "subtitle": "",
-                                    "custom": {},
-                                    "colorTheme": "dark",
-                                    "title": ""
-                                }
-                            },
-                            {
-                                "id": "b5b5e0bc-42ed-480e-b0d1-83192badfa9c",
-                                "version": "1496703449005",
-                                "type": "card",
-                                "subType": "image",
-                                "properties": {
-                                    "squarishURL": "https://static.nike.com/images/t_prod_sc/w_960,c_limit/ce5fnqkwewliumljwgze/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                                    "portraitURL": "https://static.nike.com/images/t_prod_pc/w_1536,c_limit/ce5fnqkwewliumljwgze/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "landscapeURL": "https://static.nike.com/images/t_prod_lc/w_1920,c_limit/ce5fnqkwewliumljwgze/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "subtitle": "",
-                                    "custom": {},
-                                    "colorTheme": "dark",
-                                    "title": ""
-                                }
-                            },
-                            {
-                                "id": "dccaf362-6fbe-4c07-98da-738234ebc528",
-                                "version": "1496877029514",
-                                "type": "card",
-                                "subType": "image",
-                                "properties": {
-                                    "squarishURL": "https://static.nike.com/images/t_prod_ss/w_960,c_limit/zehawckrshwkby0uovf8/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                                    "portraitURL": "https://static.nike.com/images/t_prod_ps/w_1536,c_limit/zehawckrshwkby0uovf8/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "landscapeURL": "https://static.nike.com/images/t_prod_ls/w_1920,c_limit/zehawckrshwkby0uovf8/nike-tiempo-legend-6-totti-gladiator.jpg",
-                                    "subtitle": "",
-                                    "custom": {},
-                                    "colorTheme": "dark",
-                                    "title": ""
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": "e5fc37b3-fd7b-419c-a061-479f26254057",
-                        "version": "1496703493505",
-                        "type": "card",
-                        "subType": "image",
-                        "properties": {
-                            "squarishURL": "",
-                            "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                            "portraitURL": "https://static.nike.com/images/w_1536,c_limit/rcc2e1qrdzwz2acpziw9/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "landscapeURL": "https://static.nike.com/images/w_1920,c_limit/jorgvtxjdlgbjvttbjlv/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "subtitle": "",
-                            "custom": {},
-                            "colorTheme": "dark",
-                            "title": ""
-                        }
-                    },
-                    {
-                        "id": "63fc4b51-1717-4b88-82ee-c259a9e75261",
-                        "version": "1496703509312",
-                        "type": "card",
-                        "subType": "text",
-                        "properties": {
-                            "body": "The limited edition version of Totti's Tiempo comes in premium gold, with the player's name etched into the heel. The sockliner sports his team colours with the names 'Totti' and 'Roma' linked by the Roman numeral of Totti's famous number 10 shirt. His number also features on the boot’s tongue, constructed with the Tiempo’s former fold-over style, made famous by the Roma icon who continued to sport this style throughout his career.",
-                            "title": "DESIGN DETAILS",
-                            "subtitle": ""
-                        }
-                    },
-                    {
-                        "id": "57ef7963-968f-417d-82af-4f9f505a0a24",
-                        "version": "1496703532958",
-                        "type": "card",
-                        "subType": "image",
-                        "properties": {
-                            "squarishURL": "",
-                            "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                            "portraitURL": "https://static.nike.com/images/w_1536,c_limit/nspchiit8bsfsctx18og/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "landscapeURL": "https://static.nike.com/images/w_1920,c_limit/ore3zh1g0jfptc4vscxj/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "subtitle": "",
-                            "custom": {},
-                            "colorTheme": "dark",
-                            "title": ""
-                        }
-                    },
-                    {
-                        "id": "fa378bff-d73d-439c-9c54-22fd8fc3f2d3",
-                        "version": "1496703573417",
-                        "type": "card",
-                        "subType": "text",
-                        "properties": {
-                            "body": "&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;br&gt;Premium kangaroo leather upper supported by an internal midfoot cage for unparalleled lockdown&lt;br&gt;&lt;br&gt;Kangaroo leather with All Conditions Control (ACC) technology provides unrivaled ball touch and consistent control in dry or wet weather&lt;br&gt;&lt;br&gt;Flexible plate moves with your foot for stability, traction&lt;span&gt; and comfort&lt;/span&gt;&lt;br&gt;&lt;br&gt;Conical and bladed stud configuration enhances traction and underfoot ball control&lt;br&gt;&lt;br&gt;Internal silicone dot grid grips the insole to prevent slipping&lt;br&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;",
-                            "title": "BENEFITS",
-                            "subtitle": ""
-                        }
-                    },
-                    {
-                        "id": "6d839350-83d0-4a05-9189-948c68dfd2d7",
-                        "version": "1496703600416",
-                        "type": "card",
-                        "subType": "image",
-                        "properties": {
-                            "squarishURL": "https://static.nike.com/images/w_960,c_limit/pcepsuarxtyxgv3gricv/nike-tiempo-legend-6-totti-gladiator.png",
-                            "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                            "portraitURL": "https://static.nike.com/images/w_1536,c_limit/zaibctmj4gixpuzxwkw5/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "landscapeURL": "https://static.nike.com/images/w_1920,c_limit/ku5twv87qii0mg1pspty/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "subtitle": "",
-                            "custom": {},
-                            "colorTheme": "dark",
-                            "title": ""
-                        }
-                    },
-                    {
-                        "id": "af4dfc80-a160-4486-9540-8fd088e15503",
-                        "version": "1496703641075",
-                        "type": "card",
-                        "subType": "text",
-                        "properties": {
-                            "body": "&lt;p&gt;&lt;strong&gt;Released: &lt;/strong&gt;April 2017&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Official colors:&lt;/strong&gt; Metallic Gold/Team Crimson/Black&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Traction options:&lt;/strong&gt; FG&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Style number: &lt;/strong&gt;AA0612-706&lt;/p&gt;",
-                            "title": "INFO",
-                            "subtitle": ""
-                        }
-                    },
-                    {
-                        "id": "d87e862d-6cbe-4db9-bfb0-8ec8a091771d",
-                        "version": "1496770041291",
-                        "type": "card",
-                        "subType": "image",
-                        "properties": {
-                            "squarishURL": "",
-                            "altText": "Nike Tiempo Legend 6 'Totti Gladiator'",
-                            "portraitURL": "https://static.nike.com/images/w_1536,c_limit/t2x4p8f9uqnwzvy6ifry/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "landscapeURL": "https://static.nike.com/images/w_1920,c_limit/jomf4sests8oa1pqn2of/nike-tiempo-legend-6-totti-gladiator.jpg",
-                            "subtitle": "",
-                            "custom": {},
-                            "colorTheme": "dark",
-                            "title": ""
-                        }
-                    }
-                ],
-                "links": {
-                    "self": "/content/threads/v1/2383e522-7d71-4ad7-8d9f-506aad2d8923?collectionGroupId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;language=en&amp;audienceId=feeds"
-                },
-                "classifications": [
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "a880358e-2cb6-4f11-8cc0-8de12162f648",
-                            "text": "Color"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "c62f73e2-a112-484e-aae4-563aefadca49",
-                            "text": "Gold"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "d6508c32-7d4a-4861-be62-bf28cdb0e72e",
-                            "text": "Silo"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "d443095b-49d6-4a49-80e9-220c80d7e18f",
-                            "text": "Tiempo"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "d81ea26f-df7c-45c8-bc4a-300c37bbcbf1",
-                            "text": "Style Name"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "43c86c3d-3edf-4134-bd30-4e234f051649",
-                            "text": "Legend"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "ed39d5df-144e-4221-979f-acdec01ad858",
-                            "text": "Shoe Height"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "8d81614a-76b0-43a6-ac36-705b117d34fd",
-                            "text": "Low Top"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "a0ae624a-4e4a-47bf-8b7c-ea2a9bfb3df5",
-                            "text": "Year"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "5ce4ba73-630f-41ea-bef9-3aa70a6370b7",
-                            "text": "2017"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "0f223443-18a7-4da1-82ed-334035f03918",
-                            "text": "Edition"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "ceb79b72-d215-453b-a186-7c119ec3a9aa",
-                            "text": "Player Edition"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "7f69c76f-4b72-4864-8393-10f399ce0bdd",
-                            "text": "Athlete"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "af9aa80a-c68a-4d5e-8ea8-e698fca4ba9a",
-                            "text": "Francisco Totti"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "93d3e764-b222-43cb-b94a-574358c9e16c",
-                            "text": "Team Global Football Club"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "985310f9-851b-4d2d-b4b8-10efdc25cad2",
-                            "text": "AS Roma"
-                        }
-                    },
-                    {
-                        "classification": {
-                            "type": "TAXONOMY",
-                            "id": "98dba0fb-df14-42c4-a43c-db51eecc134e",
-                            "text": "Material"
-                        },
-                        "value": {
-                            "type": "TAXONOMY",
-                            "id": "c9214ec5-c7a6-4d9a-9391-444b80901bbf",
-                            "text": "Leather"
-                        }
-                    }
-                ]
-            },
-            "productInfo": [
-                {
-                    "merchProduct": {
-                        "id": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                        "snapshotId": "df391f85-5501-4b26-a84b-10fd106c7fa9",
-                        "modificationDate": "2017-10-19T05:00:14.679Z",
-                        "status": "HOLD",
-                        "merchGroup": "US",
-                        "styleCode": "AA0612",
-                        "colorCode": "706",
-                        "styleColor": "AA0612-706",
-                        "pid": "11828027",
-                        "productGroupId": "11836281",
-                        "brand": "Nike",
-                        "channels": [],
-                        "legacyCatalogIds": [
-                            "1"
-                        ],
-                        "genders": [
-                            "MEN"
-                        ],
-                        "valueAddedServices": [
-                            {
-                                "id": "47bc9091-2965-5231-b5f1-a7216e249894"
-                            }
-                        ],
-                        "sportTags": [
-                            "Soccer/Football"
-                        ],
-                        "widthGroupIds": [],
-                        "classificationConcepts": [],
-                        "quantityLimit": 1,
-                        "styleType": "INLINE",
-                        "productType": "FOOTWEAR",
-                        "publishType": "LAUNCH",
-                        "mainColor": true,
-                        "exclusiveAccess": false,
-                        "hardLaunch": true,
-                        "commercePublishDate": "2017-04-26T14:00:00.000Z",
-                        "commerceStartDate": "2017-04-26T14:00:00.000Z",
-                        "softLaunchDate": "2017-04-26T13:00:00.000Z",
-                        "resourceType": "merchProduct",
-                        "links": {
-                            "self": {
-                                "ref": "/merch/products/v2/0bd73bdf-d08d-5e32-b419-84a8f697401e"
-                            }
-                        }
-                    },
-                    "merchPrice": {
-                        "id": "a91cc56d-a830-5ce3-856d-f5ee5ea3cb9a",
-                        "snapshotId": "bb209052-9256-470e-b297-d115898d80cb",
-                        "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                        "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                        "parentType": "merchProduct",
-                        "modificationDate": "2017-06-09T11:11:50.953Z",
-                        "country": "US",
-                        "msrp": 235,
-                        "fullPrice": 235,
-                        "currentPrice": 235,
-                        "currency": "USD",
-                        "discounted": false,
-                        "promoInclusions": [],
-                        "promoExclusions": [],
-                        "resourceType": "merchPrice",
-                        "links": {
-                            "self": {
-                                "ref": "/merch/prices/v2/a91cc56d-a830-5ce3-856d-f5ee5ea3cb9a"
-                            }
-                        }
-                    },
-                    "availability": {
-                        "id": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                        "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                        "resourceType": "availableProducts",
-                        "links": {
-                            "self": {
-                                "ref": "/deliver/available_products/v1/0bd73bdf-d08d-5e32-b419-84a8f697401e"
-                            }
-                        },
-                        "available": true
-                    },
-                    "productContent": {
-                        "globalPid": "11828027",
-                        "langLocale": "en_US",
-                        "colorDescription": "Metallic Gold/Team Crimson/Black",
-                        "slug": "tiempo-legend-vi-se-firm-ground-soccer-cleat",
-                        "fullTitle": "Nike Tiempo Legend VI SE Firm-Ground Soccer Cleat",
-                        "title": "Nike Tiempo Legend VI SE FG",
-                        "subtitle": "Firm-Ground Soccer Cleat",
-                        "descriptionHeading": "DOMINATING TOUCH STARTS FROM WITHIN",
-                        "description": "&lt;div class=\"pi-tier3\"&gt;&lt;div class=\"pi-pdpmainbody\"&gt;&lt;p&gt;&lt;b&gt;DOMINATING TOUCH STARTS FROM WITHIN&lt;/b&gt;&lt;/p&gt;&lt;br&gt;&lt;p&gt;Equipped with innovations that bring your foot closer to the ball than ever, the Nike Tiempo Legend VI SE Firm-Ground Soccer Cleat is made with weather-resistant technologies and premium leather to truly dominate on the field.&lt;/p&gt;&lt;br&gt;&lt;p&gt;&lt;b&gt;Benefits&lt;/b&gt;&lt;/p&gt;&lt;br&gt;Premium kangaroo leather offers exceptional ball touch&lt;br&gt;TPU plate with conical and bladed cleats for stability and multidirectional traction&lt;br&gt;All Conditions Control (ACC) technology enhances touch and control in dry or wet weather&lt;br&gt;Firm-ground (FG) cleats for use on short-grass fields that may be slightly wet but rarely muddy&lt;/div&gt;&lt;/div&gt;",
-                        "pdpGeneral": "&lt;div&gt;&lt;p&gt;Due to high demand, this color is sold out on Nike.com. Download &lt;a href=\"https://www.nike.com/us/en_us/c/nike-plus/nike-app\" target=\"_blank\"&gt;Nike+&lt;/a&gt; to receive updates to future product like this.&lt;/p&gt;\n&lt;/div&gt;",
-                        "techSpec": "",
-                        "sizeChart": "unisex-shoe-sizing-chart",
-                        "colors": [
-                            {
-                                "type": "SIMPLE",
-                                "name": "Gold",
-                                "hex": "E9B137"
-                            },
-                            {
-                                "type": "PRIMARY",
-                                "name": "Metallic Gold",
-                                "hex": "B9A178"
-                            },
-                            {
-                                "type": "SECONDARY",
-                                "name": "Team Crimson",
-                                "hex": "7A1107"
-                            },
-                            {
-                                "type": "LOGO",
-                                "name": "Black",
-                                "hex": "13161A"
-                            }
-                        ],
-                        "bestFor": [
-                            {
-                                "type": "GLOBAL_FOOTBALL_SURFACES",
-                                "value": "Firm Ground",
-                                "localizedValue": "Firm Ground"
-                            }
-                        ],
-                        "athletes": []
-                    },
-                    "imageUrls": {
-                        "productImageUrl": "https://secure-images.nike.com/is/image/DotCom/AA0612_706"
-                    },
-                    "skus": [
-                        {
-                            "id": "c7d6cf1b-6868-530d-b0a0-8466efb85c80",
-                            "snapshotId": "36a50acb-f6ac-47d6-9d66-fcfef0c7d9d5",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894886",
-                            "gtin": "00091206810081",
-                            "nikeSize": "7",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 7 / W 8.5",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/c7d6cf1b-6868-530d-b0a0-8466efb85c80?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "bfed5c68-f3f3-5ed1-9bdf-056624adff68",
-                            "snapshotId": "0e1b5393-2292-43bb-822a-4f460558c53c",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894885",
-                            "gtin": "00091206810098",
-                            "nikeSize": "7.5",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 7.5 / W 9",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/bfed5c68-f3f3-5ed1-9bdf-056624adff68?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "9ec146ca-3914-5945-a37f-643df9f79fa6",
-                            "snapshotId": "7ef1e321-4e27-43f9-8b0b-31569b05b278",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894884",
-                            "gtin": "00091206810104",
-                            "nikeSize": "8",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 8 / W 9.5",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/9ec146ca-3914-5945-a37f-643df9f79fa6?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "f3154985-a434-50e7-9613-e9a08c104574",
-                            "snapshotId": "9effdec3-1852-4774-931d-228026d658d2",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894888",
-                            "gtin": "00091206810333",
-                            "nikeSize": "8.5",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 8.5 / W 10",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/f3154985-a434-50e7-9613-e9a08c104574?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "3bf1bc19-b749-53b1-9ea3-bfe7a252e072",
-                            "snapshotId": "be9c0f1d-6116-4ddd-a2a4-68302cb9f36f",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894882",
-                            "gtin": "00091206810340",
-                            "nikeSize": "9",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 9 / W 10.5",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/3bf1bc19-b749-53b1-9ea3-bfe7a252e072?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "de908099-8245-5127-9741-7a28c4c3b8b4",
-                            "snapshotId": "48758ddb-cbc9-4bed-8239-867aec6fd6ef",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894881",
-                            "gtin": "00091206810357",
-                            "nikeSize": "9.5",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 9.5 / W 11",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/de908099-8245-5127-9741-7a28c4c3b8b4?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "635637c8-b2b2-52f4-a65f-92a83cbf5f14",
-                            "snapshotId": "3e6694d2-5119-403f-8c88-fbb5b9895a67",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894880",
-                            "gtin": "00091206810364",
-                            "nikeSize": "10",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 10 / W 11.5",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/635637c8-b2b2-52f4-a65f-92a83cbf5f14?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "7944ac2c-3013-511f-999a-ee5ef2b57b90",
-                            "snapshotId": "1b820565-25f0-4570-afc1-6cd2c6b441f3",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894879",
-                            "gtin": "00091206811064",
-                            "nikeSize": "10.5",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 10.5 / W 12",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/7944ac2c-3013-511f-999a-ee5ef2b57b90?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "a0d1fcc5-8b27-5a60-abb5-380c069fa536",
-                            "snapshotId": "128c913b-3f77-4a8d-a302-2859ceeff596",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894878",
-                            "gtin": "00091206811071",
-                            "nikeSize": "11",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 11 / W 12.5",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/a0d1fcc5-8b27-5a60-abb5-380c069fa536?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "36608043-cd75-5149-80e3-164a1d24dcb9",
-                            "snapshotId": "33a696f9-f0ab-46ac-b142-68e07040827e",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894883",
-                            "gtin": "00091206811088",
-                            "nikeSize": "11.5",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 11.5 / W 13",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/36608043-cd75-5149-80e3-164a1d24dcb9?country=US"
-                                }
-                            }
-                        },
-                        {
-                            "id": "8f25ea97-b810-56b5-9fd8-a8130ef5478c",
-                            "snapshotId": "e12a0944-34b5-4276-8513-5c8fd2091395",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "parentType": "merchProduct",
-                            "modificationDate": "2017-10-19T05:00:14.679Z",
-                            "merchGroup": "US",
-                            "stockKeepingUnitId": "19894887",
-                            "gtin": "00091206811095",
-                            "nikeSize": "12",
-                            "countrySpecifications": [
-                                {
-                                    "country": "US",
-                                    "localizedSize": "M 12 / W 13.5",
-                                    "taxInfo": {
-                                        "commodityCode": "531119.200",
-                                        "vat": 0
-                                    }
-                                }
-                            ],
-                            "resourceType": "merchSku",
-                            "links": {
-                                "self": {
-                                    "ref": "/merch/skus/v2/8f25ea97-b810-56b5-9fd8-a8130ef5478c?country=US"
-                                }
-                            }
-                        }
-                    ],
-                    "availableSkus": [
-                        {
-                            "id": "c7d6cf1b-6868-530d-b0a0-8466efb85c80",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/c7d6cf1b-6868-530d-b0a0-8466efb85c80"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "c7d6cf1b-6868-530d-b0a0-8466efb85c80"
-                        },
-                        {
-                            "id": "bfed5c68-f3f3-5ed1-9bdf-056624adff68",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/bfed5c68-f3f3-5ed1-9bdf-056624adff68"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "bfed5c68-f3f3-5ed1-9bdf-056624adff68"
-                        },
-                        {
-                            "id": "9ec146ca-3914-5945-a37f-643df9f79fa6",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/9ec146ca-3914-5945-a37f-643df9f79fa6"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "9ec146ca-3914-5945-a37f-643df9f79fa6"
-                        },
-                        {
-                            "id": "f3154985-a434-50e7-9613-e9a08c104574",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/f3154985-a434-50e7-9613-e9a08c104574"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "f3154985-a434-50e7-9613-e9a08c104574"
-                        },
-                        {
-                            "id": "3bf1bc19-b749-53b1-9ea3-bfe7a252e072",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/3bf1bc19-b749-53b1-9ea3-bfe7a252e072"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "3bf1bc19-b749-53b1-9ea3-bfe7a252e072"
-                        },
-                        {
-                            "id": "de908099-8245-5127-9741-7a28c4c3b8b4",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/de908099-8245-5127-9741-7a28c4c3b8b4"
-                                }
-                            },
-                            "available": true,
-                            "skuId": "de908099-8245-5127-9741-7a28c4c3b8b4"
-                        },
-                        {
-                            "id": "635637c8-b2b2-52f4-a65f-92a83cbf5f14",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/635637c8-b2b2-52f4-a65f-92a83cbf5f14"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "635637c8-b2b2-52f4-a65f-92a83cbf5f14"
-                        },
-                        {
-                            "id": "7944ac2c-3013-511f-999a-ee5ef2b57b90",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/7944ac2c-3013-511f-999a-ee5ef2b57b90"
-                                }
-                            },
-                            "available": true,
-                            "skuId": "7944ac2c-3013-511f-999a-ee5ef2b57b90"
-                        },
-                        {
-                            "id": "a0d1fcc5-8b27-5a60-abb5-380c069fa536",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/a0d1fcc5-8b27-5a60-abb5-380c069fa536"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "a0d1fcc5-8b27-5a60-abb5-380c069fa536"
-                        },
-                        {
-                            "id": "36608043-cd75-5149-80e3-164a1d24dcb9",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/36608043-cd75-5149-80e3-164a1d24dcb9"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "36608043-cd75-5149-80e3-164a1d24dcb9"
-                        },
-                        {
-                            "id": "8f25ea97-b810-56b5-9fd8-a8130ef5478c",
-                            "productId": "0bd73bdf-d08d-5e32-b419-84a8f697401e",
-                            "resourceType": "availableSkus",
-                            "links": {
-                                "self": {
-                                    "ref": "/deliver/available_skus/v1/8f25ea97-b810-56b5-9fd8-a8130ef5478c"
-                                }
-                            },
-                            "available": false,
-                            "skuId": "8f25ea97-b810-56b5-9fd8-a8130ef5478c"
-                        }
-                    ]
-                }
-            ],
-            "resourceType": "thread",
-            "links": {
-                "self": {
-                    "ref": "/product_feed/threads/v2/2383e522-7d71-4ad7-8d9f-506aad2d8923?channelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;marketplace=US&amp;language=en"
-                }
-            }
-        }
-    ]
-}
-</code></pre></div></div>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<hr />
+<p>For a sample <em>Threads List</em> response body (HTTP 200) see <a href="https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json" target="blank">here</a>.</p>
 
 <h3 id="product-thread-by-id">Product Thread by ID</h3>
 
@@ -2727,33 +915,6 @@
   </tbody>
 </table>
 
-<h4 id="request-headers-1">Request Headers</h4>
-
-<p>There are no required request headers.</p>
-
-<h4 id="request-body-1">Request Body</h4>
-
-<p>There is no body for a GET request.</p>
-
-<h4 id="response-body-1">Response Body</h4>
-
-<p>The structure of the response from <em>Thread by ID</em> is the same as <em>Threads List</em> with the following exceptions:</p>
-
-<ul>
-  <li>
-    <p>No <strong>pages</strong> section at top</p>
-  </li>
-  <li>
-    <p>No <strong>objects</strong> wrapper around the thread data</p>
-  </li>
-</ul>
-
-<p>See Threads List for response body details.</p>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productfeedv2/browse/API.md?raw#!/Threads/get_product_feed_threads_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<hr />
-
 <h3 id="product-feeds-error-handling">Product Feeds Error Handling</h3>
 
 <p>Following is a summary of the errors that can come back in responses from the Product Feeds v2 APIs:</p>
@@ -2803,7 +964,7 @@
 
 <h2 id="upgrading-to-the-latest-version">Upgrading to the Latest Version</h2>
 
-<p>Ready to upgrade to the latest version of the Product Feeds API? All clients of Product Feeds v1 are expected to migrate to v2 by <strong>March 31st, 2018</strong>.</p>
+<p>Ready to upgrade to the latest version of the Product Feeds API?</p>
 
 <p>First, some considerations:</p>
 
@@ -3850,41 +2011,6 @@
       <td>Initial Draft</td>
     </tr>
     <tr>
-      <td>Updates per template</td>
-      <td>02/9/2018</td>
-      <td>Added new allowed values for <strong>sort</strong> and <strong>filter</strong> query params, added new <strong>includeExclusiveAccess</strong> query param</td>
-    </tr>
-    <tr>
-      <td>Layout updates</td>
-      <td>02/12/2018</td>
-      <td>Changed layout to meet new API Doc standards, added Troubleshooting content</td>
-    </tr>
-    <tr>
-      <td>Updated links</td>
-      <td>03/20/2018</td>
-      <td>Updated links to point to new dev portal</td>
-    </tr>
-    <tr>
-      <td>Updated external links</td>
-      <td>04/03/2018</td>
-      <td>Updated external links to open in new browser window</td>
-    </tr>
-    <tr>
-      <td>Updated API.md links</td>
-      <td>05/14/2018</td>
-      <td>Updated API.md links to point to new dev portal</td>
-    </tr>
-    <tr>
-      <td>Updated request/response content</td>
-      <td>07/02/2018</td>
-      <td>Added required/optional and data type columns to request/response tables</td>
-    </tr>
-    <tr>
-      <td>Removed endpoints</td>
-      <td>7/3/2018</td>
-      <td>Removed references to the deprecated product_feed/feed endpoints</td>
-    </tr>
-    <tr>
       <td>Added upstream contact info</td>
       <td>7/5/2018</td>
       <td>Linked to ‘Thread Response Ownership Breakdown’ in Troubleshooting</td>
@@ -3895,9 +2021,9 @@
       <td>Changed from using invalid to valid channelId (and collectionGroupId) in examples</td>
     </tr>
     <tr>
-      <td>Updated TOC</td>
-      <td>10/01/2018</td>
-      <td>Removed ‘In this guide’, replaced with sidebar TOC</td>
+      <td>Removed long JSON samples</td>
+      <td>11/20/2018</td>
+      <td>Removed long JSON to improve PDF output</td>
     </tr>
   </tbody>
 </table>
@@ -3946,7 +2072,7 @@
                         <a href="/doc/commerce/product/api_product_feeds.html#making-your-first-api-request"
                            class="">Making Your First Request</a>
                     </li><li>
-                        <a href="/doc/commerce/product/api_product_feeds.html#using-product-feeds-v2"
+                        <a href="/doc/commerce/product/api_product_feeds.html#using-product-feeds"
                            class="">Using Product Feeds</a>
                     </li><li>
                         <a href="/doc/commerce/product/api_product_feeds.html#upgrading-to-the-latest-version"

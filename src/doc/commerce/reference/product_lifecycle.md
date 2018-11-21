@@ -12,7 +12,7 @@ toc:
     url: /doc/commerce/reference/product_lifecycle.html#how-product-data-gets-to-the-customer
 ---
 
-# PRODUCT LIFE CYCLE &nbsp;<i class="g72-swoosh"></i>
+# PRODUCT LIFE CYCLE
 
 ##### Last Updated: 04/19/2018
 

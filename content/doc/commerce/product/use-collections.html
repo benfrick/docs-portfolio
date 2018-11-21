@@ -19,26 +19,26 @@
 <div class="main">
     <p><a href="/doc/commerce/product/use-collections.pdf" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
 
-<h1 id="adding-collections-to-your-experience-draft">ADDING COLLECTIONS TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br />(DRAFT)</h1>
+<h1 id="adding-collections-to-your-experience-draft">ADDING COLLECTIONS <br />TO YOUR EXPERIENCE (DRAFT)</h1>
 
 <hr />
 
 <h5 id="last-updated-11102018">Last Updated: 11/10/2018</h5>
 
-<h3 id="use-collections-to-add-a-custom-set-of-products-to-your-experience">Use Collections to add a custom set of products to your experience.</h3>
+<p>Add a custom set of products to your experience with Collections.</p>
 
 <blockquote>
-  <p><strong>TIP</strong>: Before using this guide, you should have already completed <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds Developer’s Guide</a> and <a href="/doc/commerce/product/api_rollup_threads.html">Rollup Threads Developer’s Guide</a>.</p>
+  <p><strong>TIP</strong>: Before using this guide, you should have already completed <a href="/doc/commerce/product/api_rollup_threads.html">Rollup Threads Developer’s Guide</a> and <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds Developer’s Guide</a>.</p>
 </blockquote>
 
-<h2 id="what-are-terms--collections">What are Terms &amp; Collections?</h2>
+<h2 id="what-are-collections--terms">What are Collections &amp; Terms?</h2>
 
 <ul>
   <li>
-    <p><strong>Collection</strong>: a custom set of one or more <a href="/doc/commerce/product/api_product_feeds.html#cards-threads-and-feeds">Product Threads</a> for a specific combination of marketplaces and channels.</p>
+    <p><strong>Collection</strong>: a set of one or more <a href="/doc/commerce/product/api_product_feeds.html#cards-threads-and-feeds">Product Threads</a>, restricted to a combination of channels and marketplaces.</p>
   </li>
   <li>
-    <p><strong>Term</strong>: a set of one or more Collections, grouped in a way that reflects a broader concept.</p>
+    <p><strong>Term</strong>: a set of one or more Collections that are related.</p>
   </li>
 </ul>
 
@@ -78,108 +78,29 @@
 
 <h2 id="step-1-create-terms--collections">Step 1: Create Terms &amp; Collections</h2>
 
-<p>To create Terms and Collections, use the <a href="https://adminops.prod.commerce.nikecloud.com/collectionsui/terms" target="blank">Collections admin app</a>.</p>
+<p>Terms and Collections are created in the <a href="https://adminops.prod.commerce.nikecloud.com/collectionsui/terms" target="blank">Collections admin app</a>. See <a href="https://confluence.nike.com/display/APOLLO/Create+a+Collection">Create a Collection</a> for a step-by-step guide.</p>
 
-<h3 id="create-a-term">Create a Term</h3>
+<p>Save the <strong>Term UUID</strong>, the unique identifier for the Term, e.g. <code class="highlighter-rouge">69c1f58b-c36b-45d6-b3bb-afb160c9ab0c</code>, since you will need it in <a href="#step-3-call-rollup-threads">Step 3</a>.</p>
 
-<p>A Term has the following attributes:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Attribute</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Term Type</td>
-      <td>The type of term, Global or Local</td>
-    </tr>
-    <tr>
-      <td>Term Name</td>
-      <td>The name of the term. Only shows within Collections admin</td>
-    </tr>
-    <tr>
-      <td>Term UUID</td>
-      <td>The unique identifier for the term that is <strong>generated automatically by Collections admin</strong></td>
-    </tr>
-    <tr>
-      <td>Description</td>
-      <td>The description of the Term. Only shows within the Collections admin</td>
-    </tr>
-  </tbody>
-</table>
+<p>When you add Product Threads to a Collection, the Threads get automatically updated with that Collection’s Term UUID. Then, you can get the Threads from the <a href="/doc/commerce/product/api_rollup_threads.html">Rollup Threads API</a>.</p>
 
 <blockquote>
-  <p><strong>TIP</strong>: Make note of the Term UUID as you will use it in Step 2.</p>
+  <p><strong>TIP</strong>: It typically takes 5 minutes or less for changes to a Collection to become available in the Rollup Threads API.</p>
 </blockquote>
 
-<h3 id="create-collections">Create Collections</h3>
+<h2 id="step-2-create-search-rule">Step 2: Create Search Rule</h2>
 
-<p>Next, create one or more Collections to go with the Term you previously created.</p>
+<p>This step is <strong>OPTIONAL</strong>. If you want to further customize a Collection, for example to change the sort order of the response from Rollup Threads, you can take the optional step of creating a Search Rule in the <a href="https://adminops.prod.commerce.nikecloud.com/apollov1/">Apollo admin app</a>.</p>
 
-<p>A Collection has the following attributes:</p>
+<h2 id="step-3-call-rollup-threads">Step 3: Call Rollup Threads</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Attribute</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Name</td>
-      <td>The name of the Collection</td>
-    </tr>
-    <tr>
-      <td>Term UUID</td>
-      <td>The UUID of the Term to which the Collection is associated</td>
-    </tr>
-    <tr>
-      <td>Marketplaces</td>
-      <td>The marketplaces (countries) defined for the Collection</td>
-    </tr>
-    <tr>
-      <td>Channels</td>
-      <td>The sales channels defined for the Collection</td>
-    </tr>
-    <tr>
-      <td>Resources</td>
-      <td>The product threads that are added to the Collection</td>
-    </tr>
-  </tbody>
-</table>
+<p>Use the <strong>Term UUID</strong> obtained in Step 1 to call the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">Rollup Threads API</a> with query parameter <code class="highlighter-rouge">filter=attributeIds(&lt;term UUID&gt;)</code>, along with other required or optional <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">sort</code> query parameter values.</p>
 
-<p>Add resources into the Collection by selecting from <strong>Add Thread By</strong> dropdown and entering one of the following about the product:</p>
-
-<ul>
-  <li>Thread UUID</li>
-  <li>Pre-Build ID</li>
-  <li>Product ID</li>
-  <li>Product UUID</li>
-  <li>Style Code</li>
-  <li>Style-Color</li>
-</ul>
-
-<p><strong>Why have multiple Collections for a Term?</strong></p>
-
-<p>The reason to have multiple Collections for a Term is to assign unique sets of products for different marketplace and channel combinations.</p>
-
-<blockquote>
-  <p><strong>TIP</strong>: For each product added into the Collection, an association is automatically created between the Term and the corresponding product threads in the Product Feeds API.</p>
-</blockquote>
-
-<h2 id="step-2-call-rollup-threads">Step 2: Call Rollup Threads</h2>
-
-<p>Use the <strong>term UUID</strong> obtained in Step 1 to call the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">Rollup Threads API</a> with query parameter <code class="highlighter-rouge">filter=attributeIds(&lt;term UUID&gt;)</code>, along with other required or optional <code class="highlighter-rouge">filter</code> and <code class="highlighter-rouge">sort</code> query parameter values.</p>
+<p>The Rollup Threads API response contains the requested product threads, which you can use to display products in your experience.</p>
 
 <h3 id="filtering-by-channel--marketplace">Filtering by Channel &amp; Marketplace</h3>
 
-<p>Channel and marketplace are both required parameters for Rollup Threads, so you have the opportunity to filter the products in the Term even further and essentially.</p>
-
-<p>The Rollup Threads API response contains the requested product threads.</p>
+<p>Channel and marketplace are both required parameters for Rollup Threads. Combine channel and marketplace combinations to apply another level of filtering to the Threads in the Term.</p>
 
 <blockquote>
   <p><strong>TIPS:</strong></p>
@@ -217,12 +138,10 @@
 
 <h3 id="parsing-the-response">Parsing the Response</h3>
 
-<p>The Rollup Threads response in specified in the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">API Reference</a>, but here’s a few things to know about:</p>
+<p>The Rollup Threads response is specified in the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">API Reference</a>, but here’s a few things to know about:</p>
 
 <ul>
-  <li>All of the product threads that are stamped</li>
   <li>Rollup Threads returns only active product threads. If you want inactive threads included in the response, call <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/api_product_feeds.html#product-threads-list">Product Feeds Threads List</a> instead.</li>
-  <li></li>
 </ul>
 
 <p>{Some hints/callouts about the data in the response and how it could be handled}</p>
@@ -297,7 +216,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Initial draft 11/10/2018</td>
+      <td>Initial draft 11/15/2018</td>
       <td>Initial Draft</td>
       <td> </td>
     </tr>
@@ -306,7 +225,7 @@
 
 <h2 id="next-steps">Next Steps</h2>
 
-<p>You’ve learned how to add {} to your experience. Here are some next steps.</p>
+<p>You’ve learned how to add Collections to your experience. Here are some next steps.</p>
 
 <ul>
   <li><a href="/doc/commerce/events/api_eventsv2.html">Capturing User Events</a></li>

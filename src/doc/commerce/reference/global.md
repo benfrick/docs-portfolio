@@ -14,7 +14,7 @@ toc:
     url: /doc/commerce/reference/global.html#brands
 ---
 
-# COUNTRIES, CHANNELS, BRANDS &nbsp;<i class="g72-swoosh"></i>
+# COUNTRIES, CHANNELS, & BRANDS
 
 ##### Last Updated: 06/05/2018
 
