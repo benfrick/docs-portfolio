@@ -22,7 +22,7 @@ toc:
     url: /doc/commerce/reference/caller_best_practices.html#product-feeds-service
 ---
 
-# CIRCUIT BREAKER BEST PRACTICES <i class="g72-swoosh"></i>
+# CIRCUIT BREAKER BEST PRACTICES
 
 ##### Last Updated: 05/25/2018
 

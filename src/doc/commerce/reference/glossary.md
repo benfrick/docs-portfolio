@@ -7,7 +7,7 @@ title: Glossary
 url: /commerce/reference/glossary.html
 ---
 
-# GLOSSARY <i class="g72-swoosh"></i>
+# GLOSSARY
 
 ##### Last Updated: 04/19/2018
 

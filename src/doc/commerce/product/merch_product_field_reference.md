@@ -20,7 +20,7 @@ toc:
     url: /doc/commerce/product/merch_product_field_reference.html#publish-types
 ---
 
-# MERCHANDISED PRODUCT FIELD REFERENCE <i class="g72-swoosh"></i>
+# MERCHANDISED PRODUCT FIELD REFERENCE
 
 ##### Last Updated: 05/24/2018
 
