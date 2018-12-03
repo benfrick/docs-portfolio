@@ -26,13 +26,13 @@ The consumer finds a Nike a product that they love in your app. What happens nex
 
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Manage a customer's shopping cart and get product pricing](/doc/commerce/checkout/api_checkout.html#using-carts-v2)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Check the 'buyability' of a product](/doc/commerce/checkout/api_checkout.html#using-carts-v2)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Manage a customer's shopping cart and get product pricing](/doc/commerce/checkout/api_checkout.html#cart)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Check the 'buyability' of a product](/doc/commerce/checkout/api_checkout.html#cart)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Manage a customer's Wish Lists (member/employee only) of products and services](/doc/commerce/checkout/api_checkout.html#using-wish-lists)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Review a customer's cart for checkout](/doc/commerce/checkout/api_checkout.html#using-cart-reviews)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get available shipping methods and estimated delivery dates](/doc/commerce/checkout/api_checkout.html#using-shipping-options)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html#request-checkout-preview)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html#request-checkout-submit)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get available shipping methods and estimated delivery dates](/doc/commerce/checkout/api_checkout.html#adding-shipping-options)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/commerce/checkout/api_checkout.htmlpreviewing-a-checkout)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/commerce/checkout/api_checkout.html#submitting-a-checkout)|
 
 <h4>Related Information</h4>
 <aside class="note">
