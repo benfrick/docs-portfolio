@@ -1159,7 +1159,7 @@ Note that for the **productid** + [**country**](/doc/commerce/product/merch_prod
 |**modificationDate**|string|Timestamp the price was last modified|Required|
 |**country**|string|Country of this price, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch_product_field_reference.html#using-merchandised-products) for a complete list|Required|
 |**msrp**|number|Manufacturer's recommended retail price. often not provided or may be 0|Required|
-|**fullPrice**|number|Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the [Buy API](/doc/commerce/checkout/api_checkout.html#using-checkouts) to calculate the difference between current retail price and full retail price to send to fulfillment system|Required|
+|**fullPrice**|number|Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the [Cart & Checkout APIs](/doc/commerce/checkout/api_checkout.html) to calculate the difference between current retail price and full retail price to send to fulfillment system|Required|
 |**currentPrice**|number|Purchase price of product. if discounted, price is calculated in Prodigy/PI|Required|
 |**employeePrice**|number|Employee price of product|Required|
 |**currency**|string|Localized currency according to country|Required|

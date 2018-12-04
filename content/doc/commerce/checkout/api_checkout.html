@@ -68,7 +68,7 @@
   <li>Taxes</li>
 </ul>
 
-<p>As you can see, both the cart and the checkout serve a specific purpose within the shopping flow, based on the level of <strong>commitment to purchase</strong> that the consumer has at a particular moment.</p>
+<p>Thus, both the cart and the checkout serve a specific purpose within the shopping flow, based on the level of <strong>commitment to purchase</strong> that the consumer has at a particular moment.</p>
 
 <h2 id="cart">Cart</h2>
 
@@ -80,12 +80,12 @@
 
 <h3 id="step-1-create-the-cart">Step 1: Create the Cart</h3>
 
-<p>The first step in managing a consumer’s cart is to create the cart using the Carts API. For example, this could be done when the consumer chooses to add their first product(s) to the cart.</p>
+<p>The first step in managing a consumer’s cart is to create the cart using the <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="blank">Carts API</a>. For example, this could be done when the consumer chooses to add their first product(s) to the cart.</p>
 
-<p>To create the cart, execute a request to the <em>Create or Update a Cart by Cart ID</em> or <em>Create or Update a Cart by Filter Criteria</em> endpoint.</p>
+<p>To create the cart, execute a request to the <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put" target="blank">Create or Update a Cart by Cart ID</a> or <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put" target="blank">Create or Update a Cart by Filter Criteria</a> endpoint.</p>
 
 <blockquote>
-  <p><strong>TIP:</strong> Cart ownership is by identity only (no delegated authority).</p>
+  <p><strong>TIP:</strong> A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, an error will be returned by the Carts API.</p>
 </blockquote>
 
 <h3 id="step-2-get-a-cart">Step 2: Get a Cart</h3>
@@ -95,8 +95,8 @@
 <p>To get a cart, you have a few options depending on what information you need:</p>
 
 <ol>
-  <li>Execute a request to the <em>Get a Cart by Cart ID</em>, <em>Get a Cart by Filter Criteria (Query Param)</em>, or <em>Get a Cart by Filter Criteria (Path Param)</em> endpoint of the Carts API to get the full details of the cart.</li>
-  <li>Execute a request to the <em>Get a Cart Summary by Cart ID</em> endpoint (Carts API), only if you support PayPal Express payment type and want to display promo codes on the order confirmation.</li>
+  <li>Execute a request to the <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get" target="blank">Get a Cart by Cart ID</a>, <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-filter-query-param-get-2" target="blank">Get a Cart by Filter Criteria (Query Param)</a>, or <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-path-parameters-get-1" target="blank">Get a Cart by Path Parameters</a> endpoint of the Carts API to get the full details of the cart.</li>
+  <li>Execute a request to the <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-summary-by-cart-id-get-1" target="blank">Get a Cart Summary by Cart ID</a> endpoint, only if you support PayPal Express payment type and want to display promo codes on the order confirmation.</li>
 </ol>
 
 <blockquote>
@@ -105,13 +105,13 @@
 
 <h3 id="step-3-modify-the-cart">Step 3: Modify the Cart</h3>
 
-<p>To add or remove products, services, and promotion codes from a cart, execute a request to the <em>Modify a Cart by Cart ID</em> or <em>Modify a Cart by Filter Criteria</em> endpoint.</p>
+<p>To add or remove products, services, and promotion codes from a cart, execute a request to the <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch-1" target="blank">Modify a Cart by Cart ID</a> or <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch-1" target="blank">Modify a Cart by Filter Criteria</a> endpoint.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> Prices and subtotals are recalculated and returned in the response to each request.</p>
 </blockquote>
 
-<p>You can also delete all of the products in the cart by executing a request to <em>Delete All Items from a Cart by Cart ID</em> or <em>Delete All Items from a Cart by Filter Criteria</em> endpoints.</p>
+<p>To delete <strong>all</strong> of the products in the cart, execute a request to <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete-1" target="blank">Delete All Items from a Cart by Cart ID</a> or <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete-1" target="blank">Delete All Items from a Cart by Filter Criteria</a> endpoints.</p>
 
 <p>The delete operation is optional, even if the cart is empty; carts will automatically purge from storage after approximately 90 days of inactivity.</p>
 
@@ -119,13 +119,13 @@
 
 <p><i class="g72-check"></i>  <strong>Summarize a cart prior to checkout</strong></p>
 
-<p>The consumer has finished add products to the cart, and they might wish to see a summary before proceeding to checkout. Use the Cart Reviews API to enhance a cart summary with taxes, estimated delivery date(s), shipping group(s) (when applicable), and updated subtotals.</p>
+<p>The consumer has finished add products to the cart, and they might wish to see a summary before proceeding to checkout. Use the <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="blank">Cart Reviews API</a> to enhance a cart summary with taxes, estimated delivery date(s), shipping group(s) (when applicable), and updated subtotals.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> Shipping group refers to the grouping of products into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.</p>
 </blockquote>
 
-<p>To get a cart summary, execute a request to the <em>Augment a Cart</em> endpoint of the Cart Reviews API.</p>
+<p>To get a cart summary, execute a request to the <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post" target="blank">Augment a Cart</a> endpoint.</p>
 
 <p>Other considerations:</p>
 
@@ -151,7 +151,7 @@
 
 <h3 id="step-1-get-shipping-options">Step 1: Get Shipping Options</h3>
 
-<p>Use the Shipping Options API to retrieve the available shipping methods for a consumer’s checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).</p>
+<p>Use the <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post" target="blank">Shipping Options API</a> to retrieve the available shipping methods for a consumer’s checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).</p>
 
 <p>To get the shipping options, execute a request to the <em>Shipping Options</em> endpoint.</p>
 
@@ -172,7 +172,7 @@
     <p>Product/service choices</p>
   </li>
   <li>
-    <p>Payment methods and billing addresses (not discussed in this guide)</p>
+    <p>Payment methods and billing addresses (discussed in <a href="/doc/commerce/payment/api_payment.html">Adding Payment to Your Experience</a></p>
   </li>
   <li>
     <p>Shipping methods and shipping addresses</p>
@@ -190,15 +190,15 @@
 
 <h3 id="step-1-request-checkout-preview">Step 1: Request Checkout Preview</h3>
 
-<p>Execute a request to the <em>Request a Checkout Preview</em> endpoint to make sure that the checkout details are accurate and that the process can proceed to the payment steps.</p>
+<p>Execute a request to the <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put" target="blank">Request a Checkout Preview</a> endpoint to make sure that the checkout details are accurate and that the process can proceed to the payment steps.</p>
 
 <p>The API ensures that the products, shipping method(s), and shipping address(es) are valid based on Nike pricing and address rules. You can also get product pricing, sales tax, shipping fee and tax, and checkout subtotals in the response.</p>
 
 <h4 id="can-i-skip-this">Can I Skip This?</h4>
 
-<p>Is it not required to execute a request to <em>Request Checkout Preview</em> in order for the consumer to complete their purchase. However, it is recommended to do the preview to increase the chances of a successful checkout.</p>
+<p>Is it not required to execute a request to <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put" target="blank">Request a Checkout Preview</a> in order for the consumer to complete their purchase. However, it is recommended to increase the chance of a successful checkout.</p>
 
-<p>Use the Checkout Preview response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and selects ‘Place Order’, there will be a better chance of success.</p>
+<p>Use the Checkout Preview response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and selects ‘Place Order’ (for example), there will be a better chance of success.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> For more context, see a step-by-step example of all the requests in a checkout in the diagram in the <a href="#best-practices">Best Practices</a> section of this document. For more info about Payment, see <a href="/doc/commerce/payment/api_payment.html">Adding Payment to Your Experience</a>.</p>
@@ -206,7 +206,7 @@
 
 <h3 id="step-2-retrieve-checkout-preview-job">Step 2: Retrieve Checkout Preview Job</h3>
 
-<p>After calling <em>Request Checkout Preview</em> and receiving a HTTP 202 response, execute a request to <em>Retrieve Checkout Preview Job</em> using the same checkout ID to check the status of your job.</p>
+<p>After calling <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put" target="blank">Request a Checkout Preview</a> and receiving a HTTP 202 response, execute a request to <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-retrieve-checkout-preview-job-get-1" target="blank">Retrieve Checkout Preview Job</a> using the same checkout ID to check the status of your job.</p>
 
 <p>To know if the job is done, check the value of the <strong>status</strong> field in the response body as follows:</p>
 
@@ -222,11 +222,7 @@
   </li>
 </ul>
 
-<p>Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Preview Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
-
-<blockquote>
-  <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
-</blockquote>
+<p>Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint.</p>
 
 <h2 id="submitting-a-checkout">Submitting a Checkout</h2>
 
@@ -234,21 +230,17 @@
 
 <h3 id="step-1-request-checkout-submit">Step 1: Request Checkout Submit</h3>
 
-<p>Execute a request to the <em>Request Checkout Submit</em> endpoint when your consumer is ready to complete their purchase.</p>
+<p>Execute a request to the <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1" target="blank">Request Checkout Submit</a> endpoint when your consumer is ready to complete their purchase.</p>
 
 <p>The API performs the final validations of the consumer’s information, requests payment authorization, and if everything succeeds, submits a checkout for fulfillment.</p>
 
-<h4 id="considerations">Considerations</h4>
-
-<ul>
-  <li>You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview <strong>id</strong>. See the <a href="/doc/commerce/payment/api_payment.html">Adding Payment to Your Experience</a> for more info.</li>
-</ul>
-
 <blockquote>
-  <p><strong>TIPS:</strong>
-<i class="mr2-sm g72-check"></i>Optionally you can send the priceChecksum value you got from the <em>Request Checkout Preview</em> endpoint in the <strong>priceChecksum</strong> field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.</p>
-
-  <p><i class="mr2-sm g72-check"></i>For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an <strong>invoiceInfo</strong> array in the request body, similar to the below example (see the request schema for this endpoint for more details):</p>
+  <p><strong>TIPS:</strong></p>
+  <ul>
+    <li>You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview <strong>id</strong>. See the <a href="/doc/commerce/payment/api_payment.html">Adding Payment to Your Experience</a> for more info.</li>
+    <li>Optionally you can send the priceChecksum value you got from the <em>Request Checkout Preview</em> endpoint in the <strong>priceChecksum</strong> field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.</li>
+    <li>For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an <strong>invoiceInfo</strong> array in the request body, similar to the below example (see the request schema for this endpoint for more details):</li>
+  </ul>
 </blockquote>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"invoiceInfo": {
@@ -259,7 +251,7 @@
 
 <h3 id="step-2-retrieve-checkout-submit-job">Step 2: Retrieve Checkout Submit Job</h3>
 
-<p>After calling the Request Checkout Submit endpoint and receiving a HTTP 202 response, you can call this endpoint using the same checkout ID to check the status of your job.</p>
+<p>After calling the <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1" target="blank">Request Checkout Submit</a> endpoint and receiving a HTTP 202 response, execute a request to the <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1" target="blank">Retrieve Checkout Submit Job</a>using the same checkout ID to check the status of your job.</p>
 
 <p>To know if the job is done, check the value of the <strong>status</strong> field in the response body as follows:</p>
 
@@ -275,24 +267,20 @@
   </li>
 </ul>
 
-<p>Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint. Alternatively, follow the link to the <em>Retrieve Checkout Results</em> endpoint which is provided in the response body (see <strong>links</strong> object).</p>
-
-<blockquote>
-  <p><strong>TIP:</strong> Parsing the ‘Completed’ job result directly is a best practice because it eliminates doing another service call.</p>
-</blockquote>
+<p>Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the <strong>response</strong> object from this endpoint.</p>
 
 <h2 id="wish-list">Wish List</h2>
 
 <p><i class="g72-check"></i>  <strong>Manage a consumer’s Wish Lists (member/employee only) of products and services</strong></p>
 
-<p>Manage a Nike member/employee’s Wish Lists using the Wish Lists API.</p>
+<p>Manage a Nike member/employee’s Wish Lists using the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api" target="blank">Wish Lists API</a>.</p>
 
 <p>Features:</p>
 
 <ul>
   <li>Store unlimited Wish Lists per consumer</li>
   <li>Get product pricing and availability for products added to the list</li>
-  <li>Member and employee support only. <strong>Guest consumers (non-members) may not save Wish Lists</strong></li>
+  <li>Member and employee support only. <strong>Guest consumers (non-members) cannot save Wish Lists</strong></li>
 </ul>
 
 <h4 id="life-cycle-of-wish-list">Life Cycle of Wish List</h4>
@@ -301,7 +289,7 @@
 
 <h3 id="step-1-create-a-wish-list">Step 1: Create a Wish List</h3>
 
-<p>Execute a request to the <em>Create or Update a List</em> endpoint to create header-level information for a Wish List.</p>
+<p>Execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put" target="blank">Create or Update a List</a> endpoint to create header-level information for a Wish List.</p>
 
 <ul>
   <li>Only <strong>header-level</strong> info, such as the list identifier and name, can be created with this endpoint. Use the other endpoints to add or remove products from a list.</li>
@@ -313,15 +301,17 @@
   <p>TIP: You generate the unique list and list item identifiers and send them in the request in UUID format.</p>
 </blockquote>
 
-<p>Sample <em>Create or Update a List</em> request URI:</p>
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put" target="blank">Create or Update a List</a> request URI:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
 <h2 id="step-2-modify-a-wish-list">Step 2: Modify a Wish List</h2>
 
-<h3 id="add-product-to-list">Add Product to List</h3>
+<p>Now that you’ve created a wish list for the consumer, allow them to add or remove items to it or to delete the entire list.</p>
 
-<p>To add a product to a list, execute a request to the <em>*Add Item to List</em> endpoint.</p>
+<h3 id="add-item-to-list">Add Item to List</h3>
+
+<p>To add a product to a list, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-add-item-to-list-put" target="blank">Add Item to List</a> endpoint.</p>
 
 <ul>
   <li>Current product pricing is provided in the response.</li>
@@ -329,67 +319,69 @@
   <li>Only the product being added is included in the response, not all products in the list.</li>
 </ul>
 
-<p>Sample <em>Add Item to List</em> request URI:</p>
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-add-item-to-list-put" target="blank">Add Item to List</a> request URI:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
-<h3 id="remove-product-from-list">Remove Product from List</h3>
+<h3 id="remove-item-from-list">Remove Item from List</h3>
 
-<p>To delete a single product from a list, execute a request to the <em>Remove Item from List</em> endpoint.</p>
+<p>To delete a single product from a list, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-remove-item-from-list-delete" target="blank">Remove Item from List</a> endpoint.</p>
 
-<p>Sample <em>Remove Item from List</em> request URI:</p>
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-remove-item-from-list-delete" target="blank">Remove Item from List</a> request URI:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+</code></pre></div></div>
+
+<h3 id="delete-a-list">Delete a List</h3>
+
+<p>To delete a Wish List, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-delete-a-list-delete" target="blank">Delete a List</a> endpoint. Note that <strong>all of the items on the list will be removed</strong>.</p>
+
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-delete-a-list-delete" target="blank">Delete a List</a> request URI:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
 <h2 id="step-3-get-a-wish-list">Step 3: Get a Wish List</h2>
 
-<h3 id="retrieve-products-by-list">Retrieve Products by List</h3>
-
-<p>To retrieve all products in a list, execute a request to the <em>Retrieve Items by List</em> endpoint.</p>
-
-<p>Sample <em>Retrieve Items by List</em> request URI:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
-</code></pre></div></div>
-
-<h3 id="retrieve-product-by-id">Retrieve Product by ID</h3>
-
-<p>To retrieve a single list item, execute a request to the <em>Retrieve Item by ID</em> endpoint.</p>
-
-<p>Sample <em>Retrieve Item by ID</em> request URI:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
-</code></pre></div></div>
+<p>Allow the consumer to see all of their wish lists, or show the details of a single list.</p>
 
 <h3 id="retrieve-lists-for-authenticated-user">Retrieve Lists for Authenticated User</h3>
 
-<p>To retrieve header info for all lists for an authenticated consumer, execute a request to the <em>Retrieve Lists for Authenticated User</em> endpoint.</p>
+<p>To retrieve <strong>header info</strong> for all lists for an authenticated consumer, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="blank">Retrieve Lists for Authenticated User</a> endpoint.</p>
 
 <blockquote>
-  <p><strong>TIP:</strong> The list items are <strong>not</strong> included in the response. To get the list items, execute a request to the <em>Retrieve Items by List</em> endpoint with the appropriate list identifier.</p>
+  <p><strong>TIP:</strong> The list items are <strong>not</strong> included in the response. To get the list items, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get" target="blank">Retrieve Items by List</a> endpoint with the appropriate list identifier.</p>
 </blockquote>
 
-<p>Sample <em>Retrieve Lists for Authenticated User</em> request URI:</p>
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="blank">Retrieve Lists for Authenticated User</a> request URI:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1?filter=country(US)
 </code></pre></div></div>
 
 <h3 id="retrieve-a-list-by-id">Retrieve a List by ID</h3>
 
-<p>To retrieve header info for a single list, execute a request to the <em>Retrivve a List by ID</em> endpoint.</p>
+<p>To retrieve <strong>header info</strong> for a single list, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-a-list-by-id-get" target="blank">Retrieve a List by ID</a> endpoint.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> The list items are <strong>not</strong> included in the response. To get the list items, execute a request to the <em>Retrieve Items by List</em> endpoint with the appropriate list identifier.</p>
 </blockquote>
 
-<p>Sample <em>Retrieve a List by ID</em> request URI:</p>
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-a-list-by-id-get" target="blank">Retrieve a List by ID</a> request URI:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
-<h3 id="delete-a-list">Delete a List</h3>
+<h3 id="retrieve-items-by-list">Retrieve Items by List</h3>
 
-<p>To delete a Wish List, execute a request to the <em>Delete a List</em> endpoint. Note that <strong>all of the items on the list will be removed</strong>.</p>
+<p>To retrieve all products in a list, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get" target="blank">Retrieve Items by List</a> endpoint.</p>
 
-<p>Sample <em>Delete a List</em> request URI:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get" target="blank">Retrieve Items by List</a> request URI:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
+</code></pre></div></div>
+
+<h3 id="retrieve-item-by-id">Retrieve Item by ID</h3>
+
+<p>To retrieve a single list item, execute a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-item-by-id-get" target="blank">Retrieve Item by ID</a> endpoint.</p>
+
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-item-by-id-get" target="blank">Retrieve Item by ID</a> request URI:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 </code></pre></div></div>
 
 <h2 id="api-quick-reference">API Quick Reference</h2>
@@ -450,7 +442,7 @@
 
 <h3 id="user-types">User Types</h3>
 
-<p>The Nike Checkout APIs support 3 distinct user types:</p>
+<p>The Cart &amp; Checkout APIs support 3 distinct user types:</p>
 
 <ul>
   <li>
@@ -464,13 +456,13 @@
   </li>
 </ul>
 
-<p>Depending on user type, certain aspects of the calls that you make to the Checkout APIs might need to be modified. Also, consider that not all user types might apply to your app (e.g. you might only support Members).</p>
+<p>Depending on user type, certain aspects of the calls that you make to the Cart &amp; Checkout APIs might need to be modified. Also, consider that not all user types might apply to your app (e.g. you might only support Members).</p>
 
 <p>See the User Types section of the <a href="/doc/getting-started/using_nike_apis.html#user-types">Using NDe APIs</a> guide for more information.</p>
 
 <h3 id="request-headers">Request Headers</h3>
 
-<p>The following request headers are common to all of the Checkout APIs:</p>
+<p>The following request headers are common to all of the Cart &amp; Checkout APIs:</p>
 
 <table>
   <thead>
@@ -524,7 +516,7 @@
 
 <h3 id="idempotence">Idempotence</h3>
 
-<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkouts API? Each PUT request to <em>Request Checkout Preview</em> and <em>Request a Checkout Submit</em> includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:</p>
+<p><a href="http://restcookbook.com/HTTP%20Methods/idempotency/" target="blank">Idempotence</a> means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkout API? Each PUT request to <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put" target="blank">Request a Checkout Preview</a> and <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1" target="blank">Request Checkout Submit</a> includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:</p>
 
 <table>
   <thead>
@@ -724,7 +716,7 @@
     </tr>
     <tr>
       <td>Team Contacts</td>
-      <td><a href="mailto:dan.robertson@nike.com">Dan Robertson</a>, <a href="mailto:saket.shrivastava@nike.com">Saket Shrivastava</a>, <a href="mailto:sree.krishna@nike.com">Sree Krishna</a> (Carts v1/v2)</td>
+      <td><a href="mailto:dan.robertson@nike.com">Dan Robertson</a>, <a href="mailto:saket.shrivastava@nike.com">Saket Shrivastava</a>, <a href="mailto:sree.krishna@nike.com">Sree Krishna</a> (Carts only)</td>
     </tr>
   </tbody>
 </table>
