@@ -37,16 +37,6 @@ toc:
 
 ##### Last Updated: 12/03/2018
 
-<aside class="note"><h3>Process Steps</h3>
-<ul>
-<li><a href="/doc/commerce/checkout/api_checkout.html#cart">Cart</a></li>
-<li><a href="/doc/commerce/checkout/api_checkout.html#shipping-options">Shipping Options</a></li>
-<li><a href="/doc/commerce/checkout/api_checkout.html#previewing-a-checkout">Previewing a Checkout</a></li>
-<li><a href="/doc/commerce/checkout/api_checkout.html#submitting-a-checkout">Submitting a Checkout</a></li>
-<li><a href="/doc/commerce/checkout/api_checkout.html#wish-list">Wish List</a></li>
-</ul>
-</aside>
-
 Manage the cart and checkout processes for the consumer.
 
 >**TIPS**:
@@ -54,7 +44,7 @@ Manage the cart and checkout processes for the consumer.
 >- Use this Developer's Guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
 >- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/api_payment.html)
 
-### What is a Cart and a Checkout?
+### What is a Cart and What is a Checkout?
 
 In e-commerce, the shopping cart (also called basket or bag) allows consumers to collect and compare products that they are considering for purchase, but without requiring them to enter their shipping and billing information.
 
@@ -64,7 +54,9 @@ At Nike, a cart contains the following:
 - Promotion codes
 - Totals
 
-A checkout is different in that represents a consumer's intent to complete a purchase and must include additional information necessary for the fulfillment of an order. At Nike, a checkout includes the **info from the cart plus the following**:
+A checkout is different from a cart in that it represents a consumer's intent to complete a purchase and must include additional information necessary for the fulfillment of an order.
+
+At Nike, a checkout includes the **info from the cart plus the following**:
 
 - Shipping method(s)
 - Shipping address(es)
@@ -80,6 +72,8 @@ Thus, both the cart and the checkout serve a specific purpose within the shoppin
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Check if a product can be purchased or not**
 
+<i class="g72-check"></i>&nbsp;&nbsp;**Summarize a cart prior to checkout**
+
 Now that you know what a cart is, let's explore how to add it to your experience.
 
 ### Step 1: Create the Cart
@@ -89,6 +83,13 @@ The first step in managing a consumer's cart is to create the cart using the [Ca
 To create the cart, execute a request to the [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="blank"} or [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put){:target="blank"} endpoint.
 
 >**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, an error will be returned by the Carts API.
+
+Sample [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="blank"} request URI:
+```
+https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+```
+
+If you successfully create the cart, you will get product pricing and, if the consumer is a member who has saved a shipping address, you will get their default shipping address and recipient (i.e. contact) info from their Nike profile.
 
 ### Step 2: Get a Cart
 
@@ -113,71 +114,74 @@ The delete operation is optional, even if the cart is empty; carts will automati
 
 ### Step 4: Get a Cart Summary
 
-<i class="g72-check"></i>&nbsp;&nbsp;**Summarize a cart prior to checkout**
-
 The consumer has finished add products to the cart, and they might wish to see a summary before proceeding to checkout. Use the [Cart Reviews API](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="blank"} to enhance a cart summary with taxes, estimated delivery date(s), shipping group(s) (when applicable), and updated subtotals.
 
->**TIP:** Shipping group refers to the grouping of products into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
+To get a cart summary, execute a request to the [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="blank"} endpoint with a complete cart.
 
-To get a cart summary, execute a request to the [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="blank"} endpoint.
+>**NOTE**: It is not required to create a cart with the Carts API prior to sending a request to the Cart Reviews API. Instead of using Cart ID in the request, send the **country**, **currency**, and **brand** associated with the consumer.
 
-Other considerations:
+Depending on what additional info you include in the request, you can get additional info in the response, as follows:
 
 - To get sales tax and shipping tax, the request must include postal code.
 
-- To get estimated delivery date(s), the request must include the shipping method(s) the shopper had selected.
+- To get estimated delivery date(s), the request must include the shipping method(s).
 
 - To get shipping group information, the request must include the shipping method and the shipping address associated with each product.
+
+Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="blank"} request URI:
+```
+https://api.nike.com/buy/cart_reviews/v1/
+```
+
+>**TIPS:**
+>- Shipping group refers to the grouping of products into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
+>- For China consumers, you can capture and include [Fapiao invoice](https://www.sirva.com/docs/default-source/default-document-library/what-are-fapiaos-and-why-do-they-matter-.pdf) info in the request and it will be returned in the response.
 
 ## Shipping Options
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get available shipping methods and estimated delivery dates**
 
-Now that your consumer has finalized their cart, the next step is for them to select a shipping method.
+Now that your consumer has finalized their cart, it's time to begin the checkout process. The first step is for them to select a shipping method.
 
-Shoppers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to present to them, based on their shopping context?
-
-### Step 1: Get Shipping Options
+Consumers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to present to them, based on their shopping context?
 
 Use the [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="blank"} to retrieve the available shipping methods for a consumer's checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).
 
 To get the shipping options, execute a request to the *Shipping Options* endpoint.
- 
+
+Sample [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="blank"} request URI:
+```
+https://api.nike.com/buy/shipping_options/v2
+```
+
 >**TIP:** Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
 
 ## Previewing a Checkout
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Validate a checkout for fulfillment**
 
-### What is a Checkout?
+Next, let's make sure that the checkout details are accurate and that the process can proceed to the payment steps.
 
-A Nike checkout consists of the following information in the context of a consumer's shopping experience:
-
-- Product/service choices
-
-- Payment methods and billing addresses (discussed in [Adding Payment to Your Experience](/doc/commerce/payment/api_payment.html)
-
-- Shipping methods and shipping addresses
-
-- Prices
-
-- Taxes
-
-- Discounts
-
-### Step 1: Request Checkout Preview
-
-Execute a request to the [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} endpoint to make sure that the checkout details are accurate and that the process can proceed to the payment steps.
-
-The API ensures that the products, shipping method(s), and shipping address(es) are valid based on Nike pricing and address rules. You can also get product pricing, sales tax, shipping fee and tax, and checkout subtotals in the response.
-
-#### Can I Skip This?
+### Can I Skip This?
 
 Is it not required to execute a request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} in order for the consumer to complete their purchase. However, it is recommended to increase the chance of a successful checkout.
 
-Use the Checkout Preview response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and selects 'Place Order' (for example), there will be a better chance of success.
+You can use the info in the response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and selects 'Place Order' (for example), there will be a better chance of success.
+
+>**NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using NDe APIs](https://developer.niketech.com/nde-docs/doc/getting-started/using_nike_apis.html#asynchronous-operation) for more details.
+
+### Step 1: Request Checkout Preview
+
+Execute a request to the [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} endpoint.
+
+The API ensures that the products, shipping method(s), and shipping address(es) are valid based on Nike pricing and address rules. You can also get product pricing, sales tax, shipping fee and tax, estimated delivery date(s), and checkout subtotals in the response.
 
 >**TIP:** For more context, see a step-by-step example of all the requests in a checkout in the diagram in the [Best Practices](#best-practices) section of this document. For more info about Payment, see [Adding Payment to Your Experience](/doc/commerce/payment/api_payment.html).
+
+Sample [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} request URI:
+```
+https://api.nike.com/buy/checkout_previews/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+```
 
 ### Step 2: Retrieve Checkout Preview Job
 
@@ -187,11 +191,16 @@ To know if the job is done, check the value of the **status** field in the respo
 
 - `"status": "PENDING"`: job processing has not started
 
-- `"status": "IN_PROGRESS"`: job processing in progress
+- `"status": "IN_PROGRESS"`: job processing is in progress
 
 - `"status": "COMPLETED"`: job has completed
 
-Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the **response** object from this endpoint.
+Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
+
+Sample [Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-retrieve-checkout-preview-job-get-1){:target="blank"} request URI:
+```
+https://api.nike.com/buy/checkout_previews/v2/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+```
 
 ## Submitting a Checkout
 
@@ -201,7 +210,7 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 
 Execute a request to the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} endpoint when your consumer is ready to complete their purchase.
 
-The API performs the final validations of the consumer's information, requests payment authorization, and if everything succeeds, submits a checkout for fulfillment.
+The API performs the final validations of the consumer's information, requests payment authorization, and if everything succeeds, submits the checkout for fulfillment.
 
 >**TIPS:**
 >- You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Adding Payment to Your Experience](/doc/commerce/payment/api_payment.html) for more info.
@@ -215,23 +224,27 @@ The API performs the final validations of the consumer's information, requests p
 }
 ```
 
+Sample [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} request URI:
+```
+https://api.nike.com/buy/checkouts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+```
+
 ### Step 2: Retrieve Checkout Submit Job
 
-After calling the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} endpoint and receiving a HTTP 202 response, execute a request to the [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="blank"}using the same checkout ID to check the status of your job.
+After calling the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} endpoint and receiving a HTTP 202 response, execute a request to the [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="blank"} using the same checkout ID to check the status of your job.
 
-To know if the job is done, check the value of the **status** field in the response body as follows:
+The same job statuses apply for this endpoint as they do for Retrieve Checkout Preview Job. Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
-- `"status": "PENDING"`: job processing has not started
-
-- `"status": "IN_PROGRESS"`: job processing in progress
-
-- `"status": "COMPLETED"`: job has completed
-
-Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object from this endpoint.
+Sample [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="blank"} request URI:
+```
+https://api.nike.com/buy/checkouts/v2/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+```
 
 ## Wish List
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Manage a consumer's Wish Lists (member/employee only) of products and services**
+
+Congratulations, you have just submitted your first checkout for fulfillment! But wait, there's one more OPTIONAL step for you to know about.
 
 Manage a Nike member/employee's Wish Lists using the [Wish Lists API](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api){:target="blank"}.
 
@@ -240,10 +253,6 @@ Features:
 - Store unlimited Wish Lists per consumer
 - Get product pricing and availability for products added to the list
 - Member and employee support only. **Guest consumers (non-members) cannot save Wish Lists**
-
-#### Life Cycle of Wish List
-
-![](/images/commerce/buy/wishlists_flow.png){:width="70%"}
 
 ### Step 1: Create a Wish List
 
@@ -535,7 +544,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 **Is it okay to call Checkout APIs if my app is hosted in an Amazon Web Services VPC?**
 
-Yes. The APIs are exposed publicly so it shouldn't matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to us for help.
+Yes. The APIs are exposed publicly so it should not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to us for help.
 
 **My Checkout Submit job is taking a long time to complete. What gives?**
 
@@ -561,7 +570,6 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 
 Need to contact the Cart & Checkout team?
 
-|---|---|
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="blank"}|
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="blank"}|
 |Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com), [Sree Krishna](mailto:sree.krishna@nike.com) (Carts only)|
