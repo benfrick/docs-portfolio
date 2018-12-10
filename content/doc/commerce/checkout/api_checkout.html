@@ -157,7 +157,7 @@
 
 <p>Now that your consumer has finalized their cart, it’s time to begin the checkout process. The first step is for them to select a shipping method.</p>
 
-<p>Consumers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But how do you know which methods to present to them, based on their shopping context?</p>
+<p>Consumers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But, how do you know which methods to present to them, based on their shopping context?</p>
 
 <p>Use the <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post" target="blank">Shipping Options API</a> to retrieve the available shipping methods for a consumer’s checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).</p>
 
@@ -181,7 +181,7 @@
 
 <p>Is it not required to execute a request to <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put" target="blank">Request a Checkout Preview</a> in order for the consumer to complete their purchase. However, it is recommended to increase the chance of a successful checkout.</p>
 
-<p>You can use the info in the response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and selects ‘Place Order’ (for example), there will be a better chance of success.</p>
+<p>You can use the info in the response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and places the order, there will be a better chance of success.</p>
 
 <blockquote>
   <p><strong>NOTE</strong>: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See <a href="https://developer.niketech.com/nde-docs/doc/getting-started/using_nike_apis.html#asynchronous-operation">Using NDe APIs</a> for more details.</p>
