@@ -20,6 +20,8 @@ toc:
     url: /doc/getting-started/using_nike_apis.html#response-components
   - h2: Using the API Reference
     url: /doc/getting-started/using_nike_apis.html#using-the-api-reference
+  - h2: Making Your First Request
+    url: /doc/getting-started/using_nike_apis.html#making-your-first-request
   - h2: Versioning
     url: /doc/getting-started/using_nike_apis.html#versioning
   - h2: Caching
@@ -46,7 +48,7 @@ toc:
 
 # USING NDE APIS &nbsp;<i class="g72-swoosh"></i>
 
-##### Last Updated: 07/05/2018
+##### Last Updated: 12/11/2018
 
 ---
 
@@ -60,15 +62,11 @@ Learn how NDe APIs were designed with industry standards in mind.
 
 ### REST Architecture
 
-NDe uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="blank"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses.
-
-REST is thoroughly explained on the web already, but here are a few reasons why we use it:
+NDe uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="blank"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it:
 
 **Stateless for Improved Performance**
 
-REST APIs are stateless, meaning that application state is maintained on the client and not within the API itself. Each interaction with the API is done in complete isolation: your requests must always include all of the necessary information to be fulfilled by the server. In turn, the server responses must always provide all necessary information you need to create state in your app.
-
-Why is this desirable? Being stateless allows an API to be scaled across multiple servers and therefore serve millions of concurrent users. It also allows for easy caching, which can improve performance.
+REST APIs are stateless, meaning that application state is maintained on the client and not within the API itself. Each interaction with the API is done in complete isolation: your requests must always include all of the necessary information to be fulfilled by the server. In turn, the server responses must always provide all necessary information you need to create state in your app. Why is this desirable? Being stateless allows an API to be scaled across multiple servers and therefore serve millions of concurrent consumers. It also allows for easy caching, which can improve performance.
 
 **Easy Adoption = Wide Adoption**
 
@@ -76,11 +74,7 @@ REST is widely used in the industry because the syntax and protocols used (HTTP,
 
 ### JSON-formatted HTTP Requests and Responses
 
-The standard format for exchanging data with NDe APIs is [JSON](http://www.json.org/){:target="blank"} (**J**ava**S**cript **O**bject **N**otation).
-
-As such, all HTTP request and response payloads must be in JSON format.
-
-[Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="blank"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
+The standard format for exchanging data with NDe APIs is [JSON](http://www.json.org/){:target="blank"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="blank"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
 
 Example of a JSON-formatted request body that was sent to a NDe API:
 
@@ -124,361 +118,11 @@ Example of a JSON-formatted request body that was sent to a NDe API:
 
 ### JSON Schema Helps Define API Contracts
 
-The structures of the request and response bodies for NDe APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="blank"}.
-
-Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="blank"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified."
-
-Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract.
-
-For example the schema for the request body above is:
-```
-{   "$schema": "http://json-schema.org/draft-04/schema#",
-       "type": "object",
-       "properties": {
-         "id": {
-           "type": "string",
-           "description": "Shopping cart unique identifier."
-         },
-         "resourceType": {
-           "type": "string",
-           "description": "The type of resource the document is modeling.",
-           "readonly": "create-update",
-           "enum": [
-             "cart"
-           ]
-         },
-         "links": {
-           "type": "object",
-           "description": "Collection of links to related resources.",
-           "readonly": "create-update",
-           "properties": {
-             "self": {
-               "type": "object",
-               "description": "Link to this resource, itself.",
-               "readonly": "create-update",
-               "properties": {
-                 "ref": {
-                   "type": "string",
-                   "readonly": "create-update"
-                 }
-               },
-               "required": [
-                 "ref"
-               ]
-             }
-           },
-           "additionalProperties": true,
-           "required": [
-             "self"
-           ]
-         },
-         "country": {
-           "type": "string",
-           "description": "2-alpha character ISO 3166 country code.",
-           "pattern": "^[A-Z]{2}$"
-         },
-         "currency": {
-           "type": "string",
-           "description": "Currency code following the ISO 4217 standard. Ex: US currency code is 'USD'.",
-           "pattern": "^[A-Z]{3}$"
-         },
-         "brand": {
-           "type": "string",
-           "description": "NIKE brand",
-           "enum": [
-             "NIKE"
-           ]
-         },
-         "channel": {
-           "type": "string",
-           "description": "Sales channel of the shopping cart.",
-           "enum": [
-             "NIKECOM"
-           ]
-         },
-         "items": {
-           "type": "array",
-           "description": "List of items.",
-           "maxItems": 100,
-           "items": {
-             "type": "object",
-             "properties": {
-               "id": {
-                 "type": "string",
-                 "description": "Shopping cart item unique identifier."
-               },
-               "skuId": {
-                 "type": "string",
-                 "description": "Product Stock Keeping Unit (SKU) unique identifier."
-               },
-               "priceInfo": {
-                 "type": "object",
-                 "description": "Price details for the cart or item (and valueAddedServices) in whole. All price currencies are defined at cart root.",
-                 "readonly": "create-update",
-                 "properties": {
-                   "price": {
-                     "type": "number",
-                     "description": "Price of the cart item.",
-                     "readonly": "create-update"
-                   },
-                   "subtotal": {
-                     "type": "number",
-                     "description": "Item subtotal, the sku price multiplied by quantity.",
-                     "readonly": "create-update"
-                   },
-                   "discount": {
-                     "type": "number",
-                     "description": "Item discount.",
-                     "readonly": "create-update"
-                   },
-                   "valueAddedServices": {
-                     "type": "number",
-                     "description": "The total cost of the value added services for the item.",
-                     "readonly": "create-update"
-                   },
-                   "total": {
-                     "type": "number",
-                     "description": "Total price of the item and value added services, less any discounts.",
-                     "readonly": "create-update"
-                   },
-                   "priceSnapshotId": {
-                     "type": "string",
-                     "description": "The price's snapshot in time unique identifier.",
-                     "readonly": "create-update"
-                   }
-                 },
-                 "additionalProperties": true,
-                 "required": [
-                   "price",
-                   "subtotal",
-                   "discount",
-                   "valueAddedServices",
-                   "total",
-                   "priceSnapshotId"
-                 ]
-               },
-               "quantity": {
-                 "type": "integer",
-                 "minimum": 1,
-                 "description": "Line item quantity.",
-                 "readonly": "create-update"
-               },
-               "valueAddedServices": {
-                 "type": "array",
-                 "description": "List of value added services.",
-                 "items": {
-                   "type": "object",
-                   "properties": {
-                     "id": {
-                       "type": "string",
-                       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{8}",
-                       "description": "Value added service unique identifier."
-                     },
-                     "instruction": {
-                       "type": "object",
-                       "description": "Instructions for the value added service, related to the various service domains. Example would be a design id for Nike iD customization.",
-                       "properties": {
-                         "id": {
-                           "type": "string",
-                           "description": "Instruction unique identifier for the value added service, related to the various service domains. Example would be a design id for Nike iD customization."
-                         },
-                         "type": {
-                           "type": "string",
-                           "description": "Instruction Type, e.g. customization/nike_id (only one currently available), customization/my_print, customization/gift_card, buy/gift_wrap, buy/gift_message",
-                           "enum": [
-                             "customization/nike_id"
-                           ]
-                         }
-                       },
-                       "additionalProperties": true,
-                       "required": [
-                         "id",
-                         "type"
-                       ]
-                     },
-                     "priceInfo": {
-                       "type": "object",
-                       "description": "Price details for the value added service.",
-                       "readonly": "create-update",
-                       "properties": {
-                         "price": {
-                           "type": "number",
-                           "description": "Price of the value added service.",
-                           "readonly": "create-update"
-                         },
-                         "discount": {
-                           "type": "number",
-                           "description": "Value added service discount.",
-                           "readonly": "create-update"
-                         },
-                         "total": {
-                           "type": "number",
-                           "description": "Total price of the value added service, less any discounts.",
-                           "readonly": "create-update"
-                         },
-                         "priceSnapshotId": {
-                           "type": "string",
-                           "description": "The price's snapshot in time unique identifier.",
-                           "readonly": "create-update"
-                         }
-                       },
-                       "additionalProperties": true,
-                       "required": [
-                         "price",
-                         "discount",
-                         "total",
-                         "priceSnapshotId"
-                       ]
-                     }
-                   },
-                   "required": [
-                     "id",
-                     "instruction"
-                   ],
-                   "additionalProperties": true
-                 }
-               }
-             },
-             "required": [
-               "id",
-               "skuId",
-               "quantity"
-             ],
-             "additionalProperties": true
-           }
-         },
-         "totals": {
-           "type": "object",
-           "description": "Price details for the cart or item (and valueAddedServices) in whole. All price currencies are defined at cart root.",
-           "readonly": "create-update",
-           "properties": {
-             "subtotal": {
-               "type": "number",
-               "description": "Subtotal of the item costs for all items.",
-               "readonly": "create-update"
-             },
-             "valueAddedServicesTotal": {
-               "type": "number",
-               "description": "Total of value added services on the items.",
-               "readonly": "create-update"
-             },
-             "discountTotal": {
-               "type": "number",
-               "description": "Total of all discounts applied to the cart.",
-               "readonly": "create-update"
-             },
-             "total": {
-               "type": "number",
-               "description": "Total price of the entire item or cart, item costs less any discounts.",
-               "readonly": "create-update"
-             },
-             "quantity": {
-               "type": "integer",
-               "description": "Cart quantity.",
-               "readonly": "create-update"
-             }
-           },
-           "additionalProperties": true,
-           "required": [
-             "subtotal",
-             "valueAddedServicesTotal",
-             "discountTotal",
-             "total",
-             "quantity"
-           ]
-         },
-         "errors": {
-           "type": "array",
-           "description": "List of errors in the cart.",
-           "readonly": "create-update",
-           "items": {
-             "type": "object",
-             "properties": {
-               "field": {
-                 "type": "string",
-                 "description": "The field that has an error.",
-                 "readonly": "create-update"
-               },
-               "code": {
-                 "description": "Code for the error, text based, 'screaming snake-case'. Ex: 'FIELD_INVALID'.",
-                 "readonly": "create-update",
-                 "type": "string",
-                 "enum": [
-                   "REQUEST_INVALID",
-                   "MISSING_REQUIRED",
-                   "FIELD_INVALID",
-                   "SKU_INVALID",
-                   "PRODUCT_NOT_BUYABLE",
-                   "ITEM_QUANTITY_LIMIT",
-                   "QUANTITY_INVALID",
-                   "SYSTEM_ERROR"
-                 ]
-               },
-               "message": {
-                 "type": "string",
-                 "description": "Plain text description of the error.",
-                 "readonly": "create-update"
-               }
-             },
-             "additionalProperties": false,
-             "required": [
-               "code",
-               "message"
-             ]
-           }
-         },
-         "warnings": {
-           "type": "array",
-           "description": "List of warnings in the cart.",
-           "readonly": "create-update",
-           "items": {
-             "type": "object",
-             "properties": {
-               "field": {
-                 "type": "string",
-                 "description": "The field that has a warning.",
-                 "readonly": "create-update"
-               },
-               "code": {
-                 "description": "Code for the warning, text based, 'screaming snake-case'. Ex: 'PRICE_CHANGED'.",
-                 "readonly": "create-update",
-                 "type": "string",
-                 "enum": [
-                   "PRICE_CHANGED"
-                 ]
-               },
-               "message": {
-                 "type": "string",
-                 "description": "Plain text description of the warning.",
-                 "readonly": "create-update"
-               }
-             },
-             "additionalProperties": false,
-             "required": [
-               "code",
-               "message"
-             ]
-           }
-         }
-       },
-       "required": [
-         "id",
-         "country",
-         "currency",
-         "brand",
-         "items"
-       ],
-       "additionalProperties": true
-}
-```
+The structures of the request and response bodies for NDe APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="blank"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="blank"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, the schema for the request body above can be found [here](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json){:target="blank"}.
 
 ### Idempotence Guarantee
 
-In complex distributed systems, guaranteeing that an API request will be received only once by an application can be very difficult to achieve and validate when that application is hosted across geographic regions.
-
-Our idempotence guarantee states that **subsequent duplicate requests to mutate the data will not change the state of the system**.
-
-This can simplify the design when creating an eventually-consistent system, particularly when defining recovery scenarios that may need to replay API requests.
+In complex distributed systems, guaranteeing that an API request will be received only once by an application can be very difficult to achieve and validate when that application is hosted across geographic regions. Our idempotence guarantee states that **subsequent duplicate requests to mutate the data will not change the state of the system**. This can simplify the design when creating an eventually-consistent system, particularly when defining recovery scenarios that may need to replay API requests.
 
 ### Security and Privacy
 
@@ -518,11 +162,7 @@ Find out what you need in order to start using NDe APIs.
 
 ### Registration
 
-The NDe API registration process helps identify the software (including software version and who maintains it) that is calling an API.
-
-This is useful for understanding the impact of changes to, or deprecation and removal of an API.
-
-As of the time of this document, only an optional registration process exists, which is described below.
+The NDe API registration process helps identify the software (including software version and who maintains it) that is calling an API. This is useful for understanding the impact of changes to, or deprecation and removal of an API.
 
 #### Caller Identification Process (Optional)
 
@@ -546,9 +186,7 @@ Example caller ID: `com.nike:brand.ios.ntc:2.1`
 
 ### Authorization
 
-Many endpoints require that the customer has logged into their Nike account. This requires that your app prove that it is authorized to perform the requested operation on behalf of the customer by sending certain headers.
-
-Depending on how you are calling the endpoint, the authorization-related headers you need to send will vary as follows:
+Many endpoints require that the customer has logged into their Nike account. This requires that your app prove that it is authorized to perform the requested operation on behalf of the customer by sending certain headers. Depending on how you are calling the endpoint, the authorization-related headers you need to send will vary as follows:
 
 **Calls to the Nike API gateway (api.nike.com)**:
 
@@ -564,27 +202,23 @@ Send the **upmid** header, and for those endpoints that require it, the **appid*
 
 |Required headers for direct calls|Description|
 |---|---|
-|**upmid**|Nike user profile identifier|
+|**upmid**|Nike consumer profile identifier|
 |**appid**|Application identifier|
 
 >**TIP:** To learn how to obtain an access token see the [Generating the Access Token](https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md){:target="blank"} guide.
 
 ### JWT (JSON Web Token)
 
-Some endpoints such as [*Submit Order Payments for Approval*](/doc/commerce/payment/api_payment.html#submit-order-payments-for-approval-post) require a [JWT](https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md){:target="blank"} that is signed for a service authorized to call the endpoint.
-
-In this case, pass the JWT in the **X-Nike-Authorization** request header. Also, send the name of the application (e.g. "checkouts") that is authorized to call this endpoint in the **X-Nike-AppId** request header. This is the service name used to sign the JWT.
-
-The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.
-
-See the [Nike JWT Reference Guide](https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide){:target="blank"} for more information.
+Some endpoints such as [*Submit Order Payments for Approval*](/doc/commerce/payment/api_payment.html#submit-order-payments-for-approval-post) require a [JWT](https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md){:target="blank"} that is signed for a service authorized to call the endpoint. In this case, pass the JWT in the **X-Nike-Authorization** request header. Also, send the name of the application (e.g. "checkouts") that is authorized to call this endpoint in the **X-Nike-AppId** request header. This is the service name used to sign the JWT. The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.
 
 |Required headers for JWT|Description|
 |---|---|
 |**X-Nike-Authorization**|JWT token|
 |**X-Nike-AppId**|Application identifier|
 
->**TIP:** You will need both a Production and Test JWT when calling JWT-required endpoints in those respective environments.
+>**TIPS:**
+>- See the [Nike JWT Reference Guide](https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide){:target="blank"} for more information.
+>- You will need both a Production and Test JWT when calling JWT-required endpoints in those respective environments.
 
 ## URL Patterns
 
@@ -592,39 +226,25 @@ The standard URL pattern used for NDe APIs (v2 or later) is as follows:
 
 ![](/images/getting_started/url_format.png)
 
-<br>
-
-For example, all of Checkout APIs reside under the `/buy` domain, thus the URL's will always begin with https://api.nike.com/buy/.
-
-The resource section of the URL varies depending on the endpoint, e.g. https://api.nike.com/buy/<font color="green">carts</font>/ or https://api.nike.com/buy/<font color="green">checkout_previews</font>/.
+For example, all of Checkout APIs reside under the `/buy` domain, thus the URL's will always begin with https://api.nike.com/buy/. The resource section of the URL varies depending on the endpoint, e.g. https://api.nike.com/buy/<font color="green">carts</font>/ or https://api.nike.com/buy/<font color="green">checkout_previews</font>/.
 
 >**TIP:** Always check the API Developer Guide to confirm the correct URL format for a particular API.
 
 ### Path Parameters
 
-Path parameters are variable parts of a URL path. A URL can have one or more path parameters, each denoted with curly braces `{ }`.
-
-For example, in the path /buy/carts/v1/<font color="red">{id}</font> the id is the path parameter used to create or access a shopping cart resource.
-
-NDe API path parameters are always required.
+Path parameters are variable parts of a URL path. A URL can have one or more path parameters, each denoted with curly braces `{ }`. For example, in the path /buy/carts/v1/<font color="red">{id}</font> the id is the path parameter used to create or access a shopping cart resource. NDe API path parameters are always required.
 
 ### Query Parameters
 
-Query parameters can be added to the end of the URL and they allow you to be more specific about what you are requesting.
+Query parameters can be added to the end of the URL and they allow you to be more specific about what you are requesting. Query parameters in NDe APIs, with one exception (see Filter below), are in the format of `?<name>=<value>`. Multiple query parameters can be chained together with ampersands like `?<name>=<value>&<name>=<value>&<name>=<value>`.
 
-Query parameters in NDe APIs, with one exception (see Filter below), are in the format of `?<name>=<value>`. Multiple query parameters can be chained together with ampersands like `?<name>=<value>&<name>=<value>&<name>=<value>`.
-
-For example, the query parameter named **marketplace** can be added to this Product Feeds request with the value 'US' as follows:
-
-https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860<font color="green">?marketplace=US</font>.
+For example, the query parameter named **marketplace** can be added to this Product Feeds request with the value 'US' as follows: https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860<font color="green">?marketplace=US</font>.
 
 The available query parameters vary per NDe API. They are sometimes optional, sometimes required, depending on the API. Check the Developer Guide for the API in question to confirm the query parameter requirements.
 
 #### Common Query Parameters
 
-There are few query parameters that are intended to be common across multiple NDe APIs.
-
-The first parameter, Fields, can be applied to any NDe API which returns a response body. The remaining parameters, Anchor, Count, Filter, and Sort, only apply to APIs which return a collection (i.e. a set of multiple results, not a single result).
+There are few query parameters that are intended to be common across multiple NDe APIs. The first parameter, Fields, can be applied to any NDe API which returns a response body. The remaining parameters, Anchor, Count, Filter, and Sort, only apply to APIs which return a collection (i.e. a set of multiple results, not a single result).
 
 >**TIP:** Not all NDe APIs support all the common query parameters. Check the Developer Guide for the API in question to confirm the query parameters supported.
 
@@ -634,9 +254,7 @@ Use the fields query parameter to select which fields will be included in the re
 
 *Required format: `?fields=field1,field2,field3`*
 
-Nested fields are specified by parenthesis like `?fields=field1(field2)` or with dot notation like `?fields=field1.field2`, depending on the API.
-
-An example from the *Create Or Update A User's Cart* endpoint of the Carts API:
+Nested fields are specified by parenthesis like `?fields=field1(field2)` or with dot notation like `?fields=field1.field2`, depending on the API. An example from the *Create Or Update A User's Cart* endpoint of the Carts API:
 
 https://api.nike.com/buy/carts/v1/61bc185b-16e5-43b5-bcaf-dd6168c543f8<font color="blue">?fields=totals(total),totals(quantity)</font> would return only the **total** and **quantity** fields nested under **totals**.
 
@@ -660,13 +278,9 @@ Use the filter query parameter to restrict the API response based on one or more
 
 *Required format: `?filter=filterName(filterValue)`*
 
-An example from the *Retrieve User Carts by Filter* endpoint of the Carts API:
+An example from the *Retrieve User Carts by Filter* endpoint of the Carts API: https://api.nike.com/buy/carts/v1/<font color="blue">?filter=country(US)</font> would return only the carts created for a particular consumer with a country code of 'US'.
 
-https://api.nike.com/buy/carts/v1/<font color="blue">?filter=country(US)</font> would return only the carts created for a particular user with a country code of 'US'.
-
-Chain more than one filter query parameter together using `&` in between each one, for example:
-
-https://api.nike.com/buy/carts/v1/<font color="blue">?filter=country(US)&filter=brand(NIKE)&filter=channel(NIKECOM)</font> would return only the carts created for a particular user with a country code of 'US', a brand name of 'NIKE', and a channel name of 'NIKECOM'.
+Chain more than one filter query parameter together using `&` in between each one, for example: https://api.nike.com/buy/carts/v1/<font color="blue">?filter=country(US)&filter=brand(NIKE)&filter=channel(NIKECOM)</font> would return only the carts created for a particular consumer with a country code of 'US', a brand name of 'NIKE', and a channel name of 'NIKECOM'.
 
 ##### Sort
 
@@ -676,15 +290,11 @@ Use the sort query parameter to determine the ordering of the results in the res
 
 For sorts of nested fields use dot notation like `?sort=fieldName.nestedFieldAsc`.
 
-Example of sorting by a nested field:
-
-https://api.nike.com/product_feed/feeds/v2?<font color="blue">sort=publishedContent.publishStartDateAsc</font>
+Example of sorting by a nested field: https://api.nike.com/product_feed/feeds/v2?<font color="blue">sort=publishedContent.publishStartDateAsc</font>
 
 To sort by multiple keys, use commas to separate them, for example `?sort=fieldOne,fieldTwoAsc`.
 
-Example of sorting with multiple keys:
-
-https://api.nike.com/product_feed/feeds/v2?filter=channelId(008be467-6c78-4079-94f0-70e2d6cc4003)&<font color="blue">sort=publishedContent.publishStartDateAsc,id.keywordAsc</font>
+Example of sorting with multiple keys: https://api.nike.com/product_feed/feeds/v2?filter=channelId(008be467-6c78-4079-94f0-70e2d6cc4003)&<font color="blue">sort=publishedContent.publishStartDateAsc,id.keywordAsc</font>
 
 >**TIP:** Always check the Developer API Guide for the specific implementation of path and query parameters for a particular API.
 
@@ -712,16 +322,17 @@ Access API resources via standard HTTP methods, noting that not all APIs support
 
 Examples:
 
-	GET /persons -- List all persons
-	PUT /persons -- Bulk update persons
-	POST /persons -- Add a new person
-	DELETE /persons -- Delete all persons
+GET /persons -- List all persons
+
+PUT /persons -- Bulk update persons
+
+POST /persons -- Add a new person
+
+DELETE /persons -- Delete all persons
 
 ### Request Headers
 
-The required request headers vary per API and are described in the detailed per-API guides.
-
-This section describes the commonly-used headers by category.
+The required request headers vary per API and are described in the detailed per-API guides. This section describes the commonly-used headers by category.
 
 #### General Headers
 
@@ -752,9 +363,7 @@ See the [Prerequisites](#prerequisites) section for more info on Authorization h
 
 #### Format
 
-The default request body format is JSON (application/json) with charset UTF-8.
-
-Detailed request formats, including required and optional fields, are described in JSON Schema in each API contract (API.md file) and in the detailed per-API guides.
+The default request body format is JSON (application/json) with charset UTF-8. Detailed request formats, including required and optional fields, are described in JSON Schema in each API contract (API.md file) and in the detailed per-API guides.
 
 >**TIP:** GET requests do not require a request body.
 
@@ -897,17 +506,11 @@ x-nike-version:1.0.0.179
 
 ### Response Body
 
-Your responses will usually include a body but there are certain HTTP methods that don't require response bodies to be sent.
-
-The default response body format is JSON (application/json) with charset UTF-8.
-
-Detailed response formats are described in JSON Schema in each API contract (API.md file) and in the detailed per-API guides.
+Your responses will usually include a body but there are certain HTTP methods that don't require response bodies to be sent. The default response body format is JSON (application/json) with charset UTF-8. Detailed response formats are described in JSON Schema in each API contract (API.md file) and in the detailed per-API guides.
 
 #### Error and Warning Messages
 
-Although NDe uses a standard formatting for error and warning messages included in a response body, the content of each is specific to an API endpoint.
-
-See the per-API guides in each endpoint section for detailed error/warning information.
+Although NDe uses a standard formatting for error and warning messages included in a response body, the content of each is specific to an API endpoint. See the per-API guides in each endpoint section for detailed error/warning information.
 
 For additional general error handling info, see the [Error Handling](#error-handling) section.
 
@@ -945,11 +548,151 @@ The steps for accessing the API Reference on the Developer Portal are as follows
 >
 ><i class="mr2-sm g72-check"></i>For more on how to use the Developer Portal, see the [Developer Portal User Guide](/guide)
 
+## Making Your First Request
+
+For your first API request, send a request to the [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put) endpoint of the Carts API to create your first cart.
+
+##### 1. Gather Data Needed For The Request
+
+Our example endpoint, [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put), supports the HTTP PUT method. To create a cart, send a PUT request with (at minimum) the required request headers and the required parts of the request body.
+
+First, read the [API Reference]((https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put)) to learn more about the required parts of this request. Assume that the consumer for whom you are creating the cart is a Nike member who has logged in. This determines which request headers are required for this particular request.
+
+For the request headers, the following considerations apply (at minimum):
+
+- Always send `application/json` in both the **Accept** and **Content-Type** headers.
+
+- Send the consumer's access token as obtained from Unite services in the **Authorization** header.
+
+```
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {your access token}
+```
+
+For the request body, the following considerations apply (at minimum):
+
+1. Send a UUID **that you have created** in the **id** field, in this case `61bc115b-16e5-43b5-bcaf-dd6168c543f8`. This is the cart ID.
+
+2. Send the country code of the country where the consumer is shopping in the **country** field, in this case, `US`. Send `NIKE` in the **brand** field.
+
+3. Send a UUID **that you have created, different from above** in the items.**id** field. This is the identifier for the line item in the cart. If you include multiple line items, each must have a unique identifier.
+
+4. Send a valid SKU identifier (obtained from the Product Feeds API) in the items.**skuId** field.
+
+```
+{
+  "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
+  "country": "US",
+  "brand": "NIKE",
+  "items": [
+    {
+      "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
+      "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
+      "quantity": 1
+    }
+  ]
+}
+```
+
+**2. Create the URL**
+
+The [API Reference](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="blank"} states that the required URL format is `/buy/carts/v2/{id}`. To build the full URL, prepend `https://api.nike.com` to the above path, then append  **id** after "v2". The **id** is the cart identifier you passed in the request body. The complete URL is then https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8.
+
+**3. Execute the request**
+
+Execute the request with a cURL command. Using the values gathered in steps 1 and 2, the complete cURL command is:
+
+```
+curl -X PUT \
+  https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer {your access token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+     "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
+     "country": "US",
+     "brand": "NIKE",
+     "items": [
+       {
+         "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
+         "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
+         "quantity": 1
+       }
+     ]
+}'
+```
+
+**4. Parse the Response**
+
+Assuming no errors, you will receive a response body similar to the following:
+
+```
+{
+    "id": "61bc115b-16e5-43b5-bcaf-dd6168c543f8",
+    "country": "US",
+    "currency": "USD",
+    "brand": "NIKE",
+    "totals": {
+        "subtotal": 130,
+        "discountTotal": 0,
+        "valueAddedServicesTotal": 0,
+        "total": 130,
+        "quantity": 1
+    },
+    "items": [
+        {
+            "id": "9992b8cb-e4ac-42af-a8bb-3454d8509d32",
+            "skuId": "1f6b36bd-61c0-5eb5-b9f0-8643e1ebae37",
+            "quantity": 1,
+            "priceInfo": {
+                "price": 130,
+                "subtotal": 130,
+                "discount": 0,
+                "valueAddedServices": 0,
+                "total": 130,
+                "priceSnapshotId": "d5d8dbed-afba-4677-9904-e9712fa3ecb9",
+                "msrp": 130,
+                "fullPrice": 130
+            }
+        }
+    ],
+    "links": {
+        "self": {
+            "ref": "/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8"
+        }
+    },
+    "resourceType": "cart"
+}
+```
+
+Some values in the response are exactly what you sent in the request, but the values in the **totals** section provide a cart pricing summary and the values in items.**priceInfo** section provide the current product pricing details.
+
+#### Another Example
+
+For your next request, send a GET request to the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get) endpoint of the Carts API, using the cart **id** that you created in the previous step.
+
+For the request headers, use the same headers you used in the previous step.
+
+>**NOTE**: There is no request body needed for a GET request.
+
+The complete URL is https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8. Note that the same cart **id** that you created for the previous PUT request is at the end of the URL. The final cURL is:
+
+```
+curl -X GET \
+  https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8 \
+  -H 'accept: application/json' \
+  -H 'authorization: Bearer {your access token}' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+The response body from the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get) endpoint is the same as [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put), so the process of parsing it is also the same.
+
 ## Versioning
 
-As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](http://semver.org/){:target="blank"} guidelines.
-
-Some high-level considerations:
+As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](http://semver.org/){:target="blank"} guidelines. Some high-level considerations:
 
 - For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URL does not change. If you are using the [Tolerant Reader Pattern](http://servicedesignpatterns.com/WebServiceEvolution/TolerantReader){:target="blank"}, you can continue to use the API without having to make changes to your app.
 
@@ -969,11 +712,7 @@ NDe APIs take advantage of three layers of caching in order to keep service perf
 
 ### Akamai Caching
 
-NDe uses the [Akamai Content Delivery Framework](https://www.akamai.com/us/en/cdn/){:target="blank"} as the Edge caching solution for public service requests. It is utilized when the client makes a request for a NDe public resource configured to go through Akamai's Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai.
-
-It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike's Edge router. Akamai operates on a set of configured rules that determine what resources are cachable, how long to cache the resource and how to determine if the resource is stale and if the origin of the resource has an updated version. Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time.
-
-Listed below are the Production domains that are routed to Akamai's Edge caching server:
+NDe uses the [Akamai Content Delivery Framework](https://www.akamai.com/us/en/cdn/){:target="blank"} as the Edge caching solution for public service requests. It is utilized when the client makes a request for a NDe public resource configured to go through Akamai's Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai. It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike's Edge router. Akamai operates on a set of configured rules that determine what resources can be cached, how long to cache the resource, and how to determine if the origin of the resource has an updated version (stale resource). Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time. Listed below are the Production domains that are routed to Akamai's Edge caching server:
 
 |Domain|Description|
 |---|---|
@@ -1036,9 +775,7 @@ Caching can also be done on the Browser/Phone device itself. This type of cachin
 
 ## CORS
 
-Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error.
-
-One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. http://api.nike.com) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see [HTTP Access Control CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS){:target="blank"}.
+Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error. One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. http://api.nike.com) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see [HTTP Access Control CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS){:target="blank"}.
 
 ### Implementation Recommendations
 
@@ -1051,15 +788,9 @@ Developers implementing Cloud Services should keep the following best practices 
 
 ## Asynchronous Operation
 
-A **synchronous** endpoint returns the result immediately because both the request and work performed execute in the same thread. Synchronous endpoints are quick-running.
+A **synchronous** endpoint returns the result immediately because both the request and work performed execute in the same thread. Synchronous endpoints are quick-running. An **asynchronous** endpoint takes a work request and promises to return the results in an estimated time in the future. It immediately returns a status, an eta, and a result link at which the caller should poll for job results. It is best practice to wait the duration of the eta before asking for job results, also known as Planned Polling. If the job still is not finished, the caller should wait for the length returned in the job result eta before polling the job result again. It is suggested that services running longer than 250ms be an asynchronous service; it is mandated that services running longer than 500ms be an asynchronous service.
 
-An **asynchronous** endpoint takes a work request and promises to return the results in an estimated time in the future. It immediately returns a status, an eta, and a result link at which the caller should poll for job results. It is best practice to wait the duration of the eta before asking for job results, also known as Planned Polling. If the job still is not finished, the caller should wait for the length returned in the job result eta before polling the job result again.
-
-It is suggested that services running longer than 250ms be an asynchronous service; it is mandated that services running longer than 500ms be an asynchronous service.
-
-Asynchronous jobs are either in PENDING, IN_PROGRESS, or COMPLETED status. PENDING indicates that the job has been accepted into the work queue. IN_PROGRESS indicates the job has been picked up from the work queue and is being actively worked on. COMPLETED indicates the job is complete and results are available.
-
-There are two or three endpoints involved in an asynchronous service: job request, job status and job result. Job status and job result endpoints are sometimes combined.
+Asynchronous jobs are either in PENDING, IN_PROGRESS, or COMPLETED status. PENDING indicates that the job has been accepted into the work queue. IN_PROGRESS indicates the job has been picked up from the work queue and is being actively worked on. COMPLETED indicates the job is complete and results are available. There are two or three endpoints involved in an asynchronous service: job request, job status and job result. Job status and job result endpoints are sometimes combined.
 
 ### Job Request
 
@@ -1149,7 +880,7 @@ Note: not all HTTP responses include a body, e.g. 204 or 304.
 
 - Response Header Components
 
-    NDe APIs return a Trace ID in the **X-B3-TraceId** response header. This can be used to query logs to troubleshoot the error.
+NDe APIs return a Trace ID in the **X-B3-TraceId** response header. This can be used to query logs to troubleshoot the error.
 
 >**TIP:** For more about how to use Trace IDs, see the [Troubleshooting](#troubleshooting) section.
 
@@ -1312,17 +1043,13 @@ The field names are separated by `/` to indicated nesting in the structure of th
 
 ### Retries
 
-Depending on the returned HTTP status code, retrying an operation might make sense or not.
-
-In general, a 400-class status means a client-side issue, while a 500-class status means a server-side issue.
-
-Here are some recommendations for retries:
+Depending on the returned HTTP status code, retrying an operation might make sense or not. In general, a 400-class status means a client-side issue, while a 500-class status means a server-side issue. Here are some recommendations for retries:
 
 |HTTP Status Code|Description|Retry?|Comments|
 |---|---|---|---|
 |400|Bad Request|Yes - after changes|Change JSON based on response, retry operation|
-|401|Unauthorized|Yes - after login|Once user logs in, retry operation|
-|403|Forbidden|Yes - after changes|Once correct permissions of logged-in user are granted, retry operation|
+|401|Unauthorized|Yes - after login|Once consumer logs in, retry operation|
+|403|Forbidden|Yes - after changes|Once correct permissions of logged-in consumer are granted, retry operation|
 |404|Not Found|No||
 |405|Method Not Allowed|No|Change app to call API as per spec|
 |406|Not Acceptable|No|Change app to call API as per spec|
@@ -1340,23 +1067,15 @@ NDe APIs support 3 distinct user types for commerce applications. In this guide,
 
 #### Member
 
-Nike members have previously registered a [Nike+](https://www.nike.com/us/en_us/e/nike-plus-membership){:target="blank"} account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout.
-
-For API calls involving members, an _access token_ must be obtained from Nike Unite services and included in the **Authorization** request header after the user has logged in.
-
-Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on our business rules.
+Nike members have previously registered a [Nike+](https://www.nike.com/us/en_us/e/nike-plus-membership){:target="blank"} account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an _access token_ must be obtained from Nike Unite services and included in the **Authorization** request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on our business rules.
 
 #### Guest
 
-The guest user has not logged in with their Nike+ account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would.
-
-For API calls involving guests, the **nike-visitor-id** and **appId** headers must be included with the request. The **nike-visitor-id** header value is a UUID that you get by calling Nike Unite's [getVisitData](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()){:target="blank"} function in their SDK. The **appId** header value is the identifier for your app.
+The guest user has not logged in with their Nike+ account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would. For API calls involving guests, the **nike-visitor-id** and **appId** headers must be included with the request. The **nike-visitor-id** header value is a UUID that you get by calling Nike Unite's [getVisitData](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()){:target="blank"} function in their SDK. The **appId** header value is the identifier for your app.
 
 #### Employee
 
-The third type of user is an employee of Nike or one of it's subsidiaries (or an immediate family member of said employee) who has logged in with their [Swoosh](http://www.swoosh.com){:target="blank"} account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest.
-
-For API calls involving employees, the same **Authorization** request header is used like for members.
+The third type of user is an employee of Nike or one of it's subsidiaries (or an immediate family member of said employee) who has logged in with their [Swoosh](http://www.swoosh.com){:target="blank"} account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest. For API calls involving employees, the same **Authorization** request header is used like for members.
 
 ## Testing
 
@@ -1368,9 +1087,7 @@ See the [Prerequisites](#prerequisites) section for more info.
 
 ### Test Environments
 
-The ability to test in an environment other than production varies per API. For many APIs, functional test environments exist and should be used. For others that do not, testing in production may be an option.
-
-Contact the Product Owner of the API (listed in each Developer API Guide, At-a-Glance section) for recommendations on the best environment to use for testing.
+The ability to test in an environment other than production varies per API. For many APIs, functional test environments exist and should be used. For others that do not, testing in production may be an option. Contact the Product Owner of the API (listed in each Developer API Guide, At-a-Glance section) for recommendations on the best environment to use for testing.
 
 ### Testing Tips
 
@@ -1406,9 +1123,7 @@ After looking at Splunk, if you still need assistance with troubleshooting a par
 
 ### Inspect Browser Activity in a Live Experience
 
-Use your browser's built-in tools for inspecting the web service calls which occur for a live Nike experience like [SNKRS Web](https://www.nike.com/launch){:target="blank"}. Sometimes seeing what other experiences are doing might address your question or concern.
-
-For example, to follow the order of calls made when changing a shipping address during checkout:
+Use your browser's built-in tools for inspecting the web service calls which occur for a live Nike experience like [SNKRS Web](https://www.nike.com/launch){:target="blank"}. Sometimes seeing what other experiences are doing might address your question or concern. For example, to follow the order of calls made when changing a shipping address during checkout:
 
 1. Right-click anywhere in browser main window, select `Inspect`.
 
