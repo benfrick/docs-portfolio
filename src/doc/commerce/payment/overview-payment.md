@@ -46,7 +46,7 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate an Apple Pay transaction.](/doc/commerce/payment/api_payment.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a wallet transaction like Paypal Express/Mark.](/doc/commerce/payment/api_payment.html)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/api_payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Save and get sensitive credit card information including CVV code.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Save and validate credit card information. Retrieve masked credit card information.](/doc/commerce/payment/api_payment.html)|
 {:max-width="85%"}
 
 <h4>Related Information</h4>

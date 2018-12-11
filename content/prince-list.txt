@@ -19,6 +19,5 @@
 ./content/doc/commerce/product/overview-product-feeds.html
 ./content/doc/commerce/reference/product_lifecycle.html
 ./content/doc/commerce/product/use-collections.html
-./content/doc/commerce/checkout/use_checkout.html
 ./content/doc/commerce/order/use_order.html
 ./content/doc/getting-started/using_nike_apis.html
