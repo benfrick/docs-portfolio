@@ -408,7 +408,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-1. Check for validation errors logged in Splunk [here](https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda){:target="blank"}
+1. Check for validation errors logged in Splunk [here](https://nike.splunkcloud.com/en-US/app/search){:target="blank"}
 
 2. Use the sample requests in this document or those provided [here](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events){:target="blank"} as a guide to forming valid requests for each event type.
 
