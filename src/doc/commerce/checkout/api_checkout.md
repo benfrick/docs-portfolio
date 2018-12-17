@@ -110,7 +110,7 @@ To add or remove products, services, and promotion codes from a cart, execute a 
 
 To delete **all** of the products in the cart, execute a request to [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete-1){:target="blank"} or [Delete All Items from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete-1){:target="blank"} endpoints.
 
-The delete operation is optional, even if the cart is empty; carts will automatically purge from storage after approximately 90 days of inactivity.
+The delete operation is optional, even if the cart is empty; member's carts will automatically purge from storage after 90 days of inactivity, while guest carts will purge at 30 days.
 
 ### Step 4: Get a Cart Summary
 
@@ -164,7 +164,7 @@ Next, let's make sure that the checkout details are accurate and that the proces
 
 ### Can I Skip This?
 
-Is it not required to execute a request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} in order for the consumer to complete their purchase. However, it is recommended to increase the chance of a successful checkout.
+It is not required to execute a request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} in order for the consumer to complete their purchase. However, it is recommended to increase the chance of a successful checkout.
 
 You can use the info in the response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and places the order, there will be a better chance of success.
 
@@ -214,13 +214,13 @@ The API performs the final validations of the consumer's information, requests p
 
 >**TIPS:**
 >- You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Adding Payment to Your Experience](/doc/commerce/payment/api_payment.html) for more info.
->- Optionally you can send the priceChecksum value you got from the *Request Checkout Preview* endpoint in the **priceChecksum** field in the request body. It is used to compare and validate the pricing calculated on a previous request against the pricing at the time of Checkout Submit.
->- For China only, you can offer shoppers the option to generate a Fapiao, which is a special tax invoice. If the shopper indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. Just send an **invoiceInfo** array in the request body, similar to the below example (see the request schema for this endpoint for more details):
+>- Optionally, for Japan only, send `GIFT_RECEIPT` in the **invoiceInfo** block, which prevents prices from being printed on the packing slip that is included with the product shipment.
+>- Optionally, for China only, send `ELECTRONIC_FAPIAO` in **invoiceInfo** for Fapiao, which is a special tax invoice. If the consumer indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. For example:
 
 ```
 "invoiceInfo": {
     "type": "ELECTRONIC_FAPIAO",
-    "detail": "The shopper's personal title for the invoice"
+    "detail": "The consumer's personal title for the invoice"
 }
 ```
 
