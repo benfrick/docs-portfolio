@@ -24,8 +24,6 @@ toc:
     url: /doc/commerce/product/api_merch_product.html#merchandised-product-concepts
   - h2: International Considerations
     url: /doc/commerce/product/api_merch_product.html#international-considerations
-  - h2: Making Your First Request
-    url: /doc/commerce/product/api_merch_product.html#making-your-first-api-request
   - h2: Using Merchandised Products
     url: /doc/commerce/product/api_merch_product.html#using-merchandised-products
   - h2: Using Merchandised Product SKUs
@@ -302,123 +300,6 @@ The Merchandised Products API includes two fields that are used for this purpose
 
 The two data points reflect two views of essentially the same data. You should use **commerceCountryExclusions** to exclude a product from being displayed in the specified country. The **commerceCountryInclusions** field is an inverse view that is primarily used for legacy systems, and may be deprecated soon.
 
-## Making Your First API Request
-
-To try out the following examples, you need a valid style-color, style number, or ID, depending upon the service. If you find that the data in any of these examples is no longer available, go to a product page on the [store.nike.com](https://store.nike.com) to get the style-color of an active, in-stock product.
-
-For your first Merchandised Products API request, you will list the product details for style-colors SX7037-657 and SX5593-010.
-
-1. Gather data needed for the request
-
-|HTTP Method|Endpoint URI|
-|---|---|
-|GET|https://api.nike.com/merch/products/v2|
-    
-|Filter Parameter Name|Filter Value|
-|---|---|
-|**merchgroup**|US|
-|**stylecolor**|SX7037-657,SX5593-010|
-
-2. Execute the request
-
-The complete URI is:
-
-https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=stylecolor(SX7037-657,SX5593-010)
-
-This GET request does not require special headers and can be executed in any browser.
-
-3. Parse the response
-
-See the output of the successful JSON 200 response below.
-
->**What id to use:** **id** is the UUID assigned when the product first flowed into the Merchandising Product API. **pid** is a legacy ID that maps to the product UUID and will eventually be deprecated.
-
-```
-{
-  "pages" : { },
-  "objects" : [ {
-    "id" : "8653b383-22a0-55a1-ba7e-56174e5ab1e7",
-    "snapshotId" : "c59808d1-0945-4bcc-9c47-dcb34cc40824",
-    "modificationDate" : "2017-10-05T20:55:33.734Z",
-    "status" : "ACTIVE",
-    "merchGroup" : "US",
-    "styleCode" : "SX7037",
-    "colorCode" : "657",
-    "styleColor" : "SX7037-657",
-    "pid" : "11808665",
-    "catalogId" : "a922ed59-1c27-3884-8fa3-2d29f4114352",
-    "productGroupId" : "11943433",
-    "brand" : "Nike",
-    "channels" : [ ],
-    "legacyCatalogIds" : [ "1" ],
-    "genders" : [ "WOMEN", "MEN" ],
-    "valueAddedServices" : [ {
-      "id" : "47bc9091-2965-5231-b5f1-a7216e249894"
-    } ],
-    "sportTags" : [ "Basketball" ],
-    "widthGroupIds" : [ ],
-    "classificationConcepts" : [ ],
-    "commerceCountryInclusions" : [ ],
-    "commerceCountryExclusions" : [ ],
-    "quantityLimit" : 10,
-    "styleType" : "INLINE",
-    "productType" : "EQUIPMENT",
-    "mainColor" : false,
-    "exclusiveAccess" : false,
-    "hardLaunch" : true,
-    "commercePublishDate" : "2017-09-29T13:00:00.000Z",
-    "commerceStartDate" : "2017-09-29T12:00:00.000Z",
-    "resourceType" : "merchProduct",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/products/v2/8653b383-22a0-55a1-ba7e-56174e5ab1e7"
-      }
-    }
-  }, {
-    "id" : "4878287a-c51f-5219-a0f5-5fc2d3a9065b",
-    "snapshotId" : "38b2c057-8aab-4d4a-8039-3d74205929bb",
-    "modificationDate" : "2017-09-21T00:41:45.433Z",
-    "status" : "ACTIVE",
-    "merchGroup" : "US",
-    "styleCode" : "SX5593",
-    "colorCode" : "010",
-    "styleColor" : "SX5593-010",
-    "pid" : "11374423",
-    "catalogId" : "68f9414c-56aa-317b-a9d2-329b53dd6189",
-    "productGroupId" : "11621641",
-    "brand" : "Nike",
-    "channels" : [ ],
-    "legacyCatalogIds" : [ "1" ],
-    "genders" : [ "WOMEN", "MEN", "GIRLS", "BOYS" ],
-    "valueAddedServices" : [ {
-      "id" : "47bc9091-2965-5231-b5f1-a7216e249894"
-    } ],
-    "sportTags" : [ "Basketball" ],
-    "widthGroupIds" : [ ],
-    "classificationConcepts" : [ ],
-    "commerceCountryInclusions" : [ ],
-    "commerceCountryExclusions" : [ ],
-    "quantityLimit" : 10,
-    "styleType" : "INLINE",
-    "productType" : "EQUIPMENT",
-    "mainColor" : true,
-    "exclusiveAccess" : false,
-    "commercePublishDate" : "2017-06-28T16:46:59.000Z",
-    "commerceStartDate" : "2017-04-01T07:00:00.000Z",
-    "commerceEndDate" : "2017-07-01T07:00:00.000Z",
-    "resourceType" : "merchProduct",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/products/v2/4878287a-c51f-5219-a0f5-5fc2d3a9065b"
-      }
-    }
-  } ],
-  "errors" : [ ]
-}
-```
-
->**TIP:** For detailed information on this service, see [Merchandised Product List](#merchandised-product-list).
-
 ## Using Merchandised Products
 
 - [Merchandised Products Overview](#merchandised-products-overview)
@@ -554,158 +435,6 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |errors.**httpStatus**|integer|HTTP error response code|Required|
 |errors.**message**|string|Detailed error message|Required|
 
-Sample *Merchandised Product List* 200 successful response:
-
-```
-{
-  "pages" : { },
-  "objects" : [ {
-    "id" : "4e2c6888-8a46-5a70-a7ed-1f20c7e26690",
-    "snapshotId" : "f553c583-645d-45bd-a9b9-8ce46596792b",
-    "modificationDate" : "2017-11-14T07:26:05.278Z",
-    "status" : "ACTIVE",
-    "merchGroup" : "EU",
-    "styleCode" : "AJ8646",
-    "colorCode" : "001",
-    "styleColor" : "AJ8646-001",
-    "pid" : "12115143",
-    "catalogId" : "ff699142-04a5-3edc-819e-a7b5824dcafd",
-    "productGroupId" : "12263238",
-    "brand" : "Nike",
-    "channels" : [ ],
-    "legacyCatalogIds" : [ "300" ],
-    "genders" : [ "WOMEN" ],
-    "valueAddedServices" : [ {
-      "id" : "47bc9091-2965-5231-b5f1-a7216e249894"
-    } ],
-    "sportTags" : [ "Lifestyle" ],
-    "classificationConcepts" : [ ],
-    "commerceCountryInclusions" : [ ],
-    "commerceCountryExclusions" : [ ],
-    "quantityLimit" : 10,
-    "styleType" : "INLINE",
-    "productType" : "FOOTWEAR",
-    "mainColor" : true,
-    "exclusiveAccess" : false,
-    "hardLaunch" : true,
-    "commercePublishDate" : "2017-11-24T08:00:00.000Z",
-    "commerceStartDate" : "2017-11-24T08:00:00.000Z",
-    "softLaunchDate" : "2017-11-22T08:00:00.000Z",
-    "resourceType" : "merchProduct",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/products/v2/4e2c6888-8a46-5a70-a7ed-1f20c7e26690"
-      }
-    }
-  }, {
-    "id" : "b419ffdf-1a18-52d0-bfb1-a51a9763b83d",
-    "snapshotId" : "0547ffcf-ebaa-4d9a-8307-89659fa6aa97",
-    "modificationDate" : "2017-11-14T11:17:26.018Z",
-    "status" : "ACTIVE",
-    "merchGroup" : "EU",
-    "styleCode" : "AJ8646",
-    "colorCode" : "002",
-    "styleColor" : "AJ8646-002",
-    "pid" : "12115144",
-    "catalogId" : "897f228d-d776-3ac3-8804-b9e6f5a140ec",
-    "productGroupId" : "12263238",
-    "brand" : "Nike",
-    "channels" : [ ],
-    "legacyCatalogIds" : [ "300" ],
-    "genders" : [ "WOMEN" ],
-    "valueAddedServices" : [ {
-      "id" : "47bc9091-2965-5231-b5f1-a7216e249894"
-    } ],
-    "sportTags" : [ "Lifestyle" ],
-    "classificationConcepts" : [ ],
-    "commerceCountryInclusions" : [ ],
-    "commerceCountryExclusions" : [ ],
-    "quantityLimit" : 10,
-    "styleType" : "INLINE",
-    "productType" : "FOOTWEAR",
-    "publishType" : "LAUNCH",
-    "mainColor" : false,
-    "exclusiveAccess" : false,
-    "commercePublishDate" : "2017-11-14T11:12:31.000Z",
-    "commerceStartDate" : "2017-10-01T10:00:00.000Z",
-    "softLaunchDate" : "2017-11-27T08:00:00.000Z",
-    "resourceType" : "merchProduct",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/products/v2/b419ffdf-1a18-52d0-bfb1-a51a9763b83d"
-      }
-    }
-  }, {
-    "id" : "069f4950-12a9-554c-a645-b3e532ee30b2",
-    "snapshotId" : "1155fc28-6c12-4fe0-8441-e4288c528345",
-    "modificationDate" : "2017-11-14T11:17:26.158Z",
-    "status" : "ACTIVE",
-    "merchGroup" : "EU",
-    "styleCode" : "AJ8646",
-    "colorCode" : "600",
-    "styleColor" : "AJ8646-600",
-    "pid" : "12115145",
-    "catalogId" : "19352cdf-2b40-3cbc-b29e-066fb4829455",
-    "productGroupId" : "12263238",
-    "brand" : "Nike",
-    "channels" : [ ],
-    "legacyCatalogIds" : [ "300" ],
-    "genders" : [ "WOMEN" ],
-    "valueAddedServices" : [ {
-      "id" : "47bc9091-2965-5231-b5f1-a7216e249894"
-    } ],
-    "sportTags" : [ "Lifestyle" ],
-    "classificationConcepts" : [ ],
-    "commerceCountryInclusions" : [ ],
-    "commerceCountryExclusions" : [ ],
-    "quantityLimit" : 10,
-    "styleType" : "INLINE",
-    "productType" : "FOOTWEAR",
-    "publishType" : "LAUNCH",
-    "mainColor" : false,
-    "exclusiveAccess" : false,
-    "commercePublishDate" : "2017-11-14T11:13:02.000Z",
-    "commerceStartDate" : "2017-10-01T10:00:00.000Z",
-    "softLaunchDate" : "2017-11-27T08:00:00.000Z",
-    "resourceType" : "merchProduct",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/products/v2/069f4950-12a9-554c-a645-b3e532ee30b2"
-      }
-    }
-  } ],
-  "errors" : [ ]
-}
-```
-
-Sample *Merchandised Product List* 200 successful response when no products matching the filters are found:
-
-```
-{
-  "pages" : {
-    "next" : "/merch/products/v2?count=25&anchor=0&filter=merchgroup(US)&filter=style(111111)"
-  },
-  "objects" : [ ],
-  "errors" : [ ]
-}
-```
-
-Sample *Merchandised Product List* 400 error response:
-
-```
-{
-    "httpStatus": 400,
-    "code": "40000",
-    "timestamp": "2017-10-10T23:35:05.737+0000",
-    "service": "merchproductsv2",
-    "message": "Invalid request parameters"
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-<p>&nbsp;</p>
-
 ### Merchandised Product By ID
 
 ---
@@ -755,70 +484,6 @@ https://api.nike.com/merch/products/v2/30e88273-bc07-5a51-bb8a-9c58a789c504
 ### Response Body
 
 See the [Merchandised Product List](#merchandised-product-list) endpoint to view the list of response body field definitions.
-
-Sample *Merchandised Product By ID* 200 successful response:
-
-```
-{
-    "id": "30e88273-bc07-5a51-bb8a-9c58a789c504",
-    "snapshotId": "114d21ad-8fbf-49c9-b552-9173f279b8a9",
-    "modificationDate": "2017-10-09T16:51:54.050Z",
-    "status": "ACTIVE",
-    "merchGroup": "US",
-    "styleCode": "919704",
-    "colorCode": "006",
-    "styleColor": "919704-006",
-    "pid": "11825501",
-    "catalogId": "ac7cbede-de38-30d7-bb24-1c7ac8a975c1",
-    "productGroupId": "11937976",
-    "brand": "Jordan",
-    "channels": [],
-    "legacyCatalogIds": [
-        "1"
-    ],
-    "genders": [
-        "MEN"
-    ],
-    "valueAddedServices": [
-        {
-            "id": "47bc9091-2965-5231-b5f1-a7216e249894"
-        }
-    ],
-    "sportTags": [
-        "Lifestyle"
-    ],
-    "widthGroupIds": [],
-    "classificationConcepts": [],
-    "quantityLimit": 1,
-    "styleType": "INLINE",
-    "productType": "FOOTWEAR",
-    "publishType": "FLOW",
-    "mainColor": false,
-    "exclusiveAccess": false,
-    "hardLaunch": true,
-    "commercePublishDate": "2017-10-07T07:00:00.000Z",
-    "commerceStartDate": "2017-10-07T14:00:00.000Z",
-    "resourceType": "merchProduct",
-    "links": {
-        "self": {
-            "ref": "/merch/products/v2/30e88273-bc07-5a51-bb8a-9c58a789c504"
-        }
-    }
-}
-```
-
-Sample 404 response:
-
-```
-{
-    "httpStatus": 404,
-    "timestamp": "2017-10-12T17:56:13.922+0000",
-    "service": "merchproductsv2",
-    "message": "Product not found."
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/products/API.md?raw#!/Merchandised_Product/get_merch_products_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -910,93 +575,6 @@ https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a
 |errors.**httpStatus**|integer|HTTP error response code|Optional|
 |errors.**message**|string|Detailed error message|Optional|
 
-Sample HTTP 200 success response from *Merchandised Product SKU List*:
-
-```
-{
-    "pages": {},
-    "objects": [
-        {
-            "id": "afb793c5-1bfe-5ec3-a7f7-63e7ea59db13",
-            "snapshotId": "1292dfcb-b817-4595-b9f9-2dd582c988f0",
-            "productId": "ab9c9789-1a35-503c-8a22-95a745c35df8",
-            "parentId": "ab9c9789-1a35-503c-8a22-95a745c35df8",
-            "parentType": "merchProduct",
-            "catalogSkuId": "227ccd8a-3b4c-3320-8888-5d2f535c7217",
-            "modificationDate": "2017-09-07T12:39:48.223Z",
-            "merchGroup": "US",
-            "stockKeepingUnitId": "19281872",
-            "gtin": "00885176589166",
-            "nikeSize": "7",
-            "countrySpecifications": [
-                {
-                    "country": "US",
-                    "localizedSize": "7",
-                    "taxInfo": {
-                        "commodityCode": "531119.100",
-                        "vat": 0
-                    }
-                }
-            ],
-            "resourceType": "merchSku",
-            "links": {
-                "self": {
-                    "ref": "/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13?country=US"
-                }
-            }
-        },
-        {
-            "id": "817e6fa3-fba3-52a2-b851-808218528775",
-            "snapshotId": "196fd2cb-76d0-4009-9764-aee7e16e7bce",
-            "productId": "ab9c9789-1a35-503c-8a22-95a745c35df8",
-            "parentId": "ab9c9789-1a35-503c-8a22-95a745c35df8",
-            "parentType": "merchProduct",
-            "catalogSkuId": "07306de8-1316-3e7c-895c-d237f21d35d3",
-            "modificationDate": "2017-09-07T12:39:48.223Z",
-            "merchGroup": "US",
-            "stockKeepingUnitId": "19281867",
-            "gtin": "00885176589180",
-            "nikeSize": "7.5",
-            "countrySpecifications": [
-                {
-                    "country": "US",
-                    "localizedSize": "7.5",
-                    "taxInfo": {
-                        "commodityCode": "531119.100",
-                        "vat": 0
-                    }
-                }
-            ],
-            "resourceType": "merchSku",
-            "links": {
-                "self": {
-                    "ref": "/merch/skus/v2/817e6fa3-fba3-52a2-b851-808218528775?country=US"
-                }
-            }
-        }
-     ],
-    "errors":[]
-}
-```
-
-Sample 404 error response from *Merchandised Product SKU List*:
-
-```
-{
-    "pages": {},
-    "objects": [],
-    "errors": [
-        {
-            "requested": "productid(null)",
-            "httpStatus": 404,
-            "message": "Resource Not Found"
-        }
-    ]
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ### Merchandised Product SKU by ID
@@ -1043,46 +621,6 @@ Sample Product SKU by ID request URI:
 ```
 https://api.nike.com/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13
 ```
-
-#### Response Body
-
-Sample *Merchandised Product SKU By ID* 200 successful response:
-
->**TIP:** See the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint to view the list of field definitions.
-
-```
-{
-    "id": "afb793c5-1bfe-5ec3-a7f7-63e7ea59db13",
-    "snapshotId": "1292dfcb-b817-4595-b9f9-2dd582c988f0",
-    "productId": "ab9c9789-1a35-503c-8a22-95a745c35df8",
-    "parentId": "ab9c9789-1a35-503c-8a22-95a745c35df8",
-    "parentType": "merchProduct",
-    "catalogSkuId": "227ccd8a-3b4c-3320-8888-5d2f535c7217",
-    "modificationDate": "2017-09-07T12:39:48.223Z",
-    "merchGroup": "US",
-    "stockKeepingUnitId": "19281872",
-    "gtin": "00885176589166",
-    "nikeSize": "7",
-    "countrySpecifications": [
-        {
-            "country": "US",
-            "localizedSize": "7",
-            "taxInfo": {
-                "commodityCode": "531119.100",
-                "vat": 0
-            }
-        }
-    ],
-    "resourceType": "merchSku",
-    "links": {
-        "self": {
-            "ref": "/merch/skus/v2/afb793c5-1bfe-5ec3-a7f7-63e7ea59db13"
-        }
-    }
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/skus/API.md?raw#!/Sku/get_merch_skus_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1172,39 +710,6 @@ Note that for the **productid** + [**country**](/doc/commerce/product/merch_prod
 |errors.**httpStatus**|integer|HTTP error response code|Required|
 |errors.**message**|string|Detailed error message|Required|
 
-Sample *Merchandised Prices List* 200 successful response:
-
-```
-{
-  "pages" : { },
-  "objects" : [ {
-    "id" : "486d098c-a403-5fb7-8305-243d71625d4c",
-    "snapshotId" : "85ebb452-f61c-46a2-b0ce-14a89a542816",
-    "productId" : "58aaa694-5889-5965-a781-6abcc3e4ff68",
-    "parentId" : "58aaa694-5889-5965-a781-6abcc3e4ff68",
-    "parentType" : "merchProduct",
-    "modificationDate" : "2017-06-06T17:39:16.405Z",
-    "country" : "IE",
-    "msrp" : 170,
-    "fullPrice" : 170,
-    "currentPrice" : 118.99,
-    "currency" : "EUR",
-    "discounted" : true,
-    "promoInclusions" : [ ],
-    "promoExclusions" : [ ],
-    "resourceType" : "merchPrice",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c"
-      }
-    }
-  } ],
-  "errors" : [ ]
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ### Merchandised Prices by ID
@@ -1257,35 +762,6 @@ https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c
 ### Response Body
 
 See the [Merchandised Prices List](#merchandised-product-list) endpoint for a description of response body field descriptions.
-
-Sample *Merchandised Price by ID* 200 success response:
-
-```
-{
-  "id" : "486d098c-a403-5fb7-8305-243d71625d4c",
-  "snapshotId" : "85ebb452-f61c-46a2-b0ce-14a89a542816",
-  "productId" : "58aaa694-5889-5965-a781-6abcc3e4ff68",
-  "parentId" : "58aaa694-5889-5965-a781-6abcc3e4ff68",
-  "parentType" : "merchProduct",
-  "modificationDate" : "2017-06-06T17:39:16.405Z",
-  "country" : "IE",
-  "msrp" : 170,
-  "fullPrice" : 170,
-  "currentPrice" : 118.99,
-  "currency" : "EUR",
-  "discounted" : true,
-  "promoInclusions" : [ ],
-  "promoExclusions" : [ ],
-  "resourceType" : "merchPrice",
-  "links" : {
-    "self" : {
-      "ref" : "/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c"
-    }
-  }
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/prices/API.md?raw#!/Prices/get_merch_prices_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ----
 
@@ -1374,52 +850,6 @@ There is no body in a GET request.
 |**resourceType**|string|Type of resource, always "merchValueAddedService"|Required|
 |links.self.**ref**|string|Referrer link to result|Required|
 
-Sample *Merchandised Value Added Services List* 200 successful response:
-
-```
-{
-  "pages" : {
-    "prev" : "/merch/value_added_services/v1?count=25&filter=type(PERSONALIZATION)"
-  },
-  "objects" : [ {
-    "id" : "4a5c81c4-840d-5672-9db0-958105676ead",
-    "snapshotId" : "798f7ea0-e100-4f9a-a9f9-566d147f6841",
-    "modificationDate" : "2017-02-01T03:38:30.741Z",
-    "status" : "ACTIVE",
-    "merchGroup" : "US",
-    "pid" : "11820995",
-    "type" : "PERSONALIZATION",
-    "displayName" : "VAS0011-996 MyPrint VAS - 20 USD",
-    "commercePublishDate" : "2016-12-15T21:19:18.000Z",
-    "commerceStartDate" : "2016-12-15T17:00:00.000Z",
-    "resourceType" : "merchValueAddedService",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/value_added_services/v1/4a5c81c4-840d-5672-9db0-958105676ead"
-      }
-    }
-  }, {
-    "id" : "59277764-f748-5572-8195-f1958d9baccb",
-    "snapshotId" : "4b8c149f-0296-4cf9-b5a4-266aee02f00a",
-    "modificationDate" : "2017-05-22T01:33:46.744Z",
-    "status" : "CLOSEOUT",
-    "merchGroup" : "US",
-    "pid" : "11067215",
-    "type" : "PERSONALIZATION",
-    "displayName" : "VAS0007-996 PiD VAS - Black Text only",
-    "commercePublishDate" : "2015-09-21T18:29:32.000Z",
-    "commerceStartDate" : "2015-09-11T23:05:00.000Z",
-    "resourceType" : "merchValueAddedService",
-    "links" : {
-      "self" : {
-        "ref" : "/merch/value_added_services/v1/59277764-f748-5572-8195-f1958d9baccb"
-      }
-    }
-  }
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ### Merchandised Value Added Services by ID
@@ -1468,30 +898,6 @@ There is no body in a GET request.
 ### Response Body
 
 See the [Merchandised Value Added Services List Response Body](#merchandised-value-added-services-list) endpoint for a list of VAS field descriptions returned in the response.
-
-Sample *Merchandised Value Added Services by ID* 200 successful response:
-
-```
-{
-  "id" : "124ae4cb-0506-5b52-98c0-06eaf7b7ea67",
-  "snapshotId" : "99e78ccb-182c-4b65-9e21-bc7214d757d7",
-  "modificationDate" : "2017-02-03T07:04:15.797Z",
-  "status" : "CLOSEOUT",
-  "merchGroup" : "US",
-  "pid" : "10085087",
-  "type" : "DIGITAL_GIFT_CARD",
-  "displayName" : "Nike Gift Card",
-  "commerceStartDate" : "2010-12-01T00:00:00.000Z",
-  "resourceType" : "merchValueAddedService",
-  "links" : {
-    "self" : {
-      "ref" : "/merch/value_added_services/v1/124ae4cb-0506-5b52-98c0-06eaf7b7ea67"
-    }
-  }
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/merchcommonapi/browse/apis/value_added_services/API.md?raw#!/Value_Added_Services/get_merch_value_added_services_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -1603,68 +1009,6 @@ https://api.nike.com/merch/contents/v1/919704-006/content?country=ES&locale=es_E
 |widths.**value**|string|Internal width value|Optional|
 |widths.**localizedValue**|string|Localized width value|Optional|
 
-Sample *Product Content by Style Color* response body:
-
-```
-{
-  "globalPid" : "11825501",
-  "parentId" : "d48fbb0b-4516-5075-8a8f-32401eed44af",
-  "parentType" : "merchProduct",
-  "langLocale" : "es_ES",
-  "colorDescription" : "Negro/Blanco/Royal juego",
-  "slug" : "air-jordan-1-retro-high-flyknit-zapatillas",
-  "fullTitle" : "Air Jordan 1 Retro High Flyknit Zapatillas - Hombre",
-  "title" : "Air Jordan 1 Retro High Flyknit",
-  "subtitle" : "Zapatillas - Hombre",
-  "descriptionHeading" : "AIRE RETRO. TOQUES MODERNOS.",
-  "description" : "<div class=\"pi-tier3\"><div class=\"pi-pdpmainbody\"><p><b>AIRE RETRO. TOQUES MODERNOS.</b></p><br><p>Las zapatillas Air Jordan 1 Retro High Flyknit para hombre actualizan el icónico diseño original con un tejido Flyknit ligero y flexible.</p><br><p><b>Ventajas</b></p><br>Ligero material Flyknit para una mayor transpirabilidad y flexibilidad<br>Detalles de piel de cuero de cerdo para un look premium<br>Confección con cupsole de goma para proporcionar una sujeción resistente y una mayor tracción<br>Unidad Nike Air para disfrutar de una amortiguación ligera<br><p><b>Orígenes de Flyknit</b></p>La tecnología Nike Flyknit se inspira en las opiniones de atletas que llevan tiempo buscando unas zapatillas con el ajuste ceñido y la sensación de no llevar nada, como la de un calcetín. Nike se embarcó en un proyecto de cuatro años con equipos de programadores, ingenieros y diseñadores para crear una tecnología que ayudase a confeccionar una parte superior tejida con propiedades estáticas que aportara estructura y durabilidad. Más adelante, se ajustó la distribución precisa de las partes que aportan sujeción, transpirabilidad y flexibilidad, todo en una sola capa. El resultado es una parte superior extremadamente ligera, ceñida y prácticamente sin costuras. Esta precisión sin precedentes multiplica el rendimiento y disminuye el desperdicio de materiales en un 60 % en comparación con la confección tradicional, lo que permite reducir drásticamente las enormes cantidades de materiales que se depositan en los vertederos.</div></div>",
-  "headLine" : null,
-  "preOrder" : null,
-  "softLaunch" : null,
-  "outOfStock" : null,
-  "notifyMe" : null,
-  "accessCode" : null,
-  "pdpGeneral" : null,
-  "fit" : null,
-  "legal" : null,
-  "marketing" : null,
-  "shippingDelay" : null,
-  "productName" : null,
-  "techSpec" : "",
-  "benefitSummaryList" : null,
-  "benefitSummaryVideo" : null,
-  "manufacturingCountryOfOrigin" : null,
-  "sizeChart" : "mens-shoe-sizing-chart",
-  "imageBadgeResource" : null,
-  "colors" : [ {
-    "type" : "SIMPLE",
-    "name" : "Negro",
-    "hex" : "13161A"
-  }, {
-    "type" : "PRIMARY",
-    "name" : "Negro",
-    "hex" : "13161A"
-  }, {
-    "type" : "SECONDARY",
-    "name" : "Blanco",
-    "hex" : "FFFFFF"
-  }, {
-    "type" : "LOGO",
-    "name" : "Royal juego",
-    "hex" : "3F518E"
-  } ],
-  "bestFor" : [ ],
-  "athletes" : [ ],
-  "widths" : [ {
-    "type" : null,
-    "value" : "REGULAR",
-    "localizedValue" : "Normal"
-  } ]
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ### Product Content by Style Color List
@@ -1712,129 +1056,6 @@ https://api.nike.com/merch/contents/v1/content?stylecolors=852395-601,919704-006
 
 See the complete response body field list in the [Product Content by Style Color Response Body](#product-content-by-style-color).
 
-Sample *Product Content by Style Color List* response body:
-
-```
-{
-  "852395-601" : {
-    "globalPid" : "11993007",
-    "parentId" : "78587369-2879-5dea-9b8e-adc1c389765a",
-    "parentType" : "merchProduct",
-    "langLocale" : "es_ES",
-    "colorDescription" : "Rojo universitario/Gris lobo/Rojo universitario",
-    "slug" : "kyrie-3-zapatillas-de-baloncesto",
-    "fullTitle" : "Kyrie 3 Zapatillas de baloncesto",
-    "title" : "Kyrie 3",
-    "subtitle" : "Zapatillas de baloncesto",
-    "descriptionHeading" : "DISEÑADAS PARA REALIZAR CORTES RÁPIDOS",
-    "description" : "<div class=\"pi-tier3\"><div class=\"pi-pdpmainbody\"><p><b>DISEÑADAS PARA REALIZAR CORTES RÁPIDOS</b></p><br><p>Las zapatillas de baloncesto Kyrie 3 para hombre combinan una excelente tracción, sujeción flexible y amortiguación de máxima respuesta para permitir cortes precisos y un juego rápido y fluido.</p><br><p><b>Tracción excelente</b></p><p>La suela redondeada y la tracción adicional en los bordes de las zapatillas te permiten jugar desde cualquier ángulo. Las dos almohadillas debajo del antepié se agarran con firmeza al suelo cuando cambias rápidamente de dirección.</p><br><p><b>Sujeción flexible</b></p><p>En la parte superior de las zapatillas, una resistente correa elástica se flexiona con el pie para ofrecer sujeción durante los recortes rápidos y los sprints. La tecnología Flywire, con cables ultraligeros y superresistentes que se integran con los cordones, añade aún más sujeción.</p><br><p><b>Amortiguación de máxima respuesta</b></p><p>La amortiguación Nike Zoom Air de perfil bajo en el talón ofrece la máxima respuesta y comodidad durante todo el partido.</p><br><p><b>Más información</b></p><br>Ligera espuma Phylon inyectada en el antepié que aumenta al máximo la sensación en la cancha<br>Construcción HyperFuse para una sujeción y transpirabilidad duraderas<br>Diseño moldeado de tres cuartos para una mayor cantidad de detalles texturizados</div></div>",
-    "headLine" : null,
-    "preOrder" : null,
-    "softLaunch" : null,
-    "outOfStock" : null,
-    "notifyMe" : null,
-    "accessCode" : null,
-    "pdpGeneral" : null,
-    "fit" : null,
-    "legal" : null,
-    "marketing" : null,
-    "shippingDelay" : null,
-    "productName" : null,
-    "techSpec" : "",
-    "benefitSummaryList" : null,
-    "benefitSummaryVideo" : null,
-    "manufacturingCountryOfOrigin" : null,
-    "sizeChart" : "unisex-shoe-sizing-chart",
-    "imageBadgeResource" : null,
-    "colors" : [ {
-      "type" : "SIMPLE",
-      "name" : "Rojo",
-      "hex" : "B40033"
-    }, {
-      "type" : "PRIMARY",
-      "name" : "Rojo universitario",
-      "hex" : "982433"
-    }, {
-      "type" : "SECONDARY",
-      "name" : "Gris lobo",
-      "hex" : "A2A5AC"
-    }, {
-      "type" : "LOGO",
-      "name" : "Rojo universitario",
-      "hex" : "982433"
-    } ],
-    "bestFor" : [ ],
-    "athletes" : [ {
-      "type" : null,
-      "value" : "Kyrie Irving",
-      "localizedValue" : "Kyrie Irving"
-    } ],
-    "widths" : [ {
-      "type" : null,
-      "value" : "REGULAR",
-      "localizedValue" : "Normal"
-    } ]
-  },
-  "919704-006" : {
-    "globalPid" : "11825501",
-    "parentId" : "d48fbb0b-4516-5075-8a8f-32401eed44af",
-    "parentType" : "merchProduct",
-    "langLocale" : "es_ES",
-    "colorDescription" : "Negro/Blanco/Royal juego",
-    "slug" : "air-jordan-1-retro-high-flyknit-zapatillas",
-    "fullTitle" : "Air Jordan 1 Retro High Flyknit Zapatillas - Hombre",
-    "title" : "Air Jordan 1 Retro High Flyknit",
-    "subtitle" : "Zapatillas - Hombre",
-    "descriptionHeading" : "AIRE RETRO. TOQUES MODERNOS.",
-    "description" : "<div class=\"pi-tier3\"><div class=\"pi-pdpmainbody\"><p><b>AIRE RETRO. TOQUES MODERNOS.</b></p><br><p>Las zapatillas Air Jordan 1 Retro High Flyknit para hombre actualizan el icónico diseño original con un tejido Flyknit ligero y flexible.</p><br><p><b>Ventajas</b></p><br>Ligero material Flyknit para una mayor transpirabilidad y flexibilidad<br>Detalles de piel de cuero de cerdo para un look premium<br>Confección con cupsole de goma para proporcionar una sujeción resistente y una mayor tracción<br>Unidad Nike Air para disfrutar de una amortiguación ligera<br><p><b>Orígenes de Flyknit</b></p>La tecnología Nike Flyknit se inspira en las opiniones de atletas que llevan tiempo buscando unas zapatillas con el ajuste ceñido y la sensación de no llevar nada, como la de un calcetín. Nike se embarcó en un proyecto de cuatro años con equipos de programadores, ingenieros y diseñadores para crear una tecnología que ayudase a confeccionar una parte superior tejida con propiedades estáticas que aportara estructura y durabilidad. Más adelante, se ajustó la distribución precisa de las partes que aportan sujeción, transpirabilidad y flexibilidad, todo en una sola capa. El resultado es una parte superior extremadamente ligera, ceñida y prácticamente sin costuras. Esta precisión sin precedentes multiplica el rendimiento y disminuye el desperdicio de materiales en un 60 % en comparación con la confección tradicional, lo que permite reducir drásticamente las enormes cantidades de materiales que se depositan en los vertederos.</div></div>",
-    "headLine" : null,
-    "preOrder" : null,
-    "softLaunch" : null,
-    "outOfStock" : null,
-    "notifyMe" : null,
-    "accessCode" : null,
-    "pdpGeneral" : null,
-    "fit" : null,
-    "legal" : null,
-    "marketing" : null,
-    "shippingDelay" : null,
-    "productName" : null,
-    "techSpec" : "",
-    "benefitSummaryList" : null,
-    "benefitSummaryVideo" : null,
-    "manufacturingCountryOfOrigin" : null,
-    "sizeChart" : "mens-shoe-sizing-chart",
-    "imageBadgeResource" : null,
-    "colors" : [ {
-      "type" : "SIMPLE",
-      "name" : "Negro",
-      "hex" : "13161A"
-    }, {
-      "type" : "PRIMARY",
-      "name" : "Negro",
-      "hex" : "13161A"
-    }, {
-      "type" : "SECONDARY",
-      "name" : "Blanco",
-      "hex" : "FFFFFF"
-    }, {
-      "type" : "LOGO",
-      "name" : "Royal juego",
-      "hex" : "3F518E"
-    } ],
-    "bestFor" : [ ],
-    "athletes" : [ ],
-    "widths" : [ {
-      "type" : null,
-      "value" : "REGULAR",
-      "localizedValue" : "Normal"
-    } ]
-  }
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ### Product Content Item by Style Color
@@ -1877,19 +1098,6 @@ Sample *Product Content by Style Color List* URI:
 
 ```
 https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&locale=es_ES
-```
-
-### Response Body
-
-Sample *Product Content Item by Style Color List* response body:
-
->**TIP:** The response body returns the value of the **itemName** path parameter and the locale query parameter.
-
-```
-{
-  "locale" : "es_ES",
-  "title" : "Air Jordan 1 Retro High Flyknit"
-}
 ```
 
 <!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-item-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
@@ -1939,21 +1147,6 @@ Sample *Product Content Item by Style Color List* URI:
 ```
 https://api.nike.com/merch/contents/v1/content/descriptionHeading?country=ES&locale=es_ES&stylecolors=852395-601,919704-006
 ```
-
-### Response Body
-
-Sample *Product Content Item by Style Color List* response body:
-
->**TIP:** The response body returns the value of the itemName path parameter and the style-color query parameter.
-
-```
-{
-  "852395-601" : "DISEÑADAS PARA REALIZAR CORTES RÁPIDOS",
-  "919704-006" : "AIRE RETRO. TOQUES MODERNOS."
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-field-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -2011,38 +1204,6 @@ https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 |images.**company**|string|Image company code|Required|
 |images.**view**|string|Key of image view of product, usually in the format stylecode_colorcode_imageletter_type|Required|
 
-Sample *Product Image Set by Style Color* response body:
-
-```
-{
-  "name" : "919704_006",
-  "type" : "img_set",
-  "title" : "Air-Jordan-1-Retro-High-Flyknit",
-  "defaultDomains" : [ "images.nike.com/is/image", "images2.nike.com/is/image", "images3.nike.com/is/image" ],
-  "images" : [ {
-    "company" : "DotCom",
-    "view" : "919704_006_A_PREM"
-  }, {
-    "company" : "DotCom",
-    "view" : "919704_006_B_PREM"
-  }, {
-    "company" : "DotCom",
-    "view" : "919704_006_C_PREM"
-  }, {
-    "company" : "DotCom",
-    "view" : "919704_006_D_PREM"
-  }, {
-    "company" : "DotCom",
-    "view" : "919704_006_E_PREM"
-  }, {
-    "company" : "DotCom",
-    "view" : "919704_006_F_PREM"
-  } ]
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-image-set-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ### Product Base Image URL by Style Color
@@ -2084,24 +1245,6 @@ Sample *Product Base Image URL by Style Color* URI:
 ```
 https://api.nike.com//merch/contents/v1/919704-006/images?country=ES
 ```
-
-### Response Body
-
-Sample *Product Base Image URL by Style Color* response body:
-
-|Element Name|Type|Description|Required?|
-|---|---|---|---|
-|**base**|string|URI of base image|Required|
-
-```
-{
-  "base" : "https://images.nike.com/is/image/DotCom/919704_006_A_PREM"
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-base-image-url-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
----
 
 ### Product Image Set by Style Color List
 
@@ -2145,69 +1288,7 @@ https://api.nike.com/merch/contents/v1/images?country=ES&stylecolors=919704-006,
 
 ### Response Body
 
-Sample *Product Image Set by Style Color List* response body:
-
 See the [Product Image Set by Style Color List Response Body](#product-image-set-by-style-color-list) for a list of response body field descriptions.
-
-```
-{
-  "919704-006" : {
-    "name" : "919704_006",
-    "type" : "img_set",
-    "title" : "Air-Jordan-1-Retro-High-Flyknit",
-    "defaultDomains" : [ "images.nike.com/is/image", "images2.nike.com/is/image", "images3.nike.com/is/image" ],
-    "images" : [ {
-      "company" : "DotCom",
-      "view" : "919704_006_A_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "919704_006_B_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "919704_006_C_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "919704_006_D_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "919704_006_E_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "919704_006_F_PREM"
-    } ]
-  },
-  "852395-601" : {
-    "name" : "852395_601",
-    "type" : "img_set",
-    "title" : "Kyrie-3",
-    "defaultDomains" : [ "images.nike.com/is/image", "images2.nike.com/is/image", "images3.nike.com/is/image" ],
-    "images" : [ {
-      "company" : "DotCom",
-      "view" : "852395_601_A_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "852395_601_B_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "852395_601_C_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "852395_601_D_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "852395_601_E_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "852395_601_F_PREM"
-    }, {
-      "company" : "DotCom",
-      "view" : "852395_601_G_PREM"
-    } ]
-  }
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-image-set-by-stylecolor-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -2250,19 +1331,6 @@ Sample *Product Base Image URL by Style Color List* URI:
 ```
 https://api.nike.com/merch/contents/v1/images/base?country=ES&stylecolors=919704-006,852395-601
 ```
-
-### Response Body
-
-Sample *Product Image Set by Style Color List* response body:
-
-```
-{
-  "919704-006" : "https://images.nike.com/is/image/DotCom/919704_006_A_PREM",
-  "852395-601" : "https://images.nike.com/is/image/DotCom/852395_601_A_PREM"
-}
-```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-images-product-base-image-url-by-style-color-list-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 
@@ -2329,11 +1397,6 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 |V1.0 Published|1 December, 2017 | The initial, reviewed version of the document was published.|
 |Edits, Internationalization, Product sections | 7 December, 2017 | Updated documentation with new content on how products flow, international considerations, and editing/formatting changes. |
 |Clarification on **count**|12 February, 2018|Clarified that when **count** query parameter is supplied that the maximum number of products returned is 25.|
-|Updated external links|3 April, 2018|Updated external links to open in new browser window|
-|Updated API.md links|14 May, 2018|Updated API.md links to point to new dev portal|
-|Edits for style|1 June, 2018|Edits for capitalization, formatting consistency|
-|Normalized table formatting|2 July, 2018|Edits for request/response table formatting and content|
-|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
 
 ## Related Links
 
