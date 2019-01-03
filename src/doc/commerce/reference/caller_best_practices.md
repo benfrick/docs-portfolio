@@ -277,7 +277,7 @@ Listed below are the best practices for calling each Payment service.
 |**Circuit breaker trigger**|Payment Option's repeated call failure to the Merchandised Product Service for Checkout item validation.|
 |**Circuit breaker fallback behavior**|Payment Options assumes the Checkout item product type is **inline** for validation purposes and continues processing.|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
-|**Fallback behavior for API callers**|When a caller reaches the retry limit, it can default to a non-stored credit card as a payment option in all countries except China. However if Payment Options is not responding, Payment Preview and Payment Approval will fail and Checkout cannot be completed.|
+|**Fallback behavior for API callers**|When a caller reaches the retry limit, it can default to a non-stored credit card as a payment option in all countries except China.|
 
 ### Payment Stored Payments
 
@@ -299,7 +299,7 @@ Listed below are the best practices for calling each Payment service.
 |Topic|Best Practice|
 |---|---|
 |**Performance**|When a customer selects to pay by stored credit card, check the validateCVV flag on the response from the Stored Payments Service. If the value is true, allow the customer to verify their CVV number in your experience and send it to the Payment Credit Card Submit service. Otherwise, Payment Preview will fail due to an unverified CVV number.|
-|**Circuit breaker trigger**|Payment Preview's repeated call failure to the<br>Payment Gift Card service when retrieving the balance<br>Stored Payment service when retrieving the customer's stored payment details<br>Credit Card Submit service when validating the credit card info id<br>Payment Options Service to validate the customer's selected payment options|
+|**Circuit breaker trigger**|Payment Preview's repeated call failure to the<br>Payment Gift Card service when retrieving the balance<br>Stored Payment service when retrieving the customer's stored payment details<br>Credit Card Submit service when validating the credit card info id|
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|

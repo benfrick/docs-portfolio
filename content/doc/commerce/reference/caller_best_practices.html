@@ -560,7 +560,7 @@
     </tr>
     <tr>
       <td><strong>Fallback behavior for API callers</strong></td>
-      <td>When a caller reaches the retry limit, it can default to a non-stored credit card as a payment option in all countries except China. However if Payment Options is not responding, Payment Preview and Payment Approval will fail and Checkout cannot be completed.</td>
+      <td>When a caller reaches the retry limit, it can default to a non-stored credit card as a payment option in all countries except China.</td>
     </tr>
   </tbody>
 </table>
@@ -622,7 +622,7 @@
     </tr>
     <tr>
       <td><strong>Circuit breaker trigger</strong></td>
-      <td>Payment Preview’s repeated call failure to the<br />Payment Gift Card service when retrieving the balance<br />Stored Payment service when retrieving the customer’s stored payment details<br />Credit Card Submit service when validating the credit card info id<br />Payment Options Service to validate the customer’s selected payment options</td>
+      <td>Payment Preview’s repeated call failure to the<br />Payment Gift Card service when retrieving the balance<br />Stored Payment service when retrieving the customer’s stored payment details<br />Credit Card Submit service when validating the credit card info id</td>
     </tr>
     <tr>
       <td><strong>Circuit breaker fallback behavior</strong></td>
