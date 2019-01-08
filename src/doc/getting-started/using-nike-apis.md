@@ -1151,4 +1151,4 @@ For a master glossary of terms for Nike APIs, see the [Glossary](/doc/commerce/r
 
 [NDe Docs Home](/index.html)
 
-[Get Started](/doc/portal/consuming.html)
+[Get Started](/doc/portal/get-started.html)
