@@ -28,14 +28,14 @@
 <p>Add a custom set of products to your experience with Collections.</p>
 
 <blockquote>
-  <p><strong>TIP</strong>: Before using this guide, you should have already completed <a href="/doc/commerce/product/api_rollup_threads.html">Rollup Threads Developer’s Guide</a> and <a href="/doc/commerce/product/api_product_feeds.html">Product Feeds Developer’s Guide</a>.</p>
+  <p><strong>TIP</strong>: Before using this guide, you should have already completed <a href="/doc/commerce/product/api-rollup-threads.html">Rollup Threads Developer’s Guide</a> and <a href="/doc/commerce/product/api-product-feeds.html">Product Feeds Developer’s Guide</a>.</p>
 </blockquote>
 
 <h2 id="what-are-collections--terms">What are Collections &amp; Terms?</h2>
 
 <ul>
   <li>
-    <p><strong>Collection</strong>: a set of one or more <a href="/doc/commerce/product/api_product_feeds.html#cards-threads-and-feeds">Product Threads</a>, restricted to a combination of channels and marketplaces.</p>
+    <p><strong>Collection</strong>: a set of one or more <a href="/doc/commerce/product/api-product-feeds.html#cards-threads-and-feeds">Product Threads</a>, restricted to a combination of channels and marketplaces.</p>
   </li>
   <li>
     <p><strong>Term</strong>: a set of one or more Collections that are related.</p>
@@ -82,7 +82,7 @@
 
 <p>Save the <strong>Term UUID</strong>, the unique identifier for the Term, e.g. <code class="highlighter-rouge">69c1f58b-c36b-45d6-b3bb-afb160c9ab0c</code>, since you will need it in <a href="#step-3-call-rollup-threads">Step 3</a>.</p>
 
-<p>When you add Product Threads to a Collection, the Threads get automatically updated with that Collection’s Term UUID. Then, you can get the Threads from the <a href="/doc/commerce/product/api_rollup_threads.html">Rollup Threads API</a>.</p>
+<p>When you add Product Threads to a Collection, the Threads get automatically updated with that Collection’s Term UUID. Then, you can get the Threads from the <a href="/doc/commerce/product/api-rollup-threads.html">Rollup Threads API</a>.</p>
 
 <blockquote>
   <p><strong>TIP</strong>: It typically takes 5 minutes or less for changes to a Collection to become available in the Rollup Threads API.</p>
@@ -107,7 +107,7 @@
 
   <p><i class="mr2-sm g72-check"></i>See <a href="#api-endpoint-quick-reference">API Endpoint Quick Reference</a> for endpoint details and links to API Reference documentation.</p>
 
-  <p><i class="mr2-sm g72-check"></i>For more on syntax, see <a href="/doc/getting-started/using_nike_apis.html#query-parameters">Query Parameters</a>.</p>
+  <p><i class="mr2-sm g72-check"></i>For more on syntax, see <a href="/doc/getting-started/using-nike-apis.html#query-parameters">Query Parameters</a>.</p>
 </blockquote>
 
 <h3 id="scenarios">Scenarios</h3>
@@ -141,7 +141,7 @@
 <p>The Rollup Threads response is specified in the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">API Reference</a>, but here’s a few things to know about:</p>
 
 <ul>
-  <li>Rollup Threads returns only active product threads. If you want inactive threads included in the response, call <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/api_product_feeds.html#product-threads-list">Product Feeds Threads List</a> instead.</li>
+  <li>Rollup Threads returns only active product threads. If you want inactive threads included in the response, call <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/api-product-feeds.html#product-threads-list">Product Feeds Threads List</a> instead.</li>
 </ul>
 
 <p>{Some hints/callouts about the data in the response and how it could be handled}</p>
@@ -228,8 +228,8 @@
 <p>You’ve learned how to add Collections to your experience. Here are some next steps.</p>
 
 <ul>
-  <li><a href="/doc/commerce/events/api_eventsv2.html">Capturing User Events</a></li>
-  <li><a href="/doc/getting-started/using_nike_apis.html">Using NDe APIs</a></li>
+  <li><a href="/doc/commerce/events/api-eventsv2.html">Capturing User Events</a></li>
+  <li><a href="/doc/getting-started/using-nike-apis.html">Using NDe APIs</a></li>
 </ul>
 
 </div>
@@ -245,30 +245,31 @@
         <ul id="a-overview" class="hide"><li>
                 <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
                 <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
+                <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="">Taxonomy Tagging for Assets and Content</a></li><li>
                 <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li>
                 <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li>
-                <a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
                 <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li>
+                <a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
                 <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
         <ul id="b-use-case" class="hide"><li>
-                <a href="/doc/commerce/product/api_product_feeds.html" class="">Product Feeds</a></li><li>
-                <a href="/doc/commerce/product/api_rollup_threads.html" class="">Rollup Threads</a></li><li>
-                <a href="/doc/commerce/product/capi_migration.html" class="">CAPI Migration</a></li><li>
-                <a href="/doc/commerce/search/api_search.html" class="">Search</a></li><li>
-                <a href="/doc/commerce/checkout/api_checkout.html" class="">Cart & Checkout</a></li><li>
-                <a href="/doc/commerce/payment/api_payment.html" class="">Payment</a></li><li>
-                <a href="/doc/commerce/events/api_eventsv2.html" class="">Events</a></li><li>
-                <a href="/doc/commerce/product/api_merch_product.html" class="">Merch Product</a></li><li>
-                <a href="/doc/commerce/order/use_order.html" class="">Order</a></li></ul><h6><span name="c-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
+                <a href="/doc/commerce/product/api-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/api-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/product/capi-migration.html" class="">CAPI Migration</a></li><li>
+                <a href="/doc/commerce/search/api-search.html" class="">Search</a></li><li>
+                <a href="/doc/commerce/checkout/api-checkout.html" class="">Cart & Checkout</a></li><li>
+                <a href="/doc/commerce/payment/api-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/commerce/events/api-eventsv2.html" class="">Events</a></li><li>
+                <a href="/doc/commerce/product/api-merch-product.html" class="">Merch Product</a></li><li>
+                <a href="/doc/commerce/order/use-order.html" class="">Order</a></li></ul><h6><span name="c-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
         <ul id="c-get-started" class="hide"><li>
-                <a href="/doc/getting-started/using_nike_apis.html" class="">Using NDe APIs</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
+                <a href="/doc/getting-started/using-nike-apis.html" class="">Using NDe APIs</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
         <ul id="d-reference" class="hide"><li>
-                <a href="/doc/commerce/reference/caller_best_practices.html" class="">Circuit Breaker Best Practices</a></li><li>
+                <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li>
                 <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li>
-                <a href="/doc/commerce/reference/product_lifecycle.html" class="">Product Life Cycle</a></li><li>
-                <a href="/doc/commerce/checkout/checkout_country_currency.html" class="">Countries & Currencies</a></li><li>
+                <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li>
+                <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li>
                 <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li>
-                <a href="/doc/commerce/product/merch_product_field_reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
+                <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">NDe Blog</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
     </section>
 </div>
 </header>

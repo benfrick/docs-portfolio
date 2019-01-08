@@ -7,13 +7,13 @@ title: Order
 url: /doc/commerce/order/overview-order.html
 id: overview-order
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/order/use_order.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/order/use-order.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Order Overview
 
 ---
 
-Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Order](/doc/commerce/order/use_order.html) to your app.
+Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Order](/doc/commerce/order/use-order.html) to your app.
 
 #### Happy consumers are a good thing. What keeps them happy? Assuring them that their order is on the way.
 
@@ -26,8 +26,8 @@ Use the Order APIs in your experience so consumers can check the status of an or
 Step through the Use Cases below to incorporate Order into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use_order.html#step-1-list-a-members-orders)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List the order details for a member or guest.](/doc/commerce/order/use_order.html#step-2-list-order-details-for-a-member-or-guest)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use-order.html#step-1-list-a-members-orders)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the order details for a member or guest.](/doc/commerce/order/use-order.html#step-2-list-order-details-for-a-member-or-guest)|
 
 <h3>Related Information</h3>
 <aside class="note">

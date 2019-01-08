@@ -18,7 +18,7 @@ API reference guides for consumers of Nike APIs.
             <ul>
                 <i class="g72-training fs32-aligntop pr2-sm d-sm-ib"></i>
                 <li class="group-header">
-                    <a href="/doc/commerce/reference/caller_best_practices.html">
+                    <a href="/doc/commerce/reference/caller-best-practices.html">
                     <h4>Circuit Breaker Best Practices</h4></a></li>
                 <li style="font-size:0.8em;padding:5px;">Follow these best practices when calling Nike APIs.</li>
             </ul>
@@ -48,7 +48,7 @@ API reference guides for consumers of Nike APIs.
            <ul>
                <i style="padding:7px;" class="fas fa-random fa-2x"></i>
                <li class="group-header">
-                   <a href="/doc/commerce/reference/product_lifecycle.html">
+                   <a href="/doc/commerce/reference/product-lifecycle.html">
                    <h4>Product Life Cycle</h4></a></li>
                <li style="font-size: 0.8em">The road a product takes to get in front of the consumer.</li>
            </ul>

@@ -49,11 +49,11 @@ Step through the use cases below to add TTAC to your experience.
     </ul>
 </aside>
 
-* [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
+* [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
 
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 
-* [Product Life Cycle:](/doc/commerce/reference/product_lifecycle.html) Discover how Nike products become available for purchase in an experience.
+* [Product Life Cycle:](/doc/commerce/reference/product-lifecycle.html) Discover how Nike products become available for purchase in an experience.
 
 #### Connect
 

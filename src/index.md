@@ -17,15 +17,15 @@ Explore the guides below to get familiar with product features and experience ho
                 <i class="fas fa-map fa-2x"></i>
                 <li class="group-header"><h4>Browse</h4></li>
                 <li><a href="/doc/commerce/product/overview-product-feeds.html"><h5>Product Feeds</h5></a></li>
-                <li><a href="/doc/commerce/product/api_merch_product.html"><h5>Merch Products</h5></a></li>
-                <li><a href="/doc/commerce/product/capi_migration.html"><h5>CAPI Migration</h5></a></li>
+                <li><a href="/doc/commerce/product/api-merch-product.html"><h5>Merch Products</h5></a></li>
+                <li><a href="/doc/commerce/product/capi-migration.html"><h5>CAPI Migration</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
                 <i class="fas fa-search fa-2x"></i>
                 <li class="group-header"><h4>Discover</h4></li>
-                <li><a href="/doc/commerce/search/api_search.html"><h5>Search</h5></a></li>
+                <li><a href="/doc/commerce/search/api-search.html"><h5>Search</h5></a></li>
                 <!--<li><a href="#"><h5>Taxonomy</h5></a></li>-->
             </ul>
         </div>

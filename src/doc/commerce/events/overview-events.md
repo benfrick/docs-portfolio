@@ -6,13 +6,13 @@ position: 9
 title: Events
 url: /doc/commerce/events/overview-events.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/events/api_eventsv2.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/events/api-eventsv2.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Analytics Pipeline Overview
 
 ---
 
-Learn how to use [Analytics Pipeline](/doc/commerce/events/api_eventsv2.html), your single destination to record analytics events.
+Learn how to use [Analytics Pipeline](/doc/commerce/events/api-eventsv2.html), your single destination to record analytics events.
 
 #### Track consumer and application behavior
 
@@ -31,10 +31,10 @@ Analytics events sent to this API are transformed and sent to multiple downstrea
 Want to know what your users are up to? Step through the Use Cases below to incorporate Analytics Pipeline capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Track the success of marketing campaigns via tags or attribution](/doc/commerce/events/api_eventsv2.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Monitor user traffic and conversion metrics](/doc/commerce/events/api_eventsv2.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Track the success of new features (A/B testing)](/doc/commerce/events/api_eventsv2.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Alert on traffic anomalies](/doc/commerce/events/api_eventsv2.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Track the success of marketing campaigns via tags or attribution](/doc/commerce/events/api-eventsv2.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Monitor user traffic and conversion metrics](/doc/commerce/events/api-eventsv2.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Track the success of new features (A/B testing)](/doc/commerce/events/api-eventsv2.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Alert on traffic anomalies](/doc/commerce/events/api-eventsv2.html)|
 
 <h4>Related Information</h4>
 <aside class="note">
@@ -46,9 +46,9 @@ Want to know what your users are up to? Step through the Use Cases below to inco
     </ul>
 </aside>
             
-* [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
+* [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
-* [Using Nike APIs:](/doc/getting-started/using_nike_apis.html) Discover common NDe API features, standards, conventions, and other helpful info.
+* [Using Nike APIs:](/doc/getting-started/using-nike-apis.html) Discover common NDe API features, standards, conventions, and other helpful info.
 
 #### Connect
 
