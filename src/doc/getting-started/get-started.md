@@ -17,7 +17,7 @@ Get started learning about the principles, standards, and conventions for using 
 		   <ul>
 			   <i class="g72-unlock fs32-aligntop pr2-sm d-sm-ib"></i>
 			   <li class="group-header">
-				   <a href="/doc/getting-started/using_nike_apis.html">
+				   <a href="/doc/getting-started/using-nike-apis.html">
 				   <h4>Using NDe APIs</h4></a></li>
 			   <li style="font-size: 0.8em;">Common NDe API features</li>
 		   </ul>
