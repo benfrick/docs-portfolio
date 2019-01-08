@@ -1,10 +1,10 @@
 ---
-id: api-search
+id: use-search
 tags: pdf
 category: b-use-case
 position: 4
 title: Search
-url: /doc/commerce/search/api-search.html
+url: /doc/commerce/search/use-search.html
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -14,7 +14,7 @@ url: /doc/commerce/search/api-search.html
 
 ##### Last Updated: 8/7/2018
 
-E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/api-rollup-threads.html) first.
+E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/use-rollup-threads.html) first.
 
 ## Use Cases
 
@@ -25,8 +25,8 @@ Here are just some of the ways e-commerce search can be used to drive your exper
 - List highly-ranked products matching an Autocomplete keyword suggestion using Search Preview
 - Build navigation in your experience by retrieving a set of product filters
 - List the most-purchased products even if they can no longer be purchased
-- Return [Product Feed Threads](/doc/commerce/product/api-rollup-threads.html) containing your search term in Facebook with #[search-term]
-- Retrieve a [Product Feed](/doc/commerce/product/api-rollup-threads.html) when you ask a product question in the Consumer Services Portal
+- Return [Product Feed Threads](/doc/commerce/product/use-rollup-threads.html) containing your search term in Facebook with #[search-term]
+- Retrieve a [Product Feed](/doc/commerce/product/use-rollup-threads.html) when you ask a product question in the Consumer Services Portal
 - Finely tune e-commerce search results using the context aware Smart Search rules engine
 
 ## Glossary
@@ -70,7 +70,7 @@ E-commerce search can be used to
 Currently, e-commerce search handles product and navigation data. Content will be added in the near future. This section discusses the various search types.
 
 ### Smart Search
-Smart Search is a rule-based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api-rollup-threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer-provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts.
+Smart Search is a rule-based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer-provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts.
 
 **Used by:** [Bootroom](https://www.nike.com/bootroom) to drive the Athletes product gridwall
 
@@ -128,7 +128,7 @@ Custom rules are administered in the Apollo rule management tool and are specifi
 
 Rules are triggered either by customer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.
 
-The default rule for each experience is listed below. Default rules are not available through the Apollo tool. Contact the Product Owner to create a new or edit an existing default rule. Note that each default rule filters on the same channelId (d9a5bc42-4b9c-4976-858a-f159cf99c647) to get nike.com product threads. Each default rule is associated with an experience through the experience's consumerChannelId passed into the Product Feed Rollup Threads service. See [Product Feed Rollup Threads V2 service](/doc/commerce/product/api-rollup-threads.html#consumer-channel-id-and-channel-id) to read about the difference between channelId and consumerChannelId.
+The default rule for each experience is listed below. Default rules are not available through the Apollo tool. Contact the Product Owner to create a new or edit an existing default rule. Note that each default rule filters on the same channelId (d9a5bc42-4b9c-4976-858a-f159cf99c647) to get nike.com product threads. Each default rule is associated with an experience through the experience's consumerChannelId passed into the Product Feed Rollup Threads service. See [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html#consumer-channel-id-and-channel-id) to read about the difference between channelId and consumerChannelId.
 
 **SNKRS/nike.com**
 ```
@@ -206,7 +206,7 @@ OR
 taxonomyAttributeSearchIds != a2e74fc6-5388-4fc7-9cb5-801e1d8b42eb)
 ```
 
->**TIP:** E-commerce search is not the source of data. Data originates in the [Product Feed Rollup Threads V2 service](/doc/commerce/product/api-rollup-threads.html).
+>**TIP:** E-commerce search is not the source of data. Data originates in the [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html).
 
 ### Results
 
@@ -268,7 +268,7 @@ You will need Apollo access to check rule configuration. If you do not know the 
 
 ### Check the products
 
-Ensure that the product is set up correctly to be found by search. If you know the style-color or product id, you can call the [Merchandised Product API](/doc/commerce/product/api-merch-product.html) directly to look at the product details. Note that not all fields in the Merchandised Product are exposed in the Product Feed API.
+Ensure that the product is set up correctly to be found by search. If you know the style-color or product id, you can call the [Merchandised Product API](/doc/commerce/product/use-merch-product.html) directly to look at the product details. Note that not all fields in the Merchandised Product are exposed in the Product Feed API.
 
 If you are unable to locate the product in Merchandised Product, you may need to go even further upstream in the product life cycle. Check the Prodigy Merchandising Tool to troubleshoot why the product has not streamed into the Merchandised Product system yet.
 

@@ -1,33 +1,33 @@
 ---
-id: api-checkout
+id: use-checkout
 tags: pdf
 category: b-use-case
 position: 6
 title: Cart & Checkout
-url: /doc/commerce/checkout/api-checkout.html
+url: /doc/commerce/checkout/use-checkout.html
 toc:
   - h2: Cart
-    url: /doc/commerce/checkout/api-checkout.html#cart
+    url: /doc/commerce/checkout/use-checkout.html#cart
   - h2: Shipping Options
-    url: /doc/commerce/checkout/api-checkout.html#shipping-options
+    url: /doc/commerce/checkout/use-checkout.html#shipping-options
   - h2: Previewing a Checkout
-    url: /doc/commerce/checkout/api-checkout.html#previewing-a-checkout
+    url: /doc/commerce/checkout/use-checkout.html#previewing-a-checkout
   - h2: Submitting a Checkout
-    url: /doc/commerce/checkout/api-checkout.html#submitting-a-checkout
+    url: /doc/commerce/checkout/use-checkout.html#submitting-a-checkout
   - h2: Wish Lists
-    url: /doc/commerce/checkout/api-checkout.html#wish-lists
+    url: /doc/commerce/checkout/use-checkout.html#wish-lists
   - h2: API Quick Reference
-    url: /doc/commerce/checkout/api-checkout.html#api-quick-reference
+    url: /doc/commerce/checkout/use-checkout.html#api-quick-reference
   - h2: Best Practices
-    url: /doc/commerce/checkout/api-checkout.html#best-practices
+    url: /doc/commerce/checkout/use-checkout.html#best-practices
   - h2: Troubleshooting
-    url: /doc/commerce/checkout/api-checkout.html#troubleshooting
+    url: /doc/commerce/checkout/use-checkout.html#troubleshooting
   - h2: Terms of Service
-    url: /doc/commerce/checkout/api-checkout.html#terms-of-service
+    url: /doc/commerce/checkout/use-checkout.html#terms-of-service
   - h2: Contacting the Team
-    url: /doc/commerce/checkout/api-checkout.html#contacting-the-team
+    url: /doc/commerce/checkout/use-checkout.html#contacting-the-team
   - h2: Glossary
-    url: /doc/commerce/checkout/api-checkout.html#glossary
+    url: /doc/commerce/checkout/use-checkout.html#glossary
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -42,7 +42,7 @@ Manage the cart and checkout processes for the consumer.
 >**TIPS**:
 >- Before using this guide, read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
 >- Use this Developer's Guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
->- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/api-payment.html)
+>- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
 
 ### What is a Cart and What is a Checkout?
 
@@ -176,7 +176,7 @@ Execute a request to the [Request a Checkout Preview](https://developer.niketech
 
 The API ensures that the products, shipping method(s), and shipping address(es) are valid based on Nike pricing and address rules. You can also get product pricing, sales tax, shipping fee and tax, estimated delivery date(s), and checkout subtotals in the response.
 
->**TIP:** For more context, see a step-by-step example of all the requests in a checkout in the diagram in the [Best Practices](#best-practices) section of this document. For more info about Payment, see [Adding Payment to Your Experience](/doc/commerce/payment/api-payment.html).
+>**TIP:** For more context, see a step-by-step example of all the requests in a checkout in the diagram in the [Best Practices](#best-practices) section of this document. For more info about Payment, see [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html).
 
 Sample [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} request URI:
 ```
@@ -213,7 +213,7 @@ Execute a request to the [Request Checkout Submit](https://developer.niketech.co
 The API performs the final validations of the consumer's information, requests payment authorization, and if everything succeeds, submits the checkout for fulfillment.
 
 >**TIPS:**
->- You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Adding Payment to Your Experience](/doc/commerce/payment/api-payment.html) for more info.
+>- You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview **id**. See the [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html) for more info.
 >- Optionally, for Japan only, send `GIFT_RECEIPT` in the **invoiceInfo** block, which prevents prices from being printed on the packing slip that is included with the product shipment.
 >- Optionally, for China only, send `ELECTRONIC_FAPIAO` in **invoiceInfo** for Fapiao, which is a special tax invoice. If the consumer indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. For example:
 

@@ -237,7 +237,7 @@
 
 <h3 id="jwt-json-web-token">JWT (JSON Web Token)</h3>
 
-<p>Some endpoints such as <a href="/doc/commerce/payment/api-payment.html#submit-order-payments-for-approval-post"><em>Submit Order Payments for Approval</em></a> require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="blank">JWT</a> that is signed for a service authorized to call the endpoint. In this case, pass the JWT in the <strong>X-Nike-Authorization</strong> request header. Also, send the name of the application (e.g. “checkouts”) that is authorized to call this endpoint in the <strong>X-Nike-AppId</strong> request header. This is the service name used to sign the JWT. The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.</p>
+<p>Some endpoints such as <a href="/doc/commerce/payment/use-payment.html#submit-order-payments-for-approval-post"><em>Submit Order Payments for Approval</em></a> require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="blank">JWT</a> that is signed for a service authorized to call the endpoint. In this case, pass the JWT in the <strong>X-Nike-Authorization</strong> request header. Also, send the name of the application (e.g. “checkouts”) that is authorized to call this endpoint in the <strong>X-Nike-AppId</strong> request header. This is the service name used to sign the JWT. The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.</p>
 
 <table>
   <thead>
@@ -1740,14 +1740,14 @@ Authorization: Bearer {your access token}
                 <a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
                 <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
         <ul id="b-use-case" class="hide"><li>
-                <a href="/doc/commerce/product/api-product-feeds.html" class="">Product Feeds</a></li><li>
-                <a href="/doc/commerce/product/api-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li>
                 <a href="/doc/commerce/product/capi-migration.html" class="">CAPI Migration</a></li><li>
-                <a href="/doc/commerce/search/api-search.html" class="">Search</a></li><li>
-                <a href="/doc/commerce/checkout/api-checkout.html" class="">Cart & Checkout</a></li><li>
-                <a href="/doc/commerce/payment/api-payment.html" class="">Payment</a></li><li>
-                <a href="/doc/commerce/events/api-eventsv2.html" class="">Events</a></li><li>
-                <a href="/doc/commerce/product/api-merch-product.html" class="">Merch Product</a></li><li>
+                <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li>
+                <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/commerce/checkout/use-checkout.html" class="">Cart & Checkout</a></li><li>
+                <a href="/doc/commerce/events/use-eventsv2.html" class="">Events</a></li><li>
+                <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li><li>
                 <a href="/doc/commerce/order/use-order.html" class="">Order</a></li></ul><h6><span name="c-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
         <ul id="c-get-started" class=""><li>
                 <a href="/doc/getting-started/using-nike-apis.html" class="active">Using NDe APIs</a><ul><li>

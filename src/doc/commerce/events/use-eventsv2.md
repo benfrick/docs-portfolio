@@ -1,29 +1,29 @@
 ---
-id: api-eventsv2
+id: use-eventsv2
 tags: pdf
 category: b-use-case
 position: 7
 title: Events
-url: /doc/commerce/events/api-eventsv2.html
+url: /doc/commerce/events/use-eventsv2.html
 toc:
   - h2: API at a Glance
-    url: /doc/commerce/events/api-eventsv2.html#api-at-a-glance
+    url: /doc/commerce/events/use-eventsv2.html#api-at-a-glance
   - h2: Terms of Service
-    url: /doc/commerce/events/api-eventsv2.html#terms-of-service
+    url: /doc/commerce/events/use-eventsv2.html#terms-of-service
   - h2: Use Cases
-    url: /doc/commerce/events/api-eventsv2.html#use-cases
+    url: /doc/commerce/events/use-eventsv2.html#use-cases
   - h2: Endpoint Quick Reference
-    url: /doc/commerce/events/api-eventsv2.html#api-endpoint-quick-reference
+    url: /doc/commerce/events/use-eventsv2.html#api-endpoint-quick-reference
   - h2: Using Analytics Pipeline
-    url: /doc/commerce/events/api-eventsv2.html#using-analytics-pipeline
+    url: /doc/commerce/events/use-eventsv2.html#using-analytics-pipeline
   - h2: Upgrading to the Latest Version
-    url: /doc/commerce/events/api-eventsv2.html#upgrading-to-the-latest-version
+    url: /doc/commerce/events/use-eventsv2.html#upgrading-to-the-latest-version
   - h2: Best Practices
-    url: /doc/commerce/events/api-eventsv2.html#best-practices
+    url: /doc/commerce/events/use-eventsv2.html#best-practices
   - h2: Troubleshooting
-    url: /doc/commerce/events/api-eventsv2.html#troubleshooting
+    url: /doc/commerce/events/use-eventsv2.html#troubleshooting
   - h2: Glossary
-    url: /doc/commerce/events/api-eventsv2.html#glossary
+    url: /doc/commerce/events/use-eventsv2.html#glossary
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -400,7 +400,7 @@ The following table lists all of the possible values that should be sent in the 
 
 ## Upgrading to the Latest Version
 
-If you are currently using version 1 of this API and need information for upgrading, see the [Analytics Pipeline v1 Developer's Guide](/doc/commerce/events/api-events.html).
+If you are currently using version 1 of this API and need information for upgrading, see the [Analytics Pipeline v1 Developer's Guide](/doc/commerce/events/use-events.html).
 
 ## Troubleshooting
 

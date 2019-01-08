@@ -1,47 +1,47 @@
 ---
-id: api-payment
+id: use-payment
 tags: pdf
 category: b-use-case
 position: 6
 title: Payment
-url: /doc/commerce/payment/api-payment.html
+url: /doc/commerce/payment/use-payment.html
 toc:
   - h2: API at a Glance
-    url: /doc/commerce/payment/api-payment.html#api-at-a-glance
+    url: /doc/commerce/payment/use-payment.html#api-at-a-glance
   - h2: Terms of Service
-    url: /doc/commerce/payment/api-payment.html#terms-of-service
+    url: /doc/commerce/payment/use-payment.html#terms-of-service
   - h2: Use Cases
-    url: /doc/commerce/payment/api-payment.html#use-cases
+    url: /doc/commerce/payment/use-payment.html#use-cases
   - h2: Endpoint Quick Reference
-    url: /doc/commerce/payment/api-payment.html#api-endpoint-quick-reference
+    url: /doc/commerce/payment/use-payment.html#api-endpoint-quick-reference
   - h2: Caching Data
-    url: /doc/commerce/payment/api-payment.html#caching-data
+    url: /doc/commerce/payment/use-payment.html#caching-data
   - h2: Making Your First Request
-    url: /doc/commerce/payment/api-payment.html#making-your-first-api-request
+    url: /doc/commerce/payment/use-payment.html#making-your-first-api-request
   - h2: Using Payment Options
-    url: /doc/commerce/payment/api-payment.html#using-payment-options
+    url: /doc/commerce/payment/use-payment.html#using-payment-options
   - h2: Using Stored Payment
-    url: /doc/commerce/payment/api-payment.html#using-stored-payment
+    url: /doc/commerce/payment/use-payment.html#using-stored-payment
   - h2: Using Payment Preview
-    url: /doc/commerce/payment/api-payment.html#using-payment-preview
+    url: /doc/commerce/payment/use-payment.html#using-payment-preview
   - h2: Using Payment Approval
-    url: /doc/commerce/payment/api-payment.html#using-payment-approval
+    url: /doc/commerce/payment/use-payment.html#using-payment-approval
   - h2: Using Credit Card Submit
-    url: /doc/commerce/payment/api-payment.html#using-credit-card-submit
+    url: /doc/commerce/payment/use-payment.html#using-credit-card-submit
   - h2: Using Payment Apple Pay
-    url: /doc/commerce/payment/api-payment.html#using-apple-pay
+    url: /doc/commerce/payment/use-payment.html#using-apple-pay
   - h2: Using Payment Wallet
-    url: /doc/commerce/payment/api-payment.html#using-payment-wallet
+    url: /doc/commerce/payment/use-payment.html#using-payment-wallet
   - h2: Using Deferred Payment
-    url: /doc/commerce/payment/api-payment.html#using-deferred-payment
+    url: /doc/commerce/payment/use-payment.html#using-deferred-payment
   - h2: Upgrading to the Latest Version
-    url: /doc/commerce/payment/api-payment.html#upgrading-to-the-latest-version
+    url: /doc/commerce/payment/use-payment.html#upgrading-to-the-latest-version
   - h2: Best Practices
-    url: /doc/commerce/payment/api-payment.html#best-practices
+    url: /doc/commerce/payment/use-payment.html#best-practices
   - h2: Troubleshooting
-    url: /doc/commerce/payment/api-payment.html#troubleshooting
+    url: /doc/commerce/payment/use-payment.html#troubleshooting
   - h2: Glossary
-    url: /doc/commerce/payment/api-payment.html#glossary
+    url: /doc/commerce/payment/use-payment.html#glossary
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -230,7 +230,7 @@ The Payment API makes use of data caching to optimize service SLAs. The first ti
 
 The PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services handle gift card balances. Retrieving the balance of a gift card requires a call to a third-party gift card provider, which can slow down the Payment service's response, especially in high volume traffic. To avoid this scenario, the private gift card Service, which is responsible for retrieving gift card data and is called by the PaymentWallet, PaymentPreview, PaymentApproval and StoredPayments services, caches the gift card balance after retrieval. The cache time varies based on the balance. If the gift card has a positive balance, the gift card service caches the balance for 5 minutes; If the gift card has a 0 balance, the gift card service caches the balance for 30 minutes.
 
-The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation. For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Products API](/doc/commerce/product/api-merch-product.html) to get the latest data.
+The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services use product and SKU data as part of validation. For performance reasons, these services cache product and SKU data for 30 minutes in order to reduce the amount of calls to the [Merchandised Products API](/doc/commerce/product/use-merch-product.html) to get the latest data.
 
 ## Making Your First API request
 
@@ -334,7 +334,7 @@ Listed in the response are the the `country` and `billingCountry` passed in the 
 
 ### Payment Options Overview
 
-Use the Payment Options service to list valid payment options or list valid billing countries based on a shipping country. Valid payment options are calculated based on [Nike UPMID](/doc/getting-started/using-nike-apis.html#authorization), shopping country, billing country, currency, (product) items and value-added services. See [Adding Cart & Checkout to Your Experience](/doc/commerce/checkout/api-checkout.html) for more information on items in Checkout.
+Use the Payment Options service to list valid payment options or list valid billing countries based on a shipping country. Valid payment options are calculated based on [Nike UPMID](/doc/getting-started/using-nike-apis.html#authorization), shopping country, billing country, currency, (product) items and value-added services. See [Adding Cart & Checkout to Your Experience](/doc/commerce/checkout/use-checkout.html) for more information on items in Checkout.
 
 All endpoints of this service are synchronous.
 
@@ -2024,7 +2024,7 @@ Nike customers can pay by one or more gift cards/Vouchers and another payment ty
 
 ### Payment Preview
 
-The paymentPreviewId returned by this service is a required key when calling [Request Checkout Submit](/doc/commerce/checkout/api-checkout.html#submitting-a-checkout) in the BUY API to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.
+The paymentPreviewId returned by this service is a required key when calling [Request Checkout Submit](/doc/commerce/checkout/use-checkout.html#submitting-a-checkout) in the BUY API to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
@@ -2054,7 +2054,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
-|**checkoutId**|string|Checkout [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} payments are associated to. Typically generated by [Checkout API](/doc/commerce/checkout/api-checkout.html#previewing-a-checkout).|Required|
+|**checkoutId**|string|Checkout [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} payments are associated to. Typically generated by [Checkout API](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout).|Required|
 |**total**|double|Checkout total amount|Required|
 |**currency**|string|See [supported currency codes](/doc/commerce/checkout/checkout-country-currency.html)|Required|
 |**country**|string|See [supported country codes](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="blank"}|Required|
@@ -2738,7 +2738,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 This service validates the payment allocation performed by the Payment Preview service, recalculating if necessary, and evaluates that the selected payment methods and items on Checkout are valid. If one or more payment type validations fail, all payment type authorizations (in the case of credit cards and PayPal)/debits (in the case of gift cards) are rolled back. There is no need to pass in the Checkout payment types in the body as the service looks them up using the checkoutId and paymentPreviewId in the request body.
 
->**TIP:** This endpoint is intended to be a service-to-service call. [Request Checkout Submit](/doc/commerce/checkout/api-checkout.html#submitting-a-checkout) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
+>**TIP:** This endpoint is intended to be a service-to-service call. [Request Checkout Submit](/doc/commerce/checkout/use-checkout.html#submitting-a-checkout) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
 
 #### Endpoint Details
 
@@ -3208,7 +3208,7 @@ Sample PayPal **Submit Order Payments for Approval** response body with "COMPLET
 
 This service is identical to the [Submit Order Payments for Approval (POST)](#submit-order-payments-for-approval-post) endpoint except that it allows the calling service to determine the Payment Approval id to be passed in as a path parameter. This is helpful if the Payment Approval response times out and the calling service needs to call [Void Payment Approval](#void-payment-approval) endpoint with the paymentApprovalId to reverse the Payment Approval request.
 
->**TIP:** This endpoint is intended to be a service-to-service call. [Checkout Submit](/doc/commerce/checkout/api-checkout.html#submitting-a-checkout) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
+>**TIP:** This endpoint is intended to be a service-to-service call. [Checkout Submit](/doc/commerce/checkout/use-checkout.html#submitting-a-checkout) calls the PaymentApproval endpoint as a last step in the order flow to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment. A client should not call this service directly.
 
 #### Endpoint Details
 

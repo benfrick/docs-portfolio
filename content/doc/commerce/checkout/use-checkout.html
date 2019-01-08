@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="main">
-    <p><a href="/doc/commerce/checkout/api-checkout.pdf" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
+    <p><a href="/doc/commerce/checkout/use-checkout.pdf" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
 
 <h1 id="adding-cart--checkout-to-your-experience">ADDING CART &amp; CHECKOUT <br />TO YOUR EXPERIENCE</h1>
 
@@ -32,7 +32,7 @@
   <ul>
     <li>Before using this guide, read <a href="/doc/getting-started/using-nike-apis.html">Using NDe APIs</a> and <a href="/doc/commerce/checkout/overview-checkout.html">Cart &amp; Checkout Overview</a>.</li>
     <li>Use this Developer’s Guide as a supplement to the API Reference for detailed use cases. See <a href="#api-quick-reference">API Quick Reference</a> for links to all the API Reference docs discussed in this guide.</li>
-    <li>The steps involving <strong>Payment</strong> are covered in <a href="/doc/commerce/payment/api-payment.html">Adding Payment to Your Experience</a></li>
+    <li>The steps involving <strong>Payment</strong> are covered in <a href="/doc/commerce/payment/use-payment.html">Adding Payment to Your Experience</a></li>
   </ul>
 </blockquote>
 
@@ -194,7 +194,7 @@
 <p>The API ensures that the products, shipping method(s), and shipping address(es) are valid based on Nike pricing and address rules. You can also get product pricing, sales tax, shipping fee and tax, estimated delivery date(s), and checkout subtotals in the response.</p>
 
 <blockquote>
-  <p><strong>TIP:</strong> For more context, see a step-by-step example of all the requests in a checkout in the diagram in the <a href="#best-practices">Best Practices</a> section of this document. For more info about Payment, see <a href="/doc/commerce/payment/api-payment.html">Adding Payment to Your Experience</a>.</p>
+  <p><strong>TIP:</strong> For more context, see a step-by-step example of all the requests in a checkout in the diagram in the <a href="#best-practices">Best Practices</a> section of this document. For more info about Payment, see <a href="/doc/commerce/payment/use-payment.html">Adding Payment to Your Experience</a>.</p>
 </blockquote>
 
 <p>Sample <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put" target="blank">Request a Checkout Preview</a> request URI:</p>
@@ -238,7 +238,7 @@
 <blockquote>
   <p><strong>TIPS:</strong></p>
   <ul>
-    <li>You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview <strong>id</strong>. See the <a href="/doc/commerce/payment/api-payment.html">Adding Payment to Your Experience</a> for more info.</li>
+    <li>You must have previously called the Payment Preview API to collect the required payment information, most notably the mandatory Payment Preview <strong>id</strong>. See the <a href="/doc/commerce/payment/use-payment.html">Adding Payment to Your Experience</a> for more info.</li>
     <li>Optionally, for Japan only, send <code class="highlighter-rouge">GIFT_RECEIPT</code> in the <strong>invoiceInfo</strong> block, which prevents prices from being printed on the packing slip that is included with the product shipment.</li>
     <li>Optionally, for China only, send <code class="highlighter-rouge">ELECTRONIC_FAPIAO</code> in <strong>invoiceInfo</strong> for Fapiao, which is a special tax invoice. If the consumer indicates a preference for Fapiao, they can enter a personal message to be used as a title for the invoice. For example:</li>
   </ul>
@@ -777,47 +777,47 @@
                 <a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
                 <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
         <ul id="b-use-case" class=""><li>
-                <a href="/doc/commerce/product/api-product-feeds.html" class="">Product Feeds</a></li><li>
-                <a href="/doc/commerce/product/api-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li>
                 <a href="/doc/commerce/product/capi-migration.html" class="">CAPI Migration</a></li><li>
-                <a href="/doc/commerce/search/api-search.html" class="">Search</a></li><li>
-                <a href="/doc/commerce/checkout/api-checkout.html" class="active">Cart & Checkout</a><ul><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#cart"
+                <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li>
+                <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/commerce/checkout/use-checkout.html" class="active">Cart & Checkout</a><ul><li>
+                        <a href="/doc/commerce/checkout/use-checkout.html#cart"
                            class="">Cart</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#shipping-options"
+                        <a href="/doc/commerce/checkout/use-checkout.html#shipping-options"
                            class="">Shipping Options</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#previewing-a-checkout"
+                        <a href="/doc/commerce/checkout/use-checkout.html#previewing-a-checkout"
                            class="">Previewing a Checkout</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#submitting-a-checkout"
+                        <a href="/doc/commerce/checkout/use-checkout.html#submitting-a-checkout"
                            class="">Submitting a Checkout</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#wish-lists"
+                        <a href="/doc/commerce/checkout/use-checkout.html#wish-lists"
                            class="">Wish Lists</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#api-quick-reference"
+                        <a href="/doc/commerce/checkout/use-checkout.html#api-quick-reference"
                            class="">API Quick Reference</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#best-practices"
+                        <a href="/doc/commerce/checkout/use-checkout.html#best-practices"
                            class="">Best Practices</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#troubleshooting"
+                        <a href="/doc/commerce/checkout/use-checkout.html#troubleshooting"
                            class="">Troubleshooting</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#terms-of-service"
+                        <a href="/doc/commerce/checkout/use-checkout.html#terms-of-service"
                            class="">Terms of Service</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#contacting-the-team"
+                        <a href="/doc/commerce/checkout/use-checkout.html#contacting-the-team"
                            class="">Contacting the Team</a>
                     </li><li>
-                        <a href="/doc/commerce/checkout/api-checkout.html#glossary"
+                        <a href="/doc/commerce/checkout/use-checkout.html#glossary"
                            class="">Glossary</a>
                     </li></ul></li><li>
-                <a href="/doc/commerce/payment/api-payment.html" class="">Payment</a></li><li>
-                <a href="/doc/commerce/events/api-eventsv2.html" class="">Events</a></li><li>
-                <a href="/doc/commerce/product/api-merch-product.html" class="">Merch Product</a></li><li>
+                <a href="/doc/commerce/events/use-eventsv2.html" class="">Events</a></li><li>
+                <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li><li>
                 <a href="/doc/commerce/order/use-order.html" class="">Order</a></li></ul><h6><span name="c-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
         <ul id="c-get-started" class="hide"><li>
                 <a href="/doc/getting-started/using-nike-apis.html" class="">Using NDe APIs</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>

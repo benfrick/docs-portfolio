@@ -1,31 +1,31 @@
 ---
-id: api-product-feeds
+id: use-product-feeds
 tags: pdf
 category: b-use-case
 position: 1
 title: Product Feeds
-url: /doc/commerce/product/api-product-feeds.html
+url: /doc/commerce/product/use-product-feeds.html
 toc:
   - h2: API at a Glance
-    url: /doc/commerce/product/api-product-feeds.html#api-at-a-glance
+    url: /doc/commerce/product/use-product-feeds.html#api-at-a-glance
   - h2: Terms of Service
-    url: /doc/commerce/product/api-product-feeds.html#terms-of-service
+    url: /doc/commerce/product/use-product-feeds.html#terms-of-service
   - h2: Use Cases
-    url: /doc/commerce/product/api-product-feeds.html#use-cases
+    url: /doc/commerce/product/use-product-feeds.html#use-cases
   - h2: Endpoint Quick Reference
-    url: /doc/commerce/product/api-product-feeds.html#api-endpoint-quick-reference
+    url: /doc/commerce/product/use-product-feeds.html#api-endpoint-quick-reference
   - h2: Cards, Threads, and Feeds
-    url: /doc/commerce/product/api-product-feeds.html#cards-threads-and-feeds
+    url: /doc/commerce/product/use-product-feeds.html#cards-threads-and-feeds
   - h2: Using Product Feeds
-    url: /doc/commerce/product/api-product-feeds.html#using-product-feeds
+    url: /doc/commerce/product/use-product-feeds.html#using-product-feeds
   - h2: Upgrading to the Latest Version
-    url: /doc/commerce/product/api-product-feeds.html#upgrading-to-the-latest-version
+    url: /doc/commerce/product/use-product-feeds.html#upgrading-to-the-latest-version
   - h2: Best Practices
-    url: /doc/commerce/product/api-product-feeds.html#best-practices
+    url: /doc/commerce/product/use-product-feeds.html#best-practices
   - h2: Troubleshooting
-    url: /doc/commerce/product/api-product-feeds.html#troubleshooting
+    url: /doc/commerce/product/use-product-feeds.html#troubleshooting
   - h2: Glossary
-    url: /doc/commerce/product/api-product-feeds.html#glossary
+    url: /doc/commerce/product/use-product-feeds.html#glossary
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -69,7 +69,7 @@ There are no authentication requirements for Product Feeds except when using the
 |List all Product Threads for a channel, language, marketplace, feed ID, SEO slug, style-color, gender, keywords, and more|*Threads List*|
 |Get a specific Product Thread by its ID|*Product Thread by ID*|
 
->**TIP:** See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](/doc/commerce/product/api-merch-product.html) for more.
+>**TIP:** See the [Threads List](#product-threads-list) section for the full list of use cases. After that, if you still didn't find your product use case, check out the [Merchandised Products API Developer's Guide](/doc/commerce/product/use-merch-product.html) for more.
 
 ### Example Implementation Diagram
 

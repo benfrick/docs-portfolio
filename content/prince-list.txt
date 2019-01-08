@@ -1,10 +1,3 @@
-./content/doc/commerce/checkout/api-checkout.html
-./content/doc/commerce/events/api-eventsv2.html
-./content/doc/commerce/product/api-merch-product.html
-./content/doc/commerce/payment/api-payment.html
-./content/doc/commerce/product/api-product-feeds.html
-./content/doc/commerce/product/api-rollup-threads.html
-./content/doc/commerce/search/api-search.html
 ./content/doc/commerce/reference/caller-best-practices.html
 ./content/doc/commerce/product/capi-migration.html
 ./content/doc/commerce/checkout/checkout-country-currency.html
@@ -19,6 +12,13 @@
 ./content/doc/commerce/product/overview-product-feeds.html
 ./content/doc/taxonomy/overview-taxonomy-tagging.html
 ./content/doc/commerce/reference/product-lifecycle.html
+./content/doc/commerce/checkout/use-checkout.html
 ./content/doc/commerce/product/use-collections.html
+./content/doc/commerce/events/use-eventsv2.html
+./content/doc/commerce/product/use-merch-product.html
 ./content/doc/commerce/order/use-order.html
+./content/doc/commerce/payment/use-payment.html
+./content/doc/commerce/product/use-product-feeds.html
+./content/doc/commerce/product/use-rollup-threads.html
+./content/doc/commerce/search/use-search.html
 ./content/doc/getting-started/using-nike-apis.html

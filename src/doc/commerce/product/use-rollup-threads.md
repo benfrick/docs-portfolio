@@ -1,31 +1,31 @@
 ---
-id: api-rollup-threads
+id: use-rollup-threads
 tags: pdf
 category: b-use-case
 position: 2
 title: Rollup Threads
-url: /doc/commerce/product/api-rollup-threads.html
+url: /doc/commerce/product/use-rollup-threads.html
 toc:
   - h2: API at a Glance
-    url: /doc/commerce/product/api-rollup-threads.html#api-at-a-glance
+    url: /doc/commerce/product/use-rollup-threads.html#api-at-a-glance
   - h2: Terms of Service
-    url: /doc/commerce/product/api-rollup-threads.html#terms-of-service
+    url: /doc/commerce/product/use-rollup-threads.html#terms-of-service
   - h2: Use Cases
-    url: /doc/commerce/product/api-rollup-threads.html#use-cases
+    url: /doc/commerce/product/use-rollup-threads.html#use-cases
   - h2: Endpoint Quick Reference
-    url: /doc/commerce/product/api-rollup-threads.html#api-endpoint-quick-reference
+    url: /doc/commerce/product/use-rollup-threads.html#api-endpoint-quick-reference
   - h2: What is a Rollup Thread?
-    url: /doc/commerce/product/api-rollup-threads.html#what-is-a-rollup-thread
+    url: /doc/commerce/product/use-rollup-threads.html#what-is-a-rollup-thread
   - h2: Using Rollup Threads
-    url: /doc/commerce/product/api-rollup-threads.html#using-rollup-threads
+    url: /doc/commerce/product/use-rollup-threads.html#using-rollup-threads
   - h2: Upgrading to the Latest Version
-    url: /doc/commerce/product/api-rollup-threads.html#upgrading-to-the-latest-version
+    url: /doc/commerce/product/use-rollup-threads.html#upgrading-to-the-latest-version
   - h2: Best Practices
-    url: /doc/commerce/product/api-rollup-threads.html#best-practices
+    url: /doc/commerce/product/use-rollup-threads.html#best-practices
   - h2: Troubleshooting
-    url: /doc/commerce/product/api-rollup-threads.html#troubleshooting
+    url: /doc/commerce/product/use-rollup-threads.html#troubleshooting
   - h2: Glossary
-    url: /doc/commerce/product/api-rollup-threads.html#glossary
+    url: /doc/commerce/product/use-rollup-threads.html#glossary
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -35,7 +35,7 @@ toc:
 
 ##### Last Updated: 10/01/2018
 
-If you've read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and the [Product Feeds Developer's Guide](/doc/commerce/product/api-product-feeds.html), this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.
+If you've read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html), this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.
 
 ## API at a Glance
 
@@ -84,7 +84,7 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 ## What is a Rollup Thread?
 
-The endpoint of this API is closely related to the *Threads List* endpoint of the Product Feeds v2 API. First, read the [Product Feeds v2 Developer's Guide](/doc/commerce/product/api-product-feeds.html) to understand the basic concepts of working with Threads.
+The endpoint of this API is closely related to the *Threads List* endpoint of the Product Feeds v2 API. First, read the [Product Feeds v2 Developer's Guide](/doc/commerce/product/use-product-feeds.html) to understand the basic concepts of working with Threads.
 
 Next, let's talk about what this API offers that is unique: Rollup Threads. A Rollup Thread is a Thread that is related to, and nested within a parent Thread. For example, there might be seven Rollup Threads nested within a given parent Thread, representing the other colors of a particular Nike shoe. Using Rollup Threads makes it much simpler for you to build a product grid wall experience like this:
 
@@ -275,7 +275,7 @@ Version 2 (v2) is the current and only version of this API.
 
 ## Best Practices
 
-See the Best Practices section of the [Product Feeds Developer's Guide](/doc/commerce/product/api-product-feeds.html#best-practices).
+See the Best Practices section of the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html#best-practices).
 
 ## Troubleshooting
 
@@ -285,7 +285,7 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 - Check the rollup key & type from Prodigy for the Parent Thread is as expected.
 - Reach out to Product Feeds team on Slack for assistance: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"}
 
->**TIP:** See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/api-product-feeds.html#troubleshooting) for more general troubleshooting information.
+>**TIP:** See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html#troubleshooting) for more general troubleshooting information.
 
 ## Glossary
 

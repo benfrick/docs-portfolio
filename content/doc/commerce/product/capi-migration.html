@@ -43,7 +43,7 @@
 
 <ul>
   <li>
-    <p>CAPI is largely replaced by the <a href="/doc/commerce/product/api-product-feeds.html">Product Feeds v2 API</a>. The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.</p>
+    <p>CAPI is largely replaced by the <a href="/doc/commerce/product/use-product-feeds.html">Product Feeds v2 API</a>. The two APIs are similar in that they aggregate multiple sources of data, thus reducing the number of calls required to gather product data and content. Product Feeds has the additional benefit of having fewer endpoints than CAPI, for example some implementations rely on calls to only two distinct endpoints.</p>
   </li>
   <li>
     <p><strong>Some of the search functionality of CAPI has not yet been replaced in the Cloud</strong>. If you rely on CAPI for faceted search, you may need to continue to use CAPI for now. Contact the <a href="mailto:david.wagner@nike.com">Search Product Owner</a> for more info about when this feature of Cloud Search will be available.</p>
@@ -77,11 +77,11 @@
 
 <p>CAPI can be called by <strong>productId</strong> (PID), e.g. ‘1074990’ (which also can be sent in <strong>id</strong> field for certain CAPI endpoints), the legacy identifier that is unique to a <em>style-color</em>. In general, you cannot call Cloud APIs with this same <strong>productId</strong>, although you might see it in certain Cloud responses, for example with Product Feeds in the <strong>pid</strong> field.</p>
 
-<p>The equivalent of <strong>productId</strong> in the Cloud is the <strong>id</strong>, e.g. ‘8e94a648-a232-5739-b4a6-c7d844a8bda0’, a UUID generated from the <a href="/doc/commerce/product/api-merch-product.html">Merchandised Products API</a>. You will use this <strong>id</strong> when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.</p>
+<p>The equivalent of <strong>productId</strong> in the Cloud is the <strong>id</strong>, e.g. ‘8e94a648-a232-5739-b4a6-c7d844a8bda0’, a UUID generated from the <a href="/doc/commerce/product/use-merch-product.html">Merchandised Products API</a>. You will use this <strong>id</strong> when making calls directly to Merchandised Products and also in the responses from the Product Feeds API, which aggregates data from Merchandised Products and several other APIs.</p>
 
 <h4 id="sku-id">SKU ID</h4>
 
-<p>Responses from several CAPI endpoints feature <strong>skuID</strong>, e.g. ‘1107974’, the legacy identifier that is unique to a SKU or <em>style-color-size</em>. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to <strong>stockKeepingUnitId</strong>. In addition, an <strong>id</strong> in the form of a UUID is generated per SKU by the <a href="/doc/commerce/product/api-merch-product#using-merchandised-product-skus.html">Merchandised Product SKU API</a> when it flows into the system.</p>
+<p>Responses from several CAPI endpoints feature <strong>skuID</strong>, e.g. ‘1107974’, the legacy identifier that is unique to a SKU or <em>style-color-size</em>. This value is still available in the cloud because several downstream systems rely on it, but it is renamed to <strong>stockKeepingUnitId</strong>. In addition, an <strong>id</strong> in the form of a UUID is generated per SKU by the <a href="/doc/commerce/product/use-merch-product#using-merchandised-product-skus.html">Merchandised Product SKU API</a> when it flows into the system.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> For cloud, you can call the Merchandised Product SKU List endpoint with the filter query parameter, include the UUID of the parent product, and be returned a list of all the SKUs for that product. Example: https://api,nike.com/merch/skus/v2?filter=parentId(cf441ec7-53fd-5828-8f6d-d28a9cdcf1b1).</p>
@@ -216,7 +216,7 @@
 
 <p><strong>Cloud</strong></p>
 
-<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/api-product-feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.</p>
+<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/use-product-feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and English language, filtering by style-color 8AH7282-081. It lists threads for style-color 8AH7282-081, applying Cloud visibility rules to determine which product data to return.</p>
 
 <p>https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=publishedContent.properties.products.styleColor%28AH7282-081%29</p>
 
@@ -230,7 +230,7 @@
 
 <p><strong>Cloud</strong></p>
 
-<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/api-product-feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.</p>
+<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/use-product-feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API. For example, this URL calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style code AH7246. It returns thread data for any product with style code AH7246.</p>
 
 <p>https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=productInfo.merchProduct.styleCode%28AH7246%29</p>
 
@@ -244,7 +244,7 @@
 
 <p><strong>Cloud</strong></p>
 
-<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/api-product-feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.</p>
+<p>The comparable Cloud endpoint is the <a href="/doc/commerce/product/use-product-feeds.html#product-threads-list">Product Threads List endpoint</a> in the Product Feeds API.  For example, this URL lists thread data for the list of style-colors including the SKU availablity of each size. The sample URL below calls the Product Threads List endpoint for the US marketplace and the English language, filtering by style-codes 847269-430 and AH7238-080.</p>
 
 <p>https://api.nike.com/product_feed/threads/v2/?filter=marketplace%28US%29&amp;filter=language%28en%29&amp;filter=channelId%28933182b3-5f66-4b70-b0b1-0513e235742c%29&amp;filter=publishedContent.properties.products.styleColor(847269-430,AH7238-080)</p>
 
@@ -255,7 +255,7 @@
 <p>If you have a GTIN (UPC) and need to get the style-color, here are the steps you would follow in the Cloud.</p>
 
 <ol>
-  <li>Call the <a href="/doc/commerce/product/api-merch-product.html#using-merchandised-product-skus">Merchandised Product SKUs service</a> filtering by GTIN.</li>
+  <li>Call the <a href="/doc/commerce/product/use-merch-product.html#using-merchandised-product-skus">Merchandised Product SKUs service</a> filtering by GTIN.</li>
 </ol>
 
 <p>https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)</p>
@@ -265,7 +265,7 @@
 </blockquote>
 
 <ol>
-  <li>If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the <code class="highlighter-rouge">id</code> parameter and call the <a href="/doc/commerce/product/api-merch-product.html#using-merchandised-products">Merchandised Product service</a>. A 200 response lists the styleCode, colorCode and styleColor.</li>
+  <li>If you receive a 200 response from the Merchandised Sku service, get the parentId UUID from the response, pass it as the <code class="highlighter-rouge">id</code> parameter and call the <a href="/doc/commerce/product/use-merch-product.html#using-merchandised-products">Merchandised Product service</a>. A 200 response lists the styleCode, colorCode and styleColor.</li>
 </ol>
 
 <p>https://api.nike.com/merch/products/v2?filter=merchgroup(US)&amp;filter=id(2c4282cc-9fd1-5250-94a5-0c74735443dc)</p>
@@ -2718,8 +2718,8 @@ Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exi
                 <a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
                 <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
         <ul id="b-use-case" class=""><li>
-                <a href="/doc/commerce/product/api-product-feeds.html" class="">Product Feeds</a></li><li>
-                <a href="/doc/commerce/product/api-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li>
                 <a href="/doc/commerce/product/capi-migration.html" class="active">CAPI Migration</a><ul><li>
                         <a href="/doc/commerce/product/capi-migration.html#capi-vs-cloud-comparison"
                            class="">CAPI vs. Cloud</a>
@@ -2736,11 +2736,11 @@ Note: Some of the CAPI endpoints have been deprecated and thus no equivalent exi
                         <a href="/doc/commerce/product/capi-migration.html#field-mapping"
                            class="">Field Mapping</a>
                     </li></ul></li><li>
-                <a href="/doc/commerce/search/api-search.html" class="">Search</a></li><li>
-                <a href="/doc/commerce/checkout/api-checkout.html" class="">Cart & Checkout</a></li><li>
-                <a href="/doc/commerce/payment/api-payment.html" class="">Payment</a></li><li>
-                <a href="/doc/commerce/events/api-eventsv2.html" class="">Events</a></li><li>
-                <a href="/doc/commerce/product/api-merch-product.html" class="">Merch Product</a></li><li>
+                <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li>
+                <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/commerce/checkout/use-checkout.html" class="">Cart & Checkout</a></li><li>
+                <a href="/doc/commerce/events/use-eventsv2.html" class="">Events</a></li><li>
+                <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li><li>
                 <a href="/doc/commerce/order/use-order.html" class="">Order</a></li></ul><h6><span name="c-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
         <ul id="c-get-started" class="hide"><li>
                 <a href="/doc/getting-started/using-nike-apis.html" class="">Using NDe APIs</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>

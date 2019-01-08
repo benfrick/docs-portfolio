@@ -39,7 +39,7 @@ toc:
 
 Retrieve a complete order history for your consumers.
 
->**TIP**: Before using this guide you should have already completed [Adding Checkout to Your Experience](/doc/commerce/checkout/api-checkout.html).
+>**TIP**: Before using this guide you should have already completed [Adding Checkout to Your Experience](/doc/commerce/checkout/use-checkout.html).
 
 Adding order history to your app is a two-step process.
 
@@ -68,7 +68,7 @@ An order consists of all data related to:
 
 - Status
 
-An order is created in the last step of [Checkout](/doc/commerce/checkout/api-checkout.html) when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the order lifecycle. See [Understanding Order Status](#understanding-order-status) for more detail.
+An order is created in the last step of [Checkout](/doc/commerce/checkout/use-checkout.html) when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the order lifecycle. See [Understanding Order Status](#understanding-order-status) for more detail.
 
 ## Step 1: List a member's orders
 
@@ -138,7 +138,7 @@ The BFF Order Summary JSON response contains several fields relating to status. 
 
 Use the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a member's orders](#step-1-list-a-members-orders).
 
->TIP: The BFF Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/nde-docs/doc/commerce/product/api-merch-product.html#product-image-set-by-style-color){:target="blank"} using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.
+>TIP: The BFF Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="blank"} using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.
 
 The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
 is a member, guest, or employee. For more information, see [Required Request Headers](#required-request-headers).
@@ -591,5 +591,5 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 You've learned how to add Order History to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/api-eventsv2.html)
+- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
 - [Using NDe APIs](/doc/getting-started/using-nike-apis.html)

@@ -28,7 +28,7 @@
 <p>Retrieve a complete order history for your consumers.</p>
 
 <blockquote>
-  <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="/doc/commerce/checkout/api-checkout.html">Adding Checkout to Your Experience</a>.</p>
+  <p><strong>TIP</strong>: Before using this guide you should have already completed <a href="/doc/commerce/checkout/use-checkout.html">Adding Checkout to Your Experience</a>.</p>
 </blockquote>
 
 <p>Adding order history to your app is a two-step process.</p>
@@ -68,7 +68,7 @@ request to <a href="#step-2-list-order-details-for-a-member-or-guest">list order
   </li>
 </ul>
 
-<p>An order is created in the last step of <a href="/doc/commerce/checkout/api-checkout.html">Checkout</a> when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of <code class="highlighter-rouge">CREATED</code>. The order is assigned different statuses as it progresses through the order lifecycle. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail.</p>
+<p>An order is created in the last step of <a href="/doc/commerce/checkout/use-checkout.html">Checkout</a> when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of <code class="highlighter-rouge">CREATED</code>. The order is assigned different statuses as it progresses through the order lifecycle. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail.</p>
 
 <h2 id="step-1-list-a-members-orders">Step 1: List a member’s orders</h2>
 
@@ -186,7 +186,7 @@ of a member’s orders are returned. While some filters only allow one value, yo
 <p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api">BFF Order Details API</a> to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see <a href="#step-1-list-a-members-orders">List a member’s orders</a>.</p>
 
 <blockquote>
-  <p>TIP: The BFF Order Details API does not return image URL but you can call the <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/api-merch-product.html#product-image-set-by-style-color" target="blank">Merchandised Product API</a> using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.</p>
+  <p>TIP: The BFF Order Details API does not return image URL but you can call the <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color" target="blank">Merchandised Product API</a> using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.</p>
 </blockquote>
 
 <p>The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
@@ -1349,7 +1349,7 @@ authorization
 <p>You’ve learned how to add Order History to your experience. Here are some next steps.</p>
 
 <ul>
-  <li><a href="/doc/commerce/events/api-eventsv2.html">Capturing User Events</a></li>
+  <li><a href="/doc/commerce/events/use-eventsv2.html">Capturing User Events</a></li>
   <li><a href="/doc/getting-started/using-nike-apis.html">Using NDe APIs</a></li>
 </ul>
 
@@ -1373,14 +1373,14 @@ authorization
                 <a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li>
                 <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
         <ul id="b-use-case" class=""><li>
-                <a href="/doc/commerce/product/api-product-feeds.html" class="">Product Feeds</a></li><li>
-                <a href="/doc/commerce/product/api-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li>
                 <a href="/doc/commerce/product/capi-migration.html" class="">CAPI Migration</a></li><li>
-                <a href="/doc/commerce/search/api-search.html" class="">Search</a></li><li>
-                <a href="/doc/commerce/checkout/api-checkout.html" class="">Cart & Checkout</a></li><li>
-                <a href="/doc/commerce/payment/api-payment.html" class="">Payment</a></li><li>
-                <a href="/doc/commerce/events/api-eventsv2.html" class="">Events</a></li><li>
-                <a href="/doc/commerce/product/api-merch-product.html" class="">Merch Product</a></li><li>
+                <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li>
+                <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/commerce/checkout/use-checkout.html" class="">Cart & Checkout</a></li><li>
+                <a href="/doc/commerce/events/use-eventsv2.html" class="">Events</a></li><li>
+                <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li><li>
                 <a href="/doc/commerce/order/use-order.html" class="active">Order</a><ul><li>
                         <a href="/doc/commerce/order/use-order.html#step-1-list-a-members-orders"
                            class="">List a Member's Orders</a>

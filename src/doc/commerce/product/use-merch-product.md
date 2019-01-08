@@ -1,45 +1,45 @@
 ---
-id: api-merch-product
+id: use-merch-product
 tags: pdf
 category: b-use-case
 position: 8
 title: Merch Product
-url: /doc/commerce/product/api-merch-product.html
+url: /doc/commerce/product/use-merch-product.html
 toc:
   - h2: API at a Glance
-    url: /doc/commerce/product/api-merch-product.html#api-at-a-glance
+    url: /doc/commerce/product/use-merch-product.html#api-at-a-glance
   - h2: Terms of Service
-    url: /doc/commerce/product/api-merch-product.html#terms-of-service
+    url: /doc/commerce/product/use-merch-product.html#terms-of-service
   - h2: Use Cases
-    url: /doc/commerce/product/api-merch-product.html#use-cases
+    url: /doc/commerce/product/use-merch-product.html#use-cases
   - h2: Endpoint Quick Reference
-    url: /doc/commerce/product/api-merch-product.html#api-endpoint-quick-reference
+    url: /doc/commerce/product/use-merch-product.html#api-endpoint-quick-reference
   - h2: Consider Using Product Feeds
-    url: /doc/commerce/product/api-merch-product.html#consider-using-product-feeds
+    url: /doc/commerce/product/use-merch-product.html#consider-using-product-feeds
   - h2: Gathering a Product Data Set
-    url: /doc/commerce/product/api-merch-product.html#gathering-a-product-data-set
+    url: /doc/commerce/product/use-merch-product.html#gathering-a-product-data-set
   - h2: Understanding Nike Product Data
-    url: /doc/commerce/product/api-merch-product.html#understanding-nike-product-data
+    url: /doc/commerce/product/use-merch-product.html#understanding-nike-product-data
   - h2: Merchandised Products Concepts
-    url: /doc/commerce/product/api-merch-product.html#merchandised-product-concepts
+    url: /doc/commerce/product/use-merch-product.html#merchandised-product-concepts
   - h2: International Considerations
-    url: /doc/commerce/product/api-merch-product.html#international-considerations
+    url: /doc/commerce/product/use-merch-product.html#international-considerations
   - h2: Using Merchandised Products
-    url: /doc/commerce/product/api-merch-product.html#using-merchandised-products
+    url: /doc/commerce/product/use-merch-product.html#using-merchandised-products
   - h2: Using Merchandised Product SKUs
-    url: /doc/commerce/product/api-merch-product.html#using-merchandised-product-skus
+    url: /doc/commerce/product/use-merch-product.html#using-merchandised-product-skus
   - h2: Using Merchandised Prices
-    url: /doc/commerce/product/api-merch-product.html#using-merchandised-product-prices
+    url: /doc/commerce/product/use-merch-product.html#using-merchandised-product-prices
   - h2: Using Merchandised VAS
-    url: /doc/commerce/product/api-merch-product.html#using-merchandised-vas
+    url: /doc/commerce/product/use-merch-product.html#using-merchandised-vas
   - h2: Using Product Content
-    url: /doc/commerce/product/api-merch-product.html#using-product-content
+    url: /doc/commerce/product/use-merch-product.html#using-product-content
   - h2: Upgrading to the Latest Version
-    url: /doc/commerce/product/api-merch-product.html#upgrading-to-the-latest-version
+    url: /doc/commerce/product/use-merch-product.html#upgrading-to-the-latest-version
   - h2: Troubleshooting
-    url: /doc/commerce/product/api-merch-product.html#troubleshooting
+    url: /doc/commerce/product/use-merch-product.html#troubleshooting
   - h2: Glossary
-    url: /doc/commerce/product/api-merch-product.html#glossary
+    url: /doc/commerce/product/use-merch-product.html#glossary
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -156,7 +156,7 @@ There are a few caveats:
 - Product Feeds responses are larger, so response times may be slightly slower - but still within SLAs.
 - Product Feeds does not provide all of the data that is provided in every service with which it integrates. The data points in some cases are selective.
 
-For the full list of use cases to evaluate if that API is better suited to your product needs, see [Product Threads List](/doc/commerce/product/api-product-feeds.html#product-threads-list).
+For the full list of use cases to evaluate if that API is better suited to your product needs, see [Product Threads List](/doc/commerce/product/use-product-feeds.html#product-threads-list).
 
 ## Gathering a Product Data Set
 
@@ -697,7 +697,7 @@ Note that for the **productid** + [**country**](/doc/commerce/product/merch-prod
 |**modificationDate**|string|Timestamp the price was last modified|Required|
 |**country**|string|Country of this price, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products) for a complete list|Required|
 |**msrp**|number|Manufacturer's recommended retail price. often not provided or may be 0|Required|
-|**fullPrice**|number|Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the [Cart & Checkout APIs](/doc/commerce/checkout/api-checkout.html) to calculate the difference between current retail price and full retail price to send to fulfillment system|Required|
+|**fullPrice**|number|Nike's original, retail price used for display purposes when a product is discounted and the full retail price is displayed with a strike-through (e.g. a clearance product) and used by the [Cart & Checkout APIs](/doc/commerce/checkout/use-checkout.html) to calculate the difference between current retail price and full retail price to send to fulfillment system|Required|
 |**currentPrice**|number|Purchase price of product. if discounted, price is calculated in Prodigy/PI|Required|
 |**employeePrice**|number|Employee price of product|Required|
 |**currency**|string|Localized currency according to country|Required|

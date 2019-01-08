@@ -41,11 +41,11 @@ url: /doc/commerce/product/use-collections.html
 
 Add a custom set of products to your experience with Collections.
 
->**TIP**: Before using this guide, you should have already completed [Rollup Threads Developer's Guide](/doc/commerce/product/api-rollup-threads.html) and [Product Feeds Developer's Guide](/doc/commerce/product/api-product-feeds.html).
+>**TIP**: Before using this guide, you should have already completed [Rollup Threads Developer's Guide](/doc/commerce/product/use-rollup-threads.html) and [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html).
 
 ## What are Collections & Terms?
 
-- **Collection**: a set of one or more [Product Threads](/doc/commerce/product/api-product-feeds.html#cards-threads-and-feeds), restricted to a combination of channels and marketplaces.
+- **Collection**: a set of one or more [Product Threads](/doc/commerce/product/use-product-feeds.html#cards-threads-and-feeds), restricted to a combination of channels and marketplaces.
 
 - **Term**: a set of one or more Collections that are related.
 
@@ -85,7 +85,7 @@ Terms and Collections are created in the [Collections admin app](https://adminop
 
 Save the **Term UUID**, the unique identifier for the Term, e.g. `69c1f58b-c36b-45d6-b3bb-afb160c9ab0c`, since you will need it in [Step 3](#step-3-call-rollup-threads).
 
-When you add Product Threads to a Collection, the Threads get automatically updated with that Collection's Term UUID. Then, you can get the Threads from the [Rollup Threads API](/doc/commerce/product/api-rollup-threads.html).
+When you add Product Threads to a Collection, the Threads get automatically updated with that Collection's Term UUID. Then, you can get the Threads from the [Rollup Threads API](/doc/commerce/product/use-rollup-threads.html).
 
 >**TIP**: It typically takes 5 minutes or less for changes to a Collection to become available in the Rollup Threads API.
 
@@ -129,7 +129,7 @@ CURL goes here
 
 The Rollup Threads response is specified in the [API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api), but here's a few things to know about:
 
-- Rollup Threads returns only active product threads. If you want inactive threads included in the response, call [Product Feeds Threads List](https://developer.niketech.com/nde-docs/doc/commerce/product/api-product-feeds.html#product-threads-list) instead.
+- Rollup Threads returns only active product threads. If you want inactive threads included in the response, call [Product Feeds Threads List](https://developer.niketech.com/nde-docs/doc/commerce/product/use-product-feeds.html#product-threads-list) instead.
 
 {Some hints/callouts about the data in the response and how it could be handled}
 
@@ -174,5 +174,5 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 You've learned how to add Collections to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/api-eventsv2.html)
+- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
 - [Using NDe APIs](/doc/getting-started/using-nike-apis.html)
