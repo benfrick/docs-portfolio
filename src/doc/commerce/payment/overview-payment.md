@@ -6,13 +6,13 @@ position: 7
 title: Payment
 url: /doc/commerce/payment/overview-payment.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/payment/api_payment.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/payment/use-payment.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Payment Overview
 
 ---
 
-Learn how to use [Payment](/doc/commerce/payment/api_payment.html), our solution to allow customers to pay for purchases of Nike products and services.
+Learn how to use [Payment](/doc/commerce/payment/use-payment.html), our solution to allow customers to pay for purchases of Nike products and services.
 
 #### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe.
 
@@ -40,13 +40,13 @@ Learn how to use [Payment](/doc/commerce/payment/api_payment.html), our solution
 Step through the Use Cases below to incorporate Payment capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options.](/doc/commerce/payment/api_payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options that the customer has saved.](/doc/commerce/payment/api_payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Allocate amount owed across payment types.](/doc/commerce/payment/api_payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate an Apple Pay transaction.](/doc/commerce/payment/api_payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a wallet transaction like Paypal Express/Mark.](/doc/commerce/payment/api_payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/api_payment.html)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Save and validate credit card information. Retrieve masked credit card information.](/doc/commerce/payment/api_payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options.](/doc/commerce/payment/use-payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options that the customer has saved.](/doc/commerce/payment/use-payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Allocate amount owed across payment types.](/doc/commerce/payment/use-payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate an Apple Pay transaction.](/doc/commerce/payment/use-payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a wallet transaction like Paypal Express/Mark.](/doc/commerce/payment/use-payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/use-payment.html)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Save and validate credit card information. Retrieve masked credit card information.](/doc/commerce/payment/use-payment.html)|
 {:max-width="85%"}
 
 <h4>Related Information</h4>
@@ -77,11 +77,11 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
     </ul>
 </aside>
             
-* [Adding Cart & Checkout to Your Experience:](/doc/commerce/checkout/api_checkout.html) Learn how to add Cart & Checkout to your experience
-* [Supported Countries and Currencies:](/doc/commerce/checkout/checkout_country_currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.
-* [Working with Circuit Breakers:](/doc/commerce/reference/caller_best_practices.html) Learn how to be a good client by following these best practices.
+* [Adding Cart & Checkout to Your Experience:](/doc/commerce/checkout/use-checkout.html) Learn how to add Cart & Checkout to your experience
+* [Supported Countries and Currencies:](/doc/commerce/checkout/checkout-country-currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.
+* [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
-* [Product Life Cycle:](/doc/commerce/reference/product_lifecycle.html) Discover how Nike products become available for purchase in an experience.
+* [Product Life Cycle:](/doc/commerce/reference/product-lifecycle.html) Discover how Nike products become available for purchase in an experience.
 
 ### Connect
 
