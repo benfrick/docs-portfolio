@@ -12,7 +12,7 @@ url: /doc/taxonomy/overview-taxonomy-tagging.html
 
 ---
 
-Learn how [Taxonomy Tagging for Assets and Content](#){:target="blank"} manages complex taxonomical relationships that can be used to display personalized assets and content to Nike customers.
+Learn how [Taxonomy Tagging for Assets and Content](#){:target="blank"} manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike customers.
 
 ### Taxonomy Tagging for Assets and Content increases conversion by driving personalized assets and content across Nike experiences.
 
@@ -20,7 +20,7 @@ Nike experiences can use these TTAC-managed relationships to dynamically show cu
 
 ![SNKRS app payment flow](/images/taxonomy/ttac.png)
 
-How does it work? CMS, Asset Management, and other services supply the content and assets. Taxonomy definitions including navigation, categories, and consumer preference are supplied by the [Merch Taxonomy Attributes](https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=readme) service. TTAC components enable Nike experiences to tag content threads and assets with taxonomy attributes through a user interface. The TTAC meta-data service stores and retrieves those taxonomical relationships in the form of UUIDs.
+How does it work? CMS, Asset Management, and other internal Nike tools supply the content and assets. Taxonomy definitions including navigation, categories, and consumer preference are supplied by the [Semaphore](https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=readme). TTAC connects these tools to front-end web experiences through the TTAC components and TTAC meta-data service. TTAC components enable Nike experiences to tag content threads and assets with taxonomy attributes through a user interface. The TTAC meta-data service stores and retrieves those taxonomical relationships in the form of UUIDs.
 
 #### Contacting the Team
 
