@@ -23,7 +23,7 @@
 
 <hr />
 
-<p>Learn how <a href="#" target="blank">Taxonomy Tagging for Assets and Content</a> manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike customers.</p>
+<p>Learn how <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="blank">Taxonomy Tagging for Assets and Content</a> (TTAC) manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike customers.</p>
 
 <h3 id="taxonomy-tagging-for-assets-and-content-increases-conversion-by-driving-personalized-assets-and-content-across-nike-experiences">Taxonomy Tagging for Assets and Content increases conversion by driving personalized assets and content across Nike experiences.</h3>
 
@@ -31,7 +31,7 @@
 
 <p><img src="/images/taxonomy/ttac.png" alt="SNKRS app payment flow" /></p>
 
-<p>How does it work? CMS, Asset Management, and other internal Nike tools supply the content and assets. Taxonomy definitions including navigation, categories, and consumer preference are supplied by the <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=readme">Semaphore</a>. TTAC connects these tools to front-end web experiences through the TTAC components and TTAC meta-data service. TTAC components enable Nike experiences to tag content threads and assets with taxonomy attributes through a user interface. The TTAC meta-data service stores and retrieves those taxonomical relationships in the form of UUIDs.</p>
+<p>How does it work? CMS, Asset Management, and other internal Nike tools supply the content and assets. Taxonomy definitions including navigation, categories, and consumer preference are supplied by Semaphore via the <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="blank">Merch Taxonomy Attributes</a> service. TTAC connects these tools to front-end web experiences through TTAC components and the TTAC metadata (Attributions) service. TTAC components enable Nike experiences to tag content threads and assets with taxonomy attributes through a user interface. The TTAC metadata service stores and retrieves those taxonomical relationships in the form of UUIDs.</p>
 
 <h4 id="contacting-the-team">Contacting the Team</h4>
 
@@ -53,17 +53,17 @@
 </table>
 
 <h4 id="about-ttac">About TTAC</h4>
-<p>The project is in development in PI-26 and is scheduled for release mid-January 2019.</p>
+<p>The project is in development in PI-26 and is scheduled for release February 2019.</p>
 
 <table>
   <tbody>
     <tr>
       <td>API</td>
-      <td>to be published 12/20/18</td>
+      <td><a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="blank">TTAC Metadata Service</a></td>
     </tr>
     <tr>
       <td>COMPONENTS</td>
-      <td>to be published 1/15/19</td>
+      <td>to be published 2/5/19</td>
     </tr>
   </tbody>
 </table>
@@ -72,9 +72,9 @@
 
 <p>Governance will be provided by the following team:</p>
 <ul>
-  <li>Architecture: TBD</li>
-  <li>Engineering: TBD</li>
-  <li>Taxonomy: TBD</li>
+  <li>Architecture: Aaron Hall</li>
+  <li>Engineering: Edmund Adjei</li>
+  <li>Taxonomy: Rebecca Roberts</li>
 </ul>
 
 <h4 id="use-cases">Use Cases</h4>
@@ -84,7 +84,7 @@
 <table>
   <tbody>
     <tr>
-      <td><i class="g72-check"></i>  Tag images so you can determine which image qualities and sizes motivate customers to purchase.</td>
+      <td><i class="g72-check"></i>  Tag images so you can determine which image qualities and sizes motivate customers.</td>
     </tr>
     <tr>
       <td><i class="g72-check"></i>  Improve engagement by displaying product images most relevant to the customer’s navigational path to a product wall. e.g. if a customer navigates to unisex products via a women’s navigational path, she prefers to see images of female models instead of male.</td>
@@ -103,7 +103,10 @@
 <h5>APIs</h5>
 <ul>
    <li>
-        <a href="#" target="_blank">TTAC Meta-data API</a> <span class="guide-details-li-text"></span>
+        <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="_blank">TTAC Metadata Service</a><span class="guide-details-li-text"></span>
+    </li>
+    <li>
+        <a href="https://nike.invisionapp.com/share/XVIYZS8S8YZ#/screens/297921090" target="_blank">TTAC Component Design</a><span class="guide-details-li-text"></span>
     </li>
     <li>
         <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="_blank">Merch Taxonomy Attributes</a> <span class="guide-details-li-text"></span>
