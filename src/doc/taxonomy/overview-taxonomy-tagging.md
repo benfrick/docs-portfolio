@@ -8,7 +8,7 @@ url: /doc/taxonomy/overview-taxonomy-tagging.html
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# Taxonomy Tagging for Assets and Content - DRAFT
+# Taxonomy Tagging for Assets and Content
 
 ---
 
