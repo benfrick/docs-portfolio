@@ -93,7 +93,7 @@ Sample [Threads List](https://developer.niketech.com/docs/projects/Product%20Fee
 
 ### How to Get Only the Threads You Need
 
-If there are more threads in the API response than you want, add more specific identifiers to request as follows.
+If there are more threads in the API response than you want, add more specific identifiers to the request as follows.
 
 1. **Filters**
 
