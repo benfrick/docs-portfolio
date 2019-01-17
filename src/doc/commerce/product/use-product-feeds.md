@@ -6,10 +6,12 @@ position: 1
 title: Product Feeds
 url: /doc/commerce/product/use-product-feeds.html
 toc:
-  - h2: What are Cards, Threads, and Feeds?
-    url: /doc/commerce/product/use-product-feeds.html#cards-threads-and-feeds
-  - h2: Using Product Feeds
-    url: /doc/commerce/product/use-product-feeds.html#using-product-feeds
+  - h2: Introduction
+    url: /doc/commerce/product/use-product-feeds.html#introduction
+  - h2: Get a List of Product Threads
+    url: /doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads
+  - h2: Get a Product Thread by ID
+    url: /doc/commerce/product/use-product-feeds.html#get-a-product-thread-by-id
   - h2: Upgrading to the Latest Version
     url: /doc/commerce/product/use-product-feeds.html#upgrading-to-the-latest-version
   - h2: API Quick Reference
@@ -37,9 +39,11 @@ Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product
 
 >**TIP:** Before using this guide, you should have completed [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html).
 
-### What are Cards, Threads, and Feeds?
+## Introduction
 
 The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api) provides product data and content in the form of Cards, Threads, and Feeds.
+
+### What are Cards, Threads, and Feeds?
 
 * **Cards** contain Nike product information or content such as notifications about upcoming Nike events.
 
