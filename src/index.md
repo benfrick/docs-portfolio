@@ -85,7 +85,7 @@ Explore the guides below to get familiar with product features and experience ho
     <div class="ncss-row" style="padding-top:10px;padding-bottom:10px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
-                <i class="fas fa-toolbox fa-2x"></i>
+                <i class="fas fa-sitemap fa-2x"></i>
                 <li class="group-header"><h4>Taxonomy</h4></li>
                 <li><a href="/doc/taxonomy/overview-taxonomy-tagging.html" target="_blank"><h5>TTAC</h5></a></li>
             </ul>
