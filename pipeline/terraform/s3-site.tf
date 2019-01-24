@@ -1,8 +1,8 @@
-data "aws_iam_policy_document" "site_s3_policy" {
+data "aws_iam_policy_document" "website_s3_policy" {
   statement {
     sid     = "bucket_policy_site_main",
     actions   = ["s3:GetObject"]
-    effects   = "Allow"
+    effect   = "Allow"
     resources = ["arn:aws:s3:::${local.domain_name}/*"]
 
     principals {
@@ -19,7 +19,7 @@ resource "aws_cloudfront_origin_access_identity" "website_origin_access_identity
 resource "aws_s3_bucket" "site" {
   bucket = "${local.domain_name}"
   acl    = "public-read"
-  policy = "${data.aws_iam_policy_document.site_s3_policy.json}"
+  policy = "${data.aws_iam_policy_document.website_s3_policy.json}"
 
   website {
     index_document = "index.html"
@@ -57,12 +57,6 @@ resource "aws_cloudfront_distribution" "website_cdn" {
     # domain_name = "${aws_s3_bucket.site.website_endpoint}"
     domain_name = "${local.domain_name}.s3.amazonaws.com"
 
-    # custom_origin_config {
-    #   origin_protocol_policy = "http-only"
-    #   http_port              = "80"
-    #   https_port             = "443"
-    #   origin_ssl_protocols   = ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
-    # }
     s3_origin_config {
       origin_access_identity = "${aws_cloudfront_origin_access_identity.website_origin_access_identity.cloudfront_access_identity_path}"
     }
