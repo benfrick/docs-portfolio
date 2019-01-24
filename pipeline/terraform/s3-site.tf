@@ -1,24 +1,26 @@
+data "aws_iam_policy_document" "site_s3_policy" {
+  statement {
+    "sid"     = "bucket_policy_site_main",
+    actions   = ["s3:GetObject"]
+    effects   = "Allow"
+    resources = ["arn:aws:s3:::${local.domain_name}/*"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["${aws_cloudfront_origin_access_identity.website_origin_access_identity.iam_arn}"]
+    }
+  }
+}
+
+resource "aws_cloudfront_origin_access_identity" "website_origin_access_identity" {
+  comment = "site ${terraform.workspace} Access Identity"
+}
+
+
 resource "aws_s3_bucket" "site" {
   bucket = "${local.domain_name}"
   acl    = "public-read"
-
-  policy = <<EOF
-{
-  "Id": "bucket_policy_site",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "bucket_policy_site_main",
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${local.domain_name}/*",
-      "Principal": "*"
-    }
-  ]
-}
-EOF
+  policy = "${data.aws_iam_policy_document.site_s3_policy.json}"
 
   website {
     index_document = "index.html"
