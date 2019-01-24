@@ -16,7 +16,6 @@ resource "aws_cloudfront_origin_access_identity" "website_origin_access_identity
   comment = "site ${terraform.workspace} Access Identity"
 }
 
-
 resource "aws_s3_bucket" "site" {
   bucket = "${local.domain_name}"
   acl    = "public-read"
@@ -58,11 +57,14 @@ resource "aws_cloudfront_distribution" "website_cdn" {
     # domain_name = "${aws_s3_bucket.site.website_endpoint}"
     domain_name = "${local.domain_name}.s3.amazonaws.com"
 
-    custom_origin_config {
-      origin_protocol_policy = "http-only"
-      http_port              = "80"
-      https_port             = "443"
-      origin_ssl_protocols   = ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
+    # custom_origin_config {
+    #   origin_protocol_policy = "http-only"
+    #   http_port              = "80"
+    #   https_port             = "443"
+    #   origin_ssl_protocols   = ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
+    # }
+    s3_origin_config {
+      origin_access_identity = "${aws_cloudfront_origin_access_identity.website_origin_access_identity.cloudfront_access_identity_path}"
     }
   }
   default_root_object = "index.html"
