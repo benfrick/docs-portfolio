@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "site_s3_policy" {
   statement {
-    "sid"     = "bucket_policy_site_main",
+    sid     = "bucket_policy_site_main",
     actions   = ["s3:GetObject"]
     effects   = "Allow"
     resources = ["arn:aws:s3:::${local.domain_name}/*"]
