@@ -18,7 +18,7 @@ resource "aws_cloudfront_origin_access_identity" "website_origin_access_identity
 
 resource "aws_s3_bucket" "site" {
   bucket = "${local.domain_name}"
-  acl    = "public-read"
+  acl    = "authenticated-read"
   policy = "${data.aws_iam_policy_document.website_s3_policy.json}"
 
   website {
