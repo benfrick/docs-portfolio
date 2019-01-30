@@ -57,13 +57,13 @@ The table below lists the fields by which you can filter your {} results. If no 
 
 **Sorting**
 
-You can sort {this thing} in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
+You can sort {this thing} in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using-nike-apis.html).
 
 >TIP: It is recommended that your app pass the sort query parameter in the request to ensure that the results are sorted appropriately for your experience.
 
 **Other Query Parameters**
 
-{} also supports the {} query parameters to restrict the results {in this way}. For more information on syntax, see the [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html).
+{} also supports the {} query parameters to restrict the results {in this way}. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using NDe APIs](/doc/getting-started/using-nike-apis.html).
 
 Let's take a look at some scenarios.
 
@@ -89,7 +89,7 @@ CURL goes here
 
 ### Customizing Your Results
 
-You control what is returned in your result set through URL parameters. {Brief description of which ones are supported by this thing. Link to [Query Parameters](/doc/getting-started/using_nike_apis.html#query-parameters) in [Using NDe APIs](/doc/getting-started/using_nike_apis.html) as necessary.}
+You control what is returned in your result set through URL parameters. {Brief description of which ones are supported by this thing. Link to [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) in [Using NDe APIs](/doc/getting-started/using-nike-apis.html) as necessary.}
 
 Let's take a look at some scenarios.
 
@@ -143,7 +143,7 @@ None of the endpoints described in this document support caching.
 
 ## Troubleshooting
 
-- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
@@ -151,7 +151,7 @@ None of the endpoints described in this document support caching.
 
 ## Terms of Service
 <!--
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#registration) guide on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create and register your caller ID.
 -->
 ### Authorization
 
@@ -161,13 +161,13 @@ Most calls through the Nike API gateway (api.nike.com) require an access token b
 
 Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](/doc/getting-started/using_nike_apis.html#authorization) guide.
+To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
 
 #### JSON Web Token
 
 {Does this thing require JWT?}
 
-For more, see the JWT section of [Using NDe APIs](/doc/getting-started/using_nike_apis.html#jwt-json-web-token).
+For more, see the JWT section of [Using NDe APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
 
 ### Sample Requests
 
@@ -212,5 +212,5 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 You've learned how to add {} to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/api_eventsv2.html)
-- [Using NDe APIs](/doc/getting-started/using_nike_apis.html)
+- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
+- [Using NDe APIs](/doc/getting-started/using-nike-apis.html)

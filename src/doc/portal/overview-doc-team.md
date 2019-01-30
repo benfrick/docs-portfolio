@@ -19,7 +19,7 @@ The documentation serves many audiences. Here are four:
 
 ## What We Do
 
-<a href="/doc/commerce/product/overview-product-feeds.html" target="_blank"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="/doc/getting-started/using_nike_apis.html" target="_blank"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
+<a href="/doc/commerce/product/overview-product-feeds.html" target="_blank"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="/doc/getting-started/using-nike-apis.html" target="_blank"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
 
 ### <i class="fas fa-pen"></i> &nbsp;Write the Docs
 

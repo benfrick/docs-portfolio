@@ -17,15 +17,15 @@ Explore the guides below to get familiar with product features and experience ho
                 <i class="fas fa-map fa-2x"></i>
                 <li class="group-header"><h4>Browse</h4></li>
                 <li><a href="/doc/commerce/product/overview-product-feeds.html"><h5>Product Feeds</h5></a></li>
-                <li><a href="/doc/commerce/product/api_merch_product.html"><h5>Merch Products</h5></a></li>
-                <li><a href="/doc/commerce/product/capi_migration.html"><h5>CAPI Migration</h5></a></li>
+                <li><a href="/doc/commerce/product/use-merch-product.html"><h5>Merch Products</h5></a></li>
+                <li><a href="/doc/commerce/product/capi-migration.html"><h5>CAPI Migration</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
                 <i class="fas fa-search fa-2x"></i>
                 <li class="group-header"><h4>Discover</h4></li>
-                <li><a href="/doc/commerce/search/api_search.html"><h5>Search</h5></a></li>
+                <li><a href="/doc/commerce/search/use-search.html"><h5>Search</h5></a></li>
                 <!--<li><a href="#"><h5>Taxonomy</h5></a></li>-->
             </ul>
         </div>
@@ -85,6 +85,15 @@ Explore the guides below to get familiar with product features and experience ho
     <div class="ncss-row" style="padding-top:10px;padding-bottom:10px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
+                <i class="fas fa-sitemap fa-2x"></i>
+                <li class="group-header"><h4>Taxonomy</h4></li>
+                <li><a href="/doc/taxonomy/overview-taxonomy-tagging.html" target="_blank"><h5>TTAC</h5></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="ncss-row" style="padding-top:10px;padding-bottom:10px;">
+        <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med lt-blue">
+            <ul>
                 <i class="fas fa-toolbox fa-2x"></i>
                 <li class="group-header"><h4>Tools</h4></li>
                 <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="_blank"><h5>Launch Admin</h5></a></li>
@@ -92,7 +101,7 @@ Explore the guides below to get familiar with product features and experience ho
                 <li><a href="/doc/commerce/uxf/overview-uxf.html"><h5>NCSS</h5></a></li>
             </ul>
         </div>
-        <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
+        <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med lt-blue">
             <ul>
                 <i class="fas fa-code fa-2x"></i>
                 <li class="group-header"><h4>Libraries</h4></li>
