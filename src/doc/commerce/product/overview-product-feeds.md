@@ -18,7 +18,7 @@ Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase 
 
 Product Feeds is simple and easy to use: it does all the heavy lifting of gathering the content for you.
 
-![Nike App Using Feeds](/images/commerce/product_feeds/nike_app_annotated.png){:style="width:75%;margin:10px;"}
+![Nike App Using Feeds](/images/commerce/product_feeds/nike_app_annotated.png){:style="margin:10px;"}
 
 #### Use Cases
 
