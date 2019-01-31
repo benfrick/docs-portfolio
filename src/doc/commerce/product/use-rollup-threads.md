@@ -81,7 +81,7 @@ If there are more threads in the API response than you want, add more specific i
 
 You also have the ability to configure additional rules in the Apollo search administration tool that will **override the default rollup behavior described above, exclusively for your consumerChannelId**.
 
-For example, if you want a Rollup Threads that are related by something other than style number (i.e. "type": "Standard"), then you would create search rules in Apollo based on how you want the rollup to function. You could also create a rule in Apollo to exclude customized Nike ID products or gift cards from your results, if desired.
+For example, if you want Rollup Threads that are related by something other than style number (i.e. "type": "Standard"), then you would create search rules in Apollo based on how you want the rollup to function. You could also create a rule in Apollo to exclude customized Nike ID products or gift cards from your results, if desired.
 
 **Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.**
 
@@ -91,7 +91,7 @@ For example, if you want a Rollup Threads that are related by something other th
 
 Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds API?
 
-Consumer Channel ID and Channel ID are not directly related and therefore should not be used used interchangeably. Both are unique IDs that help you to get only the data you need from each respective API.
+Consumer Channel ID and Channel ID are not directly related and therefore should not be used interchangeably. Both are unique IDs that help you to get only the data you need from each respective API.
 
 **When calling the Product Feed Rollup Threads API, Consumer Channel ID is required and Channel ID is not allowed.**
 
