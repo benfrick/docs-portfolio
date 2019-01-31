@@ -23,54 +23,151 @@
 
 <hr />
 
-<h5 id="last-updated-10012018">Last Updated: 10/01/2018</h5>
+<h5 id="last-updated-01282019">Last Updated: 01/28/2019</h5>
 
-<p>If you’ve read <a href="/doc/getting-started/using-nike-apis.html">Using NDe APIs</a> and the <a href="/doc/commerce/product/use-product-feeds.html">Product Feeds Developer’s Guide</a>, this guide provides the details necessary to integrate with the Product Feed Rollup Threads v2 API.</p>
+<p>Use the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api" target="blank">Product Feed Rollup Threads API</a> to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.</p>
 
-<h2 id="api-at-a-glance">API at a Glance</h2>
+<blockquote>
+  <p><strong>TIP:</strong> Before using this guide, first read the <a href="/doc/commerce/product/use-product-feeds.html">Product Feeds Developer’s Guide</a> to understand the basics about Threads.</p>
+</blockquote>
+
+<h2 id="what-is-a-rollup-thread">What is a Rollup Thread?</h2>
+
+<p>Remember that a Thread contains product content and information. A Rollup Thread is a Thread that is related to, and nested within, a parent Thread. For example, a Thread containing content for a particular shoe color might have seven Rollup Threads nested within it. In this case, each Rollup Thread contains content for the other available colors of that shoe. Using Rollup Threads makes it simpler for you to build a product grid wall experience like this:</p>
+
+<p><img src="/images/commerce/product_feeds/gridwall.png" alt="" /></p>
+
+<h2 id="get-a-list-of-rollup-threads">Get a List of Rollup Threads</h2>
+
+<p><i class="g72-check"></i>  <strong>Product Grid Wall: Get product threads along with related ‘rollup’ threads</strong></p>
+
+<p><i class="g72-check"></i>  <strong>Get customized search results</strong></p>
+
+<p>To get a list of Threads, with their associated Rollup Threads, execute a request to the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api#rollup-threads-rollup-threads-list-get" target="blank">Rollup Threads List</a> endpoint.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Topic</th>
-      <th>Details</th>
+      <th>Use Case</th>
+      <th>Sample Query</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Use these APIs to</td>
-      <td>Display a product grid wall in a digital experience</td>
+      <td>Threads for a taxonomy ID</td>
+      <td>https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)</td>
     </tr>
     <tr>
-      <td>Who calls this API?</td>
-      <td>Bootroom, Nike.com, Nike Running Club app (future)</td>
-    </tr>
-    <tr>
-      <td>Versions</td>
-      <td>v2</td>
-    </tr>
-    <tr>
-      <td>Supported Locales</td>
-      <td>See <a href="https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json" target="blank">Language/Locale Mapping</a></td>
-    </tr>
-    <tr>
-      <td>SLA</td>
-      <td><br />Response time: 500ms <br />Requests per second: 5 max (via edge router constraint)</td>
-    </tr>
-    <tr>
-      <td>Domain</td>
-      <td>Commerce</td>
-    </tr>
-    <tr>
-      <td>Prerequisites</td>
-      <td>API Registration</td>
-    </tr>
-    <tr>
-      <td>Contact Info</td>
-      <td>Slack: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="blank">#nde-product-feeds</a><br />Confluence: <a href="https://confluence.nike.com/display/DEN/Product+And+Feeds+API" target="blank">Product and Feeds API</a><br />Product Owner: <a href="mailto:andy.sun@nike.com">Andy Sun</a><br />Apollo Product Owner: <a href="mailto:patricia.cousins@nike.com">Patricia Cousins</a></td>
+      <td>Search all on Nike.com products in US by “Men’s Jordan”, sorted by newest first</td>
+      <td>https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)&amp;searchTerms=Men’s%20Jordan&amp;sort=effectiveStartSellDateDesc</td>
     </tr>
   </tbody>
 </table>
+
+<blockquote>
+  <p><strong>TIP:</strong> For sample responses, see the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">Rollup Threads API Reference</a>.</p>
+</blockquote>
+
+<h3 id="how-can-i-control-the-rollup">How Can I Control the Rollup?</h3>
+
+<p>By default, the relationship between the Rollup Thread(s) to the parent Thread is based upon a <em>rollup type</em> and <em>rollup key</em> defined in Nike’s product information system. As the client of the API, you do not have direct control over those values.</p>
+
+<p>Both of these fields are located in the API response in the <strong>productInfo.merchProduct.productRollup</strong> object, field names <strong>type</strong> and <strong>key</strong>.</p>
+
+<ul>
+  <li>rollup <strong>type</strong>: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Example values are “Standard”, “WidthGroup”, “NFL, or “NBA”.</li>
+  <li>rollup <strong>key</strong>: a specific instance of a rollup type, e.g. a value representing a particular style number rollup. Example value is “xqTPKlqE”.</li>
+</ul>
+
+<h3 id="how-to-get-only-the-threads-you-need">How to Get Only the Threads You Need</h3>
+
+<p>If there are more threads in the API response than you want, add more specific identifiers to the request as follows.</p>
+
+<ol>
+  <li>
+    <p><strong>Filters</strong></p>
+
+    <p>Use any of the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">supported <strong>filter</strong> query parameters</a> to get more specific results in the response. For example, to select one or more rollup keys, append <code class="highlighter-rouge">filter=rollupKey(0cc4QN)</code> to the request URI.</p>
+  </li>
+  <li>
+    <p><strong>Sorting</strong></p>
+
+    <p>Sort the results using any of the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">supported <strong>sort</strong> query parameters</a>. For example, to sort by the current price in ascending order, append query parameter <code class="highlighter-rouge">sort=productInfo.merchPrice.currentPriceAsc</code> to the request URI.</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p><strong>TIP:</strong> The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">Product Feeds API Reference</a> is the source of truth for all supported query parameters.</p>
+</blockquote>
+
+<h4 id="custom-search-rules">Custom Search Rules</h4>
+
+<p>You also have the ability to configure additional rules in the Apollo search administration tool that will <strong>override the default rollup behavior described above, exclusively for your consumerChannelId</strong>.</p>
+
+<p>For example, if you want Rollup Threads that are related by something other than style number (i.e. “type”: “Standard”), then you would create search rules in Apollo based on how you want the rollup to function. You could also create a rule in Apollo to exclude customized Nike ID products or gift cards from your results, if desired.</p>
+
+<p><strong>Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.</strong></p>
+
+<blockquote>
+  <p><strong>TIP</strong>: Reach out to the <a href="#api-at-a-glance">Apollo Product Owner</a> for more information on how to use the Apollo tool.</p>
+</blockquote>
+
+<h3 id="consumer-channel-id-versus-channel-id">Consumer Channel ID Versus Channel ID</h3>
+
+<p>Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds API?</p>
+
+<p>Consumer Channel ID and Channel ID are not directly related and therefore should not be used interchangeably. Both are unique IDs that help you to get only the data you need from each respective API.</p>
+
+<p><strong>When calling the Product Feed Rollup Threads API, Consumer Channel ID is required and Channel ID is not allowed.</strong></p>
+
+<blockquote>
+  <p><strong>NOTE</strong>: Threads returned by the Product Feed Rollup Threads API are pre-filtered for the Nike.com Channel ID.</p>
+</blockquote>
+
+<h3 id="i-already-use-product-feeds-v2-how-is-this-api-response-different">I Already Use Product Feeds v2. How is This API Response Different?</h3>
+
+<p>The following diagram describes the how the structure of the response from the Rollup Threads API differs from Product Feeds:</p>
+
+<p><img src="/images/commerce/product_feeds/rollup_threads_response.png" alt="" /></p>
+
+<h2 id="api-quick-reference">API Quick Reference</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Verb</th>
+      <th>Endpoint Name</th>
+      <th>Endpoint Description</th>
+      <th>URI Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>Rollup Threads</td>
+      <td><a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">Get a product Thread with related Threads nested within</a></td>
+      <td><code class="highlighter-rouge">/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<p>See the Best Practices section of the <a href="/doc/commerce/product/use-product-feeds.html#best-practices">Product Feeds Developer’s Guide</a>.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p><strong>I’m getting a 200 response, but the Thread data and/or Rollup Threads are not as expected</strong></p>
+
+<ul>
+  <li>Check your Smart Search rules configuration in the Apollo application to ensure that the rules are correct.</li>
+  <li>Check the rollup key &amp; type from Prodigy for the Parent Thread is as expected.</li>
+  <li>Reach out to Product Feeds team on Slack for assistance: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="blank">#nde-product-feeds</a></li>
+</ul>
+
+<blockquote>
+  <p><strong>TIP:</strong> See the Troubleshooting section of the <a href="/doc/commerce/product/use-product-feeds.html#troubleshooting">Product Feeds Developer’s Guide</a> for more general troubleshooting information.</p>
+</blockquote>
 
 <h2 id="terms-of-service">Terms of Service</h2>
 
@@ -97,592 +194,6 @@
   </li>
 </ul>
 
-<h2 id="use-cases">Use Cases</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>I want to…</th>
-      <th>API(s) to use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Display a Product Grid Wall</td>
-      <td>Product Feed Rollup Threads v2 API</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="api-endpoint-quick-reference">API Endpoint Quick Reference</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>HTTP Verb</th>
-      <th>Endpoint Name</th>
-      <th>Endpoint Description</th>
-      <th>URI Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>GET</td>
-      <td>Rollup Threads</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">Get a product Thread with related Threads nested within</a></td>
-      <td><code class="highlighter-rouge">/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="what-is-a-rollup-thread">What is a Rollup Thread?</h2>
-
-<p>The endpoint of this API is closely related to the <em>Threads List</em> endpoint of the Product Feeds v2 API. First, read the <a href="/doc/commerce/product/use-product-feeds.html">Product Feeds v2 Developer’s Guide</a> to understand the basic concepts of working with Threads.</p>
-
-<p>Next, let’s talk about what this API offers that is unique: Rollup Threads. A Rollup Thread is a Thread that is related to, and nested within a parent Thread. For example, there might be seven Rollup Threads nested within a given parent Thread, representing the other colors of a particular Nike shoe. Using Rollup Threads makes it much simpler for you to build a product grid wall experience like this:</p>
-
-<p><img src="/images/commerce/product_feeds/gridwall.png" alt="" /></p>
-
-<h3 id="how-can-i-control-the-rollup">How Can I Control the Rollup?</h3>
-
-<p>By default, the relationship between the Rollup Thread(s) to the parent Thread is based upon a rollup type and rollup key defined in the Nike’s Prodigy product information system. As the client of the API, you do not have direct control over those values.</p>
-
-<p>Both of these fields are located in the API response in the <strong>productInfo.merchProduct.productRollup</strong> object, field names <strong>type</strong> and <strong>key</strong>.</p>
-
-<ul>
-  <li>rollup <strong>type</strong>: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Example values are “Standard”, “WidthGroup”, “NFL, or “NBA”.</li>
-  <li>rollup <strong>key</strong>: a specific instance of a rollup type, e.g. a value representing a particular style number rollup. Example value is “xqTPKlqE”.</li>
-</ul>
-
-<h4 id="custom-search-rules">Custom Search Rules</h4>
-
-<p>You also have the ability to configure additional rules in the Apollo search administration tool that will <strong>override the default rollup behavior described above, exclusively for your consumerChannelId</strong>.</p>
-
-<p>For example, if you wanted to rollup by something other than style number (i.e. “type”: “Standard”), you could define that as one or more rules in Apollo. You could also, for example, create a rule in Apollo to exclude customized Nike ID products or gift cards from your results, if desired.</p>
-
-<p><strong>Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.</strong></p>
-
-<blockquote>
-  <p><strong>TIP</strong>: Reach out to the <a href="#api-at-a-glance">Apollo Product Owner</a> for more information on how to use the Apollo tool.</p>
-</blockquote>
-
-<h3 id="consumer-channel-id-and-channel-id">Consumer Channel ID and Channel ID</h3>
-
-<p>Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds v2 API?</p>
-
-<p>Consumer Channel ID and Channel ID are not directly related and are not used together in either API. They serve a similar purpose in that they are unique IDs that help you to get only the data you need from each API.</p>
-
-<p><strong>When calling the Product Feed Rollup Threads API, Consumer Channel ID is required and Channel ID is not allowed.</strong></p>
-
-<blockquote>
-  <p><strong>NOTE</strong>: Threads returned by the Product Feed Rollup Threads API are pre-filtered for the Nike.com Channel ID.</p>
-</blockquote>
-
-<h3 id="i-already-use-product-feeds-v2-how-is-this-api-response-different">I Already Use Product Feeds v2. How is This API Response Different?</h3>
-
-<p>The following diagram describes the how the structure of the response from the Rollup Threads API differs from Product Feeds v2:</p>
-
-<p><br /></p>
-
-<p><img src="/images/commerce/product_feeds/rollup_threads_response.png" alt="" /></p>
-
-<h2 id="using-rollup-threads">Using Rollup Threads</h2>
-
-<p>Use the Product Feed Rollup Threads v2 API to produce a grid wall of related products.</p>
-
-<h3 id="rollup-threads-list">Rollup Threads List</h3>
-
-<p>Get a list of product Threads with related Rollup Threads using the <em>Rollup Threads List</em> endpoint.</p>
-
-<h4 id="endpoint-details">Endpoint Details</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>HTTP Method</th>
-      <th>URI Path</th>
-      <th>JWT Restricted?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>GET</strong></td>
-      <td><code class="highlighter-rouge">/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}</code></td>
-      <td><strong>No</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="path--query-parameters">Path &amp; Query Parameters</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Data Type</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>filter</strong></td>
-      <td>Query</td>
-      <td>Restrict the response by one or more criteria, <strong>language</strong>, <strong>marketplace</strong> required</td>
-      <td>String</td>
-      <td><strong>Required</strong></td>
-    </tr>
-    <tr>
-      <td><strong>consumerChannelId</strong></td>
-      <td>Query</td>
-      <td>Consumer channel ID of the experience (UUID)</td>
-      <td>String</td>
-      <td><strong>Required</strong></td>
-    </tr>
-    <tr>
-      <td><strong>anchor</strong></td>
-      <td>Query</td>
-      <td>Return elements after this anchor</td>
-      <td>String</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td><strong>count</strong></td>
-      <td>Query</td>
-      <td>Maximum number of objects to return. Default: 10, Max: 60</td>
-      <td>String</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td><strong>sort</strong></td>
-      <td>Query</td>
-      <td>Field(s) by which the results are sorted. Default: <strong>publishedContent.viewStartDateDesc</strong>, then <strong>id.keywordAsc</strong>.</td>
-      <td>String</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td><strong>rollupField</strong></td>
-      <td>Query</td>
-      <td>Field by which to rollup the results. Default, and only supported field is <strong>productInfo.merchProduct.productRollup.key</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td><strong>rollupCount</strong></td>
-      <td>Query</td>
-      <td>Count of items that will be inside the <strong>productRollup.rollups</strong> list. Default: 10, Max: 25</td>
-      <td>String</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td><strong>searchTerms</strong></td>
-      <td>Query</td>
-      <td>Search for threads by one or more keywords separated with spaces. Request exact match by enclosing in double quotes. Default: partial match</td>
-      <td>String</td>
-      <td>Optional</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="allowed-filter-parameters">Allowed Filter Parameters</h5>
-
-<p>The following is a list of scenarios that illustrate which <strong>filter</strong> parameters are supported:</p>
-
-<blockquote>
-  <p><strong>TIP</strong>: Filter parameters <strong>language</strong> and <strong>marketplace</strong> are always required.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>I Want to List</th>
-      <th>Sample Query</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Threads for a taxonomy ID</td>
-      <td>https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=marketplace(US)&amp;filter=language(en)&amp;filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="allowed-sort-parameters">Allowed Sort Parameters</h5>
-
-<p>The following are the allowed fields that can be sent in the <strong>sort</strong> query parameter:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Sort Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>publishedContent.publishStartDateAsc</strong></td>
-      <td>By Content Publish Start Date, Ascending</td>
-    </tr>
-    <tr>
-      <td><strong>publishedContent.publishStartDateDesc</strong></td>
-      <td>By Content Publish Start Date, Descending</td>
-    </tr>
-    <tr>
-      <td><strong>productInfo.merchProduct.commerceStartDateAsc</strong></td>
-      <td>By Commerce Start Date, Ascending</td>
-    </tr>
-    <tr>
-      <td><strong>productInfo.merchProduct.commerceStartDateDesc</strong></td>
-      <td>By Commerce Start Date, Descending</td>
-    </tr>
-    <tr>
-      <td><strong>productInfo.merchPrice.currentPriceAsc</strong></td>
-      <td>By Current Price, Ascending</td>
-    </tr>
-    <tr>
-      <td><strong>productInfo.merchPrice.currentPriceDesc</strong></td>
-      <td>By Current Price, Descending</td>
-    </tr>
-    <tr>
-      <td><strong>productInfo.merchProduct.commercePublishDateAsc</strong></td>
-      <td>By Commerce Publish Date, Ascending</td>
-    </tr>
-    <tr>
-      <td><strong>productInfo.merchProduct.commercePublishDateDesc</strong></td>
-      <td>By Commerce Publish Date, Descending</td>
-    </tr>
-    <tr>
-      <td><strong>effectiveStartSellDateAsc</strong></td>
-      <td>By Effective Start Sell Date, Ascending</td>
-    </tr>
-    <tr>
-      <td><strong>effectiveStartSellDateDesc</strong></td>
-      <td>By Effective Start Sell Date, Descending</td>
-    </tr>
-    <tr>
-      <td><strong>lastFetchTimeAsc</strong></td>
-      <td>By Last Fetch Time, Ascending</td>
-    </tr>
-    <tr>
-      <td><strong>lastFetchTimeDesc</strong></td>
-      <td>By Last Fetch Time, Descending</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="using-the-search-terms-parameter">Using the Search Terms Parameter</h5>
-
-<p>Send one or more search keywords in the <strong>searchTerms</strong> query parameter to list only the threads that contain those keywords. In order for a thread to be returned in the response, all included keywords must be found in a searchable field within that thread.</p>
-
-<p>The searchable fields are:</p>
-
-<ul>
-  <li>productInfo.productContent.<strong>fullTitle</strong></li>
-  <li>productInfo.productContent.<strong>title</strong></li>
-  <li>productInfo.productContent.<strong>subtitle</strong></li>
-  <li>publishedContent.properties.consumerLabels.classification.<strong>text</strong></li>
-  <li>productInfo.merchProduct.<strong>styleColor</strong></li>
-  <li>productInfo.merchProduct.<strong>styleCode</strong></li>
-</ul>
-
-<p>Search Summaries are available when using the <strong>searchTerms</strong> parameter. If any search terms are corrected for spelling (or another reason), a <strong>searchSummary</strong> section will be added to the pages section of the response. Within that section, a field for <strong>originalTerms</strong> contains the original input, while a field for <strong>correctedTerms</strong> contains the corrections for the original terms.</p>
-
-<p>For example, using <code class="highlighter-rouge">searchTerms=Chuck Taylor</code> would return any threads where the words ‘Chuck’ and ‘Taylor’ are found anywhere in a searchable field.</p>
-
-<p>The default search behavior is <em>partial match</em>. Limiting the search to only <em>full string matches</em> can be done by enclosing the keywords in double quotes, like <code class="highlighter-rouge">searchTerms="Chuck Taylor"</code>. In this case, the thread must contain the exact full string ‘Chuck Taylor’ in a searchable field in order to be returned in the response.</p>
-
-<h4 id="example-scenarios">Example Scenarios</h4>
-
-<p>Let’s take a look at a few <em>Rollup Threads List</em> scenarios.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>I Want to List</th>
-      <th>Sample Query</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Search all on Nike.com products in US by “Men’s Jordan”, sorted by newest first</td>
-      <td>https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)&amp;searchTerms=Men’s%20Jordan&amp;sort=effectiveStartSellDateDesc</td>
-    </tr>
-    <tr>
-      <td>TBD</td>
-      <td>TBD</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="request-headers">Request Headers</h4>
-
-<p>There are no required request headers.</p>
-
-<h4 id="request-body">Request Body</h4>
-
-<p>There is no request body required for a GET request.</p>
-
-<p>Sample <em>Rollup Threads List</em> request URI:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/commerce/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&amp;filter=language(en)&amp;filter=marketplace(US)
-</code></pre></div></div>
-
-<h4 id="response-body">Response Body</h4>
-
-<blockquote>
-  <p><strong>NOTE:</strong> The <strong>productInfo</strong> array contains responses from up to 8 other APIs, and are formatted according to the same schema as the source APIs. Links are provided to the relevant API.md for you to find the corresponding response schema.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>Element Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>pages</strong></td>
-      <td>object</td>
-      <td>Object at top level containing link to previous and next pages of results</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>pages.<strong>prev</strong></td>
-      <td>string</td>
-      <td>Link to previous page of results</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>pages.<strong>next</strong></td>
-      <td>string</td>
-      <td>Link to next page of results</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>pages.<strong>totalPages</strong></td>
-      <td>integer</td>
-      <td>Total number of pages</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>pages.<strong>totalResources</strong></td>
-      <td>integer</td>
-      <td>Total number of resources</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>pages.<strong>searchSummary</strong></td>
-      <td>object</td>
-      <td>Context for the user’s keyword query and what was decomposed from it</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>pages.searchSummary.<strong>originalTerms</strong></td>
-      <td>string</td>
-      <td>The original search terms input by the user</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>pages.searchSummary.<strong>correctedTerms</strong></td>
-      <td>array</td>
-      <td>A list of key/value pairs, mapping individual, incorrect search terms from the user with the correct ones</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>pages.searchSummary.<strong>synonymTerms</strong></td>
-      <td>object</td>
-      <td>A mapping of search terms that were successfully mapped to synonyms; the search term is the key, and the value is the list of synonyms</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>pages.searchSummary.<strong>concepts</strong></td>
-      <td>array</td>
-      <td>A list of concepts that matched the user’s searchTerms query</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td><strong>objects</strong></td>
-      <td>object</td>
-      <td>Array at top level containing feed data</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>id</strong></td>
-      <td>string</td>
-      <td>Unique identifier for the feed in UUID format</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>channelId</strong></td>
-      <td>string</td>
-      <td>UUID for the channel (collectionGroupId)</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>channelName</strong></td>
-      <td>string</td>
-      <td>Human-readable name for the channel</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>marketplace</strong></td>
-      <td>string</td>
-      <td>ISO 3166 two-letter country code for the user’s current location</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>language</strong></td>
-      <td>string</td>
-      <td>BCP-47 language code</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>lastFetchTime</strong></td>
-      <td>string</td>
-      <td>Time when the data was aggregated in ISO-8601 compliant format: <code class="highlighter-rouge">yyyy-MM-ddTHH:mm:ss.SSSZZ</code></td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>active</strong></td>
-      <td>boolean</td>
-      <td>Indicator for whether or not this thread is currently available for general use</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>publishedContent</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/CMS%20Published%20Content%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>productInfo</strong></td>
-      <td>array</td>
-      <td>Array of responses from other APIs with product info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>merchProduct</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>merchPrice</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>skus</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>availability</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>availableSkus</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>productContent</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>launchView</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Launch%20Views?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>imageUrls</strong></td>
-      <td>object</td>
-      <td>Object containing product image URL</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.imageUrls.<strong>productImageUrl</strong></td>
-      <td>string</td>
-      <td>URL for product image</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.productInfo.<strong>customizedPreBuild</strong></td>
-      <td>object</td>
-      <td><a href="https://developer.niketech.com/docs/projects/Customization%20Designs%20and%20Prebuilds%20V1?tab=api" target="blank">API Reference</a></td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>rollup</strong></td>
-      <td>object</td>
-      <td>Object containing rollup info</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.rollup.<strong>totalThreads</strong></td>
-      <td>integer</td>
-      <td>The total threads available in the rollup response including the master thread</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.rollup.<strong>threads</strong></td>
-      <td>array</td>
-      <td>Array of threads that are related by a rollup key</td>
-      <td>Optional</td>
-    </tr>
-    <tr>
-      <td>objects.<strong>resourceType</strong></td>
-      <td>string</td>
-      <td>Type of resource being returned in the response</td>
-      <td>Required</td>
-    </tr>
-    <tr>
-      <td>objects.links.self.<strong>ref</strong></td>
-      <td>string</td>
-      <td>Self-link to this resource</td>
-      <td>Required</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>TIP:</strong> For sample responses, see the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api">Rollup Threads API Reference</a>.</p>
-</blockquote>
-
-<h2 id="upgrading-to-the-latest-version">Upgrading to the Latest Version</h2>
-
-<p>Version 2 (v2) is the current and only version of this API.</p>
-
-<h2 id="best-practices">Best Practices</h2>
-
-<p>See the Best Practices section of the <a href="/doc/commerce/product/use-product-feeds.html#best-practices">Product Feeds Developer’s Guide</a>.</p>
-
-<h2 id="troubleshooting">Troubleshooting</h2>
-
-<p><strong>I’m getting a 200 response, but the Thread data and/or Rollup Threads are not as expected</strong></p>
-
-<ul>
-  <li>Check your Smart Search rules configuration in the Apollo application to ensure that the rules are correct.</li>
-  <li>Check the rollup key &amp; type from Prodigy for the Parent Thread is as expected.</li>
-  <li>Reach out to Product Feeds team on Slack for assistance: <a href="https://nikedigital.slack.com/messages/CAPF62A66" target="blank">#nde-product-feeds</a></li>
-</ul>
-
-<blockquote>
-  <p><strong>TIP:</strong> See the Troubleshooting section of the <a href="/doc/commerce/product/use-product-feeds.html#troubleshooting">Product Feeds Developer’s Guide</a> for more general troubleshooting information.</p>
-</blockquote>
-
 <h2 id="glossary">Glossary</h2>
 
 <p>See the <a href="/doc/commerce/reference/glossary.html">Glossary</a>.</p>
@@ -707,11 +218,6 @@
       <td>Update</td>
       <td>07/19/2018</td>
       <td>Updated how to obtain a consumerChannelId</td>
-    </tr>
-    <tr>
-      <td>Updated TOC</td>
-      <td>10/01/2018</td>
-      <td>Removed ‘In this guide’, replaced with sidebar TOC</td>
     </tr>
   </tbody>
 </table>
@@ -744,32 +250,23 @@
         <ul id="b-use-case" class=""><li>
                 <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
                 <a href="/doc/commerce/product/use-rollup-threads.html" class="active">Rollup Threads</a><ul><li>
-                        <a href="/doc/commerce/product/use-rollup-threads.html#api-at-a-glance"
-                           class="">API at a Glance</a>
-                    </li><li>
-                        <a href="/doc/commerce/product/use-rollup-threads.html#terms-of-service"
-                           class="">Terms of Service</a>
-                    </li><li>
-                        <a href="/doc/commerce/product/use-rollup-threads.html#use-cases"
-                           class="">Use Cases</a>
-                    </li><li>
-                        <a href="/doc/commerce/product/use-rollup-threads.html#api-endpoint-quick-reference"
-                           class="">Endpoint Quick Reference</a>
-                    </li><li>
                         <a href="/doc/commerce/product/use-rollup-threads.html#what-is-a-rollup-thread"
                            class="">What is a Rollup Thread?</a>
                     </li><li>
-                        <a href="/doc/commerce/product/use-rollup-threads.html#using-rollup-threads"
-                           class="">Using Rollup Threads</a>
+                        <a href="/doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads"
+                           class="">Get a List of Rollup Threads</a>
                     </li><li>
-                        <a href="/doc/commerce/product/use-rollup-threads.html#upgrading-to-the-latest-version"
-                           class="">Upgrading to the Latest Version</a>
+                        <a href="/doc/commerce/product/use-rollup-threads.html#api-quick-reference"
+                           class="">API Quick Reference</a>
                     </li><li>
                         <a href="/doc/commerce/product/use-rollup-threads.html#best-practices"
                            class="">Best Practices</a>
                     </li><li>
                         <a href="/doc/commerce/product/use-rollup-threads.html#troubleshooting"
                            class="">Troubleshooting</a>
+                    </li><li>
+                        <a href="/doc/commerce/product/use-rollup-threads.html#terms-of-service"
+                           class="">Terms of Service</a>
                     </li><li>
                         <a href="/doc/commerce/product/use-rollup-threads.html#glossary"
                            class="">Glossary</a>
