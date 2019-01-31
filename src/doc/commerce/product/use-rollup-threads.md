@@ -85,8 +85,6 @@ For example, if you want Rollup Threads that are related by something other than
 
 **Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.**
 
->**TIP**: Reach out to the [Apollo Product Owner](#api-at-a-glance) for more information on how to use the Apollo tool.
-
 ### Consumer Channel ID Versus Channel ID
 
 Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds API?
