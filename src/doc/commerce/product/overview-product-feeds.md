@@ -18,16 +18,15 @@ Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase 
 
 Product Feeds is simple and easy to use: it does all the heavy lifting of gathering the content for you.
 
-![Nike App Using Feeds](/images/commerce/product_feeds/nike_app_annotated.png){:style="width:75%;margin:10px;"}
+![Nike App Using Feeds](/images/commerce/product_feeds/nike_app_annotated.png){:style="margin:10px;"}
 
 #### Use Cases
 
 Step through the Use Cases below to incorporate Product Feeds capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get all product threads for a channel, SEO slug, style-color, size, gender, athlete, keyword, and more.](/doc/commerce/product/use-product-feeds.html#using-product-feeds-v2)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get a specific thread by its ID.](/doc/commerce/product/use-product-feeds.html#product-thread-by-id)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Product Grid Wall: Get product threads along with related 'rollup' threads.](/doc/commerce/product/use-rollup-threads.html#using-rollup-threads)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get all product threads for a channel, SEO slug, style-color, size, gender, athlete, keyword, and more.](/doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get a specific thread by its ID.](/doc/commerce/product/use-product-feeds.html#get-a-product-thread-by-id)|
 
 <h4>Related Information</h4>
 <aside class="note">
@@ -39,7 +38,7 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
     </ul>
 </aside>
 
-* [Rollup Threads Developer's Guide:](/doc/commerce/product/use-rollup-threads.html) Need your Product Threads rolled up? Read this developer's guide.    
+* [Rollup Threads Developer's Guide:](/doc/commerce/product/use-rollup-threads.html) Need Threads along with related products, or customized search? Read this developer's guide.    
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 * [Product Life Cycle:](/doc/commerce/reference/product-lifecycle.html) Discover how Nike products become available for purchase in an experience.

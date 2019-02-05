@@ -10,13 +10,14 @@ url: /index.html
 Explore the guides below to get familiar with product features and experience how real-world use cases can accelerate your development cycle.
 
 
-<div class="ncss-container" style="max-width:740px;">
+<div class="ncss-container">
     <div class="ncss-row" style="padding-top:10px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
                 <i class="fas fa-map fa-2x"></i>
                 <li class="group-header"><h4>Browse</h4></li>
                 <li><a href="/doc/commerce/product/overview-product-feeds.html"><h5>Product Feeds</h5></a></li>
+                <li><a href="/doc/commerce/product/overview-rollup-threads.html"><h5>Rollup Threads</h5></a></li>
                 <li><a href="/doc/commerce/product/use-merch-product.html"><h5>Merch Products</h5></a></li>
                 <li><a href="/doc/commerce/product/capi-migration.html"><h5>CAPI Migration</h5></a></li>
             </ul>
@@ -81,11 +82,9 @@ Explore the guides below to get familiar with product features and experience ho
                 <li><a href="/doc/commerce/uxf/overview-uxf.html"><h5>UX Foundation</h5></a></li>
             </ul>
         </div>
-    </div>
-    <div class="ncss-row" style="padding-top:10px;padding-bottom:10px;">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
-                <i class="fas fa-toolbox fa-2x"></i>
+                <i class="fas fa-sitemap fa-2x"></i>
                 <li class="group-header"><h4>Taxonomy</h4></li>
                 <li><a href="/doc/taxonomy/overview-taxonomy-tagging.html" target="_blank"><h5>TTAC</h5></a></li>
             </ul>
