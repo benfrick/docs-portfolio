@@ -86,7 +86,7 @@ Explore the guides below to get familiar with product features and experience ho
             <ul>
                 <i class="fas fa-sitemap fa-2x"></i>
                 <li class="group-header"><h4>Taxonomy</h4></li>
-                <li><a href="/doc/taxonomy/overview-taxonomy-tagging.html" target="_blank"><h5>TTAC</h5></a></li>
+                <li><a href="/doc/taxonomy/overview-taxonomy-tagging.html"><h5>TTAC</h5></a></li>
             </ul>
         </div>
     </div>
