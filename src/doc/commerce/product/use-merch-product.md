@@ -41,7 +41,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/use-merch-product.html#glossary
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING MERCHANDISED PRODUCTS <br>TO YOUR EXPERIENCE
 
@@ -1099,8 +1099,6 @@ Sample *Product Content by Style Color List* URI:
 ```
 https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&locale=es_ES
 ```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-item-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ---
 

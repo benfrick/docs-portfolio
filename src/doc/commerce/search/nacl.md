@@ -6,7 +6,7 @@ position: 10
 title: Admin Client Library
 url: /doc/commerce/search/nacl.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="https://pages.github.nike.com/UXFoundation/premium-experience-toolkit/?selectedKind=Admin%7CAppBar&selectedStory=Decorated&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs" target="_blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> STORY BOOK</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="https://pages.github.nike.com/UXFoundation/premium-experience-toolkit/?selectedKind=Admin%7CAppBar&selectedStory=Decorated&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs" target="_blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> STORY BOOK</a>
 
 # Admin Client Library Overview
 
