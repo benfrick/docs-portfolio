@@ -27,16 +27,8 @@ Explore the guides below to get familiar with product features and experience ho
                 <i class="fas fa-search fa-2x"></i>
                 <li class="group-header"><h4>Discover</h4></li>
                 <li><a href="/doc/commerce/search/use-search.html"><h5>Search</h5></a></li>
-                <!--<li><a href="#"><h5>Taxonomy</h5></a></li>-->
             </ul>
         </div>
-        <!--<div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
-            <ul>
-                <i class="fas fa-rocket fa-2x"></i>
-                <li class="group-header"><h4>Launch</h4></li>
-                <li><a href="#"><h5>Product Launch</h5></a></li>
-            </ul>
-        </div>-->
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
                 <i class="fas fa-shopping-cart fa-2x"></i>
@@ -46,21 +38,6 @@ Explore the guides below to get familiar with product features and experience ho
                 <!--<li><a href="#"><h5>Customization</h5></a></li>-->
             </ul>
         </div>
-        <!--<div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
-            <ul>
-                <i class="fas fa-tshirt fa-2x"></i>
-                <li class="group-header"><h4>Merchandise</h4></li>
-                <li><a href="#"><h5>Content Management</h5></a></li>
-            </ul>
-        </div>-->
-        <!--<div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
-            <ul>
-                <i class="fas fa-shipping-fast fa-2x"></i>
-                <li class="group-header"><h4>Fulfill</h4></li>
-                <li><a href="#"><h5>Order Management</h5></a></li>
-                <li><a href="#"><h5>Inventory</h5></a></li>
-            </ul>
-        </div>-->
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
                 <i class="fas fa-list-ul fa-2x"></i>
@@ -114,19 +91,19 @@ Explore the guides below to get familiar with product features and experience ho
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-sm">
             <ul>
             <i class="fas fa-play-circle fa-3x"></i>
-            <li class="group-header"><h4><a href="/doc/getting-started/get-started.html">Get Started</a></h4></li>
+            <li class="group-header"><a href="/doc/getting-started/get-started.html"><h5>Get Started</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-sm">
             <ul>
             <i class="far fa-comments fa-3x"></i>
-            <li class="group-header"><h4><a href="/doc/portal/community.html">Community</a></h4></li>
+            <li class="group-header"><a href="/doc/portal/community.html"><h5>Community</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-sm">
             <ul>
             <i class="fas fa-book-open fa-3x"></i>
-            <li class="group-header"><h4><a href="/doc/commerce/reference/reference.html">Reference</a></h4></li>
+            <li class="group-header"><a href="/doc/commerce/reference/reference.html"><h5>Reference</h5></a></li>
             </ul>
         </div>
     </div>

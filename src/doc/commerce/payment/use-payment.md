@@ -43,7 +43,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/payment/use-payment.html#glossary
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING PAYMENT <br>TO YOUR EXPERIENCE
 
@@ -324,8 +324,6 @@ Assuming no errors, you will receive a response body similar to the following:
 
 Listed in the response are the the `country` and `billingCountry` passed in the request, as well as the `name` and `displayName` of each payment method valid for your Nike UPMID, shopping in country and billing country. Your user experience would display the `displayName` to the customer and pass the payment's `name` to endpoint requests requiring a payment type.
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ## Using Payment Options
 
 - [Get Payment Options for an Order](#get-payment-options-for-an-order)
@@ -499,8 +497,6 @@ Sample *Get Payment Options for an Order* 400 Error Response
 |MISSING_REQUIRED|returned when the request does not contain required information|
 |INVALID_PRODUCT|returned when one or more item ids is invalid|
 |INVALID_NUMBER|returned when amount is not in a valid number format|
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Allowable Billing Countries for a Shipping Country
 
@@ -815,8 +811,6 @@ Sample *Validate Payments* 400 Error Response
 |INVALID_REQUEST|returned when the request contains invalid information|
 |MISSING_REQUIRED|returned when the request does not contain required information|
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_validate_payments_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ## Using Stored Payment
 
 - [Initiate PayPal Billing Agreement](#initiate-paypal-billing-agreement)
@@ -913,8 +907,6 @@ Sample  *Initiate PayPal Billing Agreement* 200 success response
 Next, you need to get customer approval by redirecting the customer to the PayPal redirectURL returned in the response. At PayPal, the customer provides payment details and both approves and subscribes to the Billing Agreement. Once the customer accepts the PayPal Billing Agreement, PayPal redirects to the returnURL provided in the call. If the customer cancels the transaction, PayPal redirects the customer to the cancelURL provided in the call.
 
 The next Stored Payment endpoints you might want to call for the PayPal Billing Agreement flow are `savepayment` to store the PayPal payment method once the customer authorizes the Billing Agreement, and `storedpayment` to display all of the customer's saved payment methods.
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Save Payment for User Profile
 
@@ -1117,8 +1109,6 @@ This is a sample *Save Payment for User Profile* POST request to save Alipay Def
   "message": "One or more required parameters missing.."
 }
 ```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#default_post_consumer_savepayment" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Delete All Stored Payments for User Profile
 
@@ -1405,8 +1395,6 @@ The sample *List Stored Payments by User Profile* 400 Error Response is returned
 }
 ```
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ### List Stored Payment by Payment ID
 
 Use this endpoint to list stored payment details for a paymentId. This endpoint is primarily for gift cards but it can be called for any type of stored payment. When listing a gift card payment type and you don't need the balance, pass includebalance=false as a URI parameter for a quicker response. Setting this parameter to false prevents the Stored Payments service from making a balance call to the gift card provider. Because this endpoint returns sensitive information, it requires the JWT `X-Nike-Authorization` and `X-Nike-AppId` headers. It is a synchronous endpoint.
@@ -1627,8 +1615,6 @@ Sample *List Gift Card by Payment Id* 400 error response:
 }
 ```
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ### Update Stored Payment by ID
 
 Use this endpoint to update a customer's CreditCard or GiftCard type Stored Payment. No other payment types can be updated using this endpoint. You can update the credit card expiration month, expiration year, billing address and default payment type flag. The credit card account number cannot be changed.
@@ -1757,7 +1743,6 @@ Sample 404 error *Update Credit Card by User Profile* response body:
   "message": "No payment found for id 99051"
 }
 ```
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 #### Update Default Stored Payment by User Profile
 
@@ -1828,7 +1813,6 @@ Sample 404 error *Update Default Stored Payment by User Profile* response body:
   "message": "No payment found for id 99051"
 }
 ```
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id_default" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 #### Delete Stored Payment by ID
 
@@ -1888,8 +1872,6 @@ Sample 400 error response:
   "message": "One or more required parameters missing.."
 }
 ```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 #### Validate Credit Card CVV by Shipping Address
 
@@ -2578,8 +2560,6 @@ Sample *Payment Preview* request with "COMPLETED" status with the amount allocat
 |MISSING_REQUIRED|Returned when request is missing a required field value|
 |INVALID_PAYMENT_TYPE|Returned when request contains an invalid payment type|
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/post_payment_preview_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ### Payment Preview Job Status by ID
 
 Use this endpoint to check the status of the *Payment Preview* job. After receiving a HTTP 202 from the *Payment Preview* call and waiting the duration of the **eta** time, call *Payment Preview Job Status by ID* using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
@@ -2629,8 +2609,6 @@ https://api.nike.com/payment/preview/v2/jobs/2722be3a-0341-11e6-b512-3e1d05defe7
 #### Response Body
 
 The *Payment Preview Job Status by ID* response is identical to the [Payment Preview Response Body](#payment-preview-response-body) except that the resource type value is payment/preview/jobs.
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Payment Preview Result by ID
 
@@ -2718,7 +2696,6 @@ Sample Payment Preview Results response for two gift cards and a credit card:
   }
 }
 ```
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ## Using Payment Approval
 
@@ -3298,7 +3275,6 @@ Sample *Retrieval Payment Approval Job* response body with "IN_PROGRESS" status:
   }
 }
 ```
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Order Payments Approval Result
 
@@ -3406,8 +3382,6 @@ The response is identical to the *Retrieval Payment Approval Job* endpoint excep
 |error.errors.**field**|string|JSON field name causing error|Required|
 |error.errors.**code**|string|Enum of error codes, one of "MISSING_REQUIRED","INVALID_FIELD","INVALID_JSON","INVALID_PAYMENT_TYPE"|Required|
 |error.errors.**message**|string|Error message|Required|
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Void Payment Approval
 
@@ -3730,8 +3704,6 @@ Error Code                           | Error Message                            
 |KLARNA_ERROR_3303|BAD_FIRST_NAME. Inform the customer that the first name is incorrect. Edit the first name and try again.|
 |KLARNA_ERROR_9109|RESERVATION NUMBER DOES NOT EXIST. Inform the customer that the reservation number does not exist.|
 |KLARNA_ERROR_9119|TIMEOUT. Inform the customer of that a system error occurred and to either try again or choose an alternative payment method.|
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_summary_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ## Using Credit Card Submit
 
@@ -4300,8 +4272,6 @@ Sample *Start Apple Pay Session* response body:
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ## Using Payment Wallet
 
 - [PayPal Express](#paypal-express)
@@ -4461,8 +4431,6 @@ Sample *PayPal Express* response body:
 }
 ```
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ### PayPal Express Job by ID
 
 Use this endpoint to check the status of the *PayPal Express* job. After receiving a HTTP 202 from the *PayPal Express* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
@@ -4554,8 +4522,6 @@ Sample *PayPal Express Job by ID* response body:
   }
 }
 ```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### PayPal Mark
 
@@ -4746,8 +4712,6 @@ Sample *PayPal Mark* response body in "PENDING" status:
 }
 ```
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ### PayPal Mark Job by ID
 
 Use this endpoint to check the status of the *PayPal Mark* job. After receiving a HTTP 202 from the *PayPal Mark* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
@@ -4839,8 +4803,6 @@ Sample *PayPal Mark Job by ID* response body:
   }
 }
 ```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### PayPal Details
 
@@ -4983,8 +4945,6 @@ Sample *PayPal Details* 400 response body:
 }
 ```
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/post_payment_paypal_details_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 #### PayPal Details Job by ID
 
 Use this endpoint to check the status of the *PayPal Details* job. After receiving a HTTP 202 from the *PayPal Details* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
@@ -5108,8 +5068,6 @@ Sample *PayPal Details Job by ID* 200 response body in "COMPLETED" status:
 |MISSING_REQUIRED|returned when the request is missing a required field value|
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ## Using Deferred Payment
 
@@ -5241,8 +5199,6 @@ Sample *Deferred Payment Form* 400 response:
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ### Deferred Payment Form Job Status by Id
 
 Use this endpoint to check the status of the *Deferred Payment Form* job. After receiving a HTTP 202 from the *Deferred Payment Form* call and waiting the duration of the eta time, call *Deferred Payment Form Job Status by Id* using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status. In the case of WeChat, see the [Deferred Payment WeChat](#deferred-payment-wechat) endpoint.
@@ -5293,8 +5249,6 @@ https://api.nike.com/payment/deferred_payment_forms/v1/jobs/2722be3a-0341-11e6-b
 #### Response Body
 
 The HTTP 202 response from *Deferred Payment Form Job* contains information about how to retrieve the results of your job via the 'Deferred Payment Form Job' endpoint. The response body is the same as is returned in the [Deferred Payment Form](#deferred-payment-response-body) except that the resourceType is payment/deferred_payment_forms.
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Deferred Payment Status
 
@@ -5406,8 +5360,6 @@ Sample *Deferred Payment Status* response in "PENDING" status:
 |INVALID_FIELD|returned when the request contains an invalid field value|
 |INVALID_JSON|returned when the request is not valid JSON|
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ### Deferred Payment Status Job Status by Id
 
 Use this endpoint to check the status of the *Deferred Payment Status* job. After receiving a HTTP 202 from the *Deferred Payment Status* call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
@@ -5493,8 +5445,6 @@ Sample *Deferred Payment Status Job* response in "COMPLETED" status:
   }
 }
 ```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 ### Deferred Payment WeChat
 
@@ -5587,10 +5537,6 @@ Sample *Deferred Payment WeChat* response in "PENDING" status:
   }
 }
 ```
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-
 
 ### Deferred WeChat Payment Job Status by Id
 
@@ -5686,10 +5632,6 @@ Sample *Deferred WeChat Payment Job* response in "COMPLETED" status:
 |---|---|
 |MISSING_REQUIRED|returned when the request is missing a required field value|
 |INVALID_JSON|returned when the request is not valid JSON|
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
-
 
 ## Upgrading to the latest version
 

@@ -1747,8 +1747,6 @@ Scenario: the API is having an issue taking the request.
 }
 ```
 
-<!-- <a href="http://nikeweb-test.private.static.s3-website-us-east-1.amazonaws.com/fat/event-validator-ui/index.html" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ## Upgrading to the Latest Version
