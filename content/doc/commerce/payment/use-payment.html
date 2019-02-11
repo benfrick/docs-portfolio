@@ -6,18 +6,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/nde.js"></script>
-    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.0/css/glyphs.min.css">
-    <link rel="stylesheet"
-            href="https://assets.commerce.nikecloud.com/ncss/0.17/dotcom/desktop/css/ncss.en-us.min.css">
+    <link rel="stylesheet" href="//assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/>
+    <link rel="stylesheet" href="//assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/aviator-two-column.css">
     <link rel="stylesheet" href="/css/nde.css">
-
+    
 </head>
 <body>
 <div class="main">
-    <p><a href="/doc/commerce/payment/use-payment.pdf" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
+    <p><a href="/doc/commerce/payment/use-payment.pdf" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
 
 <h1 id="adding-payment-to-your-experience">ADDING PAYMENT <br />TO YOUR EXPERIENCE</h1>
 
@@ -634,8 +633,6 @@
 
 <p>Listed in the response are the the <code class="highlighter-rouge">country</code> and <code class="highlighter-rouge">billingCountry</code> passed in the request, as well as the <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">displayName</code> of each payment method valid for your Nike UPMID, shopping in country and billing country. Your user experience would display the <code class="highlighter-rouge">displayName</code> to the customer and pass the payment’s <code class="highlighter-rouge">name</code> to endpoint requests requiring a payment type.</p>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h2 id="using-payment-options">Using Payment Options</h2>
 
 <ul>
@@ -1012,8 +1009,6 @@
     </tr>
   </tbody>
 </table>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_options_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="allowable-billing-countries-for-a-shipping-country">Allowable Billing Countries for a Shipping Country</h3>
 
@@ -1598,8 +1593,6 @@
   </tbody>
 </table>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/API.md#!/default/post_payment_validate_payments_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h2 id="using-stored-payment">Using Stored Payment</h2>
 
 <ul>
@@ -1859,8 +1852,6 @@
 <p>Next, you need to get customer approval by redirecting the customer to the PayPal redirectURL returned in the response. At PayPal, the customer provides payment details and both approves and subscribes to the Billing Agreement. Once the customer accepts the PayPal Billing Agreement, PayPal redirects to the returnURL provided in the call. If the customer cancels the transaction, PayPal redirects the customer to the cancelURL provided in the call.</p>
 
 <p>The next Stored Payment endpoints you might want to call for the PayPal Billing Agreement flow are <code class="highlighter-rouge">savepayment</code> to store the PayPal payment method once the customer authorizes the Billing Agreement, and <code class="highlighter-rouge">storedpayment</code> to display all of the customer’s saved payment methods.</p>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_paypalagreement" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="save-payment-for-user-profile">Save Payment for User Profile</h3>
 
@@ -2359,8 +2350,6 @@
   "message": "One or more required parameters missing.."
 }
 </code></pre></div></div>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#default_post_consumer_savepayment" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="delete-all-stored-payments-for-user-profile">Delete All Stored Payments for User Profile</h3>
 
@@ -3006,8 +2995,6 @@
 }
 </code></pre></div></div>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/post_consumer_storedpayments" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="list-stored-payment-by-payment-id">List Stored Payment by Payment ID</h3>
 
 <p>Use this endpoint to list stored payment details for a paymentId. This endpoint is primarily for gift cards but it can be called for any type of stored payment. When listing a gift card payment type and you don’t need the balance, pass includebalance=false as a URI parameter for a quicker response. Setting this parameter to false prevents the Stored Payments service from making a balance call to the gift card provider. Because this endpoint returns sensitive information, it requires the JWT <code class="highlighter-rouge">X-Nike-Authorization</code> and <code class="highlighter-rouge">X-Nike-AppId</code> headers. It is a synchronous endpoint.</p>
@@ -3604,8 +3591,6 @@
 }
 </code></pre></div></div>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/get_consumer_storedpayments_giftcard_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="update-stored-payment-by-id">Update Stored Payment by ID</h3>
 
 <p>Use this endpoint to update a customer’s CreditCard or GiftCard type Stored Payment. No other payment types can be updated using this endpoint. You can update the credit card expiration month, expiration year, billing address and default payment type flag. The credit card account number cannot be changed.</p>
@@ -3937,7 +3922,6 @@
   "message": "No payment found for id 99051"
 }
 </code></pre></div></div>
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h4 id="update-default-stored-payment-by-user-profile">Update Default Stored Payment by User Profile</h4>
 
@@ -4098,7 +4082,6 @@
   "message": "No payment found for id 99051"
 }
 </code></pre></div></div>
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/put_consumer_storedpayments_payment_id_default" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h4 id="delete-stored-payment-by-id">Delete Stored Payment by ID</h4>
 
@@ -4242,8 +4225,6 @@
   "message": "One or more required parameters missing.."
 }
 </code></pre></div></div>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/storedpayments/browse/API.md#!/default/delete_consumer_storedpayments_payment_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h4 id="validate-credit-card-cvv-by-shipping-address">Validate Credit Card CVV by Shipping Address</h4>
 
@@ -5748,8 +5729,6 @@
   </tbody>
 </table>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/post_payment_preview_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="payment-preview-job-status-by-id">Payment Preview Job Status by ID</h3>
 
 <p>Use this endpoint to check the status of the <em>Payment Preview</em> job. After receiving a HTTP 202 from the <em>Payment Preview</em> call and waiting the duration of the <strong>eta</strong> time, call <em>Payment Preview Job Status by ID</em> using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.</p>
@@ -5861,8 +5840,6 @@
 <h4 id="response-body-14">Response Body</h4>
 
 <p>The <em>Payment Preview Job Status by ID</em> response is identical to the <a href="#payment-preview-response-body">Payment Preview Response Body</a> except that the resource type value is payment/preview/jobs.</p>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="payment-preview-result-by-id">Payment Preview Result by ID</h3>
 
@@ -6080,7 +6057,6 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   }
 }
 </code></pre></div></div>
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/API.md#!/Payment_Preview/get_payment_preview_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h2 id="using-payment-approval">Using Payment Approval</h2>
 
@@ -7482,7 +7458,6 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
   }
 }
 </code></pre></div></div>
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_v2_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="order-payments-approval-result">Order Payments Approval Result</h3>
 
@@ -7982,8 +7957,6 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
     </tr>
   </tbody>
 </table>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_results_v2_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="void-payment-approval">Void Payment Approval</h3>
 
@@ -8761,8 +8734,6 @@ https://api.nike.com/payment/preview_results/v2/2722be3a-0341-11e6-b512-3e1d05de
     </tr>
   </tbody>
 </table>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapproval/browse/API.md#!/Payment_Approval/get_payment_approval_summary_v1_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h2 id="using-credit-card-submit">Using Credit Card Submit</h2>
 
@@ -10129,8 +10100,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentapplepay/browse/API.md#!/Payment_AppleyPay/post_payment_applepay_sessions_v2" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h2 id="using-payment-wallet">Using Payment Wallet</h2>
 
 <ul>
@@ -10616,8 +10585,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/post_payment_paypal_express_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="paypal-express-job-by-id">PayPal Express Job by ID</h3>
 
 <p>Use this endpoint to check the status of the <em>PayPal Express</em> job. After receiving a HTTP 202 from the <em>PayPal Express</em> call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.</p>
@@ -10870,8 +10837,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   }
 }
 </code></pre></div></div>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_express_service/get_payment_paypal_express_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="paypal-mark">PayPal Mark</h3>
 
@@ -11469,8 +11434,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/post_payment_paypal_mark_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="paypal-mark-job-by-id">PayPal Mark Job by ID</h3>
 
 <p>Use this endpoint to check the status of the <em>PayPal Mark</em> job. After receiving a HTTP 202 from the <em>PayPal Mark</em> call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.</p>
@@ -11728,8 +11691,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   }
 }
 </code></pre></div></div>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_mark_service/get_payment_paypal_mark_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="paypal-details">PayPal Details</h3>
 
@@ -12222,8 +12183,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/post_payment_paypal_details_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h4 id="paypal-details-job-by-id">PayPal Details Job by ID</h4>
 
 <p>Use this endpoint to check the status of the <em>PayPal Details</em> job. After receiving a HTTP 202 from the <em>PayPal Details</em> call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.</p>
@@ -12425,8 +12384,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
     </tr>
   </tbody>
 </table>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentwallet/browse/API.md#!/Paypal_Details_service/get_payment_paypal_details_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h2 id="using-deferred-payment">Using Deferred Payment</h2>
 
@@ -12770,8 +12727,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/post_payment_deferred_payment_forms_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="deferred-payment-form-job-status-by-id">Deferred Payment Form Job Status by Id</h3>
 
 <p>Use this endpoint to check the status of the <em>Deferred Payment Form</em> job. After receiving a HTTP 202 from the <em>Deferred Payment Form</em> call and waiting the duration of the eta time, call <em>Deferred Payment Form Job Status by Id</em> using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status. In the case of WeChat, see the <a href="#deferred-payment-wechat">Deferred Payment WeChat</a> endpoint.</p>
@@ -12881,8 +12836,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 <h4 id="response-body-37">Response Body</h4>
 
 <p>The HTTP 202 response from <em>Deferred Payment Form Job</em> contains information about how to retrieve the results of your job via the ‘Deferred Payment Form Job’ endpoint. The response body is the same as is returned in the <a href="#deferred-payment-response-body">Deferred Payment Form</a> except that the resourceType is payment/deferred_payment_forms.</p>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Form/get_payment_deferred_payment_forms_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="deferred-payment-status">Deferred Payment Status</h3>
 
@@ -13200,8 +13153,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   </tbody>
 </table>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/post_payment_deferred_payment_status_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="deferred-payment-status-job-status-by-id">Deferred Payment Status Job Status by Id</h3>
 
 <p>Use this endpoint to check the status of the <em>Deferred Payment Status</em> job. After receiving a HTTP 202 from the <em>Deferred Payment Status</em> call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.</p>
@@ -13344,8 +13295,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
   }
 }
 </code></pre></div></div>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_Status/get_payment_deferred_payment_status_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h3 id="deferred-payment-wechat">Deferred Payment WeChat</h3>
 
@@ -13638,8 +13587,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
 }
 </code></pre></div></div>
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/post_payment_deferred_wechat_payments_v1" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 <h3 id="deferred-wechat-payment-job-status-by-id">Deferred WeChat Payment Job Status by Id</h3>
 
 <p>Use this endpoint to check the status of the <em>Deferred WeChat Payment</em> job. After receiving a HTTP 202 from the <em>Deferred WeChat Payment</em> call and waiting the duration of the eta time, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.</p>
@@ -13805,8 +13752,6 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
     </tr>
   </tbody>
 </table>
-
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPAY/repos/pendingpayment/browse/API.md#!/Deferred_Payment_for_Wechat_with_Code_required/get_payment_deferred_wechat_payments_v1_jobs_id" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
 
 <h2 id="upgrading-to-the-latest-version">Upgrading to the latest version</h2>
 
@@ -14000,7 +13945,7 @@ https://paymentcc.nike.com/creditcardsubmit/bb3360c5-82c3-4d00-b806-a8bf3875555/
     </form>
     <div id="sidebar" class="sidebar">
     <section>
-        <a style="color:#ffffff;" href="slack://channel?team=T0G3T5X2B&amp;id=C9Q1MNJ1J" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-black"><i class="g72-alert"></i>&nbsp;FIND AN ISSUE? SLACK US!</a>
+        <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a>
         <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;NDe Docs Home</a></h6><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
         <ul id="a-overview" class="hide"><li>
                 <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>

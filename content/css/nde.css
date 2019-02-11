@@ -267,6 +267,7 @@ aside.note {
     border: 1px solid #f0f4f7;
     margin-left: 10px;
     border-radius: 5px;
+    padding: 8px 20px 8px 20px;
 }
 a.guide-button:hover {
     background: #C1C1C1;
@@ -316,3 +317,4 @@ header form {
 .hide {
     display: none;
 }
+
