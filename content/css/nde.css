@@ -52,14 +52,7 @@ h2,h3 {
     }
     @media (max-width: 600px) {
     h2,h3 {
-        font-size: 90:
-    }
-}
-i {
-    }
-    @media (max-width: 600px) {
-    i {
-        font-size: 1em;
+        font-size: 90%:
     }
 }
 table {
@@ -76,7 +69,6 @@ table {
         margin-bottom: 4px;
         padding: 5px 2px 3px 2px;
         width:100%;
-        font-size: .1em;
     }
 }
 table thead tr th {
@@ -203,8 +195,8 @@ blockquote {
         padding: 2px 2px 2px 5px;
         margin-bottom: 0px;
         margin-top: 0px;
-        width: 100%;
-        font-size: 0.1em;
+        width: 90%;
+        font-size: .6em;
     }
 }
 article h1,h2,h3,h4,h5,h6 {
@@ -356,7 +348,7 @@ aside.note {
     @media (max-width: 600px) {
     .guide-button {
         float: inherit;
-        font-size: .1em;
+        font-size: .7em;
         margin-left: 0px;
         padding: 2px 2px 2px 2px;
         margin-bottom: 8px;
