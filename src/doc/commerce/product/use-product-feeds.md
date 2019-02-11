@@ -35,13 +35,13 @@ toc:
 
 ##### Last Updated: 01/18/2019
 
-Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api) to show relevant Nike product-related content, including details about the products with images, videos, and more.
+Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} to show relevant Nike product-related content, including details about the products with images, videos, and more.
 
 >**TIP:** Before using this guide, you should have completed [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html).
 
 ## Introduction
 
-The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api) provides product data and content in the form of Cards, Threads, and Feeds.
+The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} provides product data and content in the form of Cards, Threads, and Feeds.
 
 ### What are Cards, Threads, and Feeds?
 
@@ -57,7 +57,7 @@ For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](
 
 ### What Product Data and Content are Available?
 
-The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api) combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:
+The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:
 
 |Cloud API|Data Type|Examples|Data Source|
 |---|---|---|---|
@@ -101,17 +101,17 @@ If there are more threads in the API response than you want, add more specific i
 
 1. **Filters**
 
-    Use any of the [supported **filter** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api) to get more specific results in the response. For example, to only get content for a specific Nike style-color code, append a query parameter like `filter=publishedContent.properties.products.styleColor(942198-700)` to the request URI.
+    Use any of the [supported **filter** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} to get more specific results in the response. For example, to only get content for a specific Nike style-color code, append a query parameter like `filter=publishedContent.properties.products.styleColor(942198-700)` to the request URI.
 
 2. **Sorting**
     
-    Sort the results using any of the [supported **sort** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api). For example, to sort by the current price in ascending order, append query parameter `sort=productInfo.merchPrice.currentPriceAsc` to the request URI.
+    Sort the results using any of the [supported **sort** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"}. For example, to sort by the current price in ascending order, append query parameter `sort=productInfo.merchPrice.currentPriceAsc` to the request URI.
 
 3. **Fields**
 
     Request only the fields that you want in the response by using the **fields** query parameter. For example, to return fields threadId, styleColor, and MSRP, append query parameter `fields=id,channelId,productInfo.merchProduct.styleColor,productInfo.merchPrice.msrp` to the request URI.
 
->**TIP:** The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api) is the source of truth for all supported query parameters.
+>**TIP:** The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} is the source of truth for all supported query parameters.
 
 ### Can I Use Product Feeds to Search for Products?
 
