@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/nde.js"></script>
@@ -12,7 +13,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/aviator-two-column.css">
     <link rel="stylesheet" href="/css/nde.css">
+<!--
     
+-->
 </head>
 <body>
 <div class="main">
@@ -24,7 +27,7 @@
 
 <h5 id="last-updated-01182019">Last Updated: 01/18/2019</h5>
 
-<p>Use the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api">Product Feeds API</a> to show relevant Nike product-related content, including details about the products with images, videos, and more.</p>
+<p>Use the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">Product Feeds API</a> to show relevant Nike product-related content, including details about the products with images, videos, and more.</p>
 
 <blockquote>
   <p><strong>TIP:</strong> Before using this guide, you should have completed <a href="/doc/getting-started/using-nike-apis.html">Using NDe APIs</a> and <a href="/doc/commerce/product/overview-product-feeds.html">Product Feeds Overview</a>.</p>
@@ -32,7 +35,7 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api">Product Feeds API</a> provides product data and content in the form of Cards, Threads, and Feeds.</p>
+<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">Product Feeds API</a> provides product data and content in the form of Cards, Threads, and Feeds.</p>
 
 <h3 id="what-are-cards-threads-and-feeds">What are Cards, Threads, and Feeds?</h3>
 
@@ -54,7 +57,7 @@
 
 <h3 id="what-product-data-and-content-are-available">What Product Data and Content are Available?</h3>
 
-<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api">Product Feeds API</a> combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:</p>
+<p>The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">Product Feeds API</a> combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:</p>
 
 <table>
   <thead>
@@ -163,12 +166,12 @@
   <li>
     <p><strong>Filters</strong></p>
 
-    <p>Use any of the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api">supported <strong>filter</strong> query parameters</a> to get more specific results in the response. For example, to only get content for a specific Nike style-color code, append a query parameter like <code class="highlighter-rouge">filter=publishedContent.properties.products.styleColor(942198-700)</code> to the request URI.</p>
+    <p>Use any of the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">supported <strong>filter</strong> query parameters</a> to get more specific results in the response. For example, to only get content for a specific Nike style-color code, append a query parameter like <code class="highlighter-rouge">filter=publishedContent.properties.products.styleColor(942198-700)</code> to the request URI.</p>
   </li>
   <li>
     <p><strong>Sorting</strong></p>
 
-    <p>Sort the results using any of the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api">supported <strong>sort</strong> query parameters</a>. For example, to sort by the current price in ascending order, append query parameter <code class="highlighter-rouge">sort=productInfo.merchPrice.currentPriceAsc</code> to the request URI.</p>
+    <p>Sort the results using any of the <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">supported <strong>sort</strong> query parameters</a>. For example, to sort by the current price in ascending order, append query parameter <code class="highlighter-rouge">sort=productInfo.merchPrice.currentPriceAsc</code> to the request URI.</p>
   </li>
   <li>
     <p><strong>Fields</strong></p>
@@ -178,7 +181,7 @@
 </ol>
 
 <blockquote>
-  <p><strong>TIP:</strong> The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api">Product Feeds API Reference</a> is the source of truth for all supported query parameters.</p>
+  <p><strong>TIP:</strong> The <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="blank">Product Feeds API Reference</a> is the source of truth for all supported query parameters.</p>
 </blockquote>
 
 <h3 id="can-i-use-product-feeds-to-search-for-products">Can I Use Product Feeds to Search for Products?</h3>

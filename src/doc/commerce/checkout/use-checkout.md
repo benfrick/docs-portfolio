@@ -389,9 +389,9 @@ https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 
 ## Best Practices
 
-### Example Implementation Diagram
+Here are some best practices. We'll start with an example sequence of API calls to execute an entire checkout:
 
-Here is an example of a sequence of API calls to execute an entire checkout:
+### Example Implementation Diagram
 
 ![](/images/commerce/buy/checkout_seq_dgm.png){:class="border"}
 
