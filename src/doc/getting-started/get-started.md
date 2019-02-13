@@ -26,7 +26,7 @@ Get started learning about the principles, standards, and conventions for using 
 		   <ul>
 			   <i class="g72-edit fs32-aligntop pr2-sm d-sm-ib"></i>
 			   <li class="group-header">
-					<a name="api-standards" href="https://confluence.nike.com/display/NEA/API+Standards" target="_blank">
+					<a name="api-standards" href="https://confluence.nike.com/display/NEA/API+Standards" target="new-tab">
 					<h4>API Standards</h4></a></li>
 			   <li style="font-size: 0.8em;">Standards to guide the creation of an API.</li>
 		   </ul>
@@ -35,7 +35,7 @@ Get started learning about the principles, standards, and conventions for using 
 		   <ul>
 			   <i class="g72-info fs32-aligntop pr2-sm d-sm-ib"></i>
 			   <li class="group-header">
-				   <a href="https://github.nike.com/nde-architecture/principles" target="_blank">
+				   <a href="https://github.nike.com/nde-architecture/principles" target="new-tab">
 				   <h4>Architecture Principles</h4></a></li>
 			   <li style="font-size: 0.8em;">Principles to guide development activities.</li>
 		   </ul>

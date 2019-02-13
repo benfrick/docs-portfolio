@@ -28,7 +28,7 @@
 <p>This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the detailed guides.</p>
 
 <blockquote>
-  <p><strong>TIP:</strong> Also check out the <a href="https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics" target="blank">API Basics</a> course offered by NDe Architecture team.</p>
+  <p><strong>TIP:</strong> Also check out the <a href="https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics" target="new-tab">API Basics</a> course offered by NDe Architecture team.</p>
 </blockquote>
 
 <h2 id="industry-standards">Industry Standards</h2>
@@ -37,7 +37,7 @@
 
 <h3 id="rest-architecture">REST Architecture</h3>
 
-<p>NDe uses the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="blank">REST</a> (<strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it:</p>
+<p>NDe uses the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="new-tab">REST</a> (<strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it:</p>
 
 <p><strong>Stateless for Improved Performance</strong></p>
 
@@ -49,7 +49,7 @@
 
 <h3 id="json-formatted-http-requests-and-responses">JSON-formatted HTTP Requests and Responses</h3>
 
-<p>The standard format for exchanging data with NDe APIs is <a href="http://www.json.org/" target="blank">JSON</a> (<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation). As such, all HTTP request and response payloads must be in JSON format. <a href="https://en.wikipedia.org/wiki/JSON" target="blank">Wikipedia</a> summarizes the benefits well: “JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data.”</p>
+<p>The standard format for exchanging data with NDe APIs is <a href="http://www.json.org/" target="new-tab">JSON</a> (<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation). As such, all HTTP request and response payloads must be in JSON format. <a href="https://en.wikipedia.org/wiki/JSON" target="new-tab">Wikipedia</a> summarizes the benefits well: “JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data.”</p>
 
 <p>Example of a JSON-formatted request body that was sent to a NDe API:</p>
 
@@ -92,7 +92,7 @@
 
 <h3 id="json-schema-helps-define-api-contracts">JSON Schema Helps Define API Contracts</h3>
 
-<p>The structures of the request and response bodies for NDe APIs are defined in each contract (an API.md file, commonly) using <a href="http://json-schema.org/" target="blank">JSON Schema</a>. Per <a href="https://en.wikipedia.org/wiki/JSON" target="blank">Wikipedia</a>: “JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified.” Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, the schema for the request body above can be found <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json" target="blank">here</a>.</p>
+<p>The structures of the request and response bodies for NDe APIs are defined in each contract (an API.md file, commonly) using <a href="http://json-schema.org/" target="new-tab">JSON Schema</a>. Per <a href="https://en.wikipedia.org/wiki/JSON" target="new-tab">Wikipedia</a>: “JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified.” Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, the schema for the request body above can be found <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json" target="new-tab">here</a>.</p>
 
 <h3 id="idempotence-guarantee">Idempotence Guarantee</h3>
 
@@ -108,7 +108,7 @@
 
 <ul>
   <li>
-    <p>Well-defined contract (API.md file) for each major version in <a href="https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md" target="blank">API Blueprint</a> format</p>
+    <p>Well-defined contract (API.md file) for each major version in <a href="https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md" target="new-tab">API Blueprint</a> format</p>
   </li>
   <li>
     <p>Request and response definitions in JSON Schema format within each API.md</p>
@@ -234,12 +234,12 @@
 </table>
 
 <blockquote>
-  <p><strong>TIP:</strong> To learn how to obtain an access token see the <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md" target="blank">Generating the Access Token</a> guide.</p>
+  <p><strong>TIP:</strong> To learn how to obtain an access token see the <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md" target="new-tab">Generating the Access Token</a> guide.</p>
 </blockquote>
 
 <h3 id="jwt-json-web-token">JWT (JSON Web Token)</h3>
 
-<p>Some endpoints such as <a href="/doc/commerce/payment/use-payment.html#submit-order-payments-for-approval-post"><em>Submit Order Payments for Approval</em></a> require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="blank">JWT</a> that is signed for a service authorized to call the endpoint. In this case, pass the JWT in the <strong>X-Nike-Authorization</strong> request header. Also, send the name of the application (e.g. “checkouts”) that is authorized to call this endpoint in the <strong>X-Nike-AppId</strong> request header. This is the service name used to sign the JWT. The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.</p>
+<p>Some endpoints such as <a href="/doc/commerce/payment/use-payment.html#submit-order-payments-for-approval-post"><em>Submit Order Payments for Approval</em></a> require a <a href="https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md" target="new-tab">JWT</a> that is signed for a service authorized to call the endpoint. In this case, pass the JWT in the <strong>X-Nike-Authorization</strong> request header. Also, send the name of the application (e.g. “checkouts”) that is authorized to call this endpoint in the <strong>X-Nike-AppId</strong> request header. This is the service name used to sign the JWT. The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.</p>
 
 <table>
   <thead>
@@ -263,7 +263,7 @@
 <blockquote>
   <p><strong>TIPS:</strong></p>
   <ul>
-    <li>See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide" target="blank">Nike JWT Reference Guide</a> for more information.</li>
+    <li>See the <a href="https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide" target="new-tab">Nike JWT Reference Guide</a> for more information.</li>
     <li>You will need both a Production and Test JWT when calling JWT-required endpoints in those respective environments.</li>
   </ul>
 </blockquote>
@@ -311,7 +311,7 @@
 <p>https://api.nike.com/buy/carts/v1/61bc185b-16e5-43b5-bcaf-dd6168c543f8<font color="blue">?fields=totals(total),totals(quantity)</font> would return only the <strong>total</strong> and <strong>quantity</strong> fields nested under <strong>totals</strong>.</p>
 
 <blockquote>
-  <p><strong>TIP:</strong> See <a href="https://confluence.nike.com/display/NEA/API+Standards" target="blank">API Standards</a> for more info on using query parameters with NDe APIs.</p>
+  <p><strong>TIP:</strong> See <a href="https://confluence.nike.com/display/NEA/API+Standards" target="new-tab">API Standards</a> for more info on using query parameters with NDe APIs.</p>
 </blockquote>
 
 <h5 id="anchor">Anchor</h5>
@@ -360,7 +360,7 @@
 
 <h3 id="uri-universal-resource-identifier">URI (Universal Resource Identifier)</h3>
 
-<p>By sending a request to a NDe API, you access a resource using a particular URI (<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="blank">Uniform Resource Identifier</a>) comprised of a string of characters.</p>
+<p>By sending a request to a NDe API, you access a resource using a particular URI (<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="new-tab">Uniform Resource Identifier</a>) comprised of a string of characters.</p>
 
 <p>For more info, see the <a href="#url-patterns">URL Patterns</a> section.</p>
 
@@ -931,7 +931,7 @@ Authorization: Bearer {your access token}
 
 <p><strong>2. Create the URL</strong></p>
 
-<p>The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put" target="blank">API Reference</a> states that the required URL format is <code class="highlighter-rouge">/buy/carts/v2/{id}</code>. To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path, then append  <strong>id</strong> after “v2”. The <strong>id</strong> is the cart identifier you passed in the request body. The complete URL is then https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8.</p>
+<p>The <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put" target="new-tab">API Reference</a> states that the required URL format is <code class="highlighter-rouge">/buy/carts/v2/{id}</code>. To build the full URL, prepend <code class="highlighter-rouge">https://api.nike.com</code> to the above path, then append  <strong>id</strong> after “v2”. The <strong>id</strong> is the cart identifier you passed in the request body. The complete URL is then https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8.</p>
 
 <p><strong>3. Execute the request</strong></p>
 
@@ -1025,11 +1025,11 @@ Authorization: Bearer {your access token}
 
 <h2 id="versioning">Versioning</h2>
 
-<p>As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to <a href="http://semver.org/" target="blank">Semantic Versioning</a> guidelines. Some high-level considerations:</p>
+<p>As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to <a href="http://semver.org/" target="new-tab">Semantic Versioning</a> guidelines. Some high-level considerations:</p>
 
 <ul>
   <li>
-    <p>For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URL does not change. If you are using the <a href="http://servicedesignpatterns.com/WebServiceEvolution/TolerantReader" target="blank">Tolerant Reader Pattern</a>, you can continue to use the API without having to make changes to your app.</p>
+    <p>For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URL does not change. If you are using the <a href="http://servicedesignpatterns.com/WebServiceEvolution/TolerantReader" target="new-tab">Tolerant Reader Pattern</a>, you can continue to use the API without having to make changes to your app.</p>
   </li>
   <li>
     <p>When moving to a new, major version of an API (e.g. a change from synchronous to asynchronous operation), expect to make some changes to your app to ensure compatibility with the new version.</p>
@@ -1037,7 +1037,7 @@ Authorization: Bearer {your access token}
 </ul>
 
 <blockquote>
-  <p><strong>TIP:</strong> For more details about the versioning of NDe APIs, see the <a href="https://confluence.nike.com/display/NEA/API+Standards" target="blank">API Versioning Strategy</a> document.</p>
+  <p><strong>TIP:</strong> For more details about the versioning of NDe APIs, see the <a href="https://confluence.nike.com/display/NEA/API+Standards" target="new-tab">API Versioning Strategy</a> document.</p>
 </blockquote>
 
 <h2 id="caching">Caching</h2>
@@ -1058,7 +1058,7 @@ Authorization: Bearer {your access token}
 
 <h3 id="akamai-caching">Akamai Caching</h3>
 
-<p>NDe uses the <a href="https://www.akamai.com/us/en/cdn/" target="blank">Akamai Content Delivery Framework</a> as the Edge caching solution for public service requests. It is utilized when the client makes a request for a NDe public resource configured to go through Akamai’s Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai. It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike’s Edge router. Akamai operates on a set of configured rules that determine what resources can be cached, how long to cache the resource, and how to determine if the origin of the resource has an updated version (stale resource). Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time. Listed below are the Production domains that are routed to Akamai’s Edge caching server:</p>
+<p>NDe uses the <a href="https://www.akamai.com/us/en/cdn/" target="new-tab">Akamai Content Delivery Framework</a> as the Edge caching solution for public service requests. It is utilized when the client makes a request for a NDe public resource configured to go through Akamai’s Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai. It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike’s Edge router. Akamai operates on a set of configured rules that determine what resources can be cached, how long to cache the resource, and how to determine if the origin of the resource has an updated version (stale resource). Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time. Listed below are the Production domains that are routed to Akamai’s Edge caching server:</p>
 
 <table>
   <thead>
@@ -1202,16 +1202,16 @@ Authorization: Bearer {your access token}
 </blockquote>
 
 <blockquote>
-  <p><i class="g72-link"></i> <a href="https://confluence.nike.com/display/DAHP/Caching+Strategy" target="blank">Nike Caching Strategy</a></p>
+  <p><i class="g72-link"></i> <a href="https://confluence.nike.com/display/DAHP/Caching+Strategy" target="new-tab">Nike Caching Strategy</a></p>
 </blockquote>
 
 <blockquote>
-  <p><i class="g72-link"></i> <a href="https://confluence.nike.com/display/DAHP/Akamai" target="blank">Akamai Technical Reference</a></p>
+  <p><i class="g72-link"></i> <a href="https://confluence.nike.com/display/DAHP/Akamai" target="new-tab">Akamai Technical Reference</a></p>
 </blockquote>
 
 <h2 id="cors">CORS</h2>
 
-<p>Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error. One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. http://api.nike.com) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS" target="blank">HTTP Access Control CORS</a>.</p>
+<p>Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error. One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. http://api.nike.com) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS" target="new-tab">HTTP Access Control CORS</a>.</p>
 
 <h3 id="implementation-recommendations">Implementation Recommendations</h3>
 
@@ -1508,7 +1508,7 @@ Authorization: Bearer {your access token}
 
 <h3 id="which-json-field-had-the-error">Which JSON Field Had The Error?</h3>
 
-<p>NDe uses the <a href="https://tools.ietf.org/html/rfc6901" target="blank">JSON Pointer</a> standard to indicate which field of the request JSON had the error.</p>
+<p>NDe uses the <a href="https://tools.ietf.org/html/rfc6901" target="new-tab">JSON Pointer</a> standard to indicate which field of the request JSON had the error.</p>
 
 <p>For example, in the error response from the Carts API you can see the field indicated as <code class="highlighter-rouge">/request/items/0/contactInfo/email</code>:</p>
 
@@ -1611,15 +1611,15 @@ Authorization: Bearer {your access token}
 
 <h4 id="member">Member</h4>
 
-<p>Nike members have previously registered a <a href="https://www.nike.com/us/en_us/e/nike-plus-membership" target="blank">Nike+</a> account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an <em>access token</em> must be obtained from Nike Unite services and included in the <strong>Authorization</strong> request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on our business rules.</p>
+<p>Nike members have previously registered a <a href="https://www.nike.com/us/en_us/e/nike-plus-membership" target="new-tab">Nike+</a> account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an <em>access token</em> must be obtained from Nike Unite services and included in the <strong>Authorization</strong> request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on our business rules.</p>
 
 <h4 id="guest">Guest</h4>
 
-<p>The guest user has not logged in with their Nike+ account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would. For API calls involving guests, the <strong>nike-visitor-id</strong> and <strong>appId</strong> headers must be included with the request. The <strong>nike-visitor-id</strong> header value is a UUID that you get by calling Nike Unite’s <a href="https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()" target="blank">getVisitData</a> function in their SDK. The <strong>appId</strong> header value is the identifier for your app.</p>
+<p>The guest user has not logged in with their Nike+ account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would. For API calls involving guests, the <strong>nike-visitor-id</strong> and <strong>appId</strong> headers must be included with the request. The <strong>nike-visitor-id</strong> header value is a UUID that you get by calling Nike Unite’s <a href="https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()" target="new-tab">getVisitData</a> function in their SDK. The <strong>appId</strong> header value is the identifier for your app.</p>
 
 <h4 id="employee">Employee</h4>
 
-<p>The third type of user is an employee of Nike or one of it’s subsidiaries (or an immediate family member of said employee) who has logged in with their <a href="http://www.swoosh.com" target="blank">Swoosh</a> account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest. For API calls involving employees, the same <strong>Authorization</strong> request header is used like for members.</p>
+<p>The third type of user is an employee of Nike or one of it’s subsidiaries (or an immediate family member of said employee) who has logged in with their <a href="http://www.swoosh.com" target="new-tab">Swoosh</a> account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest. For API calls involving employees, the same <strong>Authorization</strong> request header is used like for members.</p>
 
 <h2 id="testing">Testing</h2>
 
@@ -1642,7 +1642,7 @@ Authorization: Bearer {your access token}
     <p>Use the Nike Developer Portal ‘TRY IT NOW’ feature to initiate calls from within a browser.</p>
   </li>
   <li>
-    <p>Use the <a href="https://www.getpostman.com/" target="blank">Postman</a> REST client or a similar tool to test sending HTTP requests.</p>
+    <p>Use the <a href="https://www.getpostman.com/" target="new-tab">Postman</a> REST client or a similar tool to test sending HTTP requests.</p>
   </li>
   <li>
     <p>Locate a small set of production skuId’s to use. Reuse them whenever possible.</p>
@@ -1651,7 +1651,7 @@ Authorization: Bearer {your access token}
     <p>For Checkout API’s, use the same set of line item ‘id’ values for all requests. They only need to be unique with a particular request.</p>
   </li>
   <li>
-    <p>Use an <a href="https://www.uuidgenerator.net/" target="blank">online UUID generator</a> to quickly generate UUID’s.</p>
+    <p>Use an <a href="https://www.uuidgenerator.net/" target="new-tab">online UUID generator</a> to quickly generate UUID’s.</p>
   </li>
   <li>
     <p>To save time, modify the sample requests in the API guide rather than building your own.</p>
@@ -1671,7 +1671,7 @@ Authorization: Bearer {your access token}
     <p>Find the <strong>X-B3-TraceId</strong> response header, which contains the Trace ID for the request, e.g. b2490b12cd639e7c. Copy the value to your clipboard.</p>
   </li>
   <li>
-    <p>Navigate to <a href="https://nike.splunkcloud.com/en-US/app/nike_search/search" target="blank">Splunk search page</a>.</p>
+    <p>Navigate to <a href="https://nike.splunkcloud.com/en-US/app/nike_search/search" target="new-tab">Splunk search page</a>.</p>
   </li>
   <li>
     <p>Paste in the Trace ID and execute the query. Once results start coming in, look for error messages or other clues as to what happened with your request.</p>
@@ -1682,7 +1682,7 @@ Authorization: Bearer {your access token}
 
 <h3 id="inspect-browser-activity-in-a-live-experience">Inspect Browser Activity in a Live Experience</h3>
 
-<p>Use your browser’s built-in tools for inspecting the web service calls which occur for a live Nike experience like <a href="https://www.nike.com/launch" target="blank">SNKRS Web</a>. Sometimes seeing what other experiences are doing might address your question or concern. For example, to follow the order of calls made when changing a shipping address during checkout:</p>
+<p>Use your browser’s built-in tools for inspecting the web service calls which occur for a live Nike experience like <a href="https://www.nike.com/launch" target="new-tab">SNKRS Web</a>. Sometimes seeing what other experiences are doing might address your question or concern. For example, to follow the order of calls made when changing a shipping address during checkout:</p>
 
 <ol>
   <li>Right-click anywhere in browser main window, select <code class="highlighter-rouge">Inspect</code>.</li>

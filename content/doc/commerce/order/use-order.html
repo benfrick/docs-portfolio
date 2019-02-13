@@ -74,7 +74,7 @@ request to <a href="#step-2-list-order-details-for-a-member-or-guest">list order
 
 <h2 id="step-1-list-a-members-orders">Step 1: List a member’s orders</h2>
 
-<p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF Order Summary API</a> to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.</p>
+<p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="new-tab">BFF Order Summary API</a> to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.</p>
 
 <p>This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest’s order, see <a href="#step-2-list-order-details-for-a-member-or-guest">List
 order details for a member or guest</a>.</p>
@@ -181,14 +181,14 @@ of a member’s orders are returned. While some filters only allow one value, yo
 
 <h3 id="parsing-the-response">Parsing the Response</h3>
 
-<p>The BFF Order Summary JSON response contains several fields relating to status. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail about how status is determined and the suggested order statuses to display in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF Order Summary API</a> for a full list of fields returned in the response.</p>
+<p>The BFF Order Summary JSON response contains several fields relating to status. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail about how status is determined and the suggested order statuses to display in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="new-tab">BFF Order Summary API</a> for a full list of fields returned in the response.</p>
 
 <h2 id="step-2-list-order-details-for-a-member-or-guest">Step 2: List order details for a member or guest</h2>
 
 <p>Use the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api">BFF Order Details API</a> to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see <a href="#step-1-list-a-members-orders">List a member’s orders</a>.</p>
 
 <blockquote>
-  <p>TIP: The BFF Order Details API does not return image URL but you can call the <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color" target="blank">Merchandised Product API</a> using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.</p>
+  <p>TIP: The BFF Order Details API does not return image URL but you can call the <a href="https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color" target="new-tab">Merchandised Product API</a> using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.</p>
 </blockquote>
 
 <p>The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
@@ -247,7 +247,7 @@ is a member, guest, or employee. For more information, see <a href="#required-re
 
 <h3 id="parsing-the-response-1">Parsing the Response</h3>
 
-<p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail about how status is determined and the suggested order statuses to display in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="blank">BFF Order Details API</a> for a full list of fields returned in the response.</p>
+<p>The BFF Order Details JSON response contains several fields relating to status. See <a href="#understanding-order-status">Understanding Order Status</a> for more detail about how status is determined and the suggested order statuses to display in your experience. See the <a href="https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api" target="new-tab">BFF Order Details API</a> for a full list of fields returned in the response.</p>
 
 <h2 id="understanding-order-status">Understanding Order Status</h2>
 
@@ -1137,12 +1137,12 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="blank">BFF ORDER SUMMARY</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api" target="new-tab">BFF ORDER SUMMARY</a></td>
       <td>/order_mgmt/user_order_summary/v1</td>
       <td>GET</td>
     </tr>
     <tr>
-      <td><a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="blank">BFF ORDER DETAIL</a></td>
+      <td><a href="https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api" target="new-tab">BFF ORDER DETAIL</a></td>
       <td>/order_mgmt/user_order_detail/v1/{orderNumber}</td>
       <td>GET</td>
     </tr>
@@ -1155,7 +1155,7 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 <h3 id="conditions-for-retries">Conditions for Retries</h3>
 
-<p>For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors" target="blank">API Error Patterns</a> on Confluence.</p>
+<p>For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see <a href="https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors" target="new-tab">API Error Patterns</a> on Confluence.</p>
 
 <h3 id="test-environment">Test Environment</h3>
 
@@ -1181,7 +1181,7 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
     <p>Use a Splunk query (requires access) to check for issues with your request.</p>
   </li>
   <li>
-    <p>Contact the Orders team on the <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="blank">#mp-athena</a> Slack channel for assistance.</p>
+    <p>Contact the Orders team on the <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="new-tab">#mp-athena</a> Slack channel for assistance.</p>
   </li>
 </ul>
 
@@ -1296,7 +1296,7 @@ authorization
 
 <p><strong>Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?</strong></p>
 
-<p>Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="blank">#mp-athena</a> for help.</p>
+<p>Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike’s bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel <a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="new-tab">#mp-athena</a> for help.</p>
 
 <h2 id="contacting-the-team">Contacting the Team</h2>
 
@@ -1306,11 +1306,11 @@ authorization
   <tbody>
     <tr>
       <td>Slack</td>
-      <td><a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="blank">#mp-athena</a></td>
+      <td><a href="https://nikedigital.slack.com/messages/C1H7ZM7J4" target="new-tab">#mp-athena</a></td>
     </tr>
     <tr>
       <td>Confluence Space</td>
-      <td><a href="https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP" target="blank">Order Management</a></td>
+      <td><a href="https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP" target="new-tab">Order Management</a></td>
     </tr>
     <tr>
       <td>Team Contacts</td>
@@ -1318,7 +1318,7 @@ authorization
     </tr>
     <tr>
       <td>Intake</td>
-      <td>Please fill out an <a href="https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&amp;RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake" target="blank">intake form</a> to initiate a requirement request. For more information, see the <a href="https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process" target="blank">Marketplace Platform Intake Process</a>.</td>
+      <td>Please fill out an <a href="https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&amp;RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake" target="new-tab">intake form</a> to initiate a requirement request. For more information, see the <a href="https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process" target="new-tab">Marketplace Platform Intake Process</a>.</td>
     </tr>
   </tbody>
 </table>

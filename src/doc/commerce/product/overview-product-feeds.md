@@ -33,7 +33,7 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
     <h5>APIs:</h5>
     <ul>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="_blank">Product Feeds V2</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="new-tab">Product Feeds V2</a> <span class="guide-details-li-text"></span>
         </li>
     </ul>
 </aside>
@@ -45,4 +45,4 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
 
 #### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="new-tab"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
