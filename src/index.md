@@ -3,12 +3,11 @@ title: NDe Docs Home
 url: /index.html
 ---
 
-# NDe Commerce Docs &nbsp;<i class="g72-swoosh"></i>
+# NDe Docs &nbsp;<i class="g72-swoosh"></i>
 
 ---
 
 Explore the guides below to get familiar with product features and experience how real-world use cases can accelerate your development cycle.
-
 
 <div class="ncss-container">
     <div class="ncss-row" style="padding-top:10px;">

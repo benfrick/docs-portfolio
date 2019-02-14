@@ -8,7 +8,7 @@ excluded_in_search: true
 
 ---
 
-Hi, we are the NDe Doc Team! We document technologies for the [Nike Developer Portal](/){:target="new-tab"} and more, in order to **enhance the developer experience**.
+Hi, we are the NDe Doc Team! We document technologies for the Nike Developer Portal and more, in order to **enhance the developer experience**.
 
 The documentation serves many audiences. Here are four:
 
