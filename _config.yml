@@ -16,6 +16,15 @@ timezone: Etc/UTC
 exclude:
   - templates/
 
+plugins:
+# minifies html, css, js
+   - jekyll-minifier
+
+# jekyll-minifier doesn't seem to work without this setting related to ES6 syntax
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+
 defaults:
   -
     scope:
