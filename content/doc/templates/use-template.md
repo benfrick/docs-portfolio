@@ -119,7 +119,7 @@ CURL goes here
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[]({url for API Reference}){:target="blank"}|`/product_feed/collection_terms/v2{?filter,searchTerms,sort,anchor,count}`||
+|[]({url for API Reference}){:target="new-tab"}|`/product_feed/collection_terms/v2{?filter,searchTerms,sort,anchor,count}`||
 
 ## Best Practices
 
@@ -127,7 +127,7 @@ Listed below are some best practices for working with Collections.
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="blank"} on Confluence.
+For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
 
 ### Test Environment
 
@@ -147,7 +147,7 @@ None of the endpoints described in this document support caching.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the {} team on the [#slack-channel]({url for slack channel}){:target="blank"} Slack channel for assistance.
+- Contact the {} team on the [#slack-channel]({url for slack channel}){:target="new-tab"} Slack channel for assistance.
 
 ## Terms of Service
 <!--
@@ -194,8 +194,8 @@ Answer 1
 Need to contact the {} team?
 
 |---|---|
-|Slack|[](){:target="blank"}|
-|Confluence Space|[](){:target="blank"}|
+|Slack|[](){:target="new-tab"}|
+|Confluence Space|[](){:target="new-tab"}|
 |Team Contacts|Person1 (Person1 email)|
 
 ## Glossary

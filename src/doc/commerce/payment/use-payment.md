@@ -65,7 +65,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [
 |SLA response time (rt) and requests per second (rps)|Payment Applepay rt: 350ms rps:40<br>Payment Approval rt: 250ms rps: 200<br>Payment Credit Card Submit ?ms<br>Payment Deferred Payment ?ms<br>Payment Options rt: 250ms rps:700<br>Payment Preview rt: 250ms rps:300<br>Stored Payment ?ms<br>Payment Wallet rt: 300ms rps: 200|
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using-nike-apis.html#registration)|
-|Contact Info|Slack [#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="blank"}<br>Confluence space: [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="blank"}<br>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
+|Contact Info|Slack [#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="new-tab"}<br>Confluence space: [CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="new-tab"}<br>Product Owner: [Sree Krishna](mailto:sree.krishna@nike.com)|
 
 >**TIP:** SLAs vary per endpoint for the Payment APIs. In the figures listed above, the highest response time and lowest requests per second *for the API overall* were shown.
 
@@ -138,91 +138,91 @@ In this flow, the customer chooses to pay by a payment method that will be autho
 
 ## API Endpoint Quick Reference
 
-For source code, visit the [Payment Repository](https://bitbucket.nike.com/projects/PHYLPAY){:target="blank"}.
+For source code, visit the [Payment Repository](https://bitbucket.nike.com/projects/PHYLPAY){:target="new-tab"}.
 
 ### PAYMENT APPLEPAY
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[START APPLE PAY SESSION](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api){:target="blank"}|/payment/applepay_sessions/v2/|POST|
+|[START APPLE PAY SESSION](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api){:target="new-tab"}|/payment/applepay_sessions/v2/|POST|
 
 ### PAYMENT APPROVAL
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="blank"}|/payment/approval/v2/|POST|
-|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="blank"}|/payment/approval/v2/{id}|PUT|
-|[RETRIEVE PAYMENT APPROVAL JOB](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="blank"}|/payment/approval/v2/jobs/{id}|GET|
-|[ORDER PAYMENTS APPROVAL RESULT](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="blank"}|/payment/approval_results/v2/{id}|GET|
-|[VOID PAYMENT APPROVAL](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="blank"}|/payment/approval_results/v2/|DELETE|
-|[GET PAYMENT APPROVAL SUMMARY](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="blank"}|/payment/approval_summary/v1/{id}|GET|
+|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="new-tab"}|/payment/approval/v2/|POST|
+|[SUBMIT ORDER PAYMENTS FOR APPROVAL](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="new-tab"}|/payment/approval/v2/{id}|PUT|
+|[RETRIEVE PAYMENT APPROVAL JOB](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="new-tab"}|/payment/approval/v2/jobs/{id}|GET|
+|[ORDER PAYMENTS APPROVAL RESULT](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="new-tab"}|/payment/approval_results/v2/{id}|GET|
+|[VOID PAYMENT APPROVAL](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="new-tab"}|/payment/approval_results/v2/|DELETE|
+|[GET PAYMENT APPROVAL SUMMARY](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api){:target="new-tab"}|/payment/approval_summary/v1/{id}|GET|
 
 ### PAYMENT CREDIT CARD SUBMIT
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[GET CREDIT CARD INFO WITH CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/services/{id}|GET|
-|[GET CREDIT CARD INFO WITHOUT CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/services/add{?id, language}|GET|
-|[GET CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/services/cvv{?id}|GET|
-|[GET EXPIRY DATE AND CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/services/expcvv{?id}|GET|
-|[VALIDATE CREDIT CARD PERSISTENCE](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/creditcardsubmit/{id}/isValid{?mode}|GET|
-|[STORE CREDIT CARD INFO](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/creditcardsubmit/{id}/store|POST|
-|[GET CREDIT CARD INFO BY ID](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/creditcardsubmit/{id}|GET|
-|[VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="blank"}|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
+|[GET CREDIT CARD INFO WITH CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/services/{id}|GET|
+|[GET CREDIT CARD INFO WITHOUT CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/services/add{?id, language}|GET|
+|[GET CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/services/cvv{?id}|GET|
+|[GET EXPIRY DATE AND CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/services/expcvv{?id}|GET|
+|[VALIDATE CREDIT CARD PERSISTENCE](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/creditcardsubmit/{id}/isValid{?mode}|GET|
+|[STORE CREDIT CARD INFO](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/creditcardsubmit/{id}/store|POST|
+|[GET CREDIT CARD INFO BY ID](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/creditcardsubmit/{id}|GET|
+|[VALIDATE CREDIT CARD PERSISTENCE BY ID AND MODE](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api){:target="new-tab"}|/creditcardsubmit/{id}/isValidDate{?mode}|GET|
 
 ### PAYMENT DEFERRED PAYMENT
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="blank"}|/payment/deferred_wechat_payments/v1|POST|
-|[GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="blank"}|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
-|[DEFERRED PAYMENT FORM](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="blank"}|/payment/deferred_payment_forms/v1|POST|
-|[DEFERRED PAYMENT FORM JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="blank"}|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
-|[DEFERRED PAYMENT STATUS](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="blank"}|/payment/deferred_payment_status/v1|POST|
-|[DEFERRED PAYMENT STATUS JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="blank"}|/payment/deferred_payment_status/v1/jobs/{id}|GET|
+|[DEFERRED PAYMENT FOR WECHAT WITH CODE REQUIRED](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="new-tab"}|/payment/deferred_wechat_payments/v1|POST|
+|[GET DEFERRED PAYMENT WECHAT JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="new-tab"}|/payment/deferred_wechat_payments/v1/jobs/{id}|GET|
+|[DEFERRED PAYMENT FORM](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="new-tab"}|/payment/deferred_payment_forms/v1|POST|
+|[DEFERRED PAYMENT FORM JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="new-tab"}|/payment/deferred_payment_forms/v1/jobs/{id}|GET|
+|[DEFERRED PAYMENT STATUS](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="new-tab"}|/payment/deferred_payment_status/v1|POST|
+|[DEFERRED PAYMENT STATUS JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api){:target="new-tab"}|/payment/deferred_payment_status/v1/jobs/{id}|GET|
 
 ### PAYMENT OPTIONS
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[GET PAYMENT OPTIONS FOR AN ORDER](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="blank"}|/payment/options/v2|POST|
-|[ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="blank"}|/payment/options/v2/{shippingCountry}|GET|
-|[VALIDATE PAYMENTS](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="blank"}|/payment/validate_payments/v2|POST|
+|[GET PAYMENT OPTIONS FOR AN ORDER](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="new-tab"}|/payment/options/v2|POST|
+|[ALLOWABLE BILLING COUNTRIES FOR A SHIPPING COUNTRY](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="new-tab"}|/payment/options/v2/{shippingCountry}|GET|
+|[VALIDATE PAYMENTS](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api){:target="new-tab"}|/payment/validate_payments/v2|POST|
 
 ### PAYMENT PREVIEW
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[PAYMENT PREVIEW](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api){:target="blank"}|/payment/preview/v2|POST|
-|[PAYMENT PREVIEW RESULT BY ID](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api){:target="blank"}|/payment/preview_results/v2/{id}|GET|
-|[PAYMENT PREVIEW JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api){:target="blank"}|/payment/preview/v2/jobs/{id}|GET|
+|[PAYMENT PREVIEW](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api){:target="new-tab"}|/payment/preview/v2|POST|
+|[PAYMENT PREVIEW RESULT BY ID](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api){:target="new-tab"}|/payment/preview_results/v2/{id}|GET|
+|[PAYMENT PREVIEW JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api){:target="new-tab"}|/payment/preview/v2/jobs/{id}|GET|
 
 ### STORED PAYMENT
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[INITIATE PAYPAL BILLING AGREEMENT](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/paypalagreement|GET|
-|[SAVE PAYMENT BY USER PROFILE](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/savepayment|POST|
-|[DELETE STORED PAYMENTS BY USER PROFILE](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments|DELETE|
-|[FETCH STORED PAYMENTS BY USER PROFILE](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments|POST|
-|[UPDATE CREDIT CARD DETAILS](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments/{payment_id}|PUT|
-|[DELETE PAYMENT BY ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments/{payment_id}|DELETE|
-|[FETCH STORED PAYMENT BY ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments/{payment_id}|GET|
-|[VALIDATE CVV FOR SHIPPING ADDRESS](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments/{payment_id}|POST|
-|[FETCH GIFT CARD BY ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments/giftcard/{payment_id}|GET|
-|[CREATE/UPDATE ATG PAYMENT](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments/synch|POST|
-|[DELETE ATG PAYMENT](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="blank"}|/consumer/storedpayments/synch/{payment_token}|DELETE|
+|[INITIATE PAYPAL BILLING AGREEMENT](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/paypalagreement|GET|
+|[SAVE PAYMENT BY USER PROFILE](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/savepayment|POST|
+|[DELETE STORED PAYMENTS BY USER PROFILE](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments|DELETE|
+|[FETCH STORED PAYMENTS BY USER PROFILE](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments|POST|
+|[UPDATE CREDIT CARD DETAILS](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments/{payment_id}|PUT|
+|[DELETE PAYMENT BY ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments/{payment_id}|DELETE|
+|[FETCH STORED PAYMENT BY ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments/{payment_id}|GET|
+|[VALIDATE CVV FOR SHIPPING ADDRESS](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments/{payment_id}|POST|
+|[FETCH GIFT CARD BY ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments/giftcard/{payment_id}|GET|
+|[CREATE/UPDATE ATG PAYMENT](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments/synch|POST|
+|[DELETE ATG PAYMENT](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}|/consumer/storedpayments/synch/{payment_token}|DELETE|
 
 ### PAYMENT WALLET
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[PAYPAL DETAILS](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="blank"}|/payment/paypal_details/v1|POST|
-|[PAYPAL DETAIL JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="blank"}|/payment/paypal_details/v1/jobs/{id}|GET|
-|[PAYPAL EXPRESS](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="blank"}|/payment/paypal_express/v1|POST|
-|[PAYPAL EXPRESS JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="blank"}|/payment/paypal_express/v1/jobs/{v1}|GET|
-|[PAYPAL MARK](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="blank"}|/payment/paypal_mark/v1|POST|
-|[PAYPAL MARK JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="blank"}|/payment/paypal_mark/v1/jobs/{id}|GET|
+|[PAYPAL DETAILS](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="new-tab"}|/payment/paypal_details/v1|POST|
+|[PAYPAL DETAIL JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="new-tab"}|/payment/paypal_details/v1/jobs/{id}|GET|
+|[PAYPAL EXPRESS](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="new-tab"}|/payment/paypal_express/v1|POST|
+|[PAYPAL EXPRESS JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="new-tab"}|/payment/paypal_express/v1/jobs/{v1}|GET|
+|[PAYPAL MARK](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="new-tab"}|/payment/paypal_mark/v1|POST|
+|[PAYPAL MARK JOB STATUS BY ID](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api){:target="new-tab"}|/payment/paypal_mark/v1/jobs/{id}|GET|
 
 ## Caching Data
 
@@ -1553,7 +1553,7 @@ Use this endpoint to list a details for a customer's saved gift card. This is a 
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"})|String|Required|
+|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"})|String|Required|
 |**currency**|Query|ISO currency code|String|Optional|
 
 #### Request Headers
@@ -1633,7 +1633,7 @@ This is a synchronous service.
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"})|String|Required|
+|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"})|String|Required|
 
 #### Request Headers
 
@@ -1760,7 +1760,7 @@ This is a synchronous endpoint.
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"}) of Stored Payment to make default|String|Required|
+|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"}) of Stored Payment to make default|String|Required|
 
 #### Request Headers
 
@@ -1828,7 +1828,7 @@ Use this endpoint to delete a stored payment by id. For example, this endpoint w
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**payment_id**|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"}) of the Stored Payment to delete|String|Required|
+|**payment_id**|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"}) of the Stored Payment to delete|String|Required|
 
 #### Request Headers
 
@@ -1887,7 +1887,7 @@ This endpoint validates a CVV based on the request shipping address. If the ship
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"}) for this Stored Payment|String|Required|
+|**payment_id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"}) for this Stored Payment|String|Required|
 
 #### Request Headers
 
@@ -2036,10 +2036,10 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 |Element Name|Type|Description|Required?|
 |---|---|---|---|
-|**checkoutId**|string|Checkout [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} payments are associated to. Typically generated by [Checkout API](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout).|Required|
+|**checkoutId**|string|Checkout [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} payments are associated to. Typically generated by [Checkout API](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout).|Required|
 |**total**|double|Checkout total amount|Required|
 |**currency**|string|See [supported currency codes](/doc/commerce/checkout/checkout-country-currency.html)|Required|
-|**country**|string|See [supported country codes](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="blank"}|Required|
+|**country**|string|See [supported country codes](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"}|Required|
 |**clientBrowser**|string|Browser request was made from, `WECHAT` required for WeChat type, otherwise null|Optional|
 |**walletId**|string|`paymentToken` returned from [PayPal Mark](#paypal-mark) endpoint,required for PayPal Mark|Optional|
 |**items**|array|Array of Checkout `items`. Each of the `items` has a UUID `productId` and `shippingAddress` object|Required|
@@ -2583,7 +2583,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"}) for the job|String|Required|
+|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"}) for the job|String|Required|
 |**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|String|Optional|
 
 #### Request Headers
@@ -2624,7 +2624,7 @@ After calling the *Payment Preview* to start the job and *Payment Preview Job* t
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"}) for the job|String|Required|
+|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"}) for the job|String|Required|
 |**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|String|Optional|
 
 #### Request Headers
@@ -3232,7 +3232,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"}) for the job|String|Required|
+|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"}) for the job|String|Required|
 
 #### Request Headers
 
@@ -3290,7 +3290,7 @@ After calling *Submit Checkouts Payment for Approval* to start the job and *Retr
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"})|String|Required|
+|**id**|Path|Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"})|String|Required|
 
 #### Request Headers
 
@@ -3397,7 +3397,7 @@ This endpoint voids a Payment Approval request. If a credit card was used in the
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|payment approval Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"})|String|Required|
+|**id**|Path|payment approval Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"})|String|Required|
 
 #### Request Headers
 
@@ -3445,7 +3445,7 @@ If the Payment Approval result is not either in `ACCEPT` or `PENDING_PAYMENT` st
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|payment approval Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"})|String|Required|
+|**id**|Path|payment approval Unique identifier ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"})|String|Required|
 
 #### Request Headers
 
@@ -3734,7 +3734,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 
 #### Request Headers
 
@@ -3772,7 +3772,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 |**language**|Query|BCP 47 language-country tag associated with this Checkout, en-IE|String|Optional|
 
 #### Request Headers
@@ -3811,7 +3811,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 
 #### Request Headers
 
@@ -3849,7 +3849,7 @@ This endpoint is intended to be called by experiences that are not [PCI-certifie
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Query|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 
 #### Request Headers
 
@@ -3887,7 +3887,7 @@ This endpoint is typically called immediately after the [Store Credit Card Info]
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 |**mode**|Query|flag indicating which credit card fields to validate. default is 1<br>1 = credit card number, expiration month and year, cvv<br>2 = credit card number, expiration month and year<br>3 = cvv<br>4 = expiration month and year, cvv|String|Optional|
 
 #### Request Headers
@@ -3969,7 +3969,7 @@ This endpoint temporarily stores credit card information for validation and purc
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 
 #### Request Headers
 
@@ -4028,7 +4028,7 @@ This endpoint updates and retrieves masked credit card information for a creditC
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 
 #### Request Headers
 
@@ -4103,7 +4103,7 @@ This endpoint retrieves masked credit card information and validation status of 
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 |mode|Query|flag indicating which credit card fields to validate. default is 1<br>1 = credit card number, expiration month and year, cvv<br>2 = credit card number, expiration month and year<br>3 = cvv<br>4 = expiration month and year, cvv|String|Optional|
 
 #### Request URI
@@ -4227,7 +4227,7 @@ Use this endpoint to initiate an ApplePay session.
 |---|---|---|---|
 |**valididationURL**|string|URL to call to validate you as a merchant and initiate an Apple Pay payment session|Required|
 
->**TIP:** See the Apple Pay Developer's site for the list of supported domain names for Apple Test and Production environments for the [validationURL](https://developer.apple.com/documentation/applepayjs#2539292){:target="blank"}
+>**TIP:** See the Apple Pay Developer's site for the list of supported domain names for Apple Test and Production environments for the [validationURL](https://developer.apple.com/documentation/applepayjs#2539292){:target="new-tab"}
 
 Sample *Start Apple Pay Session* request body:
 
@@ -4455,7 +4455,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 |**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned||Optional|
 
 #### Request Headers
@@ -4737,7 +4737,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Path|creditCardInfoId in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 |**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned||Optional|
 
 #### Request Headers
@@ -4971,7 +4971,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 |Parameter|Type|Description|Data Type|Required?|
 |---|---|---|---|---|
-|**id**|Path|Job ID in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} format generated by the client|String|Required|
+|**id**|Path|Job ID in [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} format generated by the client|String|Required|
 |**fields**|Query|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned|String|Optional|
 
 ##### Request Headers
@@ -5223,7 +5223,7 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} for the job|String|Required|
+|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} for the job|String|Required|
 |**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|**Optional**|
 
 #### Request Headers
@@ -5384,7 +5384,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} for the job|String|Required|
+|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} for the job|String|Required|
 |**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|**Optional**|
 
 #### Request Headers
@@ -5448,7 +5448,7 @@ Sample *Deferred Payment Status Job* response in "COMPLETED" status:
 
 ### Deferred Payment WeChat
 
-Use this endpoint to generate the necessary values to initiate a session in the WeChat Pay Browser Phone App from the browser. See [JSAPI WeChat Browser](https://confluence.nike.com/display/ocp/jsapi+wechat+browser){:target="blank"} and [WeChat Documentation](http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html){:target="blank"} for JavaScript implementation details. Note that this endpoint should be used for the Mobile Web or Desktop/WeChat flows only. The Mobile Web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkout; the Desktop flow generates a QR code when it is time to pay for the Nike Checkout that when followed, opens the WeChat Payment App on the customer's Mobile device.
+Use this endpoint to generate the necessary values to initiate a session in the WeChat Pay Browser Phone App from the browser. See [JSAPI WeChat Browser](https://confluence.nike.com/display/ocp/jsapi+wechat+browser){:target="new-tab"} and [WeChat Documentation](http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html){:target="new-tab"} for JavaScript implementation details. Note that this endpoint should be used for the Mobile Web or Desktop/WeChat flows only. The Mobile Web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkout; the Desktop flow generates a QR code when it is time to pay for the Nike Checkout that when followed, opens the WeChat Payment App on the customer's Mobile device.
 
 #### Endpoint Details
 
@@ -5562,7 +5562,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 |Parameter|Description|Data Type|Required?|
 |---|---|---|---|
-|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="blank"} for the job|String|Required|
+|**id**|Unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier){:target="new-tab"} for the job|String|Required|
 |**fields**|comma-separated list of fields to return from the response body for a job in the COMPLETED status. If null, all response fields are returned.|String|**Optional**|
 
 #### Request Headers
@@ -5645,7 +5645,7 @@ To avoid excessive job polling of asynchronous endpoints, wait the number of mil
 
 ### Retry Conditions
 
-For all Payment APIs, the general rule is that requests resulting in a HTTP 4XX response should not be retried without modification to the request data, but HTTP 5XX errors can be retried as is. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="blank"} on Confluence.
+For all Payment APIs, the general rule is that requests resulting in a HTTP 4XX response should not be retried without modification to the request data, but HTTP 5XX errors can be retried as is. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="new-tab"} on Confluence.
 
 The exception to the 4xx response rule is the 429 response, indicating that there are too many requests coming in for the service to handle. When a service returns a 429, the call should be retried a maximum of two times, using the value returned in the `Retry-After` header to determine when to make the follow-up call.
 
@@ -5655,7 +5655,7 @@ Listed below are some techniques to troubleshoot problems using the Payment API.
 
 ### Query Splunk With a Trace ID
 
-In order to abide by PCI-compliance rules, payment logging requires special Splunk access. As a result, you can not query Splunk by Trace ID as a trouble-shooting tool to track down why a payment request failed. If need help from the Payment Team, post your problem to the [#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="blank"} Slack channel with details such as:
+In order to abide by PCI-compliance rules, payment logging requires special Splunk access. As a result, you can not query Splunk by Trace ID as a trouble-shooting tool to track down why a payment request failed. If need help from the Payment Team, post your problem to the [#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="new-tab"} Slack channel with details such as:
 
 - experience in which you encountered the error, iOS SNKRS app, nike.com web, Android SNKRS app, direct endpoint call etc.
 - time request failed
@@ -5665,7 +5665,7 @@ In order to abide by PCI-compliance rules, payment logging requires special Splu
 
 ### Inspect Browser Activity in a Live Experience
 
-Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as [SNKRS Web](http://www.nike.com/launch){:target="blank"}. Or, set up Charles and your favorite device to proxy service calls made from the Nike SNKRS or Nike+ Apps. Sometimes seeing what other experiences are doing might address your question or concern.
+Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as [SNKRS Web](http://www.nike.com/launch){:target="new-tab"}. Or, set up Charles and your favorite device to proxy service calls made from the Nike SNKRS or Nike+ Apps. Sometimes seeing what other experiences are doing might address your question or concern.
 
 >**TIP:** While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
 
@@ -5675,7 +5675,7 @@ Try using your browser's built-in tools for inspecting web service calls made fr
 |---|---|
 |Authorization (of payment)|Temporary hold on funds in a customer's account for a future charge|
 |Deferred Payment|Third-party bank through which a customer pays for their Nike order after it is placed|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="blank"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
+|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
 |Void (of payment)|reverses a successful Authorization|
 
 ### Supported Stored Payment Types
@@ -5695,7 +5695,7 @@ The Stored Payment Service supports storing these types of payment:
 
 ### Payment Options by Country
 
-See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="blank"} for a list of supported payment types by shipping and billing country.
+See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"} for a list of supported payment types by shipping and billing country.
 
 ## Document Change Log
 

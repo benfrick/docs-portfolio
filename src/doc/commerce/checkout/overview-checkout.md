@@ -39,19 +39,19 @@ The consumer finds a Nike a product that they love in your app. What happens nex
 <h5>APIs</h5>
 <ul>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="_blank">Carts</a> <span class="guide-details-li-text"></span>
+        <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="new-tab">Carts</a> <span class="guide-details-li-text"></span>
     </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="_blank">Cart Reviews</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="new-tab">Cart Reviews</a> <span class="guide-details-li-text"></span>
         </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api" target="_blank">Buy Lists</a> <span class="guide-details-li-text"></span>
+        <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api" target="new-tab">Buy Lists</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="_blank">Shipping Options</a> <span class="guide-details-li-text"></span>
+        <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="new-tab">Shipping Options</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="_blank">Checkouts</a> <span class="guide-details-li-text"></span>
+        <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="new-tab">Checkouts</a> <span class="guide-details-li-text"></span>
     </li>
 </ul>
 </aside>
@@ -68,4 +68,4 @@ The consumer finds a Nike a product that they love in your app. What happens nex
 
 #### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="new-tab"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

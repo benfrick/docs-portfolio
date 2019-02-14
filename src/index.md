@@ -72,8 +72,8 @@ Explore the guides below to get familiar with product features and experience ho
             <ul>
                 <i class="fas fa-toolbox fa-2x"></i>
                 <li class="group-header"><h4>Tools</h4></li>
-                <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="_blank"><h5>Launch Admin</h5></a></li>
-                <li><a href="https://adminops-int.prod.commerce.nikecloud.com/apollov1" target="_blank"><h5>Search Admin</h5></a></li>
+                <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="new-tab"><h5>Launch Admin</h5></a></li>
+                <li><a href="https://adminops-int.prod.commerce.nikecloud.com/apollov1" target="new-tab"><h5>Search Admin</h5></a></li>
                 <li><a href="/doc/commerce/uxf/overview-uxf.html"><h5>NCSS</h5></a></li>
             </ul>
         </div>
