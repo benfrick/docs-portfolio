@@ -51,7 +51,7 @@ url: /commerce/reference/glossary.html
 |URL|Univeral Resource Locator|
 |UUID|Universal Unique Identifier|
 |VAS|Value-Added Service associated with a product in a checkout.  Gift wrap and the ability to customize a product are examples of VAS|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="blank"}|Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data. All Nike CiC payment services are PCI-DSS compliant.|
+|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data. All Nike CiC payment services are PCI-DSS compliant.|
 |Void (of payment)|Reverses a successful payment authorization|
 
 ## Related Links

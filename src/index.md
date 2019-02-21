@@ -3,12 +3,11 @@ title: NDe Docs Home
 url: /index.html
 ---
 
-# NDe Commerce Docs &nbsp;<i class="g72-swoosh"></i>
+# NDe Docs &nbsp;<i class="g72-swoosh"></i>
 
 ---
 
 Explore the guides below to get familiar with product features and experience how real-world use cases can accelerate your development cycle.
-
 
 <div class="ncss-container">
     <div class="ncss-row" style="padding-top:10px;">
@@ -27,16 +26,8 @@ Explore the guides below to get familiar with product features and experience ho
                 <i class="fas fa-search fa-2x"></i>
                 <li class="group-header"><h4>Discover</h4></li>
                 <li><a href="/doc/commerce/search/use-search.html"><h5>Search</h5></a></li>
-                <!--<li><a href="#"><h5>Taxonomy</h5></a></li>-->
             </ul>
         </div>
-        <!--<div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
-            <ul>
-                <i class="fas fa-rocket fa-2x"></i>
-                <li class="group-header"><h4>Launch</h4></li>
-                <li><a href="#"><h5>Product Launch</h5></a></li>
-            </ul>
-        </div>-->
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
                 <i class="fas fa-shopping-cart fa-2x"></i>
@@ -46,21 +37,6 @@ Explore the guides below to get familiar with product features and experience ho
                 <!--<li><a href="#"><h5>Customization</h5></a></li>-->
             </ul>
         </div>
-        <!--<div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
-            <ul>
-                <i class="fas fa-tshirt fa-2x"></i>
-                <li class="group-header"><h4>Merchandise</h4></li>
-                <li><a href="#"><h5>Content Management</h5></a></li>
-            </ul>
-        </div>-->
-        <!--<div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
-            <ul>
-                <i class="fas fa-shipping-fast fa-2x"></i>
-                <li class="group-header"><h4>Fulfill</h4></li>
-                <li><a href="#"><h5>Order Management</h5></a></li>
-                <li><a href="#"><h5>Inventory</h5></a></li>
-            </ul>
-        </div>-->
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
                 <i class="fas fa-list-ul fa-2x"></i>
@@ -86,7 +62,7 @@ Explore the guides below to get familiar with product features and experience ho
             <ul>
                 <i class="fas fa-sitemap fa-2x"></i>
                 <li class="group-header"><h4>Taxonomy</h4></li>
-                <li><a href="/doc/taxonomy/overview-taxonomy-tagging.html" target="_blank"><h5>TTAC</h5></a></li>
+                <li><a href="/doc/taxonomy/overview-taxonomy-tagging.html"><h5>TTAC</h5></a></li>
             </ul>
         </div>
     </div>
@@ -95,8 +71,8 @@ Explore the guides below to get familiar with product features and experience ho
             <ul>
                 <i class="fas fa-toolbox fa-2x"></i>
                 <li class="group-header"><h4>Tools</h4></li>
-                <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="_blank"><h5>Launch Admin</h5></a></li>
-                <li><a href="https://adminops-int.prod.commerce.nikecloud.com/apollov1" target="_blank"><h5>Search Admin</h5></a></li>
+                <li><a href="https://adminops.prod.commerce.nikecloud.com/launchadminv2/search" target="new-tab"><h5>Launch Admin</h5></a></li>
+                <li><a href="https://adminops-int.prod.commerce.nikecloud.com/apollov1" target="new-tab"><h5>Search Admin</h5></a></li>
                 <li><a href="/doc/commerce/uxf/overview-uxf.html"><h5>NCSS</h5></a></li>
             </ul>
         </div>
@@ -113,20 +89,20 @@ Explore the guides below to get familiar with product features and experience ho
     <div class="ncss-row">
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-sm">
             <ul>
-            <i class="fas fa-play-circle fa-3x"></i>
-            <li class="group-header"><h4><a href="/doc/getting-started/get-started.html">Get Started</a></h4></li>
+            <i class="fas fa-play-circle fa-2x"></i>
+            <li class="group-header"><a href="/doc/getting-started/get-started.html"><h5>Get Started</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-sm">
             <ul>
-            <i class="far fa-comments fa-3x"></i>
-            <li class="group-header"><h4><a href="/doc/portal/community.html">Community</a></h4></li>
+            <i class="far fa-comments fa-2x"></i>
+            <li class="group-header"><a href="/doc/portal/community.html"><h5>Community</h5></a></li>
             </ul>
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-sm">
             <ul>
-            <i class="fas fa-book-open fa-3x"></i>
-            <li class="group-header"><h4><a href="/doc/commerce/reference/reference.html">Reference</a></h4></li>
+            <i class="fas fa-book-open fa-2x"></i>
+            <li class="group-header"><a href="/doc/commerce/reference/reference.html"><h5>Reference</h5></a></li>
             </ul>
         </div>
     </div>

@@ -41,7 +41,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/use-merch-product.html#glossary
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING MERCHANDISED PRODUCTS <br>TO YOUR EXPERIENCE
 
@@ -66,7 +66,7 @@ The following table describes the key details of the API:
 |SLAs|Response time (RT) and request per second (RPS): <br>RT: 250ms <br>RPS: 500ms|
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using-nike-apis.html#registration)|
-|Contact Info|Slack [#pdm-merch-product](https://nikedigital.slack.com/messages/pdm-merch-product){:target="blank"}<br>Confluence space: [Merchandised Products API Team](https://confluence.nike.com/collector/pages.action?key=MPA){:target="blank"}<br> Mailing List: [Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)<br>Product Owner: [Arun KannanGeetha](mailto:arun.kannangeetha@nike.com)|
+|Contact Info|Slack [#pdm-merch-product](https://nikedigital.slack.com/messages/pdm-merch-product){:target="new-tab"}<br>Confluence space: [Merchandised Products API Team](https://confluence.nike.com/collector/pages.action?key=MPA){:target="new-tab"}<br> Mailing List: [Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)<br>Product Owner: [Arun KannanGeetha](mailto:arun.kannangeetha@nike.com)|
 
 ## Terms of Service
 
@@ -91,55 +91,55 @@ If you are retrieving products that are publicly available, no authentication or
 
 For more information about each service and to try them out though the UI, visit the Nike Developer Portal through the links below.
 
-### [MERCHANDISED PRODUCT INFORMATION SERVICE](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="blank"}
+### [MERCHANDISED PRODUCT INFORMATION SERVICE](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="new-tab"}
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[MERCHANDISED PRODUCTS LIST](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="blank"}|/merch/products/v2|GET|
-|[MERCHANDISED PRODUCTS BY ID](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="blank"}|/merch/products/v2/{id}|GET|
-|[MERCHANDISED PRODUCTS CREATE](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="blank"}|/merch/product/v2|POST|
-|[MERCHANDISED PRODUCTS DELETE](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="blank"}|/merch/products/v2/{id}|DELETE|
+|[MERCHANDISED PRODUCTS LIST](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="new-tab"}|/merch/products/v2|GET|
+|[MERCHANDISED PRODUCTS BY ID](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="new-tab"}|/merch/products/v2/{id}|GET|
+|[MERCHANDISED PRODUCTS CREATE](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="new-tab"}|/merch/product/v2|POST|
+|[MERCHANDISED PRODUCTS DELETE](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api){:target="new-tab"}|/merch/products/v2/{id}|DELETE|
 
-### [MERCHANDISED SKU INFORMATION SERVICE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="blank"}
-
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|[MERCHANDISED PRODUCT SKU LIST](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="blank"}|/merch/skus/v2|GET|
-|[MERCHANDISED PRODUCT SKU BY ID](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="blank"}|/merch/skus/v2/{id}|GET|
-|[MERCHANDISED PRODUCT SKU CREATE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="blank"}|/merch/skus/v2|POST|
-|[MERCHANDISED PRODUCT SKUS DELETE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="blank"}|/merch/skus/v2|DELETE|
-|[MERCHANDISED PRODUCT SKUS DELETE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="blank"}|/merch/skus/v2/{id}|DELETE|
-
-### [MERCHANDISED PRODUCT PRICE SERVICE](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="blank"}
+### [MERCHANDISED SKU INFORMATION SERVICE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="new-tab"}
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[MERCHANDISED PRICES LIST](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="blank"}|/merch/prices/v2|GET|
-|[MERCHANDISED PRICES BY ID](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="blank"}|/merch/prices/v2/{id}|GET|
-|[MERCHANDISED PRICES CREATE](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="blank"}|/merch/prices/v2|POST|
-|[MERCHANDISED PRICES DELETE](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="blank"}|/merch/prices/v2/{id}|DELETE|
+|[MERCHANDISED PRODUCT SKU LIST](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="new-tab"}|/merch/skus/v2|GET|
+|[MERCHANDISED PRODUCT SKU BY ID](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="new-tab"}|/merch/skus/v2/{id}|GET|
+|[MERCHANDISED PRODUCT SKU CREATE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="new-tab"}|/merch/skus/v2|POST|
+|[MERCHANDISED PRODUCT SKUS DELETE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="new-tab"}|/merch/skus/v2|DELETE|
+|[MERCHANDISED PRODUCT SKUS DELETE](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api){:target="new-tab"}|/merch/skus/v2/{id}|DELETE|
 
-### [MERCHANDISED VALUE-ADDED SERVICES](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="blank"}
-
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|[MERCHANDISED VALUE ADDED SERVICES LIST](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="blank"}|/merch/value_added_services/v1|GET|
-|[MERCHANDISED VALUE ADDED SERVICES BY ID](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="blank"}|/merch/value_added_services/v1/{id}|GET|
-|[MERCHANDISED VALUE ADDED SERVICES CREATE](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="blank"}|/merch/value_added_services/v1|POST|
-|[MERCHANDISED VALUE ADDED SERVICES DELETE](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="blank"}|/merch/value_added_services/v1/{id}|DELETE|
-
-### [PRODUCT CONTENT](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}
+### [MERCHANDISED PRODUCT PRICE SERVICE](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="new-tab"}
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[PRODUCT CONTENT BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/{style-color}/content{?country,locale}|GET|
-|[PRODUCT CONTENT ITEM BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}|GET|
-|[PRODUCT CONTENT BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/content{?country,locale,stylecolors}|GET|
-|[PRODUCT CONTENT FIELD BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}|GET|
-|[PRODUCT IMAGE SET BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/{style-color}/images{?country}|GET|
-|[PRODUCT IMAGE SET BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/images{?country,stylecolors}|GET|
-|[PRODUCT BASE IMAGE URL BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
-|[PRODUCT BASE IMAGE URL BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="blank"}|/merch/contents/v1/images/base|GET|
+|[MERCHANDISED PRICES LIST](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="new-tab"}|/merch/prices/v2|GET|
+|[MERCHANDISED PRICES BY ID](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="new-tab"}|/merch/prices/v2/{id}|GET|
+|[MERCHANDISED PRICES CREATE](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="new-tab"}|/merch/prices/v2|POST|
+|[MERCHANDISED PRICES DELETE](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api){:target="new-tab"}|/merch/prices/v2/{id}|DELETE|
+
+### [MERCHANDISED VALUE-ADDED SERVICES](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="new-tab"}
+
+|Endpoint Name|Path|HTTP Method|
+|---|---|---|
+|[MERCHANDISED VALUE ADDED SERVICES LIST](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="new-tab"}|/merch/value_added_services/v1|GET|
+|[MERCHANDISED VALUE ADDED SERVICES BY ID](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="new-tab"}|/merch/value_added_services/v1/{id}|GET|
+|[MERCHANDISED VALUE ADDED SERVICES CREATE](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="new-tab"}|/merch/value_added_services/v1|POST|
+|[MERCHANDISED VALUE ADDED SERVICES DELETE](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api){:target="new-tab"}|/merch/value_added_services/v1/{id}|DELETE|
+
+### [PRODUCT CONTENT](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}
+
+|Endpoint Name|Path|HTTP Method|
+|---|---|---|
+|[PRODUCT CONTENT BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/{style-color}/content{?country,locale}|GET|
+|[PRODUCT CONTENT ITEM BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/{style-color}/content/{itemName}{?country,locale}|GET|
+|[PRODUCT CONTENT BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/content{?country,locale,stylecolors}|GET|
+|[PRODUCT CONTENT FIELD BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/content/{fieldname}{?country,locale,stylecolors}|GET|
+|[PRODUCT IMAGE SET BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/{style-color}/images{?country}|GET|
+|[PRODUCT IMAGE SET BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/images{?country,stylecolors}|GET|
+|[PRODUCT BASE IMAGE URL BY STYLE COLOR](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/{styleColor}/images/base{?country}|GET|
+|[PRODUCT BASE IMAGE URL BY STYLE COLOR LIST](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api){:target="new-tab"}|/merch/contents/v1/images/base|GET|
 
 ## Consider Using Product Feeds
 
@@ -211,7 +211,7 @@ Prodigy uses a first-in-first-out queue, however an individual product update is
 
 ### Where Do I Get Inventory Information?
 
-Inventory is available via the Inventory domain. For example, product availability can be found [here](https://developer.niketech.com/docs/projects/Availability?tab=api){:target="blank"}.
+Inventory is available via the Inventory domain. For example, product availability can be found [here](https://developer.niketech.com/docs/projects/Availability?tab=api){:target="new-tab"}.
 
 ### How To Find a Current Product
 
@@ -387,7 +387,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**colorCode**|string|Code indicating Nike color|Required|
 |**styleColor**|string|Concatenation of **styleCode**-**colorCode**|Required|
 |**pid**|string|Product ID from legacy system used to map to the product UUID|Required|
-|**catalogId**|string|Catalog ID in UUID format from the [Catalog Product](https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api){:target="blank"} service, will eventually replace **legacyCatalogIds**|Optional|
+|**catalogId**|string|Catalog ID in UUID format from the [Catalog Product](https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api){:target="new-tab"} service, will eventually replace **legacyCatalogIds**|Optional|
 |**productGroupId**|string|ID used to group products together such as products with the same styleCode, from legacy system|Optional|
 |**nikeIdStyleCode**|string|Nike ID style code, only populated for products of styleType `NIKEID`|Optional|
 |**brand**|string|Nike brand associated to this product such as "Jordan"|Optional|
@@ -404,7 +404,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |customization.**nikeIdSlug**|string|NIKEiD slug code associated with this product|Optional|
 |**sportTags**|array|Array of sport tags associated with this product|Optional|
 |**widthGroupIds**|array|Group of product IDs with same style but different width, not currently used|Optional|
-|**classificationConcepts**|array|Array of Taxonomy concept objects associated with this product. See the [Taxonomy Service](https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md){:target="blank"} for more information.|Optional|
+|**classificationConcepts**|array|Array of Taxonomy concept objects associated with this product. See the [Taxonomy Service](https://bitbucket.nike.com/projects/TAX/repos/taxonomy/browse/API-v2.md){:target="new-tab"} for more information.|Optional|
 |classificationConcepts.**broaderConceptId**|string|UUID of the broad Taxonomy concept associated with this product, e.g. `Platinum Tint`|Required|
 |classificationConcepts.**narrowerConceptIds**|array|Array of narrower Taxonomy concept UUIDs associated with this product|Required|
 |**commerceCountryInclusions**|array|Array of ISO2 country codes where this product can be sold, e.g. CN,JP|Optional|
@@ -558,7 +558,7 @@ https://api.nike.com/merch/skus/v2/?filter=productid(ab9c9789-1a35-503c-8a22-95a
 |**productId**|string|ID of the product (as passed in the query parameter)|Required|
 |**parentId**|string|Same as the productId if the SKUs product has no parent|Optional|
 |**parentType**|string|Type of parent product. In the current version, this is always merchProduct.|Optional|
-|**catalogSkuId**|string|UUID of catalog product. See [Product Catalog Service](https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api){:target="blank"} for more information.|Optional|
+|**catalogSkuId**|string|UUID of catalog product. See [Product Catalog Service](https://developer.niketech.com/docs/projects/Product%20Catalog%20V3?tab=api){:target="new-tab"} for more information.|Optional|
 |**modificationDate**|string|Date the SKU was last modified|Required|
 |**merchGroup**|string|Merchandising group to which this SKU belongs. For more information on Merch Groups, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products) for a complete list|Optional|
 |**stockKeepingUnitId**|string|Deprecated SKU ID that is used for historical purposes by legacy systems.[legacy SKUID](#glossary)|Optional|
@@ -1100,8 +1100,6 @@ Sample *Product Content by Style Color List* URI:
 https://api.nike.com/merch/contents/v1/919704-006/content/title?country=ES&locale=es_ES
 ```
 
-<!-- <a href="http://developer.nikedev.com/?apib=https://bitbucket.nike.com/projects/PHYLPROD/repos/productcontentservice/browse/API.md?raw#public-product-content-product-content-item-by-style-color-get" class="ncss-brand pt2-sm pr5-sm pb2-sm pl5-sm ncss-btn-border-dark-grey">TRY IT OUT</a> -->
-
 ---
 
 ### Product Content Field by Style Color List
@@ -1344,9 +1342,9 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-Use the [Recently Published Merch Products](https://nike.splunkcloud.com/en-US/app/nike_search/search/merchproducts_){:target="blank"} Splunk dashboard to view product and VAS data recently loaded into the Merch v2 APIs. You can query products by time, environment, Merch Group and status. This is especially useful to get fresh data for testing.
+Use the [Recently Published Merch Products](https://nike.splunkcloud.com/en-US/app/nike_search/search/merchproducts_){:target="new-tab"} Splunk dashboard to view product and VAS data recently loaded into the Merch v2 APIs. You can query products by time, environment, Merch Group and status. This is especially useful to get fresh data for testing.
 
-Use the [Merch Products Publish Log](https://nike.splunkcloud.com/en-US/app/nike_search/search//merch_publish_debug){:target="blank"} Splunk dashboard to view the complete publish history of a style-color and Merch Group. Click a result to view all Splunk log entries associated with that publish event for a style-color and Merch Group. The results list the TraceId, useful if you need to contact the Merch Product Team for troubleshooting.
+Use the [Merch Products Publish Log](https://nike.splunkcloud.com/en-US/app/nike_search/search//merch_publish_debug){:target="new-tab"} Splunk dashboard to view the complete publish history of a style-color and Merch Group. Click a result to view all Splunk log entries associated with that publish event for a style-color and Merch Group. The results list the TraceId, useful if you need to contact the Merch Product Team for troubleshooting.
 
 ### Common Questions
 

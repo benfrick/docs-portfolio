@@ -21,7 +21,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/use-rollup-threads.html#glossary
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING ROLLUP THREADS <br>TO YOUR EXPERIENCE
 
@@ -29,7 +29,7 @@ toc:
 
 ##### Last Updated: 01/28/2019
 
-Use the [Product Feed Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="blank"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
+Use the [Product Feed Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
 >**TIP:** Before using this guide, first read the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html) to understand the basics about Threads.
 
@@ -45,7 +45,7 @@ Remember that a Thread contains product content and information. A Rollup Thread
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get customized search results**
 
-To get a list of Threads, with their associated Rollup Threads, execute a request to the [Rollup Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api#rollup-threads-rollup-threads-list-get){:target="blank"} endpoint.
+To get a list of Threads, with their associated Rollup Threads, execute a request to the [Rollup Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api#rollup-threads-rollup-threads-list-get){:target="new-tab"} endpoint.
 
 |Use Case|Sample Query|
 |---|---|
@@ -117,7 +117,7 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 
 - Check your Smart Search rules configuration in the Apollo application to ensure that the rules are correct.
 - Check the rollup key & type from Prodigy for the Parent Thread is as expected.
-- Reach out to Product Feeds team on Slack for assistance: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"}
+- Reach out to Product Feeds team on Slack for assistance: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"}
 
 >**TIP:** See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html#troubleshooting) for more general troubleshooting information.
 
@@ -135,7 +135,7 @@ In order to use the Product Feed Rollup Threads v2 API, you need to:
 
 - **Obtain a Consumer Channel ID -- REQUIRED**
 
-  [Fill out a request form](https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel){:target="blank"} to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
+  [Fill out a request form](https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel){:target="new-tab"} to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
 
 - **Configure Custom Search Rules -- OPTIONAL**
 

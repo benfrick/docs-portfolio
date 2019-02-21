@@ -29,7 +29,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/order/use-order.html#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING ORDER HISTORY <br>TO YOUR EXPERIENCE
 
@@ -72,7 +72,7 @@ An order is created in the last step of [Checkout](/doc/commerce/checkout/use-ch
 
 ## Step 1: List a member's orders
 
-Use the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
+Use the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"} to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
 
 This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest's order, see [List
 order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
@@ -131,14 +131,14 @@ curl -X GET \
 
 ### Parsing the Response
 
-The BFF Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"} for a full list of fields returned in the response.
+The BFF Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"} for a full list of fields returned in the response.
 
 
 ## Step 2: List order details for a member or guest
 
 Use the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a member's orders](#step-1-list-a-members-orders).
 
->TIP: The BFF Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="blank"} using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.
+>TIP: The BFF Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.
 
 The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
 is a member, guest, or employee. For more information, see [Required Request Headers](#required-request-headers).
@@ -183,7 +183,7 @@ curl -X GET \
 
 ### Parsing the Response
 
-The BFF Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api){:target="blank"} for a full list of fields returned in the response.
+The BFF Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
 
 ## Understanding Order Status
 
@@ -476,8 +476,8 @@ Listed below are the order line statuses, status codes, and simple status.
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[BFF ORDER SUMMARY](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"}|/order_mgmt/user_order_summary/v1|GET|
-|[BFF ORDER DETAIL](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api){:target="blank"}|/order_mgmt/user_order_detail/v1/{orderNumber}|GET|
+|[BFF ORDER SUMMARY](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"}|/order_mgmt/user_order_summary/v1|GET|
+|[BFF ORDER DETAIL](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api){:target="new-tab"}|/order_mgmt/user_order_detail/v1/{orderNumber}|GET|
 
 
 ## Best Practices
@@ -486,7 +486,7 @@ Listed below are some best practices for working with BFF Order Summary and BFF 
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="blank"} on Confluence.
+For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
 
 ### Test Environment
 
@@ -507,7 +507,7 @@ None of the endpoints described in this document support caching.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Orders team on the [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="blank"} Slack channel for assistance.
+- Contact the Orders team on the [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"} Slack channel for assistance.
 
 ## Terms of Service
 <!--
@@ -565,17 +565,17 @@ See the User Types section of the [Using NDe APIs](/doc/getting-started/using-ni
 
 **Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?**
 
-Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="blank"} for help.
+Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"} for help.
 
 ## Contacting the Team
 
 Need to contact the Orders team?
 
 |---|---|
-|Slack|[#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="blank"}|
-|Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="blank"}|
+|Slack|[#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"}|
+|Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="new-tab"}|
 |Team Contacts|**Intake, new requirements, onboarding**<br>  Betty Ashok <Betty.Ashok@nike.com><br>   Lindsey Kiken <Lindsey.Kiken@nike.com><br>  Krishnamurthy Ramakrishnan <Krishnamurthy.Ramakrishnan@nike.com><br><br>**API or service-related issues**<br>Vishibha Anand <Vishibha.Anand@nike.com>|
-|Intake|Please fill out an [intake form](https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake){:target="blank"} to initiate a requirement request. For more information, see the [Marketplace Platform Intake Process](https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process){:target="blank"}.|
+|Intake|Please fill out an [intake form](https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake){:target="new-tab"} to initiate a requirement request. For more information, see the [Marketplace Platform Intake Process](https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process){:target="new-tab"}.|
 
 ## Glossary
 

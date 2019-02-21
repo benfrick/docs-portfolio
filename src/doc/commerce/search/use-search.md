@@ -6,7 +6,7 @@ position: 4
 title: Search
 url: /doc/commerce/search/use-search.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # UNDERSTANDING SEARCH RESULTS
 
@@ -55,8 +55,8 @@ Need to reach out to the Search team?
 
 |Method|Contact|
 |---|---|
-|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="blank"}|
-|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="blank"}|
+|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="new-tab"}|
+|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="new-tab"}|
 |Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
 |Email the Product Manager|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
@@ -88,7 +88,7 @@ The Nike.com image below illustrates how Autocomplete and Search Preview can be 
 
 ![](/images/commerce/search/autocomplete-search-preview.png){:class="border"}
 
->**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="blank"}.
+>**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="new-tab"}.
 
 <!--
 

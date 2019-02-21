@@ -29,7 +29,7 @@ toc:
   - h2: Glossary
     url: /doc/commerce/checkout/use-checkout.html#glossary
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING CART & CHECKOUT <br>TO YOUR EXPERIENCE
 
@@ -78,13 +78,13 @@ Now that you know what a cart is, let's explore how to add it to your experience
 
 ### Step 1: Create the Cart
 
-The first step in managing a consumer's cart is to create the cart using the [Carts API](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}. For example, this could be done when the consumer chooses to add their first product(s) to the cart.
+The first step in managing a consumer's cart is to create the cart using the [Carts API](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}. For example, this could be done when the consumer chooses to add their first product(s) to the cart.
 
-To create the cart, execute a request to the [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="blank"} or [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put){:target="blank"} endpoint.
+To create the cart, execute a request to the [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} or [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put){:target="new-tab"} endpoint.
 
 >**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, an error will be returned by the Carts API.
 
-Sample [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="blank"} request URI:
+Sample [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
@@ -97,26 +97,26 @@ Now that the cart has been created, you can display the cart to the consumer, fo
 
 To get a cart, you have a few options depending on what information you need:
 
-1. Execute a request to the [Get a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="blank"}, [Get a Cart by Filter Criteria (Query Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-filter-query-param-get-2){:target="blank"}, or [Get a Cart by Path Parameters](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-path-parameters-get-1){:target="blank"} endpoint of the Carts API to get the full details of the cart.
-2. Execute a request to the [Get a Cart Summary by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-summary-by-cart-id-get-1){:target="blank"} endpoint, only if you support PayPal Express payment type and want to display promo codes on the order confirmation.
+1. Execute a request to the [Get a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="new-tab"}, [Get a Cart by Filter Criteria (Query Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-filter-query-param-get-2){:target="new-tab"}, or [Get a Cart by Path Parameters](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-path-parameters-get-1){:target="new-tab"} endpoint of the Carts API to get the full details of the cart.
+2. Execute a request to the [Get a Cart Summary by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-summary-by-cart-id-get-1){:target="new-tab"} endpoint, only if you support PayPal Express payment type and want to display promo codes on the order confirmation.
 
 >**TIP:** For more info on how to use the `?filter` query parameter, see [Using NDe APIs](/doc/getting-started/using-nike-apis.html#query-parameters).
 
 ### Step 3: Modify the Cart
 
-To add or remove products, services, and promotion codes from a cart, execute a request to the [Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch-1){:target="blank"} or [Modify a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch-1){:target="blank"} endpoint.
+To add or remove products, services, and promotion codes from a cart, execute a request to the [Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch-1){:target="new-tab"} or [Modify a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch-1){:target="new-tab"} endpoint.
 
 >**TIP:** Prices and subtotals are recalculated and returned in the response to each request.
 
-To delete **all** of the products in the cart, execute a request to [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete-1){:target="blank"} or [Delete All Items from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete-1){:target="blank"} endpoints.
+To delete **all** of the products in the cart, execute a request to [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete-1){:target="new-tab"} or [Delete All Items from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete-1){:target="new-tab"} endpoints.
 
 The delete operation is optional, even if the cart is empty; member's carts will automatically purge from storage after 90 days of inactivity, while guest carts will purge at 30 days.
 
 ### Step 4: Get a Cart Summary
 
-The consumer has finished add products to the cart, and they might wish to see a summary before proceeding to checkout. Use the [Cart Reviews API](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="blank"} to enhance a cart summary with taxes, estimated delivery date(s), shipping group(s) (when applicable), and updated subtotals.
+The consumer has finished add products to the cart, and they might wish to see a summary before proceeding to checkout. Use the [Cart Reviews API](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="new-tab"} to enhance a cart summary with taxes, estimated delivery date(s), shipping group(s) (when applicable), and updated subtotals.
 
-To get a cart summary, execute a request to the [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="blank"} endpoint with a complete cart.
+To get a cart summary, execute a request to the [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} endpoint with a complete cart.
 
 >**NOTE**: It is not required to create a cart with the Carts API prior to sending a request to the Cart Reviews API. Instead of using Cart ID in the request, send the **country**, **currency**, and **brand** associated with the consumer.
 
@@ -128,7 +128,7 @@ Depending on what additional info you include in the request, you can get additi
 
 - To get shipping group information, the request must include the shipping method and the shipping address associated with each product.
 
-Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="blank"} request URI:
+Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/cart_reviews/v1/
 ```
@@ -145,11 +145,11 @@ Now that your consumer has finalized their cart, it's time to begin the checkout
 
 Consumers are accustomed to selecting a shipping method (e.g. Standard, Two-Day, Next-Day) during the checkout process. But, how do you know which methods to present to them, based on their shopping context?
 
-Use the [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="blank"} to retrieve the available shipping methods for a consumer's checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).
+Use the [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="new-tab"} to retrieve the available shipping methods for a consumer's checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).
 
 To get the shipping options, execute a request to the *Shipping Options* endpoint.
 
-Sample [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="blank"} request URI:
+Sample [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/shipping_options/v2
 ```
@@ -164,7 +164,7 @@ Next, let's make sure that the checkout details are accurate and that the proces
 
 ### Can I Skip This?
 
-It is not required to execute a request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} in order for the consumer to complete their purchase. However, it is recommended to increase the chance of a successful checkout.
+It is not required to execute a request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} in order for the consumer to complete their purchase. However, it is recommended to increase the chance of a successful checkout.
 
 You can use the info in the response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and places the order, there will be a better chance of success.
 
@@ -172,20 +172,20 @@ You can use the info in the response to display the final payment amount to the 
 
 ### Step 1: Request Checkout Preview
 
-Execute a request to the [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} endpoint.
+Execute a request to the [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} endpoint.
 
 The API ensures that the products, shipping method(s), and shipping address(es) are valid based on Nike pricing and address rules. You can also get product pricing, sales tax, shipping fee and tax, estimated delivery date(s), and checkout subtotals in the response.
 
 >**TIP:** For more context, see a step-by-step example of all the requests in a checkout in the diagram in the [Best Practices](#best-practices) section of this document. For more info about Payment, see [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html).
 
-Sample [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} request URI:
+Sample [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/checkout_previews/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
 
 ### Step 2: Retrieve Checkout Preview Job
 
-After calling [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} and receiving a HTTP 202 response, execute a request to [Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-retrieve-checkout-preview-job-get-1){:target="blank"} using the same checkout ID to check the status of your job.
+After calling [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-retrieve-checkout-preview-job-get-1){:target="new-tab"} using the same checkout ID to check the status of your job.
 
 To know if the job is done, check the value of the **status** field in the response body as follows:
 
@@ -197,7 +197,7 @@ To know if the job is done, check the value of the **status** field in the respo
 
 Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
-Sample [Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-retrieve-checkout-preview-job-get-1){:target="blank"} request URI:
+Sample [Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-retrieve-checkout-preview-job-get-1){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/checkout_previews/v2/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
@@ -208,7 +208,7 @@ https://api.nike.com/buy/checkout_previews/v2/jobs/61bc115b-16e5-43b5-bcaf-dd616
 
 ### Step 1: Request Checkout Submit
 
-Execute a request to the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} endpoint when your consumer is ready to complete their purchase.
+Execute a request to the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} endpoint when your consumer is ready to complete their purchase.
 
 The API performs the final validations of the consumer's information, requests payment authorization, and if everything succeeds, submits the checkout for fulfillment.
 
@@ -224,18 +224,18 @@ The API performs the final validations of the consumer's information, requests p
 }
 ```
 
-Sample [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} request URI:
+Sample [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/checkouts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
 
 ### Step 2: Retrieve Checkout Submit Job
 
-After calling the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} endpoint and receiving a HTTP 202 response, execute a request to the [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="blank"} using the same checkout ID to check the status of your job.
+After calling the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} endpoint and receiving a HTTP 202 response, execute a request to the [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="new-tab"} using the same checkout ID to check the status of your job.
 
 The same job statuses apply for this endpoint as they do for Retrieve Checkout Preview Job. Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
-Sample [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="blank"} request URI:
+Sample [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/checkouts/v2/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
@@ -246,7 +246,7 @@ https://api.nike.com/buy/checkouts/v2/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 
 Congratulations, you have just submitted your first checkout for fulfillment! But wait, there's one more OPTIONAL step for you to know about.
 
-Manage a Nike member/employee's Wish Lists using the [Wish Lists API](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api){:target="blank"}.
+Manage a Nike member/employee's Wish Lists using the [Wish Lists API](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api){:target="new-tab"}.
 
 Features:
 
@@ -256,7 +256,7 @@ Features:
 
 ### Step 1: Create a Wish List
 
-Execute a request to the [Create or Update a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put){:target="blank"} endpoint to create header-level information for a Wish List.
+Execute a request to the [Create or Update a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put){:target="new-tab"} endpoint to create header-level information for a Wish List.
 
 - Only **header-level** info, such as the list identifier and name, can be created with this endpoint. Use the other endpoints to add or remove products from a list.
 - List name must be unique within a consumer's lists for a given country.
@@ -264,7 +264,7 @@ Execute a request to the [Create or Update a List](https://developer.niketech.co
 
 >TIP: You generate the unique list and list item identifiers and send them in the request in UUID format.
 
-Sample [Create or Update a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put){:target="blank"} request URI:
+Sample [Create or Update a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put){:target="new-tab"} request URI:
 ```
 https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
@@ -275,22 +275,22 @@ Now that you've created a wish list for the consumer, allow them to add or remov
 
 ### Add Item to List
 
-To add a product to a list, execute a request to the [Add Item to List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-add-item-to-list-put){:target="blank"} endpoint.
+To add a product to a list, execute a request to the [Add Item to List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-add-item-to-list-put){:target="new-tab"} endpoint.
 
 - Current product pricing is provided in the response.
 - If you add a product that is already on the list, the product will be replaced.
 - Only the product being added is included in the response, not all products in the list.
 
-Sample [Add Item to List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-add-item-to-list-put){:target="blank"} request URI:
+Sample [Add Item to List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-add-item-to-list-put){:target="new-tab"} request URI:
 ```
 https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
 ### Remove Item from List
 
-To delete a single product from a list, execute a request to the [Remove Item from List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-remove-item-from-list-delete){:target="blank"} endpoint.
+To delete a single product from a list, execute a request to the [Remove Item from List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-remove-item-from-list-delete){:target="new-tab"} endpoint.
 
-Sample [Remove Item from List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-remove-item-from-list-delete){:target="blank"} request URI:
+Sample [Remove Item from List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-remove-item-from-list-delete){:target="new-tab"} request URI:
 
 ```
 https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
@@ -298,9 +298,9 @@ https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 
 ### Delete a List
 
-To delete a Wish List, execute a request to the [Delete a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-delete-a-list-delete){:target="blank"} endpoint. Note that **all of the items on the list will be removed**.
+To delete a Wish List, execute a request to the [Delete a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-delete-a-list-delete){:target="new-tab"} endpoint. Note that **all of the items on the list will be removed**.
 
-Sample [Delete a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-delete-a-list-delete){:target="blank"} request URI:
+Sample [Delete a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-delete-a-list-delete){:target="new-tab"} request URI:
 ```
 https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
@@ -311,40 +311,40 @@ Allow the consumer to see all of their wish lists, or show the details of a sing
 
 ### Retrieve Lists for Authenticated User
 
-To retrieve **header info** for all lists for an authenticated consumer, execute a request to the [Retrieve Lists for Authenticated User](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-lists-for-authenticated-user-get){:target="blank"} endpoint.
+To retrieve **header info** for all lists for an authenticated consumer, execute a request to the [Retrieve Lists for Authenticated User](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-lists-for-authenticated-user-get){:target="new-tab"} endpoint.
 
->**TIP:** The list items are **not** included in the response. To get the list items, execute a request to the [Retrieve Items by List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get){:target="blank"} endpoint with the appropriate list identifier.
+>**TIP:** The list items are **not** included in the response. To get the list items, execute a request to the [Retrieve Items by List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get){:target="new-tab"} endpoint with the appropriate list identifier.
 
-Sample [Retrieve Lists for Authenticated User](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-lists-for-authenticated-user-get){:target="blank"} request URI:
+Sample [Retrieve Lists for Authenticated User](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-lists-for-authenticated-user-get){:target="new-tab"} request URI:
 ```
 https://www.api.nike.com/buy/lists/v1?filter=country(US)
 ```
 
 ### Retrieve a List by ID
 
-To retrieve **header info** for a single list, execute a request to the [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-a-list-by-id-get){:target="blank"} endpoint.
+To retrieve **header info** for a single list, execute a request to the [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-a-list-by-id-get){:target="new-tab"} endpoint.
 
 >**TIP:** The list items are **not** included in the response. To get the list items, execute a request to the *Retrieve Items by List* endpoint with the appropriate list identifier.
 
-Sample [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-a-list-by-id-get){:target="blank"} request URI:
+Sample [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-retrieve-a-list-by-id-get){:target="new-tab"} request URI:
 ```
 https://www.api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
 ### Retrieve Items by List
 
-To retrieve all products in a list, execute a request to the [Retrieve Items by List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get){:target="blank"} endpoint.
+To retrieve all products in a list, execute a request to the [Retrieve Items by List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get){:target="new-tab"} endpoint.
 
-Sample [Retrieve Items by List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get){:target="blank"} request URI:
+Sample [Retrieve Items by List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-items-by-list-get){:target="new-tab"} request URI:
 ```
 https://www.api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
 ```
 
 ### Retrieve Item by ID
 
-To retrieve a single list item, execute a request to the [Retrieve Item by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-item-by-id-get){:target="blank"} endpoint.
+To retrieve a single list item, execute a request to the [Retrieve Item by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-item-by-id-get){:target="new-tab"} endpoint.
 
-Sample [Retrieve Item by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-item-by-id-get){:target="blank"} request URI:
+Sample [Retrieve Item by ID](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-item-operations-retrieve-item-by-id-get){:target="new-tab"} request URI:
 ```
 https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
@@ -352,46 +352,46 @@ https://www.api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 ## API Quick Reference
 
 **Carts**
-- [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
-- [Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
-- [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
-- [Get a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+- [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
+- [Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
+- [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
+- [Get a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
 - [Get a Cart by Filter Criteria (Query Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api)
-- [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
-- [Modify a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
-- [Get a Cart by Filter Criteria (Path Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
-- [Delete All Item from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="blank"}
+- [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
+- [Modify a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
+- [Get a Cart by Filter Criteria (Path Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
+- [Delete All Item from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
 
 **Shipping Options**
-- [Shipping Options](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="blank"}
+- [Shipping Options](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="new-tab"}
 
 **Cart Reviews**
-- [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="blank"}
+- [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="new-tab"}
 
 **Checkouts**
-- [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
-- [Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
-- [Retrieve Checkout Preview Results](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
-- [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
-- [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
-- [Retrieve Checkout Results](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
-- [Request Checkout Submit (Launch)](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="blank"}
+- [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}
+- [Retrieve Checkout Preview Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}
+- [Retrieve Checkout Preview Results](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}
+- [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}
+- [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}
+- [Retrieve Checkout Results](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}
+- [Request Checkout Submit (Launch)](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}
 
 **Wish Lists**
-- [Create or Update a List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
-- [Delete a List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
-- [Retrieve a List by ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
-- [Retrieve Lists for Authenticated User](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
-- [Add Item to List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
-- [Remove Item from List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
-- [Retrieve Items by List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
-- [Retrieve Item by ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="blank"}
+- [Create or Update a List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
+- [Delete a List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
+- [Retrieve a List by ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
+- [Retrieve Lists for Authenticated User](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
+- [Add Item to List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
+- [Remove Item from List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
+- [Retrieve Items by List](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
+- [Retrieve Item by ID](https://bitbucket.nike.com/projects/PHYLPAY/repos/wishlist/browse/API.md){:target="new-tab"}
 
 ## Best Practices
 
-### Example Implementation Diagram
+Here are some best practices. We'll start with an example sequence of API calls to execute an entire checkout:
 
-Here is an example of a sequence of API calls to execute an entire checkout:
+### Example Implementation Diagram
 
 ![](/images/commerce/buy/checkout_seq_dgm.png){:class="border"}
 
@@ -428,7 +428,7 @@ For the list of country code and currency code combinations supported by Cart & 
 
 ### Idempotence
 
-[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="blank"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkout API? Each PUT request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="blank"} and [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="blank"} includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:
+[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="new-tab"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkout API? Each PUT request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} and [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:
 
 |Scenario|Result|
 |---|---|
@@ -441,9 +441,9 @@ For the list of country code and currency code combinations supported by Cart & 
 
 ### Conditions for Retries
 
-For retry information by Checkout endpoint, visit [Retry Patterns for Checkout Clients](https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients){:target="blank"} in Confluence.
+For retry information by Checkout endpoint, visit [Retry Patterns for Checkout Clients](https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients){:target="new-tab"} in Confluence.
 
-For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="blank"} on Confluence.
+For all Checkout APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="new-tab"} on Confluence.
 
 ### Honor the ETAs for Best Performance
 
@@ -493,7 +493,7 @@ None of the endpoints described in this document support caching.
 
 ### Error Handling: Which JSON Field Had The Error?
 
-In error responses from APIs, Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901){:target="blank"} standard to indicate which field of the request JSON had the error.
+In error responses from APIs, Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901){:target="new-tab"} standard to indicate which field of the request JSON had the error.
 
 However, not all Checkout APIs are the same in this regard. This is due to some APIs having been built before Nike decided to use JSON Pointer standard.
 
@@ -538,7 +538,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="blank"} Slack channel for assistance.
+- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"} Slack channel for assistance.
 
 ### Common Questions
 
@@ -570,8 +570,8 @@ Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additi
 
 Need to contact the Cart & Checkout team?
 
-|Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="blank"}|
-|Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="blank"}|
+|Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
+|Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
 |Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com), [Sree Krishna](mailto:sree.krishna@nike.com) (Carts only)|
 
 ## Glossary

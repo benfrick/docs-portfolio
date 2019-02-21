@@ -6,7 +6,7 @@ position: 7
 title: Payment
 url: /doc/commerce/payment/overview-payment.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/payment/use-payment.html" class="ncss-btn ncss-brand guide-button pt2-sm pr5-sm pb2-sm pl5-sm"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/payment/use-payment.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # Payment Overview
 
@@ -54,25 +54,25 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
     <h5>APIs:</h5>
     <ul>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="_blank">Payment Options</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">Payment Options</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="_blank">Payment Preview</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">Payment Preview</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="_blank">Payment Stored Payments</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="new-tab">Payment Stored Payments</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="_blank">Payment Apple Pay</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="new-tab">Payment Apple Pay</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="_blank">Payment Wallet</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="new-tab">Payment Wallet</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="_blank">Payment Deferred Payment</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="new-tab">Payment Deferred Payment</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="_blank">Payment Credit Card Submit</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="new-tab">Payment Credit Card Submit</a> <span class="guide-details-li-text"></span>
         </li>
     </ul>
 </aside>
@@ -85,4 +85,4 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 
 ### Connect
 
- We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="new-tab"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
