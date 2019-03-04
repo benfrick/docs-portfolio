@@ -10,11 +10,11 @@ url: /commerce/uxf/overview-uxf.html
 
 ---
 
-<a href="https://tourguide.prod.commerce.nikecloud.com/" target="_blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i>  TOUR GUIDE</a>
+<a href="https://tourguide.prod.commerce.nikecloud.com/" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i>  TOUR GUIDE</a>
 
-UX Foundation offers products that solve common problems for hosted user experiences. The documentation is available on [Tour Guide:](https://tourguide.prod.commerce.nikecloud.com/){:target="blank"}
+UX Foundation offers products that solve common problems for hosted user experiences. The documentation is available on [Tour Guide:](https://tourguide.prod.commerce.nikecloud.com/){:target="new-tab"}
 
-[![Tour Guide Logo](../../../images/uxf/tour-guide.png){:width="100%"}](https://tourguide.prod.commerce.nikecloud.com){:target="blank"}
+[![Tour Guide Logo](../../../images/uxf/tour-guide.png){:width="100%"}](https://tourguide.prod.commerce.nikecloud.com){:target="new-tab"}
 
 ### Products
 
@@ -25,4 +25,4 @@ UX Foundation offers products that solve common problems for hosted user experie
 
 ### Connect
 
- We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="new-tab"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

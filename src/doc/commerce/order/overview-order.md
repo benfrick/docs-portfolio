@@ -34,10 +34,10 @@ Step through the Use Cases below to incorporate Order into your experience.
 <h5>APIs:</h5>
 <ul>
 <li markdown="1">
-[BFF Order Summary](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="blank"}<span class="guide-details-li-text"></span>
+[BFF Order Summary](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
 </li>
 <li markdown="1">
-[BFF Order Detail](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api){:target="blank"}<span class="guide-details-li-text"></span>
+[BFF Order Detail](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
 </li>
 </ul>
 </aside>
@@ -46,4 +46,4 @@ Step through the Use Cases below to incorporate Order into your experience.
 
 ### Connect
 
- We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="new-tab"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

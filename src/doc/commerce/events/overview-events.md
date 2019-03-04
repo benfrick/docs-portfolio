@@ -41,7 +41,7 @@ Want to know what your users are up to? Step through the Use Cases below to inco
     <h5>APIs:</h5>
     <ul>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/UX%20Analytics%20Event%20Intake?tab=api" target="_blank">Analytics Pipeline V2</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/UX%20Analytics%20Event%20Intake?tab=api" target="new-tab">Analytics Pipeline V2</a> <span class="guide-details-li-text"></span>
         </li>
     </ul>
 </aside>
@@ -52,4 +52,4 @@ Want to know what your users are up to? Step through the Use Cases below to inco
 
 #### Connect
 
- We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="blank"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="new-tab"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)

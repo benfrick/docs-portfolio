@@ -35,13 +35,13 @@ toc:
 
 ##### Last Updated: 01/18/2019
 
-Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} to show relevant Nike product-related content, including details about the products with images, videos, and more.
+Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more.
 
 >**TIP:** Before using this guide, you should have completed [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html).
 
 ## Introduction
 
-The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} provides product data and content in the form of Cards, Threads, and Feeds.
+The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} provides product data and content in the form of Cards, Threads, and Feeds.
 
 ### What are Cards, Threads, and Feeds?
 
@@ -51,13 +51,13 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 
 * Multiple Threads can be displayed in **Feeds**, customized for your users based on their chosen preferences in a Nike experience.
 
-For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="blank"}.
+For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}.
 
 ![](/images/commerce/product_feeds/nike_app_annotated.png)
 
 ### What Product Data and Content are Available?
 
-The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:
+The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:
 
 |Cloud API|Data Type|Examples|Data Source|
 |---|---|---|---|
@@ -71,7 +71,7 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 |Launch Views|Launch attributes by style-color (SNKRS, Bootroom only)|method, startEntryDate, stopEntryDate|Launch Admin Tool|
 |Customized PreBuilds|Customized prebuild (e.g. suggested NikeID shoe design)|designId, status, merchGroup|Consumer experiences, Prodigy|
 
->**TIP:** Another great way to evaluate the types of data returned is to analyze a [sample API response](https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json){:target="blank"}.
+>**TIP:** Another great way to evaluate the types of data returned is to analyze a [sample API response](https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json){:target="new-tab"}.
 
 ### What are Channels and Why Do I Need One?
 
@@ -85,15 +85,15 @@ A channel is a distinct experience where Nike products are showcased and made av
 
 Now you know what Cards, Threads, and Feeds are, but how do you get them and use them?
 
-To get a list of Threads, execute a request to the [Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api#threads-threads-list-get){:target="blank"} endpoint, including at minimum the required filter query parameters for **channelId**, **language**, and **marketplace**.
+To get a list of Threads, execute a request to the [Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api#threads-threads-list-get){:target="new-tab"} endpoint, including at minimum the required filter query parameters for **channelId**, **language**, and **marketplace**.
 
-Sample [Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api#threads-threads-list-get){:target="blank"} request URI:
+Sample [Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api#threads-threads-list-get){:target="new-tab"} request URI:
 
 `https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=language(en)&filter=marketplace(US)`
 
 >**TIPS:**
->- For a list of supported locales, see the [Language/Locale Mapping JSON](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json){:target="blank"} and the [Language/Locale Mapping README](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md){:target="blank"}.
->- For a sample *Threads List* response, see [here](https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json){:target="blank"}.
+>- For a list of supported locales, see the [Language/Locale Mapping JSON](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json){:target="new-tab"} and the [Language/Locale Mapping README](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md){:target="new-tab"}.
+>- For a sample *Threads List* response, see [here](https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json){:target="new-tab"}.
 
 ### How to Get Only the Threads You Need
 
@@ -101,17 +101,17 @@ If there are more threads in the API response than you want, add more specific i
 
 1. **Filters**
 
-    Use any of the [supported **filter** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} to get more specific results in the response. For example, to only get content for a specific Nike style-color code, append a query parameter like `filter=publishedContent.properties.products.styleColor(942198-700)` to the request URI.
+    Use any of the [supported **filter** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to get more specific results in the response. For example, to only get content for a specific Nike style-color code, append a query parameter like `filter=publishedContent.properties.products.styleColor(942198-700)` to the request URI.
 
 2. **Sorting**
     
-    Sort the results using any of the [supported **sort** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"}. For example, to sort by the current price in ascending order, append query parameter `sort=productInfo.merchPrice.currentPriceAsc` to the request URI.
+    Sort the results using any of the [supported **sort** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"}. For example, to sort by the current price in ascending order, append query parameter `sort=productInfo.merchPrice.currentPriceAsc` to the request URI.
 
 3. **Fields**
 
     Request only the fields that you want in the response by using the **fields** query parameter. For example, to return fields threadId, styleColor, and MSRP, append query parameter `fields=id,channelId,productInfo.merchProduct.styleColor,productInfo.merchPrice.msrp` to the request URI.
 
->**TIP:** The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="blank"} is the source of truth for all supported query parameters.
+>**TIP:** The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
 
 ### Can I Use Product Feeds to Search for Products?
 
@@ -162,7 +162,7 @@ First, some considerations:
 
 - All endpoints of Product Feeds exclusively feature the GET method, which has no request body, so the focus of each section will be on the differences in the response body only.
 
-- For the 4 endpoints that have both a v1 and a v1.5 (see [Product Feeds v1 API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API?tab=api){:target="blank"} for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
+- For the 4 endpoints that have both a v1 and a v1.5 (see [Product Feeds v1 API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API?tab=api){:target="new-tab"} for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
 
 >**TIP:** Upgrading from CAPI (Commerce API)? See the [CAPI Migration Guide](/doc/commerce/product/capi-migration.html) for detailed instructions.
 
@@ -370,17 +370,17 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 
-- Use a Splunk query (requires access) such as [this](https://nike.splunkcloud.com/en-US/app/nike_search/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D){:target="blank"} to check for issues with your request.
+- Use a Splunk query (requires access) such as [this](https://nike.splunkcloud.com/en-US/app/nike_search/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D){:target="new-tab"} to check for issues with your request.
 
-- Use the [Product Feeds v2 Overview](https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419){:target="blank"} dashboard in Insights (requires access) to see if the service is up and healthy.
+- Use the [Product Feeds v2 Overview](https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419){:target="new-tab"} dashboard in Insights (requires access) to see if the service is up and healthy.
 
-- Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"} Slack channel for assistance.
+- Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"} Slack channel for assistance.
 
 ### Common Questions
 
 **Who do I contact with questions about what I'm seeing in the **productInfo** or **publishedContent** sections of the response?**
 
-- The data in **productInfo** and **publishedContent** is not owned by the Product Feeds team. Refer to [Thread Response Ownership Breakdown](https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown){:target="blank"} to find the Slack channel of the team responsible for that data.
+- The data in **productInfo** and **publishedContent** is not owned by the Product Feeds team. Refer to [Thread Response Ownership Breakdown](https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown){:target="new-tab"} to find the Slack channel of the team responsible for that data.
 
 **How do I know what product attributes are available for me to use to request Threads?**
 
@@ -388,7 +388,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 **Why isn't my feed showing up?**
 
-- *The feed may have failed validation and was marked inactive*. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"} Slack channel to check if the feed failed validation and why.
+- *The feed may have failed validation and was marked inactive*. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"} Slack channel to check if the feed failed validation and why.
 
 - *The feed might not yet be published*. It can take up to 15 minutes to publish a change from AEM and have it be reflected in the Feeds API.
 
@@ -420,8 +420,8 @@ There are no authentication requirements for Product Feeds except when using the
 
 Need to contact the Product Feeds team?
 
-|Slack|[#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="blank"}|
-|Confluence Space|[Product and Feeds API](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="blank"}|
+|Slack|[#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"}|
+|Confluence Space|[Product and Feeds API](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}|
 |Team Contacts|[Andy Sun](mailto:andy.sun@nike.com)|
 
 ## Glossary

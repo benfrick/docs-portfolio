@@ -1,8 +1,8 @@
 data "aws_iam_policy_document" "website_s3_policy" {
   statement {
-    sid     = "bucket_policy_site_main",
+    sid       = "bucket_policy_site_main"
     actions   = ["s3:GetObject"]
-    effect   = "Allow"
+    effect    = "Allow"
     resources = ["arn:aws:s3:::${local.domain_name}/*"]
 
     principals {
@@ -18,7 +18,7 @@ resource "aws_cloudfront_origin_access_identity" "website_origin_access_identity
 
 resource "aws_s3_bucket" "site" {
   bucket = "${local.domain_name}"
-  acl    = "authenticated-read"
+  acl    = "private"
   policy = "${data.aws_iam_policy_document.website_s3_policy.json}"
 
   website {
