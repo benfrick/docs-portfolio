@@ -69,6 +69,13 @@ resource "aws_cloudfront_distribution" "website_cdn" {
     response_code      = "200"
     response_page_path = "/index.html"
   }
+  custom_error_response {
+    error_code = "403"
+
+    # error_caching_min_ttl = "360"
+    response_code      = "200"
+    response_page_path = "/index.html"
+  }
   "default_cache_behavior" {
     allowed_methods = ["GET", "HEAD", "DELETE", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods  = ["GET", "HEAD"]
@@ -90,7 +97,7 @@ resource "aws_cloudfront_distribution" "website_cdn" {
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
   }
-  cache_behavior {
+  ordered_cache_behavior {
     allowed_methods = ["GET", "HEAD", "DELETE", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods  = ["GET", "HEAD"]
 
