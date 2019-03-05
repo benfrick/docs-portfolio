@@ -1,9 +1,11 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script>
 <script>
+if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-133456231-1');
+    }
 </script>
