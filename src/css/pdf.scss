@@ -14,3 +14,9 @@ pre {
 .main {
   border: none !important;
 }
+a[href^="/doc"]::after {
+    content: " (https://developer.niketech.com/nde-docs" attr(href) ")";
+}
+a[href^="http"]::after, a[href^="https"]::after {
+    content: " (https://developer.niketech.com/nde-docs" attr(href) ")";
+}

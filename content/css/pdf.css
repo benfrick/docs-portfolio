@@ -1,1 +1,1 @@
-.guide-button{display:none!important}html{background-color:white!important}pre{border:none!important;width:100%!important;max-height:none!important}.main{border:none!important}
+.guide-button{display:none!important}html{background-color:white!important}pre{border:none!important;width:100%!important;max-height:none!important}.main{border:none!important}a[href^="/doc"]::after{content:" (https://developer.niketech.com/nde-docs" attr(href) ")"}a[href^="http"]::after,a[href^="https"]::after{content:" (https://developer.niketech.com/nde-docs" attr(href) ")"}
