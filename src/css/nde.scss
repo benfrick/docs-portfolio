@@ -149,6 +149,10 @@ a {
     color: #3498db;
     text-decoration: none;
 }
+/* ncss is setting to inherit */
+strong, b {
+    font-weight: bold;
+}
 img {
     margin: 10px 0px 10px 0px;
     }

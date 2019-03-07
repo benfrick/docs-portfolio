@@ -3,8 +3,8 @@
 .guide-button {
   display: none !important;
 }
-html {
-  background-color: white !important;
+html,body {
+    background-color: white !important;
 }
 pre {
   border: none !important;
@@ -13,7 +13,9 @@ pre {
 }
 .main {
   border: none !important;
+  /*background-color: white !important;*/
 }
+/* insert the actual URL after links, prepend relative links */
 a[href^="/doc"]::after {
     content: " ( https://developer.niketech.com/nde-docs" attr(href) " )";
 }
