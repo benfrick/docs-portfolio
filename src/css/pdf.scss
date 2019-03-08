@@ -22,3 +22,9 @@ a[href^="/doc"]::after {
 a[href^="http"]::after, a[href^="https"]::after {
     content: " ( " attr(href) " )";
 }
+/* page count center bottom */
+@page {
+  @bottom {
+    content: counter(page);
+  }
+}
