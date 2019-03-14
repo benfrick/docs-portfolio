@@ -5,6 +5,8 @@
 }
 html,body {
     background-color: white !important;
+    padding: 0px;
+    margin: 0px;
 }
 pre {
   border: none !important;
@@ -22,9 +24,33 @@ a[href^="/doc"]::after {
 a[href^="http"]::after, a[href^="https"]::after {
     content: " ( " attr(href) " )";
 }
-/* page count center bottom */
+/* header: h1 text centered top except for first page, page count center bottom */
+
 @page {
+  @top {
+    content: string(doctitle,first-except);
+  }
   @bottom {
     content: counter(page);
   }
+  @bottom-right {
+    content: "Nike Inc. Confidential";
+  }
+}
+
+/* generate toc */
+/* break after the toc page */
+#toc {
+    break-after: page;
+}
+/* h2....page number as anchor link */
+#toc a:after {
+  content: leader('.') target-counter(attr(href), page);
+}
+#toc li {
+    list-style: none;
+}
+/* sets h1 text to 'doctitle' variable */
+h1 {
+    string-set: doctitle content();
 }
