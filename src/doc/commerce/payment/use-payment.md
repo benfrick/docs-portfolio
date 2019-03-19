@@ -45,7 +45,7 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING PAYMENT TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
+# ADDING PAYMENT TO YOUR EXPERIENCE<br> (DRAFT)
 
 ---
 

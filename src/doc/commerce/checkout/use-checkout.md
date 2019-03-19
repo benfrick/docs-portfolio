@@ -31,7 +31,7 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING CART & CHECKOUT <br>TO YOUR EXPERIENCE
+# ADDING CART AND CHECKOUT<br>TO YOUR EXPERIENCE
 
 ---
 
