@@ -25,7 +25,6 @@ a[href^="http"]::after, a[href^="https"]::after {
     content: " ( " attr(href) " )";
 }
 /* header: h1 text centered top except for first page, page count center bottom */
-
 @page {
   @top {
     content: string(doctitle,first-except);
@@ -34,15 +33,10 @@ a[href^="http"]::after, a[href^="https"]::after {
     content: counter(page);
   }
   @bottom-right {
-    content: "Nike Inc. Confidential";
+    content: "Nike Inc.";
   }
 }
-
 /* generate toc */
-/* break after the toc page */
-#toc {
-    break-after: page;
-}
 /* h2....page number as anchor link */
 #toc a:after {
   content: leader('.') target-counter(attr(href), page);

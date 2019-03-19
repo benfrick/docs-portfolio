@@ -9,7 +9,9 @@ if (hs && hs.length > 2){
 var toc = document.getElementById('toc');
 var title = document.getElementsByTagName('h1')[0].innerHTML;
 var text, link, li,id, div;
-/* generates toc title from h1 */
+/* page break after toc */
+toc.setAttribute('style','break-after: page');
+/* generate toc title from h1 */
 if(title){
     div = document.createElement('div');
     div.setAttribute('style','font-weight:bold;font-size:2.3em;margin-bottom:25px;');
@@ -17,13 +19,13 @@ if(title){
     div.appendChild(text);
     toc.appendChild(div);
 }
-/* generates Table of Contents static title */
+/* generate Table of Contents static title */
 div = document.createElement('div');
 div.setAttribute('style','font-weight:bold;font-size:2.1em;margin-bottom:15px;');
 text = document.createTextNode('Table of Contents');
 div.appendChild(text);
 toc.appendChild(div);
-
+/* generate toc from h2s */
 for(var i=0; i<hs.length; i++)
 {
     text = document.createTextNode(getText(hs[i]));
@@ -36,7 +38,7 @@ for(var i=0; i<hs.length; i++)
     toc.appendChild(li);
 }
 
-/* gets the h2 text */
+/* get the h2 text */
 function getText(e)
 {
     var text = "";
@@ -52,7 +54,6 @@ function getText(e)
 	        text += getText(x);
 	    }
     }
-
     return text;
 }
 }
