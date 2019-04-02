@@ -45,7 +45,7 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING PAYMENT TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
+# ADDING PAYMENT TO YOUR EXPERIENCE<br> (DRAFT)
 
 ---
 
@@ -107,7 +107,7 @@ The [Get Payment Options](https://developer.niketech.com/docs/projects/Payment%2
 Listed below is a sample [Get Payment Options](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api#get-payment-options-post){:target="new-tab"} POST request URI. It is not JWT-restricted:
 
 ```
-https://api.nike.com/paymentoptions/options/v2
+https://api.nike.com/payment/options/v2
 ```
 
 The results of a successful 200 response lists valid payment methods that a customer can use to pay for the Nike checkout. The list includes the payment name (e.g. "Visa") and payment type (e.g. "CreditCard").
@@ -181,20 +181,10 @@ The typical flow for storing a new credit card **pre-authorization** for a custo
 
 ---
 
-The typical flow for storing a new credit card **post-authorization** for a customer is:
-
-<i class="numberCircle gray">1</i>Call the [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"} endpoint of the Checkout service to validate the Checkout and get payment approval, passing a client-generated UUID as the Checkout `id`.
-
-<i class="numberCircle gray">2</i>Call [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"}, passing the `cybersourceRequestId`, `cybersourceRequestToken`, `currency`, and `account` from `paymentToken`,`paymentApprovalId` from **Step 1**.
-
-<i class="numberCircle gray">3</i>Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just saved to confirm that the credit card was securely stored. Credit Card account numbers are masked in the response.
-
----
-
 Listed below is the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} POST request URI. This endpoint is not JWT-restricted.
 
 ```
-https://api.nike.com/customer/savepayment
+https://api.nike.com/commerce/storedpayments/consumer/savepayment/
 ```
 A successful response is a 201.
 
@@ -213,7 +203,7 @@ The typical flow for modifying a stored credit card is:
 Listed below is the [Modify Credit Card Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-put){:target="new-tab"} PUT request URI. This endpoint is not JWT-restricted.
 
 ```
-https://api.nike.com/customer/storedpayments/1686062b-4246-4c3b-ac96-e82a0efae7a0?includebalance=false
+https://api.nike.com/commerce/storedpayments/consumer/storedpayments/1686062b-4246-4c3b-ac96-e82a0efae7a0?includebalance=false
 ```
 
 A successful response is a 202.
@@ -233,7 +223,7 @@ The typical flow for modifying the default stored payment is:
 Listed below is a [Modify Default Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-default-stored-payment-put){:target="new-tab"} PUT request URI. The endpoint is not JWT-restricted.
 
 ```
-http://api.nike.com/customer/storedpayments/7661aea5d-31b6-4ac4-8830-1d61d2c7b043/default
+https://api.nike.com/commerce/storedpayments/consumer/storedpayments/7661aea5d-31b6-4ac4-8830-1d61d2c7b043/default
 ```
 A successful response is a 202.
 
@@ -252,7 +242,7 @@ The typical flow for deleting all stored payments for a customer is:
 Listed below is a sample [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} DELETE request URI. **This endpoint is JWT-restricted.**
 
 ```
-  https://api.nike.com/consumer/storedpayments
+https://api.nike.com/commerce/storedpayments/consumer/storedpayments/
 ```
 
 A successful response is a 204.
@@ -272,7 +262,7 @@ The typical flow for deleting a stored payment for a customer is:
 Listed below is a [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} DELETE request URI. This endpoint is not JWT-restricted.
 
 ```
-https://api.nike.com/consumer/storedpayments/37448493-6aea-4a9b-b250-742d3a26c081/?currency=usd
+https://api.nike.com/commerce/storedpayments/consumer/storedpayments/37448493-6aea-4a9b-b250-742d3a26c081/?currency=usd
 ```
 
 A successful response is a 204.
@@ -289,7 +279,7 @@ If the request does not contain a shipping address or the shipping address sent 
 Listed below is a sample [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} POST URI request. This endpoint is not JWT-restricted.
 
 ```
-https://api.nike.com/consumer/storedpayments?currency=USD&includebalance=true&validateshipping=true
+https://api.nike.com/commerce/storedpayments/consumer/storedpayments?currency=USD&includebalance=true&validateshipping=true
 ```
 
 A successful 200 response lists all of a customer's stored payments.
@@ -300,7 +290,7 @@ Use the [Get Stored Payments by UPMID Retail](https://developer.niketech.com/doc
 
 Listed below is a sample Get Stored Payments by UPMID (Retail). It is not JWT-restricted.
 ```
-https://api.nike.com/consumer/retail_stored_payments/v1?currency=USD
+https://api.nike.com/commerce/storedpayments/consumer/retail_stored_payments/v1?currency=USD
 ```
 
 A successful 200 response lists all of a customer's stored payments except credit cards that have not been used to place a Nike order.
@@ -312,7 +302,7 @@ Use the [Get Stored Gift Certificate by ID](https://developer.niketech.com/docs/
 Listed below is a sample [Get Stored Gift Certificate by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-gift-certificates-by-id-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
 ```
-https://api.nike.com//consumer/storedpayments/giftcard/79847893284923483924?currency=USD
+https://api.nike.com/commerce/storedpayments/consumer/giftcard/79847893284923483924?currency=USD
 ```
 
 A successful 200 response contains gift certificate details with a masked account number.
@@ -327,7 +317,7 @@ When listing a gift card payment type and you don't need the balance, pass `incl
 Listed below is a [Get Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-get){:target="new-tab"} GET request URI. **This endpoint is JWT-restricted**.
 
 ```
-https://api.nike.com/consumer/storedpayments/79847893284923483924
+https://api.nike.com/commerce/storedpayments/consumer/storedpayments/79847893284923483924
 ```
 
 A successful 200 response varies depending upon the type of stored payment. A subset of response fields are listed below.
@@ -366,7 +356,7 @@ Use the [Validate Stored Payment Credit Card CVV](https://developer.niketech.com
 Listed below is a sample [Validate Stored Payment Credit Card CVV](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted**.
 
 ```
-https://api.nike.com/consumer/storedpayments/4383642751515000001516?includebalance=false
+https://api.nike.com/commerce/storedpayments/consumer/storedpayments/4383642751515000001516?includebalance=false
 ```
 
 A successful 200 response returns credit card or gift certificate validation and billing information for a `payment_id`.

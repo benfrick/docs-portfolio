@@ -81,10 +81,10 @@ If you are retrieving products that are publicly available, no authentication or
 |I want to...|API(s) to use|
 |---|---|
 |List merchandised product information such as product state, gender, merchandising tags, product type, and launch dates for a list of style-colors|Merchandised Products API|
-|List the prices of a style-color in a certain country<br/>Includes retail price, employee price, sale price, current price, and MSRP|Merchandised Products API<p>Price API|
+|List the prices of a style-color in a certain country<br/>Includes retail price, employee price, sale price, current price, and MSRP|Merchandised Products API<br/>Price API|
 |List all products that can be gift wrapped<p>Returns all value-added services of products that can be gift wrapped|Merchandised Value-Added Services API|
 |List the sizes and SKU detail such as Nike size, localized size description, value-added tax (VAT) and Commodity Code for a style-color|Merchandised Products API<br/>Merchandised SKUs API|
-|List the available images and localized product information such as title, subtitle, and description for a product<p>Lists all images in the Scene7 or Cloudinary image set|Product Content API|
+|List the available images and localized product information such as title, subtitle, and description for a product<br/>Lists all images in the Scene7 or Cloudinary image set|Product Content API|
 |List product information for a product at a specific point in time using a Snapshot ID|Merchandised Products API|
 
 ## API Endpoint Quick Reference

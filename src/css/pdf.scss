@@ -3,8 +3,10 @@
 .guide-button {
   display: none !important;
 }
-html {
-  background-color: white !important;
+html,body {
+    background-color: white !important;
+    padding: 0px;
+    margin: 0px;
 }
 pre {
   border: none !important;
@@ -13,10 +15,36 @@ pre {
 }
 .main {
   border: none !important;
+  /*background-color: white !important;*/
 }
+/* insert the actual URL after links, prepend relative links */
 a[href^="/doc"]::after {
     content: " ( https://developer.niketech.com/nde-docs" attr(href) " )";
 }
 a[href^="http"]::after, a[href^="https"]::after {
     content: " ( " attr(href) " )";
+}
+/* header: h1 text centered top except for first page, page count center bottom */
+@page {
+  @top {
+    content: string(doctitle,first-except);
+  }
+  @bottom {
+    content: counter(page);
+  }
+  @bottom-right {
+    content: "Nike Inc.";
+  }
+}
+/* generate toc */
+/* h2....page number as anchor link */
+#toc a:after {
+  content: leader('.') target-counter(attr(href), page);
+}
+#toc li {
+    list-style: none;
+}
+/* sets h1 text to 'doctitle' variable */
+h1 {
+    string-set: doctitle content();
 }
