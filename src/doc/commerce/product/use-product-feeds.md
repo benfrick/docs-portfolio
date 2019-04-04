@@ -35,7 +35,9 @@ toc:
 
 ##### Last Updated: 01/18/2019
 
-Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more.
+[<img style="max-width:30%;" alt="Nike App screenshot" align="right" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
+
+**Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
 >**TIP:** Before using this guide, you should have completed [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html).
 
@@ -52,8 +54,6 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 * Multiple Threads can be displayed in **Feeds**, customized for your users based on their chosen preferences in a Nike experience.
 
 For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}.
-
-![](/images/commerce/product_feeds/nike_app_annotated.png)
 
 ### What Product Data and Content are Available?
 
@@ -344,7 +344,7 @@ Listed below are some best practices for working with Product Feeds.
 
 Here is an example of a sequence of API calls to get content from Product Feeds v2:
 
-![](/images/commerce/product_feeds/seq_dgm.png)
+![](/images/commerce/product_feeds/seq_dgm.png){:style="max-width:80%;"}
 
 ### Test Environment
 
