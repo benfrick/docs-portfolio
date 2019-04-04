@@ -35,7 +35,7 @@ toc:
 
 ##### Last Updated: 01/18/2019
 
-<span title="Click for larger image"><a target="new-tab" href="/images/commerce/product_feeds/nike_app_annotated.html"><img style="max-width:30%;" alt="Nike App screenshot" align="right" src="/images/commerce/product_feeds/nike_app_annotated_sm.png"></a></span>
+[<img style="max-width:30%;" alt="Nike App screenshot" align="right" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
 
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
