@@ -12,13 +12,13 @@ url: /doc/commerce/product/overview-product-feeds.html
 
 ---
 
+![Nike App Using Feeds](/images/commerce/product_feeds/nike_app_sm.png){:style="margin:10px;max-width:15%;float:right;"}
+
 Great apps like SNKRS, Nike+, Nike Training Club and Nike Running Club showcase Nike products and make them available for purchase. But how is all that visual content pulled together? It's done with [Product Feeds](/doc/commerce/product/use-product-feeds.html) and you can use it, too.
 
 #### Use Product Feeds to tell amazing Nike stories with digital product data and authored content.
 
 Product Feeds is simple and easy to use: it does all the heavy lifting of gathering the content for you.
-
-![Nike App Using Feeds](/images/commerce/product_feeds/nike_app_annotated.png){:style="margin:10px;"}
 
 #### Use Cases
 
