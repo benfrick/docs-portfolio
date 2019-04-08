@@ -73,7 +73,7 @@ In order to use the Rollup Threads API, you will first need to:
 - **Obtain a Consumer Channel ID -- REQUIRED**
 - **Configure Custom Search Rules -- OPTIONAL**
 
-See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813)target="new-tab""} for instructions on the above steps.
+See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){target="new-tab""} for instructions on the above steps.
 
 ### Choosing the Parent Threads You Need
 
