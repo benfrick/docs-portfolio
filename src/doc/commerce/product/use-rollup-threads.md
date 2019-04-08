@@ -27,17 +27,25 @@ toc:
 
 ---
 
-##### Last Updated: 01/28/2019
+##### Last Updated: 04/05/2019
 
-Use the [Product Feed Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
+Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
 >**TIP:** Before using this guide, first read the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html) to understand the basics about Threads.
 
 ## What is a Rollup Thread?
 
-Remember that a Thread contains product content and information. A Rollup Thread is a Thread that is related to, and nested within, a parent Thread. For example, a Thread containing content for a particular shoe color might have seven Rollup Threads nested within it. In this case, each Rollup Thread contains content for the other available colors of that shoe. Using Rollup Threads makes it simpler for you to build a product grid wall experience like this:
+A Thread contains content and information about a Nike product, and you can get a list of threads from the [Product Feeds API](/doc/commerce/product/use-product-feeds.html). The [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} takes it a step further.
+
+A **Rollup Thread** is a Thread that is related to, and nested within, a Parent Thread. For example: a Thread containing content for a particular shoe color might have seven Rollup Threads nested within in it, one for each of the other available colors of that shoe.
+
+Using Rollup Threads makes it simpler for you to build a product grid wall experience like this:
 
 ![](/images/commerce/product_feeds/gridwall.png)
+
+This is just one example of how a Parent Thread can have one or more related Rollup Threads. We'll discuss this more later in [Choosing the Rollup Threads You Need](#choosing-the-rollup-threads-you-need).
+
+Next, we'll get started with interacting with the Rollup Threads API.
 
 ## Get a List of Rollup Threads
 
@@ -45,49 +53,71 @@ Remember that a Thread contains product content and information. A Rollup Thread
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get customized search results**
 
-To get a list of Threads, with their associated Rollup Threads, execute a request to the [Rollup Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api#rollup-threads-rollup-threads-list-get){:target="new-tab"} endpoint.
+### Getting Started
+
+To get a list of Threads along with the associated Rollup Threads, execute a request to the [Rollup Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api#rollup-threads-rollup-threads-list-get){:target="new-tab"} endpoint.
+
+Here are some sample URIs to get you started:
 
 |Use Case|Sample Query|
 |---|---|
 |Threads for a taxonomy ID|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=marketplace(US)&filter=language(en)&filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)|
-|Search all on Nike.com products in US by "Men's Jordan", sorted by newest first|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language(en)&filter=marketplace(US)&searchTerms=Men's%20Jordan&sort=effectiveStartSellDateDesc|
+|Search all Nike.com products in US by "Men's Jordan", sorted by newest first|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language(en)&filter=marketplace(US)&searchTerms=Men's%20Jordan&sort=effectiveStartSellDateDesc|
 
->**TIP:** For sample responses, see the [Rollup Threads API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api).
+>**TIP:** For sample responses, see the [Rollup Threads API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}.
 
-### How Can I Control the Rollup?
+### Prerequisites
 
-By default, the relationship between the Rollup Thread(s) to the parent Thread is based upon a *rollup type* and *rollup key* defined in Nike's product information system. As the client of the API, you do not have direct control over those values.
+In order to use the Rollup Threads API, you will first need to:
 
-Both of these fields are located in the API response in the **productInfo.merchProduct.productRollup** object, field names **type** and **key**.
+- **Obtain a Consumer Channel ID -- REQUIRED**
+- **Configure Custom Search Rules -- OPTIONAL**
 
-- rollup **type**: a group of products related by something, e.g. colors associated with a style number, or shoes of the same width. Example values are "Standard", "WidthGroup", "NFL, or "NBA".
-- rollup **key**: a specific instance of a rollup type, e.g. a value representing a particular style number rollup. Example value is "xqTPKlqE".
+See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813)target="new-tab""} for instructions on the above steps.
 
-### How to Get Only the Threads You Need
+### Choosing the Parent Threads You Need
 
-If there are more threads in the API response than you want, add more specific identifiers to the request as follows.
+To choose only the Parent Threads that you need, append any of the [supported query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to your request URI to get more specific results in the response.
 
-1. **Filters**
+Here are a few example query parameters.
 
-    Use any of the [supported **filter** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api) to get more specific results in the response. For example, to select one or more rollup keys, append `filter=rollupKey(0cc4QN)` to the request URI.
+|Desired filter criteria|Example Query Param|
+|---|---|
+|Women's products|`filter=productInfo.merchProduct.genders(WOMEN)`|
+|Search keyword|`searchTerms=Your%20search%20terms%20here`|
+|Search Rules 'View'|`view=SEARCH_RESULTS`|
 
-2. **Sorting**
-    
-    Sort the results using any of the [supported **sort** query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api). For example, to sort by the current price in ascending order, append query parameter `sort=productInfo.merchPrice.currentPriceAsc` to the request URI.
+>**TIPS:** 
+>- The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
+>- For more on Search Rules, see [Rollup by Search Rules](#rollup-by-search-rules)
 
->**TIP:** The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api) is the source of truth for all supported query parameters.
+### Choosing the Rollup Threads You Need
 
-#### Custom Search Rules
+Next, choose which Rollup Threads are sent with each Parent Thread using one of the following options:
 
-You also have the ability to configure additional rules in the Apollo search administration tool that will **override the default rollup behavior described above, exclusively for your consumerChannelId**.
+#### Default Rollup
 
-For example, if you want Rollup Threads that are related by something other than style number (i.e. "type": "Standard"), then you would create search rules in Apollo based on how you want the rollup to function. You could also create a rule in Apollo to exclude customized Nike ID products or gift cards from your results, if desired.
+By default, the rollup is determined by the value in the **productInfo.merchProduct.productRollup.key** field in the API response. The rollup keys are created in the Nike product information system.
 
-**Ultimately, Apollo is where you can control how the Rollup Threads are returned to you in the response from this API.**
+>TIP: Generally speaking, the default rollup is by Nike style code. If you need a different rollup, use one of the below options.
+
+#### Rollup by Rollup Key
+
+Specify a particular rollup key by including the filter query parameter `rollupKey` in your request URI, for example `?filter=rollupKey(0cc4QN)`.
+
+#### Rollup by Search Rules
+
+The most powerful way to control the rollup is to configure search rules in the Apollo tool. This will **override the default rollup behavior described above, exclusively for your consumerChannelId**.
+
+For example, you can create a rule in Apollo to exclude customized Nike ID products or gift cards from your results.
+
+Multiple sets of search rules can be defined in **views** in Apollo and then accessed in the Rollup Threads API via the `view` query parameter.
+
+See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813)target="new-tab""} for instructions on how to set up views.
 
 ### Consumer Channel ID Versus Channel ID
 
-Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds API?
+Your Consumer Channel ID is unique to your app and allows you to have custom search rules to return only the Parent and Rollup Threads that you need. But how is Consumer Channel ID related to the Channel ID you might be using with Product Feeds API?
 
 Consumer Channel ID and Channel ID are not directly related and therefore should not be used interchangeably. Both are unique IDs that help you to get only the data you need from each respective API.
 
@@ -105,7 +135,7 @@ The following diagram describes the how the structure of the response from the R
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|Rollup Threads|[Get a product Thread with related Threads nested within](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api)|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
+|GET|Rollup Threads|[Get a product Thread with related Threads nested within](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
 
 ## Best Practices
 
@@ -128,18 +158,6 @@ It is recommended that you send a caller ID header in every request to this API 
 ### Authentication
 
 No authentication or authorization is required to use this API.
-
-### Prerequisites
-
-In order to use the Product Feed Rollup Threads v2 API, you need to:
-
-- **Obtain a Consumer Channel ID -- REQUIRED**
-
-  [Fill out a request form](https://confluence.nike.com/display/G11N/Request+Form+for+a+new+Consumer+Channel){:target="new-tab"} to define your needs for a Consumer Channel ID. Once submitted, this form will be used to assess whether an existing ID can be used or a new ID needs to be created. This is different from the Channel ID you may be using to call the Product Feeds endpoint. See [Consumer Channel ID and Channel ID](#comparing-ids) for a comparison between the two ID types.
-
-- **Configure Custom Search Rules -- OPTIONAL**
-
-  The default key used for rolling up Threads is **productInfo.merchProduct.productRollup.key**. If you require any custom search rules to refine how Threads are rolled up, you can work with the Search team to create them. Contact the [Apollo Product Owner](#api-at-a-glance) for assistance.
 
 ## Glossary
 
