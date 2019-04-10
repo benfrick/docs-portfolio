@@ -27,7 +27,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/05/2019
+##### Last Updated: 04/08/2019
 
 Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
@@ -73,7 +73,7 @@ In order to use the Rollup Threads API, you will first need to:
 - **Obtain a Consumer Channel ID -- REQUIRED**
 - **Configure Custom Search Rules -- OPTIONAL**
 
-See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){target="new-tab""} for instructions on the above steps.
+See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){:target="new-tab"} for instructions on the above steps.
 
 ### Choosing the Parent Threads You Need
 
@@ -113,7 +113,7 @@ For example, you can create a rule in Apollo to exclude customized Nike ID produ
 
 Multiple sets of search rules can be defined in **views** in Apollo and then accessed in the Rollup Threads API via the `view` query parameter.
 
-See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813)target="new-tab""} for instructions on how to set up views.
+See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){:target="new-tab"} for instructions on how to set up views.
 
 ### Consumer Channel ID Versus Channel ID
 
