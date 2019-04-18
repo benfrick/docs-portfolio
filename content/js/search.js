@@ -1,1 +1,102 @@
-!function(){function e(e){for(var n=window.location.search.substring(1).split("&"),t=0;t<n.length;t++){var i=n[t].split("=");if(i[0]===e)return decodeURIComponent(i[1].replace(/\+/g,"%20")).trim()}}function n(e,n,t){t=t||2*n.length;for(var i,r=e.split(" "),o=n.toLowerCase().indexOf(e.toLowerCase()),l=e.length,a=0;a<r.length&&!(o>=0);a++)o=n.toLowerCase().indexOf(r[a].toLowerCase()),l=r[a].length;if(o>=0){var s=o-t/2,d=s>0?o+l+t/2:t;i=n.substring(s,d).trim(),s>0&&(i="..."+i),d<n.length&&(i+="..."),i=i.replace(new RegExp("("+r.join("|")+")","gi"),"<strong>$1</strong>")}else i=n.substring(0,t).trim()+(n.length>t?"...":"");return i}function t(e,t){var i=document.getElementById("search-results"),r=document.getElementById("search-process");if(e.length){var o="";e.forEach(function(e){var i=window.data[e.ref],r=n(t,i.content,170),l=n(t,i.title);o+="<li><h4><a href='"+i.url+"'>"+l+"</a></h4><p><small>"+r+"</small></p></li>"}),i.innerHTML=o,r.innerText="Showing"}else i.style.display="none",r.innerText="No"}window.index=lunr(function(){this.field("id"),this.field("title",{boost:10}),this.field("category"),this.field("url"),this.field("content")});var i=decodeURIComponent((e("q")||"").replace(/\+/g,"%20")),r=document.getElementById("search-query-container"),o=document.getElementById("search-query");document.getElementById("search-input");for(var l in o.innerText=i,r.style.display="inline",window.data)window.index.add(window.data[l]);t(window.index.search(i),i)}();
+(function () {
+	function getQueryVariable(variable) {
+		var query = window.location.search.substring(1),
+			vars = query.split("&");
+
+		for (var i = 0; i < vars.length; i++) {
+			var pair = vars[i].split("=");
+
+			if (pair[0] === variable) {
+				return decodeURIComponent(pair[1].replace(/\+/g, '%20')).trim();
+			}
+		}
+	}
+
+	function getPreview(query, content, previewLength) {
+		previewLength = previewLength || (content.length * 2);
+
+		var parts = query.split(" "),
+			match = content.toLowerCase().indexOf(query.toLowerCase()),
+			matchLength = query.length,
+			preview;
+
+		// Find a relevant location in content
+		for (var i = 0; i < parts.length; i++) {
+			if (match >= 0) {
+				break;
+			}
+
+			match = content.toLowerCase().indexOf(parts[i].toLowerCase());
+			matchLength = parts[i].length;
+		}
+
+		// Create preview
+		if (match >= 0) {
+			var start = match - (previewLength / 2),
+				end = start > 0 ? match + matchLength + (previewLength / 2) : previewLength;
+
+			preview = content.substring(start, end).trim();
+
+			if (start > 0) {
+				preview = "..." + preview;
+			}
+
+			if (end < content.length) {
+				preview = preview + "...";
+			}
+
+			// Highlight query parts
+			preview = preview.replace(new RegExp("(" + parts.join("|") + ")", "gi"), "<strong>$1</strong>");
+		} else {
+			// Use start of content if no match found
+			preview = content.substring(0, previewLength).trim() + (content.length > previewLength ? "..." : "");
+		}
+
+		return preview;
+	}
+
+	function displaySearchResults(results, query) {
+		var searchResultsEl = document.getElementById("search-results"),
+			searchProcessEl = document.getElementById("search-process");
+
+		if (results.length) {
+			var resultsHTML = "";
+			results.forEach(function (result) {
+				var item = window.data[result.ref],
+					contentPreview = getPreview(query, item.content, 170),
+					titlePreview = getPreview(query, item.title);
+
+				resultsHTML += "<li><h4><a href='" + item.url + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
+			});
+
+			searchResultsEl.innerHTML = resultsHTML;
+			searchProcessEl.innerText = "Showing";
+		} else {
+			searchResultsEl.style.display = "none";
+			searchProcessEl.innerText = "No";
+		}
+	}
+
+	window.index = lunr(function () {
+		this.field("id");
+		this.field("title", {boost: 10});
+		this.field("category");
+		this.field("url");
+		this.field("content");
+	});
+
+	var query = decodeURIComponent((getQueryVariable("q") || "").replace(/\+/g, "%20")),
+		searchQueryContainerEl = document.getElementById("search-query-container"),
+		searchQueryEl = document.getElementById("search-query"),
+		searchInputEl = document.getElementById("search-input");
+
+	//searchInputEl.value = query;
+	searchQueryEl.innerText = query;
+	searchQueryContainerEl.style.display = "inline";
+
+	for (var key in window.data) {
+		window.index.add(window.data[key]);
+	}
+
+	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
+})();
