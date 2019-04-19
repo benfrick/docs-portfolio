@@ -39,7 +39,7 @@ Step through the Use Cases below to incorporate CXP capabilities into your exper
     </ul>
 </aside>
 
-* [Product Feeds Developer's Guide:](/doc/commerce/product/use-product-feeds.html) Does your use case align better to Product Feeds? Read this developer's guide.    
+* [Product Feeds Developer's Guide:](/doc/commerce/product/use-product-feeds.html) Learn how integrate with the Product Feeds API.    
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 * [Product Life Cycle:](/doc/commerce/reference/product-lifecycle.html) Discover how Nike products become available for purchase in an experience.
 
