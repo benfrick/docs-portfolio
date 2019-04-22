@@ -1,5 +1,12 @@
 ---
+#id: unique id, usually doc title without file extension
+#tags: pdf
+#category: a-overview
+#position: 1
+#title: Title for sidebar
+#url: rel url to html file for this doc
 ---
+<a href="{{ page.url | replace: '.html','.pdf' }}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="{{ page.url | replace: 'overview-','use-' }}" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
 # {Domain Name} Overview
 
@@ -7,15 +14,9 @@
 
 {1-2 sentence intro to set context for this doc and the domain it describes}
 
-
-<a href="/doc/commerce/checkout/use-checkout.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> GO TO DEVELOPER'S GUIDE</a>
-
-
 #### {1 short, catchy sentence for why you want to use this thing}
 
 {Perhaps another 1 sentence value statement}
-
-<br>
 
 ![Image description](/rel/path/to/image.png)
 
