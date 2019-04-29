@@ -160,7 +160,7 @@ This returns the [Builder API](#builder-api) and renders the Customization UX in
 
 ### 4. Navigate to the URI to Launch the Experience
 
-Launch the Customization experience locally by navigating to the URI with at minimum the `?pathName` query parameter. The value in `?pathName` must match what you set in the `pathName` property when the Builder was initialized, like:
+Launch the Customization experience locally by navigating to the URI with at least the `?pathName` query parameter. The value in `?pathName` must match what you set in the `pathName` property when the Builder was initialized, like:
 
 ```
 http://localhost:3000/?pathName=KobeAD2exoFA18
@@ -169,7 +169,7 @@ http://localhost:3000/?pathName=KobeAD2exoFA18
 #### Additional Query Params
 
 - `imageSize`: sets the size of images returned by the Builder in pixels (max 666) 
-- `imageQuality`: sets the bit-depth of the PNG images returned by the Builder (8/24) 
+- `imageQuality`: sets the quality (as bit-depth) of the PNG images returned by the Builder (8/24) 
 - `hideMenu`:  shows/hides the harnessMenu on page load (true/false)
 
 Example:
@@ -179,9 +179,7 @@ http://localhost:3000/?imageSize=666&imageQuality=8&hideMenu=true&pathName=metco
 
 ### Integration Flow
 
-- Invoke `nikeIdBuilder(rootElement, config)` to get the Builder API. The returned object also contains a method for api.onApiReady, which 
-can be used as an indicator to when the Builder has loaded the necessary data to begin loading the experience. The Builder 
-will invoke the necessary services to render the experience.
+- Invoke `nikeIdBuilder(rootElement, config)` to get the Builder API. The returned object also contains a method for api.onApiReady, which indicates that the Builder has loaded.
 - Listen to price change, analytic, and "done" events coming from the Builder.
 - For buying tools, use `setSizeType` and `setAnswer` for answering the size related questions.
 - Invoke `setBuild` for loading a new build by prebuild id, metric id, or raw build data. This is mainly meant to "reset" the Builder.
@@ -317,7 +315,7 @@ a key for your platform in advance of making API calls. The current list of supp
 |Test*|com.nike:test|
 |Localhost*|com.nike:commerce.b16.localhost|
 
-#### Sometimes Required Properties
+#### Properties With Dependencies
 
 |`productId`|String|Product ID for the requested build. Only required when using b16Builder and passing config: builderMode: 'wip'|
 |`country`|String|The current country two character abbreviation, e.g. `US`, `GB`, `CN`. Only required when using builderProductApi|
