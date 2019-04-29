@@ -1,20 +1,20 @@
 ---
 tags: pdf
-category: b-use-case
+#category: b-use-case
 position: 3
 title: Customization
 url: /doc/commerce/customization/use-customization.html
 toc:
-  - h2: 'Quick-Start: Running the Builder'
-    url: /doc/commerce/customization/use-customization.html#quick-start-running-the-builder
   - h2: Introduction
     url: /doc/commerce/customization/use-customization.html#introduction
+  - h2: 'Quick-Start: Running the Builder'
+    url: /doc/commerce/customization/use-customization.html#quick-start-running-the-builder
   - h2: Show Customizable Products
     url: /doc/commerce/customization/use-customization.html#show-customizable-products
   - h2: Load the Builder UX and Listen for Updates
     url: /doc/commerce/customization/use-customization.html#load-the-builder-ux-and-listen-for-updates
   - h2: Finalize and Share Design
-    url: /doc/commerce/customization/use-customization.html#finalize-and-share-design
+    url: /doc/commerce/customization/use-customization.html#finalize-and-share-designs
   - h2: API Endpoint Quick Reference
     url: /doc/commerce/customization/use-customization.html#api-endpoint-quick-reference
   - h2: Best Practices
@@ -40,12 +40,12 @@ toc:
 
 ##### Last Updated: 04/20/2019
 
-The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3) experiences like:
+The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"} experiences like:
 
 <img alt="Depiction of Nike By You web experience at Nike.com" src="/images/customization/nby-web-chrome.png" class="border" style="display:inline-block; width:75%; margin-right:20px; vertical-align: middle;">
 <img alt="Depiction of Nike By You experience in the Nike App" src="/images/customization/nby-nike-app2.png" class="border" style="display:inline-block; width:20%; vertical-align:middle;">
 
->**TIP**: Before using this guide you should have already completed [Customization Overview](/doc/commerce/customization/overview-customization.html).
+>**TIP**: Before using this guide, you should have already completed [Customization Overview](/doc/commerce/customization/overview-customization.html).
 
 ## Introduction
 
@@ -55,15 +55,12 @@ In this guide, we will discuss how to integrate CXP customization features into 
 
 The Builder is a JavaScript bundle that is your main interface with CXP. It does the following:
 
-- **UX**: Returns a fully-styled UX for customizing products (see also ["Headless" option]())
+- **UX**: Returns a fully-styled UX for customizing products
 - **Data API**: Allows you to interact with product build data and CXP REST APIs
 
 ### REST APIs
 
-CXP provides REST APIs to facilitate gather and storing customization data. You can call these APIs rather than using the Data API, if you choose.
-
-- Customization Availability
-- Save Designs (?)
+CXP provides REST APIs to facilitate gather and storing customization data. You can call [these APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} rather than using the Data API, if you choose.
 
 ## Quick-Start: Running the Builder
 
@@ -71,7 +68,7 @@ Just want to demo the Builder on your local? Read this section first, otherwise 
 
 ### Step 1: Install Prerequisites
 
-Follow the [Builder installation instructions](https://bitbucket.nike.com/projects/NID/repos/builder-experience/browse/docs/Installation.md) to install the prerequisites for running the Builder locally.
+Follow the [Builder installation instructions](/doc/commerce/customization/builder-reference.html#installation) to install the prerequisites for running the Builder locally.
 
 ### Step 2: Load the Builder
 
@@ -121,7 +118,7 @@ In your app's source, open an HTML template and follow these steps:
 
     ![Image of Builder running locally in Chrome](/images/customization/builder-local-web.png)
 
-**Sample HTML Template (Initializes Builder Only)**
+### Sample HTML Template (Initializes Builder Only)
 
 ```html
 <!DOCTYPE html>
@@ -160,13 +157,13 @@ In your app's source, open an HTML template and follow these steps:
 </html>
 ```
 
->**TIP**: See more at [CXP Builder Library Reference](/doc/customization/reference-builder.html): the single source of truth for Builder functionality. 
+>**TIP**: See more at [Customization Builder Reference](/doc/customization/builder-reference.html), which is the single source of truth for Builder functionality. 
 
 ## Show Customizable Products
 
-|<i class="g72-check"></i>&nbsp;&nbsp;[Show customizable products](): Show consumers which products are customizable, along with an estimated delivery date.|
+|<i class="g72-check"></i>&nbsp;&nbsp;**Show customizable products**: Which products are customizable? What is the estimated delivery date?|
 
-The first part of adding CXP to experiences is to show the consumer which products, and in which colors, can be customized. Whether it's a full [Nike By You](https://www.nike.com/us/en_us/c/nikeid) web experience with it's product grid walls and Product Detail Pages (PDPs), or something else, you need to show consumers the customizable products.
+The first part of adding CXP to experiences is to show the consumer which products, and in which colors, can be customized. Whether it's a full [Nike By You](https://www.nike.com/us/en_us/c/nikeid){:target="new-tab"} web experience with it's product grid walls and Product Detail Pages (PDPs), or something else, you need to show consumers the customizable products.
 
 ![Nike By You PDP annotated with data sources](/images/customization/nby-pdp.png)
 
@@ -174,9 +171,7 @@ The first part of adding CXP to experiences is to show the consumer which produc
 
 - Call either the [Product Feeds](/doc/commerce/product/use-product-feeds.html) or [Rollup Threads](/doc/commerce/product/use-rollup-threads.html) API to get a list of customizable products, along with relevant content.
 
-- To select only 'Nike By You' products, use the `filter=attributeIds()` query parameter, for example:
-  
-  https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923)
+- To select only 'Nike By You' products, use the `filter=attributeIds()` query parameter. Example URI: https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923)
    
 - Use the response data to drive the experience of browsing customizable products, whether it be a grid wall, feed, or something else.
 
@@ -186,7 +181,7 @@ Talk about graphQL here?
 >**TIPS**:
 >- [Rollup Threads](/doc/commerce/product/use-rollup-threads.html) is best for grid wall, where alternate colors are shown with each product in the grid.
 >- See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html) and [Adding Product Feeds to Your Experience](/doc/commerce/product/use-product-feeds.html) for more integration info.
->- See [TTAC](/doc/taxonomy/overview-taxonomy-tagging.html){:target="new-tab"} for more about the benefits of using taxonomy tagging.
+>- See [TTAC](/doc/taxonomy/overview-taxonomy-tagging.html) for more about the benefits of using taxonomy tagging.
 
 ### Step 2: Show Size Availability
 
@@ -206,11 +201,11 @@ Depending on your specific experience flow, the **Edit Design** CTA can be alway
 
 ## Load the Builder UX and Listen for Updates
 
-|<i class="g72-check"></i>&nbsp;&nbsp;[Send consumers on design journeys](): Consumers visually crafting the shoe of their dreams in your app. 'Nuff said.|
+|<i class="g72-check"></i>&nbsp;&nbsp;**Send consumers on design journeys**: What customization options are available? What does my design look like? How much will it cost?|
 
 The consumer has selected to edit the design, so it's time to load the Builder UX.
 
-![Nike By You Design UX showing interaction with Builder](/images/customization/nby-builder-mobile.png)
+![Nike By You example design UX](/images/customization/nby-design.png)
 
 ### Step 1: Load the Builder
 
@@ -223,7 +218,8 @@ If you completed [Quick Start: Run the Builder Locally](#quick-start-run-the-bui
 - Listen to price change, analytics, and "done" events coming from the builder and update your experience accordingly.
 
     Get notifications for actions within the builder using `bridge`, a property of the `config` parameter like:
-    ```
+    
+    ```html
      bridge: {
        onAnalyticsEvent: function() {},
        onApiReady: function(api) {}, // api ready not build
@@ -236,18 +232,13 @@ If you completed [Quick Start: Run the Builder Locally](#quick-start-run-the-bui
 
 - Invoke `setBuild` to load a new build by prebuild id, metric id, or raw build data. This is mainly meant to "reset" the builder.
 
-## Finalize and Share Design
+## Finalize and Share Designs
 
-|<i class="g72-check"></i>&nbsp;&nbsp;[Finalize and share design](): Finalize a design so that it can be added to the cart, share a design on social media|
+|<i class="g72-check"></i>&nbsp;&nbsp;**Finalize and share designs**: How do I finalize my design? How do I share it on social media?|
 
 - Save design
 
-
-## API Endpoint Quick Reference
-
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|[]({url for API Reference}){:target="new-tab"}|`/product_feed/collection_terms/v2{?filter,searchTerms,sort,anchor,count}`||
+![Nike By You example 'My Designs' UX](/images/customization/nby-my-designs.png)
 
 ## Best Practices
 
@@ -259,12 +250,9 @@ Listed below are some best practices for working with Customization.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the {} team on the [#slack-channel]({url for slack channel}){:target="new-tab"} Slack channel for assistance.
+- Contact the CXP team on the [#cxp](https://nikedigital.slack.com/messages/GFH2GM02C){:target="new-tab"} Slack channel for assistance.
 
 ## Terms of Service
-<!--
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create and register your caller ID.
--->
 
 ### Common Questions
 
@@ -277,8 +265,8 @@ Answer 1
 Need to contact the Customization team?
 
 |---|---|
-|Slack|[](){:target="new-tab"}|
-|Confluence Space|[](){:target="new-tab"}|
+|Slack|[#cxp](https://nikedigital.slack.com/messages/GFH2GM02C){:target="new-tab"}|
+|Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home){:target="new-tab"}|
 |Team Contacts|[Jason Mueller, Product Manager](mailto:jason.mueller@nike.com)|
 
 ## Glossary
@@ -289,11 +277,11 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 |Summary|Date|
 |---|---|
-|Initial draft|04/20/2019|
+|Initial draft|04/30/2019|
 
 ## Next Steps
 
 You've learned how to add Customization to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
+- [Adding Cart & Checkout To Your Experience](/doc/commerce/checkout/use-checkout.html)
 - [Using NDe APIs](/doc/getting-started/using-nike-apis.html)

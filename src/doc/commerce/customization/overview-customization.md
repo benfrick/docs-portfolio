@@ -1,7 +1,7 @@
 ---
 id: overview-customization
 tags: pdf
-category: a-overview
+#category: a-overview
 position: 3
 title: Customization
 url: /doc/commerce/customization/overview-customization.html
@@ -25,9 +25,9 @@ CXP is set of APIs and Components that collectively unlock your consumers' abili
 Step through the Use Cases below to incorporate CXP capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Show customizable products](/doc/commerce/customization/use-customization.html): Show consumers which products are customizable, along with an estimated delivery date.|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Send consumers on design journeys](/doc/commerce/customization/use-customization.html): Consumers visually crafting the shoe of their dreams in your app. 'Nuff said.|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Finalize and share design](/doc/commerce/customization/use-customization.html): Finalize a design so that it can be added to the cart, share a design on social media.|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Show customizable products](/doc/commerce/customization/use-customization.html#show-customizable-products): Which products are customizable, and in what sizes? What is the estimated delivery date?|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Send consumers on design journeys](/doc/commerce/customization/use-customization.html#load-the-builder-ux-and-listen-for-updates): What customization options are available? What does my design look like? How much will it cost?|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Finalize and share designs](/doc/commerce/customization/use-customization.html#finalize-and-share-designs): How do I finalize my design? How do I share it on social media?|
 
 <h4>Related Information</h4>
 <aside class="note">
