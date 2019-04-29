@@ -27,7 +27,7 @@
 #  - h2: Next Steps
 #    url:  {rel link to HTML}#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING {} TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
 
