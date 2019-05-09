@@ -1,6 +1,6 @@
 ---
 tags: pdf
-#category: b-use-case
+category: b-use-case
 position: 3
 title: Customization
 url: /doc/commerce/customization/use-customization.html
@@ -38,20 +38,19 @@ toc:
 
 ---
 
-##### Last Updated: 04/20/2019
+##### Last Updated: 05/10/2019
 
-The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"} experiences like:
+The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
 
-<img alt="Depiction of Nike By You web experience at Nike.com" src="/images/customization/nby-web-chrome.png" class="border" style="display:inline-block; width:75%; margin-right:20px; vertical-align: middle;">
-<img alt="Depiction of Nike By You experience in the Nike App" src="/images/customization/nby-nike-app2.png" class="border" style="display:inline-block; width:20%; vertical-align:middle;">
+<img alt="Depiction of Nike By You experience at Nike.com" src="/images/customization/nby-web-chrome.png" class="border" style="display:inline-block; vertical-align:middle;">
 
 >**TIP**: Before using this guide, you should have already completed [Customization Overview](/doc/commerce/customization/overview-customization.html).
 
 ## Introduction
 
-In this guide, we will discuss how to integrate CXP customization features into your app.
+In this guide, we will discuss how to integrate CXP customization features into your app. First, what does CXP have to offer?
 
-### Welcome to the Builder
+### The Builder
 
 The Builder is a JavaScript bundle that is your main interface with CXP. It does the following:
 
@@ -60,21 +59,15 @@ The Builder is a JavaScript bundle that is your main interface with CXP. It does
 
 ### REST APIs
 
-CXP provides REST APIs to facilitate gather and storing customization data. You can call [these APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} rather than using the Data API, if you choose.
+Use CXP's [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} along with the Builder to enhance your experience, for example to display a message to the consumer about the estimated delivery date of their customized product.
 
 ## Quick-Start: Running the Builder
 
-Just want to demo the Builder on your local? Read this section first, otherwise skip to [Show Customizable Products](#show-customizable-products).
-
-### Step 1: Install Prerequisites
-
-Follow the [Builder installation instructions](/doc/commerce/customization/builder-reference.html#installation) to install the prerequisites for running the Builder locally.
-
-### Step 2: Load the Builder
+Just want to demo the Builder UX on your local? Read this section first, otherwise skip to [Show Customizable Products](#show-customizable-products).
 
 In your app's source, open an HTML template and follow these steps:
 
-- **Include the Builder bundle**
+1. **Include the Builder bundle**
 
     Add a `<script>` tag in the `<body>` to include the Builder JavaScript bundle like:
 
@@ -82,7 +75,7 @@ In your app's source, open an HTML template and follow these steps:
     <script src="https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.bundle.min.js" type="text/javascript"></script>
     ```
 
-- **Add a <div> for the Builder to load into**
+2. **Add a <div> for the Builder to load into**
 
     Add a `<div>` in the `<body>` with an `id="nikeid-app"` attribute like:
 
@@ -93,7 +86,7 @@ In your app's source, open an HTML template and follow these steps:
     </div>
     ```
 
-- **Load the Builder**
+3. **Load the Builder**
 
     Add a `<script>` tag in the `<body>` that invokes the `nikeIdBuilder(rootElement, config)` function like:
 
@@ -106,11 +99,12 @@ In your app's source, open an HTML template and follow these steps:
     </script>
     ```
 
->TIPS:
->- The argument for the `rootElement` parameter can be populated with a method like `document.getElementbyId('element-id-where-builder-renders')`.
->- The argument for the `config` parameter must contain at minimum the `nike-api-caller-id` and `pathName` properties. See [Step 1: Load the Builder](#step-1-load-the-builder) for more.
+    >TIPS:
+    >- The argument for the `rootElement` parameter can be populated with a method like `document.getElementbyId('element-id-where-builder-renders')`.
+    >- The argument for the `config` parameter must contain at minimum the `nike-api-caller-id` and `pathName` properties.
+    >- See [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for details about the Builder.
 
-- **Navigate to Your Local Host to View the Builder Experience**
+4. **Navigate to Your Local Host to View the Builder Experience**
     
     The Builder loads into your chosen HTML element (in this case, a `<div>` with attribute `id="nikeid-app"`), and it invokes the necessary services to render the experience:
     
@@ -161,45 +155,78 @@ In your app's source, open an HTML template and follow these steps:
 
 ## Show Customizable Products
 
-|<i class="g72-check"></i>&nbsp;&nbsp;**Show customizable products**: Which products are customizable? What is the estimated delivery date?|
-
-The first part of adding CXP to experiences is to show the consumer which products, and in which colors, can be customized. Whether it's a full [Nike By You](https://www.nike.com/us/en_us/c/nikeid){:target="new-tab"} web experience with it's product grid walls and Product Detail Pages (PDPs), or something else, you need to show consumers the customizable products.
-
-![Nike By You PDP annotated with data sources](/images/customization/nby-pdp.png)
+|<i class="g72-check"></i>&nbsp;&nbsp;**Show customizable products**: Which products are customizable? What is the estimated delivery date? How do I start designing?|
 
 ### Step 1: Show Customizable Products & Color Options
 
-- Call either the [Product Feeds](/doc/commerce/product/use-product-feeds.html) or [Rollup Threads](/doc/commerce/product/use-rollup-threads.html) API to get a list of customizable products, along with relevant content.
+Whether it's a [Nike By You](https://www.nike.com/us/en_us/c/nikeid){:target="new-tab"} web experience with it's product grid walls and Product Detail Pages (PDPs), or some other type of experience, you need to show the consumer which products, and in what colors, can be customized.
 
-- To select only 'Nike By You' products, use the `filter=attributeIds()` query parameter. Example URI: https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923)
-   
+![Nike By You grid wall on Nike.com](/images/customization/nby-gridwall.png)
+
+- Call either the [Product Feeds API](/doc/commerce/product/use-product-feeds.html) or the [Rollup Threads API](/doc/commerce/product/use-rollup-threads.html) to get a list of customizable products, along with relevant content.
+
+    To select only 'Nike By You' products, use the `filter=attributeIds()` query parameter like:
+
+    [https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923)](https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923)).
+
 - Use the response data to drive the experience of browsing customizable products, whether it be a grid wall, feed, or something else.
 
-Talk about showing PreBuilds here?
-Talk about graphQL here?
-
 >**TIPS**:
->- [Rollup Threads](/doc/commerce/product/use-rollup-threads.html) is best for grid wall, where alternate colors are shown with each product in the grid.
+>- [Rollup Threads](/doc/commerce/product/use-rollup-threads.html) is best for displaying a grid wall, where alternate colors are shown with each product in the grid.
 >- See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html) and [Adding Product Feeds to Your Experience](/doc/commerce/product/use-product-feeds.html) for more integration info.
 >- See [TTAC](/doc/taxonomy/overview-taxonomy-tagging.html) for more about the benefits of using taxonomy tagging.
 
-### Step 2: Show Size Availability
+### Step 2: Show a PDP for a Customizable Product
 
-The consumer has made their product (style) and color selections by now, and this is also a good time to show them which sizes are available.
+Show the consumer a particular product in more detail with a PDP like:
 
-- Use the `setSizeAnswer` method of the Builder to get the necessary data to display size availability.
+![Nike By You PDP annotated with data sources](/images/customization/nby-pdp.png)
 
-### Step 3: Show Estimated Delivery Date
+Next, we'll discuss some components that you can include in a PDP.
 
-- Call the Customization Availability API.
+#### Step 2a: Show Product Content and Info
 
-### Step 4: Show the Edit Design CTA
+Show the product images, pricing, and other info from [Product Feeds](/doc/commerce/product/use-product-feeds.html) on the PDP.
 
-The consumer is ready to customize their product, and needs a way to launch the builder experience. Use an **Edit Design** CTA (call-to-action) button to allow them to do that.
+- Call the [Product Feeds API](/doc/commerce/product/use-product-feeds.html) with the thread id to retrieve content and info for the product.
 
-Depending on your specific experience flow, the **Edit Design** CTA can be always active, or conditionally active, for example only after size selection.
+#### Step 2b: Show Product Availability Messaging
 
-## Load the Builder UX and Listen for Updates
+Show the consumer on the PDP whether the product can be purchased or not, and if so, when it might be delivered to them. Examples:
+
+|Condition|Message on PDP|
+|---|---|
+|Product is buyable|`"Custom-made and delivered to you in 4 weeks or less."`|
+|Product is not buyable|`"The product is currently unavailable."`
+
+- Call the [Customization Availability API]() to get the applicable message for the product. Note: you can also get this info from the Builder API.
+
+#### Step 2c: Show 'Edit Design' CTA
+
+Show the consumer a way to edit the design.
+
+- Use an **Edit Design** CTA (call-to-action) button that launches the Builder UX.
+
+>**TIPS**:
+>- It's recommended that the **Edit Design** CTA be always active on the PDP.
+>- You can initialize and interact with the Builder API prior to showing the Builder UX. See [Load the Builder UX](#load-the-builder-ux-and-listen-for-updates) for more.
+
+### Step 2d: Show Size Selection Grid
+
+Show the consumer all of the possible sizes for the product and, from those, which sizes are available for purchase. Also, allow them to make a size selection.
+
+- Display the size selection grid by calling the .. method of the Builder API like:
+
+#### Step 2e: Show 'Add to Cart' CTA
+
+Show the consumer a way to add the product to their shopping cart with an **Add to Cart** CTA. The specific behavior of the CTA is your choice, but here is an example:
+
+- Call the [Carts API](/doc/commerce/checkout/use-checkout.html#cart) to add the product to a cart.
+- Show an updated cart item count to the consumer and/or navigate them to a cart/checkout page.
+
+>**TIP**: For more see [Adding Cart and Checkout to your Experience](/doc/commerce/checkout/use-checkout.html).
+
+## Load the Builder UX
 
 |<i class="g72-check"></i>&nbsp;&nbsp;**Send consumers on design journeys**: What customization options are available? What does my design look like? How much will it cost?|
 
@@ -209,9 +236,11 @@ The consumer has selected to edit the design, so it's time to load the Builder U
 
 ### Step 1: Load the Builder
 
-If you completed [Quick Start: Run the Builder Locally](#quick-start-run-the-builder-locally), then you've already practiced loading the Builder. In this step, we'll do it again but with more complex arguments for the `nikeIdBuilder(rootElement, config)` function.
+Load the Builder by invoking the `nikeIdBuilder(rootElement, config)` function. 
 
-- Use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds response (mentioned in [Step 1: Show Customizable Products & Color Options](#step-1-show-customizable-products--color-options)) as the `pathName` property like `pathName: 'af1LowChampsSU19'`.
+- Use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds response (mentioned in [Step 1: Show Customizable Products & Color Options](#step-1-show-customizable-products--color-options)) as the `pathName` property, like `pathName: 'af1LowChampsSU19'`.
+
+>**TIP**: See the [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for details about the Builder.
 
 ### Step 2: Update UX for Builder Events
 
@@ -232,11 +261,21 @@ If you completed [Quick Start: Run the Builder Locally](#quick-start-run-the-bui
 
 - Invoke `setBuild` to load a new build by prebuild id, metric id, or raw build data. This is mainly meant to "reset" the builder.
 
-## Finalize and Share Designs
+## Finalize Designs for Checkout
+
+### Show Size Selection
+
+The consumer has made their product (i.e. style) and color selections by now, and this is also a good time to show them which sizes are available for purchase.
+
+- Use the `setSizeAnswer` method of the Builder to send the answers to the size-related questions.
+
+### Show Gender Selection
+
+## Share Designs
 
 |<i class="g72-check"></i>&nbsp;&nbsp;**Finalize and share designs**: How do I finalize my design? How do I share it on social media?|
 
-- Save design
+## Save Designs
 
 ![Nike By You example 'My Designs' UX](/images/customization/nby-my-designs.png)
 
