@@ -5,8 +5,6 @@ position: 4
 title: Customization Builder Reference
 url: /doc/commerce/customization/builder-reference.html
 toc:
-  - h2: Installation
-    url: /doc/commerce/customization/builder-reference.html#installation
   - h2: Basic Integration
     url: /doc/commerce/customization/builder-reference.html#basic-integration
   - h2: Builder API
@@ -18,7 +16,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/30/2019
+##### Last Updated: 05/10/2019
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
 
@@ -28,71 +26,6 @@ The Builder is a JavaScript bundle that is your main interface with CXP. It does
 
 - **UX**: Returns a fully-styled UX for customizing products
 - **Data API**: Interact with Builder data and CXP REST APIs
-
-## Installation
-
-The following section describes how to install the Builder in order to serve and access it locally.
-
-### Prerequisites
- 
-- [Node.js](https://nodejs.org/en/) v4.2.x or higher
-- [NPM](https://www.npmjs.com/get-npm) v3.x or higher
-- [Homebrew](https://brew.sh/)
-
-### Update Hosts File
-
-- **Edit your /etc/hosts file**
-
-    ```console
-    $ sudo nano /etc/hosts
-    ```
-
-- **Use the arrow keys to position the cursor at the end of the file and add the following lines:**
-
-    ```text
-    127.0.0.1 localhost.nike.com
-    127.0.0.1 origin-localhost.nike.com
-    ```
-
-- **Use Ctrl-O to save the file, then Ctrl-X to exit**
-
-### Install Packages & Dependencies
-
-- **Install the packages**
-
-    ```console
-    $ brew install pkg-config cairo libpng jpeg giflib
-    ```
-
-- **Install any dependencies**
-
-    ```console
-    $ npm install
-    ```
-
-### Local Startup
-
-- **Start the server**
-
-    ```console
-    $ npm start
-    ```
-
-- **Access the Builder**
-    
-    The Builder is available at a URI like:
-    
-    ```
-    http://localhost:3000/?pathName=<<PATH NAME>>
-    ```
-    
-    The `pathName` value is discussed more in [Builder API](#builder-api). In the meantime, here is a working example to get you started:
-    
-    ```
-    http://localhost:3000/?pathName=KobeAD2exoFA18
-    ```
-    ![](/images/customization/builder-local-web2.png)
-
 
 ## Basic Integration
 

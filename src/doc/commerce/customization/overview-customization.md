@@ -25,7 +25,7 @@ CXP is set of APIs and Components that collectively unlock your consumers' abili
 Step through the Use Cases below to incorporate CXP capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Show customizable products](/doc/commerce/customization/use-customization.html#show-customizable-products): Which products are customizable, and in what sizes? What is the estimated delivery date?|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Show customizable products](/doc/commerce/customization/use-customization.html#show-customizable-products): Which products are customizable? What is the estimated delivery date? How do I start designing?|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Send consumers on design journeys](/doc/commerce/customization/use-customization.html#load-the-builder-ux-and-listen-for-updates): What customization options are available? What does my design look like? How much will it cost?|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Finalize and share designs](/doc/commerce/customization/use-customization.html#finalize-and-share-designs): How do I finalize my design? How do I share it on social media?|
 
