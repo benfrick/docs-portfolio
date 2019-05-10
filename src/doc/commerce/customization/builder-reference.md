@@ -31,9 +31,7 @@ The Builder is a JavaScript bundle that is your main interface with CXP. It does
 
 This section describes how to complete a basic integration of the Builder into a web view or browser-based application.
 
->**TIPS**:
->- Make sure you've completed the steps in the [Installation](#installation) section and that you are running the server via `npm start` command.
->- For more detailed integration instructions see [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html).
+>**TIP**: For more detailed integration instructions see [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html).
 
 ### 1. Include the Builder Bundle
 
@@ -126,8 +124,8 @@ Usage:
 ```javascript
 /**
  * Function nikeIdBuilder returns the Builder API
- * @param {string?} rootElement An HTMLElement target to mount the Builder application into.
- * @param {string?} config The configuration properties that identify which Builder instance to be returned
+ * @param {HTMLElement} rootElement An HTMLElement target to mount the Builder application into.
+ * @param {Object} config The configuration properties that identify which Builder instance to be returned
  * @return 
 */
 var rootElement = document.getElementById('my-app-location');

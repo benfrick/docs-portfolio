@@ -211,11 +211,13 @@ Show the consumer a way to edit the design.
 >- It's recommended that the **Edit Design** CTA be always active on the PDP.
 >- You can initialize and interact with the Builder API prior to showing the Builder UX. See [Load the Builder UX](#load-the-builder-ux-and-listen-for-updates) for more.
 
-### Step 2d: Show Size Selection Grid
+### Step 2d: Show Gender and Size Options
 
-Show the consumer all of the possible sizes for the product and, from those, which sizes are available for purchase. Also, allow them to make a size selection.
+Show the consumer all of the possible gender and size options for the product. From the possible sizes, show them which sizes are available for purchase. Allow the consumer to make their gender and size selections.
 
+- Display the gender selection 
 - Display the size selection grid by calling the .. method of the Builder API like:
+- Use the `setSizeAnswer` method of the Builder to send the answers to the size-related questions.
 
 #### Step 2e: Show 'Add to Cart' CTA
 
@@ -238,13 +240,13 @@ The consumer has selected to edit the design, so it's time to load the Builder U
 
 Load the Builder by invoking the `nikeIdBuilder(rootElement, config)` function. 
 
-- Use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds response (mentioned in [Step 1: Show Customizable Products & Color Options](#step-1-show-customizable-products--color-options)) as the `pathName` property, like `pathName: 'af1LowChampsSU19'`.
+- In the `pathName` property of the `config` argument, use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds response (mentioned in [Step 1: Show Customizable Products & Color Options](#step-1-show-customizable-products--color-options)), like `pathName: 'af1LowChampsSU19'`.
 
->**TIP**: See the [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for details about the Builder.
+>**TIP**: See the [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for more details about the Builder.
 
 ### Step 2: Update UX for Builder Events
 
-- Listen to price change, analytics, and "done" events coming from the builder and update your experience accordingly.
+- Listen to price change, analytics, and "done" events coming from the Builder and update your experience accordingly.
 
     Get notifications for actions within the builder using `bridge`, a property of the `config` parameter like:
     
@@ -262,14 +264,7 @@ Load the Builder by invoking the `nikeIdBuilder(rootElement, config)` function.
 - Invoke `setBuild` to load a new build by prebuild id, metric id, or raw build data. This is mainly meant to "reset" the builder.
 
 ## Finalize Designs for Checkout
-
-### Show Size Selection
-
-The consumer has made their product (i.e. style) and color selections by now, and this is also a good time to show them which sizes are available for purchase.
-
-- Use the `setSizeAnswer` method of the Builder to send the answers to the size-related questions.
-
-### Show Gender Selection
+?
 
 ## Share Designs
 
