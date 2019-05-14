@@ -1,7 +1,7 @@
 ---
 tags: pdf
-#category: b-use-case
-position: 4
+#category: d-reference
+position: 1
 title: Customization Builder Reference
 url: /doc/commerce/customization/builder-reference.html
 toc:
@@ -12,7 +12,7 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# Customization Builder Reference <i class="g72-swoosh"></i><br>DRAFT
+# Customization Builder Reference <br>(DRAFT)
 
 ---
 
@@ -124,9 +124,9 @@ Usage:
 ```javascript
 /**
  * Function nikeIdBuilder returns the Builder API
- * @param {HTMLElement} rootElement An HTMLElement target to mount the Builder application into.
+ * @param {HTMLElement} rootElement The DOM element in which to inject the Builder
  * @param {Object} config The configuration properties that identify which Builder instance to be returned
- * @return 
+ * @return {Object} Returns the exposed builderApi handlers
 */
 var rootElement = document.getElementById('my-app-location');
 var config = {
@@ -478,39 +478,113 @@ Sample object:
 
 ### clearMessage
 
-Usage: `builderApi.clearMessage()`
+Description: Clears the message in the Builder.
 
-Description: Clears the message set in the Builder.
+Usage:
+```java
+builderApi.clearMessage()
+```
 
 ### getAnswersByCode
 
-Usage: `builderApi.getAnswersByCode('jersey')`
-
 Description: Returns answers and their matching questionsId which can then be used to display an answer. Useful for tapping into specific question or answer nodes.
+
+Usage:
+
+```java
+/**
+* @returns {Array} List of normalized questions
+*/
+builderApi.getAnswersByCode('jersey')
+```
 
 ### getBuild
 
-Usage: `builderApi.getBuild()`
+Description: Returns the current build snapshot.
 
-Description: Returns the current buildData object state.
+Usage: 
 
-### **getCapacity**
+```java
+/**
+* @return {Object} The current build snapshot
+*/
+builderApi.getBuild()
+```
 
-Usage: `builderApi.getCapacity().then()` or `builderApi.getCapacity({ country, pathName }).then()`
+### getCapacity
 
-Description: Returns a promise to get capacity. If no configuration is passed and capacity data is available on state, then that information is returned (else, it will perform the service call to the capacity endpoint).
+Description: Returns promise to fetch capacity information for current or passed-in product configuration.
 
-### **getMarketingComponents**
+Usage: 
 
-Usage: `builderApi.getMarketingComponents()`
+```java
+/**
+* @returns {Promise->Object} a promise to return capacity data
+*/
+builderApi.getCapacity().then() 
+// or
+builderApi.getCapacity({ country, pathName }).then()
+```
+
+### getLeadTimeMessage
+
+Description: Returns promise to fetch lead time information for current or passed-in product configuration.
+
+```java
+/**
+* @returns {Promise->Object} a promise to return leadTimeMessage data
+*/
+builderApi(getLeadTimeMessage)
+```
+
+### getMarketingComponents
 
 Description: Returns a list of normalized marketing components with nested question keys. The questions index can be used to lookup nested question values.
 
-### **getQuestionsIndex**
+Usage:
 
-Usage: `builderApi.getQuestionsIndex()`
+```java
+/**
+* @returns {Object} the current prouduct marketing components data
+*/
+builderApi.getMarketingComponents()
+```
+
+### getProductColorPalette
+
+Description: Returns a list of unique colors for the loaded builder.
+
+Usage:
+
+```java
+/**
+* @return {Array} List of selected color answers unique by hex
+*/
+builderApi.getProductColorPalette()
+```
+### getProductFillColors
+
+Description: Returns a list of unique colors applicable to all marketing components for the loaded Builder
+
+Usage:
+```java
+/**
+* @returns {Array} List of selected color answers unique by hex
+*/
+builderApi.getProductFillColors()
+```
+
+### getQuestionsIndex
 
 Description: Returns a normalized array of questions keyed by their ID. Effectively, this is a flattened tree of all questions contained in the product data with nested questions as keys.
+
+Usage:
+```java
+/**
+* @returns {Array} List of normalized questions
+*/
+builderApi.getQuestionsIndex()
+```
 
 Example:
 
@@ -526,36 +600,81 @@ Example:
 }
 ```
 
-### **getSelectedColors**
-
-Usage: `builderApi.getSelectedColors()`
+### getSelectedColors
 
 Description: Returns a collection of all selected colors from the current build, unique by hex(attribute).
 
-### **getSelectedColorsPatterns**
+Usage:
 
-Usage: `builderApi.getSelectedColorsPatterns`
+```java
+/**
+* @returns {Array} List of selected color answers unique by hex
+*/
+builderApi.getSelectedColors()
+```
+
+### getSelectedColorsPatterns
 
 Description: Returns a collection of all selected colors and patterns from the current build. Colors are unique by hex(attribute) and patterns are unique by src(attribute).
 
-### **getSelectedPatterns**
+Usage: 
+```java
+/**
+* @returns {Array} List of selected color answers unique by hex & pattern type questions unique by src
+*/
+builderApi.getSelectedColorsPatterns
+```
 
-Usage: `builderApi.getSelectedPatterns`
+### getSelectedPalette
+
+Description: Returns a list of unique colors for the selected answers of the loaded builder.
+
+Usage:
+
+```java
+/**
+* @returns {Array} List of selected color answers unique by displayName
+*/
+builderApi.getSelectedPalette()
+```
+
+### getSelectedPatterns
 
 Description: Returns a collection of all selected patterns from the current build, unique by src(attribute).
 
-### **getSelectedQuestionAnswerPairs**
+Usage:
 
-Usage: `builderApi.getSelectedQuestionAnswerPairs`
+```java
+/**
+* @returns {Array} List of selected pattern answers unique by src
+*/
+builderApi.getSelectedPatterns
+```
+
+### getSelectedQuestionAnswerPairs
 
 Description: Returns a collection of all answered questions along with their answer. For most products this will return the majority of questions, as defaults are selected in B16 APIs.
 
-### **getUpCharges**
+Usage:
 
-Usage: `builderApi.getUpCharges()`
+```java
+/**
+* @returns {Array}
+*/
+builderApi.getSelectedQuestionAnswerPairs
+```
+### getUpCharges
 
-Description: This method returns an array of applicable up-charge objects corresponding to the answered questions.
+Description: Returns an array of applicable up-charge objects corresponding to the answered questions.
 
+Usage:
+
+```java
+/**
+* @returns {Object}
+*/
+builderApi.getUpCharges()
+```
 Example:
 
 ```
@@ -569,27 +688,50 @@ Example:
 ]
 ```
 
-### **isPidAllowed**
+### isPidAllowed
 
-Usage: `builderApi.isPidAllowed('MYPID')`
+Description: Returns true if the profanity service allowed the string (no stop word was matched). String passed must match records in the capacity service exactly. Only single strings are supported.
 
-Description: Returns true if the profanity service allowed the string (no stop word matched). String passed must match records in the capacity service exactly. Currently only single strings are supported.
+Usage:
 
-### **saveBuild**
+```java
+/**
+* @returns {Promise->Boolean} a promise to return profanity result
+*/
+builderApi.isPidAllowed('MYPID')
+```
 
-Usage: `builderApi.saveBuild().then(metricId => {})`
+### saveBuild
 
 Description: Persists build data and returns promise to be resolved with metric ID.
 
-### **setAnswer**
+Usage: 
 
-Usage: `builderApi.setAnswer(quesKey, ansKey)`
+```java
+/**
+* @returns {Promise->String}
+*/
 
-Description: Returns the current buildData object after changing the answer to a question in the Builder. Send the full question path, e.g. `"af1High14_July:LTITEM8170:LTITEM12012:LTITEM236023:LTITEM213006"` and the ID of the answer you would like to apply for that question, e.g. `"LTITEM167036"`.
+builderApi.saveBuild().then(metricId => {})`
+```
 
-### **setBuild**
+### setAnswer
 
-Usage: `builderApi.setBuild(buildData)`
+Description: Returns the current build snapshot after changing the answer to a question in the Builder. Send the full question path, e.g. `"af1High14_July:LTITEM8170:LTITEM12012:LTITEM236023:LTITEM213006"` and the ID of the answer you would like to apply for that question, e.g. `"LTITEM167036"`.
+
+Usage:
+
+```java
+/**
+* @param {String} questionId
+* @param {String} answerId
+* @param {String} pidValue
+* @returns {Object} Updated build snapshot
+*/
+builderApi.setAnswer(questionId, answerId, pidValue)
+```
+
+### setBuild
 
 Description: Allows reloading the Builder with a new product by passing one of the following:
 
@@ -599,24 +741,43 @@ Description: Allows reloading the Builder with a new product by passing one of t
 |`prebuildId`|String|Build is loaded and applied to the product data.|
 |`buildData`|Object|Product for that build is reloaded and has the build data applied to the product.|
 
-After calling this method the `bridge.onProductLoad` callback is called with the
-`buildData` for the newly-applied build.
+After calling this method the `bridge.onProductLoad` callback is called with the `buildData` for the newly-applied build.
 
-### **setIsVisible**
+Usage:
 
-Usage: `builderApi.setIsVisible(true)`
+```java
+/**
+* @param {Object} buildData
+*/
+builderApi.setBuild(buildData)
+```
+
+### setIsVisible
 
 Description: Informs the Builder whether it is visible on-screen or not. To take effect, `enableAnimationInit: true` needs to be passed in the initialization config options.
 
-### **setMessage**
+Usage:
 
-Usage: `builderApi.setMessage(message)`
+```java
+builderApi.setIsVisible(true)
+```
+
+### setMessage
 
 Description: Causes the Builder to display a message. Takes a message object consisting of the following properties:
 
 |`header`|String|The text displayed at the top of the message.|
 |`content`|String|The text displayed under the header.|
 |`type`|String|The type of the message to be displayed, which also affects how the message is displayed. Possible values: 'COUNTDOWN', 'COUNTDOWN_URGENT', 'COUNTDOWN_EXPIRED'. Default is 'COUNTDOWN'.
+
+Usage:
+
+```java
+/**
+* @param {Object} message
+*/
+builderApi.setMessage(message)
+```
 
 Examples:
 
@@ -632,22 +793,52 @@ builderApi.setMessage(countdownExpiredMessage);
 
 ```
 
-### **setSizeType**
+### setSizeAnswer
 
-Usage: `builderApi.setSizeType(sizeType)`
+Description: Given a question ID and answer ID, answer the corresponding question in the build.
+
+Usage:
+
+```java
+/**
+* @param {String} questionId
+* @param {String} answerId
+* @param {String} sizeType
+* @returns {Object} Updated build snapshot
+*/
+setSizeAnswer(questionId, answerId, sizeType)
+```
+
+### setSizeType
 
 Description: Allows updating the Builder's internal state for selected size type, which updates the size, price, and color data when the Builder creates the buildData.
 
-### **showNotification**
+Usage:
 
-Usage: `builderApi.showNotification(message)`
+```java
+/**
+* @param {String} sizeType
+*/
+builderApi.setSizeType(sizeType)
+```
 
-Description: Causes the Builder to display a growl notification. It takes a message object consisting of the following properties:
+### showNotification
+
+Description: Causes the Builder to display a notification. It takes a message object consisting of the following properties:
 
 |`type`|String|The type of message. Only one message of a given type will be displayed.|
 |`message`|String|The message text.|
 |`level`|String|Optional - Determines the message level. Possible values: 'alert', undefined/null.|
 |`title`|String|Optional - The message title.|
+
+Usage:
+
+```java
+/**
+* @param {Object} message
+*/
+builderApi.showNotification(message)
+```
 
 Examples:
 
