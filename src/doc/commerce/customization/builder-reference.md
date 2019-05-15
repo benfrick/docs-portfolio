@@ -9,6 +9,12 @@ toc:
     url: /doc/commerce/customization/builder-reference.html#basic-integration
   - h2: Builder API
     url: /doc/commerce/customization/builder-reference.html#builder-api
+  - h2: Contacting the Team
+    url: /doc/commerce/customization/use-customization.html#contacting-the-team    
+  - h2: Document Change Log
+    url: /doc/commerce/customization/use-customization.html#document-change-log
+  - h2: Next Steps
+    url: /doc/commerce/customization/use-customization.html#next-steps
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -16,7 +22,7 @@ toc:
 
 ---
 
-##### Last Updated: 05/10/2019
+##### Last Updated: 05/17/2019
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
 
@@ -481,7 +487,7 @@ Sample object:
 Description: Clears the message in the Builder.
 
 Usage:
-```java
+```javascript
 builderApi.clearMessage()
 ```
 
@@ -491,7 +497,7 @@ Description: Returns answers and their matching questionsId which can then be us
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Array} List of normalized questions
 */
@@ -504,7 +510,7 @@ Description: Returns the current build snapshot.
 
 Usage: 
 
-```java
+```javascript
 /**
 * @return {Object} The current build snapshot
 */
@@ -517,7 +523,7 @@ Description: Returns promise to fetch capacity information for current or passed
 
 Usage: 
 
-```java
+```javascript
 /**
 * @returns {Promise->Object} a promise to return capacity data
 */
@@ -530,7 +536,7 @@ builderApi.getCapacity({ country, pathName }).then()
 
 Description: Returns promise to fetch lead time information for current or passed-in product configuration.
 
-```java
+```javascript
 /**
 * @returns {Promise->Object} a promise to return leadTimeMessage data
 */
@@ -543,7 +549,7 @@ Description: Returns a list of normalized marketing components with nested quest
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Object} the current prouduct marketing components data
 */
@@ -556,7 +562,7 @@ Description: Returns a list of unique colors for the loaded builder.
 
 Usage:
 
-```java
+```javascript
 /**
 * @return {Array} List of selected color answers unique by hex
 */
@@ -567,7 +573,7 @@ builderApi.getProductColorPalette()
 Description: Returns a list of unique colors applicable to all marketing components for the loaded Builder
 
 Usage:
-```java
+```javascript
 /**
 * @returns {Array} List of selected color answers unique by hex
 */
@@ -579,7 +585,7 @@ builderApi.getProductFillColors()
 Description: Returns a normalized array of questions keyed by their ID. Effectively, this is a flattened tree of all questions contained in the product data with nested questions as keys.
 
 Usage:
-```java
+```javascript
 /**
 * @returns {Array} List of normalized questions
 */
@@ -606,7 +612,7 @@ Description: Returns a collection of all selected colors from the current build,
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Array} List of selected color answers unique by hex
 */
@@ -618,7 +624,7 @@ builderApi.getSelectedColors()
 Description: Returns a collection of all selected colors and patterns from the current build. Colors are unique by hex(attribute) and patterns are unique by src(attribute).
 
 Usage: 
-```java
+```javascript
 /**
 * @returns {Array} List of selected color answers unique by hex & pattern type questions unique by src
 */
@@ -631,7 +637,7 @@ Description: Returns a list of unique colors for the selected answers of the loa
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Array} List of selected color answers unique by displayName
 */
@@ -644,7 +650,7 @@ Description: Returns a collection of all selected patterns from the current buil
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Array} List of selected pattern answers unique by src
 */
@@ -657,7 +663,7 @@ Description: Returns a collection of all answered questions along with their ans
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Array}
 */
@@ -669,7 +675,7 @@ Description: Returns an array of applicable up-charge objects corresponding to t
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Object}
 */
@@ -694,7 +700,7 @@ Description: Returns true if the profanity service allowed the string (no stop w
 
 Usage:
 
-```java
+```javascript
 /**
 * @returns {Promise->Boolean} a promise to return profanity result
 */
@@ -707,12 +713,12 @@ Description: Persists build data and returns promise to be resolved with metric 
 
 Usage: 
 
-```java
+```javascript
 /**
 * @returns {Promise->String}
 */
 
-builderApi.saveBuild().then(metricId => {})`
+builderApi.saveBuild()
 ```
 
 ### setAnswer
@@ -721,7 +727,7 @@ Description: Returns the current build snapshot after changing the answer to a q
 
 Usage:
 
-```java
+```javascript
 /**
 * @param {String} questionId
 * @param {String} answerId
@@ -745,7 +751,7 @@ After calling this method the `bridge.onProductLoad` callback is called with the
 
 Usage:
 
-```java
+```javascript
 /**
 * @param {Object} buildData
 */
@@ -758,7 +764,7 @@ Description: Informs the Builder whether it is visible on-screen or not. To take
 
 Usage:
 
-```java
+```javascript
 builderApi.setIsVisible(true)
 ```
 
@@ -772,7 +778,7 @@ Description: Causes the Builder to display a message. Takes a message object con
 
 Usage:
 
-```java
+```javascript
 /**
 * @param {Object} message
 */
@@ -799,7 +805,7 @@ Description: Given a question ID and answer ID, answer the corresponding questio
 
 Usage:
 
-```java
+```javascript
 /**
 * @param {String} questionId
 * @param {String} answerId
@@ -815,7 +821,7 @@ Description: Allows updating the Builder's internal state for selected size type
 
 Usage:
 
-```java
+```javascript
 /**
 * @param {String} sizeType
 */
@@ -833,7 +839,7 @@ Description: Causes the Builder to display a notification. It takes a message ob
 
 Usage:
 
-```java
+```javascript
 /**
 * @param {Object} message
 */
@@ -852,3 +858,21 @@ builderApi.showNotification(titled);
 var plain = { message: 'just a plain old message. not that fun, sorry.', type: 'some val' };
 builderApi.showNotification(plain);
 ```
+
+## Contacting the Team
+
+|---|---|
+|Slack|[#cxp](https://nikedigital.slack.com/messages/GFH2GM02C){:target="new-tab"}|
+|Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home){:target="new-tab"}|
+|Team Contacts|[Jason Mueller, Product Manager](mailto:jason.mueller@nike.com)|
+
+## Document Change Log
+
+|Summary|Date|
+|---|---|
+|Initial draft|05/17/2019|
+
+## Next Steps
+
+- [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html)
+- [Using NDe APIs](/doc/getting-started/using-nike-apis.html)
