@@ -49,7 +49,7 @@ In this guide, we will discuss how to integrate CXP customization features into 
 The Builder is a JavaScript bundle that is your main interface with CXP. It does the following:
 
 - **UX**: Returns a fully-styled UX for customizing products
-- **Data API**: Allows you to interact with product build data and CXP REST APIs
+- **Data API**: Allows you to interact with Builder data and CXP REST APIs
 
 ### REST APIs
 
