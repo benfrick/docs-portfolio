@@ -1,7 +1,7 @@
 ---
 id: overview-customization
 tags: pdf
-#category: a-overview
+category: a-overview
 position: 3
 title: Customization
 url: /doc/commerce/customization/overview-customization.html

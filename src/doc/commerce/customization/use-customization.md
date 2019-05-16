@@ -36,7 +36,7 @@ toc:
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
 
-<img alt="Depiction of Nike By You experience at Nike.com" src="/images/customization/nby-web-chrome.png" class="border" style="display:inline-block; vertical-align:middle;">
+![Depiction of Nike By You experience at Nike.com](/images/customization/nby-web-chrome.png){:class="border"}
 
 >**TIP**: Before using this guide, you should have already completed [Customization Overview](/doc/commerce/customization/overview-customization.html).
 
@@ -104,7 +104,7 @@ In your app's source, create an HTML template and follow these steps:
     
     - Browse to the HTML page on your localhost to view the Builder experience. The URL will vary depending on how your app is being served up locally.
 
-    ![Image of Builder running locally in Chrome](/images/customization/builder-local-web.png)
+    ![Image of Builder running locally in Chrome](/images/customization/builder-local-web.png){:class="border"}
 
     **Example HTML template (initializes builder only):**
     
@@ -197,13 +197,14 @@ Load the Builder and interact with the API to help drive the product browsing ex
 
 Whether it's a [Nike By You](https://www.nike.com/us/en_us/c/nikeid){:target="new-tab"} web experience with it's product grid walls and Product Detail Pages (PDPs), or some other type of experience, you need to show the consumer which products, and in what colors, can be customized.
 
-![Nike By You grid wall on Nike.com](/images/customization/nby-gridwall.png)
+![Nike By You grid wall on Nike.com](/images/customization/nby-gridwall.png){:class="border"}
 
 **Get a list of customizable products, along with relevant content.**
 
 - Call either the [Product Feeds API](/doc/commerce/product/use-product-feeds.html) or the [Rollup Threads API](/doc/commerce/product/use-rollup-threads.html) 
 - To select only 'Nike By You' products, use the `filter=attributeIds()` query parameter like:
-    [https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923)](https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923)).
+
+    https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923.
 
 **Use the response data to drive the experience of browsing customizable products (grid wall, feed, etc.).**
 
@@ -261,7 +262,7 @@ Show the consumer a way to edit the design.
     ```html
     <button class="ncss-btn-primary-dark">Edit Design</button>
     ```
-    <button style="margin-top: 10px;" class="ncss-btn-primary-dark">Edit Design</button>
+    <button style="margin-top: 5px; margin-bottom: 5px;" class="ncss-btn-primary-dark">Edit Design</button>
 
 >**TIP**: It's recommended for the 'Edit Design' CTA to be always active on the PDP.
 
@@ -304,7 +305,7 @@ Show the consumer all of the possible gender and size options for the product. F
     ```html
     <button class="ncss-btn-primary-dark">Add to Bag</button>
     ```
-    <button style="margin-top: 10px;" class="ncss-btn-primary-dark">Add to Bag</button>
+    <button style="margin-top: 5px; margin-bottom: 5px;" class="ncss-btn-primary-dark">Add to Bag</button>
 
 - This CTA should only be active once the gender and size-related selections have been passed to the Builder, as shown in [Step 3d](#step-3d-show-gender-and-size-options-confirm-consumers-selections).
 
