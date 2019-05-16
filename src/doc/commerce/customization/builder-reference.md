@@ -1,20 +1,22 @@
 ---
 tags: pdf
-#category: d-reference
+category: d-reference
 position: 1
-title: Customization Builder Reference
+title: Customization Builder
 url: /doc/commerce/customization/builder-reference.html
 toc:
   - h2: Basic Integration
     url: /doc/commerce/customization/builder-reference.html#basic-integration
   - h2: Builder API
     url: /doc/commerce/customization/builder-reference.html#builder-api
+  - h2: Methods
+    url: /doc/commerce/customization/builder-reference.html#methods
   - h2: Contacting the Team
-    url: /doc/commerce/customization/use-customization.html#contacting-the-team    
+    url: /doc/commerce/customization/builder-reference.html#contacting-the-team    
   - h2: Document Change Log
-    url: /doc/commerce/customization/use-customization.html#document-change-log
+    url: /doc/commerce/customization/builder-reference.html#document-change-log
   - h2: Next Steps
-    url: /doc/commerce/customization/use-customization.html#next-steps
+    url: /doc/commerce/customization/builder-reference.html#next-steps
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -393,7 +395,7 @@ Sample object:
 - The consumer of this array of objects only needs to be concerned with rendering the questions and answering them using the setAnswer API as the user interacts.
 - The use of this collection requires that you provide `fetchCapacity: true` and a value for the `sizeTypeRegion` field at initialization of the Builder. If not provided, all of the sizes will be out of stock and the sizetype will default to 'us-womens' or `us-mens`.
 
-```json
+```
 [
   {
     "displayName":"Size Chart",
