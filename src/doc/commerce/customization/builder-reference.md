@@ -30,10 +30,10 @@ This is the official reference for the features and functionality of the Customi
 
 >**TIP**: Also see [Customization Overview](/doc/commerce/customization/overview-customization.html) and [Adding Customization To Your Experience](/doc/commerce/customization/use-customization/html).
 
-The Builder is a JavaScript bundle that is your main interface with CXP. It does the following:
+The Builder is a JavaScript bundle that is your main interface with CXP. It offers the following:
 
 - **UX**: Returns a fully-styled UX for customizing products
-- **Data API**: Interact with Builder data and CXP REST APIs
+- **Data API**: Interact with [Build Data](#build-data) and CXP REST APIs
 
 ## Basic Integration
 
@@ -325,75 +325,39 @@ the Builder whenever a new product is loaded, or a build is applied.
 
 ### Build Data
 
-The `buildData` object describes the current build state of the Builder, with sizing information, style/color, the current product
-question and answer pairs, and other data.
+The Builder returns a `buildData` object (also referred to as Build Data), which describes the current state of the with sizing information, style/color, current product
+question/answer pairs, and more.
 
-Sample object:
-
-```
-{
-  "country": "US",
-  "locale": "en_US",
-  "pathName": "af1High14_July",
-  "productId": "PROD359583",
-  "productQuesAnswers": [
-    {
-      "quesKey": "spikePE1512:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM8145",
-      "ansKey": "LTITEM8129"
-    }
-  ],
-  "consumerQuesAnswers": [
-    {
-      "quesKey": "spikePE1512:LTITEM78003:LTITEM214118:LTITEM128002:LTITEM179157",
-      "ansKey": "LTITEM8021",
-      "value": "testpid",
-      "valueType": "pid"
-    }
-  ],
-  "sizeMarketingComponent": {},
-  "sizeTypes": [
-    {
-     sizeType: sizeTypes.US,
-     isDefault: true
-    },
-    {
-     sizeType: sizeTypes.CM,
-     isDefault: false
-    }
-  ],
-  "sizingData": [],
-  "sizeChartKey": "men_footwear_default",
-  "sizeId": "6",
-  "sizeType": "us-mens",
-  "skuSizeId": "6",
-  "style": "836710",
-  "width": "Regular Fit",
-  "viewNumbers": "1,2,3,4,5,6,7,8,9,10",
-  "viewService": "http://render.nikeid.com/ir/render/nikeidrender/",
-  "viewUrlTemplate": "af1High14_July_v{VIEW_NUMBER}?obj=/s/g12&color=ffffff&show&obj=/s/g11&color=bcbdbd&show&obj=/s/g24&color=ffffff&show&obj=/s/g10&color=ffffff&show&obj=/s/g14&color=ffffff&show&obj=/s/g13&color=ffffff&show&obj=/s/g15&color=bcbdbd&show&obj=/s/g1/leather&color=ffffff&show&obj=/s/g2/leather&color=ffffff&show&obj=/s/g3/peb&color=c4af7b&show&obj=/s/g4/peb&color=343434&show&obj=/s/g5/leather&color=ffffff&show&obj=/s/g6/peb&color=343434&show&obj=/s/g7/leather&color=ffffff&show&obj=/s/g8/leather&color=ffffff&show&obj=/s/g9/leather&color=ffffff&show&obj=/s/g23/leather&color=ffffff&show&obj=/s/g16/solid&color=ffffff&show&obj=/s/g17&color=ffffff&show&obj=/s/g21&opac=100&decal=&src=is(nikeid/emb2_iD?$T=iD&$C=808080&$FN=FuturaID&$FS=84&fmt=png-alpha)&color=141414&show&obj=/s/g22&opac=100&decal=&src=is(nikeid/emb2_iD?$T=YOUR&$C=808080&$FN=FuturaID&$FS=84&fmt=png-alpha)&color=141414&show&obj=/s/g18&color=ffffff&show&obj=/s/g19/solid&color=ffffff&show&obj=/s&req=object&fmt=png-alpha"
-}
-```
+Here is a [sample buildData object](/doc/commerce/customization/buildDataExample.html).
 
 #### **Build Data Fields**
 
-|`country`|String|The current country code for this build|
-|`locale`|String|The current locale code for this build|
-|`pathName`|String|The product pathName for this build|
-|`productId`String|The Product ID for this build.|
-|`productQuesAnswers`|Array|Collection of product question and answer pairs representing the current state of the Builder's combination selections.|
-|`consumerQuesAnswers`|Array|Collection of product question and answer pairs representing the current state of the Builder's pid selections.|
-|`sizeMarketingComponent`|Object|Provides sizing data needed to drive "buying" and "size" tools.|
-|`sizeTypes`|Array|Collection of sizeTypes based on the sizeTypeRegion that was requested in the config data. One of these should be passed to `builderApi.setSizeType(sizeType)` prior to answering size questions.|
-|`sizeData`|Array|Collection of questions generated from the sizeMarketingComponent, but reduced down to the just the questions/answers needed.|
-|`viewNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 urls for each angle of the product currently being shown within the Builder for your own product carousels or display pages.|
-|`viewService`|String|The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the `viewUrlTemplate` field to build scene7 request urls.|
-|`viewUrlTemplate`|String|Scene7 parameterized url for making requests for product images. Provided with a `{VIEW_NUMBER}` template string which you should target for replacement with a `viewNumber` which you would like to request. Use this field in conjunction with `viewNumbers` and `viewService` in order to template scene7 urls in order to request product images represented by the current buildData.|
+|Field|Type|Description|Example|
+|---|---|---|---|
+|`pathName`|String|The product pathName for this build.|"ER2teamSP19_barca"|
+|`productId`String|The product ID for this build.|"PROD372041"|
+|`consumerQuesAnswers`|Array|Collection of product question-and-answer pairs representing the current state of the Builder's pid selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`productQuesAnswers`|Array|A collection of product question-and-answer pairs representing the current state of the Builder's combination selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`sizeMarketingComponent`|Object|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`viewNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 urls for each angle of the product currently being shown within the Builder for your own product carousels or display pages.|"1,2,3,4,5,6"|
+|`color`|String|The product color code for this build.|"994"|
+|`price`|String|The product price formatted as string with the currency symbol.|$180|
+|`rawPrice`|Number|The product price formatted as a number.|180|
+|`style`|String|The product style code.|"CK3977"|
+|`country`|String|The current country code for this build.|"US"|
+|`locale`|String|The current locale code for this build.|"en_US"|
+|`viewService`|String|The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the `viewUrlTemplate` field to build scene7 request urls.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`viewUrlTemplate`|String|Scene7 parameterized url for making requests for product images. Provided with a `{VIEW_NUMBER}` template string which you should target for replacement with a `viewNumber` which you would like to request. Use this field in conjunction with `viewNumbers` and `viewService` in order to template scene7 urls in order to request product images represented by the current buildData.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`sizeTypes`|Array|A collection of sizeTypes based on the sizeTypeRegion that was requested in the config data.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`sizingData`|Array|Contains arrays of gender, width, size, and size chart data. Used for "buying" and "size" tools.|See [here](/doc/commerce/customization/buildDataExample.html)|
 
-##### More about **sizeData**
+##### More about **sizingData**
 
+- Render the gender, width, and size questions and answer them using the `setAnswer` and `setsizeAnswer` methods as the consumer makes selections.
+- It is required that you provide `fetchCapacity: true` and a value for the `sizeTypeRegion` field when initializing the Builder. If not provided, all of the sizes will be out of stock and the `sizeType` will default to "us-womens" or "us-mens".
 - Capacity, inventory, restrictions, sizeType and prior answers to sizing questions are all taken into consideration when generating this collection of objects.
-- The consumer of this array of objects only needs to be concerned with rendering the questions and answering them using the setAnswer API as the user interacts.
-- The use of this collection requires that you provide `fetchCapacity: true` and a value for the `sizeTypeRegion` field at initialization of the Builder. If not provided, all of the sizes will be out of stock and the sizetype will default to 'us-womens' or `us-mens`.
+
+Sample sizingData:
 
 ```
 [

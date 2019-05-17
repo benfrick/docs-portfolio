@@ -23,7 +23,8 @@ body {
 }
 h1 {
     font-weight: bold;
-    font-size: 2.1em;
+    font-size: 2.2em;
+    letter-spacing: .5px;
     text-transform: uppercase;
     }
     @media (max-width: 600px) {
@@ -31,14 +32,34 @@ h1 {
         font-size: 1.89em;
     }
 }
-h2{font-size:2.1em;}
+h2 {
+    font-size: 1.8em;
+    background: #3498db;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: .2px;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    }
+    @media (max-width: 600px) {
+    h2,h3,h4,h5,h6 {
+        letter-spacing: inherit;
+        padding-top: .3em;
+        padding-bottom: .3em;
+    }
+}
+
 h3{font-size:1.6em;}
 h4{font-size:1.2em;}
 h5{font-size:1.0em;}
 h6{font-size:.8em;}
-h2,h3,h4,h5,h6 {
+h3,h4,h5,h6 {
     font-weight: bold;
-    letter-spacing: .5px;
+    letter-spacing: .4px;
     padding-top: .5em;
     padding-bottom: .5em;
     margin-bottom: 0px;
@@ -166,7 +187,7 @@ strong, b {
     font-weight: bold;
 }
 img {
-    margin: 10px 0px 10px 0px;
+    margin: 5px 0px 5px 0px;
     }
     @media (max-width: 600px) {
     img {
@@ -217,10 +238,6 @@ blockquote {
         width: 90%;
         font-size: .6em;
     }
-}
-article h1,h2,h3,h4,h5,h6 {
-    font-weight: bold;
-    letter-spacing: 0px;
 }
 article h1 {
     padding-top: 8px;

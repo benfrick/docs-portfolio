@@ -13,10 +13,6 @@ toc:
     url: /doc/commerce/customization/use-customization.html#show-customizable-products
   - h2: Show a Design Experience
     url: /doc/commerce/customization/use-customization.html#show-a-design-experience
-  - h2: Best Practices
-    url: /doc/commerce/customization/use-customization.html#best-practices
-  - h2: Troubleshooting
-    url: /doc/commerce/customization/use-customization.html#troubleshooting
   - h2: Contacting the Team
     url: /doc/commerce/customization/use-customization.html#contacting-the-team
   - h2: Glossary
@@ -49,7 +45,7 @@ In this guide, we will discuss how to integrate CXP customization features into 
 The Builder is a JavaScript bundle that is your main interface with CXP. It does the following:
 
 - **UX**: Returns a fully-styled UX for customizing products
-- **Data API**: Allows you to interact with Builder data and CXP REST APIs
+- **Data API**: Allows you to interact with [Build Data](/doc/commerce/customization/builder-reference.html#build-data) and [CXP REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"}.
 
 ### REST APIs
 
@@ -149,7 +145,7 @@ In your app's source, create an HTML template and follow these steps:
 
 ## Show Customizable Products
 
-|<i class="g72-check"></i>&nbsp;&nbsp;**Show customizable products**: Which products are customizable? What is the estimated delivery date? How do I start designing?|
+<i class="g72-check"></i>&nbsp;&nbsp;**Which products are customizable? What is the estimated delivery date? How do I start designing**?
 
 ### Step 1: Load the Builder
 
@@ -245,12 +241,12 @@ To retrieve the availability and lead-time data, there are two options:
 
 OR
 
-**Read the Builder Data**
+**Read the Build Data**
 
 - Availability: From the returned [Build Data](/doc/commerce/customization/builder-reference.html#build-data), if `sizingData.displayName` is "Size", then loop through `sizingData.answers` and evaluate whether `isAvailable` is true or false for all sizes.
 - Lead Time: Call the [getLeadTimeMessage](/doc/commerce/customization/builder-reference.html#getleadtimemessage) method of the Builder API to get the message text and lead time in days for the product.
 
->**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, you can access the Builder Dat. See [Step 1: Load the Builder](#step-1-load-the-builder) for more.
+>**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, you can access the Build Data. See [Step 1: Load the Builder](#step-1-load-the-builder) for more.
 
 #### Step 3c: Show 'Edit Design' CTA
 
@@ -272,11 +268,11 @@ Show the consumer all of the possible gender and size options for the product. F
 
 **Show gender options (if applicable), and confirm consumer's selection**
 
-- Use the info from the `sizingData` object (in the Builder Data) to display the available genders, making note of the respective `questionId` and `answerId` values.
-- Using the `questionId` and `answerId` values for the gender selected by the consumer, call the `setSizeAnswer` method of the Builder API, like:
+- Use the info from the `sizingData` object (in the [Build Data](/doc/commerce/customization/builder-reference.html#build-data)) to display the available genders, making note of the respective `questionId` and `answerId` values.
+- Using the `questionId` and `answerId` values for the gender selected by the consumer, call the [`setAnswer`](/doc/commerce/customization/builder-reference.html#setanswer) method of the Builder API, like:
 
     ```javascript
-    builderApi.setSizeAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011','')`
+    builderApi.setAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011','')`
     ```
     This sets `isSelected: true` in `sizingData.answers`, indicating that a particular gender was selected.
     
@@ -318,7 +314,7 @@ Show the consumer all of the possible gender and size options for the product. F
 
 ## Show a Design Experience
 
-|<i class="g72-check"></i>&nbsp;&nbsp;**Send consumers on design journeys**: What customization options are available? What does my design look like? How much will it cost?|
+<i class="g72-check"></i>&nbsp;&nbsp;**What customization options are available? What does my design look like? How much will it cost?**
 
 The consumer has selected to edit the design via the 'Edit Design' CTA, so it's time to show them the Builder UX.
 
@@ -361,18 +357,6 @@ Show the consumer a way to share their design on social media.
 
 ![Nike By You example 'My Designs' UX](/images/customization/nby-my-designs.png)
 -->
-
-## Best Practices
-
-Listed below are some best practices for working with Customization.
-
-## Troubleshooting
-
-- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
-
-- Contact the CXP team on the [#cxp](https://nikedigital.slack.com/messages/GFH2GM02C){:target="new-tab"} Slack channel for assistance.
-
-## Terms of Service
 
 ## Contacting the Team
 
