@@ -46,7 +46,7 @@ toc:
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
 
-# USING NDE APIS &nbsp;<i class="g72-swoosh"></i>
+# USING NDE APIS
 
 ##### Last Updated: 12/11/2018
 
