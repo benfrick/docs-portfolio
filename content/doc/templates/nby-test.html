@@ -20,7 +20,7 @@
       },
       onDone: function(buildData) {
       // Consumer selected Done button
-        console.log('Done:',buildData);
+        console.log('Done:',JSON.stringify(buildData, null, "    "));
       },
       onPriceUpdate: function(priceData) {
       // Customization selections have changed the product price
