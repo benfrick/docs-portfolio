@@ -457,6 +457,19 @@ Usage:
 builderApi.clearMessage()
 ```
 
+### getAffectedQuestionMap
+
+Description: Return questionsMappingInfo based on the questionId
+
+Usage:
+```javascript
+/**
+* @returns {Array}
+*/
+builderApi.getAffectedQuestionMap()
+
+```
+
 ### getAnswersByCode
 
 Description: Returns answers and their matching questionsId which can then be used to display an answer. Useful for tapping into specific question or answer nodes.
@@ -673,11 +686,19 @@ Usage:
 builderApi.isPidAllowed('MYPID')
 ```
 
+### openHighResImageUrl
+
+Description: Returns the high-resolution image URL in a new window.
+
+```javascript
+builderApi.openHighResImageUrl()
+```
+
 ### saveBuild
 
-Description: Persists build data and returns promise to be resolved with metric ID.
+Description: Persists build data and returns promise to send back a metric ID for that build.
 
-Usage: 
+Usage:
 
 ```javascript
 /**
