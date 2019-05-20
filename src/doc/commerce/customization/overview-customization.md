@@ -40,9 +40,9 @@ Step through the Use Cases below to incorporate CXP capabilities into your exper
 
 <h4>Related Information</h4>
 
-* [Product Feeds Developer's Guide:](/doc/commerce/product/use-product-feeds.html) Learn how integrate with the Product Feeds API.    
-* [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
-* [Product Life Cycle:](/doc/commerce/reference/product-lifecycle.html) Discover how Nike products become available for purchase in an experience.
+* [Adding Customization to Your Experience](/doc/commerce/customization/use-customization.html) An in-depth guide on integrating with the Customization Builder.    
+* [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) The reference doc for the Customization Builder.
+* [Adding Product Feeds to Your Experience](/doc/commerce/product/use-product-feeds.html) Discover how to integrate with Product Feeds.
 
 ### Connect
 

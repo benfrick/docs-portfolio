@@ -330,12 +330,12 @@ article h2 {
 }
 .new-indicator-lg::after {
     content: "NEW";
-    color: #3498db;
+    color: white;
+    background-color: #3498db;
     padding: 2px;
     font-size: .9rem;
     margin-left: 6px;
-    vertical-align: middle;
-    border: 1px solid #3498db;
+    //  vertical-align: top;
 }
 .numberCircle {
     color: #fff;
