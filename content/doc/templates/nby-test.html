@@ -7,12 +7,13 @@
   const builderApi = nikeIdBuilder(document.getElementById('nikeid-app'), {
     'nike-api-caller-id': 'com.nike:commerce.b16.localhost',
     pathName: 'ER2teamSP19_barca',
+    metricId: '1062313006',
     fetchCapacity: true,
     sizeTypeRegion: 'US',
     bridge: {
       onProductLoad: function(buildData) {
       // Builder is ready
-      console.log('Set Size Answer',builderApi.setSizeAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011',''));
+      // console.log('Set Size Answer',builderApi.setSizeAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011',''));
       // console.log('Set Size Answer',builderApi.setSizeAnswer('FUTUREELITEFA18:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM403108','LTITEM8132','us-mens'));
       },
       onError: function(error) {
@@ -20,7 +21,7 @@
       },
       onDone: function(buildData) {
       // Consumer selected Done button
-        console.log('Done:',JSON.stringify(buildData, null, "    "));
+        console.log('Done:',builderApi.saveBuild());
       },
       onPriceUpdate: function(priceData) {
       // Customization selections have changed the product price

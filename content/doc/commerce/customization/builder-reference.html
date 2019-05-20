@@ -169,6 +169,11 @@ if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
   }
 ]
 </code></pre></div></div> <h2 id="methods">Methods</h2> <h3 id="clearmessage">clearMessage</h3> <p>Description: Clears the message in the Builder.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">clearMessage</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="getaffectedquestionmap">getAffectedQuestionMap</h3> <p>Description: Return questionsMappingInfo based on the questionId</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* @returns {Array}
+*/</span>
+<span class="nx">builderApi</span><span class="p">.</span><span class="nx">getAffectedQuestionMap</span><span class="p">()</span>
+
 </code></pre></div></div> <h3 id="getanswersbycode">getAnswersByCode</h3> <p>Description: Returns answers and their matching questionsId which can then be used to display an answer. Useful for tapping into specific question or answer nodes.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of normalized questions
 */</span>
@@ -248,7 +253,8 @@ if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
 * @returns {Promise-&gt;Boolean} a promise to return profanity result
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">isPidAllowed</span><span class="p">(</span><span class="s1">'MYPID'</span><span class="p">)</span>
-</code></pre></div></div> <h3 id="savebuild">saveBuild</h3> <p>Description: Persists build data and returns promise to be resolved with metric ID.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="openhighresimageurl">openHighResImageUrl</h3> <p>Description: Returns the high-resolution image URL in a new window.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">openHighResImageUrl</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="savebuild">saveBuild</h3> <p>Description: Persists build data and returns promise to send back a metric ID for that build.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Promise-&gt;String}
 */</span>
 

@@ -320,23 +320,27 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 
 ![Nike By You example design UX](/images/customization/nby-design.png)
 
-**Show the HTMLElement containing the Builder UX**
+#### Show the HTMLElement containing the Builder UX
 
-- Use same Element ID you used when loading the Builder, e.g. `document.getElementById('nikeid-app')`
+- Use same Element ID you used when loading the Builder, e.g. `document.getElementById('nikeid-app')`.
 
-**Interact with the Builder**
+#### Interact with the Builder
 
-- To display price changes (when customization options are changed), listen to the `onPriceUpdate(priceData)` bridge callback.
-
-- To trigger an action when the consumer selects the 'Done' button, listen to the `onDone(buildData)` bridge callback.
-
-- To "reset" the builder, invoke the `setBuild` method to load a new build, for example by prebuild ID or metric ID.
-
-- To trigger an action based on an consumer-invoked analytics event, listen to the `onAnalyticsEvent(type, payload)` bridge callback.
-
-- To trigger an action based on an error occurring, listen to the `onError(error)` bridge callback.
+|Scenario|Interaction|
+|---|---|
+|Load a new build, either to "reset" the builder or to switch between builds.|Invoke the `setBuild` method, for example by prebuild ID or metric ID.|
+|Display price changes (when customization options are changed).|Listen to the `onPriceUpdate(priceData)` bridge callback and show updated price in UX.|
+|Consumer selects the 'Done' button.|Listen to the `onDone(buildData)` bridge callback, then call `saveBuild` and update UX.|
+|Save a build.|Invoke the `saveBuild` method, which returns a metric ID for the build.|
+|Edit a design that is already in the cart.|Invoke `setBuild` with the metric ID you previously got from calling `saveBuild`.| 
+|A consumer triggers an analytics event.|Listen to the `onAnalyticsEvent(type, payload)` bridge callback, then trigger an action.|
+|An error occurs in the Builder.|Listen to the `onError(error)` bridge callback, handle the error and update UX.|
 
 >**TIP**: See [Bridge Properties](/doc/commerce/customization/builder-reference.html#bridge-properties) for more.
+
+#### Sample JavaScript
+
+For a sample JavaScript class that shows how you might interact with the Builder, see [builderBridge.js](https://bitbucket.nike.com/projects/NID/repos/builder-experience/browse/integration/builderBridge.js){:target="new-tab"}.
 
 <!-- Can add when new Builder methods become available
 ## Share a Design
