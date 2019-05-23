@@ -6,6 +6,8 @@ position: 6
 title: Cart, Checkout, and Wish Lists
 url: /doc/commerce/checkout/use-checkout.html
 toc:
+  - h2: Introduction
+    url: /doc/commerce/checkout/use-checkout.html#introduction
   - h2: Cart
     url: /doc/commerce/checkout/use-checkout.html#cart
   - h2: Shipping Options
@@ -43,6 +45,8 @@ Manage the Cart and Checkout process for the consumer.
 >- Before using this guide, read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
 >- Use this Developer's Guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
 >- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
+
+## Introduction
 
 ### What is a Cart?
 
@@ -278,7 +282,7 @@ https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 
 Now that you've created a Wish List for the consumer, allow them to add or remove items, delete the list, or rename it.
 
-### Add Item to List
+#### Add Item to List
 
 To add a product or service to an existing Wish List, execute a request to the [Add Item to List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-put){:target="new-tab"} endpoint.
 
@@ -296,7 +300,7 @@ Listed below is a sample [Add Item to List](https://developer.niketech.com/docs/
 https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909123
 ```
 
-### Add Multiple Items to List
+#### Add Multiple Items to List
 
 To add more than one item at a time to one or more Wish Lists, execute a request to the [Add Item to List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-patch){:target="new-tab"} endpoint.
 
@@ -314,7 +318,7 @@ Listed below is a sample [Add Item to List](https://developer.niketech.com/docs/
 http://api.nike.com/buy/list_items/v1?filter=wishlistId(93a333a2-907b-46f1-b9ac-469489909057,93a333a2-907b-46f1-b9ac-469489909000)
 ```
 
-### Remove Item from List
+#### Remove Item from List
 
 To delete a single item from a list, execute a request to the [Remove Item from List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete){:target="new-tab"} endpoint passing the Wish List item `id` as a path parameter.
 
@@ -325,7 +329,7 @@ Listed below is a sample [Remove Item from List](https://developer.niketech.com/
 ```
 https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909123
 ```
-### Remove Multiple Items from List
+#### Remove Multiple Items from List
 
 To delete several items from a Wish List, execute a request to the [Remove Items from List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-items-from-list-delete){:target="new-tab"} endpoint passing the list of Wish List item ids as a filter query parameter.
 
@@ -336,7 +340,7 @@ Listed below is a sample [Remove Items from List](https://developer.niketech.com
 https://api.nike.com/buy/list_items/v1?filter=id(93a333a2-907b-46f1-b9ac-469489909057,93a333a2-907b-46f1-b9ac-469489909000)
 ```
 
-### Delete a List
+#### Delete a List
 
 To delete a Wish List, execute a request to the [Delete a List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete){:target="new-tab"} endpoint passing the Wish List `id` a a path parameter. Note that **all of the items on the list will be removed**.
 
@@ -345,7 +349,7 @@ Listed below is a sample [Delete a List](https://developer.niketech.com/docs/pro
 https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-### Change the name of the Wish List
+#### Change the name of the Wish List
 
 Make a request to the [Create or Update a List](https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put){:target="new-tab"} endpoint to update the name of an existing Wish List.
 
@@ -361,11 +365,11 @@ Sample [Create or Update a List](https://developer.niketech.com/docs/projects/Bu
 https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-## Step 3: Get a Wish List
+### Step 3: Get a Wish List
 
 Allow the consumer to view the **header info** of all their Wish Lists, or just one.
 
-### Retrieve Lists for Authenticated User
+#### Retrieve Lists for Authenticated User
 
 To retrieve **header info** for all lists for an authenticated consumer, execute a request to the [Retrieve Lists for Authenticated User](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get){:target="new-tab"} endpoint.
 
@@ -377,7 +381,7 @@ Listed below is a sample [Retrieve Lists for Authenticated User](https://develop
 https://api.nike.com/buy/lists/v1?filter=country(US)
 ```
 
-### Retrieve a List by ID
+#### Retrieve a List by ID
 
 To retrieve **header info** for a single list, execute a request to the [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get){:target="new-tab"} endpoint passing the Wish List `id` as a path parameter.
 
@@ -388,7 +392,7 @@ Listed below is a sample [Retrieve a List by ID](https://developer.niketech.com/
 https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-### Retrieve Items by List
+#### Retrieve Items by List
 
 To retrieve all items in a consumer's Wish List, execute a request to the [Retrieve Items by List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get){:target="new-tab"} endpoint.
 
@@ -399,7 +403,7 @@ Listed below is a sample [Retrieve Items by List](https://developer.niketech.com
 https://api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
 ```
 
-### Retrieve Item by ID
+#### Retrieve Item by ID
 
 To retrieve a single list item, execute a request to the [Retrieve Item by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get){:target="new-tab"} endpoint, passing the client generated Wish List item `id` as a URL parameter.
 
@@ -410,7 +414,7 @@ Listed below is a sample [Retrieve Item by ID](https://developer.niketech.com/do
 https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
 ```
 
-## Step 4: Purchase from a Wish List
+### Step 4: Purchase from a Wish List
 
 To allow consumers to purchase items on their Wish List, you'll need to
 

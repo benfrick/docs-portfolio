@@ -1,106 +1,45 @@
 ---
 tags: pdf
-#category: b-use-case
-position: 4
-title: Customization Builder Reference
+category: d-reference
+position: 1
+title: Customization Builder
 url: /doc/commerce/customization/builder-reference.html
 toc:
-  - h2: Installation
-    url: /doc/commerce/customization/builder-reference.html#installation
   - h2: Basic Integration
     url: /doc/commerce/customization/builder-reference.html#basic-integration
   - h2: Builder API
     url: /doc/commerce/customization/builder-reference.html#builder-api
+  - h2: Methods
+    url: /doc/commerce/customization/builder-reference.html#methods
+  - h2: Contacting the Team
+    url: /doc/commerce/customization/builder-reference.html#contacting-the-team    
+  - h2: Document Change Log
+    url: /doc/commerce/customization/builder-reference.html#document-change-log
+  - h2: Next Steps
+    url: /doc/commerce/customization/builder-reference.html#next-steps
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# Customization Builder Reference <i class="g72-swoosh"></i><br>DRAFT
+# Customization Builder Reference <br>(DRAFT)
 
 ---
 
-##### Last Updated: 04/30/2019
+##### Last Updated: 05/17/2019
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
 
 >**TIP**: Also see [Customization Overview](/doc/commerce/customization/overview-customization.html) and [Adding Customization To Your Experience](/doc/commerce/customization/use-customization/html).
 
-The Builder is a JavaScript bundle that is your main interface with CXP. It does the following:
+The Builder is a JavaScript bundle that is your main interface with CXP. It offers the following:
 
 - **UX**: Returns a fully-styled UX for customizing products
-- **Data API**: Interact with Builder data and CXP REST APIs
-
-## Installation
-
-The following section describes how to install the Builder in order to serve and access it locally.
-
-### Prerequisites
- 
-- [Node.js](https://nodejs.org/en/) v4.2.x or higher
-- [NPM](https://www.npmjs.com/get-npm) v3.x or higher
-- [Homebrew](https://brew.sh/)
-
-### Update Hosts File
-
-- **Edit your /etc/hosts file**
-
-    ```console
-    $ sudo nano /etc/hosts
-    ```
-
-- **Use the arrow keys to position the cursor at the end of the file and add the following lines:**
-
-    ```text
-    127.0.0.1 localhost.nike.com
-    127.0.0.1 origin-localhost.nike.com
-    ```
-
-- **Use Ctrl-O to save the file, then Ctrl-X to exit**
-
-### Install Packages & Dependencies
-
-- **Install the packages**
-
-    ```console
-    $ brew install pkg-config cairo libpng jpeg giflib
-    ```
-
-- **Install any dependencies**
-
-    ```console
-    $ npm install
-    ```
-
-### Local Startup
-
-- **Start the server**
-
-    ```console
-    $ npm start
-    ```
-
-- **Access the Builder**
-    
-    The Builder is available at a URI like:
-    
-    ```
-    http://localhost:3000/?pathName=<<PATH NAME>>
-    ```
-    
-    The `pathName` value is discussed more in [Builder API](#builder-api). In the meantime, here is a working example to get you started:
-    
-    ```
-    http://localhost:3000/?pathName=KobeAD2exoFA18
-    ```
-    ![](/images/customization/builder-local-web2.png)
-
+- **Data API**: Interact with [Build Data](#build-data) and CXP REST APIs
 
 ## Basic Integration
 
 This section describes how to complete a basic integration of the Builder into a web view or browser-based application.
 
->**TIPS**:
->- Make sure you've completed the steps in the [Installation](#installation) section and that you are running the server via `npm start` command.
->- For more detailed integration instructions see [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html).
+>**TIP**: For more detailed integration instructions see [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html).
 
 ### 1. Include the Builder Bundle
 
@@ -193,9 +132,9 @@ Usage:
 ```javascript
 /**
  * Function nikeIdBuilder returns the Builder API
- * @param {string?} rootElement An HTMLElement target to mount the Builder application into.
- * @param {string?} config The configuration properties that identify which Builder instance to be returned
- * @return 
+ * @param {HTMLElement} rootElement The DOM element in which to inject the Builder
+ * @param {Object} config The configuration properties that identify which Builder instance to be returned
+ * @return {Object} Returns the exposed builderApi handlers
 */
 var rootElement = document.getElementById('my-app-location');
 var config = {
@@ -386,77 +325,41 @@ the Builder whenever a new product is loaded, or a build is applied.
 
 ### Build Data
 
-The `buildData` object describes the current build state of the Builder, with sizing information, style/color, the current product
-question and answer pairs, and other data.
+The Builder returns a `buildData` object (also referred to as Build Data), which describes the current state of the with sizing information, style/color, current product
+question/answer pairs, and more.
 
-Sample object:
-
-```
-{
-  "country": "US",
-  "locale": "en_US",
-  "pathName": "af1High14_July",
-  "productId": "PROD359583",
-  "productQuesAnswers": [
-    {
-      "quesKey": "spikePE1512:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM8145",
-      "ansKey": "LTITEM8129"
-    }
-  ],
-  "consumerQuesAnswers": [
-    {
-      "quesKey": "spikePE1512:LTITEM78003:LTITEM214118:LTITEM128002:LTITEM179157",
-      "ansKey": "LTITEM8021",
-      "value": "testpid",
-      "valueType": "pid"
-    }
-  ],
-  "sizeMarketingComponent": {},
-  "sizeTypes": [
-    {
-     sizeType: sizeTypes.US,
-     isDefault: true
-    },
-    {
-     sizeType: sizeTypes.CM,
-     isDefault: false
-    }
-  ],
-  "sizingData": [],
-  "sizeChartKey": "men_footwear_default",
-  "sizeId": "6",
-  "sizeType": "us-mens",
-  "skuSizeId": "6",
-  "style": "836710",
-  "width": "Regular Fit",
-  "viewNumbers": "1,2,3,4,5,6,7,8,9,10",
-  "viewService": "http://render.nikeid.com/ir/render/nikeidrender/",
-  "viewUrlTemplate": "af1High14_July_v{VIEW_NUMBER}?obj=/s/g12&color=ffffff&show&obj=/s/g11&color=bcbdbd&show&obj=/s/g24&color=ffffff&show&obj=/s/g10&color=ffffff&show&obj=/s/g14&color=ffffff&show&obj=/s/g13&color=ffffff&show&obj=/s/g15&color=bcbdbd&show&obj=/s/g1/leather&color=ffffff&show&obj=/s/g2/leather&color=ffffff&show&obj=/s/g3/peb&color=c4af7b&show&obj=/s/g4/peb&color=343434&show&obj=/s/g5/leather&color=ffffff&show&obj=/s/g6/peb&color=343434&show&obj=/s/g7/leather&color=ffffff&show&obj=/s/g8/leather&color=ffffff&show&obj=/s/g9/leather&color=ffffff&show&obj=/s/g23/leather&color=ffffff&show&obj=/s/g16/solid&color=ffffff&show&obj=/s/g17&color=ffffff&show&obj=/s/g21&opac=100&decal=&src=is(nikeid/emb2_iD?$T=iD&$C=808080&$FN=FuturaID&$FS=84&fmt=png-alpha)&color=141414&show&obj=/s/g22&opac=100&decal=&src=is(nikeid/emb2_iD?$T=YOUR&$C=808080&$FN=FuturaID&$FS=84&fmt=png-alpha)&color=141414&show&obj=/s/g18&color=ffffff&show&obj=/s/g19/solid&color=ffffff&show&obj=/s&req=object&fmt=png-alpha"
-}
-```
+Here is a [sample buildData object](/doc/commerce/customization/buildDataExample.html).
 
 #### **Build Data Fields**
 
-|`country`|String|The current country code for this build|
-|`locale`|String|The current locale code for this build|
-|`pathName`|String|The product pathName for this build|
-|`productId`String|The Product ID for this build.|
-|`productQuesAnswers`|Array|Collection of product question and answer pairs representing the current state of the Builder's combination selections.|
-|`consumerQuesAnswers`|Array|Collection of product question and answer pairs representing the current state of the Builder's pid selections.|
-|`sizeMarketingComponent`|Object|Provides sizing data needed to drive "buying" and "size" tools.|
-|`sizeTypes`|Array|Collection of sizeTypes based on the sizeTypeRegion that was requested in the config data. One of these should be passed to `builderApi.setSizeType(sizeType)` prior to answering size questions.|
-|`sizeData`|Array|Collection of questions generated from the sizeMarketingComponent, but reduced down to the just the questions/answers needed.|
-|`viewNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 urls for each angle of the product currently being shown within the Builder for your own product carousels or display pages.|
-|`viewService`|String|The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the `viewUrlTemplate` field to build scene7 request urls.|
-|`viewUrlTemplate`|String|Scene7 parameterized url for making requests for product images. Provided with a `{VIEW_NUMBER}` template string which you should target for replacement with a `viewNumber` which you would like to request. Use this field in conjunction with `viewNumbers` and `viewService` in order to template scene7 urls in order to request product images represented by the current buildData.|
+|Field|Type|Description|Example|
+|---|---|---|---|
+|`pathName`|String|The product pathName for this build.|"ER2teamSP19_barca"|
+|`productId`String|The product ID for this build.|"PROD372041"|
+|`consumerQuesAnswers`|Array|Collection of product question-and-answer pairs representing the current state of the Builder's pid selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`productQuesAnswers`|Array|A collection of product question-and-answer pairs representing the current state of the Builder's combination selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`sizeMarketingComponent`|Object|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`viewNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 urls for each angle of the product currently being shown within the Builder for your own product carousels or display pages.|"1,2,3,4,5,6"|
+|`color`|String|The product color code for this build.|"994"|
+|`price`|String|The product price formatted as string with the currency symbol.|$180|
+|`rawPrice`|Number|The product price formatted as a number.|180|
+|`style`|String|The product style code.|"CK3977"|
+|`country`|String|The current country code for this build.|"US"|
+|`locale`|String|The current locale code for this build.|"en_US"|
+|`viewService`|String|The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the `viewUrlTemplate` field to build scene7 request urls.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`viewUrlTemplate`|String|Scene7 parameterized url for making requests for product images. Provided with a `{VIEW_NUMBER}` template string which you should target for replacement with a `viewNumber` which you would like to request. Use this field in conjunction with `viewNumbers` and `viewService` in order to template scene7 urls in order to request product images represented by the current buildData.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`sizeTypes`|Array|A collection of sizeTypes based on the sizeTypeRegion that was requested in the config data.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`sizingData`|Array|Contains arrays of gender, width, size, and size chart data. Used for "buying" and "size" tools.|See [here](/doc/commerce/customization/buildDataExample.html)|
 
-##### More about **sizeData**
+##### More about **sizingData**
 
+- Render the gender, width, and size questions and answer them using the `setAnswer` and `setsizeAnswer` methods as the consumer makes selections.
+- It is required that you provide `fetchCapacity: true` and a value for the `sizeTypeRegion` field when initializing the Builder. If not provided, all of the sizes will be out of stock and the `sizeType` will default to "us-womens" or "us-mens".
 - Capacity, inventory, restrictions, sizeType and prior answers to sizing questions are all taken into consideration when generating this collection of objects.
-- The consumer of this array of objects only needs to be concerned with rendering the questions and answering them using the setAnswer API as the user interacts.
-- The use of this collection requires that you provide `fetchCapacity: true` and a value for the `sizeTypeRegion` field at initialization of the Builder. If not provided, all of the sizes will be out of stock and the sizetype will default to 'us-womens' or `us-mens`.
 
-```json
+Sample sizingData:
+
+```
 [
   {
     "displayName":"Size Chart",
@@ -547,39 +450,126 @@ Sample object:
 
 ### clearMessage
 
-Usage: `builderApi.clearMessage()`
+Description: Clears the message in the Builder.
 
-Description: Clears the message set in the Builder.
+Usage:
+```javascript
+builderApi.clearMessage()
+```
+
+### getAffectedQuestionMap
+
+Description: Return questionsMappingInfo based on the questionId
+
+Usage:
+```javascript
+/**
+* @returns {Array}
+*/
+builderApi.getAffectedQuestionMap()
+
+```
 
 ### getAnswersByCode
 
-Usage: `builderApi.getAnswersByCode('jersey')`
-
 Description: Returns answers and their matching questionsId which can then be used to display an answer. Useful for tapping into specific question or answer nodes.
+
+Usage:
+
+```javascript
+/**
+* @returns {Array} List of normalized questions
+*/
+builderApi.getAnswersByCode('jersey')
+```
 
 ### getBuild
 
-Usage: `builderApi.getBuild()`
+Description: Returns the current build snapshot.
 
-Description: Returns the current buildData object state.
+Usage: 
 
-### **getCapacity**
+```javascript
+/**
+* @return {Object} The current build snapshot
+*/
+builderApi.getBuild()
+```
 
-Usage: `builderApi.getCapacity().then()` or `builderApi.getCapacity({ country, pathName }).then()`
+### getCapacity
 
-Description: Returns a promise to get capacity. If no configuration is passed and capacity data is available on state, then that information is returned (else, it will perform the service call to the capacity endpoint).
+Description: Returns promise to fetch capacity information for current or passed-in product configuration.
 
-### **getMarketingComponents**
+Usage: 
 
-Usage: `builderApi.getMarketingComponents()`
+```javascript
+/**
+* @returns {Promise->Object} a promise to return capacity data
+*/
+builderApi.getCapacity().then() 
+// or
+builderApi.getCapacity({ country, pathName }).then()
+```
+
+### getLeadTimeMessage
+
+Description: Returns promise to fetch lead time information for current or passed-in product configuration.
+
+```javascript
+/**
+* @returns {Promise->Object} a promise to return leadTimeMessage data
+*/
+builderApi(getLeadTimeMessage)
+```
+
+### getMarketingComponents
 
 Description: Returns a list of normalized marketing components with nested question keys. The questions index can be used to lookup nested question values.
 
-### **getQuestionsIndex**
+Usage:
 
-Usage: `builderApi.getQuestionsIndex()`
+```javascript
+/**
+* @returns {Object} the current prouduct marketing components data
+*/
+builderApi.getMarketingComponents()
+```
+
+### getProductColorPalette
+
+Description: Returns a list of unique colors for the loaded builder.
+
+Usage:
+
+```javascript
+/**
+* @return {Array} List of selected color answers unique by hex
+*/
+builderApi.getProductColorPalette()
+```
+### getProductFillColors
+
+Description: Returns a list of unique colors applicable to all marketing components for the loaded Builder
+
+Usage:
+```javascript
+/**
+* @returns {Array} List of selected color answers unique by hex
+*/
+builderApi.getProductFillColors()
+```
+
+### getQuestionsIndex
 
 Description: Returns a normalized array of questions keyed by their ID. Effectively, this is a flattened tree of all questions contained in the product data with nested questions as keys.
+
+Usage:
+```javascript
+/**
+* @returns {Array} List of normalized questions
+*/
+builderApi.getQuestionsIndex()
+```
 
 Example:
 
@@ -595,36 +585,81 @@ Example:
 }
 ```
 
-### **getSelectedColors**
-
-Usage: `builderApi.getSelectedColors()`
+### getSelectedColors
 
 Description: Returns a collection of all selected colors from the current build, unique by hex(attribute).
 
-### **getSelectedColorsPatterns**
+Usage:
 
-Usage: `builderApi.getSelectedColorsPatterns`
+```javascript
+/**
+* @returns {Array} List of selected color answers unique by hex
+*/
+builderApi.getSelectedColors()
+```
+
+### getSelectedColorsPatterns
 
 Description: Returns a collection of all selected colors and patterns from the current build. Colors are unique by hex(attribute) and patterns are unique by src(attribute).
 
-### **getSelectedPatterns**
+Usage: 
+```javascript
+/**
+* @returns {Array} List of selected color answers unique by hex & pattern type questions unique by src
+*/
+builderApi.getSelectedColorsPatterns
+```
 
-Usage: `builderApi.getSelectedPatterns`
+### getSelectedPalette
+
+Description: Returns a list of unique colors for the selected answers of the loaded builder.
+
+Usage:
+
+```javascript
+/**
+* @returns {Array} List of selected color answers unique by displayName
+*/
+builderApi.getSelectedPalette()
+```
+
+### getSelectedPatterns
 
 Description: Returns a collection of all selected patterns from the current build, unique by src(attribute).
 
-### **getSelectedQuestionAnswerPairs**
+Usage:
 
-Usage: `builderApi.getSelectedQuestionAnswerPairs`
+```javascript
+/**
+* @returns {Array} List of selected pattern answers unique by src
+*/
+builderApi.getSelectedPatterns
+```
+
+### getSelectedQuestionAnswerPairs
 
 Description: Returns a collection of all answered questions along with their answer. For most products this will return the majority of questions, as defaults are selected in B16 APIs.
 
-### **getUpCharges**
+Usage:
 
-Usage: `builderApi.getUpCharges()`
+```javascript
+/**
+* @returns {Array}
+*/
+builderApi.getSelectedQuestionAnswerPairs
+```
+### getUpCharges
 
-Description: This method returns an array of applicable up-charge objects corresponding to the answered questions.
+Description: Returns an array of applicable up-charge objects corresponding to the answered questions.
 
+Usage:
+
+```javascript
+/**
+* @returns {Object}
+*/
+builderApi.getUpCharges()
+```
 Example:
 
 ```
@@ -638,27 +673,58 @@ Example:
 ]
 ```
 
-### **isPidAllowed**
+### isPidAllowed
 
-Usage: `builderApi.isPidAllowed('MYPID')`
+Description: Returns true if the profanity service allowed the string (no stop word was matched). String passed must match records in the capacity service exactly. Only single strings are supported.
 
-Description: Returns true if the profanity service allowed the string (no stop word matched). String passed must match records in the capacity service exactly. Currently only single strings are supported.
+Usage:
 
-### **saveBuild**
+```javascript
+/**
+* @returns {Promise->Boolean} a promise to return profanity result
+*/
+builderApi.isPidAllowed('MYPID')
+```
 
-Usage: `builderApi.saveBuild().then(metricId => {})`
+### openHighResImageUrl
 
-Description: Persists build data and returns promise to be resolved with metric ID.
+Description: Returns the high-resolution image URL in a new window.
 
-### **setAnswer**
+```javascript
+builderApi.openHighResImageUrl()
+```
 
-Usage: `builderApi.setAnswer(quesKey, ansKey)`
+### saveBuild
 
-Description: Returns the current buildData object after changing the answer to a question in the Builder. Send the full question path, e.g. `"af1High14_July:LTITEM8170:LTITEM12012:LTITEM236023:LTITEM213006"` and the ID of the answer you would like to apply for that question, e.g. `"LTITEM167036"`.
+Description: Persists build data and returns promise to send back a metric ID for that build.
 
-### **setBuild**
+Usage:
 
-Usage: `builderApi.setBuild(buildData)`
+```javascript
+/**
+* @returns {Promise->String}
+*/
+
+builderApi.saveBuild()
+```
+
+### setAnswer
+
+Description: Returns the current build snapshot after changing the answer to a question in the Builder. Send the full question path, e.g. `"af1High14_July:LTITEM8170:LTITEM12012:LTITEM236023:LTITEM213006"` and the ID of the answer you would like to apply for that question, e.g. `"LTITEM167036"`.
+
+Usage:
+
+```javascript
+/**
+* @param {String} questionId
+* @param {String} answerId
+* @param {String} pidValue
+* @returns {Object} Updated build snapshot
+*/
+builderApi.setAnswer(questionId, answerId, pidValue)
+```
+
+### setBuild
 
 Description: Allows reloading the Builder with a new product by passing one of the following:
 
@@ -668,24 +734,43 @@ Description: Allows reloading the Builder with a new product by passing one of t
 |`prebuildId`|String|Build is loaded and applied to the product data.|
 |`buildData`|Object|Product for that build is reloaded and has the build data applied to the product.|
 
-After calling this method the `bridge.onProductLoad` callback is called with the
-`buildData` for the newly-applied build.
+After calling this method the `bridge.onProductLoad` callback is called with the `buildData` for the newly-applied build.
 
-### **setIsVisible**
+Usage:
 
-Usage: `builderApi.setIsVisible(true)`
+```javascript
+/**
+* @param {Object} buildData
+*/
+builderApi.setBuild(buildData)
+```
+
+### setIsVisible
 
 Description: Informs the Builder whether it is visible on-screen or not. To take effect, `enableAnimationInit: true` needs to be passed in the initialization config options.
 
-### **setMessage**
+Usage:
 
-Usage: `builderApi.setMessage(message)`
+```javascript
+builderApi.setIsVisible(true)
+```
+
+### setMessage
 
 Description: Causes the Builder to display a message. Takes a message object consisting of the following properties:
 
 |`header`|String|The text displayed at the top of the message.|
 |`content`|String|The text displayed under the header.|
 |`type`|String|The type of the message to be displayed, which also affects how the message is displayed. Possible values: 'COUNTDOWN', 'COUNTDOWN_URGENT', 'COUNTDOWN_EXPIRED'. Default is 'COUNTDOWN'.
+
+Usage:
+
+```javascript
+/**
+* @param {Object} message
+*/
+builderApi.setMessage(message)
+```
 
 Examples:
 
@@ -701,22 +786,52 @@ builderApi.setMessage(countdownExpiredMessage);
 
 ```
 
-### **setSizeType**
+### setSizeAnswer
 
-Usage: `builderApi.setSizeType(sizeType)`
+Description: Given a question ID and answer ID, answer the corresponding question in the build.
+
+Usage:
+
+```javascript
+/**
+* @param {String} questionId
+* @param {String} answerId
+* @param {String} sizeType
+* @returns {Object} Updated build snapshot
+*/
+setSizeAnswer(questionId, answerId, sizeType)
+```
+
+### setSizeType
 
 Description: Allows updating the Builder's internal state for selected size type, which updates the size, price, and color data when the Builder creates the buildData.
 
-### **showNotification**
+Usage:
 
-Usage: `builderApi.showNotification(message)`
+```javascript
+/**
+* @param {String} sizeType
+*/
+builderApi.setSizeType(sizeType)
+```
 
-Description: Causes the Builder to display a growl notification. It takes a message object consisting of the following properties:
+### showNotification
+
+Description: Causes the Builder to display a notification. It takes a message object consisting of the following properties:
 
 |`type`|String|The type of message. Only one message of a given type will be displayed.|
 |`message`|String|The message text.|
 |`level`|String|Optional - Determines the message level. Possible values: 'alert', undefined/null.|
 |`title`|String|Optional - The message title.|
+
+Usage:
+
+```javascript
+/**
+* @param {Object} message
+*/
+builderApi.showNotification(message)
+```
 
 Examples:
 
@@ -730,3 +845,21 @@ builderApi.showNotification(titled);
 var plain = { message: 'just a plain old message. not that fun, sorry.', type: 'some val' };
 builderApi.showNotification(plain);
 ```
+
+## Contacting the Team
+
+|---|---|
+|Slack|[#cxp](https://nikedigital.slack.com/messages/GFH2GM02C){:target="new-tab"}|
+|Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home){:target="new-tab"}|
+|Team Contacts|[Jason Mueller, Product Manager](mailto:jason.mueller@nike.com)|
+
+## Document Change Log
+
+|Summary|Date|
+|---|---|
+|Initial draft|05/17/2019|
+
+## Next Steps
+
+- [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html)
+- [Using NDe APIs](/doc/getting-started/using-nike-apis.html)

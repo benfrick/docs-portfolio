@@ -35,8 +35,6 @@ toc:
 
 ##### Last Updated: 01/18/2019
 
-[<img style="max-width:30%;" alt="Nike App screenshot" align="right" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
-
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
 >**TIP:** Before using this guide, you should have completed [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html).
@@ -44,6 +42,8 @@ toc:
 ## Introduction
 
 The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} provides product data and content in the form of Cards, Threads, and Feeds.
+
+[<img style="max-width:30%;float:right;" alt="Nike App screenshot" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
 
 ### What are Cards, Threads, and Feeds?
 
