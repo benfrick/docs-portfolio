@@ -7,6 +7,8 @@ url: /doc/commerce/customization/use-customization.html
 toc:
   - h2: Introduction
     url: /doc/commerce/customization/use-customization.html#introduction
+  - h2: Key Terms
+    url: /doc/commerce/customization/use-customization.html#key-terms
   - h2: 'Quick-Start: Load the Builder'
     url: /doc/commerce/customization/use-customization.html#quick-start-load-the-builder
   - h2: Show Customizable Products
@@ -28,7 +30,7 @@ toc:
 
 ---
 
-##### Last Updated: 05/17/2019
+##### Last Updated: 05/23/2019
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
 
@@ -50,6 +52,16 @@ The Builder is a JavaScript bundle that is your main interface with CXP. It does
 ### REST APIs
 
 Use CXP's [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} along with the Builder to enhance your experience. For example, you can display a message to the consumer about the estimated delivery date of their customized product.
+
+## Key Terms
+
+|Term|Definition|
+|---|---|
+|Build|The consumer's customized product, prior to being submitted for fulfillment|
+|Builder|The JavaScript bundle that contains the customization UX and Builder API|
+|Build Data|Data snapshot of the build as returned by the Builder API, including gender, width, size selections, pricing, and more|
+|Metric ID|The unique identifier for a finalized build that can be used in Checkout|
+|Prebuild|Example designs that are purchasable as-is, or can be further customized by the consumer|
 
 ## Quick-Start: Load the Builder
 
@@ -262,7 +274,7 @@ Show the consumer a way to edit the design.
 
 >**TIP**: It's recommended for the 'Edit Design' CTA to be always active on the PDP.
 
-#### Step 3d: Show Gender and Size Options, Confirm Consumer's Selections
+#### Step 3d: Show Gender, Width and Size Options and Confirm Consumer's Selections
 
 Show the consumer all of the possible gender and size options for the product. From the possible sizes, show which sizes are available for purchase. Allow the consumer to make their gender and size selections.
 
@@ -278,10 +290,10 @@ Show the consumer all of the possible gender and size options for the product. F
     
 - Note that selecting a gender will change the size options in `sizingData`.
 
-**Show size options, and confirm consumer's selection**
+**Show size and width options (if applicable), and confirm consumer's selection**
 
 - Use the info from `sizingData` to display the available sizes, making note of the respective `questionId` and `answerId` values.
-- Using the `questionId` and `answerId` values for the size selected by the consumer, call the `setSizeAnswer` method, like:
+- Using the `questionId` and `answerId` values for the size selected by the consumer, call the [`setSizeAnswer`](/doc/commerce/customization/builder-reference.html#setsizeanswer) method, like:
     
     ```javascript
     builderApi.setSizeAnswer('FUTUREELITEFA18:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM403108','LTITEM8132','us-mens'))
@@ -290,9 +302,22 @@ Show the consumer all of the possible gender and size options for the product. F
 
 >**TIP**: Answering the gender and size-related questions are the only required Builder interactions for a design to be purchasable. 
 
-#### Step 3e: Show 'Add to Cart' CTA
+#### Step 3e: Save the Build
 
-**Show the consumer a way to add the product to their shopping cart with an **Add to Cart** CTA.**
+**Save the Build**
+
+- Call the [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) method like:
+
+    ```javascript
+    builderApi.saveBuild()
+    ```    
+    This saves the current build configuration and returns a promise to send a metric ID for that build.
+    
+#### Step 3f: Show 'Add to Cart' CTA
+
+Once you have a metric ID for the build, the consumer should be able to add their design to the shopping cart.
+
+**Show the consumer a way to add the product to their shopping cart with an 'Add to Cart' CTA.**
 
 - Display an 'Add to Cart' CTA that adds the design to the cart.
 
@@ -303,11 +328,11 @@ Show the consumer all of the possible gender and size options for the product. F
     ```
     <button style="margin-top: 5px; margin-bottom: 5px;" class="ncss-btn-primary-dark">Add to Bag</button>
 
-- This CTA should only be active once the gender and size-related selections have been passed to the Builder, as shown in [Step 3d](#step-3d-show-gender-and-size-options-confirm-consumers-selections).
+- This CTA should only be active once the gender, width, and size-related selections have been passed to the Builder, as shown in [Step 3d](#step-3d-show-gender-width-and-size-options-and-confirm-consumers-selections).
 
 - Once active, the specific behavior of this CTA can vary depending on your requirements, but here is an example:
 
-    - Call the [Carts API](/doc/commerce/checkout/use-checkout.html#cart) to add the product to a cart.
+    - Call the [Carts API](/doc/commerce/checkout/use-checkout.html#cart) with the metric ID for the build to add the product to a cart.
     - Show an updated cart item count on the PDP and/or navigate the consumer to a cart page/view.
 
     >**TIP**: For more see [Adding Cart and Checkout to your Experience](/doc/commerce/checkout/use-checkout.html).
@@ -328,11 +353,11 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 
 |Scenario|Interaction|
 |---|---|
-|Load a new build, either to "reset" the builder or to switch between builds.|Invoke the `setBuild` method, for example by prebuild ID or metric ID.|
+|Load a new build, either to "reset" the builder or to switch between builds.|Invoke the [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) method, for example by prebuild ID or metric ID.|
 |Display price changes (when customization options are changed).|Listen to the `onPriceUpdate(priceData)` bridge callback and show updated price in UX.|
-|Consumer selects the 'Done' button.|Listen to the `onDone(buildData)` bridge callback, then call `saveBuild` and update UX.|
-|Save a build.|Invoke the `saveBuild` method, which returns a metric ID for the build.|
-|Edit a design that is already in the cart.|Invoke `setBuild` with the metric ID you previously got from calling `saveBuild`.| 
+|Consumer selects the 'Done' button.|Listen to the `onDone(buildData)` bridge callback, then call [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) and update UX.|
+|Save a build.|Invoke the [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) method, which returns a metric ID for the build.|
+|Edit a design that is already in the cart.|Invoke [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) with the metric ID you previously got from calling [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild).| 
 |A consumer triggers an analytics event.|Listen to the `onAnalyticsEvent(type, payload)` bridge callback, then trigger an action.|
 |An error occurs in the Builder.|Listen to the `onError(error)` bridge callback, handle the error and update UX.|
 
