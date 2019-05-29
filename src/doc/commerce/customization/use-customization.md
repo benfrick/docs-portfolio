@@ -15,6 +15,8 @@ toc:
     url: /doc/commerce/customization/use-customization.html#show-customizable-products
   - h2: Show a Design Experience
     url: /doc/commerce/customization/use-customization.html#show-a-design-experience
+  - h2: Enable Purchasing  
+    url: /doc/commerce/customization/use-customization.html#enable-purchasing
   - h2: Contacting the Team
     url: /doc/commerce/customization/use-customization.html#contacting-the-team
   - h2: Glossary
@@ -30,7 +32,7 @@ toc:
 
 ---
 
-##### Last Updated: 05/23/2019
+##### Last Updated: 05/29/2019
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
 
@@ -42,12 +44,12 @@ The **Customization Experience Platform (CXP)** unlocks your ability to add prem
 
 In this guide, we will discuss how to integrate CXP customization features into your app. First, what does CXP have to offer?
 
-### The Builder
+### Builder Bundle
 
-The Builder is a JavaScript bundle that is your main interface with CXP. It does the following:
+The Builder Bundle is a JavaScript bundle that is your main interface with CXP. It does the following:
 
 - **UX**: Returns a fully-styled UX for customizing products
-- **Data API**: Allows you to interact with [Build Data](/doc/commerce/customization/builder-reference.html#build-data) and [CXP REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"}.
+- **Builder API**: Allows you to interact with [Build Data](/doc/commerce/customization/builder-reference.html#build-data) and [CXP REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"}.
 
 ### REST APIs
 
@@ -57,11 +59,16 @@ Use CXP's [REST APIs](https://developer.niketech.com/?domains=Customization){:ta
 
 |Term|Definition|
 |---|---|
-|Build|The consumer's customized product, prior to being submitted for fulfillment|
-|Builder|The JavaScript bundle that contains the customization UX and Builder API|
-|Build Data|Data snapshot of the build as returned by the Builder API, including gender, width, size selections, pricing, and more|
-|Metric ID|The unique identifier for a finalized build that can be used in Checkout|
-|Prebuild|Example designs that are purchasable as-is, or can be further customized by the consumer|
+|Builder Bundle|The JavaScript bundle that contains the customization UX and Builder API. (Also known as B16).|
+|Builder Components|The consumer-facing design options, i.e. the visual choices and selections.|
+|Builder|A configuration ("concept") of a customizable product that contains all possible variations of questions, answers, materials, colors, etc. Represented by a `pathName` identifier.|
+|Builder Data|Data snapshot (see `buildData` object) returned by the Builder API which includes the current gender, width, and size selections, pricing, and more.|
+|Questions & Answers|A programmatic way of determining the consumer's selections and how they map to the various pieces of the product. New answers often result in visual changes within the Builder.|
+|Design|The consumer's customized product, prior to being submitted for fulfillment. Represented by a unique `designId` returned by the Builder API after size selection.|
+|`designId`|(Formerly known as metricId). A unique identifier for a finalized design that can be used in Checkout or shared. Also used to call Customization Services to return design data and a factory-facing bill of materials.|
+|`pathName`|A unique identifier that is used to reference a specific Builder instance.|
+|Prebuild|A set of pre-determined Builder Data used for merchandising and to engage consumers in the design/buying experience. Prebuilds are not purchasable until selecting a size, and are represented by a unique `prebuildId` identifier.|
+|`prebuildId`|The unique identifier for a Prebuild|
 
 ## Quick-Start: Load the Builder
 
@@ -157,11 +164,11 @@ In your app's source, create an HTML template and follow these steps:
 
 ## Show Customizable Products
 
-<i class="g72-check"></i>&nbsp;&nbsp;**Which products are customizable? What is the estimated delivery date? How do I start designing**?
+<i class="g72-check"></i>&nbsp;&nbsp;**Which products are customizable? How do I start designing**?
 
 ### Step 1: Load the Builder
 
-Load the Builder and interact with the API to help drive the product browsing experience. Later, you can [Show a Design Experience](#show-a-design-experience) without having to first load the Builder.
+Load the Builder and interact with the API to help drive the product browsing experience. Later, you can [Show a Design Experience](#show-a-design-experience) and [Enable Purchasing](#enable-purchasing) without having to first load the Builder.
 
 **Load the Builder by invoking the `nikeIdBuilder(rootElement, config)` function.**
 
@@ -235,32 +242,7 @@ Show the product images, pricing, and other info from [Product Feeds](/doc/comme
 
 - Call the [Product Feeds API](/doc/commerce/product/use-product-feeds.html) with the thread id to retrieve content and info for the product.
 
-#### Step 3b: Show Product Availability Messaging
-
-Show the consumer on the PDP whether the product can be purchased. If it can, show an estimated lead time (in weeks) for the product to be delivered. Here a few example messages:
-
-|Condition|Message on PDP|
-|---|---|
-|Product is available|`"Custom-made and delivered to you in 4 weeks or less."`|
-|Product is not available|`"The product is currently unavailable."`
-
-To retrieve the availability and lead-time data, there are two options:
-
-**Call the [Customization Availability API](https://developer.niketech.com/docs/projects/Customization%20Availability?tab=api){:target="new-tab"}**
-
-- The API returns availability by size, lead-time in days, and message text, all for a particular style-color.
-- In the `pathName` query parameter, use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds API response, like `https://api.nike.com/customization/availability/v1/us/en_US?filter=pathName(af1LowChampsSU19)`.
-
-OR
-
-**Read the Build Data**
-
-- Availability: From the returned [Build Data](/doc/commerce/customization/builder-reference.html#build-data), if `sizingData.displayName` is "Size", then loop through `sizingData.answers` and evaluate whether `isAvailable` is true or false for all sizes.
-- Lead Time: Call the [getLeadTimeMessage](/doc/commerce/customization/builder-reference.html#getleadtimemessage) method of the Builder API to get the message text and lead time in days for the product.
-
->**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, you can access the Build Data. See [Step 1: Load the Builder](#step-1-load-the-builder) for more.
-
-#### Step 3c: Show 'Edit Design' CTA
+#### Step 3b: Show 'Edit Design' CTA
 
 Show the consumer a way to edit the design.
 
@@ -273,69 +255,6 @@ Show the consumer a way to edit the design.
     <button style="margin-top: 5px; margin-bottom: 5px;" class="ncss-btn-primary-dark">Edit Design</button>
 
 >**TIP**: It's recommended for the 'Edit Design' CTA to be always active on the PDP.
-
-#### Step 3d: Show Gender, Width and Size Options and Confirm Consumer's Selections
-
-Show the consumer all of the possible gender and size options for the product. From the possible sizes, show which sizes are available for purchase. Allow the consumer to make their gender and size selections.
-
-**Show gender options (if applicable), and confirm consumer's selection**
-
-- Use the info from the `sizingData` object (in the [Build Data](/doc/commerce/customization/builder-reference.html#build-data)) to display the available genders, making note of the respective `questionId` and `answerId` values.
-- Using the `questionId` and `answerId` values for the gender selected by the consumer, call the [`setAnswer`](/doc/commerce/customization/builder-reference.html#setanswer) method of the Builder API, like:
-
-    ```javascript
-    builderApi.setAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011','')`
-    ```
-    This sets `isSelected: true` in `sizingData.answers`, indicating that a particular gender was selected.
-    
-- Note that selecting a gender will change the size options in `sizingData`.
-
-**Show size and width options (if applicable), and confirm consumer's selection**
-
-- Use the info from `sizingData` to display the available sizes, making note of the respective `questionId` and `answerId` values.
-- Using the `questionId` and `answerId` values for the size selected by the consumer, call the [`setSizeAnswer`](/doc/commerce/customization/builder-reference.html#setsizeanswer) method, like:
-    
-    ```javascript
-    builderApi.setSizeAnswer('FUTUREELITEFA18:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM403108','LTITEM8132','us-mens'))
-    ```
-    This sets `isSelected: true` in `sizingData.answers`, indicating that a particular size was selected.
-
->**TIP**: Answering the gender and size-related questions are the only required Builder interactions for a design to be purchasable. 
-
-#### Step 3e: Save the Build
-
-**Save the Build**
-
-- Call the [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) method like:
-
-    ```javascript
-    builderApi.saveBuild()
-    ```    
-    This saves the current build configuration and returns a promise to send a metric ID for that build.
-    
-#### Step 3f: Show 'Add to Cart' CTA
-
-Once you have a metric ID for the build, the consumer should be able to add their design to the shopping cart.
-
-**Show the consumer a way to add the product to their shopping cart with an 'Add to Cart' CTA.**
-
-- Display an 'Add to Cart' CTA that adds the design to the cart.
-
-- Example button code using [NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss){:target="new-tab"}:
-
-    ```html
-    <button class="ncss-btn-primary-dark">Add to Bag</button>
-    ```
-    <button style="margin-top: 5px; margin-bottom: 5px;" class="ncss-btn-primary-dark">Add to Bag</button>
-
-- This CTA should only be active once the gender, width, and size-related selections have been passed to the Builder, as shown in [Step 3d](#step-3d-show-gender-width-and-size-options-and-confirm-consumers-selections).
-
-- Once active, the specific behavior of this CTA can vary depending on your requirements, but here is an example:
-
-    - Call the [Carts API](/doc/commerce/checkout/use-checkout.html#cart) with the metric ID for the build to add the product to a cart.
-    - Show an updated cart item count on the PDP and/or navigate the consumer to a cart page/view.
-
-    >**TIP**: For more see [Adding Cart and Checkout to your Experience](/doc/commerce/checkout/use-checkout.html).
 
 ## Show a Design Experience
 
@@ -387,6 +306,100 @@ Show the consumer a way to share their design on social media.
 ![Nike By You example 'My Designs' UX](/images/customization/nby-my-designs.png)
 -->
 
+## Enable Purchasing
+
+<i class="g72-check"></i>&nbsp;&nbsp;**Is the product available for purchase? How do I select a size? When would my design be delivered to me?**
+
+The consumer is finished customizing their product, so it's time to get them ready for the checkout process.
+
+#### Show Product Availability Messaging
+
+Show the consumer on the PDP whether the product can be purchased. If it can, show an estimated lead time (in weeks) for the product to be delivered. Here a few example messages:
+
+|Condition|Message on PDP|
+|---|---|
+|Product is available|`"Custom-made and delivered to you in 4 weeks or less."`|
+|Product is not available|`"The product is currently unavailable."`
+
+To retrieve the availability and lead-time data, there are two options:
+
+**Call the [Customization Availability API](https://developer.niketech.com/docs/projects/Customization%20Availability?tab=api){:target="new-tab"}**
+
+- The API returns availability by size, lead-time in days, and message text, all for a particular style-color.
+- In the `pathName` query parameter, use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds API response, like `https://api.nike.com/customization/availability/v1/us/en_US?filter=pathName(af1LowChampsSU19)`.
+
+OR
+
+**Read the Build Data**
+
+- Availability: From the returned [Build Data](/doc/commerce/customization/builder-reference.html#build-data), if `sizingData.displayName` is "Size", then loop through `sizingData.answers` and evaluate whether `isAvailable` is true or false for all sizes.
+- Lead Time: Call the [getLeadTimeMessage](/doc/commerce/customization/builder-reference.html#getleadtimemessage) method of the Builder API to get the message text and lead time in days for the product.
+
+>**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, you can access the Build Data. See [Step 1: Load the Builder](#step-1-load-the-builder) for more.
+
+#### Show Gender, Width and Size Options and Confirm Consumer's Selections
+
+Show the consumer all of the possible gender and size options for the product. From the possible sizes, show which sizes are available for purchase. Allow the consumer to make their gender and size selections.
+
+**Show gender options (if applicable), and confirm consumer's selection**
+
+- Use the info from the `sizingData` object (in the [Build Data](/doc/commerce/customization/builder-reference.html#build-data)) to display the available genders, making note of the respective `questionId` and `answerId` values.
+- Using the `questionId` and `answerId` values for the gender selected by the consumer, call the [`setAnswer`](/doc/commerce/customization/builder-reference.html#setanswer) method of the Builder API, like:
+
+    ```javascript
+    builderApi.setAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011','')`
+    ```
+    This sets `isSelected: true` in `sizingData.answers`, indicating that a particular gender was selected.
+    
+- Note that selecting a gender will change the size options in `sizingData`.
+
+**Show size and width options (if applicable), and confirm consumer's selection**
+
+- Use the info from `sizingData` to display the available sizes, making note of the respective `questionId` and `answerId` values.
+- Using the `questionId` and `answerId` values for the size selected by the consumer, call the [`setSizeAnswer`](/doc/commerce/customization/builder-reference.html#setsizeanswer) method, like:
+    
+    ```javascript
+    builderApi.setSizeAnswer('FUTUREELITEFA18:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM403108','LTITEM8132','us-mens'))
+    ```
+    This sets `isSelected: true` in `sizingData.answers`, indicating that a particular size was selected.
+
+>**TIP**: Answering the gender and size-related questions are the only required Builder interactions for a design to be purchasable. 
+
+#### Save the Build
+
+**Save the Build**
+
+- Call the [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) method like:
+
+    ```javascript
+    builderApi.saveBuild()
+    ```    
+    This saves the current build configuration and returns a promise to send a metric ID for that build.
+    
+#### Show 'Add to Cart' CTA
+
+Once you have a metric ID for the build, the consumer should be able to add their design to the shopping cart.
+
+**Show the consumer a way to add the product to their shopping cart with an 'Add to Cart' CTA.**
+
+- Display an 'Add to Cart' CTA that adds the design to the cart.
+
+- Example button code using [NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss){:target="new-tab"}:
+
+    ```html
+    <button class="ncss-btn-primary-dark">Add to Bag</button>
+    ```
+    <button style="margin-top: 5px; margin-bottom: 5px;" class="ncss-btn-primary-dark">Add to Bag</button>
+
+- This CTA should only be active once the gender, width, and size-related selections have been passed to the Builder, as shown in [Show Gender, Width, and Size Options and Confirm Consumer's Selections](#show-gender-width-and-size-options-and-confirm-consumers-selections).
+
+- Once active, the specific behavior of this CTA can vary depending on your requirements, but here is an example:
+
+    - Call the [Carts API](/doc/commerce/checkout/use-checkout.html#cart) with the metric ID for the build to add the product to a cart.
+    - Show an updated cart item count on the PDP and/or navigate the consumer to a cart page/view.
+
+    >**TIP**: For more see [Adding Cart and Checkout to your Experience](/doc/commerce/checkout/use-checkout.html).
+
 ## Contacting the Team
 
 |---|---|
@@ -402,7 +415,7 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 |Summary|Date|
 |---|---|
-|Initial draft|05/17/2019|
+|Initial draft|05/29/2019|
 
 ## Next Steps
 
