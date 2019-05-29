@@ -23,17 +23,17 @@ body {
 }
 h1 {
     font-weight: bold;
-    font-size: 2.2em;
+    font-size: 1.8em;
     letter-spacing: .5px;
     text-transform: uppercase;
     }
     @media (max-width: 600px) {
     h1 {
-        font-size: 1.89em;
+        font-size: 1.6em;
     }
 }
 h2 {
-    font-size: 1.8em;
+    font-size: 1.7em;
     background: #3498db;
     border-radius: 4px;
     margin-top: 10px;
@@ -53,7 +53,7 @@ h2 {
     }
 }
 
-h3{font-size:1.6em;}
+h3{font-size:1.6em;font-weight: bold;}
 h4{font-size:1.2em;}
 h5{font-size:1.0em;}
 h6{font-size:.8em;}
@@ -181,6 +181,7 @@ code {
 a {
     color: #3498db;
     text-decoration: none;
+    font-weight: bold;
 }
 /* ncss is setting to inherit */
 strong, b {
