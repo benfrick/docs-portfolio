@@ -1,6 +1,6 @@
 ---
 tags: pdf
-category: b-use-case
+#category: b-use-case
 position: 10
 title: Localization Tool Migration
 url: /doc/globalization/loctool-migration.html
