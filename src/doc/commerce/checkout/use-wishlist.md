@@ -1,7 +1,7 @@
 ---
 id: use-wishlist
 tags: pdf
-category: b-use-case
+#category: b-use-case
 position: 6
 title: Wish Lists
 url: /doc/commerce/checkout/use-wishlist.html
@@ -16,8 +16,6 @@ toc:
     url: /doc/commerce/checkout/use-wishlist.html#troubleshooting
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-wishlist.html#contacting-the-team
-  - h2: Glossary
-    url: /doc/commerce/checkout/use-wishlist.html#glossary
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -40,11 +38,11 @@ Sometimes consumers want to set aside items or services to buy at a later date. 
 
 **How is a Wish List different from a Cart?**
 
-Wish Lists offer a more flexible way of shopping than using the Cart alone. Here are some considerations:
+Wish Lists offer consumers a more flexible way of shopping than using the Cart alone. Here are some considerations:
 
 - The consumer can have an unlimited number of Wish Lists, while they can have only one Cart.
 - A Wish List can be given a name by the consumer, while a Cart cannot be named.
-- Wish Lists cannot be used by guests (i.e. anonymous consumers), while a Cart can be used by guests.
+- Wish Lists cannot be used by guests (i.e. anonymous consumers), while a Cart can.
 
 **Summary: Wish Lists help your consumer organize their potential purchases better than Carts, but Wish Lists cannot be used by guests.**
 
@@ -228,7 +226,6 @@ To allow consumers to purchase items on their Wish List, you'll need to:
 
 ## API Quick Reference
 
-**Wish Lists**
 - [Create or Update a List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put){:target="new-tab"}
 - [Delete a List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete){:target="new-tab"}
 - [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get){:target="new-tab"}
@@ -258,11 +255,7 @@ Need to contact the Cart & Checkout team?
 
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
-|Team Contacts|[Sree Krishna](mailto:sree.krishna@nike.com) (Carts and Wish Lists only)|
-
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html)
+|Team Contacts|[Sree Krishna](mailto:sree.krishna@nike.com)|
 
 ## Document Change Log
 
