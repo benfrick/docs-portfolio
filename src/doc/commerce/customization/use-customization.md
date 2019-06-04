@@ -46,29 +46,37 @@ In this guide, we will discuss how to integrate CXP customization features into 
 
 ### Builder Bundle
 
-The Builder Bundle is a JavaScript bundle that is your main interface with CXP. It does the following:
+The Builder Bundle is a JavaScript bundle (known as B16) that is your main interface with CXP.
 
-- **UX**: Returns a fully-styled UX for customizing products
-- **Builder API**: Allows you to interact with [Build Data](/doc/commerce/customization/builder-reference.html#build-data) and [CXP REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"}.
+Users of B16 have two adventure options:
+
+- **Full Bundle**: Includes access to the fully-styled UX for customizing products
+- **Headless or Builder API**: Allows you to interact with Builder methods and associated JS APIs where customization business logic is housed so that you can build your own experience.
 
 ### REST APIs
 
-Use CXP's [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} along with the Builder to enhance your experience. For example, you can display a message to the consumer about the estimated delivery date of their customized product.
+In addition to the Builder, the Customization Domain offers a variety of [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} that can be used for specific steps along the user journey.
+
+Examples:
+
+- Display a message to the consumer about the estimated delivery date of their customized product.
+- Show the consumer a variety of inspiration options.
+
+Using the [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} in these ways (and more) can encourage initial engagement in your experience. 
 
 ## Key Terms
 
 |Term|Definition|
 |---|---|
-|Builder Bundle|The JavaScript bundle that contains the customization UX and Builder API. (Also known as B16).|
-|Builder Components|The consumer-facing design options, i.e. the visual choices and selections.|
-|Builder|A configuration ("concept") of a customizable product that contains all possible variations of questions, answers, materials, colors, etc. Represented by a `pathName` identifier.|
-|Builder Data|Data snapshot (see `buildData` object) returned by the Builder API which includes the current gender, width, and size selections, pricing, and more.|
-|Questions & Answers|A programmatic way of determining the consumer's selections and how they map to the various pieces of the product. New answers often result in visual changes within the Builder.|
-|Design|The consumer's customized product, prior to being submitted for fulfillment. Represented by a unique `designId` returned by the Builder API after size selection.|
-|`designId`|(Formerly known as metricId). A unique identifier for a finalized design that can be used in Checkout or shared. Also used to call Customization Services to return design data and a factory-facing bill of materials.|
-|`pathName`|A unique identifier that is used to reference a specific Builder instance.|
-|Prebuild|A set of pre-determined Builder Data used for merchandising and to engage consumers in the design/buying experience. Prebuilds are not purchasable until selecting a size, and are represented by a unique `prebuildId` identifier.|
-|`prebuildId`|The unique identifier for a Prebuild|
+|Builders|A configuration ("concept") of a customizable product that contains all possible variations of questions, answers, materials, colors, etc. Represented by a `pathName` identifier.|
+|B16|The JavaScript bundle that contains the customization UX and Builder API.|
+|Builder Components|Consumer-facing options, the visual choices and selections.|
+|Builder Data|Data snapshot of the Builder as returned by the Builder API, including the consumer's gender, width, size selections, pricing, and more.|
+|Questions & Answers|A programmatic way of determining the consumer's selections and how they map to the various pieces of the shoe. Often new answers result in visual changes within the Builder.|
+|Design|A locked set of Builder data that maps to specific selections made by the consumer.|
+|Design ID|(Formerly known as metric ID). A reference to the user’s design that can be used to call other Customization Services to return key design data and factory-facing bill of materials.|
+|PathName|An alphanumeric unique identifier that is used to reference a specific Builder.|
+|Prebuild|A set of pre-determined Builder data used for merchandising and to engage consumers in the design/buying experience. Prebuilds are not purchasable until selecting a size.|
 
 ## Quick-Start: Load the Builder
 
