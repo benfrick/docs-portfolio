@@ -8,40 +8,53 @@ url: /doc/commerce/customization/overview-customization.html
 ---
 <a href="{{ page.url | replace: '.html','.pdf' }}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="{{ page.url | replace: 'overview-','use-' }}" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
-# Customization Overview
+# Customization Overview <br>(DRAFT)
 
 ---
 
-Add a premium product customization experience to your app using the Customization Experience Platform (CXP).
+### Powering the Co-Creation Generation
 
-#### Enabling the Product Co-Creation Generation
+Add product customization to your experience using the [Customization Experience Platform (CXP)](/doc/commerce/customization/use-customization.html).
 
-CXP is set of APIs and Components that collectively unlock your consumers' ability to design and buy customized products.
+<br>
 
-![Image of Nike By You for Web](/images/customization/nby-desktop-quarter-color.png){:class="border"}
+![Screenshot of Customization UX on desktop and mobile](/images/customization/nby-landing.png)
 
-## Use Cases
+### Integration Overview
 
-Step through the Use Cases below to incorporate CXP capabilities into your experience.
+[CXP](/doc/commerce/customization/use-customization.html) is set of APIs and Components that collectively unlock your consumers' ability to [design](/doc/commerce/customization/use-customization.html#show-a-design-experience) and [buy](/doc/commerce/customization/use-customization.html#enable-purchasing) customized products.
 
-|---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Show customizable products](/doc/commerce/customization/use-customization.html): Show consumers which products are customizable, along with an estimated delivery date.|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Send consumers on design journeys](/doc/commerce/customization/use-customization.html): Consumers visually crafting the shoe of their dreams in your app. 'Nuff said.|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Finalize and share design](/doc/commerce/customization/use-customization.html): Finalize a design so that it can be added to the cart, share a design on social media.|
+![Experience-to-CXP Integration Diagram](/images/customization/nby-user-journey-arch.png)
 
-<h4>Related Information</h4>
-<aside class="note">
-    <h5>APIs:</h5>
-    <ul>
-        <li>
-            <a href="https://developer.niketech.com/docs/projects/Customization%20Availability?tab=api" target="new-tab">Customization Availability</a> <span class="guide-details-li-text"></span>
-        </li>
-    </ul>
-</aside>
+### Use Cases
 
-* [Product Feeds Developer's Guide:](/doc/commerce/product/use-product-feeds.html) Learn how integrate with the Product Feeds API.    
-* [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
-* [Product Life Cycle:](/doc/commerce/reference/product-lifecycle.html) Discover how Nike products become available for purchase in an experience.
+Here are some use cases for integrating CXP capabilities into your experience.
+
+
+|<i class="g72-check"></i>&nbsp;&nbsp;[Show Customizable Products](/doc/commerce/customization/use-customization.html#show-customizable-products){:style="padding-right: 5px;"}|Which products are customizable? How do I start designing?|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Show a Design Experience](/doc/commerce/customization/use-customization.html#show-a-design-experience){:style="padding-right: 5px;"}|What customization options are available? What does my design look like? How much will it cost?|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Enable Purchasing](/doc/commerce/customization/use-customization.html#enable-purchasing){:style="padding-right: 5px;"}|Is the product available for purchase? How do I select a size? When would my design be delivered to me?|
+
+>**TIP**: See [Adding Customization to Your Experience](/doc/commerce/customization/use-customization.html) for full integration details.
+
+<!-- Can add when new Builder methods become available
+|<i class="g72-check"></i>&nbsp;&nbsp;[Share a Design](/doc/commerce/customization/use-customization.html#share-a-design): How do I share my design on social media?|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Save a Design](/doc/commerce/customization/use-customization.html#save-a-design): How do I save my design for later?|
+-->
+
+### User Journey
+
+![Graphic of Customization User Journey from Discover to Buy](/images/customization/nby-user-journey.png)
+
+### What We Provide
+
+![Graphic showing supported and unsupported features of CXP](/images/customization/nby-what-we-provide.png)
+
+### Next Steps
+
+- [Adding Customization to Your Experience:](/doc/commerce/customization/use-customization.html){:style="padding-right: 5px;} An in-depth guide on integrating with the Customization Builder.    
+- [Customization Builder Reference:](/doc/commerce/customization/builder-reference.html){:style="padding-right: 5px;} The reference doc for the Customization Builder.
+- [Adding Product Feeds to Your Experience:](/doc/commerce/product/use-product-feeds.html){:style="padding-right: 5px;} Discover how to integrate with Product Feeds.
 
 ### Connect
 

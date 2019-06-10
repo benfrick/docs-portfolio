@@ -30,6 +30,15 @@ Explore the guides below to get familiar with product features and experience ho
         </div>
         <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
             <ul>
+                <i class="fas fa-palette fa-2x"></i>
+                <li class="group-header"><h4>Design</h4></li>
+                <li><a href="/doc/commerce/customization/overview-customization.html"><h5>Customization UX</h5></a></li>
+                <li><a href="/doc/commerce/customization/builder-reference.html"><h5>Builder Reference</h5></a></li>
+                <li class="new-indicator-lg"></li>
+            </ul>
+        </div>
+        <div class="ncss-col-sm-6 full ta-sm-c va-sm-t tile-med">
+            <ul>
                 <i class="fas fa-shopping-cart fa-2x"></i>
                 <li class="group-header"><h4>Shop</h4></li>
                 <li><a href="/doc/commerce/checkout/overview-checkout.html"><h5>Cart & Checkout</h5></a></li>
