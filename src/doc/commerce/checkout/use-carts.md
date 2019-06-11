@@ -94,7 +94,7 @@ The delete operation is optional, even if the cart is empty; member's carts will
 
 ### Step 4: Get a Cart Summary
 
-The consumer has finished adding products to the cart, and they might wish to see a summary before proceeding to checkout. Use the [Cart Reviews API](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="new-tab"} to get a cart summary with taxes, estimated delivery date(s), shipping group(s) (when applicable), and updated subtotals.
+The consumer has finished adding products to the cart, and you can use the [Cart Reviews API](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="new-tab"} to show them a cart summary before they proceed to checkout.
 
 Cart Reviews currently has two versions available:
 
@@ -128,15 +128,14 @@ https://api.nike.com/buy/cart_reviews/v2/
 
     - To get shipping group information, the request must include the shipping method and the shipping address associated with each product.
 
-Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} request URI:
-```
-https://api.nike.com/buy/cart_reviews/v1/
-```
-
 >**TIPS:**
 >- Shipping group refers to the grouping of products into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
 >- For China consumers, you can capture and include [Fapiao invoice](https://www.sirva.com/docs/default-source/default-document-library/what-are-fapiaos-and-why-do-they-matter-.pdf) info in the request and it will be returned in the response.
 
+Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} request URI:
+```
+https://api.nike.com/buy/cart_reviews/v1/
+```
 
 ## API Quick Reference
 
