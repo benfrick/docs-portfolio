@@ -1,21 +1,21 @@
 ---
-id: use-wishlist
+id: use-wishlists
 tags: pdf
 #category: b-use-case
 position: 6
 title: Wish Lists
-url: /doc/commerce/checkout/use-wishlist.html
+url: /doc/commerce/checkout/use-wishlists.html
 toc:
   - h2: Introduction
-    url: /doc/commerce/checkout/use-wishlist.html#introduction
+    url: /doc/commerce/checkout/use-wishlists.html#introduction
   - h2: Wish Lists
-    url: /doc/commerce/checkout/use-wishlist.html#wish-lists
+    url: /doc/commerce/checkout/use-wishlists.html#wish-lists
   - h2: API Quick Reference
-    url: /doc/commerce/checkout/use-wishlist.html#api-quick-reference
+    url: /doc/commerce/checkout/use-wishlists.html#api-quick-reference
   - h2: Troubleshooting
-    url: /doc/commerce/checkout/use-wishlist.html#troubleshooting
+    url: /doc/commerce/checkout/use-wishlists.html#troubleshooting
   - h2: Contacting the Team
-    url: /doc/commerce/checkout/use-wishlist.html#contacting-the-team
+    url: /doc/commerce/checkout/use-wishlists.html#contacting-the-team
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -25,7 +25,7 @@ toc:
 
 ##### Last Updated: 06/20/2019
 
-Help your consumers take their shopping skills to the next level by adding [Wish Lists](#wish-lists) to your experience.
+Help Nike members take their shopping skills to the next level by adding [Wish Lists](#wish-lists) to your experience.
 
 >**TIPS**:
 >- Before using this guide, read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
@@ -36,7 +36,7 @@ Help your consumers take their shopping skills to the next level by adding [Wish
 
 Sometimes consumers want to set aside items or services to buy at a later date. They can do this by creating a Wish List.
 
-**How is a Wish List different from a Cart?**
+#### How is a Wish List different from a Cart?
 
 Wish Lists offer consumers a more flexible way of shopping than using the Cart alone. Here are some considerations:
 
@@ -255,7 +255,7 @@ Need to contact the Cart & Checkout team?
 
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
-|Team Contacts|[Sree Krishna](mailto:sree.krishna@nike.com)|
+|Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
 
 ## Document Change Log
 
