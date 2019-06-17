@@ -19,8 +19,6 @@ toc:
     url: /doc/commerce/customization/use-customization.html#enable-purchasing
   - h2: Contacting the Team
     url: /doc/commerce/customization/use-customization.html#contacting-the-team
-  - h2: Glossary
-    url: /doc/commerce/customization/use-customization.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/customization/use-customization.html#document-change-log
   - h2: Next Steps
@@ -28,11 +26,11 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING CUSTOMIZATION TO YOUR EXPERIENCE <br>(DRAFT)
+# ADDING CUSTOMIZATION TO YOUR EXPERIENCE
 
 ---
 
-##### Last Updated: 05/29/2019
+##### Last Updated: 06/17/2019
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
 
@@ -57,12 +55,13 @@ Users of B16 have two adventure options:
 
 In addition to the Builder, the Customization Domain offers a variety of [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} that can be used for specific steps along the user journey.
 
-Examples:
-
-- Display a message to the consumer about the estimated delivery date of their customized product.
-- Show the consumer a variety of inspiration options.
-
-Using the [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} in these ways (and more) can encourage initial engagement in your experience. 
+|Service Name|What does it do?|
+|---|---|
+|Consumer Designs|Returns the entire payload of a consumer design for rendering in experiences.|
+|Design View|Returns a subset of consumer design data for rendering in experiences.|
+|Image Redirect (for a consumer design)|Returns a full Scene7 Render URL to display a consumer’s design image. Also includes optional parameters for image view, size, and redirect proxy (for legacy clients).|
+|Bill of Materials|Returns the factory-facing design elements of the consumer’s design.|
+|Prebuild|Returns the entire payload of a prebuild design for rendering in experiences.|
 
 ## Key Terms
 
@@ -415,15 +414,11 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 |Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home){:target="new-tab"}|
 |Team Contacts|[Jason Mueller, Product Manager](mailto:jason.mueller@nike.com)|
 
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
-
 ## Document Change Log
 
 |Summary|Date|
 |---|---|
-|Initial draft|05/29/2019|
+|Initial publish|06/17/2019|
 
 ## Next Steps
 

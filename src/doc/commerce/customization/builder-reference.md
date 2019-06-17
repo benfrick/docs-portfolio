@@ -857,7 +857,7 @@ builderApi.showNotification(plain);
 
 |Summary|Date|
 |---|---|
-|Initial draft|05/17/2019|
+|Initial publish|05/17/2019|
 
 ## Next Steps
 

@@ -8,7 +8,7 @@ url: /doc/commerce/customization/overview-customization.html
 ---
 <a href="{{ page.url | replace: '.html','.pdf' }}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="{{ page.url | replace: 'overview-','use-' }}" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
 
-# Customization Overview <br>(DRAFT)
+# Customization Overview
 
 ---
 
