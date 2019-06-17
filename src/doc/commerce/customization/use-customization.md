@@ -57,11 +57,11 @@ In addition to the Builder, the Customization Domain offers a variety of [REST A
 
 |Service Name|What does it do?|
 |---|---|
-|Consumer Designs (designType=BUILD)|Returns the entire payload of a consumer design for rendering in experiences.|
+|Consumer Designs|Returns the entire payload of a consumer design for rendering in experiences.|
 |Design View|Returns a subset of consumer design data for rendering in experiences.|
 |Image Redirect (for a consumer design)|Returns a full Scene7 Render URL to display a consumer’s design image. Also includes optional parameters for image view, size, and redirect proxy (for legacy clients).|
 |Bill of Materials|Returns the factory-facing design elements of the consumer’s design.|
-|Consumer Designs (designType=INSPIRATION)|Returns the entire payload of a prebuild design for rendering in experiences.|
+|Prebuild|Returns the entire payload of a prebuild design for rendering in experiences.|
 
 ## Key Terms
 
