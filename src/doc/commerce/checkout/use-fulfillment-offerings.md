@@ -178,7 +178,7 @@ Need to contact the Cart & Checkout team?
 
 ## Next Steps
 
-You've learned how to add Carts to your experience. Here are some next steps.
+You've learned how to add Fulfillment Offerings to your experience. Here are some next steps.
 
 [NDe Docs Home](/index.html)
 
