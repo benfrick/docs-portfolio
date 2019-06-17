@@ -29,7 +29,7 @@ h1 {
     }
     @media (max-width: 600px) {
     h1 {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
 }
 h2 {
@@ -336,7 +336,7 @@ article h2 {
     padding: 2px;
     font-size: .9rem;
     margin-left: 6px;
-    //  vertical-align: top;
+    vertical-align: middle;
 }
 .numberCircle {
     color: #fff;
@@ -397,11 +397,9 @@ a.guide-button:hover {
 header form {
     margin-right: 15px;
 }
-.group-header {
-    padding-top: 8px;
-}
 .group-header h4 {
-    padding: 5px;
+    padding: 0px;
+    margin-bottom: 8px;
 }
 .tile-sm {
     padding: 10px;
@@ -420,23 +418,34 @@ header form {
     margin: 5px;
     border-radius: 10px;
 }
-.lt-blue {
-    background: #eaeff7;
+.tile-wide {
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    border-radius: 10px;
 }
-.tile-sm ul, .tile-med ul {
+.tile-sm ul, .tile-med ul, .tile-wide ul {
     list-style: none;
-    padding: 5px;
-}
-.tile-sm i, .tile-med i {
-    padding: 5px;
+    padding: 10px;
 }
 .tile-sm li h5, .tile-med li h5 {
     line-height: 0.3;
     }
     @media (max-width: 600px) {
-    .tile-sm li h5, .tile-med li h5 {
+    .tile-sm li h5, .tile-med li h5, tile-wide li h5 {
     line-height: 0.5;
     }
+}
+.tile-wide li h5 {
+    padding-top: 0.2em;
+    padding-bottom: 0.3em;
+    line-height: 0.9;
+    font-size: 1.4rem;
+    }
+.lt-blue {
+    background: #eaeff7;
 }
 .show {
     display: block;
