@@ -663,6 +663,6 @@ The following tables describe the mapping of *response body* fields between CAPI
 
 ## Related Links
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

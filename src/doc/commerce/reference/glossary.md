@@ -1,7 +1,7 @@
 ---
 id: glossary
 tags: pdf
-category: d-reference
+#category: d-reference
 position: 3
 title: Glossary
 url: /commerce/reference/glossary.html
@@ -56,7 +56,7 @@ url: /commerce/reference/glossary.html
 
 ## Related Links
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)
 

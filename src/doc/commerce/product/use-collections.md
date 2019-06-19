@@ -175,4 +175,4 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 You've learned how to add Collections to your experience. Here are some next steps.
 
 - [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
-- [Using NDe APIs](/doc/getting-started/using-nike-apis.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)

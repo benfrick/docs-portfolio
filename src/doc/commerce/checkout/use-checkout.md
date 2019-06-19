@@ -42,7 +42,7 @@ toc:
 Manage the Cart and Checkout process for the consumer.
 
 >**TIPS**:
->- Before using this guide, read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
+>- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
 >- Use this Developer's Guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
 >- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
 
@@ -110,7 +110,7 @@ To get a cart, you have a few options depending on what information you need:
 1. Execute a request to the [Get a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="new-tab"}, [Get a Cart by Filter Criteria (Query Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-filter-query-param-get-2){:target="new-tab"}, or [Get a Cart by Path Parameters](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-path-parameters-get-1){:target="new-tab"} endpoint of the Carts API to get the full details of the cart.
 2. Execute a request to the [Get a Cart Summary by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-summary-by-cart-id-get-1){:target="new-tab"} endpoint, only if you support PayPal Express payment type and want to display promo codes on the order confirmation.
 
->**TIP:** For more info on how to use the `?filter` query parameter, see [Using NDe APIs](/doc/getting-started/using-nike-apis.html#query-parameters).
+>**TIP:** For more info on how to use the `?filter` query parameter, see [Using Nike APIs](/doc/getting-started/using-nike-apis.html#query-parameters).
 
 ### Step 3: Modify the Cart
 
@@ -178,7 +178,7 @@ It is not required to execute a request to [Request a Checkout Preview](https://
 
 You can use the info in the response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and places the order, there will be a better chance of success.
 
->**NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using NDe APIs](https://developer.niketech.com/nde-docs/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
+>**NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](https://developer.niketech.com/nde-docs/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
 ### Step 1: Request Checkout Preview
 
@@ -489,7 +489,7 @@ The Cart & Checkout APIs support 3 distinct user types:
 
 Depending on user type, certain aspects of the calls that you make to the Cart & Checkout APIs might need to be modified. Also, consider that not all user types might apply to your app (e.g. you might only support Members).
 
-See the User Types section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#user-types) guide for more information.
+See the User Types section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#user-types) guide for more information.
 
 ### Request Headers
 
@@ -519,7 +519,7 @@ For the list of country code and currency code combinations supported by Cart & 
 |UUID used previously, Entity is new|Client receives HTTP 409 error response (no new job processed)|
 |UUID is new, Entity previously submitted under another UUID|Client receives HTTP 202 response, request processed as new job|
 
->**TIP:** For more, see the Idempotence Guarantee section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#idempotence-guarantee) guide.
+>**TIP:** For more, see the Idempotence Guarantee section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#idempotence-guarantee) guide.
 
 ### Conditions for Retries
 
@@ -616,7 +616,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
@@ -634,7 +634,7 @@ Checkout Submits initiate a lot of behind-the-scenes API calls, the duration of 
 
 ## Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create and register your caller ID.
 
 ### Authentication
 
@@ -642,11 +642,11 @@ It is recommended that you send a caller ID header in every request to this API 
 
 Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the consumer. Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-See [Using NDe APIs](/doc/getting-started/using-nike-apis.html#authorization) guide for more on how to call Unite services.
+See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide for more on how to call Unite services.
 
 #### JSON Web Token
 
-Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
+Only one endpoint in the Buy APIs, *Launch Checkout Submit*, requires the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
 
 ## Contacting the Team
 
@@ -672,7 +672,7 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 
 You've learned how to add Cart & Checkout to your experience. Here are some next steps.
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)
 
