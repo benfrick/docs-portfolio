@@ -68,6 +68,6 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 
 ## Related Links
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

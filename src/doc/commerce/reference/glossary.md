@@ -56,7 +56,7 @@ url: /commerce/reference/glossary.html
 
 ## Related Links
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)
 

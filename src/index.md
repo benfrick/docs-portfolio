@@ -1,5 +1,5 @@
 ---
-title: Docs Home
+title: Documentation Home
 url: /index.html
 ---
 

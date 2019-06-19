@@ -28,7 +28,7 @@ toc:
 Read this guide to learn how to add [Carts](#carts) to your experience.
 
 >**TIPS**:
->- Before using this guide, read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
+>- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
 >- Use this guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed here.
 >- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html).
 
@@ -80,7 +80,7 @@ To get a cart, you have a few options depending on what information you need:
 1. Execute a request to the [Get a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="new-tab"}, [Get a Cart by Filter Criteria (Query Param)](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-filter-query-param-get-2){:target="new-tab"}, or [Get a Cart by Path Parameters](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-path-parameters-get-1){:target="new-tab"} endpoint of the Carts API to get the full details of the cart.
 2. Execute a request to the [Get a Cart Summary by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-summary-by-cart-id-get-1){:target="new-tab"} endpoint, only if you support PayPal Express payment type and want to display promo codes on the order confirmation.
 
->**TIP:** For more info on how to use the `?filter` query parameter, see [Using NDe APIs](/doc/getting-started/using-nike-apis.html#query-parameters).
+>**TIP:** For more info on how to use the `?filter` query parameter, see [Using Nike APIs](/doc/getting-started/using-nike-apis.html#query-parameters).
 
 ### Step 3: Modify the Cart
 
@@ -159,7 +159,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
@@ -183,7 +183,7 @@ Need to contact the Cart & Checkout team?
 
 You've learned how to add Carts to your experience. Here are some next steps.
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)
 

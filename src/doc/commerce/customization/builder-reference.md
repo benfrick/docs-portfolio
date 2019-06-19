@@ -862,4 +862,4 @@ builderApi.showNotification(plain);
 ## Next Steps
 
 - [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html)
-- [Using NDe APIs](/doc/getting-started/using-nike-apis.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)

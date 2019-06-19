@@ -3,7 +3,7 @@ id: using-nike-apis
 tags: pdf
 category: c-get-started
 position: 1
-title: Using NDe APIs
+title: Using Nike APIs
 url: /getting-started/using-nike-apis.html
 toc:
   - h2: Industry Standards
@@ -46,23 +46,23 @@ toc:
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
 
-# USING NDE APIS
+# USING NIKE APIS
 
 ##### Last Updated: 12/11/2018
 
 ---
 
-This guide provides general information about using NDe (Nike Digital engineering) APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the detailed guides.
+This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the detailed guides.
 
->**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics){:target="new-tab"} course offered by NDe Architecture team.
+>**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics){:target="new-tab"} course offered by Nike Architecture team.
 
 ## Industry Standards
 
-Learn how NDe APIs were designed with industry standards in mind.
+Learn how Nike APIs were designed with industry standards in mind.
 
 ### REST Architecture
 
-NDe uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="new-tab"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it:
+Nike uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="new-tab"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it:
 
 **Stateless for Improved Performance**
 
@@ -74,9 +74,9 @@ REST is widely used in the industry because the syntax and protocols used (HTTP,
 
 ### JSON-formatted HTTP Requests and Responses
 
-The standard format for exchanging data with NDe APIs is [JSON](http://www.json.org/){:target="new-tab"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
+The standard format for exchanging data with Nike APIs is [JSON](http://www.json.org/){:target="new-tab"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
 
-Example of a JSON-formatted request body that was sent to a NDe API:
+Example of a JSON-formatted request body that was sent to a Nike API:
 
 ```
 {
@@ -118,7 +118,7 @@ Example of a JSON-formatted request body that was sent to a NDe API:
 
 ### JSON Schema Helps Define API Contracts
 
-The structures of the request and response bodies for NDe APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, the schema for the request body above can be found [here](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json){:target="new-tab"}.
+The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, the schema for the request body above can be found [here](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json){:target="new-tab"}.
 
 ### Idempotence Guarantee
 
@@ -130,7 +130,7 @@ The security and privacy of your consumer's data is our #1 concern. Whether in-f
 
 ## Well-Defined, Well-Documented
 
-In addition to the guides on the Developer Portal, all NDe APIs have the following documents available at the root directory of the Bitbucket repository:
+In addition to the guides on the Developer Portal, all Nike APIs have the following documents available at the root directory of the Bitbucket repository:
 
 - Well-defined contract (API.md file) for each major version in [API Blueprint](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md){:target="new-tab"} format
 
@@ -158,17 +158,17 @@ In addition to the guides on the Developer Portal, all NDe APIs have the followi
 
 ## Prerequisites
 
-Find out what you need in order to start using NDe APIs.
+Find out what you need in order to start using Nike APIs.
 
 ### Registration
 
-The NDe API registration process helps identify the software (including software version and who maintains it) that is calling an API. This is useful for understanding the impact of changes to, or deprecation and removal of an API.
+The Nike API registration process helps identify the software (including software version and who maintains it) that is calling an API. This is useful for understanding the impact of changes to, or deprecation and removal of an API.
 
 #### Caller Identification Process (Optional)
 
 ##### Caveats
 
-For this process to work between your app and a particular NDe API, make sure that the answer is yes to all of the following questions:
+For this process to work between your app and a particular Nike API, make sure that the answer is yes to all of the following questions:
 
 1. Will you always call the API through api.nike.com?
 
@@ -222,7 +222,7 @@ Some endpoints such as [*Submit Order Payments for Approval*](/doc/commerce/paym
 
 ## URL Patterns
 
-The standard URL pattern used for NDe APIs (v2 or later) is as follows:
+The standard URL pattern used for Nike APIs (v2 or later) is as follows:
 
 ![](/images/getting_started/url_format.png)
 
@@ -232,21 +232,21 @@ For example, all of Checkout APIs reside under the `/buy` domain, thus the URL's
 
 ### Path Parameters
 
-Path parameters are variable parts of a URL path. A URL can have one or more path parameters, each denoted with curly braces `{ }`. For example, in the path /buy/carts/v1/<font color="red">{id}</font> the id is the path parameter used to create or access a shopping cart resource. NDe API path parameters are always required.
+Path parameters are variable parts of a URL path. A URL can have one or more path parameters, each denoted with curly braces `{ }`. For example, in the path /buy/carts/v1/<font color="red">{id}</font> the id is the path parameter used to create or access a shopping cart resource. Nike API path parameters are always required.
 
 ### Query Parameters
 
-Query parameters can be added to the end of the URL and they allow you to be more specific about what you are requesting. Query parameters in NDe APIs, with one exception (see Filter below), are in the format of `?<name>=<value>`. Multiple query parameters can be chained together with ampersands like `?<name>=<value>&<name>=<value>&<name>=<value>`.
+Query parameters can be added to the end of the URL and they allow you to be more specific about what you are requesting. Query parameters in Nike APIs, with one exception (see Filter below), are in the format of `?<name>=<value>`. Multiple query parameters can be chained together with ampersands like `?<name>=<value>&<name>=<value>&<name>=<value>`.
 
 For example, the query parameter named **marketplace** can be added to this Product Feeds request with the value 'US' as follows: https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860<font color="green">?marketplace=US</font>.
 
-The available query parameters vary per NDe API. They are sometimes optional, sometimes required, depending on the API. Check the Developer Guide for the API in question to confirm the query parameter requirements.
+The available query parameters vary per Nike API. They are sometimes optional, sometimes required, depending on the API. Check the Developer Guide for the API in question to confirm the query parameter requirements.
 
 #### Common Query Parameters
 
-There are few query parameters that are intended to be common across multiple NDe APIs. The first parameter, Fields, can be applied to any NDe API which returns a response body. The remaining parameters, Anchor, Count, Filter, and Sort, only apply to APIs which return a collection (i.e. a set of multiple results, not a single result).
+There are few query parameters that are intended to be common across multiple Nike APIs. The first parameter, Fields, can be applied to any Nike API which returns a response body. The remaining parameters, Anchor, Count, Filter, and Sort, only apply to APIs which return a collection (i.e. a set of multiple results, not a single result).
 
->**TIP:** Not all NDe APIs support all the common query parameters. Check the Developer Guide for the API in question to confirm the query parameters supported.
+>**TIP:** Not all Nike APIs support all the common query parameters. Check the Developer Guide for the API in question to confirm the query parameters supported.
 
 ##### Fields
 
@@ -258,7 +258,7 @@ Nested fields are specified by parenthesis like `?fields=field1(field2)` or with
 
 https://api.nike.com/buy/carts/v1/61bc185b-16e5-43b5-bcaf-dd6168c543f8<font color="blue">?fields=totals(total),totals(quantity)</font> would return only the **total** and **quantity** fields nested under **totals**.
 
->**TIP:** See [API Standards](https://confluence.nike.com/display/NEA/API+Standards){:target="new-tab"} for more info on using query parameters with NDe APIs.
+>**TIP:** See [API Standards](https://confluence.nike.com/display/NEA/API+Standards){:target="new-tab"} for more info on using query parameters with Nike APIs.
 
 ##### Anchor
 
@@ -300,11 +300,11 @@ Example of sorting with multiple keys: https://api.nike.com/product_feed/feeds/v
 
 ## Request Components
 
-Read about the common components of HTTP requests sent to NDe APIs. Also see the related [Response Components](#response-components) section.
+Read about the common components of HTTP requests sent to Nike APIs. Also see the related [Response Components](#response-components) section.
 
 ### URI (Universal Resource Identifier)
 
-By sending a request to a NDe API, you access a resource using a particular URI ([Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier){:target="new-tab"}) comprised of a string of characters.
+By sending a request to a Nike API, you access a resource using a particular URI ([Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier){:target="new-tab"}) comprised of a string of characters.
 
 For more info, see the [URL Patterns](#url-patterns) section.
 
@@ -408,7 +408,7 @@ See the detailed per-API guides for examples of how to make your first API reque
 
 ## Response Components
 
-Learn about the common components of HTTP responses returned by NDe APIs. Also see the related [Request Components](#request-components) section.
+Learn about the common components of HTTP responses returned by Nike APIs. Also see the related [Request Components](#request-components) section.
 
 ### HTTP Status Codes
 
@@ -436,7 +436,7 @@ The HTTP protocol defines status codes to clearly describe the result of an API 
 
 ### Response Headers
 
-Every API response includes headers, but the headers sent will vary. Some of the typical headers for NDe APIs are described below by category:
+Every API response includes headers, but the headers sent will vary. Some of the typical headers for Nike APIs are described below by category:
 
 #### General Headers
 
@@ -469,7 +469,7 @@ See the [CORS](#cors) section for more info.
 
 #### Custom Headers
 
-NDe APIs may use the following custom headers:
+Nike APIs may use the following custom headers:
 
 |Header|Description|
 |---|---|
@@ -510,17 +510,17 @@ Your responses will usually include a body but there are certain HTTP methods th
 
 #### Error and Warning Messages
 
-Although NDe uses a standard formatting for error and warning messages included in a response body, the content of each is specific to an API endpoint. See the per-API guides in each endpoint section for detailed error/warning information.
+Although Nike uses a standard formatting for error and warning messages included in a response body, the content of each is specific to an API endpoint. See the per-API guides in each endpoint section for detailed error/warning information.
 
 For additional general error handling info, see the [Error Handling](#error-handling) section.
 
 ## Using the API Reference
 
-This section describes how to use the NDe API Reference documents.
+This section describes how to use the Nike API Reference documents.
 
 ### Overview
 
-Each NDe API Reference document serves as the contract for using the API, and has the following features at minimum:
+Each Nike API Reference document serves as the contract for using the API, and has the following features at minimum:
 
 1. Describes all available endpoints
 2. For each endpoint, lists which URI query and path parameters are required or optional, including data types and sample data
@@ -692,17 +692,17 @@ The response body from the [Get a Cart for a Cart ID](https://developer.niketech
 
 ## Versioning
 
-As NDe APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](http://semver.org/){:target="new-tab"} guidelines. Some high-level considerations:
+As Nike APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](http://semver.org/){:target="new-tab"} guidelines. Some high-level considerations:
 
 - For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URL does not change. If you are using the [Tolerant Reader Pattern](http://servicedesignpatterns.com/WebServiceEvolution/TolerantReader){:target="new-tab"}, you can continue to use the API without having to make changes to your app.
 
 - When moving to a new, major version of an API (e.g. a change from synchronous to asynchronous operation), expect to make some changes to your app to ensure compatibility with the new version.
 
->**TIP:** For more details about the versioning of NDe APIs, see the [API Versioning Strategy](https://confluence.nike.com/display/NEA/API+Standards){:target="new-tab"} document.
+>**TIP:** For more details about the versioning of Nike APIs, see the [API Versioning Strategy](https://confluence.nike.com/display/NEA/API+Standards){:target="new-tab"} document.
 
 ## Caching
 
-NDe APIs take advantage of three layers of caching in order to keep service performance optimal even in periods of high request volume. The caching layers are:
+Nike APIs take advantage of three layers of caching in order to keep service performance optimal even in periods of high request volume. The caching layers are:
 
 1. Akamai Content Delivery Network (CDN)
 
@@ -712,7 +712,7 @@ NDe APIs take advantage of three layers of caching in order to keep service perf
 
 ### Akamai Caching
 
-NDe uses the [Akamai Content Delivery Framework](https://www.akamai.com/us/en/cdn/){:target="new-tab"} as the Edge caching solution for public service requests. It is utilized when the client makes a request for a NDe public resource configured to go through Akamai's Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai. It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike's Edge router. Akamai operates on a set of configured rules that determine what resources can be cached, how long to cache the resource, and how to determine if the origin of the resource has an updated version (stale resource). Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time. Listed below are the Production domains that are routed to Akamai's Edge caching server:
+Nike uses the [Akamai Content Delivery Framework](https://www.akamai.com/us/en/cdn/){:target="new-tab"} as the Edge caching solution for public service requests. It is utilized when the client makes a request for a Nike public resource configured to go through Akamai's Edge server. Akamai caching and routing is managed though a set of configurations at Akamai. Akamai caching is bypassed in application to application calls because the requests do not go through Akamai. It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike's Edge router. Akamai operates on a set of configured rules that determine what resources can be cached, how long to cache the resource, and how to determine if the origin of the resource has an updated version (stale resource). Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time. Listed below are the Production domains that are routed to Akamai's Edge caching server:
 
 |Domain|Description|
 |---|---|
@@ -721,7 +721,7 @@ NDe uses the [Akamai Content Delivery Framework](https://www.akamai.com/us/en/cd
 
 ### Service Caching
 
-NDe Architecture encourages caching at the individual service level and discourages implementing custom distributed caching solutions, due to high development costs. Not all NDe Cloud services support caching and cache times vary across services. Check the Caching section of the NDe API Documentation you are interested in for cache information by service.
+Nike Architecture encourages caching at the individual service level and discourages implementing custom distributed caching solutions, due to high development costs. Not all Nike Cloud services support caching and cache times vary across services. Check the Caching section of the Nike API Documentation you are interested in for cache information by service.
 
 ### Device/Browser Caching
 
@@ -856,15 +856,15 @@ The job is now `COMPLETED` and resulted in an error. The errors array lists deta
 
 ## Error Handling
 
-Use this guide to understand what to expect from NDe API error responses and learn some tips on how to handle them.
+Use this guide to understand what to expect from Nike API error responses and learn some tips on how to handle them.
 
 ### General Error Response Components
 
-Error responses from NDe APIs contain the following:
+Error responses from Nike APIs contain the following:
 
 - HTTP Status Code
 
-    NDe uses standard HTTP status codes for errors. See the [Common Errors](#common-errors) section for more details.
+    Nike uses standard HTTP status codes for errors. See the [Common Errors](#common-errors) section for more details.
 
 - Response Body Components
 
@@ -880,7 +880,7 @@ Note: not all HTTP responses include a body, e.g. 204 or 304.
 
 - Response Header Components
 
-NDe APIs return a Trace ID in the **X-B3-TraceId** response header. This can be used to query logs to troubleshoot the error.
+Nike APIs return a Trace ID in the **X-B3-TraceId** response header. This can be used to query logs to troubleshoot the error.
 
 >**TIP:** For more about how to use Trace IDs, see the [Troubleshooting](#troubleshooting) section.
 
@@ -888,7 +888,7 @@ NDe APIs return a Trace ID in the **X-B3-TraceId** response header. This can be 
 
 Examples error responses are provided below, along with the status code and scenario in which they occurred. A few considerations:
 
-- Some of the examples are API-specific and therefore cannot be assumed to be universal to all NDe APIs.
+- Some of the examples are API-specific and therefore cannot be assumed to be universal to all Nike APIs.
 
 - Not all HTTP responses include a body, and those are indicated below.
 
@@ -1022,7 +1022,7 @@ Notes: retry with a never-used ID in the request (if applicable).
 
 ### Which JSON Field Had The Error?
 
-NDe uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901){:target="new-tab"} standard to indicate which field of the request JSON had the error.
+Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901){:target="new-tab"} standard to indicate which field of the request JSON had the error.
 
 For example, in the error response from the Carts API you can see the field indicated as `/request/items/0/contactInfo/email`:
 
@@ -1039,7 +1039,7 @@ For example, in the error response from the Carts API you can see the field indi
 
 The field names are separated by `/` to indicated nesting in the structure of the request JSON.
 
->**TIP:** Some NDe APIs use dot notation instead of JSON Pointer, due to being built before NDe switched to the JSON Pointer standard. Check the Developer Guide for the API to confirm the error format.
+>**TIP:** Some Nike APIs use dot notation instead of JSON Pointer, due to being built before Nike switched to the JSON Pointer standard. Check the Developer Guide for the API to confirm the error format.
 
 ### Retries
 
@@ -1063,7 +1063,7 @@ Depending on the returned HTTP status code, retrying an operation might make sen
 
 ### User Types
 
-NDe APIs support 3 distinct user types for commerce applications. In this guide, we will define them and discuss some ways that it can affect how you interact with the APIs.
+Nike APIs support 3 distinct user types for commerce applications. In this guide, we will define them and discuss some ways that it can affect how you interact with the APIs.
 
 #### Member
 
@@ -1149,6 +1149,6 @@ For a master glossary of terms for Nike APIs, see the [Glossary](/doc/commerce/r
 
 ## Related Links
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

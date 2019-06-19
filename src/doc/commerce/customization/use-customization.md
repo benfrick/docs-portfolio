@@ -61,7 +61,7 @@ In addition to the Builder, the Customization Domain offers a variety of [REST A
 |Design View|Returns a subset of consumer design data for rendering in experiences.|
 |Image Redirect (for a consumer design)|Returns a full Scene7 Render URL to display a consumer’s design image. Also includes optional parameters for image view, size, and redirect proxy (for legacy clients).|
 |Bill of Materials|Returns the factory-facing design elements of the consumer’s design.|
-|Prebuild|Returns the entire payload of a prebuild design for rendering in experiences.|
+|Inspiration Designs|Returns the entire payload of an inspiration design for rendering in experiences.|
 
 ## Key Terms
 
@@ -425,4 +425,4 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 You've learned how to add Customization to your experience. Here are some next steps.
 
 - [Adding Cart & Checkout To Your Experience](/doc/commerce/checkout/use-checkout.html)
-- [Using NDe APIs](/doc/getting-started/using-nike-apis.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
