@@ -13,4 +13,4 @@ Visit the Nike Developer Portal for the full documentation set at https://develo
 
 ## Contributing
 
-To report a documentation issue or to make a documentation request, contact the NDe Doc team at Slack Channel #nde-doc or email Lst-nde.docs@nike.com.
+To report a documentation issue or to make a documentation request, contact the NDe 1.5 at Slack Channel #nde-doc or email Lst-nde.docs@nike.com.
