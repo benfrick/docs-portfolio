@@ -7,7 +7,7 @@
 
 ---
 
-If you've read [Using NDe APIs](/doc/getting-started/using-nike-apis.html), this guide provides the details necessary to integrate with the {API Name} API.
+If you've read [Using Nike APIs](/doc/getting-started/using-nike-apis.html), this guide provides the details necessary to integrate with the {API Name} API.
 
 ## **In this guide:**
 
@@ -71,7 +71,7 @@ If you've read [Using NDe APIs](/doc/getting-started/using-nike-apis.html), this
 
 ## Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using NDe APIs](/doc/getting-started/using-nike-apis.html#registration) on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#registration) on how to create and register your caller ID.
 
 ### Authorization
 
@@ -269,6 +269,6 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 
 ## Related Links
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

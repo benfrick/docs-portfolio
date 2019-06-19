@@ -1,6 +1,6 @@
-# NDe Dev Portal Documentation
+# Dev Portal Documentation
 
-This project provides Nike Digital Engineering (NDe) API documentation for the following audiences:
+This project provides Nike API guides and other documentation for the following audiences:
 
 - New Developers looking for an **easy way to try out the API** for the first time
 - Experienced Developers making a bug fix or implementing a new feature who need a **quick API reference**
@@ -13,4 +13,4 @@ Visit the Nike Developer Portal for the full documentation set at https://develo
 
 ## Contributing
 
-To report a documentation issue or to make a documentation request, contact the NDe Doc team at Slack Channel #nde-doc or email Lst-nde.docs@nike.com.
+To report a documentation issue or to make a documentation request, contact the Docs Team at Slack Channel #nde-doc or email Lst-nde.docs@nike.com.
