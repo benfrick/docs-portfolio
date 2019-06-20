@@ -1,14 +1,14 @@
 ---
-title: NDe Doc Team Services
+title: Docs Team Services
 url: /doc/portal/overview-doc-team.html
 excluded_in_search: true
 ---
 
-# NDe Doc Team Services
+# Docs Team Services
 
 ---
 
-Hi, we are the NDe Doc Team! We document technologies for the Nike Developer Portal and more, in order to **enhance the developer experience**.
+Hi, we are the Docs Team! We document technologies for the Nike Developer Portal and more, in order to **enhance the developer experience**.
 
 The documentation serves many audiences. Here are four:
 
@@ -39,8 +39,8 @@ We use a [Doc Lifecycle](https://confluence.nike.com/display/APID/Doc+Lifecycle+
 <ul>
 <li>Product Manager: <a href="mailto:jeremy.geiger@nike.com">Jeremy Geiger</a></li>
 <li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#nde-doc</a></li>
-<li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">NDe Doc Team</a></li>
-<li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">NDe Doc Project</a></li>
+<li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Docs Team</a></li>
+<li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">Doc Project</a></li>
 </ul>
 </aside>
 
@@ -48,7 +48,7 @@ We use a [Doc Lifecycle](https://confluence.nike.com/display/APID/Doc+Lifecycle+
 
 Have content that is outdated or that needs to be edited for style and/or content?
 
-See the [NDe Doc Style Guide](https://confluence.nike.com/display/APID/NDe+Doc+Style+Guide){:target="new-tab"} to learn about some of the writing standards that we use.
+See the [Doc Style Guide](https://confluence.nike.com/display/APID/NDe+Doc+Style+Guide){:target="new-tab"} to learn about some of the writing standards that we use.
 
 ### <i class="fas fa-upload"></i> &nbsp;Publish the Docs
 

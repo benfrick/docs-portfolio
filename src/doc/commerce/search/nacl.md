@@ -12,7 +12,7 @@ url: /doc/commerce/search/nacl.html
 
 ---
 
-The NDe Admin Component Library (NACL) is a modular and flexible toolkit of user interface components that you can use in your internal Nike applications.
+The Nike Admin Component Library (NACL) is a modular and flexible toolkit of user interface components that you can use in your internal Nike applications.
 
 ![Gridwall Flip Card Component](/images/commerce/search/gridwall-flipcard.png){:style="float:right;margin-top:12px;margin-right:200px;"}
 

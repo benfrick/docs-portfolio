@@ -54,7 +54,7 @@ toc:
 Manage the payment process for customers purchasing Nike products and services.
 
 >**TIPS**:
->- Before using this guide, read [Using NDe APIs](/doc/getting-started/using-nike-apis.html) and [Payment Overview](/doc/commerce/payment/overview-payment.html).
+>- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Payment Overview](/doc/commerce/payment/overview-payment.html).
 >- Use this Developer's Guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
 >- The steps involving **Checkout** are covered in [Adding Cart & Checkout to Your Experience](/doc/commerce/checkout/use-checkout.html).
 
@@ -656,7 +656,7 @@ If the customer cancels the PayPal Express session on the PayPal site, PayPal re
 
 >**TIP**: The `returnURL` you provide in the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} **request body** is a link to your experience to which PayPal will redirect the customer after confirming the payment method and shipping address. The `returnURL` provided in the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} **response body** is a link to the PayPal site to which your experience will redirect the customer to select a shipping address and payment method.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 Listed below is a sample [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} PUT request URI. The endpoint is not JWT-restricted.
 
@@ -700,7 +700,7 @@ A successful 200 response lists the `paypalToken` and `redirectURL`
 
 Use the [Request PayPal Details](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-details-service-request-paypal-details-post-1){:target="new-tab"} endpoint to retrieve and validate PayPal data, including shipping and billing addresses stored at PayPal. You will need to pass the `paypalToken` and `shoppingCountry` in the request body returned in either the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} or [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} response.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 Listed below is a sample [Request PayPal Details](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-details-service-request-paypal-details-post-1){:target="new-tab"} POST request URI. This endpoint is not JWT-restricted.
 ```
@@ -759,7 +759,7 @@ After the customer pays for the Checkout or cancels the PayPal Mark session on t
 
 >**TIP**: The `returnURL` you provide in the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} **request body** is a link to your experience to which PayPal will redirect after the customer pays for their Checkout at the PayPal site. The `returnURL` provided in the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} **response body** is a link to PayPal to which your experience will redirect the customer to pay.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 Listed below is a sample [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} POST request URI. The endpoint is not JWT-restricted.
 
@@ -820,7 +820,7 @@ Use the [Request Deferred Payment Form](https://developer.niketech.com/docs/proj
 
 In the request body, your experience will need to pass the `approvalId` returned from [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} and your experience's `returnURL` that the third party vendor will redirect the consumer to after making payment at their site.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 
 Listed below is a sample [Request Deferred Payment Form](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-form-request-deferred-payment-form-post){:target="new-tab"} POST request URI. The endpoint is not JWT-restricted.
@@ -873,7 +873,7 @@ Use the [Request Deferred Payment Status](https://developer.niketech.com/docs/pr
 
 Your experience will need to pass the `approvalId` returned from [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} and any `vendorData` returned in the [Request Deferred Payment Form](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-form-request-deferred-payment-form-post){:target="new-tab"} response.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 
 Listed below is a sample [Request Deferred Payment Status](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-status-request-deferred-payment-status-post){:target="new-tab"} POST request URI. This endpoint is not JWT-restricted.
@@ -996,7 +996,7 @@ Nike customers can pay by one or more gift cards and vouchers and another paymen
 
 The `paymentPreviewId` returned by this service is a required key when calling [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"} in the BUY API to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.
 
-This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 >**TIP:**
 >
@@ -1088,7 +1088,7 @@ Both the [Request Payment Approval (POST)](https://developer.niketech.com/docs/p
 
 The Payment Approval service validates the payment allocation performed by the [Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} service, recalculating if necessary, and evaluates that the selected payment methods and items on Checkout are valid. If one or more payment type validations fail, all gift card debits and all credit card and PayPal authorizations are rolled back. This service uses the `paymentPreviewId` to look up the Checkout payment methods so it does not require payment information be passed in the request.
 
-This endpoint operates **asynchronously**, which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
+This endpoint operates **asynchronously**, which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
 Listed below is a [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted**.
 
@@ -1605,7 +1605,7 @@ Try using your browser's built-in tools for inspecting web service calls made fr
 
 ## Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create and register your caller ID.
 
 ### Authentication
 
@@ -1615,11 +1615,11 @@ Most calls through the Nike API gateway (api.nike.com) require an access token b
 
 Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
+To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
 
 #### JSON Web Token
 
-A few of the endpoints in the Payment APIs require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using NDe APIs](/doc/getting-started/using-nike-apis.html#jwt-JSON-web-token).
+A few of the endpoints in the Payment APIs require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-JSON-web-token).
 
 ## Contacting the Team
 
@@ -1678,4 +1678,4 @@ You've now learned how to add payment to your experience. Here are some next ste
 
 - [Capturing User Events](/doc/commerce/events/api_eventsv2.html)
 - [Adding Order History to your experience](/doc/commerce/order/use_order.html)
-- [Using NDe APIs](/doc/getting-started/using-nike-apis.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)

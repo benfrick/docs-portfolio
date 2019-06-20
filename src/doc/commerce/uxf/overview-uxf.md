@@ -19,9 +19,9 @@ UX Foundation offers products that solve common problems for hosted user experie
 ### Products
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[NCSS:](https://tourguide.prod.commerce.nikecloud.com/ncss) The global Nike stylesheet|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Nike Experience Server:](https://tourguide.prod.commerce.nikecloud.com/nes) Adds localization, feature flags, styling, analytics, monitoring, and more|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Global Nav:](https://tourguide.prod.commerce.nikecloud.com/global-nav) Adds the latest global header/footer, search, and analytics|
+|<i class="g72-check"></i>&nbsp;&nbsp;[NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss): The global Nike stylesheet|
+|<i class="g72-check"></i>&nbsp;&nbsp;[NES (Nike Experience Server)](https://tourguide.prod.commerce.nikecloud.com/nes): Adds localization, feature flags, styling, analytics, monitoring, and more|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Global Nav](https://tourguide.prod.commerce.nikecloud.com/global-nav): Adds the latest global header/footer, search, and analytics|
 
 ### Connect
 

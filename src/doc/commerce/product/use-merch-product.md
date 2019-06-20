@@ -49,7 +49,7 @@ toc:
 
 ##### Last Updated: 10/01/2018
 
-If you've read [Using NDe APIs](/doc/getting-started/using-nike-apis.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
+If you've read [Using Nike APIs](/doc/getting-started/using-nike-apis.html), this guide provides the details necessary to integrate with the Nike Merchandised Products APIs.
 
 ## API at a Glance
 
@@ -70,7 +70,7 @@ The following table describes the key details of the API:
 
 ## Terms of Service
 
-To use the Merchandised Products API, you must send a caller ID header in every API request to help troubleshoot unexpected responses. See the Registration section of the [Using NDe APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create your caller ID.
+To use the Merchandised Products API, you must send a caller ID header in every API request to help troubleshoot unexpected responses. See the Registration section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create your caller ID.
 
 ### Authentication Requirements
 
@@ -1398,7 +1398,7 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 
 ## Related Links
 
-[NDe Docs Home](/index.html)
+[Documentation Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)
 
