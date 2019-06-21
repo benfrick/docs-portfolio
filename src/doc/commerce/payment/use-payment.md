@@ -43,9 +43,9 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/payment/use-payment.html#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING PAYMENT TO YOUR EXPERIENCE<br> (DRAFT)
+# ADDING PAYMENT TO YOUR EXPERIENCE
 
 ---
 
@@ -66,7 +66,7 @@ The payment process during Checkout consists of four steps:
 
 Your experience can get a list of stored payments for a logged in consumer by calling the [Stored Payments](#storing-payment) service. The Stored Payments service can also be used to add, delete, and update a consumer's stored payments, including the default stored payment. The [Payment Options](#listing-and-validating-payment-options) service lists and validates non-stored payments.
 
-<i class="numberCircle gray">2</i>**Preparing payment for purchase**
+<i class="numberCircle xgray">2</i>**Preparing payment for purchase**
 
 Depending upon the payment type, your experience will need to perform different actions to prepare the payment for purchase. Before a customer can pay with [Apple Pay](#apple-pay-payment), an Apple Pay session must be started. To allow customers to pay in the PayPal Express or PayPal Mark flows, you will need to call the [Wallet Payment](#wallet-payment) service to start a PayPal session. When paying by a non-stored credit card, your experience will need to collect the customer’s credit card information using the [Credit Card Submit](#credit-card-payment) service. If customers pay by a [Deferred Payment](#deferred-payment) type such as Alipay or WeChat, your experience will need to generate a signed URL and redirect the customer so they can pay at the vendor’s site after they submit the Nike Checkout.
 
@@ -169,8 +169,6 @@ The Stored Payment service is used to manage (add/update/delete/list) a customer
 
 Use the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} endpoint to save a customer's payment for future use. For PayPal stored payments, see [Start a PayPal Billing Agreement](#start-a-paypal-billing-agreement). The request body varies depending upon the payment type and whether the endpoint is called pre-authorization or post-authorization.
 
----
-
 The typical flow for storing a new credit card **pre-authorization** for a customer is:
 
 <i class="numberCircle gray">1</i>Call the [Add Credit Card with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} endpoint of the Credit Card Submit service to securely transmit credit card information via iFrame to the PCI-certified Credit Card Submit service, passing a client-generated UUID as the `creditCardInfoId`.
@@ -178,8 +176,6 @@ The typical flow for storing a new credit card **pre-authorization** for a custo
 <i class="numberCircle gray">2</i>Call [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"}, passing the same `creditCardInfoId` from **Step 1** to look up the credit card information from short term storage and save it to long term storage.
 
 <i class="numberCircle gray">3</i>Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just saved to confirm that the credit card was securely stored. Credit Card account numbers are masked in the response.
-
----
 
 Listed below is the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} POST request URI. This endpoint is not JWT-restricted.
 

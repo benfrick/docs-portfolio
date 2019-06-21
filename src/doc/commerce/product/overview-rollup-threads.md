@@ -5,10 +5,10 @@ category: a-overview
 position: 2
 title: Rollup Threads
 url: /doc/commerce/product/overview-rollup-threads.html
+h1: Rollup Threads Overview
+dev-guide: /doc/commerce/product/use-rollup-threads.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/product/use-rollup-threads.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
-
-# Rollup Threads Overview
+{% include overview-header.html %}
 
 ---
 
@@ -28,6 +28,14 @@ Great experiences like Nike.com offer many ways to display products to consumers
 ![Nike.com grid wall example](/images/commerce/product_feeds/gridwall.png)
 
 #### Use Cases
+<aside class="note">
+    <h5 style="text-align:center;">APIs:</h5>
+    <ul>
+        <li>
+            <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api" target="new-tab">Rollup Threads API Reference</a> <span class="guide-details-li-text"></span>
+        </li>
+    </ul>
+</aside>
 
 Step through the Use Cases below to incorporate Rollup Threads capabilities into your experience.
 
@@ -36,14 +44,6 @@ Step through the Use Cases below to incorporate Rollup Threads capabilities into
 |<i class="g72-check"></i>&nbsp;&nbsp;[Get customized search results](/doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads)|
 
 <h4>Related Information</h4>
-<aside class="note">
-    <h5>APIs:</h5>
-    <ul>
-        <li>
-            <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api" target="new-tab">Rollup Threads API Reference</a> <span class="guide-details-li-text"></span>
-        </li>
-    </ul>
-</aside>
 
 * [Product Feeds Developer's Guide:](/doc/commerce/product/use-product-feeds.html) Does your use case align better to Product Feeds? Read this developer's guide.    
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.

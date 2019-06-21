@@ -31,9 +31,9 @@ toc:
   - h2: Glossary
     url: /doc/commerce/checkout/use-checkout.html#glossary
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING CART AND CHECKOUT<br>TO YOUR EXPERIENCE
+# ADDING CART AND CHECKOUT TO YOUR EXPERIENCE
 
 ---
 

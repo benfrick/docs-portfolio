@@ -1,7 +1,7 @@
 ---
 id: capi-migration
 tags: pdf
-category: b-use-case
+#category: b-use-case
 position: 7
 title: CAPI Migration
 url: /doc/commerce/product/capi-migration.html
@@ -17,7 +17,7 @@ toc:
   - h2: Field Mapping
     url: /doc/commerce/product/capi-migration.html#field-mapping
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # Commerce API (CAPI) <br>Migration Guide
 
@@ -649,17 +649,7 @@ The following tables describe the mapping of *response body* fields between CAPI
 |**startDate**|2017-04-03T12:00:00|N/A|N/A|N/A|
 |**reasons**|N/A|N/A|N/A|N/A|
 
->Notes:
-
-> * With Cloud, there is no distinction between 'viewable' and 'sellable' and there is no longer a corresponding date value for both. The product is either 'available' or not based on the boolean value returned in the response.
-
-<!--
-## Document Change Log
-
-|Summary |Date |Description|
-|---|---|---|
-|||
--->
+>**Note**: With Cloud, there is no distinction between 'viewable' and 'sellable' and there is no longer a corresponding date value for both. The product is either 'available' or not based on the boolean value returned in the response.
 
 ## Related Links
 

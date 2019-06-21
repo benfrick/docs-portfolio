@@ -10,7 +10,7 @@ url: /commerce/uxf/overview-uxf.html
 
 ---
 
-<a href="https://tourguide.prod.commerce.nikecloud.com/" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i>  TOUR GUIDE</a>
+<a href="https://tourguide.prod.commerce.nikecloud.com/" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i>TOUR GUIDE</a>
 
 UX Foundation offers products that solve common problems for hosted user experiences. The documentation is available on [Tour Guide:](https://tourguide.prod.commerce.nikecloud.com/){:target="new-tab"}
 

@@ -20,11 +20,11 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# Customization Builder Reference <br>(DRAFT)
+# Customization Builder Reference
 
 ---
 
-##### Last Updated: 05/17/2019
+##### Last Updated: 06/20/2019
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
 

@@ -5,10 +5,10 @@ category: a-overview
 position: 6
 title: Cart & Checkout
 url: /doc/commerce/checkout/overview-checkout.html
+h1: Cart & Checkout Overview
+dev-guide: /doc/commerce/checkout/use-checkout.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/checkout/use-checkout.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
-
-# Cart & Checkout Overview
+{% include overview-header.html %}
 
 ---
 
@@ -18,7 +18,7 @@ Learn how to use [Cart & Checkout](/doc/commerce/checkout/use-checkout.html) to 
 
 Nike builds digital experiences that showcase its premium products and tell amazing stories. Powering those experiences is <font class="u-bold">Nike Checkout</font>, built to handle the massive scale of global e-commerce.
 
-![SNKRS app payment flow](/images/commerce/payment/snkrs_payment-md.png)
+![SNKRS app payment flow](/images/commerce/payment/snkrs_payment-md.png){:style="float:right;"}
 
 #### Use Cases
             
@@ -36,7 +36,7 @@ The consumer finds a Nike a product that they love in your app. What happens nex
 
 <h4>Related Information</h4>
 <aside class="note">
-<h5>APIs</h5>
+<h5 style="text-align:center;">APIs</h5>
 <ul>
     <li>
         <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="new-tab">Carts</a> <span class="guide-details-li-text"></span>
