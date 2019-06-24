@@ -6,7 +6,7 @@ position: 7
 title: Taxonomy Tagging for Assets and Content
 url: /doc/taxonomy/overview-taxonomy-tagging.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # Taxonomy Tagging for Assets and Content
 
@@ -30,6 +30,7 @@ How does it work? CMS, Asset Management, and other internal Nike tools supply th
 |Product Director|[Chris Sparhawk](mailto:chris.sparhawk@nike.com)|
 
 #### About TTAC
+
 The project is in development in PI-26 and is scheduled for release February 2019.
 
 |---|---|
@@ -43,7 +44,6 @@ Governance will be provided by the following team:
 - Engineering: Edmund Adjei
 - Taxonomy: Rebecca Roberts
 
-
 #### Use Cases
 
 Step through the TTAC use cases below.
@@ -56,7 +56,7 @@ Step through the TTAC use cases below.
 
 <h4>Related Information</h4>
 <aside class="note">
-<h5>APIs</h5>
+<h5 style="text-align:center;">APIs</h5>
 <ul>
    <li>
         <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">TTAC Metadata Service</a><span class="guide-details-li-text"></span>

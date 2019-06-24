@@ -12,8 +12,6 @@ toc:
     url: /doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads
   - h2: Get a Product Thread by ID
     url: /doc/commerce/product/use-product-feeds.html#get-a-product-thread-by-id
-  - h2: Upgrading to the Latest Version
-    url: /doc/commerce/product/use-product-feeds.html#upgrading-to-the-latest-version
   - h2: API Quick Reference
     url: /doc/commerce/product/use-product-feeds.html#api-quick-reference
   - h2: Best Practices
@@ -27,9 +25,9 @@ toc:
   - h2: Glossary
     url: /doc/commerce/product/use-product-feeds.html#glossary
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING PRODUCT FEEDS <br>TO YOUR EXPERIENCE
+# ADDING PRODUCT FEEDS TO YOUR EXPERIENCE
 
 ---
 
@@ -43,15 +41,13 @@ toc:
 
 The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} provides product data and content in the form of Cards, Threads, and Feeds.
 
-[<img style="max-width:30%;float:right;" alt="Nike App screenshot" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
-
 ### What are Cards, Threads, and Feeds?
 
-* **Cards** contain Nike product information or content such as notifications about upcoming Nike events.
+[<img style="margin-left:5px; display:inline-block; float:right;" alt="Nike App screenshot" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
 
-* Related Cards are organized into **Threads** that tell a Nike story.
-
-* Multiple Threads can be displayed in **Feeds**, customized for your users based on their chosen preferences in a Nike experience.
+|**Cards** contain Nike product information or content such as notifications about upcoming Nike events.|
+|Related Cards are organized into **Threads** that tell a Nike story.|
+|Multiple Threads can be displayed in **Feeds**, customized for your users based on their chosen preferences in a Nike experience.|
 
 For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}.
 
@@ -152,181 +148,6 @@ Sample [Thread by ID](https://developer.niketech.com/docs/projects/Product%20Fee
 
 `https://api.nike.com/product_feed/threads/v2/bcbeae50-28a5-404d-9941-fbbdff0c7860`
 
-## Upgrading to the Latest Version
-
-Ready to upgrade to the latest version of the Product Feeds API?
-
-First, some considerations:
-
-- By design, not all v1.x endpoints have a direct v2 equivalent. For example, there are no v2 endpoints which return a list of product channels.
-
-- All endpoints of Product Feeds exclusively feature the GET method, which has no request body, so the focus of each section will be on the differences in the response body only.
-
-- For the 4 endpoints that have both a v1 and a v1.5 (see [Product Feeds v1 API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API?tab=api){:target="new-tab"} for details), the response schemas are the same between v1 and v1.5 so the upgrade process to v2 is the same for both.
-
->**TIP:** Upgrading from CAPI (Commerce API)? See the [CAPI Migration Guide](/doc/commerce/product/capi-migration.html) for detailed instructions.
-
-### V1.x to V2 Endpoint Mapping
-
-The following table lists the v1 endpoints along with the equivalent v2 endpoint for each:
-
-|V1 Endpoint Name|Equivalent V2 Endpoint Name|
-|---|---|s
-|All Product Channels|None|
-|Product Channel by Name|None|
-|Product Feed by Feed ID|None|
-|All Product Threads|Product Threads List|
-|Product Thread by ID|Product Thread by ID|
-|Product Thread by Thread ID|None|
-|Product Thread by Style-Color|Product Threads List|
-|Product Thread by SEO Slug|Product Threads List|
-|All Admin Threads|None|
-|Product Card by ID|None|
-
-### All Product Threads & Product Thread by ID v1 to v2 Field Mapping
-
-The response structure of the v1 *All Product Threads* and *Product Thread by ID* endpoints is the same, with a few minor exceptions, so for the purposes of upgrading to v2 they can be discussed together.
-
-The following table describes how the response body fields map from the v1 to the v2 endpoints.
-
-|V1 Field Name|Description|V2 Field Name|Description|Notes|
-|---|---|---|---|---|
-|**country**|Country in which the thread exists|**marketplace**|ISO 3166 two-letter country code for the user's current location||
-|**locale**|Locale of the thread content|**language**|BCP-47 language code||
-|**channel**|Channel in which the thread exists|**channelId**|UUID for the channel (collectionGroupId)||
-|**totalRecords**|Total number of threads that match the criteria|N/A|No equivalent|Deprecated|
-|**threads**|Array containing one or more threads that match the critera|**objects**|Array containing one or more threads||
-|**id**|Unique identifier for a particular thread|**id**|Unique identifier for the thread|v1 and v2 IDs are not the same, also v2 is in UUID format|
-|**threadId**|Unique ID coming from the relative path of the object in AEM/Authoring tool|N/A|No equivalent|Deprecated|
-|**interestId**|Unique ID coming from the Social interests|N/A|No equivalent|Deprecated|
-|**name**|Name of the thread describing the campaign|publishedContent.properties.**title**|Thread title||
-|**createdDate**|Time when the object was created in AEM/Authoring tool|N/A|No equivalent|Deprecated|
-|**lastUpdatedDate**|Last time this object was updated|**lastFetchTime**|date-time the data was aggregated, in this ISO-8601 compliant format: `yyyy-MM-ddTHH:mm:ss.SSSZZ`||
-|**publishedDate**|The first time any card in this thread should be visible|publishedContent.**publishStartDate**|Date time string of when the publishing schedule is set to start||
-|**product**|Object containing product info|**productInfo**|Array of product info||
-|product.**id**|Unique ID coming from Merchandised Products API|productInfo.merchProduct.**id**|Unique identifier for the product object||
-|product.**interestId**|Unique ID coming from the Social interests|N/A|No equivalent|Deprecated|
-|product.**style**|Style identifier for the style of the product|productInfo.merchProduct.**styleCode**|Style code of the product||
-|product.**colorCode**|Three-digit color code identifier|productInfo.merchProduct.**colorCode**|Color code of the product||
-|product.**globalPid**|Global identifier of the product|productInfo.merchProduct.**pid**|Product identifier for the product||
-|product.**fullTitle**|Full title of the product|productInfo.productContent.**fullTitle**|Full title of the product||
-|product.**title**|Title of the product|productInfo.productContent.**title**|Title of the product||
-|product.**subtitle**|Subtitle of the product|productInfo.productContent.**subtitle**|Subtitle of the product||
-|product.**description**|Description of the product|productInfo.productContent.**description**|Description of the product||
-|product.**imageUrl**|URL for product images|productInfo.imageURLs.**productImageUrl**|URL for product images||
-|product.**genders**|Array of relevant genders for the product|productInfo.merchProduct.**genders**|Genders that the product is for||
-|product.**price**|Object containing product price info|productInfo.**merchPrice**|Object containing product price info||
-|product.price.**onSale**|Indicates if the product is on clearance or not|productInfo.merchPrice.**discounted**|Indication if the product is on sale||
-|product.price.**msrp**|Maximum stated retail price of the product|productInfo.merchPrice.**msrp**|Maximum stated retail price of the product||
-|product.price.**fullRetailPrice**|Full retail price of the product|productInfo.merchPrice.**fullPrice**|Full price of the product||
-|product.price.**currentRetailPrice**|Current retail price of the product. For discounted products it will be different from fullRetailPrice|productInfo.merchPrice.**currentPrice**|Current price of the product||
-|product.price.**formattedFullRetailPrice**|Formatted full retail price|N/A|No equivalent|Deprecated|
-|product.price.**formattedCurrentRetailPrice**|Formatted current retail price|N/A|No equivalent|Deprecated|
-|product.**estimatedLaunchDate**|Deprecated, do not use|N/A|||
-|product.**publishedDate**|Date when a product was published in launch admin tool||||
-|product.**quantityLimit**|Quantity limit of the product|productInfo.merchProduct.**quantityLimit**|Quantity limit of the product||
-|product.**status**|Status of the product|productInfo.merchProduct.**status**|Status of the product||
-|product.**selectionEngine**|Selection engine of the product|N/A|No equivalent|Deprecated|
-|product.**colorDescription**|Description of the color of the product|N/A|No equivalent|Deprecated|
-|product.**productType**|Type of product|productInfo.merchProduct.**productType**|Type of product||
-|product.**salesChannel**|Sales channel of product|productInfo.merchProduct.**channels**|Sales channel of product||
-|product.**accessCode**|Boolean indicator for whether access code is required or not|productInfo.merchProduct.**exclusiveAccess**|Boolean indicator for whether access code is required or not||
-|product.**startSellDate**|Date when a product is estimated to launch|productInfo.launchView.**startEntryDate** OR product.Info.merchProduct.**commerceStartDate**|Date when launch entries will start being accepted||
-|product.**timeToStartSelectionSeconds**|Number of seconds until the product drawing is started|N/A|No equivalent|Deprecated|
-|product.**timeToStartSellSeconds**|Number of seconds until the product drawing ends and the product is available to sell|N/A|No equivalent|Deprecated|
-|product.**endDrawDate**|Date that the drawing ends|productInfo.launchView.**endEntryDate**|Date when launch entries will stop being accepted||
-|product.**waitlineEnabled**|Boolean for whether wait line for the product was enabled or not|N/A|No equivalent|Deprecated|
-|product.**available**|Boolean for whether any size of the product is available or not|productInfo.availability.**available**|Boolean for whether any size of the product is available or not||
-|product.**sportTags**|Array of sport tags|productInfo.merchProduct.**sportTags**|Array of sport tags||
-|product.**skus**|Array of SKU info|productInfo.**skus**|Array of SKU info||
-|product.skus.**id**|UUID for the SKU|productInfo.skus.**id**|UUID for the SKU||
-|product.skus.**localizedSize**|Localized size for this SKU|productInfo.skus.countrySpecifications.**localizedSize**|Localized size for the SKU||
-|product.skus.**nikeSize**|Nike size for this SKU|productInfo.skus.**nikeSize**|Nike size for the SKU||
-|product.skus.**available**|Boolean for whether SKU is available for purchase or not|productInfo.availableSkus.**available**|Boolean for whether SKU is available for purchase or not||
-|**restricted**|Boolean for whether an access code is tied the thread or not|N/A|No equivalent||
-|**feed**|Feeds this thread belongs to|publishedContent.properties.publish.**collections**||Not a true equivalent, but has similar info|
-|**title**|Title of the thread|publishedContent.**title**|Title of the thread||
-|**subtitle**|Subtitle of the thread|publishedContent.**subtitle**|Subtitle of the thread||
-|**imageUrl**|URL where the image exists|publishedContent.properties.coverCard.properties.**landscapeURL**|URL where cover card image exists||
-|**altText**|Alt text for the image|publishedContent.properties.coverCard.properties.**altText**|Alt text for the cover card||
-|**tabletImageUrl**|URL where the image for the tablet exists|N/A|No equivalent|Deprecated|
-|**tabletAltText**|Alt text for the tablet image|N/A|No equivalent|Deprecated|
-|**desktopImageUrl**|URL where the image for desktop exists|N/A|No equivalent|Deprecated|
-|**desktopAltText**|Alt text for desktop image|N/A|No equivalent|Deprecated|
-|**tags**|Array of tags that can be applied to content to relate them|N/A|No equivalent|Deprecated|
-|**cards**|Array of card info|publishedContent.**nodes**|Array of card info||
-|cards.**country**|Country of the card|N/A|No equivalent|Deprecated|
-|cards.**locale**|Locale of the card|N/A|No equivalent|Deprecated|
-|cards.**channel**|Channel of the card|N/A|No equivalent|Deprecated|
-|cards.**id**|Unique identifier for a particular card|publishedContent.nodes.**id**|Unique identifier for the card||
-|cards.**cardId**|Unique ID coming from the relative path of the object in AEM/Authoring tool|N/A|No equivalent|Deprecated|
-|cards.**sortOrder**|Order in which the card should appear in the thread|N/A|No equivalent|Deprecated|
-|cards.**interestId**|Unique ID coming from the social interests|N/A|No equivalent|Deprecated|
-|cards.**type**|Type of card (photo, photo-carousel, video or text)|publishedContent.nodes.**subType**|Type of card||
-|cards.**title**|Title of the card|publishedContent.nodes.properties.**title**|Title of the card||
-|cards.**subtitle**|Subtitle of the card|publishedContent.nodes.properties.**subtitle**|Subtitle of the card||
-|cards.**description**|Description of the card|publishedContent.nodes.properties.**body**|Description of the card||
-|cards.**images**|Array of image info related to the card|publishedContent.nodes.**properties**||No distinct section for images, instead evaluate subType field|
-|cards.images.**type**|Type of image (card, thread or alternate)|N/A|No equivalent|Deprecated|
-|cards.images.**imageUrl**|URL where the image exists|publishedContent.nodes.properties.**portraitURL**||Also available are landscapeURL, squarishURL fields|
-|cards.images.**alt**|Alt text for the image|publishedContent.nodes.properties.**altText**|Alt text for the card||
-|cards.images.**sortOrder**|Sort order in which images should be displayed|N/A|No equivalent|Deprecated|
-|cards.images.**desktopImageUrl**|URL where the image for desktop exists|N/A|No equivalent|Deprecated|
-|cards.images.**desktopAltText**|Alt text for desktop image|N/A|No equivalent|Deprecated|
-|cards.images.**tabletImageUrl**|URL where the image for the tablet exists|N/A|No equivalent|Deprecated|
-|cards.images.**tabletAltText**|Alt text for the tablet image|N/A|No equivalent|Deprecated|
-|cards.**videos**|Array of video info for the card|publishedContent.nodes.**properties**||No distinct section for videos, instead evaluate subType field|
-|cards.videos.**type**|Type of video object (nikeserver, brightcove or youtube)|publishedContent.nodes.properties.**providerId**|Name of video provider||
-|cards.videos.**stillImageUrl**|URL of still image to be shown as placeholder for the video|publishedContent.nodes.properties.**startImageURL**|Still image to be shown as placeholder for the video||
-|cards.videos.**videoUrl**|Video URL that can be retrieved to display on the card|publishedContent.nodes.properties.**videoId**|Identifier for the video||
-|cards.videos.**alt**|Text string that verbally describes the video for accessibility|publishedContent.nodes.properties.**altText**|Alt text for the card||
-|cards.videos.**sortOrder**|Order in which the multiple videos on the card need to be presented|N/A|No equivalent|Deprecated|
-|cards.videos.**desktopImageUrl**|URL of still image to be shown as placeholder for the video on a desktop|N/A|No equivalent|Deprecated|
-|cards.videos.**desktopAltText**|Text string that verbally describes the video on a desktop|N/A|No equivalent|Deprecated|
-|cards.videos.**tabletImageUrl**|URL of still image to be shown as placeholder for the video on a tablet|N/A|No equivalent|Deprecated|
-|cards.videos.**tabletAltText**|Text string that verbally describes the video on a tablet|N/A|No equivalent|Deprecated|
-|cards.**createdDate**|Time when the object was created in AEM/Authoring tool|N/A|No equivalent|Deprecated|
-|cards.**lastUpdatedDate**|Last time this object was updated|N/A|No equivalent|Deprecated|
-|cards.**colorHint**|Object containing color hint info|N/A|No equivalent|Deprecated|
-|cards.colorHint.**text**|RGB hex color code ranging from 000000 for black to FFFFFF for white|N/A|No equivalent|Deprecated|
-|cards.colorHint.**active**|RGB hex color code ranging from 000000 for black to FFFFFF for white|N/A|No equivalent|Deprecated|
-|cards.colorHint.**inactive**|RGB hex color code ranging from 000000 for black to FFFFFF for white|N/A|No equivalent|Deprecated|
-|cards.colorHint.**pressed**|RGB hex color code ranging from 000000 for black to FFFFFF for white|N/A|No equivalent|Deprecated|
-|cards.**cta**|Object containing call-to-action info|publishedContent.nodes.properties.title.actions.**actionType**|Type of call-to-action info||
-|cards.cta.**text**|Custom call to action text that can be presented on a content card, when there is no product object associated with it|N/A|No equivalent|Deprecated|
-|cards.cta.**buyingTools**|Boolean indicating the need to present buying tools on the card|N/A|No equivalent|Deprecated|
-|cards.**iOSOnly**|Flag to indicate if the card is only for IOS|N/A|No equivalent|Deprecated|
-|**relations**|Array of related threads data|N/A|No equivalent|Deprecated|
-|relations.**name**|Name (RELATED)|N/A|No equivalent|Deprecated|
-|relations.**threads**|Identifier (threadId) of related threads|N/A|No equivalent|Deprecated|
-|**locations**||N/A|No equivalent|Deprecated|
-|**active**|Boolean for whether the thread is active or not|**active**|Boolean for whether the thread is active or not||
-|**seoSlug**|The SEO slug of the thread|publishedContent.seo.**slug**|The SEO slug of the thread||
-|**seoTitle**|Title tag for SEO|publishedContent.seo.**title**|Title tag for SEO||
-|**seoDescription**|Meta description for SEO|publishedContent.seo.**description**|Meta description for SEO||
-|**relationalId**||publishedContent.**relationalId**|The ID of the parent thread. Ties various language threads to the source version||
-|**socialPattern**||N/A|No equivalent|Deprecated|
-
->**TIP:** For the v2 URI format and available parameters, see the [Product Thread by ID](#product-thread-by-id) and [Product Threads List](#product-threads-list) sections of this document.
-
-### URL Patterns By Version
-
-The URL pattern used by the Product Feeds API's varies depending on the version, as described here:
-
-**v1**
-
-`https://api.nike.com/commerce/productfeed/products` (Note: no version number indicated in path)
-
-**v1.5**
-
-`https://api.nike.com/commerce/productfeed/products/v1.5`
-
-**v2**
-
-None
-
->**TIP:** Always check the specific API you are integrating with to confirm the correct URL format. Also, see the URL Patterns section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#url-patterns) guide for info on Nike standards.
-
 ## API Quick Reference
 
 **Product Feeds v2 Endpoints**
@@ -388,9 +209,9 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 **Why isn't my feed showing up?**
 
-- *The feed may have failed validation and was marked inactive*. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"} Slack channel to check if the feed failed validation and why.
+- The feed may have failed validation and was marked inactive. Only active threads with a valid publish date will be returned by this API. Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"} Slack channel to check if the feed failed validation and why.
 
-- *The feed might not yet be published*. It can take up to 15 minutes to publish a change from AEM and have it be reflected in the Feeds API.
+- The feed might not yet be published. It can take up to 15 minutes to publish a change from AEM and have it be reflected in the Feeds API.
 
 **Why am I getting an empty 200 response from *Threads List***?
 

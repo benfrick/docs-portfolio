@@ -7,15 +7,26 @@ excluded_in_search: true
 # Docs Team Services
 
 ---
+<div>
+<aside class="note">
+        <h4 style="text-align:center;">Resources</h4>
+    <ul>
+        <li>Product Manager: <a href="mailto:jeremy.geiger@nike.com">Jeremy Geiger</a></li>
+        <li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#nde-doc</a></li>
+        <li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Docs Team</a></li>
+        <li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">Doc Project</a></li>
+    </ul>
+</aside>
+</div>
 
 Hi, we are the Docs Team! We document technologies for the Nike Developer Portal and more, in order to **enhance the developer experience**.
 
 The documentation serves many audiences. Here are four:
 
-1. New Developers looking to **discover and learn the fundamentals**
-2. Experienced Developers fixing a bug or implementing a new feature who need **quick, specific answers**
-3. Product teams seeking to **solve business problems**
-4. Decision Makers seeking to **add business value**
+- New Developers looking to **discover and learn the fundamentals**
+- Experienced Developers fixing a bug or implementing a new feature who need **quick, specific answers**
+- Product teams seeking to **solve business problems**
+- Decision Makers seeking to **add business value**
 
 ## What We Do
 
@@ -35,20 +46,9 @@ Need new content from scratch? We can create any of the following for you:
 
 We use a [Doc Lifecycle](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} process to create and maintain content.
 
-<aside class="note"><h3>Resources</h3>
-<ul>
-<li>Product Manager: <a href="mailto:jeremy.geiger@nike.com">Jeremy Geiger</a></li>
-<li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#nde-doc</a></li>
-<li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Docs Team</a></li>
-<li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">Doc Project</a></li>
-</ul>
-</aside>
-
 ### <i class="fas fa-edit"></i> &nbsp;Edit the Docs
 
-Have content that is outdated or that needs to be edited for style and/or content?
-
-See the [Doc Style Guide](https://confluence.nike.com/display/APID/NDe+Doc+Style+Guide){:target="new-tab"} to learn about some of the writing standards that we use.
+Have content that is outdated or that needs to be edited for style and/or content? See the [Doc Style Guide](https://confluence.nike.com/display/APID/NDe+Doc+Style+Guide){:target="new-tab"} to learn about some of the writing standards that we use.
 
 ### <i class="fas fa-upload"></i> &nbsp;Publish the Docs
 

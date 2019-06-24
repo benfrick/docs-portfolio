@@ -32,7 +32,7 @@ Step through the Use Cases below to incorporate {domain name} capabilities into 
 
 <h3>Related Information</h3>
     <aside class="note">
-    <h5>APIs:</h5>
+    <h5 style="text-align:center;">APIs:</h5>
     <ul>
         <li>
             <a href="{url for api reference on dev portal here}" target="new-tab">API 1</a> <span class="guide-details-li-text"></span>
