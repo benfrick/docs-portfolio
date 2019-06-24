@@ -1,7 +1,7 @@
 ---
 id: capi-migration
 tags: pdf
-#category: b-use-case
+category: b-use-case
 position: 7
 title: CAPI Migration
 url: /doc/commerce/product/capi-migration.html

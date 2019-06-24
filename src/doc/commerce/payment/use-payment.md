@@ -66,7 +66,7 @@ The payment process during Checkout consists of four steps:
 
 Your experience can get a list of stored payments for a logged in consumer by calling the [Stored Payments](#storing-payment) service. The Stored Payments service can also be used to add, delete, and update a consumer's stored payments, including the default stored payment. The [Payment Options](#listing-and-validating-payment-options) service lists and validates non-stored payments.
 
-<i class="numberCircle xgray">2</i>**Preparing payment for purchase**
+<i class="numberCircle gray">2</i>**Preparing payment for purchase**
 
 Depending upon the payment type, your experience will need to perform different actions to prepare the payment for purchase. Before a customer can pay with [Apple Pay](#apple-pay-payment), an Apple Pay session must be started. To allow customers to pay in the PayPal Express or PayPal Mark flows, you will need to call the [Wallet Payment](#wallet-payment) service to start a PayPal session. When paying by a non-stored credit card, your experience will need to collect the customer’s credit card information using the [Credit Card Submit](#credit-card-payment) service. If customers pay by a [Deferred Payment](#deferred-payment) type such as Alipay or WeChat, your experience will need to generate a signed URL and redirect the customer so they can pay at the vendor’s site after they submit the Nike Checkout.
 
