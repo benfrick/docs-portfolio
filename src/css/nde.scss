@@ -6,101 +6,85 @@
   word-wrap:break-word;
 }
 body {
-    padding: 20px;
     width: 100%;
     font-size: 14px;
-    }
+
     @media (max-width: 600px) {
-    body {
         padding: 0px;
         font-size: inherit;
         letter-spacing: -.5px;
-    }
-    body .main {
+        }
+}
+body .main {
+
+    @media (max-width: 600px) {
         margin-top: 30px;
-        padding: 10px;
-    }
+        }
 }
 h1 {
     font-weight: bold;
     font-size: 1.8em;
     letter-spacing: .5px;
     text-transform: uppercase;
-    }
-    @media (max-width: 600px) {
-    h1 {
-        font-size: 1.8em;
-    }
 }
 h2 {
     font-size: 1.7em;
     background: #3498db;
     border-radius: 3px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    padding-left: 15px;
+    margin: 10px 0 10px 0;
+    padding: .5em;
     color: white;
     font-weight: bold;
     letter-spacing: .2px;
-    padding-top: .5em;
-    padding-bottom: .5em;
-    }
-    @media (max-width: 600px) {
-    h2,h3,h4,h5,h6 {
-        letter-spacing: inherit;
-        padding-top: .3em;
-        padding-bottom: .3em;
-    }
 }
-
-h3{font-size:1.6em;font-weight: bold;}
+h3{font-size:1.6em;}
 h4{font-size:1.2em;}
-h5{font-size:1.0em;}
-h6{font-size:.8em;}
+h5{font-size:0.9em;}
+h6{font-size:0.8em;}
 h3,h4,h5,h6 {
     font-weight: bold;
     letter-spacing: .4px;
     padding-top: .5em;
     padding-bottom: .5em;
     margin-bottom: 0px;
-    }
+
     @media (max-width: 600px) {
-    h2,h3,h4,h5,h6 {
-        letter-spacing: inherit;
-        padding-top: .3em;
-        padding-bottom: .3em;
+        h2,h3,h4,h5,h6 {
+            letter-spacing: inherit;
+            padding-top: .3em;
+            padding-bottom: .3em;
+        }
     }
 }
-h2,h3 {
-    }
-    @media (max-width: 600px) {
-    h2,h3 {
-        font-size: 90%;
-    }
+@media (max-width:600px) {
+    h1 {font-size: 1.5em;}
+    h2 {font-size: 1.4em;}
+    h3 {font-size: 1.3em;}
+    h4 {font-size: 1.2em;}
 }
 table {
     margin-top: 16px;
     margin-bottom: 16px;
     padding: 50px 20px 15px 20px;
     border: none;
-    table-layout:fixed;
-    }
+    table-layout: fixed;
+    word-break: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+
     @media (max-width: 600px) {
-    table {
         margin-top: 4px;
         margin-bottom: 4px;
         padding: 5px 2px 3px 2px;
-        width:100%;
     }
 }
 table thead tr th {
-    /*background-color:#FA5400;*/
     font-weight:bold;
-    /*color:white;*/
     color: rgb(17,17,17);
     text-align: left;
     padding: 5px;
     border-bottom: 1px solid #ccc;
+
 }
 tbody tr:nth-child(odd) {
     background-color:#f7f9fc;
@@ -114,31 +98,36 @@ p {
     line-height: 1.714285714285714;
     padding-top: 1px;
     padding-bottom: 1px;
-    }
+    max-width: 100%;
+
     @media (max-width: 600px) {
-    p {
         padding-top: 0px;
         padding-bottom: 0px;
     }
 }
+hr {
+    @media (max-width: 600px) {
+    margin: 10px 0 10px 0;
+    }
+}
 ol {
     display: block;
+    max-width:100%;
     list-style-type: decimal;
     padding: 5px 5px 5px 20px;
-    }
+
     @media (max-width: 600px) {
-    ol {
         padding: 1px 1px 1px 4px;
     }
 }
 ul  {
     display: block;
+    max-width: 100%;
     list-style-type: disc;
-    padding: 1px 1px 1px 30px;
-    }
+    padding: 1px 1px 1px 20px;
+
     @media (max-width: 600px) {
-    ul {
-        padding: 1px 1px 1px 20px;
+        padding: 1px 5px 1px 15px;
     }
 }
 pre {
@@ -154,15 +143,16 @@ pre {
     border-top: 8px solid rgb(201,227,253);
     border-bottom: 8px solid rgb(201,227,253);
     border-left: 1px solid rgb(201,227,253);
-    }
+
     @media (max-width: 600px) {
-    pre {
-        padding: 2px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        border-top: 5px solid rgb(201,227,253);
-        border-bottom: 5px solid rgb(201,227,253);
-        border-left: 1px solid rgb(201,227,253);
+        pre {
+            padding: 2px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-top: 5px solid rgb(201,227,253);
+            border-bottom: 5px solid rgb(201,227,253);
+            border-left: 1px solid rgb(201,227,253);
+        }
     }
 }
 pre code {
@@ -172,11 +162,13 @@ pre code {
 code, code span {
     font-family: Courier;
     display: inline-block;
+    max-width: 100%;
 }
 code {
     background-color: rgb(239, 227, 230);
     padding: 0px 4px 0px 4px;
     border-radius: 3px;
+    word-break: break-word;
 }
 a {
     color: #3498db;
@@ -192,7 +184,7 @@ img {
     }
     @media (max-width: 600px) {
     img {
-        width: 95%;
+        max-width: 95%;
     }
 }
 img.border {
@@ -225,7 +217,6 @@ blockquote {
     background-color: #f6fff5;
     border-radius: 3px;
     padding: 8px 8px 8px 8px;
-    max-width: 70%;
     margin-top: 8px;
     margin-bottom: 8px;
     margin-right: 15px;
@@ -233,8 +224,8 @@ blockquote {
     @media (max-width: 600px) {
     blockquote {
         padding: 2px 2px 2px 5px;
-        margin-bottom: 0px;
-        margin-top: 0px;
+        margin-bottom: 4px;
+        margin-top: 4px;
         width: 90%;
         font-size: .6em;
     }
@@ -362,30 +353,29 @@ article h2 {
 aside {
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      float: right;
+     max-width: 50%;
 }
 aside.note {
-    width: auto;
     padding: 8px;
-    margin: 0px 20px 0px 40px;
-    position: relative;
+    margin: 0 20px 0 40px;
     z-index: 2;
+
+    @media (max-width: 600px) {
+        margin: 10px;
+        padding: 5px;
+    }
 }
 .guide-button {
-    float: right;
-    background:#f7f7f7;
+    display: inline-block;
+    background: #f7f7f7;
     border: 1px solid #f0f4f7;
     margin-left: 10px;
     border-radius: 3px;
-    padding: 8px 20px 8px 20px;
-    }
-    @media (max-width: 600px) {
-    .guide-button {
-        float: inherit;
-        font-size: 1.3em;
-        margin-left: 0px;
-        padding: 2px 2px 2px 2px;
-        margin-bottom: 8px;
-    }
+    padding: 8px 10px 8px 10px;
+
+}
+.guide-button.float {
+    float:right;
 }
 a.guide-button:hover {
     background: #C1C1C1;

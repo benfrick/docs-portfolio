@@ -5,10 +5,10 @@ category: a-overview
 position: 1
 title: Product Feeds
 url: /doc/commerce/product/overview-product-feeds.html
+h1: Product Feeds Overview
+dev-guide: /doc/commerce/product/use-product-feeds.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/product/use-product-feeds.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
-
-# Product Feeds Overview
+{% include overview-header.html %}
 
 ---
 
@@ -30,7 +30,7 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
 
 <h4>Related Information</h4>
 <aside class="note">
-    <h5>APIs:</h5>
+    <h5 style="text-align:center;">APIs:</h5>
     <ul>
         <li>
             <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="new-tab">Product Feeds V2</a> <span class="guide-details-li-text"></span>

@@ -11,7 +11,7 @@ $nav-width: 250px;
 
 $space: 20px;
 
-$mobile-break: 700px;
+$mobile-break: 600px;
 
 {% if site.baseurl %}
 	$base-url: {{ site.baseurl }};
