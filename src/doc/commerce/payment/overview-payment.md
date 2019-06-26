@@ -5,16 +5,17 @@ category: a-overview
 position: 7
 title: Payment
 url: /doc/commerce/payment/overview-payment.html
+h1: Payment Overview
+dev-guide: /doc/commerce/payment/use-payment.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/payment/use-payment.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
-
-# Payment Overview
+{% include overview-header.html %}
 
 ---
 
 Learn how to use [Payment](/doc/commerce/payment/use-payment.html) to manage the purchase process for customers purchasing Nike products and services.
 
 #### Nike Payment gives customers fast and easy ways to pay for purchases, with support for popular payment methods across the globe.
+![SNKRS App Payment](/images/commerce/payment/snkrs_payment-md.png){:style="float:right;margin-left:20px;"}
 
 <img style="display: inline-block; margin-right: 20px; width: 65px; height:38px; vertical-align: middle;"
      src="/images/icons/visa_logo.png" alt="Visa Logo"/>
@@ -33,16 +34,13 @@ Learn how to use [Payment](/doc/commerce/payment/use-payment.html) to manage the
 <img style="display: inline-block; width: 65px; height:32px; vertical-align: middle;"
      src="/images/icons/ideal_logo.png" alt="iDeal Logo"/>
 
-![SNKRS App Payment](/images/commerce/payment/snkrs_payment-md.png)
-
 Nike payment is modular. Although certain payment steps are required, others are optional, and your app can determine the order in which to call them based on your app flow and the payment methods it supports.
 
 With Nike payment, your app does not need to handle sensitive customer payment data. Nike payment handles this for you by:
-- utilizing a secure capture mechanism that sends customer payment information over HTTPS to a separate, PCI-compliant storage compartment
-- masking customer-sensitive payment sent to the client
-- requiring clients to send a payment-generated ID in order to retrieve payment information rather than an account number or Nike UPMID
+- Utilizes a secure capture mechanism that sends customer payment information over HTTPS to a separate, PCI-compliant storage compartment
+- Masks customer-sensitive payment sent to the client
+- Requires clients to send a payment-generated ID in order to retrieve payment information rather than an account number or Nike UPMID
 
-     
 #### Use Cases
 
 Step through the Use Cases below to incorporate Payment capabilities into your experience.
@@ -60,39 +58,49 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 |<i class="g72-check"></i>&nbsp;&nbsp;[Send third party payment notification to Nike.](/doc/commerce/payment/use-payment.html#third-party-payment-notification)|
 {:max-width="85%"}
 
-<h4>Related Information</h4>
 <aside class="note">
-    <h5>APIs:</h5>
+    <h5 style="text-align:center;">APIs:</h5>
     <ul>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">Payment Options</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">
+            Payment Options</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">Payment Preview</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">
+            Payment Preview</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="new-tab">Payment Stored Payments</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="new-tab">
+            Payment Stored Payments</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="new-tab">Payment Apple Pay</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="new-tab">
+            Payment Apple Pay</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="new-tab">Payment Wallet</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="new-tab">
+            Payment Wallet</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="new-tab">Payment Deferred Payment</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="new-tab">
+            Payment Deferred Payment</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="new-tab">Payment Credit Card Submit</a> <span class="guide-details-li-text"></span>
-          <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api" target="new-tab">Fulfillment Payment Notification</a> <span class="guide-details-li-text"></span>
-          </li>
-          <li>
-            <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentnotification/browse/API.md" target="new-tab">Third Party Payment Notification</a> <span class="guide-details-li-text"></span>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="new-tab">
+            Payment Credit Card Submit</a> <span class="guide-details-li-text"></span>
+        <li>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api" target="new-tab">
+            Fulfillment Payment Notification</a> <span class="guide-details-li-text"></span>
+        </li>
+        <li>
+            <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentnotification/browse/API.md" target="new-tab">
+            Third Party Payment Notification</a> <span class="guide-details-li-text"></span>
            </li>
         </li>
     </ul>
 </aside>
+
+<h4>Related Information</h4>
             
 * [Adding Cart & Checkout to Your Experience:](/doc/commerce/checkout/use-checkout.html) Learn how to add Cart & Checkout to your experience
 * [Supported Countries and Currencies:](/doc/commerce/checkout/checkout-country-currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.

@@ -26,82 +26,121 @@ toc:
   - h2: Next Steps
     url: /doc/globalization/loctool-migration.html#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # LOCALIZATION TOOL MIGRATION - DRAFT
 
 ---
 
-##### Last Updated: 4/25/2019
+##### Last Updated: 6/25/2019
 
-If you are a current [Localization Tool](http://loctool.nikecloud.com){:target="new-tab"} (LocTool) user or call the [LocTool REST API](https://developer.niketech.com/docs/projects/Localization%20Tool?tab=api){:target="new-tab"}, use this guide to help you migrate your string data to the Bodega Tool (**Need link to tool**).
+If you are a current [Localization Tool](http://loctool.nikecloud.com){:target="new-tab"} (LocTool) user or call the [LocTool REST API](https://developer.niketech.com/docs/projects/Localization%20Tool?tab=api){:target="new-tab"}, use this guide to help you migrate your string data to the new Bodega string store tool. <!--Need link to tool**-->
 
-The legacy LocTool
+The new Bodega string store tool:
 
-- allows Globalization teams to manage translation requests
-- is used by external translation vendors to submit completed translations
-- grants CMS, web, and mobile apps access to translated strings and formatted data through Cloud-based APIs
+- Allows Globalization teams to manage translation requests
+- Is used by external translation vendors to submit completed translations
+- Grants CMS, web, and mobile apps access to translated strings and formatted data through Cloud-based APIs **at build time**
 
 Bodega is replacing the LocTool and migration completion for all teams is expected by Q2 2020.
 
-## LocTool vs. Bodega: Comparison
+## Bodega Advantages
 
-Read on to discover the advantages of migrating to Bodega.
+Read on to discover the advantages of migrating from the LocTool to Bodega.
 
 **Robust filtering**
 
-What new filtering is offered?
+<!--What new filtering is offered?-->
 
-**Notification**
+**Flexible job notification**
 
-What notifications are offered?
+In your translation request using the Bodega API, you can tell Bodega who to notify and how you want to be notified when your translation job is complete. You can be notified via Slack, at a URL, and email.
 
 **Enforces context**
 
-You can now attach screenshots to a translation request to provide immediate context for the translator as to where and how the translation will be used. This allows the translator to remain within Bodega and avoids requiring that the translator have access to the page when following a URL for context. (**Can you still provide a URL for context in Bodega?**)
+You can now attach screenshots to a translation request to provide immediate context for the translator as to where and how the translation will be used. This allows the translator to remain within Bodega and avoids requiring that the translator have access to the page when following a context URL. But don't worry. You can still provide a URL for context if you prefer.
 
 **Enforces best practices**
 
-What best practices are enforced and how is this done?
+Bodega enforces Globalization best practices by separating strings, configurations, URLs, fonts, and screenshots.
 
-**Auditing**
+**Improved Auditing**
 
-What can be audited? How does this differ from the LocTool auditing?
+<!--What can be audited? How does this differ from LocTool auditing?-->
 
 
-## How to Migrate Your Data
+## Migrate Your Data
 
-Follow these steps to migrate your data from the LocTool to Bodega.
+Now that you know the advantages of Bodega, follow these steps to migrate your strings from the legacy LocTool to the Bodega string store.
 
-### Step 1: Remove obsolete strings from the LocTool
 
-To minimize the amount of string data to migrate, your team kicks off the migration process by removing unused strings from your team projects in the LocTool.
+|What needs to be done?|Who does it?|
+|---|---|---|
+|<i class="numberCircle green">1</i> Attend Bodega office hours|Consumer Team|
+|<i class="numberCircle green">2</i> Clean up LocTool strings|Consumer Team|
+|<i class="numberCircle green">3</i> Complete Bodega training|Consumer Team|
+|<i class="numberCircle green">4</i> Determine your Bodega project structure and set up your project in the Bodega test environment|Consumer Team/Operations and Engineering Team|
+|<i class="numberCircle green">5</i> Migrate and QA in the Bodega test environment|Consumer Team/Operations and Engineering Team|
+|<i class="numberCircle green">6</i> Set up your project in the Bodega production environment|Consumer Team/Operations and Engineering Team|
+|<i class="numberCircle green">7</i> Migrate and QA in the Bodega production environment|Consumer Team/Operations and Engineering Team|
+|<i class="numberCircle green">8</i> Use the new Bodega production endpoint|Consumer Team|
 
-### Step 2: Begin the migration process
+### 1: Attend Bodega office hours
 
-Once your team has removed all unused strings from the LocTool in  **Step 1**, notify the [Globalization Engineering team](#contacting-the-team) that you are ready to  migrate your data. You will be asked to attend a Globalization Engineering office hour (**is this for Bodega training?**) and schedule your migration date. Optimally, you will have no outstanding translation requests in the LocTool on migration day. **What happens if there are?**
+Reach out to the Globalization Product Manager [Robert Heinz](mailto:robert.heinz@nike.com) to schedule your office hours.
 
-### Step 3: Get set up in Bodega
+At the meeting, you can expect to identify your current LocTool projects and schedule your production migration date.
 
-Contact the [Globalization Engineering team](#contacting-the-team) to set up your team object (similar to a workspace in the LocTool) and your nodes (similar to projects in the LocTool) and define your metadata (**what metadata?**) in Bodega. The Globalization team will also configure permissions in Bodega for your team. (**Will read access be the Bodega default, just like in the LocTool?**)
+### 2: Clean up LocTool strings
 
-**What metadata information does the consumer team need to provide?**
+To minimize the amount of string data to migrate, it is recommended that your team removes unused strings from your team projects in the LocTool.
 
-### Step 4: Complete Bodega training
+### 3: Complete Bodega training
 
-**How does one do this? Is there a training guide within the tool or elsewhere? How long does it take to complete training?**
+Learn how to use the Bodega string store tool and APIs. Familiarize your team with Globalization best practices.
 
-### Step 5: Migrate the data
+<!--How does one do this? Is there a training guide within the tool or elsewhere? Is it done ad hoc between consumer/Bodega team?-->
 
-The Globalization Engineering team will perform string migration from the LocTool to Bodega for you on the scheduled day. After the data migration is complete, the Globalization Engineering team will
+### 4. Determine your Bodega project structure and set up your project in the Bodega test environment
 
-- notify your team that the migration is complete
-- provide your team with a link to your Team object in Bodega
-- give your team a new API endpoint from which to retrieve your strings
+Contact the [Bodega Operations and Engineering Team](#contacting-the-team) to:
+
+ - Help your team determine a project structure that best fits your team's needs
+ - Set up your team object (similar to a workspace in the LocTool), your nodes (similar to projects in the LocTool), and define your metadata <!--what metadata?-->
+ - Configure permissions for your team in test Bodega
+ - Provide your team with the URL to your team's project in test Bodega
+ - Provide your team with the new API test endpoint from which to retrieve your strings
+
+### 5: Migrate and QA in the Bodega test environment
+
+The [Bodega Operations and Engineering Team](#contacting-the-team) will migrate your data from the LocTool to the Bodega test environment. They will notify your team when this step is complete.
+
+After your team is notified of a successful data migration to the test environment, your team needs to:
+- Configure your app/experience to point to the test Bodega string retrieval API
+- Create and execute your QA plan using the Bodega API test endpoint
+- QA your project data in the Bodega UI in the test environment
+
+### 6. Set up your project in the Bodega production environment
+
+Once your team has verified that your data was successfully migrated to Bodega test environment, contact the [Bodega Operations and Engineering Team](#contacting-the-team) to:
+
+- Set up your team object, nodes, and metadata in the Bodega production environment
+- Configure permissions for your team in the Bodega production environment
+- Provide your team with the URL to your team's project in the Bodega production environment
+- Provide your team with the new API endpoint in the production Bodega environment from which to retrieve your strings
+
+### 7: Migrate and QA in the Bodega production environment
+
+The [Bodega Operations and Engineering Team](#contacting-the-team) will migrate your data from the LocTool to the Bodega production environment on the previously scheduled day. They will notify your team when this step is complete.
 
 >**TIP**: Once your data is migrated from the LocTool to Bodega, you will no longer use the LocTool.  Perform all of your future string management in Bodega.
 
-#### About data migration
+After your team is notified of a successful data migration to the Bodega production environment, your team needs to:
+- Configure your test app/experience to point to the production Bodega string retrieval API
+- Create and execute your QA plan using the Bodega API production endpoint
+- QA your project data in the Bodega UI in the production environment
+
+#### Facts about data migration
 
 - pseudo-strings will be regenerated rather than migrated
 
@@ -109,31 +148,29 @@ The Globalization Engineering team will perform string migration from the LocToo
 
 - LocTool languages may differ from Atlas languages **provide mapping?**
 
-- LocTool project metadata will not be migrated. It will be recreated in Bodega by the Globalization Engineering team upon Team object setup in **Step 3**.
+- LocTool project metadata will not be migrated. It will be recreated in Bodega by the Globalization Engineering team upon Team object setup in **Step 6**.
 
-- LocTool team permissions will not be migrated. They will be recreated in Bodega by the Globalization Engineering team in **Step 3**.
+- LocTool team permissions will not be migrated. They will be recreated in Bodega by the Globalization Engineering team in **Step 6**.
 
-- **will string-level history be migrated (because it is Okta-protected and need to perform string key - db id conversion)?**
+- **Will string-level history be migrated (because it is Okta-protected and need to perform string key - db id conversion)?**
 
-### Step 6: Verify all of your data was migrated
+### Step 8: Use the new Bodega production endpoint
 
-Go to your team object in Bodega and verify that your strings have been migrated to the proper node(s).
-
-### Step 7: Use the new Bodega endpoint
-
-Change your code to use the Bodega endpoint provided by the Globalization Engineering team in **Step 5**. Discontinue using the LocTool endpoint.
+Change your code to use the Bodega string retrieval API endpoint provided by [Bodega Operations and Engineering Team](#contacting-the-team) in **Step 6**. Discontinue using the LocTool endpoint.
 
 ## Common Questions
 
 **How long does the Migration process take?**
 
-**How do I get trained?**
+**How do I get Bodega training?**
 
 **When and where are Globalization Engineering office hours?**
 
 **How do I get Bodega permissions set up for my team?**
 
 **What string formats are supported in Bodega?**
+
+**How can I validate all strings transferred from the LocTool to Bodega?**
 
 
 ## Contacting the Team
@@ -149,7 +186,7 @@ Need to contact the Globalization team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft 04/30/2019|Initial Draft|
+|Initial draft 06/25/2019|Initial Draft|
 
 ## Next Steps
 

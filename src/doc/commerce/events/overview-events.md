@@ -5,10 +5,10 @@ category: a-overview
 position: 9
 title: Events
 url: /doc/commerce/events/overview-events.html
+h1: Analytics Pipeline Overview
+dev-guide: /doc/commerce/events/use-events.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/events/use-eventsv2.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
-
-# Analytics Pipeline Overview
+{% include overview-header.html %}
 
 ---
 
@@ -38,7 +38,7 @@ Want to know what your users are up to? Step through the Use Cases below to inco
 
 <h4>Related Information</h4>
 <aside class="note">
-    <h5>APIs:</h5>
+    <h5 style="text-align:center;">APIs:</h5>
     <ul>
         <li>
             <a href="https://developer.niketech.com/docs/projects/UX%20Analytics%20Event%20Intake?tab=api" target="new-tab">Analytics Pipeline V2</a> <span class="guide-details-li-text"></span>

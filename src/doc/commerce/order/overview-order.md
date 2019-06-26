@@ -6,12 +6,14 @@ position: 8
 title: Order
 url: /doc/commerce/order/overview-order.html
 id: overview-order
+h1: Order Overview
+dev-guide: /doc/commerce/order/use-order.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="/doc/commerce/order/use-order.html" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
-
-# Order Overview
+{% include overview-header.html %}
 
 ---
+
+![WeChat Order History](/images/commerce/order/wechat-order-history.png){:class="border"}{:style="float:right;"}
 
 Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Order](/doc/commerce/order/use-order.html) to your app.
 
@@ -19,9 +21,7 @@ Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-ser
 
 Use the Order APIs in your experience so consumers can check the status of an order and view their complete order history without contacting Consumer Services. Imagine that.
 
-![WeChat Order History](/images/commerce/order/wechat-order-history.png){:class="border"}
-
-## Use Cases
+### Use Cases
 
 Step through the Use Cases below to incorporate Order into your experience.
 
@@ -31,7 +31,7 @@ Step through the Use Cases below to incorporate Order into your experience.
 
 <h3>Related Information</h3>
 <aside class="note">
-<h5>APIs:</h5>
+<h5 style="text-align:center;">APIs:</h5>
 <ul>
 <li markdown="1">
 [BFF Order Summary](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>

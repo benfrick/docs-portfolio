@@ -5,10 +5,10 @@ category: a-overview
 position: 3
 title: Customization
 url: /doc/commerce/customization/overview-customization.html
+h1: Customization Overview
+dev-guide: /doc/commerce/customization/use-customization.html
 ---
-<a href="{{ page.url | replace: '.html','.pdf' }}" target="blank" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a><a href="{{ page.url | replace: 'overview-','use-' }}" class="ncss-btn-secondary-grey guide-button"><i class="fas fa-arrow-alt-circle-right"></i> DEV GUIDE</a>
-
-# Customization Overview
+{% include overview-header.html %}
 
 ---
 
