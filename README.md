@@ -14,3 +14,7 @@ Visit the Nike Developer Portal for the full documentation set at https://develo
 ## Contributing
 
 To report a documentation issue or to make a documentation request, contact the Docs Team at Slack Channel #nde-doc or email Lst-nde.docs@nike.com.
+
+## Running the Jekyll content server
+
+`JEKYLL_ENV=production jekyll s`
