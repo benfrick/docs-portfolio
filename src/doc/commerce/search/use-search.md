@@ -276,6 +276,6 @@ Still need help? [Contact the Search Team](#contacting-the-team).
 
 ## Related Links
 
-[Documentation Home](/index.html)
+[Commerce Docs Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

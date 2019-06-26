@@ -1149,6 +1149,6 @@ For a master glossary of terms for Nike APIs, see the [Glossary](/doc/commerce/r
 
 ## Related Links
 
-[Documentation Home](/index.html)
+[Commerce Docs Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

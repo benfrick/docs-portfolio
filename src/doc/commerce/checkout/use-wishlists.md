@@ -267,7 +267,7 @@ Need to contact the Cart & Checkout team?
 
 You've learned how to add Wish Lists to your experience. Here are some next steps.
 
-[Documentation Home](/index.html)
+[Commerce Docs Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)
 
