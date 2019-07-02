@@ -24,7 +24,7 @@ toc:
 
 ---
 
-##### Last Updated: 06/20/2019
+##### Last Updated: 07/02/2019
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
 
@@ -320,8 +320,7 @@ Called with price information
 whenever the user makes selection changes.
 
 ##### onProductLoad(buildData)
-Called with the current buildData state of
-the Builder whenever a new product is loaded, or a build is applied.
+Called with the current buildData state of the Builder whenever a new product is loaded, or a build is applied.
 
 ### Build Data
 
@@ -448,6 +447,15 @@ Sample sizingData:
 
 ## Methods
 
+### applyMyDesign
+
+Description: Loads the design associated with the included designKey into the Builder. The `onProductLoad` bridge method will be called in response to a successful load.
+
+Usage:
+```javascript
+builderApi.applyMyDesign(1561569431459)
+```
+
 ### clearMessage
 
 Description: Clears the message in the Builder.
@@ -455,6 +463,24 @@ Description: Clears the message in the Builder.
 Usage:
 ```javascript
 builderApi.clearMessage()
+```
+
+### deleteMyDesign
+
+Description: Deletes the myDesign associated with the included designKey from the localStorageCache. See also [deleteMyDesigns](#deletemydesigns)
+
+Usage:
+```javascript
+builderApi.deleteMyDesign(1561569431459)
+```
+### deleteMyDesigns
+
+Description: Deletes all of the myDesigns from the localStorageCache. See also [deleteMyDesign](#deletemydesign)
+
+Usage:
+```javascript
+builderApi.deleteMyDesigns()
+
 ```
 
 ### getAffectedQuestionMap
@@ -533,6 +559,18 @@ Usage:
 * @returns {Object} the current prouduct marketing components data
 */
 builderApi.getMarketingComponents()
+```
+
+### getMyDesigns
+
+Description: Gets all of the myDesigns from the localStorageCache. Returns an Array of myDesigns sorted from newest to oldest.
+
+Usage:
+```javascript
+/**
+* @returns {Array}
+*/
+builderApi.getMyDesigns()
 ```
 
 ### getProductColorPalette
@@ -694,7 +732,7 @@ Description: Returns the high-resolution image URL in a new window.
 builderApi.openHighResImageUrl()
 ```
 
-### saveBuild
+### saveBuild (Deprecated)
 
 Description: Persists build data and returns promise to send back a metric ID for that build.
 
@@ -706,6 +744,38 @@ Usage:
 */
 
 builderApi.saveBuild()
+```
+
+### saveDesign
+
+Description: Persists the current build after validating that it can be purchased. Returns a Promise that either:
+
+- Resolves to a `metricId`, if the builder data is valid
+
+    **OR**
+
+- Rejects with an error message, if the builder data is invalid
+
+Usage:
+
+```javascript
+/**
+* @returns {Promise->String}
+*/
+
+builderApi.saveDesign()
+```
+
+### saveMyDesign
+
+Description: Saves a myDesign to the localStorageCache. Returns the new Array of myDesigns sorted from newest to oldest.
+
+Usage:
+```javascript
+/**
+* @returns {Array}
+*/
+builder.Api.saveMyDesign
 ```
 
 ### setAnswer
@@ -815,6 +885,10 @@ Usage:
 builderApi.setSizeType(sizeType)
 ```
 
+### shareDesign
+
+Description: Persists the current build and returns Promise that resolves to a metricId. Unlike [saveDesign](#savedesign), with `shareDesign` no validation is done on the build.
+
 ### showNotification
 
 Description: Causes the Builder to display a notification. It takes a message object consisting of the following properties:
@@ -858,6 +932,7 @@ builderApi.showNotification(plain);
 |Summary|Date|
 |---|---|
 |Initial publish|05/17/2019|
+|Added new My Designs methods, added new shareDesign, saveDesign methods, marked saveBuild as deprecated|07/02/2019|
 
 ## Next Steps
 
