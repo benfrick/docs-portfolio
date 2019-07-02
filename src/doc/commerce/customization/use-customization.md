@@ -319,7 +319,7 @@ The consumer may wish to save one or more of their designs for later in My Desig
 
 1. **Enable My Designs**
 
-    Add the following properties to the configuration object you are passing into the `nikeIdBuilder` function like:
+    Add the following properties to the configuration object you are passing into the `nikeIdBuilder` function, like:
 
     ```javascript
     const config = {

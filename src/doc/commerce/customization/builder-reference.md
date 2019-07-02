@@ -202,6 +202,8 @@ At minimum, the `pathName` and `nike-api-caller-id` properties are required in o
   metricId: '42',
   prebuildId: '42',
   sizeTypeRegion: 'US',
+  myDesignsEnabled: true,
+  myDesignCapacity: 20,
 
   // optional skip price info
   skipPriceInfo: false,
@@ -282,6 +284,8 @@ a key for your platform in advance of making API calls. The current list of supp
 |`skipPriceInfo`|Boolean|If set to `true`, the pricing information won't be returned but style-color code will still be returned. Use for any product that is not setup in Prodigy. This flag is added to support Converse EU products.|
 |`styleCode`|String|Mandatory when skipPriceInfo is set to `true`. Causes the build to be saved with the styleCode from the input config.|
 |`colorCode`|String|Mandatory when skipPriceInfo is set to `true`. Causes the build to be saved with the colorCode from the input config.|
+|`myDesignsEnabled`|Boolean|If set to 'true', My Designs local storage will be enabled. Default is 'true'|
+|`myDesignCapacity`|Number|Number of most recent designs to be stored in local storage. If this maximum value is exceeded, the oldest design(s) will be deleted from storage. Default is '15'|
 
 #### Bridge Properties
 
@@ -349,6 +353,7 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 |`viewUrlTemplate`|String|Scene7 parameterized url for making requests for product images. Provided with a `{VIEW_NUMBER}` template string which you should target for replacement with a `viewNumber` which you would like to request. Use this field in conjunction with `viewNumbers` and `viewService` in order to template scene7 urls in order to request product images represented by the current buildData.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`sizeTypes`|Array|A collection of sizeTypes based on the sizeTypeRegion that was requested in the config data.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`sizingData`|Array|Contains arrays of gender, width, size, and size chart data. Used for "buying" and "size" tools.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`myDesigns`|Array|Array of locally-saved My Designs for the given pathName|See [here](/doc/commerce/customization/buildDataExample.html)|
 
 ##### More about **sizingData**
 
