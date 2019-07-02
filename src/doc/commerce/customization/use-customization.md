@@ -15,6 +15,8 @@ toc:
     url: /doc/commerce/customization/use-customization.html#show-customizable-products
   - h2: Show a Design Experience
     url: /doc/commerce/customization/use-customization.html#show-a-design-experience
+  - h2: Enable My Designs  
+    url: /doc/commerce/customization/use-customization.html#enable-my-designs
   - h2: Enable Purchasing  
     url: /doc/commerce/customization/use-customization.html#enable-purchasing
   - h2: Contacting the Team
@@ -281,9 +283,9 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 |---|---|
 |Load a new build, either to "reset" the builder or to switch between builds.|Invoke the [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) method, for example by prebuild ID or metric ID.|
 |Display price changes (when customization options are changed).|Listen to the `onPriceUpdate(priceData)` bridge callback and show updated price in UX.|
-|Consumer selects the 'Done' button.|Listen to the `onDone(buildData)` bridge callback, then call [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) and update UX.|
-|Save a build.|Invoke the [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) method, which returns a metric ID for the build.|
-|Edit a design that is already in the cart.|Invoke [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) with the metric ID you previously got from calling [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild).| 
+|Consumer selects the 'Done' button.|Listen to the `onDone(buildData)` bridge callback, then call [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) and update UX.|
+|Save a build.|Invoke the [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) method, which returns a metric ID for the build.|
+|Edit a design that is already in the cart.|Invoke [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) with the metric ID you previously got from calling [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign).| 
 |A consumer triggers an analytics event.|Listen to the `onAnalyticsEvent(type, payload)` bridge callback, then trigger an action.|
 |An error occurs in the Builder.|Listen to the `onError(error)` bridge callback, handle the error and update UX.|
 
@@ -305,13 +307,80 @@ Show the consumer a way to share their design on social media.
 - Get shareable links to Facebook, Twitter, and Pinterest.
 - Get a shareable link to open the design on Nike.com
 - Share URLs for a design can even be obtained for products that cannot be purchased, and before selecting gender/size for a purchaseable product.
+-->
 
-## Save a Design
+## Enable My Designs
 
-|<i class="g72-check"></i>&nbsp;&nbsp;**Save designs**: How do I save my design for later?|
+<i class="g72-check"></i>&nbsp;&nbsp;**How do I save a design in My Designs?**
+
+The consumer may wish to save one or more of their designs for later in My Designs.
 
 ![Nike By You example 'My Designs' UX](/images/customization/nby-my-designs.png)
--->
+
+1. **Enable My Designs**
+
+    Add the following properties to the configuration object you are passing into the `nikeIdBuilder` function like:
+
+    ```javascript
+    const config = {
+     myDesignsEnabled: true,
+     myDesignCapacity: 20
+    };
+    ```
+    
+    These two `config` properties are described below in more detail:
+    
+    |Property Name|Usage|Default|
+    |---|---|---|
+    |`myDesignsEnabled`|Value of `true` tells the Builder to enable myDesign local storage, while `false` disables it|`true`|
+    |`myDesignsCapacity`|Number of most recent designs to be stored in local storage. If this maximum value is exceeded, the oldest design will be deleted from storage.|`15`|
+    
+    Once My Designs is enabled, when the user clicks the 'Done' button their design will be saved to the myDesigns local storage.
+
+2. **Get a list of the consumer's My Designs**
+
+    Call any of the following Builder or bridge methods:
+
+    - [setAnswer](/doc/commerce/customization/builder-reference.html#setanswer)
+    - [setSizeType](/doc/commerce/customization/builder-reference.html#setsizetype)
+    - [setSizeAnswer](/doc/commerce/customization/builder-reference.html#setsizeanswer)
+    - [OnProductLoad](/doc/commerce/customization/builder-reference.html#onproductloadbuilddata)
+    - [OnDone](/doc/commerce/customization/builder-reference.html#ondonebuilddata)
+    - [getMyDesigns](/doc/commerce/customization/builder-reference.html#getmydesigns)
+
+    In all cases, the build data that is returned to your application includes a list of the myDesigns that have been stored for the current `pathName`, sorted from newest to oldest, like:
+
+    ```
+    myDesigns: [
+       {
+          imgUrl: "http://render.nikeid.com/ir/render/nikeidrender/AMax20171611_v9?obj=/s/shadow/shad&show&color=000000&obj=/s/g1&color=3a3a3a&show&obj=/s/g4&color=3a3a3a&show&obj=/s/g7&color=141414&show&obj=/s/g8&color=ffffff&show&obj=/s/g9&color=141414&show&obj=/s/g6&color=ffffff&show&obj=/s/g14&color=141414&show&obj=/s/g13&color=141414&show&obj=/s/g15&color=bcc6cc&show&obj=/s/g2&color=ffffff&show&obj=/s/g5/solid&color=141414&show&obj=/s/g10/solid&color=b7132d&show&obj=/s/g12/solid&color=141414&show&obj=/s/g17/solid&color=ffffff&show&obj=/s/g18&color=ffffff&show&obj=/s/g23&color=000001&show&obj=/s&req=object&fmt=png-alpha&icc=AdobeRGB&wid=250"
+          key: "1561569449311"
+          pathName: "AMax20171611_GLOW"
+       },
+       {
+          imgUrl: "http://render.nikeid.com/ir/render/nikeidrender/AMax20171611_v9?obj=/s/shadow/shad&show&color=000000&obj=/s/g1&color=3a3a3a&show&obj=/s/g4&color=3a3a3a&show&obj=/s/g7&color=141414&show&obj=/s/g8&color=ffffff&show&obj=/s/g9&color=141414&show&obj=/s/g6&color=ffffff&show&obj=/s/g14&color=141414&show&obj=/s/g13&color=141414&show&obj=/s/g15&color=bcc6cc&show&obj=/s/g2&color=ffffff&show&obj=/s/g5/solid&color=141414&show&obj=/s/g10/solid&color=154399&show&obj=/s/g12/solid&color=141414&show&obj=/s/g17/solid&color=ffffff&show&obj=/s/g18&color=ffffff&show&obj=/s/g23&color=000001&show&obj=/s&req=object&fmt=png-alpha&icc=AdobeRGB&wid=250"
+          key: "1561569431459"
+          pathName: "AMax20171611_GLOW"
+       }
+    ]
+    ```
+    
+    The fields in myDesigns are described below:
+     
+    |Field|Description|Type|
+    |---|---|---|
+    |`imgUrl`|A Scene7 url for view9 of the myDesign thumbnail|String|
+    |`key`|The unique key associated with the myDesign|String|
+    |`pathName`|The pathName associated with the myDesign|String|
+
+3. **Manage a consumer's My Designs**
+
+    Perform actions on My Designs by calling the following methods:
+
+    - To load a My Design: [applyMyDesign(myDesignKey)]()
+    - To save a My Design: [saveMyDesign()]()
+    - To delete a My Design: [deleteMyDesign(myDesignKey)]()
+    - To delete all My Designs: [deleteMyDesigns()]()
 
 ## Enable Purchasing
 
@@ -376,10 +445,10 @@ Show the consumer all of the possible gender and size options for the product. F
 
 **Save the Build**
 
-- Call the [`saveBuild`](/doc/commerce/customization/builder-reference.html#savebuild) method like:
+- Call the [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) method like:
 
     ```javascript
-    builderApi.saveBuild()
+    builderApi.saveDesign()
     ```    
     This saves the current build configuration and returns a promise to send a metric ID for that build.
     

@@ -401,6 +401,6 @@ Listed below are the best practices for calling each Product Feeds Service.
 
 ## Related Links
 
-[Documentation Home](/index.html)
+[Commerce Docs Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

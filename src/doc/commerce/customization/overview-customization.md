@@ -33,13 +33,13 @@ Here are some use cases for integrating CXP capabilities into your experience.
 
 |<i class="g72-check"></i>&nbsp;&nbsp;[Show Customizable Products](/doc/commerce/customization/use-customization.html#show-customizable-products){:style="padding-right: 5px;"}|Which products are customizable? How do I start designing?|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Show a Design Experience](/doc/commerce/customization/use-customization.html#show-a-design-experience){:style="padding-right: 5px;"}|What customization options are available? What does my design look like? How much will it cost?|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Enable My Designs](/doc/commerce/customization/use-customization.html#enable-my-designs){:style="padding-right: 5px;"}|How do I save a design in My Designs?|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Enable Purchasing](/doc/commerce/customization/use-customization.html#enable-purchasing){:style="padding-right: 5px;"}|Is the product available for purchase? How do I select a size? When would my design be delivered to me?|
 
 >**TIP**: See [Adding Customization to Your Experience](/doc/commerce/customization/use-customization.html) for full integration details.
 
 <!-- Can add when new Builder methods become available
 |<i class="g72-check"></i>&nbsp;&nbsp;[Share a Design](/doc/commerce/customization/use-customization.html#share-a-design): How do I share my design on social media?|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Save a Design](/doc/commerce/customization/use-customization.html#save-a-design): How do I save my design for later?|
 -->
 
 ### User Journey

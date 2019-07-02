@@ -653,6 +653,6 @@ The following tables describe the mapping of *response body* fields between CAPI
 
 ## Related Links
 
-[Documentation Home](/index.html)
+[Commerce Docs Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)
