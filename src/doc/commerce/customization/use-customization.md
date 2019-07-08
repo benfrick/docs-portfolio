@@ -332,7 +332,7 @@ The consumer may wish to save one or more of their designs for later in My Desig
     
     |Property Name|Usage|Default|
     |---|---|---|
-    |`myDesignsEnabled`|Value of `true` tells the Builder to enable myDesign local storage, while `false` disables it|`true`|
+    |`myDesignsEnabled`|Value of `true` tells the Builder to enable myDesign local storage, while `false` disables it|`false`|
     |`myDesignsCapacity`|Number of most recent designs to be stored in local storage. If this maximum value is exceeded, the oldest design will be deleted from storage.|`15`|
     
     Once My Designs is enabled, when the user clicks the 'Done' button their design will be saved to the myDesigns local storage.

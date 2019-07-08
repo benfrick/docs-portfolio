@@ -288,7 +288,7 @@ a key for your platform in advance of making API calls. The current list of supp
 |`skipPriceInfo`|Boolean|If set to `true`, the pricing information won't be returned but style-color code will still be returned. Use for any product that is not setup in Prodigy. This flag is added to support Converse EU products.|
 |`styleCode`|String|Mandatory when skipPriceInfo is set to `true`. Causes the build to be saved with the styleCode from the input config.|
 |`colorCode`|String|Mandatory when skipPriceInfo is set to `true`. Causes the build to be saved with the colorCode from the input config.|
-|`myDesignsEnabled`|Boolean|If set to 'true', My Designs local storage will be enabled. Default is 'true'|
+|`myDesignsEnabled`|Boolean|If set to 'true', My Designs local storage will be enabled. Default is 'false'|
 |`myDesignCapacity`|Number|Number of most recent designs to be stored in local storage. If this maximum value is exceeded, the oldest design(s) will be deleted from storage. Default is '15'|
 
 #### Bridge Properties
@@ -502,7 +502,6 @@ Description: Deletes all of the myDesigns from the localStorageCache. See also [
 Usage:
 ```javascript
 builderApi.deleteMyDesigns()
-
 ```
 
 ### getAffectedQuestionMap
