@@ -124,7 +124,7 @@ http://localhost:3000/?imageSize=666&imageQuality=8&hideMenu=true&pathName=metco
 
 - Invoke `nikeIdBuilder(rootElement, config)` to get the Builder API. The returned object also contains a method for api.onApiReady, which indicates that the Builder has loaded.
 - Listen to price change, analytic, and "done" events coming from the Builder.
-- For buying tools, use `setSizeType` and `setAnswer` for answering the size related questions.
+- For buying tools, use `setSizeType` and `setSizeAnswer` for answering the size-related questions. Use `setAnswer` for answering Gender and Width questions.
 - Invoke `setBuild` for loading a new build by prebuild id, metric id, or raw build data. This is mainly meant to "reset" the Builder.
 
 ## Builder API
@@ -902,6 +902,7 @@ Usage:
 ```javascript
 /**
 * @param {String} sizeType
+* @returns {Object} Updated build snapshot
 */
 builderApi.setSizeType(sizeType)
 ```
