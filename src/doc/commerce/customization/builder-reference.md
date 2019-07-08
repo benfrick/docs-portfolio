@@ -124,7 +124,7 @@ http://localhost:3000/?imageSize=666&imageQuality=8&hideMenu=true&pathName=metco
 
 - Invoke `nikeIdBuilder(rootElement, config)` to get the Builder API. The returned object also contains a method for api.onApiReady, which indicates that the Builder has loaded.
 - Listen to price change, analytic, and "done" events coming from the Builder.
-- For buying tools, use `setSizeType` and `setAnswer` for answering the size related questions.
+- For buying tools, use `setSizeType` and `setSizeAnswer` for answering the size-related questions. Use `setAnswer` for answering Gender and Width questions.
 - Invoke `setBuild` for loading a new build by prebuild id, metric id, or raw build data. This is mainly meant to "reset" the Builder.
 
 ## Builder API
@@ -288,7 +288,7 @@ a key for your platform in advance of making API calls. The current list of supp
 |`skipPriceInfo`|Boolean|If set to `true`, the pricing information won't be returned but style-color code will still be returned. Use for any product that is not setup in Prodigy. This flag is added to support Converse EU products.|
 |`styleCode`|String|Mandatory when skipPriceInfo is set to `true`. Causes the build to be saved with the styleCode from the input config.|
 |`colorCode`|String|Mandatory when skipPriceInfo is set to `true`. Causes the build to be saved with the colorCode from the input config.|
-|`myDesignsEnabled`|Boolean|If set to 'true', My Designs local storage will be enabled. Default is 'true'|
+|`myDesignsEnabled`|Boolean|If set to 'true', My Designs local storage will be enabled. Default is 'false'|
 |`myDesignCapacity`|Number|Number of most recent designs to be stored in local storage. If this maximum value is exceeded, the oldest design(s) will be deleted from storage. Default is '15'|
 
 #### Bridge Properties
@@ -502,7 +502,6 @@ Description: Deletes all of the myDesigns from the localStorageCache. See also [
 Usage:
 ```javascript
 builderApi.deleteMyDesigns()
-
 ```
 
 ### getAffectedQuestionMap
@@ -903,6 +902,7 @@ Usage:
 ```javascript
 /**
 * @param {String} sizeType
+* @returns {Object} Updated build snapshot
 */
 builderApi.setSizeType(sizeType)
 ```
