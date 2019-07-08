@@ -479,7 +479,7 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 ## Contacting the Team
 
 |---|---|
-|Slack|[#cxp](https://nikedigital.slack.com/messages/GFH2GM02C){:target="new-tab"}|
+|Slack|[#nikeid-dev-systems](https://nikedigital.slack.com/archives/C0L8C4UM7){:target="new-tab"}|
 |Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home){:target="new-tab"}|
 |Team Contacts|[Jason Mueller, Product Manager](mailto:jason.mueller@nike.com)|
 

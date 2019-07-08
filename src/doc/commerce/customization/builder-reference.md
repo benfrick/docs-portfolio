@@ -53,17 +53,17 @@ This loads the Builder bundle when the page is rendered.
 
 #### Bundle URIs
 
-The bundle URIs to be used in the Test and Production environments are provided below.
+The bundle URIs to be used in the Test and Production environments are provided below. Reach out to the CXP team to determine which version you should be using.
 
 **Test**
 
-- Builder UI: [https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.bundle.min.js](https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.bundle.min.js)
-- Product API: [https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.bundle.min.js](https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.bundle.min.js)
+- Builder UI: https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.[bundleVersion].min.js
+- Product API: https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.[bundleVersion].min.js
 
 **Production**
 
-- Builder UI: [https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.bundle.min.js](https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.bundle.min.js)
-- Product API: [https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.bundle.min.js](https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.bundle.min.js)
+- Builder UI: https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.[bundleVersion].min.js
+- Product API: https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.[bundleVersion].min.js
 
 ### 2. Add a <div> for the Builder to Load Into
 
@@ -99,13 +99,17 @@ This returns the [Builder API](#builder-api) and renders the Customization UX in
 
 ### 4. Navigate to the URI to Launch the Experience
 
-Launch the Customization experience locally by navigating to the URI with at least the `?pathName` query parameter. The value in `?pathName` must match what you set in the `pathName` property when the Builder was initialized, like:
+- Serve your app/page locally by running `npm start` or `yarn start`.
+
+- Launch the Customization experience by navigating to the URI with at least the `?pathName` query parameter. The value in `?pathName` must match what you set in the `pathName` property when the Builder was initialized, like:
 
 ```
 http://localhost:3000/?pathName=KobeAD2exoFA18
 ```
 
 #### Additional Query Params
+
+The following optional query parameters can be used in the URI to affect how the Customization experience is rendered.
 
 - `imageSize`: sets the size of images returned by the Builder in pixels (max 666) 
 - `imageQuality`: sets the quality (as bit-depth) of the PNG images returned by the Builder (8/24) 
@@ -220,7 +224,7 @@ At minimum, the `pathName` and `nike-api-caller-id` properties are required in o
 #### Required Properties
 
 |`pathName`|String|The product pathName for the requested build.|
-|`nike-api-caller-id`|String|A platform-unique key (<<domain name>>:<<appid>>) that identifies the API caller to customization services|
+|`nike-api-caller-id`|String|A platform-unique key (<<domain name>>:<<appid>>) that identifies the API caller to customization services. See [Architecture Standards](https://github.nike.com/ea-governance/ea-standards/blob/master/api-standards/api-standards-main/API_Standards.md#identifying-a-calling-client) for more.|
 
 ##### Getting a `nike-api-caller-id`
 
@@ -337,11 +341,12 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 
 |Field|Type|Description|Example|
 |---|---|---|---|
+|`availability`|Object|The lead time for the product to be delivered (if available) and short/long messaging text.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`pathName`|String|The product pathName for this build.|"ER2teamSP19_barca"|
 |`productId`String|The product ID for this build.|"PROD372041"|
 |`consumerQuesAnswers`|Array|Collection of product question-and-answer pairs representing the current state of the Builder's pid selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`productQuesAnswers`|Array|A collection of product question-and-answer pairs representing the current state of the Builder's combination selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
-|`sizeMarketingComponent`|Object|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`sizeMarketingComponent`|Object|DEPRECATED and replaced by `sizingData` (see below)|
 |`viewNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 urls for each angle of the product currently being shown within the Builder for your own product carousels or display pages.|"1,2,3,4,5,6"|
 |`color`|String|The product color code for this build.|"994"|
 |`price`|String|The product price formatted as string with the currency symbol.|$180|
@@ -355,10 +360,21 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 |`sizingData`|Array|Contains arrays of gender, width, size, and size chart data. Used for "buying" and "size" tools.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`myDesigns`|Array|Array of locally-saved My Designs for the given pathName|See [here](/doc/commerce/customization/buildDataExample.html)|
 
+##### More about **availability**
+
+The below table describes the contents of the `availaibility` object:
+
+|Field|Type|Description|Example|
+|---|---|---|---|
+|`leadtimeUpperBoundInDays`|Number|The lead time for the product to be delivered, in days|22|
+|`longCapacityMessage`|String|The long message text describing the product availability and lead-time.|"Custom-made and delivered to you in 3 weeks or less."|
+|`shortCapacityMessage`|String|The short message text describing the product availability and lead-time.|"GREAT CHOICE"|
+
 ##### More about **sizingData**
 
 - Render the gender, width, and size questions and answer them using the `setAnswer` and `setsizeAnswer` methods as the consumer makes selections.
-- It is required that you provide `fetchCapacity: true` and a value for the `sizeTypeRegion` field when initializing the Builder. If not provided, all of the sizes will be out of stock and the `sizeType` will default to "us-womens" or "us-mens".
+- If a value for the `sizeTypeRegion` field is not provided when initializing the Builder, then `sizeTypes` will default to undefined.
+- If `fetchCapacity` is set to false when initializing the Builder, then all sizes will show as out of stock.
 - Capacity, inventory, restrictions, sizeType and prior answers to sizing questions are all taken into consideration when generating this collection of objects.
 
 Sample sizingData:
@@ -478,6 +494,7 @@ Usage:
 ```javascript
 builderApi.deleteMyDesign(1561569431459)
 ```
+
 ### deleteMyDesigns
 
 Description: Deletes all of the myDesigns from the localStorageCache. See also [deleteMyDesign](#deletemydesign)
@@ -928,7 +945,7 @@ builderApi.showNotification(plain);
 ## Contacting the Team
 
 |---|---|
-|Slack|[#cxp](https://nikedigital.slack.com/messages/GFH2GM02C){:target="new-tab"}|
+|Slack|[#nikeid-dev-systems](https://nikedigital.slack.com/archives/C0L8C4UM7){:target="new-tab"}|
 |Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home){:target="new-tab"}|
 |Team Contacts|[Jason Mueller, Product Manager](mailto:jason.mueller@nike.com)|
 
