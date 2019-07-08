@@ -3,6 +3,11 @@
 
 ```
 {
+  "availability": {
+    "leadtimeUpperBoundInDays": 22,
+    "longCapacityMessage": "Custom-made and delivered to you in 3 weeks or less.",
+    "shortCapacityMessage": "GREAT CHOICE"
+  }
   "pathName": "ER2teamSP19_barca",
   "productId": "PROD372041",
   "consumerQuesAnswers": [],
