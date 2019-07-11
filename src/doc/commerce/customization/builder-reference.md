@@ -343,7 +343,7 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 |---|---|---|---|
 |`availability`|Object|The lead time for the product to be delivered (if available) and short/long messaging text.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`pathName`|String|The product pathName for this build.|"ER2teamSP19_barca"|
-|`productId`String|The product ID for this build.|"PROD372041"|
+|`productId`|String|The product ID for this build.|"PROD372041"|
 |`consumerQuesAnswers`|Array|Collection of product question-and-answer pairs representing the current state of the Builder's pid selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`productQuesAnswers`|Array|A collection of product question-and-answer pairs representing the current state of the Builder's combination selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`sizeMarketingComponent`|Object|DEPRECATED and replaced by `sizingData` (see below)|
@@ -819,11 +819,11 @@ builderApi.setAnswer(questionId, answerId, pidValue)
 
 Description: Allows reloading the Builder with a new product by passing one of the following:
 
-|Param|Type|Result|
-|---|---|---|
-|`metricId`|String|Build is loaded and applied to the product data.|
-|`prebuildId`|String|Build is loaded and applied to the product data.|
-|`buildData`|Object|Product for that build is reloaded and has the build data applied to the product.|
+|Param|Type|Result|Example|
+|---|---|---|---|
+|`metricId`|String|Build is loaded and applied to the product data.|`setBuild({ metricId: 123456789 });`|
+|`prebuildId`|String|Build is loaded and applied to the product data.|`setBuild({ prebuildId: 123456789 });`|
+|`buildData`|Object|Product for that build is reloaded and has the build data applied to the product.|`setBuild({ buildData: buildData });`|
 
 After calling this method the `bridge.onProductLoad` callback is called with the `buildData` for the newly-applied build.
 
@@ -850,9 +850,11 @@ builderApi.setIsVisible(true)
 
 Description: Causes the Builder to display a message. Takes a message object consisting of the following properties:
 
+|Field|Type|Description|
+|---|---|---|
 |`header`|String|The text displayed at the top of the message.|
 |`content`|String|The text displayed under the header.|
-|`type`|String|The type of the message to be displayed, which also affects how the message is displayed. Possible values: 'COUNTDOWN', 'COUNTDOWN_URGENT', 'COUNTDOWN_EXPIRED'. Default is 'COUNTDOWN'.
+|`type`|String|The type of message to be displayed, which controls how the message is displayed. Default is 'COUNTDOWN'. Possible values are: <br>'COUNTDOWN', <br>'COUNTDOWN_URGENT', <br>'COUNTDOWN_EXPIRED'|
 
 Usage:
 
@@ -915,6 +917,8 @@ Description: Persists the current build and returns Promise that resolves to a m
 
 Description: Causes the Builder to display a notification. It takes a message object consisting of the following properties:
 
+|Field|Type|Description|
+|---|---|---|
 |`type`|String|The type of message. Only one message of a given type will be displayed.|
 |`message`|String|The message text.|
 |`level`|String|Optional - Determines the message level. Possible values: 'alert', undefined/null.|
