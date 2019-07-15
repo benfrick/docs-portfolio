@@ -2061,6 +2061,6 @@ There are no release notes at this time.
 
 ## Related Links
 
-[Documentation Home](/index.html)
+[Commerce Docs Home](/index.html)
 
 [Get Started](/doc/getting-started/get-started.html)

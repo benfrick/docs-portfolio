@@ -67,9 +67,9 @@ table {
     margin-bottom: 16px;
     padding: 50px 20px 15px 20px;
     border: none;
-    table-layout: fixed;
-    word-break: break-word;
-    word-wrap: break-word;
+    table-layout: auto;
+    word-break: normal;
+    word-wrap: normal;
     max-width: 100%;
 
     @media (max-width: 600px) {
@@ -77,6 +77,9 @@ table {
         margin-bottom: 4px;
         padding: 5px 2px 3px 2px;
     }
+}
+table code {
+    word-break: normal;
 }
 table thead tr th {
     font-weight:bold;

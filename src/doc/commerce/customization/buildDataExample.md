@@ -3,6 +3,23 @@
 
 ```
 {
+  "availability": {
+    "leadtimeUpperBoundInDays": 22,
+    "longCapacityMessage": "Custom-made and delivered to you in 3 weeks or less.",
+    "shortCapacityMessage": "GREAT CHOICE"
+  }
+  myDesigns: [
+    {
+      imgUrl: "http://render.nikeid.com/ir/render/nikeidrender/ER2teamSP19_v9?obj=/s/shadow/shad&show&color=000000&obj=/s/g1&color=c9344a&show&obj=/s/g4&color=c9344a&show&obj=/s/g7&color=a5062c&show&obj=/s/g8&color=ffffff&show&obj=/s/g9&color=141414&show&obj=/s/g6&color=ffffff&show&obj=/s/g14&color=141414&show&obj=/s/g13&color=141414&show&obj=/s/g15&color=bcc6cc&show&obj=/s/g5/solid&color=141414&show&obj=/s/g10/solid&color=ffffff&show&obj=/s/g12/solid&color=141414&show&obj=/s/g17/solid&color=ffffff&show&obj=/s/g18&color=ffffff&show&obj=/s/g23&color=000001&show&obj=/s&req=object&fmt=png-alpha&icc=AdobeRGB&wid=250",
+      key: "1562624390033",
+      pathName: "ER2teamSP19"
+    },
+    {
+      imgUrl: "http://render.nikeid.com/ir/render/nikeidrender/ER2teamSP19_v9?obj=/s/shadow/shad&show&color=000000&obj=/s/g1&color=3a3a3a&show&obj=/s/g4&color=3a3a3a&show&obj=/s/g7&color=141414&show&obj=/s/g8&color=ffffff&show&obj=/s/g9&color=141414&show&obj=/s/g6&color=ffffff&show&obj=/s/g14&color=141414&show&obj=/s/g13&color=141414&show&obj=/s/g15&color=bcc6cc&show&obj=/s/g2&color=ffffff&show&obj=/s/g5/solid&color=141414&show&obj=/s/g10/solid&color=ffffff&show&obj=/s/g12/solid&color=141414&show&obj=/s/g17/solid&color=ffffff&show&obj=/s/g18&color=ffffff&show&obj=/s/g23&color=000001&show&obj=/s&req=object&fmt=png-alpha&icc=AdobeRGB&wid=250",
+      key: "1561743355574",
+      pathName: "ER2teamSP19"
+    }
+  ]
   "pathName": "ER2teamSP19_barca",
   "productId": "PROD372041",
   "consumerQuesAnswers": [],
