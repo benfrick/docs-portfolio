@@ -8,6 +8,8 @@ url: /doc/commerce/payment/use-payment.html
 toc:
   - h2: Listing and Validating Payment Options
     url: /doc/commerce/payment/use-payment.html#listing-and-validating-payment-options
+  - h2: Key Terms
+    url: /doc/commerce/payment/use-payment.html#key-terms
   - h2: Storing Payment
     url: /doc/commerce/payment/use-payment.html#storing-payment
   - h2: Credit Card Payment
@@ -51,7 +53,7 @@ toc:
 
 ---
 
-##### Last Updated: 2/21/2019
+##### Last Updated: 07/18/2019
 
 Manage the payment process for customers purchasing Nike products and services.
 
@@ -91,6 +93,16 @@ When customers pay with a deferred payment type, they pay for their order at a t
 
 After an Order has been submitted for fulfillment, it goes through a series of statuses, some of which involve payment. The Document Order Management System (DOMS) calls the [Fulfillment Payment Notification](#fulfillment-payment-notification) service to request debits, credits, voids, re-authorizations, and to get payment status.
 
+## Key Terms
+
+Here are some key terms used in this document.
+
+|Term|Definition|
+|---|---|
+|Authorization|Temporary hold on funds in a consumer’s account for a future charge|
+|Deferred Payment|A type of payment where a consumer places an order and then pays for it at a Third-party bank|
+|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|The Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data. All Nike CiC payment services are PCI-DSS compliant.|
+|Void (of payment)|Reverses a successful payment authorization|
 
 ## Listing and Validating Payment Options
 
@@ -1669,6 +1681,7 @@ See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.acti
 |Initial publish|01/08/2018|
 |Added Payment Gateway detail|11/26/2018|
 |Restructured for use cases|02/21/2018|
+|Added Key Terms section|07/17/2019|
 
 ## Next Steps
 
