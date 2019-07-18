@@ -8,14 +8,18 @@ url: /doc/commerce/product/capi-migration.html
 toc:
   - h2: CAPI vs. Cloud
     url: /doc/commerce/product/capi-migration.html#capi-vs-cloud-comparison
-  - h2: Endpoint Mapping
-    url: /doc/commerce/product/capi-migration.html#endpoint-mapping
   - h2: Migration Scenarios
     url: /doc/commerce/product/capi-migration.html#migration-scenarios
-  - h2: Migration Contacts
-    url: /doc/commerce/product/capi-migration.html#migration-contacts
+  - h2: Endpoint Mapping
+    url: /doc/commerce/product/capi-migration.html#endpoint-mapping
   - h2: Field Mapping
     url: /doc/commerce/product/capi-migration.html#field-mapping
+  - h2: Contacting the Team
+    url: /doc/commerce/product/capi-migration.html#contacting-the-team
+  - h2: Document Change Log
+    url: /doc/commerce/product/capi-migration.html#document-change-log
+  - h2: Related Links
+    url: /doc/commerce/product/capi-migration.html#related-links
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -250,21 +254,6 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(US)&filter=id(2c4282cc-
 3. If you do not receive a 200 response from the Merchandised Product Sku service, it could be because your GTIN is retail-only. Only digital SKUs are currently available in the Cloud. In this case, you will need to continue to call the CAPI Product Widths endpoint to get the style-color using the GTIN as a path parameter.
 
 https://commerce-api.nike.com/commerce/v1/US/en_US/product/00887225865153/widths?client=test-client
-
-## Migration Contacts
-
-Have a question about migrating from CAPI services to Cloud services? See team contact information below.
-
-|Service|Product Owner|Contact Information|Slack Channel|
-|---|---|---|---|
-|**CAPI**|None. These services are in KLO.|None.|#nde-capi|
-|**Cloud Catalog Service**|Debbie Meier|debbie.meier@nike.com|#caps-info|
-|**Cloud Inventory Service**|Lori Brown|lori.brown@nike.com|#cic-inventory|
-|**Cloud Merchandised Product Service**<br>includes product, price, SKU, content, value-added service APIs|Arun KannanGeetha|arun.kannangeetha@nike.com|#pdm-merch-product|
-|**Cloud Product Feed Service**<br>catalog, inventory, product, taxonomy service aggregator|Andy Sun|andy.sun@nike.com|#nde-product-feeds|
-|**Cloud Search Service**|David Wagner|david.wagner@nike.com|#search-integration|
-|**Cloud Taxonomy Service**|Don Lawson|don.lawson@nike.com|#cic-taxonomy|
-|**Prodigy Tool**|Matt Salgado|matt.salgado@nike.com||
 
 ## Endpoint Mapping
 
@@ -650,6 +639,27 @@ The following tables describe the mapping of *response body* fields between CAPI
 |**reasons**|N/A|N/A|N/A|N/A|
 
 >**Note**: With Cloud, there is no distinction between 'viewable' and 'sellable' and there is no longer a corresponding date value for both. The product is either 'available' or not based on the boolean value returned in the response.
+
+## Contacting the Team
+
+Have a question about migrating from CAPI services to Cloud services? See team contact information below.
+
+|Service|Product Owner|Contact Information|Slack Channel|
+|---|---|---|---|
+|**CAPI**|None. These services are in KLO.|None.|#nde-capi|
+|**Cloud Catalog Service**|Debbie Meier|debbie.meier@nike.com|#caps-info|
+|**Cloud Inventory Service**|Lori Brown|lori.brown@nike.com|#cic-inventory|
+|**Cloud Merchandised Product Service**<br>includes product, price, SKU, content, value-added service APIs|Arun KannanGeetha|arun.kannangeetha@nike.com|#pdm-merch-product|
+|**Cloud Product Feed Service**<br>catalog, inventory, product, taxonomy service aggregator|Andy Sun|andy.sun@nike.com|#nde-product-feeds|
+|**Cloud Search Service**|David Wagner|david.wagner@nike.com|#search-integration|
+|**Cloud Taxonomy Service**|Don Lawson|don.lawson@nike.com|#cic-taxonomy|
+|**Prodigy Tool**|Matt Salgado|matt.salgado@nike.com||
+
+## Document Change Log
+
+|Summary|Date|
+|---|---|
+|Initial publish|10/11/2018|
 
 ## Related Links
 
