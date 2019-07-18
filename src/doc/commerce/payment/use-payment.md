@@ -28,6 +28,8 @@ toc:
     url: /doc/commerce/payment/use-payment.html#third-party-payment-notification
   - h2: API Quick Reference
     url: /doc/commerce/payment/use-payment.html#api-quick-reference
+  - h2: Caching Data
+    url: /doc/commerce/payment/use-payment.html#caching-data
   - h2: Best Practices
     url: /doc/commerce/payment/use-payment.html#best-practices
   - h2: Troubleshooting
@@ -1662,16 +1664,18 @@ See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.acti
 
 ## Document Change Log
 
-|Summary|Date|Description|
-|---|---|---|
-|Initial draft|01/08/2018|Initial Draft|
-|Payment Gateway|11/26/2018|Added Payment Gateway Topic|
-|Use Cases|2/21/2018|Restructured for use cases|
+|Summary|Date|
+|---|---|
+|Initial publish|01/08/2018|
+|Added Payment Gateway detail|11/26/2018|
+|Restructured for use cases|02/21/2018|
 
 ## Next Steps
 
 You've now learned how to add payment to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/api_eventsv2.html)
-- [Adding Order History to your experience](/doc/commerce/order/use_order.html)
-- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+[Capturing User Events](/doc/commerce/events/api_eventsv2.html)
+
+[Adding Order History to your experience](/doc/commerce/order/use_order.html)
+
+[Using Nike APIs](/doc/getting-started/using-nike-apis.html)

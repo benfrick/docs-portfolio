@@ -23,10 +23,13 @@ jQuery(function() {
 
 // highlight the sidebar link when you scroll to another section
 $( document ).ready(function() {
+    console.log(window.location.href);
     // cache sidebar links
     var $navigationLinks = $('#sidebar > section > ul > li > ul > li > a');
+    console.log('nav links:' + $navigationLinks.length);
     // cache sections in reverse order
     var $sections = $($('div.main h2').get().reverse());
+    console.log('sections: '+ $sections.length);
 
     // map section ids to sidebar links
     var sectionIdTonavigationLink = {};
@@ -37,7 +40,6 @@ $( document ).ready(function() {
 
     function highlightClosestHeader() {
         // get the position of the vertical scroll bar
-        ///var scrollPosition = $(window).scrollTop();
         var scrollPosition = window.scrollY;
 
         // iterate through the sections

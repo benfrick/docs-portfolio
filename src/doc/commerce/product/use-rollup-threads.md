@@ -20,6 +20,10 @@ toc:
     url: /doc/commerce/product/use-rollup-threads.html#terms-of-service
   - h2: Glossary
     url: /doc/commerce/product/use-rollup-threads.html#glossary
+  - h2: Document Change Log
+    url: /doc/commerce/product/use-rollup-threads.html#document-change-log
+  - h2: Related Links
+    url: /doc/commerce/product/use-rollup-threads.html#related-links
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -165,10 +169,10 @@ See the [Glossary](/doc/commerce/reference/glossary.html).
 
 ## Document Change Log
 
-|Summary |Date |Description|
-|---|---|---|
-|Initial draft|05/17/2018|Initial Draft|
-|Update|07/19/2018|Updated how to obtain a consumerChannelId|
+|Summary|Date|
+|---|---|
+|Initial publish|05/17/2018|
+|Updated how to obtain a consumerChannelId|07/19/2018|
 
 ## Related Links
 

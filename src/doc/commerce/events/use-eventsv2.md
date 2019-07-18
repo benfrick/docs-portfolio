@@ -12,18 +12,20 @@ toc:
     url: /doc/commerce/events/use-eventsv2.html#terms-of-service
   - h2: Use Cases
     url: /doc/commerce/events/use-eventsv2.html#use-cases
-  - h2: Endpoint Quick Reference
+  - h2: API Endpoint Quick Reference
     url: /doc/commerce/events/use-eventsv2.html#api-endpoint-quick-reference
   - h2: Using Analytics Pipeline
     url: /doc/commerce/events/use-eventsv2.html#using-analytics-pipeline
   - h2: Upgrading to the Latest Version
     url: /doc/commerce/events/use-eventsv2.html#upgrading-to-the-latest-version
-  - h2: Best Practices
-    url: /doc/commerce/events/use-eventsv2.html#best-practices
   - h2: Troubleshooting
     url: /doc/commerce/events/use-eventsv2.html#troubleshooting
   - h2: Glossary
     url: /doc/commerce/events/use-eventsv2.html#glossary
+  - h2: Document Change Log
+    url: /doc/commerce/events/use-eventsv2.html#document-change-log
+  - h2: Related Links
+    url: /doc/commerce/events/use-eventsv2.html#related-links
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -418,11 +420,11 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 
 ## Document Change Log
 
-|Summary |Date |Description|
-|---|---|---|
-|Initial draft|02/14/2018|Initial Draft|
-|Updated external links|04/03/2018|Updated external links to open in new browser window|
-|Updated TOC|10/01/2018|Removed 'In this guide', replaced with sidebar TOC|
+|Summary|Date|
+|---|---|
+|Initial publish|02/14/2018|
+|Updated external links|04/03/2018|
+|Updated TOC|10/01/2018|
 
 ## Related Links
 
