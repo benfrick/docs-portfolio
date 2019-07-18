@@ -1147,6 +1147,13 @@ Be a good client by following these [Circuit Breaker Best Practices](/doc/commer
 
 For a master glossary of terms for Nike APIs, see the [Glossary](/doc/commerce/reference/glossary.html).
 
+## Document Change Log
+
+|Summary|Date|
+|---|---|
+|Initial publish|10/18/2018|
+|Added making Your First Request and other edits|12/11/2018|
+
 ## Related Links
 
 [Commerce Docs Home](/index.html)
