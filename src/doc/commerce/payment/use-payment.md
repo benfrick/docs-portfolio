@@ -108,6 +108,25 @@ Here are some key terms used in this document.
 |Reauthorization|When a temporary hold on funds in a customer's account is reissued, typically when the original authorization has expired|
 |Void (of payment)|Reverses a successful payment authorization, also known as an authorization reversal|
 
+### Supported Stored Payment Types
+
+The Stored Payment Service supports storing these types of payment:
+
+|Payment Type Description|Value|Storage Limit|
+|---|---|---|
+|Alipay|**AliPay**|1|
+|Apple Pay|**ApplePay**|1|
+|Credit Card|**CreditCard**|4|
+|Gift Card|**GiftCard**|10|
+|PayPal|**PayPal**|1|
+|Tenpay|**TenPay**|1|
+|UnionPay|**UnionPay**|1|
+|WeChat|**WeChat**|1|
+
+### Payment Options by Country
+
+See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"} for a list of supported payment types by shipping and billing country.
+
 ## Listing and Validating Payment Options
 
 <i class="g72-check"></i>&nbsp;&nbsp;**List payment options for Checkout**
@@ -1643,25 +1662,6 @@ Need to contact the Payment team?
 |Slack|[#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="new-tab"}|
 |Confluence Space|[CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="new-tab"}|
 |Product Owner|[Sree Krishna](mailto:sree.krishna@nike.com)|
-
-### Supported Stored Payment Types
-
-The Stored Payment Service supports storing these types of payment:
-
-|Payment Type Description|Value|Storage Limit|
-|---|---|---|
-|Alipay|**AliPay**|1|
-|Apple Pay|**ApplePay**|1|
-|Credit Card|**CreditCard**|4|
-|Gift Card|**GiftCard**|10|
-|PayPal|**PayPal**|1|
-|Tenpay|**TenPay**|1|
-|UnionPay|**UnionPay**|1|
-|WeChat|**WeChat**|1|
-
-### Payment Options by Country
-
-See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"} for a list of supported payment types by shipping and billing country.
 
 ## Document Change Log
 
