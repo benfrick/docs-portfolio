@@ -1,5 +1,6 @@
-<!--Uncomment the front matter YAML only when ready to publish. Update any values in {} -->
+<!--Uncomment the front matter below only when ready to publish. Update values within {} -->
 ---
+# id: {unique id, usually doc title, hyphens for spaces, without file extension}
 # tags: pdf
 # category: b-use-case
 # position: {integer controlling sort position in sidebar}
