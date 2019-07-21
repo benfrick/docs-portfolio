@@ -40,8 +40,6 @@ toc:
     url: /doc/commerce/payment/use-payment.html#terms-of-service
   - h2: Contacting the Team
     url: /doc/commerce/payment/use-payment.html#contacting-the-team
-  - h2: Glossary
-    url: /doc/commerce/payment/use-payment.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/payment/use-payment.html#document-change-log
   - h2: Next Steps
@@ -99,10 +97,35 @@ Here are some key terms used in this document.
 
 |Term|Definition|
 |---|---|
-|Authorization|Temporary hold on funds in a consumer’s account for a future charge|
+|Authorization|A temporary hold on funds in a consumer’s account for a future charge|
+|Credit|Funds that are returned to a consumer’s account|
+|Debit|Funds that are removed from a consumer’s account|
 |Deferred Payment|A type of payment where a consumer places an order and then pays for it at a Third-party bank|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|The Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data. All Nike CiC payment services are PCI-DSS compliant.|
-|Void (of payment)|Reverses a successful payment authorization|
+|DOMS|A Distributed Order Management System, also known as Sterling, that handles order fulfillment|
+|ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike's non-commerce systems|
+|PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
+|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
+|Reauthorization|When a temporary hold on funds in a customer's account is reissued, typically when the original authorization has expired|
+|Void (of payment)|Reverses a successful payment authorization, also known as an authorization reversal|
+
+### Supported Stored Payment Types
+
+The Stored Payment Service supports storing these types of payment:
+
+|Payment Type Description|Value|Storage Limit|
+|---|---|---|
+|Alipay|**AliPay**|1|
+|Apple Pay|**ApplePay**|1|
+|Credit Card|**CreditCard**|4|
+|Gift Card|**GiftCard**|10|
+|PayPal|**PayPal**|1|
+|Tenpay|**TenPay**|1|
+|UnionPay|**UnionPay**|1|
+|WeChat|**WeChat**|1|
+
+### Payment Options by Country
+
+See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"} for a list of supported payment types by shipping and billing country.
 
 ## Listing and Validating Payment Options
 
@@ -1640,40 +1663,6 @@ Need to contact the Payment team?
 |Confluence Space|[CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="new-tab"}|
 |Product Owner|[Sree Krishna](mailto:sree.krishna@nike.com)|
 
-## Glossary
-
-|Term|Definition|
-|---|---|
-|Authorization|Temporary hold on funds in a customer's account for a future charge|
-|Credit|Funds that are added to a customer's account|
-|Debit|Funds that are removed from a customer's account|
-|Deferred Payment|Payment made after the Nike order after is placed|
-|DOMS|Distributed Order Management System, also known as Sterling that handles order fulfillment|
-|ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike non-commerce systems|
-|PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
-|Reauthorization|Temporary hold of funds in a customer's account is reissued, typically when the original authorization has expired|
-|Void|Reverses a successful Authorization, also known as an authorization reversal|
-
-### Supported Stored Payment Types
-
-The Stored Payment Service supports storing these types of payment:
-
-|Payment Type Description|Value|Storage Limit|
-|---|---|---|
-|Alipay|**AliPay**|1|
-|Apple Pay|**ApplePay**|1|
-|Credit Card|**CreditCard**|4|
-|Gift Card|**GiftCard**|10|
-|PayPal|**PayPal**|1|
-|Tenpay|**TenPay**|1|
-|UnionPay|**UnionPay**|1|
-|WeChat|**WeChat**|1|
-
-### Payment Options by Country
-
-See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"} for a list of supported payment types by shipping and billing country.
-
 ## Document Change Log
 
 |Summary|Date|
@@ -1681,7 +1670,7 @@ See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.acti
 |Initial publish|01/08/2018|
 |Added Payment Gateway detail|11/26/2018|
 |Restructured for use cases|02/21/2018|
-|Added Key Terms section|07/17/2019|
+|Added Key Terms section|07/18/2019|
 
 ## Next Steps
 
