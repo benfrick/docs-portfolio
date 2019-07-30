@@ -1,116 +1,13 @@
-jQuery(function() {
-	var $sidebar = $('#sidebar'),
-		$nav = $('.nav'),
-		$main = $('.main');
-
-	var found = true;
-
-	var $el;
-
-	$sidebar.find('a').click(function() {
-		$('body').removeClass('nav-open');
-	});
-
-	$("section > div.highlighter-rouge:first-of-type").each(function(i) {
-
-		var $this = $(this).before("<ul class=\"languages\"></ul>"),
-		$languages = $this.prev(),
-		$notFirst = $this.nextUntil(":not(div.highlighter-rouge)"),
-		$all = $this.add($notFirst);
-
-		$all.add($languages).wrapAll("<div class=\"code-viewer\"></div>");
-
-
-		listLanguages($all, $languages);
-
-		$this.css('display', 'block');
-		$notFirst.css('display', 'none');
-
-		$languages.find('a').first().addClass('active');
-
-		$languages.find('a').click(function() {
-			$all.css('display', 'none');
-			$all.eq($(this).parent().index()).css('display', 'block');
-
-			$languages.find('a').removeClass('active');
-			$(this).addClass('active');
-			return false;
-		});
-
-		if ($languages.children().length === 0) {
-			$languages.remove();
-		}
-	});
-
-	function listLanguages($el, $insert) {
-		$el.each(function(i) {
-			var title = $(this).attr('title');
-			if (title) {
-				$insert.append("<li><a href=\"#\">" + title + "</a></li>");
-			}
-		});
-	}
-
-	var href = $('.sidebar a').first().attr("href");
-
-	if (href !== undefined && href.charAt(0) === "#") {
-		setActiveSidebarLink();
-
-		$(window).on("scroll", function(evt) {
-			setActiveSidebarLink();
-		});
-	}
-
-	function setActiveSidebarLink() {
-			$('.sidebar a').removeClass('active');
-				var $closest = getClosestHeader();
-				$closest.addClass('active');
-				document.title = $closest.text();
-
-	}
-});
-
-function getClosestHeader() {
-	var $links = $('.sidebar a'),
-	top = window.scrollY,
-	$last = $links.first();
-
-	if (top < 300) {
-		return $last;
-	}
-
-	if (top + window.innerHeight >= $(".main").height()) {
-		return $links.last();
-	}
-
-	for (var i = 0; i < $links.length; i++) {
-		var $link = $links.eq(i),
-		href = $link.attr("href");
-
-		if (href !== undefined && href.charAt(0) === "#" && href.length > 1) {
-			var $anchor = $(href);
-
-			if ($anchor.length > 0) {
-				var offset = $anchor.offset();
-
-				if (top < offset.top - 300) {
-					return $last;
-				}
-
-				$last = $link;
-			}
-		}
-	}
-	return $last;
-}
+// expand/collapse sidebar section and highlight sidebar on click
 jQuery(function() {
 	var $sidebar = $('#sidebar');
-
+	//need this to highlight sidebar links at bottom of page
+    //highlight sidebar h2 on click event
 	$sidebar.find('a').click(function() {
 		$sidebar.find('a').removeClass('active');
 		$(this).addClass('active');
 	});
-
+    //collapse/expand sidebar section on click event
 	$sidebar.find('span.toggle').click(function() {
 	    var section = $(this).attr('name');
 	    var $child = $('#'+section);
@@ -122,4 +19,51 @@ jQuery(function() {
 	        $child.addClass('hide');
 	    }
 	});
+});
+
+// highlight the sidebar link when you scroll to another section
+$( document ).ready(function() {
+    // cache sidebar links
+    var $navigationLinks = $('#sidebar > section > ul > li > ul > li > a');
+    // cache sections in reverse order
+    var $sections = $($('div.main h2').get().reverse());
+
+    // map section ids to sidebar links
+    var sectionIdTonavigationLink = {};
+    $sections.each(function() {
+        var id = $(this).attr('id');
+        sectionIdTonavigationLink[id] = $("#sidebar a[href$='#" + id + "']");
+    });
+
+    function highlightClosestHeader() {
+        // get the position of the vertical scroll bar
+        var scrollPosition = window.scrollY;
+
+        // iterate through the sections
+        $sections.each(function() {
+            var currentSection = $(this);
+            // get the top position of the section
+            var sectionTop = currentSection.offset().top;
+
+            // highlight the sidebar link if the user has scrolled over the top of the section
+           if (scrollPosition >= sectionTop - 100) {
+                // get the section id
+                var id = currentSection.attr('id');
+                // get the sidebar link
+                var $link = sectionIdTonavigationLink[id];
+
+                if ($link && !$link.hasClass('active')) {
+                    // remove .active class from all sidebar links
+                    $navigationLinks.removeClass('active');
+                    // add .active class to the current sidebar link
+                    $link.addClass('active');
+                }
+                return false;
+            }
+        });
+     }
+
+    $(window).on("scroll", function(evt) {
+        highlightClosestHeader();
+    });
 });
