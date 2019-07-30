@@ -24,6 +24,10 @@ toc:
     url: /doc/commerce/product/use-product-feeds.html#contacting-the-team  
   - h2: Glossary
     url: /doc/commerce/product/use-product-feeds.html#glossary
+  - h2: Document Change Log
+    url: /doc/commerce/product/use-product-feeds.html#document-change-log
+  - h2: Related Links
+    url: /doc/commerce/product/use-product-feeds.html#related-links
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -251,9 +255,9 @@ See the [Glossary](/doc/commerce/reference/glossary.html).
 
 ## Document Change Log
 
-|Summary |Date |Description|
-|---|---|---|
-|Initial draft|01/23/2018|Initial Draft|
+|Summary|Date|
+|---|---|
+|Initial publish|01/23/2018|
 
 ## Related Links
 
