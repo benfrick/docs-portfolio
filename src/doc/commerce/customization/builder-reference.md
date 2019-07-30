@@ -24,7 +24,7 @@ toc:
 
 ---
 
-##### Last Updated: 07/02/2019
+##### Last Updated: 07/30/2019
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
 
@@ -341,7 +341,7 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 
 |Field|Type|Description|Example|
 |---|---|---|---|
-|`availability`|Object|The lead time for the product to be delivered (if available) and short/long messaging text.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`availability`|Object|The lead time in days for the product to be delivered, when `isAvailable` is true. When false, only an 'out of stock' message is returned.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`pathName`|String|The product pathName for this build.|"ER2teamSP19_barca"|
 |`productId`|String|The product ID for this build.|"PROD372041"|
 |`consumerQuesAnswers`|Array|Collection of product question-and-answer pairs representing the current state of the Builder's pid selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
@@ -362,10 +362,11 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 
 ##### More about **availability**
 
-The below table describes the contents of the `availaibility` object:
+The below table describes the contents of the `availability` object:
 
 |Field|Type|Description|Example|
 |---|---|---|---|
+|`isAvailable`|Boolean|Whether the current style-color is available to be purchased|true|
 |`leadtimeUpperBoundInDays`|Number|The lead time for the product to be delivered, in days|22|
 |`longCapacityMessage`|String|The long message text describing the product availability and lead-time.|"Custom-made and delivered to you in 3 weeks or less."|
 |`shortCapacityMessage`|String|The short message text describing the product availability and lead-time.|"GREAT CHOICE"|
@@ -528,6 +529,32 @@ Usage:
 * @returns {Array} List of normalized questions
 */
 builderApi.getAnswersByCode('jersey')
+```
+
+### getAvailability
+
+Description: Returns promise to fetch availability information for the current configuration.
+
+Usage:
+
+```javascript
+/**
+• @returns {Promise->Array} a promise to return availability data
+*/
+builderApi.getAvailability()
+```
+
+### getAvailabilityMessages
+
+Description: Returns promise to fetch availability messages information for the current configuration.
+
+Usage:
+
+```javascript
+/**
+• @returns {Promise->Object} a promise to return availability messages including leadtimeUpperBoundInDays, longCapacityMessage, and shortCapacityMessage
+*/
+builderApi.getAvailabilityMessages()
 ```
 
 ### getBuild
@@ -959,6 +986,7 @@ builderApi.showNotification(plain);
 |---|---|
 |Initial publish|05/17/2019|
 |Added new My Designs methods, added new shareDesign, saveDesign methods, marked saveBuild as deprecated|07/02/2019|
+|Added new methods and buildData info for availability|07/30/2019|
 
 ## Next Steps
 
