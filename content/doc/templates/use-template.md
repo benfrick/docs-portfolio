@@ -1,15 +1,22 @@
-<!--Uncomment the front matter YAML only when ready to publish. Update any values in {} -->
+<!--Uncomment the front matter below only when ready to publish. Update values within {} -->
 ---
+# id: {unique id, usually doc title, hyphens for spaces, without file extension}
 # tags: pdf
 # category: b-use-case
-# position: {number}
+# position: {integer controlling sort position in sidebar}
 # title: {sidebar title}
-# url: {rel link to HTML}
+# url: {rel link to HTML e.g. /doc/commerce/customization/use-customization.html}
 # toc:
-#  - h2: 
-#    url:  {rel link to HTML}#step-1
-#  - h2: 
-#    url:  {rel link to HTML}#step-2
+#  - h2: Introduction
+#    url: {rel link to HTML}#introduction
+#  - h2: Key Terms
+#    url: {rel link to HTML}#key-terms
+#  - h2: Quick Start
+#    url: {rel link to HTML}#quick-start
+#  - h2: {Use case 1 Title}
+#    url:  {rel link to HTML}#{use-case-1-title}
+#  - h2: {Use case 2 Title}
+#    url:  {rel link to HTML}#{use-case-2-title}
 #  - h2: API Endpoint Quick Reference
 #    url:  {rel link to HTML}#api-endpoint-quick-reference
 #  - h2: Best Practices
@@ -20,8 +27,6 @@
 #    url:  {rel link to HTML}#terms-of-service
 #  - h2: Contacting the Team
 #    url:  {rel link to HTML}#contacting-the-team
-#  - h2: Glossary
-#    url:  {rel link to HTML}#glossary
 #  - h2: Document Change Log
 #    url:  {rel link to HTML}#document-change-log
 #  - h2: Next Steps
@@ -33,17 +38,41 @@
 
 ---
 
-##### Last Updated: 11/10/2018
+##### Last Updated: {MM/DD/YYYY}
 
 {} does some stuff and some things.
 
 >**TIP**: Before using this guide you should have already completed [Some other guide](link to that guide).
 
+## Introduction
+
+In this guide, we will discuss...
+
 ### What is {}?
 
-## Step 1:
+## Key Terms (if applicable)
 
-### Customizing Your Results
+Here are some key terms used in this document.
+
+|Term|Definition|
+|---|---|
+|Term|Describe how this term applies to the API|
+
+## Quick Start (if applicable)
+
+Outline steps to quickly get up an running. Include cut and paste code snippets and complete cURLs if possible.
+
+## {Use case 1 title e.g. Listing and Validating Payment Options}
+
+<i class="g72-check"></i>&nbsp;&nbsp;**List payment options for Checkout**
+
+<i class="g72-check"></i>&nbsp;&nbsp;**Validate payments**
+
+### Step 1: {Step description}
+
+Describe how to do this step.
+
+### Customizing Your Results (if applicable)
 
 You control what is returned in your result set and how it is sorted through URL parameters.
 
@@ -59,7 +88,52 @@ The table below lists the fields by which you can filter your {} results. If no 
 
 You can sort {this thing} in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
 
->TIP: It is recommended that your app pass the sort query parameter in the request to ensure that the results are sorted appropriately for your experience.
+**Other Query Parameters**
+
+{} also supports the {} query parameters to restrict the results {in this way}. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
+
+Let's take a look at some scenarios.
+
+|I want to...|Sample Query|
+|---|---|
+|Do this thing|`url to do this thing`|
+
+### Executing the Request
+
+
+Listed below is {} POST request URL. This endpoint is not JWT-restricted.
+```
+{CURL goes here}
+```
+
+### Parsing the Response
+
+{Some hints/callouts about the data in the response and how it could be handled}
+
+
+>**TIPS:**
+>- {helpful tip user needs to know in order to complete this step}
+>- {Another tip}
+
+### Step 2: {Step description}
+
+Describe how to do this step.
+
+### Customizing Your Results (if applicable)
+
+You control what is returned in your result set and how it is sorted through URL parameters.
+
+**Filtering**
+
+The table below lists the fields by which you can filter your {} results. If no filter is applied, {this happens}. While some filters only allow one value, you can send multiple filters in the same request. For instance, {example}. Note that filter parameter names and values are case sensitive.
+
+|Field Name|Description|Sample Value|
+|---|---|
+|**Field1**|||
+
+**Sorting**
+
+You can sort {this thing} in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
 
 **Other Query Parameters**
 
@@ -73,57 +147,38 @@ Let's take a look at some scenarios.
 
 ### Executing the Request
 
-Sample CURL for {}
 
+Listed below is {} POST request URL. This endpoint is not JWT-restricted.
 ```
-CURL goes here
-```
-
-### Parsing the Response
-
-{Some hints/callouts about the data in the response and how it could be handled}
-
-## Step 2:
-
-### Required Request Parameters
-
-### Customizing Your Results
-
-You control what is returned in your result set through URL parameters. {Brief description of which ones are supported by this thing. Link to [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) in [Using Nike APIs](/doc/getting-started/using-nike-apis.html) as necessary.}
-
-Let's take a look at some scenarios.
-
-|I want to|Sample Query|
-|---|---|
-|do this thing|`url to do this thing`|
-
-### Executing the Request
-
-Sample CURL 1:
-
-```
-CURL goes here
-```
-
-Sample CURL 2:
-
-```
-CURL goes here
+{CURL goes here}
 ```
 
 ### Parsing the Response
 
 {Some hints/callouts about the data in the response and how it could be handled}
+
+
+>**TIPS:**
+>- {helpful tip user needs to know in order to complete this step}
+>- {Another tip}
 
 ## API Endpoint Quick Reference
 
-|Endpoint Name|Path|HTTP Method|
-|---|---|---|
-|[]({url for API Reference}){:target="new-tab"}|`/product_feed/collection_terms/v2{?filter,searchTerms,sort,anchor,count}`||
+{API Name}
 
-## Best Practices
+- [Endpoint Name]({url for API Reference}){:target="new-tab"}
+- [Endpoint Name]({url for API Reference}){:target="new-tab"}
+- [Endpoint Name]({url for API Reference}){:target="new-tab"}
 
-Listed below are some best practices for working with Collections.
+{API Name}
+
+- [Endpoint Name]({url for API Reference}){:target="new-tab"}
+- [Endpoint Name]({url for API Reference}){:target="new-tab"}
+- [Endpoint Name]({url for API Reference}){:target="new-tab"}
+
+## Best Practices (if applicable)
+
+Listed below are some best practices for working with {}.
 
 ### Conditions for Retries
 
@@ -139,7 +194,7 @@ There are boundaries for testing in production:
 
 ### Caching Data
 
-None of the endpoints described in this document support caching.
+Describe what is cached and for how long, or if caching is not supported.
 
 ## Troubleshooting
 
@@ -198,19 +253,18 @@ Need to contact the {} team?
 |Confluence Space|[](){:target="new-tab"}|
 |Team Contacts|Person1 (Person1 email)|
 
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
-
 ## Document Change Log
 
-|Summary |Date |Description|
+|Summary |Date |
 |---|---|---|
-|Initial draft 11/10/2018|Initial Draft|
+|Initial publish|MM/DD/YYYY|
 
 ## Next Steps
 
 You've learned how to add {} to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
-- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+[{Doc Title}]({URL})
+
+[Commerce Docs Home](/index.html)
+
+[Get Started](/doc/getting-started/get-started.html)

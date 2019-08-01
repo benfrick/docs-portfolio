@@ -37,7 +37,6 @@ $( document ).ready(function() {
 
     function highlightClosestHeader() {
         // get the position of the vertical scroll bar
-        ///var scrollPosition = $(window).scrollTop();
         var scrollPosition = window.scrollY;
 
         // iterate through the sections

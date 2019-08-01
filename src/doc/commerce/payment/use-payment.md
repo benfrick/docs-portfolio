@@ -8,6 +8,8 @@ url: /doc/commerce/payment/use-payment.html
 toc:
   - h2: Listing and Validating Payment Options
     url: /doc/commerce/payment/use-payment.html#listing-and-validating-payment-options
+  - h2: Key Terms
+    url: /doc/commerce/payment/use-payment.html#key-terms
   - h2: Storing Payment
     url: /doc/commerce/payment/use-payment.html#storing-payment
   - h2: Credit Card Payment
@@ -28,6 +30,8 @@ toc:
     url: /doc/commerce/payment/use-payment.html#third-party-payment-notification
   - h2: API Quick Reference
     url: /doc/commerce/payment/use-payment.html#api-quick-reference
+  - h2: Caching Data
+    url: /doc/commerce/payment/use-payment.html#caching-data
   - h2: Best Practices
     url: /doc/commerce/payment/use-payment.html#best-practices
   - h2: Troubleshooting
@@ -36,8 +40,6 @@ toc:
     url: /doc/commerce/payment/use-payment.html#terms-of-service
   - h2: Contacting the Team
     url: /doc/commerce/payment/use-payment.html#contacting-the-team
-  - h2: Glossary
-    url: /doc/commerce/payment/use-payment.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/payment/use-payment.html#document-change-log
   - h2: Next Steps
@@ -49,7 +51,7 @@ toc:
 
 ---
 
-##### Last Updated: 2/21/2019
+##### Last Updated: 07/18/2019
 
 Manage the payment process for customers purchasing Nike products and services.
 
@@ -89,6 +91,41 @@ When customers pay with a deferred payment type, they pay for their order at a t
 
 After an Order has been submitted for fulfillment, it goes through a series of statuses, some of which involve payment. The Document Order Management System (DOMS) calls the [Fulfillment Payment Notification](#fulfillment-payment-notification) service to request debits, credits, voids, re-authorizations, and to get payment status.
 
+## Key Terms
+
+Here are some key terms used in this document.
+
+|Term|Definition|
+|---|---|
+|Authorization|A temporary hold on funds in a consumer’s account for a future charge|
+|Credit|Funds that are returned to a consumer’s account|
+|Debit|Funds that are removed from a consumer’s account|
+|Deferred Payment|A type of payment where a consumer places an order and then pays for it at a Third-party bank|
+|DOMS|A Distributed Order Management System, also known as Sterling, that handles order fulfillment|
+|ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike's non-commerce systems|
+|PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
+|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
+|Reauthorization|When a temporary hold on funds in a customer's account is reissued, typically when the original authorization has expired|
+|Void (of payment)|Reverses a successful payment authorization, also known as an authorization reversal|
+
+### Supported Stored Payment Types
+
+The Stored Payment Service supports storing these types of payment:
+
+|Payment Type Description|Value|Storage Limit|
+|---|---|---|
+|Alipay|**AliPay**|1|
+|Apple Pay|**ApplePay**|1|
+|Credit Card|**CreditCard**|4|
+|Gift Card|**GiftCard**|10|
+|PayPal|**PayPal**|1|
+|Tenpay|**TenPay**|1|
+|UnionPay|**UnionPay**|1|
+|WeChat|**WeChat**|1|
+
+### Payment Options by Country
+
+See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"} for a list of supported payment types by shipping and billing country.
 
 ## Listing and Validating Payment Options
 
@@ -597,7 +634,7 @@ Use the [Start Apple Pay Session](https://developer.niketech.com/docs/projects/P
 
 Once you get a successful 200 response from [Start an Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"}, you have all of the information you need to call [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} and continue the purchase flow as you would for a credit card.
 
->**TIP:** WWhen calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** WWen calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Start Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"} POST request URI and body. The `validationURL` is passed to your experience from the Apple Pay JS API when you [provide merchant validation](https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api/providing_merchant_validation){:target="new-tab"}.
 
@@ -782,7 +819,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>WWhen calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the PayPal Mark response.
 
@@ -1626,52 +1663,21 @@ Need to contact the Payment team?
 |Confluence Space|[CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="new-tab"}|
 |Product Owner|[Sree Krishna](mailto:sree.krishna@nike.com)|
 
-## Glossary
-
-|Term|Definition|
-|---|---|
-|Authorization|Temporary hold on funds in a customer's account for a future charge|
-|Credit|Funds that are added to a customer's account|
-|Debit|Funds that are removed from a customer's account|
-|Deferred Payment|Payment made after the Nike order after is placed|
-|DOMS|Distributed Order Management System, also known as Sterling that handles order fulfillment|
-|ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike non-commerce systems|
-|PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
-|Reauthorization|Temporary hold of funds in a customer's account is reissued, typically when the original authorization has expired|
-|Void|Reverses a successful Authorization, also known as an authorization reversal|
-
-### Supported Stored Payment Types
-
-The Stored Payment Service supports storing these types of payment:
-
-|Payment Type Description|Value|Storage Limit|
-|---|---|---|
-|Alipay|**AliPay**|1|
-|Apple Pay|**ApplePay**|1|
-|Credit Card|**CreditCard**|4|
-|Gift Card|**GiftCard**|10|
-|PayPal|**PayPal**|1|
-|Tenpay|**TenPay**|1|
-|UnionPay|**UnionPay**|1|
-|WeChat|**WeChat**|1|
-
-### Payment Options by Country
-
-See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.action?pageId=162870810){:target="new-tab"} for a list of supported payment types by shipping and billing country.
-
 ## Document Change Log
 
-|Summary|Date|Description|
-|---|---|---|
-|Initial draft|01/08/2018|Initial Draft|
-|Payment Gateway|11/26/2018|Added Payment Gateway Topic|
-|Use Cases|2/21/2018|Restructured for use cases|
+|Summary|Date|
+|---|---|
+|Initial publish|01/08/2018|
+|Added Payment Gateway detail|11/26/2018|
+|Restructured for use cases|02/21/2018|
+|Added Key Terms section|07/18/2019|
 
 ## Next Steps
 
 You've now learned how to add payment to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/api_eventsv2.html)
-- [Adding Order History to your experience](/doc/commerce/order/use_order.html)
-- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+[Capturing User Events](/doc/commerce/events/api_eventsv2.html)
+
+[Adding Order History to your experience](/doc/commerce/order/use_order.html)
+
+[Using Nike APIs](/doc/getting-started/using-nike-apis.html)

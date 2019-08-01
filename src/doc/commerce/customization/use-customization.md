@@ -493,5 +493,6 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 
 You've learned how to add Customization to your experience. Here are some next steps.
 
-- [Adding Cart & Checkout To Your Experience](/doc/commerce/checkout/use-checkout.html)
-- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+[Adding Cart & Checkout To Your Experience](/doc/commerce/checkout/use-checkout.html)
+
+[Using Nike APIs](/doc/getting-started/using-nike-apis.html)

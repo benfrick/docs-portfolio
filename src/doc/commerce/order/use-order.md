@@ -583,13 +583,14 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 ## Document Change Log
 
-|Summary |Date |Description|
+|Summary|Date|
 |---|---|---|
-|Initial draft 10/25/2018|Initial Draft|
+|Initial publish|10/25/2018|
 
 ## Next Steps
 
 You've learned how to add Order History to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
-- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+[Capturing User Events](/doc/commerce/events/use-eventsv2.html)
+
+[Using Nike APIs](/doc/getting-started/using-nike-apis.html)

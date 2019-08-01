@@ -12,7 +12,7 @@ toc:
     url: /doc/commerce/product/use-merch-product.html#terms-of-service
   - h2: Use Cases
     url: /doc/commerce/product/use-merch-product.html#use-cases
-  - h2: Endpoint Quick Reference
+  - h2: API Endpoint Quick Reference
     url: /doc/commerce/product/use-merch-product.html#api-endpoint-quick-reference
   - h2: Consider Using Product Feeds
     url: /doc/commerce/product/use-merch-product.html#consider-using-product-feeds
@@ -40,6 +40,10 @@ toc:
     url: /doc/commerce/product/use-merch-product.html#troubleshooting
   - h2: Glossary
     url: /doc/commerce/product/use-merch-product.html#glossary
+  - h2: Document Change Log
+    url: /doc/commerce/product/use-merch-product.html#document-change-log
+  - h2: Related Links
+    url: /doc/commerce/product/use-merch-product.html#related-links
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -1390,11 +1394,11 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 
 ## Document Change Log
 
-|Summary |Date |Description|
-|---|---|---|
-|V1.0 Published|1 December, 2017 | The initial, reviewed version of the document was published.|
-|Edits, Internationalization, Product sections | 7 December, 2017 | Updated documentation with new content on how products flow, international considerations, and editing/formatting changes. |
-|Clarification on **count**|12 February, 2018|Clarified that when **count** query parameter is supplied that the maximum number of products returned is 25.|
+|Summary|Date|
+|---|---|
+|Initial publish|12/01/2017|
+|Added detail on internationalization and product flow|12/7/2017|
+|Clarified **count** description|02/12/2018|
 
 ## Related Links
 

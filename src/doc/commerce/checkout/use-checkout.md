@@ -30,6 +30,10 @@ toc:
     url: /doc/commerce/checkout/use-checkout.html#contacting-the-team
   - h2: Glossary
     url: /doc/commerce/checkout/use-checkout.html#glossary
+  - h2: Document Change Log
+    url: /doc/commerce/checkout/use-checkout.html#document-change-log
+  - h2: Next Steps
+    url: /doc/commerce/checkout/use-checkout.html#next-steps
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -662,15 +666,17 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 
 ## Document Change Log
 
-|Summary |Date |Description|
-|---|---|---|
-|Initial draft|10/02/2018|Initial Draft|
-|Added Carts v2|03/16/2018|Updates for Carts v2 API|
-|Added Wish Lists API|04/30/2018|Added new Wish Lists API content|
+|Summary|Date|
+|---|---|
+|Initial publish|10/02/2018|
+|Added Carts v2 API|03/16/2018|
+|Added Wish Lists API|04/30/2018|
 
 ## Next Steps
 
 You've learned how to add Cart & Checkout to your experience. Here are some next steps.
+
+[Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
 
 [Commerce Docs Home](/index.html)
 

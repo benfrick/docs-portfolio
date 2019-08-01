@@ -5,6 +5,23 @@ category: b-use-case
 position: 4
 title: Search
 url: /doc/commerce/search/use-search.html
+toc:
+  - h2: Use Cases
+    url: /doc/commerce/search/use-search.html#use-cases
+  - h2: Glossary
+    url: /doc/commerce/search/use-search.html#glossary
+  - h2: E-commerce Search Types
+    url: /doc/commerce/search/use-search.html#e-commerce-search-types
+  - h2: Rules, Results, and Rankings
+    url: /doc/commerce/search/use-search.html#rules-results-and-rankings
+  - h2: Troubleshooting
+    url: /doc/commerce/search/use-search.html#troubleshooting
+  - h2: Contacting the Team
+    url: /doc/commerce/search/use-search.html#contacting-the-team
+  - h2: Document Change Log
+    url: /doc/commerce/search/use-search.html#document-change-log
+  - h2: Related Links
+    url: /doc/commerce/search/use-search.html#related-links
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
@@ -47,18 +64,6 @@ Listed below are some common e-commerce search terms and definitions.
 |Collection|Group of products such as the Mother's Day collection|
 |Channel|Customer experience such as Bootroom or NIKE.com|
 |Signal|Customer behavior and merchandiser-defined factors used to rank e-commerce search results|
-
-
-## Contacting the Team
-
-Need to reach out to the Search team?
-
-|Method|Contact|
-|---|---|
-|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="new-tab"}|
-|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="new-tab"}|
-|Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
-|Email the Product Manager|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
 ## E-commerce Search Types
 
@@ -272,7 +277,22 @@ Ensure that the product is set up correctly to be found by search. If you know t
 
 If you are unable to locate the product in Merchandised Product, you may need to go even further upstream in the product life cycle. Check the Prodigy Merchandising Tool to troubleshoot why the product has not streamed into the Merchandised Product system yet.
 
-Still need help? [Contact the Search Team](#contacting-the-team).
+## Contacting the Team
+
+Need to reach out to the Search team?
+
+|Method|Contact|
+|---|---|
+|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="new-tab"}|
+|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="new-tab"}|
+|Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
+|Email the Product Manager|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
+
+## Document Change Log
+
+|Summary|Date|
+|---|---|
+|Initial publish|08/7/2018|
 
 ## Related Links
 
