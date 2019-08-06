@@ -20,12 +20,10 @@ url: /commerce/reference/glossary.html
 |A/B Test|In web analytics, a controlled experiment with two variants of user experience intended to measure an increase in a desired outcome based on a change to the UX (e.g. conversion)|
 |API|Application Programming Interface|
 |API.md|The 'contract' document of an API, which details the endpoints offered along with request and response schemas|
-|Authorization (of payment)|Temporary hold on funds in a customer's account for a future charge|
 |Cart|The virtual shopping cart used by shoppers to collect and compare items for purchase|
 |Checkout|A collection of data describing what may become a customer order|
 |CORS|Cross-Origin Resource Sharing|
 |cURL|A computer software project providing a library and command-line tool for transferring data using various protocols. Can be used to execute HTTP requests from the command line|
-|Deferred Payment|Third-party bank through which a customer pays for their Nike order after it is placed|
 |Fapiao|Tax-related invoice offered to China customers only|
 |GTIN|Global Trade Item Number.  Nike leases a block of these numbers. They are not unique, as Nike recycles them for a new season of products.|
 |HTTP|HyperText Transfer Protocol, the standard language of the internet|
@@ -51,8 +49,6 @@ url: /commerce/reference/glossary.html
 |URL|Univeral Resource Locator|
 |UUID|Universal Unique Identifier|
 |VAS|Value-Added Service associated with a product in a checkout.  Gift wrap and the ability to customize a product are examples of VAS|
-|[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling Credit Card data. All Nike CiC payment services are PCI-DSS compliant.|
-|Void (of payment)|Reverses a successful payment authorization|
 
 ## Related Links
 
