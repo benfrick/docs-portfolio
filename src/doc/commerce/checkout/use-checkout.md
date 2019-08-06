@@ -8,6 +8,8 @@ url: /doc/commerce/checkout/use-checkout.html
 toc:
   - h2: Introduction
     url: /doc/commerce/checkout/use-checkout.html#introduction
+  - h2: Key Terms
+    url: /doc/commerce/checkout/use-checkout.html#key-terms
   - h2: Cart
     url: /doc/commerce/checkout/use-checkout.html#cart
   - h2: Shipping Options
@@ -28,8 +30,6 @@ toc:
     url: /doc/commerce/checkout/use-checkout.html#terms-of-service
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-checkout.html#contacting-the-team
-  - h2: Glossary
-    url: /doc/commerce/checkout/use-checkout.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/checkout/use-checkout.html#document-change-log
   - h2: Next Steps
@@ -41,7 +41,7 @@ toc:
 
 ---
 
-##### Last Updated: 4/03/2019
+##### Last Updated: 8/1/2019
 
 Manage the Cart and Checkout process for the consumer.
 
@@ -79,6 +79,14 @@ Thus, both the cart and the checkout serve a specific purpose within the shoppin
 ### What is a Wish List?
 
 Sometimes consumers are not ready to purchase items or services and want to set them aside to buy at a later date. Consumers can do this by creating a Wish List. Consumers can create an unlimited number of Wish Lists and can add an unlimited number of items and services. When consumers are ready to purchase an item from their Wish List, they use the app/experience to add the item to their Cart and remove the item from their Wish List. While consumers can also manage their future purchases using a Cart, Wish Lists allow greater flexability by allowing multiple Wish Lists that they can name.
+
+## Key Terms
+
+|Term|Definition|
+|---|---|
+|Cart|The virtual shopping cart used by Nike consumers to collect and compare items for purchase|
+|Checkout|A collection of data describing what may become a consumer order|
+|Fapiao|Tax-related invoice offered to China customers only|
 
 ## Cart
 
@@ -660,10 +668,6 @@ Need to contact the Cart & Checkout team?
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
 |Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com), [Sree Krishna](mailto:sree.krishna@nike.com) (Carts and Wish Lists only)|
 
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html)
-
 ## Document Change Log
 
 |Summary|Date|
@@ -671,6 +675,7 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 |Initial publish|10/02/2018|
 |Added Carts v2 API|03/16/2018|
 |Added Wish Lists API|04/30/2018|
+|Added Key Terms|08/01/2019|
 
 ## Next Steps
 
