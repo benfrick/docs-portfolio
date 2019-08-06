@@ -53,12 +53,14 @@ toc:
 
 ##### Last Updated: 07/18/2019
 
-Manage the payment process for customers purchasing Nike products and services.
+Manage the payment process for consumers purchasing Nike products and services.
 
 >**TIPS**:
 >- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Payment Overview](/doc/commerce/payment/overview-payment.html).
 >- Use this Developer's Guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
 >- The steps involving **Checkout** are covered in [Adding Cart & Checkout to Your Experience](/doc/commerce/checkout/use-checkout.html).
+
+## Introduction
 
 ![](/images/commerce/payment/payment_flow.png)
 
@@ -70,11 +72,11 @@ Your experience can get a list of stored payments for a logged in consumer by ca
 
 <i class="numberCircle gray">2</i>**Preparing payment for purchase**
 
-Depending upon the payment type, your experience will need to perform different actions to prepare the payment for purchase. Before a customer can pay with [Apple Pay](#apple-pay-payment), an Apple Pay session must be started. To allow customers to pay in the PayPal Express or PayPal Mark flows, you will need to call the [Wallet Payment](#wallet-payment) service to start a PayPal session. When paying by a non-stored credit card, your experience will need to collect the customer’s credit card information using the [Credit Card Submit](#credit-card-payment) service. If customers pay by a [Deferred Payment](#deferred-payment) type such as Alipay or WeChat, your experience will need to generate a signed URL and redirect the customer so they can pay at the vendor’s site after they submit the Nike Checkout.
+Depending upon the payment type, your experience will need to perform different actions to prepare the payment for purchase. Before a consumer can pay with [Apple Pay](#apple-pay-payment), an Apple Pay session must be started. To allow consumers to pay in the PayPal Express or PayPal Mark flows, you will need to call the [Wallet Payment](#wallet-payment) service to start a PayPal session. When paying by a non-stored credit card, your experience will need to collect the consumer’s credit card information using the [Credit Card Submit](#credit-card-payment) service. If consumers pay by a [Deferred Payment](#deferred-payment) type such as Alipay or WeChat, your experience will need to generate a signed URL and redirect the consumer so they can pay at the vendor’s site after they submit the Nike Checkout.
 
 <i class="numberCircle gray">3</i>**Payment Preview**
 
-Because customers can pay for their Checkout using Gift Cards, Vouchers, and another payment type, it is necessary to calculate how much of the Checkout will be paid by each payment type by calling [Payment Preview](#payment-preview). Your experience can display the payment allocation results to customers so they can verify their payment details before submitting the Checkout.
+Because consumers can pay for their Checkout using Gift Cards, Vouchers, and another payment type, it is necessary to calculate how much of the Checkout will be paid by each payment type by calling [Payment Preview](#payment-preview). Your experience can display the payment allocation results to consumers so they can verify their payment details before submitting the Checkout.
 
 <i class="numberCircle gray">4</i>**Payment Approval**
 
@@ -85,15 +87,13 @@ Before the Checkout can be submitted for fulfillment, payment information needs 
 
 **Notifying Nike of payment after checkout**
 
-When customers pay with a deferred payment type, they pay for their order at a third party vendor site after submitting the order for fulfillment. Because the payment event happens outside of the Nike Checkout flow, third party vendors notify Nike of payment events through the [Third Party Payment Notification](#third-party-payment-notification) service.
+When consumers pay with a deferred payment type, they pay for their order at a third party vendor site after submitting the order for fulfillment. Because the payment event happens outside of the Nike Checkout flow, third party vendors notify Nike of payment events through the [Third Party Payment Notification](#third-party-payment-notification) service.
 
 **Payment status changes during fulfillment**
 
 After an Order has been submitted for fulfillment, it goes through a series of statuses, some of which involve payment. The Document Order Management System (DOMS) calls the [Fulfillment Payment Notification](#fulfillment-payment-notification) service to request debits, credits, voids, re-authorizations, and to get payment status.
 
 ## Key Terms
-
-Here are some key terms used in this document.
 
 |Term|Definition|
 |---|---|
@@ -105,7 +105,7 @@ Here are some key terms used in this document.
 |ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike's non-commerce systems|
 |PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
 |[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
-|Reauthorization|When a temporary hold on funds in a customer's account is reissued, typically when the original authorization has expired|
+|Reauthorization|When a temporary hold on funds in a consumer's account is reissued, typically when the original authorization has expired|
 |Void (of payment)|Reverses a successful payment authorization, also known as an authorization reversal|
 
 ### Supported Stored Payment Types
@@ -137,7 +137,7 @@ See the [Global Payment Options](https://confluence.nike.com/pages/viewpage.acti
 
 #### Step 1: List Payment Options for Checkout
 
-Getting a list of valid payment options to display to your customer is typically the first step in adding payment to your experience. The list of valid payment options is calculated based on the customer's [Nike UPMID](/doc/getting-started/using-nike-apis.html#authorization), shopping country, billing country, currency, and items. See the [Buy Domain Developer's Guide](/doc/commerce/checkout/api_checkout.html#using-checkouts) for more information on items in Checkout.
+Getting a list of valid payment options to display to your consumer is typically the first step in adding payment to your experience. The list of valid payment options is calculated based on the consumer's [Nike UPMID](/doc/getting-started/using-nike-apis.html#authorization), shopping country, billing country, currency, and items. See the [Buy Domain Developer's Guide](/doc/commerce/checkout/api_checkout.html#using-checkouts) for more information on items in Checkout.
 
 The [Get Payment Options](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api#get-payment-options-post){:target="new-tab"} endpoint validates all items passed in the request body. For performance reasons, the products are held in cache for 15 minutes. After the cache expires or if the product is not in cache, the service attempts to get fresh product data from the Merchandised Product API. If the Merchandised Product service is unreachable, the service defaults the product type to "INLINE" and continues validating the product.
 
@@ -147,16 +147,16 @@ Listed below is a sample [Get Payment Options](https://developer.niketech.com/do
 https://api.nike.com/payment/options/v2
 ```
 
-The results of a successful 200 response lists valid payment methods that a customer can use to pay for the Nike checkout. The list includes the payment name (e.g. "Visa") and payment type (e.g. "CreditCard").
+The results of a successful 200 response lists valid payment methods that a consumer can use to pay for the Nike checkout. The list includes the payment name (e.g. "Visa") and payment type (e.g. "CreditCard").
 
 >**TIPS:**
->- When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >- It is a best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
 >- Even though `items` is an optional request field, it is recommended that you pass it if available so product validation is performed as early as possible in the purchase flow.
 
 #### Step 2: List Billing Countries for a Shipping Country
 
-You can get the list of valid billing countries based on the customer's shipping country using the [Get Billing Countries for Shipping Country](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api#get-billing-countries-for-shipping-country-get){:target="new-tab"} endpoint. Your experience can use this list to display only valid billing countries to the customer and perform shipping/billing country validation as early in the purchase process as possible.
+You can get the list of valid billing countries based on the consumer's shipping country using the [Get Billing Countries for Shipping Country](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api#get-billing-countries-for-shipping-country-get){:target="new-tab"} endpoint. Your experience can use this list to display only valid billing countries to the consumer and perform shipping/billing country validation as early in the purchase process as possible.
 
 Note that the results are unsorted.
 
@@ -169,13 +169,13 @@ https://api.nike.com/paymentoptions/options/v2/US
 A successful 200 response lists the billing countries valid for the shipping country path parameter.
 
 >**TIPS:**
->- The customer's billing address country must be in the billing country result list in order to purchase.
->- When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
->- Your experience needs to pass the country code that the customer is shopping in the `shippingCountry` query parameter.
+>- The consumer's billing address country must be in the billing country result list in order to purchase.
+>- When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- Your experience needs to pass the country code that the consumer is shopping in the `shippingCountry` query parameter.
 
 #### Step 3: Validate Payments
 
-Use the [Validate Payments](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api#payment-options-service-post-1){:target="new-tab"} endpoint to check each payment on the Checkout selected by the customer is valid for the shipping country. The POST request body should include a client-generated UUID, payment type and billing country for each Checkout payment, and the shipping country.
+Use the [Validate Payments](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api#payment-options-service-post-1){:target="new-tab"} endpoint to check each payment on the Checkout selected by the consumer is valid for the shipping country. The POST request body should include a client-generated UUID, payment type and billing country for each Checkout payment, and the shipping country.
 
 Listed below is a sample [Validate Payments](https://developer.niketech.com/docs/projects/Payment%20Options?tab=api#payment-options-service-post-1){:target="new-tab"} POST request URI. It is not JWT-restricted.
 
@@ -186,7 +186,7 @@ https://api.nike.com/payment/validate_payments/v2
 A successful 200 response lists all payments provided in the request and true if the billing country and payment type combination is valid, false if not.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >- It is a best practice to send all optional request headers and body fields, if the data is available, to avoid unexpected responses.
 
 
@@ -200,13 +200,13 @@ A successful 200 response lists all payments provided in the request and true if
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Start a PayPal billing agreement**
 
-The Stored Payment service is used to manage (add/update/delete/list) a customer’s stored payments. Customers must be registered Nike members and log in to use stored payment. Guest customers are not supported.  See [Supported Stored Payment Types](#supported-stored-payment-types) to get storage limits by payment type.
+The Stored Payment service is used to manage (add/update/delete/list) a consumer’s stored payments. Consumers must be registered Nike members and log in to use stored payment. Guest consumers are not supported.  See [Supported Stored Payment Types](#supported-stored-payment-types) to get storage limits by payment type.
 
 #### Add a new stored payment
 
-Use the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} endpoint to save a customer's payment for future use. For PayPal stored payments, see [Start a PayPal Billing Agreement](#start-a-paypal-billing-agreement). The request body varies depending upon the payment type and whether the endpoint is called pre-authorization or post-authorization.
+Use the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} endpoint to save a consumer's payment for future use. For PayPal stored payments, see [Start a PayPal Billing Agreement](#start-a-paypal-billing-agreement). The request body varies depending upon the payment type and whether the endpoint is called pre-authorization or post-authorization.
 
-The typical flow for storing a new credit card **pre-authorization** for a customer is:
+The typical flow for storing a new credit card **pre-authorization** for a consumer is:
 
 <i class="numberCircle gray">1</i>Call the [Add Credit Card with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} endpoint of the Credit Card Submit service to securely transmit credit card information via iFrame to the PCI-certified Credit Card Submit service, passing a client-generated UUID as the `creditCardInfoId`.
 
@@ -227,7 +227,7 @@ Use the [Modify Credit Card Stored Payment](https://developer.niketech.com/docs/
 
 The typical flow for modifying a stored credit card is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a customer's stored payments. Credit Card account numbers are masked in the response.
+<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
 <i class="numberCircle gray">2</i>Call [Modify Credit Card Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-put){:target="new-tab"} . Get the `payment_id` path parameter from the appropriate `paymentId` field that was returned in the response of **Step 1**.
 
@@ -247,7 +247,7 @@ Use the [Modify the Default Stored Payment'](https://developer.niketech.com/docs
 
 The typical flow for modifying the default stored payment is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a customer's stored payments. Credit Card account numbers are masked in the response.
+<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
 <i class="numberCircle gray">2</i>Call [Modify Default Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-default-stored-payment-put){:target="new-tab"} passing the `payment_id` path parameter using the appropriate `paymentId` field returned in the response of **Step 1**.
 
@@ -262,13 +262,13 @@ A successful response is a 202.
 
 #### Delete all stored payments
 
-Use the [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} to delete all of a customer's stored payments. If you want to delete just one of a customer's stored payments, see [Delete Stored Payment by ID](#delete-stored-payment-by-id).
+Use the [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} to delete all of a consumer's stored payments. If you want to delete just one of a consumer's stored payments, see [Delete Stored Payment by ID](#delete-stored-payment-by-id).
 
-The typical flow for deleting all stored payments for a customer is:
+The typical flow for deleting all stored payments for a consumer is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a customer's stored payments. Credit Card account numbers are masked in the response.
+<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
-<i class="numberCircle gray">2</i>Call [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} to delete all of a customer's stored payments.
+<i class="numberCircle gray">2</i>Call [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} to delete all of a consumer's stored payments.
 
 <i class="numberCircle gray">3</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to verify that no stored payments are returned.
 
@@ -282,13 +282,13 @@ A successful response is a 204.
 
 #### Delete Stored Payment by ID
 
-Use the [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} endpoint to delete a stored payment by payment ID. For example, this endpoint would be called when customers delete a stored payment when managing their payment information in the experience.
+Use the [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} endpoint to delete a stored payment by payment ID. For example, this endpoint would be called when consumers delete a stored payment when managing their payment information in the experience.
 
-The typical flow for deleting a stored payment for a customer is:
+The typical flow for deleting a stored payment for a consumer is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a customer's stored payments. Credit Card account numbers are masked in the response.
+<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
-<i class="numberCircle gray">2</i>Call [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} to delete a customer's stored payment for the given `payment_id`.
+<i class="numberCircle gray">2</i>Call [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} to delete a consumer's stored payment for the given `payment_id`.
 
 <i class="numberCircle gray">3</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to verify that no stored payments are returned.
 
@@ -304,9 +304,9 @@ A successful response is a 204.
 
 ##### Get Stored Payments by UPMID
 
-Use the [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} endpoint to list all of a customer's stored payments. Account numbers are masked in the response. If you are a retail client, use the [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-get){:target="new-tab"} (Retail) endpoint instead.
+Use the [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} endpoint to list all of a consumer's stored payments. Account numbers are masked in the response. If you are a retail client, use the [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-get){:target="new-tab"} (Retail) endpoint instead.
 
-If the request does not contain a shipping address or the shipping address sent does not match a shipping address in a previously placed order, the `validateCVV` field will be set to true in the response for Credit Card payment types. This flag indicates that the customer must provide the CVV and it must be validated before the customer can pay for their order using the credit card in the checkout flow.
+If the request does not contain a shipping address or the shipping address sent does not match a shipping address in a previously placed order, the `validateCVV` field will be set to true in the response for Credit Card payment types. This flag indicates that the consumer must provide the CVV and it must be validated before the consumer can pay for their order using the credit card in the checkout flow.
 
 
 Listed below is a sample [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} POST URI request. This endpoint is not JWT-restricted.
@@ -315,22 +315,22 @@ Listed below is a sample [Get Stored Payments by UPMID](https://developer.nikete
 https://api.nike.com/commerce/storedpayments/consumer/storedpayments?currency=USD&includebalance=true&validateshipping=true
 ```
 
-A successful 200 response lists all of a customer's stored payments.
+A successful 200 response lists all of a consumer's stored payments.
 
 ##### Get Stored Payments by UPMID Retail
 
-Use the [Get Stored Payments by UPMID Retail](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-get){:target="new-tab"} if you are a retail client to list all stored payments for a customer. If you are not a retail client, use the [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} endpoint instead.
+Use the [Get Stored Payments by UPMID Retail](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-get){:target="new-tab"} if you are a retail client to list all stored payments for a consumer. If you are not a retail client, use the [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} endpoint instead.
 
 Listed below is a sample Get Stored Payments by UPMID (Retail). It is not JWT-restricted.
 ```
 https://api.nike.com/commerce/storedpayments/consumer/retail_stored_payments/v1?currency=USD
 ```
 
-A successful 200 response lists all of a customer's stored payments except credit cards that have not been used to place a Nike order.
+A successful 200 response lists all of a consumer's stored payments except credit cards that have not been used to place a Nike order.
 
 ##### Get Stored Gift Certificate by UPMID
 
-Use the [Get Stored Gift Certificate by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-gift-certificates-by-id-get){:target="new-tab"} endpoint to list details for a customer's saved gift certificate.
+Use the [Get Stored Gift Certificate by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-gift-certificates-by-id-get){:target="new-tab"} endpoint to list details for a consumer's saved gift certificate.
 
 Listed below is a sample [Get Stored Gift Certificate by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-gift-certificates-by-id-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -375,7 +375,7 @@ Instead of using credit card number as a lookup key, both CyberSource and Stored
 **PayPal**
 - **type**: always 'PayPal'
 - **paymentToken**: PayPal billing agreement id
-- **payer**: customer's PayPal email address
+- **payer**: consumer's PayPal email address
 - **payerId**: PayPal generated unique id
 
 **Deferred Payment**
@@ -396,19 +396,19 @@ A successful 200 response returns credit card or gift certificate validation and
 
 #### Start a PayPal Billing Agreement
 
-In order to save PayPal as a stored payment, the customer must [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"}. This agreement pre-authorizes Nike to charge the customer’s PayPal account for purchases without requiring the customer to visit the PayPal site to authorize each purchase. Setting up a PayPal billing agreement makes purchasing easy by keeping the customer in your experience.
+In order to save PayPal as a stored payment, the consumer must [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"}. This agreement pre-authorizes Nike to charge the consumer’s PayPal account for purchases without requiring the consumer to visit the PayPal site to authorize each purchase. Setting up a PayPal billing agreement makes purchasing easy by keeping the consumer in your experience.
 
-Follow these steps to allow customers to Add a PayPal stored payment in your experience.
+Follow these steps to allow consumers to Add a PayPal stored payment in your experience.
 
-<i class="numberCircle gray">1</i>Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get a list all of the customer's saved payments to make sure that the customer doesn't already have a PayPal stored payment. Customers can have only one PayPal stored payment.
+<i class="numberCircle gray">1</i>Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get a list all of the consumer's saved payments to make sure that the consumer doesn't already have a PayPal stored payment. Consumers can have only one PayPal stored payment.
 
-<i class="numberCircle gray">2</i>Call the [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"} endpoint, passing the `returnURL` and `cancelURL` as query parameters so PayPal can return the customer to your experience.
+<i class="numberCircle gray">2</i>Call the [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"} endpoint, passing the `returnURL` and `cancelURL` as query parameters so PayPal can return the consumer to your experience.
 
-<i class="numberCircle gray">3</i>Redirect the customer to the `redirectURL` in the response so the customer to provide payment details, approve, and subscribe to the Billing Agreement. Once the customer accepts or cancels the Billing agreement, PayPal redirects the customer to either the `returnURL` or `cancelURL` provided in the query parameter.
+<i class="numberCircle gray">3</i>Redirect the consumer to the `redirectURL` in the response so the consumer to provide payment details, approve, and subscribe to the Billing Agreement. Once the consumer accepts or cancels the Billing agreement, PayPal redirects the consumer to either the `returnURL` or `cancelURL` provided in the query parameter.
 
 <i class="numberCircle gray">4</i>Call the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} endpoint to save the PayPal billing agreement.
 
-<i class="numberCircle gray">5</i>(Optional) Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to list all of the customer's saved payments.
+<i class="numberCircle gray">5</i>(Optional) Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to list all of the consumer's saved payments.
 
 
 Listed below is a sample [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"} GET request URI for the SNKRS mobile experience. This endpoint is not JWT-restricted.
@@ -417,7 +417,7 @@ Listed below is a sample [Start a PayPal Billing Agreement](https://developer.ni
 https://api.nike.com/commerce/storedpayments/consumer/paypalagreement?returnUrl=http://nike.com/SNKRS/PayPalAuthenticationSucceeded&cancelUrl=http://nike.com/SNKRS/PayPalAuthenticationDidNotSucceed&design=mobile
 ```
 
-A successful 200 response lists the `requestToken`, `paypalToken`, and `redirectURL` at which the customer can accept the billing agreement.
+A successful 200 response lists the `requestToken`, `paypalToken`, and `redirectURL` at which the consumer can accept the billing agreement.
 
 
 ## Credit Card Payment
@@ -438,14 +438,14 @@ A successful 200 response lists the `requestToken`, `paypalToken`, and `redirect
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get and Validate Credit Card**
 
-This service lists, modifies, deletes and stores a customer's credit card and Apple Pay information. This service accommodates both PCI-certified and non-PCI-certified experiences. Endpoints for non-PCI-certified experiences render an iFrame to collect and retrieve credit card and Apple Pay information. Javascript on the IFrame validates and stores the credit card information once the customer enters it, so your experience doesn't have to call those endpoints. For PCI-certified experiences, it offers endpoints to manage a customer's credit card and Apple Pay information directly.
+This service lists, modifies, deletes and stores a consumer's credit card and Apple Pay information. This service accommodates both PCI-certified and non-PCI-certified experiences. Endpoints for non-PCI-certified experiences render an iFrame to collect and retrieve credit card and Apple Pay information. Javascript on the IFrame validates and stores the credit card information once the consumer enters it, so your experience doesn't have to call those endpoints. For PCI-certified experiences, it offers endpoints to manage a consumer's credit card and Apple Pay information directly.
 
 #### Add Credit Card with CVV
 
 The [Add Credit Card Info with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} endpoint is called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with editable masked credit card number, expiration date, and CVV fields pre-populated with values matching the `creditCardInfoId` passed in the path parameter. If the `creditCardInfoId` is not found, the iFrame renders blank, editable credit card number, expiration date and CVV fields. When each field has a value, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the new or updated values. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the new or updated credit card data.
 
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Add Credit Card Info with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -462,7 +462,7 @@ The response renders the iFrame below with editable credit card number, expirati
 The [Add Credit Card Info without CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-without-cvv-get){:target="new-tab"} endpoint is called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with the editable masked credit card number and expiration date fields matching the `creditCardInfoId` passed in the path parameter. If the `creditCardInfoId` is not found, the iFrame renders blank, editable credit card number and date fields. When each field has a value, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the new or updated values. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the new or updated credit card data.
 
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Add Credit Card Info without CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-without-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -476,9 +476,9 @@ The response renders the iFrame below with editable credit card number and expir
 
 #### Add or Update Credit Card CVV
 
-The [Add or Update Credit Card CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-cvv-get){:target="new-tab"} endpoint is called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable CVV field. When the customer provides a CVV value, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the CVV if it found a credit card matching the `creditCardInfoId` path parameter. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the updated CVV.
+The [Add or Update Credit Card CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-cvv-get){:target="new-tab"} endpoint is called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable CVV field. When the consumer provides a CVV value, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the CVV if it found a credit card matching the `creditCardInfoId` path parameter. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the updated CVV.
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Add or Update Credit Card CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -492,10 +492,10 @@ The response renders the iFrame below with an editable CVV field.
 
 #### Add or Update Credit Card Expiry and CVV
 
-The [Add or Update Credit Card Expiry and CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-expiry-and-cvv-get){:target="new-tab"} endpoint is called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable credit card expiration date and CVV fields. When the customer provides the appropriate values, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the data for the `creditCardInfoId` path parameter. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the updated expiration date and CVV values.
+The [Add or Update Credit Card Expiry and CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-expiry-and-cvv-get){:target="new-tab"} endpoint is called by experiences that are not [PCI-certified](#glossary). This endpoint renders an iFrame with an editable credit card expiration date and CVV fields. When the consumer provides the appropriate values, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the data for the `creditCardInfoId` path parameter. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the updated expiration date and CVV values.
 
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Add or Update Credit Card Expiry and CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-expiry-and-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -608,11 +608,11 @@ A successful 200 response returns the `isValid` flag for the credit card as a wh
 
 We recommend reading [Apple Pay on the Web](https://developer.apple.com/documentation/apple_pay_on_the_web){:target="new-tab"} and [Apple Pay JS API](https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api){:target="new-tab"} first.
 
-#### Step 1: Check that the customer can pay by Apple Pay
+#### Step 1: Check that the consumer can pay by Apple Pay
 
-To enable paying with Apple Pay on a Safari Web browser, your experience will need to call the [Apple Pay JS API](https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api){:target="new-tab"} to validate that the Nike customer can pay by Apple Pay on the web and get a `validationURL` to provide merchant identification to Apple.
+To enable paying with Apple Pay on a Safari Web browser, your experience will need to call the [Apple Pay JS API](https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api){:target="new-tab"} to validate that the Nike consumer can pay by Apple Pay on the web and get a `validationURL` to provide merchant identification to Apple.
 
-In order to be eligible to pay by Apple Pay on a Safari web browser, the customer must have:
+In order to be eligible to pay by Apple Pay on a Safari web browser, the consumer must have:
 
 - access to a Mac and either an iPhone, iWatch, or iPad
 
@@ -634,7 +634,7 @@ Use the [Start Apple Pay Session](https://developer.niketech.com/docs/projects/P
 
 Once you get a successful 200 response from [Start an Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"}, you have all of the information you need to call [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} and continue the purchase flow as you would for a credit card.
 
->**TIP:** WWen calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** WWen calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Start Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"} POST request URI and body. The `validationURL` is passed to your experience from the Apple Pay JS API when you [provide merchant validation](https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api/providing_merchant_validation){:target="new-tab"}.
 
@@ -670,11 +670,11 @@ Follow these steps to implement the PayPal Express payment flow to your experien
 
 #### Step 1: Request PayPal Express
 
-Before a customer can pay in the PayPal Express flow, your experience must initiate an Express session at PayPal using the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} endpoint, passing Checkout information, `returnURL` and `cancelURL`. These URLs are used by PayPal to return the customer to your experience.
+Before a consumer can pay in the PayPal Express flow, your experience must initiate an Express session at PayPal using the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} endpoint, passing Checkout information, `returnURL` and `cancelURL`. These URLs are used by PayPal to return the consumer to your experience.
 
-This service returns a `paypalToken` and `redirectURL` in the response. When the customer is ready to pay, your experience redirects the customer to the PayPal `redirectURL` passing the `paypalToken`. PayPal uses the token to look up the PayPal session.
+This service returns a `paypalToken` and `redirectURL` in the response. When the consumer is ready to pay, your experience redirects the consumer to the PayPal `redirectURL` passing the `paypalToken`. PayPal uses the token to look up the PayPal session.
 
-At the PayPal site, the customer
+At the PayPal site, the consumer
 - chooses the method of payment such as PayPal balance, debit card, or credit card. All payment methods saved at PayPal have a billing address associated with them.
 - chooses an existing or adds a new shipping address
 - confirms the payment method and shipping address
@@ -683,11 +683,11 @@ OR
 
 - cancels the PayPal Express session
 
-When the customer confirms the payment method and shipping address on the PayPal site, PayPal redirects the customer to the `returnURL` passed in the request body. The `returnURL` is typically to a Checkout review page in your experience from which the customer can choose to submit the Checkout for fulfillment.
+When the consumer confirms the payment method and shipping address on the PayPal site, PayPal redirects the consumer to the `returnURL` passed in the request body. The `returnURL` is typically to a Checkout review page in your experience from which the consumer can choose to submit the Checkout for fulfillment.
 
-If the customer cancels the PayPal Express session on the PayPal site, PayPal redirects the customer to the `cancelURL` passed in the request body. The `cancelURL` is typically to a billing page in your experience where the customer can choose an alternate payment method.
+If the consumer cancels the PayPal Express session on the PayPal site, PayPal redirects the consumer to the `cancelURL` passed in the request body. The `cancelURL` is typically to a billing page in your experience where the consumer can choose an alternate payment method.
 
->**TIP**: The `returnURL` you provide in the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} **request body** is a link to your experience to which PayPal will redirect the customer after confirming the payment method and shipping address. The `returnURL` provided in the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} **response body** is a link to the PayPal site to which your experience will redirect the customer to select a shipping address and payment method.
+>**TIP**: The `returnURL` you provide in the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} **request body** is a link to your experience to which PayPal will redirect the consumer after confirming the payment method and shipping address. The `returnURL` provided in the [Request PayPal Express](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-express-service-request-paypal-express-post){:target="new-tab"} **response body** is a link to the PayPal site to which your experience will redirect the consumer to select a shipping address and payment method.
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
@@ -697,7 +697,7 @@ Listed below is a sample [Request PayPal Express](https://developer.niketech.com
 https://api.nike.com/payment/paypal_express/v1
 ```
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a link to the job and a status polling eta. A successful response in `COMPLETED` status also includes the response object containing the job results.
 
@@ -716,7 +716,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Request PayPal Express response.
 
@@ -742,7 +742,7 @@ https://api.nike.com/payment/paypal_details/v1
 
 A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a link to the job and a status polling eta. A successful response in `COMPLETED` status also includes the response object containing the job results.
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 
 #### Step 4: Retrieve PayPal Details Job
@@ -759,7 +759,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *PayPal Details* response.
 
@@ -776,11 +776,11 @@ Follow these steps to implement the PayPal Mark payment flow to your experience.
 
 #### Step 1: Request PayPal Mark
 
-Before a customer can pay in the PayPal Mark flow, your experience must initiate a Mark session at PayPal using the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} endpoint, passing Checkout information, shipping address, `returnURL` and `cancelURL`. These URLs are used by PayPal to return the customer to your experience.
+Before a consumer can pay in the PayPal Mark flow, your experience must initiate a Mark session at PayPal using the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} endpoint, passing Checkout information, shipping address, `returnURL` and `cancelURL`. These URLs are used by PayPal to return the consumer to your experience.
 
-This endpoint starts a new PayPal Mark session and passes the Checkout information and shipping address to PayPal for session storage. PayPal generates a `paypalToken` and `redirectURL` and the endpoint returns them in the response. When the customer is ready to Pay, your experience redirects the customer to the PayPal `redirectURL` passing the `paypalToken`. PayPal uses the token to look up the PayPal session.
+This endpoint starts a new PayPal Mark session and passes the Checkout information and shipping address to PayPal for session storage. PayPal generates a `paypalToken` and `redirectURL` and the endpoint returns them in the response. When the consumer is ready to Pay, your experience redirects the consumer to the PayPal `redirectURL` passing the `paypalToken`. PayPal uses the token to look up the PayPal session.
 
-At the PayPal site, the customer
+At the PayPal site, the consumer
 - chooses the method of payment such as PayPal balance, debit card, or credit card. All payment methods saved at PayPal have a billing address associated with them.
 - confirms payment and pays for the Checkout
 
@@ -788,9 +788,9 @@ OR
 
 - cancels the PayPal Mark session
 
-After the customer pays for the Checkout or cancels the PayPal Mark session on the PayPal site, PayPal redirects the customer to either the `returnURL` or `cancelURL` passed in the request body. The `returnURL` is typically to an order confirmation page in your experience.
+After the consumer pays for the Checkout or cancels the PayPal Mark session on the PayPal site, PayPal redirects the consumer to either the `returnURL` or `cancelURL` passed in the request body. The `returnURL` is typically to an order confirmation page in your experience.
 
->**TIP**: The `returnURL` you provide in the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} **request body** is a link to your experience to which PayPal will redirect after the customer pays for their Checkout at the PayPal site. The `returnURL` provided in the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} **response body** is a link to PayPal to which your experience will redirect the customer to pay.
+>**TIP**: The `returnURL` you provide in the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} **request body** is a link to your experience to which PayPal will redirect after the consumer pays for their Checkout at the PayPal site. The `returnURL` provided in the [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api#paypal-mark-service-request-paypal-mark-post){:target="new-tab"} **response body** is a link to PayPal to which your experience will redirect the consumer to pay.
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
@@ -800,7 +800,7 @@ Listed below is a sample [Request PayPal Mark](https://developer.niketech.com/do
 https://api.nike.com/payment/paypal_mark/v1
 ```
 
->**TIP**:<i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP**:<i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a link to the job and a status polling eta. A successful response in `COMPLETED` status also includes the response object containing the job results.
 
@@ -819,7 +819,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the PayPal Mark response.
 
@@ -849,7 +849,7 @@ For details on how to [Retrieve PayPal Details Job](https://developer.niketech.c
 
 #### Step 1: Request Deferred Payment Form
 
-Use the [Request Deferred Payment Form](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-form-request-deferred-payment-form-post){:target="new-tab"} endpoint to generate a signed link used to redirect the customer to pay at a third-party site or app. This endpoint is used for experiences that support iDeal, Sofort and/or Alipay, Tenpay, and UnionPay China payment types. For WeChat payment, see the [Request WeChat Deferred Payment](#request-wechat-deferred-payment) endpoint.
+Use the [Request Deferred Payment Form](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-form-request-deferred-payment-form-post){:target="new-tab"} endpoint to generate a signed link used to redirect the consumer to pay at a third-party site or app. This endpoint is used for experiences that support iDeal, Sofort and/or Alipay, Tenpay, and UnionPay China payment types. For WeChat payment, see the [Request WeChat Deferred Payment](#request-wechat-deferred-payment) endpoint.
 
 In the request body, your experience will need to pass the `approvalId` returned from [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} and your experience's `returnURL` that the third party vendor will redirect the consumer to after making payment at their site.
 
@@ -866,7 +866,7 @@ A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a li
 
 >**TIPS:**
 >
->- When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 >- Parsing the 'COMPLETED' job result directly is a best practice because it eliminates making another service call.
 
@@ -884,7 +884,7 @@ Once you receive a job status of COMPLETED, get the results of your job by parsi
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
@@ -915,7 +915,7 @@ Listed below is a sample [Request Deferred Payment Status](https://developer.nik
 https://api.nike.com/payment/deferred_payment_status/v1
 ```
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 A successful 202 response in `COMPLETED` status lists the payment status and amount paid if the payment status is `PAYMENT_SUCCESSFUL`. If the 202 response is `PENDING` or `IN_PROGRESS`, it includes a link to the job and a status polling eta.
 
@@ -935,7 +935,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Status response.
 
@@ -961,7 +961,7 @@ Desktop flow: Experience displays QR code at the end of checkout (what generates
 
 #### Step 1: Generate a QR Code
 
-If the customer is shopping in a desktop web experience and chooses to pay by WeChat, your experience will need to generate a QR code at the end of Checkout for the customer to scan on a mobile phone. Generate the QR code by following the steps in WeChat's documentation on [WeChat Login for WebApps](https://open.wechat.com/cgi-bin/newreadtemplate?t=overseas_open/docs/web/login/login#getting-started){:target="new-tab"}.
+If the consumer is shopping in a desktop web experience and chooses to pay by WeChat, your experience will need to generate a QR code at the end of Checkout for the consumer to scan on a mobile phone. Generate the QR code by following the steps in WeChat's documentation on [WeChat Login for WebApps](https://open.wechat.com/cgi-bin/newreadtemplate?t=overseas_open/docs/web/login/login#getting-started){:target="new-tab"}.
 
 #### Step 2: Request WeChat Deferred Payment
 
@@ -969,7 +969,7 @@ Use the [Request WeChat Deferred Payment](https://developer.niketech.com/docs/pr
 
 The mobile web flow opens the WeChat Payment app directly when it is time to pay for the Nike Checkout.
 
-The Desktop WeChat flow generates a QR code. Nike customers use their Mobile phone to scan the code to open the WeChat Payment App on their mobile device.
+The Desktop WeChat flow generates a QR code. Nike consumers use their Mobile phone to scan the code to open the WeChat Payment App on their mobile device.
 
 Using the code returned from WeChat in **Step 1** and the `approvalId` returned in the [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} response, call [Request WeChat Deferred Payment](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#wechat-deferred-payment-request-wechat-deferred-payment-post-1){:target="new-tab"}.
 
@@ -980,7 +980,7 @@ https://api.nike.com/payment/deferred_wechat_payments/v1
 
 A successful 202 response includes a link to the job and a status polling eta.
 
->**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 
 #### Step 3: Retrieve WeChat Deferred Payment Job
@@ -997,7 +997,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
@@ -1021,11 +1021,11 @@ After consumer chooses to pay with wechat, experience calls WeChat deferred paym
 
 ## Payment Preview
 
-<i class="g72-check"></i> **Preview the allocation of payment amounts across one or more payment methods selected by the customer**
+<i class="g72-check"></i> **Preview the allocation of payment amounts across one or more payment methods selected by the consumer**
 
 #### Step 1: Request a Payment Preview
 
-Nike customers can pay by one or more gift cards and vouchers and another payment type such as PayPal or credit card. The [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} endpoint allocates payment to the gift cards or voucher with the highest balance first and then to the rest of the gift cards and vouchers on the Checkout in ascending balance order. If the total balance of all gift cards and vouchers is less than the order amount, the service allocates the balance of the order to a second payment type.
+Nike consumers can pay by one or more gift cards and vouchers and another payment type such as PayPal or credit card. The [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} endpoint allocates payment to the gift cards or voucher with the highest balance first and then to the rest of the gift cards and vouchers on the Checkout in ascending balance order. If the total balance of all gift cards and vouchers is less than the order amount, the service allocates the balance of the order to a second payment type.
 
 The `paymentPreviewId` returned by this service is a required key when calling [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"} in the BUY API to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.
 
@@ -1033,7 +1033,7 @@ This endpoint operates **asynchronously** which means that there are extra steps
 
 >**TIP:**
 >
->- When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 >- `Promotion` in the response.payments.**type** field is an indicator that the entire order is allocated to a promotion.
 
@@ -1071,7 +1071,7 @@ Once you receive a job status of "COMPLETED", get the results of your job by par
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` field returned in the *Request Payment Preview* response.
 >
@@ -1098,14 +1098,14 @@ A successful 200 response lists the payment types on the Checkout and the amount
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i>When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Request Payment Preview* response.
 
 
 ## Payment Approval
 
-<i class="mr2-sm g72-check"></i>**Perform fraud check, validation, and authorization/debit for all payment types on a customer's Checkout**
+<i class="mr2-sm g72-check"></i>**Perform fraud check, validation, and authorization/debit for all payment types on a consumer's Checkout**
 
 <i class="mr2-sm g72-check"></i>**Void a Payment Approval request**
 
@@ -1115,7 +1115,7 @@ A successful 200 response lists the payment types on the Checkout and the amount
 
 #### Step 1: Request Payment Approval
 
-Both the [Request Payment Approval (POST)](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} and [Request Payment Approval (PUT)](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-put){:target="new-tab"} endpoints perform fraud check, validation, and authorization/debit for all payment types on a customer's Checkout. The PUT version of the endpoint requires a `paymentApprovalId` path parameter. This is helpful if the [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-put){:target="new-tab"} response times out. In that case, [Request Payment Void](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-void-delete){:target="new-tab"} would need to be called with the same `paymentApprovalId` to reverse the original Payment Approval request.
+Both the [Request Payment Approval (POST)](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} and [Request Payment Approval (PUT)](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-put){:target="new-tab"} endpoints perform fraud check, validation, and authorization/debit for all payment types on a consumer's Checkout. The PUT version of the endpoint requires a `paymentApprovalId` path parameter. This is helpful if the [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-put){:target="new-tab"} response times out. In that case, [Request Payment Void](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-void-delete){:target="new-tab"} would need to be called with the same `paymentApprovalId` to reverse the original Payment Approval request.
 
 [Request Payment Approval (POST)](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} and [Request Payment Approval (PUT)](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-put){:target="new-tab"} must be called after [Request Checkout Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} so that order allocation is calculated and the `paymentPreviewId` is assigned.
 
@@ -1189,7 +1189,7 @@ Note that if the Payment Approval result is not in either `ACCEPT` or `PENDING_P
 
 >**TIPS:**
 >
-><i class="mr2-sm g72-check"></i> When calling this endpoint through the public router, the **upmid** (for logged in customers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+><i class="mr2-sm g72-check"></i> When calling this endpoint through the public router, the **upmid** (for logged in consumers), **appId** and **usertype** headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Get Payment Approval Summary](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-get-payment-approval-summary-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -1224,7 +1224,7 @@ All Payment Gateway endpoints are **asynchronous** so after making the initial P
 
 #### **Step 1: Submit the debit request**
 
-Use the [Request Debit](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-debit-put){:target="new-tab"} endpoint to debit funds for orders paid with credit card, PayPal, Gift Certificate, and Klarna payment types. This endpoint is called when it is time to transfer funds from the customer's account to Nike's account, such as when the customer's shipment leaves the warehouse.
+Use the [Request Debit](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-debit-put){:target="new-tab"} endpoint to debit funds for orders paid with credit card, PayPal, Gift Certificate, and Klarna payment types. This endpoint is called when it is time to transfer funds from the consumer's account to Nike's account, such as when the consumer's shipment leaves the warehouse.
 
 Listed below is a sample [Request Debit](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-debit-put){:target="new-tab"} PUT request URI. **This endpoint is JWT-restricted**.
 
@@ -1261,7 +1261,7 @@ A successful 200 response gives the job status. If COMPLETED, the response lists
 
 #### **Step 1: Submit the credit request**
 
-When a Nike customer returns one or more products, call the [Request Credit](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#submit-payment-request-for-credit-put){:target="new-tab"} endpoint to return the money to the same account the customer used to pay for the product. You can issue a full credit (also known as a refund) for the full charge amount, or you can issue multiple, partial credits up to the full charge amount. If you try to credit more than the charge amount, you will receive an error.
+When a Nike consumer returns one or more products, call the [Request Credit](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#submit-payment-request-for-credit-put){:target="new-tab"} endpoint to return the money to the same account the consumer used to pay for the product. You can issue a full credit (also known as a refund) for the full charge amount, or you can issue multiple, partial credits up to the full charge amount. If you try to credit more than the charge amount, you will receive an error.
 
 >TIP: You can get the `debitRequestId` and `debitRequestToken` values to pass in the credit request body from the `requestId` and `requestToken` fields in the [Retrieve Debit Job](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#retrieval-payment-gateway-debit-job-get){:target="new-tab"}.
 
@@ -1374,7 +1374,7 @@ A successful 200 response gives the job status. If COMPLETED, the response lists
 
 #### **Step 1: Submit payment request for certificate**
 
-You can create a gift certificate for a customer by calling the [Request Certificate](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-certificate-put){:target="new-tab"} endpoint. You specify the currency, amount and email address for the recipient and the service returns a gift card number and pin set to the amount and currency passed in the request.
+You can create a gift certificate for a consumer by calling the [Request Certificate](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-certificate-put){:target="new-tab"} endpoint. You specify the currency, amount and email address for the recipient and the service returns a gift card number and pin set to the amount and currency passed in the request.
 
 
 Listed below is a sample [Request Certificate](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-certificate-put){:target="new-tab"} PUT request URI. **This endpoint is JWT-restricted**.
@@ -1443,7 +1443,7 @@ A successful 200 response gives the job status. If COMPLETED, the response lists
 
 Third party payment vendors call the [Payment Notification API](https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentnotification/browse/API.md){:target="new-tab"} to notify Nike of payment status changes for an order with an offline payment type.
 
-When customers choose to pay for their Nike order with an offline payment type, customers pay after the order is submitted for fulfillment. The customer must pay within a certain time period defined by the vendor or Nike automatically cancels the order. After the customer pays the third party vendor, the vendor calls the Payment Notification service to notify Nike of payment. This service handles updating the payment status and making sure that DOMS is notified of the payment event so it can update the order status.
+When consumers choose to pay for their Nike order with an offline payment type, consumers pay after the order is submitted for fulfillment. The consumer must pay within a certain time period defined by the vendor or Nike automatically cancels the order. After the consumer pays the third party vendor, the vendor calls the Payment Notification service to notify Nike of payment. This service handles updating the payment status and making sure that DOMS is notified of the payment event so it can update the order status.
 
 The supported third party payment vendors are:
 
@@ -1558,13 +1558,13 @@ Payment API flows vary based on the payment method and the user experience. List
 
 **Sample Credit Card Payment Flow without Stored Payment**
 
-Listed below is a sample credit card payment flow. In this flow, the customer is a Nike registered member who has added products and services to the [Checkout](/doc/commerce/checkout/use_checkout.html), provided a shipping address, and has the intention to purchase.
+Listed below is a sample credit card payment flow. In this flow, the consumer is a Nike registered member who has added products and services to the [Checkout](/doc/commerce/checkout/use_checkout.html), provided a shipping address, and has the intention to purchase.
 
-<i class="numberCircle gray">1</i>Your experience calls [Payment Options](#payment-options) to get a list of valid payment methods for the customer.
+<i class="numberCircle gray">1</i>Your experience calls [Payment Options](#payment-options) to get a list of valid payment methods for the consumer.
 
-<i class="numberCircle gray">2</i>The customer selects to pay by a non-stored credit card from the list of payment options in your app.
+<i class="numberCircle gray">2</i>The consumer selects to pay by a non-stored credit card from the list of payment options in your app.
 
-<i class="numberCircle gray">3</i>Your experience calls [Credit Card Submit](#credit-card-submit) to capture the customer's credit card information in a PCI-compliant UI. Since the customer is a registered member, your experience may ask to store her credit card for future use.
+<i class="numberCircle gray">3</i>Your experience calls [Credit Card Submit](#credit-card-submit) to capture the consumer's credit card information in a PCI-compliant UI. Since the consumer is a registered member, your experience may ask to store her credit card for future use.
 
 <i class="numberCircle gray">4</i>If the registered member has chosen to store the credit card for reuse, your experience calls [Stored Payment](#storing-payment) to validate, securely store, and display masked credit card information.
 
@@ -1574,35 +1574,35 @@ Listed below is a sample credit card payment flow. In this flow, the customer is
 
 <i class="numberCircle gray">7</i>Your experience calls [Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) with the Payment Preview ID to validate payment for a final time, authorizes the credit card by calling [Payment Approval](#payment-approval), and submits the Checkout for fulfillment.
 
-<i class="numberCircle gray">8</i>Your experience calls [Payment Approval Summary](#get-payment-approval-summary) to display the payment details to the customer for order confirmation.
+<i class="numberCircle gray">8</i>Your experience calls [Payment Approval Summary](#get-payment-approval-summary) to display the payment details to the consumer for order confirmation.
 
 **Sample Credit Card Payment Flow with Stored Payment**
 
-In this Payment flow, the customer chooses to pay by Credit Card that is saved as a stored payment method. The customer must provide the CVV for validation because the shipping address passed into the call is either new or different from previous shipping addresses on past orders.
+In this Payment flow, the consumer chooses to pay by Credit Card that is saved as a stored payment method. The consumer must provide the CVV for validation because the shipping address passed into the call is either new or different from previous shipping addresses on past orders.
 
 ![Image](/images/commerce/payment/creditcard_seq_dgm.png){:class="border"}
 
 **Sample PayPal Express flow**
 
-In this flow, the customer is redirected to the PayPal site after choosing to pay by PayPal Express in the Nike experience. The customer selects the shipping and billing addresses on the PayPal site. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
+In this flow, the consumer is redirected to the PayPal site after choosing to pay by PayPal Express in the Nike experience. The consumer selects the shipping and billing addresses on the PayPal site. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
 ![Image](/images/commerce/payment/paypal_express_seq_dgm.png){:class="border"}
 
 **Sample PayPal Mark flow**
 
-In this flow, the customer chooses to pay by PayPal Mark and provides the shipping address in the Nike experience. From order review, the customer is redirected to the PayPal site to select the billing address and pay. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
+In this flow, the consumer chooses to pay by PayPal Mark and provides the shipping address in the Nike experience. From order review, the consumer is redirected to the PayPal site to select the billing address and pay. Based on the PayPal token, the Payment Wallet service returns the shipping and billing addresses from PayPal for display on the order confirmation.
 
 ![Image](/images/commerce/payment/paypal_mark_seq_dgm.png){:class="border"}
 
 **Sample Apple Pay flow**
 
-In the example Payment API flow below, the customer chooses to pay by Apple Pay in a Safari web browser.
+In the example Payment API flow below, the consumer chooses to pay by Apple Pay in a Safari web browser.
 
 ![Image](/images/commerce/payment/applepay_seq_dgm.png){:class="border"}
 
 **Sample Deferred Payment flow**
 
-In this flow, the customer chooses to pay by a payment method that will be authorized and captured after the Nike order has been placed. This is a typical flow for China payment methods such as WeChat and Alipay.
+In this flow, the consumer chooses to pay by a payment method that will be authorized and captured after the Nike order has been placed. This is a typical flow for China payment methods such as WeChat and Alipay.
 
 ![Image](/images/commerce/payment/deferred_pmt_seq_dgm.png){:class="border"}
 
@@ -1634,7 +1634,7 @@ In order to abide by PCI-compliance rules, payment logging requires special Splu
 
 Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as [SNKRS Web](http://www.nike.com/launch){:target="new-tab"}. Or, set up Charles and your favorite device to proxy service calls made from the Nike SNKRS or Nike+ Apps. Sometimes seeing what other experiences are doing might address your question or concern.
 
->**TIP:** While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike customer Service.
+>**TIP:** While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Consumer Services.
 
 ## Terms of Service
 

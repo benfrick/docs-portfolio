@@ -4,6 +4,7 @@
 ```
 {
   "availability": {
+  	"isAvailable": true,
     "leadtimeUpperBoundInDays": 22,
     "longCapacityMessage": "Custom-made and delivered to you in 3 weeks or less.",
     "shortCapacityMessage": "GREAT CHOICE"
