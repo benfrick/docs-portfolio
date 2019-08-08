@@ -54,6 +54,14 @@ Have content that is outdated or that needs to be edited for style and/or conten
 
 Have finished documentation and need help publishing it to the developer portal or creating a PDF? We can help!
 
+## How Can We Help You?
+
+Now that you know more about the services we provide, reach out to our team via Slack [#nde-doc](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting so we can learn more about your documentation needs.
+
+To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} page in Confluence.
+
+We are looking forward to working with your team.
+
 <!--
 ### <i class="fas fa-people-carry"></i> &nbsp;Self-Service Doc Updates
 
