@@ -1,7 +1,12 @@
 ---
+id: docs-team-services
 title: Docs Team Services
 url: /doc/portal/overview-doc-team.html
-excluded_in_search: true
+toc:
+  - h2: What we do
+    url: /doc/portal/overview-doc-team.html#what-we-do
+  - h2: How Can We Help You?
+    url: /doc/portal/overview-doc-team.html#how-can-we-help-you
 ---
 
 # Docs Team Services
