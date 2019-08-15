@@ -1,7 +1,7 @@
 ---
 id: using-nike-apis
 tags: pdf
-category: c-get-started
+category: 0-get-started
 position: 1
 title: Using Nike APIs
 url: /getting-started/using-nike-apis.html
