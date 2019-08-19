@@ -681,10 +681,7 @@ Need to contact the Cart & Checkout team?
 
 You've learned how to add Cart & Checkout to your experience. Here are some next steps.
 
-[Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
-
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
-
-[Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
+- [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)
+- [Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
