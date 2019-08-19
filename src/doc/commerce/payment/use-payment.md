@@ -1676,8 +1676,7 @@ Need to contact the Payment team?
 
 You've now learned how to add payment to your experience. Here are some next steps.
 
-[Capturing User Events](/doc/commerce/events/api_eventsv2.html)
-
-[Adding Order History to your experience](/doc/commerce/order/use_order.html)
-
-[Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Capturing User Events](/doc/commerce/events/api_eventsv2.html)
+- [Adding Order History to your experience](/doc/commerce/order/use_order.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)

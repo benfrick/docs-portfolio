@@ -24,8 +24,6 @@ url: /doc/commerce/product/use-collections.html
 #    url:  /doc/commerce/product/use-collections.html#terms-of-service
 #  - h2: Contacting the Team
 #    url:  /doc/commerce/product/use-collections.html#contacting-the-team
-#  - h2: Glossary
-#    url:  /doc/commerce/product/use-collections.html#glossary
 #  - h2: Document Change Log
 #    url:  /doc/commerce/product/use-collections.html#document-change-log
 #  - h2: Next Steps
@@ -160,10 +158,6 @@ Need to contact the {} team?
 |Confluence Space|[](){:target="new-tab"}|
 |Team Contacts|Person1 (Person1 email)|
 
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
-
 ## Document Change Log
 
 |Summary |Date |Description|
@@ -176,3 +170,4 @@ You've learned how to add Collections to your experience. Here are some next ste
 
 - [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)

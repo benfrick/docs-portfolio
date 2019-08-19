@@ -183,8 +183,6 @@ Need to contact the Cart & Checkout team?
 
 You've learned how to add Carts to your experience. Here are some next steps.
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
-
-[Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)
+- [Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
