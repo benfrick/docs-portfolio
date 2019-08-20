@@ -100,6 +100,5 @@ Listed below are the publish type codes.
 
 ## Related Links
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)

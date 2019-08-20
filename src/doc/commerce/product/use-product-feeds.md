@@ -21,9 +21,7 @@ toc:
   - h2: Terms of Service
     url: /doc/commerce/product/use-product-feeds.html#terms-of-service
   - h2: Contacting the Team
-    url: /doc/commerce/product/use-product-feeds.html#contacting-the-team  
-  - h2: Glossary
-    url: /doc/commerce/product/use-product-feeds.html#glossary
+    url: /doc/commerce/product/use-product-feeds.html#contacting-the-team
   - h2: Document Change Log
     url: /doc/commerce/product/use-product-feeds.html#document-change-log
   - h2: Related Links
@@ -249,10 +247,6 @@ Need to contact the Product Feeds team?
 |Confluence Space|[Product and Feeds API](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}|
 |Team Contacts|[Andy Sun](mailto:andy.sun@nike.com)|
 
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html).
-
 ## Document Change Log
 
 |Summary|Date|
@@ -261,6 +255,5 @@ See the [Glossary](/doc/commerce/reference/glossary.html).
 
 ## Related Links
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)

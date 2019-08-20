@@ -20,8 +20,6 @@ toc:
     url: /doc/commerce/events/use-eventsv2.html#upgrading-to-the-latest-version
   - h2: Troubleshooting
     url: /doc/commerce/events/use-eventsv2.html#troubleshooting
-  - h2: Glossary
-    url: /doc/commerce/events/use-eventsv2.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/events/use-eventsv2.html#document-change-log
   - h2: Related Links
@@ -414,10 +412,6 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 2. Use the sample requests in this document or those provided [here](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events){:target="new-tab"} as a guide to forming valid requests for each event type.
 
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html)
-
 ## Document Change Log
 
 |Summary|Date|
@@ -428,6 +422,5 @@ See the [Glossary](/doc/commerce/reference/glossary.html)
 
 ## Related Links
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)
