@@ -18,6 +18,9 @@ url: /commerce/reference/glossary.html
 |---|---|
 |**A/B Test**|Test comparing two UI versions of the same web page or app to measure a certain outcome e.g. better performance, higher rate of conversion, more frequent usage etc.|
 |**API.md**|The 'contract' document of an API that lists each endpoint, sample request and response data, and request and response schemas|
+|**Public API (Open)**|API that supports external, third party applications and experiences. There is general control of access, but is more often self-service driven. For example, a publicly accessible developer documentation portal with self-service API user registration|
+|**Private API (Closed)**|API that is not shared with the outside world. This may be on the worldwide web, but does not permit non-proprietary applications to use them. For example, an API powering a proprietary, branded mobile app|
+|**Partner API (Hybrid)**|API that is open on the web, but has more controlled access. It may require more stringent evaluation of the partner, more rigorous terms of service, and/or more granular control of access (potentially per user)|
 |**CORS**|Cross-Origin Resource Sharing allows a resource in one domain to access a resource in a different domain e.g. web page, script, image etc.|
 |**cURL**|Third party client-side library used to execute HTTP requests from the command line|
 |**Idempotent**|Having the property of making multiple, identical requests has the same effect as making a single request|
