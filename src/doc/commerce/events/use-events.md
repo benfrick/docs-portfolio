@@ -37,8 +37,6 @@ If you've read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and 
 
 [Troubleshooting](#troubleshooting)
 
-[Glossary](#glossary)
-
 [Release Notes](#release-notes)
 
 [Document Change Log](#document-change-log)
@@ -2042,10 +2040,6 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 1. Check for validation errors logged in Splunk [here](https://cdt-eng.splunkcloud.com/en-US/app/search/nexus_events_analytics_api#en-US/app/search/nexus_events_analytics_api?form.index_tok=lambda){:target="new-tab"}
 
 2. Use the sample requests in this document or those provided [here](https://bitbucket.nike.com/projects/FAT/repos/events-api/browse/packages/modules/event-schemas/test/sample-events){:target="new-tab"} as a guide to forming valid requests for each event type.
-
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html)
 
 ## Release Notes
 

@@ -108,6 +108,10 @@ p {
         padding-bottom: 0px;
     }
 }
+p ~ p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 hr {
     @media (max-width: 600px) {
     margin: 10px 0 10px 0;
@@ -360,7 +364,7 @@ aside {
 }
 aside.note {
     padding: 8px;
-    margin: 0 20px 0 40px;
+    margin: 0 20px 20px 40px;
     z-index: 2;
 
     @media (max-width: 600px) {

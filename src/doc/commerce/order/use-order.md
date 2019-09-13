@@ -22,8 +22,6 @@ toc:
     url: /doc/commerce/order/use-order.html#terms-of-service
   - h2: Contacting the Team
     url: /doc/commerce/order/use-order.html#contacting-the-team
-  - h2: Glossary
-    url: /doc/commerce/order/use-order.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/order/use-order.html#document-change-log
   - h2: Next Steps
@@ -574,12 +572,8 @@ Need to contact the Orders team?
 |---|---|
 |Slack|[#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"}|
 |Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="new-tab"}|
-|Team Contacts|**Intake, new requirements, onboarding**<br>  Betty Ashok <Betty.Ashok@nike.com><br>   Lindsey Kiken <Lindsey.Kiken@nike.com><br>  Krishnamurthy Ramakrishnan <Krishnamurthy.Ramakrishnan@nike.com><br><br>**API or service-related issues**<br>Vishibha Anand <Vishibha.Anand@nike.com>|
+|Team Contacts|**Intake, new requirements, onboarding**<br>  Betty Ashok <Betty.Ashok@nike.com><br>     Krishnamurthy Ramakrishnan <Krishnamurthy.Ramakrishnan@nike.com><br><br>**API or service-related issues**<br>Vishibha Anand <Vishibha.Anand@nike.com>|
 |Intake|Please fill out an [intake form](https://nike.sharepoint.com/teams/na23/CommerceEngines/Lists/MP%20Intake/NewForm.aspx?Source=https%3A%2F%2Fnike%2Esharepoint%2Ecom%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%2520Intake%2FWSJF%2Easpx%23InplviewHash9ab1f7be-2cb2-4f7d-8d4f-203003b18241%3DShowInGrid%253DTrue&RootFolder=%2Fteams%2Fna23%2FCommerceEngines%2FLists%2FMP%20Intake){:target="new-tab"} to initiate a requirement request. For more information, see the [Marketplace Platform Intake Process](https://confluence.nike.com/display/CE/Marketplace+Platform+Intake+Process){:target="new-tab"}.|
-
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 ## Document Change Log
 
@@ -591,6 +585,6 @@ See the [Glossary](/doc/commerce/reference/glossary.html) for related terms.
 
 You've learned how to add Order History to your experience. Here are some next steps.
 
-[Capturing User Events](/doc/commerce/events/use-eventsv2.html)
-
-[Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)

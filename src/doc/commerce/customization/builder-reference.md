@@ -992,3 +992,4 @@ builderApi.showNotification(plain);
 
 - [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)

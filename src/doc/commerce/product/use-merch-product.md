@@ -8,6 +8,8 @@ url: /doc/commerce/product/use-merch-product.html
 toc:
   - h2: API at a Glance
     url: /doc/commerce/product/use-merch-product.html#api-at-a-glance
+  - h2: Key Terms
+    url: /doc/commerce/product/use-merch-product.html#key-terms
   - h2: Terms of Service
     url: /doc/commerce/product/use-merch-product.html#terms-of-service
   - h2: Use Cases
@@ -38,8 +40,6 @@ toc:
     url: /doc/commerce/product/use-merch-product.html#upgrading-to-the-latest-version
   - h2: Troubleshooting
     url: /doc/commerce/product/use-merch-product.html#troubleshooting
-  - h2: Glossary
-    url: /doc/commerce/product/use-merch-product.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/product/use-merch-product.html#document-change-log
   - h2: Related Links
@@ -71,6 +71,22 @@ The following table describes the key details of the API:
 |Domain|Commerce|
 |Prerequisites|[API Registration](/doc/getting-started/using-nike-apis.html#registration)|
 |Contact Info|Slack [#pdm-merch-product](https://nikedigital.slack.com/messages/pdm-merch-product){:target="new-tab"}<br>Confluence space: [Merchandised Products API Team](https://confluence.nike.com/collector/pages.action?key=MPA){:target="new-tab"}<br> Mailing List: [Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)<br>Product Owner: [Arun KannanGeetha](mailto:arun.kannangeetha@nike.com)|
+
+
+## Key Terms
+
+|Term|Definition|
+|---|---|
+|Image Base|Full path to a product image in an image set in Scene 7. Does not include resizing parameters.|
+|Image Set|Set of product images stored in Scene 7 representing different views of the product. Build the URI to the product image using domain + company + view from the list image results call.|
+|GTIN|Global Trade Item Number. Nike leases a block of GTINs and recycles them seasonally. GTIN is commonly called UPC code, although the technical specification is slightly different for the two.|
+|Master Product|A Nike iD product that has SKUs and is purchasable.|
+|Merch Group|Merchandising Group representing a Nike geographical region. See a list of supported Merchandising Groups in the Enumerations section of the Merchandised Product service.|
+|Prebuild Product|A non-purchasable Nike iD product that has no SKUs. Each Prebuild product is associated to one Master product that is purchasable.|
+|Prodigy|System of record for all product data. All products are merchandised in this system and flow into the Merchandised Product database when they are published in Prodigy.|
+|SLA|Service Level Agreement. Commitment to caller from the service regarding service response times and service availability |
+|SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
+|VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
 ## Terms of Service
 
@@ -1377,20 +1393,6 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 * Environment in which your request was executed (test, prod, performance)
 * Splunk [TraceId](/doc/getting-started/using-nike-apis.html#query-logs-with-a-trace-id)
 
-## Glossary
-
-|Term|Definition|
-|---|---|
-|Image Base|Full path to a product image in an image set in Scene 7. Does not include resizing parameters.|
-|Image Set|Set of product images stored in Scene 7 representing different views of the product. Build the URI to the product image using domain + company + view from the list image results call.|
-|GTIN|Global Trade Item Number. Nike leases a block of GTINs and recycles them seasonally. GTIN is commonly called UPC code, although the technical specification is slightly different for the two.|
-|Master Product|A Nike iD product that has SKUs and is purchasable.|
-|Merch Group|Merchandising Group representing a Nike geographical region. See a list of supported Merchandising Groups in the Enumerations section of the Merchandised Product service.|
-|Prebuild Product|A non-purchasable Nike iD product that has no SKUs. Each Prebuild product is associated to one Master product that is purchasable.|
-|Prodigy|System of record for all product data. All products are merchandised in this system and flow into the Merchandised Product database when they are published in Prodigy.|
-|SLA|Service Level Agreement. Commitment to caller from the service regarding service response times and service availability |
-|SKU|Stock Keeping Unit. Has unique ID associated with a SKU in the ATG legacy system. A product has one or more SKUs. A SKU represents one size and has inventory.|
-|VAS|Value-Added Service associated with a product such as gift wrap and product customization|
 
 ## Document Change Log
 
@@ -1402,8 +1404,6 @@ If none of these scenarios apply, contact the Merchandised Product team on the [
 
 ## Related Links
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
-
-[Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)
+- [Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products)
