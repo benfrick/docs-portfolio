@@ -1,7 +1,7 @@
 ---
 id: using-nike-apis
 tags: pdf
-category: c-get-started
+category: 0-get-started
 position: 1
 title: Using Nike APIs
 url: /getting-started/using-nike-apis.html
@@ -12,6 +12,8 @@ toc:
     url: /doc/getting-started/using-nike-apis.html#well-defined-well-documented
   - h2: Prerequisites
     url: /doc/getting-started/using-nike-apis.html#prerequisites
+  - h2: Authorization
+    url: /doc/getting-started/using-nike-apis.html#authorization
   - h2: URL Patterns
     url: /doc/getting-started/using-nike-apis.html#url-patterns
   - h2: Request Components
@@ -40,19 +42,17 @@ toc:
     url: /doc/getting-started/using-nike-apis.html#troubleshooting
   - h2: Circuit Breaker Best Practices
     url: /doc/getting-started/using-nike-apis.html#circuit-breaker-best-practices
-  - h2: Glossary
-    url: /doc/getting-started/using-nike-apis.html#glossary
   - h2: Related Links
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
 
 # USING NIKE APIS
 
-##### Last Updated: 12/11/2018
+##### Last Updated: 08/20/2019
 
 ---
 
-This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Read this guide before diving into one of the detailed guides.
+This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Start here before diving into the Developer's guides.
 
 >**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics){:target="new-tab"} course offered by Nike Architecture team.
 
@@ -62,7 +62,7 @@ Learn how Nike APIs were designed with industry standards in mind.
 
 ### REST Architecture
 
-Nike uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="new-tab"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicates with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it:
+Nike uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="new-tab"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicate with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it.
 
 **Stateless for Improved Performance**
 
@@ -118,7 +118,7 @@ Example of a JSON-formatted request body that was sent to a Nike API:
 
 ### JSON Schema Helps Define API Contracts
 
-The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, the schema for the request body above can be found [here](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json){:target="new-tab"}.
+The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, here is a living example of a [JSON request body schema](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json){:target="new-tab"}.
 
 ### Idempotence Guarantee
 
@@ -184,41 +184,47 @@ For this process to work between your app and a particular Nike API, make sure t
 
 Example caller ID: `com.nike:brand.ios.ntc:2.1`
 
-### Authorization
+## Authorization
 
-Many endpoints require that the customer has logged into their Nike account. This requires that your app prove that it is authorized to perform the requested operation on behalf of the customer by sending certain headers. Depending on how you are calling the endpoint, the authorization-related headers you need to send will vary as follows:
+### Consumer JWT
 
-**Calls to the Nike API gateway (api.nike.com)**:
+This section discusses how to authorize your app or experience to call an API on behalf of registered and anonymous Nike consumers going through the Authenticate (Edge) router. Calls to api.nike.com that require consumer log in or a visitor id for anonymous visitors go through Edge. For more information on Commerce Routing including Edge, see the [Commerce Router Cheat Sheet](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet){:target="new-tab"}.
 
-Send the access token in the Authorization request header that you obtained from Nike Unite/Identity, prefixed by `Bearer ` (note the single space after Bearer). Do not send the **upmid** header.
+**Registered Nike Consumers**
 
-|Required headers for calls to api.nike.com|Description|
+Many endpoints require that consumers are logged into their Nike account and that the app or experience is authorized to call the API on the consumers' behalf. After consumers log into their Nike account through [Unite](https://confluence.nike.com/display/USER/Unite+Platform+-+Getting+Started){:target="new-tab"} in your app or experience, Unite returns a consumer access token (JWT) in the response. Pass this value in the `Authorization` header to the endpoint requiring authorization. The Edge router validates the access token, extracts the consumer's upmid and appid from the `Authorization` header, adds them to the `upmid` and `appId` request headers, and routes the request to the endpoint. This eliminates the need for clients to pass consumer upmids in the API call.
+
+**Anonymous Consumers**
+
+In addition to supporting registered Nike consumers, an API may also support "Guest requests" for anonymous visitors going through the Edge router. When your app or experience calls  Unite when anonymous consumers first open your app or experience, Unite returns a UUID in the response to uniquely identify a visitor to the Nike ecosystem. Pass this value in the `x-nike-visitorid` header to the endpoint requiring authorization.
+
+See the table below for headers required for authorization for requests going through the Edge router based on consumer type (Member, Guest, or Employee).
+
+|Consumer JWT Required headers|Description|Member|Guest|Employee|
+|---|---|---|---|---|
+|**Authorization**|Access token in the format of `Bearer {token}` generated by the Unite API when the consumer successfully logs in.|X||X|
+|**x-nike-visitorid**|UUID for the guest (i.e. not logged-in) consumer, generated by the Unite API, validated by the Edge router, and passed through to the service||X||
+
+**Service to Service Calls**
+
+Service to Service (S2S) calls do not go through the Edge router. For endpoints that require upmid, S2S calls should send the `upmid` header for logged in consumers. Do not send the `Authorization` header.
+
+### Service to Service JWT
+
+Some endpoints such as [*Submit Order Payments for Approval*](/doc/commerce/payment/use-payment.html#submit-order-payments-for-approval-post) are only called by other services and require the calling service prove its identity and prove it is authorized to call it. This is achieved by an S2S JWT signed for the service authorized to call the endpoint.
+
+Pass the S2S JWT in the `X-Nike-Authorization` request header. Send the name of the application (e.g. "checkouts") that is authorized to call this endpoint in the `X-Nike-AppId` request header. The application name must match the application name used to sign the JWT.
+
+JWTs are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT needs to be refreshed.
+
+|S2S JWT Required Headers|Description|
 |---|---|
-|**Authorization**|Access token|
-
-**Calls direct to endpoints**:
-
-Send the **upmid** header, and for those endpoints that require it, the **appid** header as well. Do not send the **Authorization** header.
-
-|Required headers for direct calls|Description|
-|---|---|
-|**upmid**|Nike consumer profile identifier|
-|**appid**|Application identifier|
-
->**TIP:** To learn how to obtain an access token see the [Generating the Access Token](https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/Derived-Token.md){:target="new-tab"} guide.
-
-### JWT (JSON Web Token)
-
-Some endpoints such as [*Submit Order Payments for Approval*](/doc/commerce/payment/use-payment.html#submit-order-payments-for-approval-post) require a [JWT](https://bitbucket.nike.com/projects/DR/repos/dev-portal-resources/browse/getting-started/JWT.md){:target="new-tab"} that is signed for a service authorized to call the endpoint. In this case, pass the JWT in the **X-Nike-Authorization** request header. Also, send the name of the application (e.g. "checkouts") that is authorized to call this endpoint in the **X-Nike-AppId** request header. This is the service name used to sign the JWT. The JWT tokens are configured to be reusable within a certain time period, after which any calls using that JWT will be rejected. Work with the Product Owner of the API to understand the schedule for when the JWT token need to be updated.
-
-|Required headers for JWT|Description|
-|---|---|
-|**X-Nike-Authorization**|JWT token|
+|**X-Nike-Authorization**|JWT that is a service-to-service call identifier and identifies which service is making the call|
 |**X-Nike-AppId**|Application identifier|
 
 >**TIPS:**
->- See the [Nike JWT Reference Guide](https://confluence.nike.com/display/SECDEV/Nike+JWT+Detailed+Reference+Guide){:target="new-tab"} for more information.
->- You will need both a Production and Test JWT when calling JWT-required endpoints in those respective environments.
+>- See the [Managing AAA JWT Keysets with Shoestring](https://confluence.nike.com/display/SECDEV/Managing+AAA+JWT+Keysets+with+Shoestring){:target="new-tab"} for more information on key management and JWT generation.
+>- You will need both a Production and Test JWT when calling JWT-required endpoints in those  environments.
 
 ## URL Patterns
 
@@ -1143,19 +1149,14 @@ Use your browser's built-in tools for inspecting the web service calls which occ
 
 Be a good client by following these [Circuit Breaker Best Practices](/doc/commerce/reference/caller-best-practices.html) when calling Nike APIs.
 
-## Glossary
-
-For a master glossary of terms for Nike APIs, see the [Glossary](/doc/commerce/reference/glossary.html).
-
 ## Document Change Log
 
 |Summary|Date|
 |---|---|
 |Initial publish|10/18/2018|
 |Added making Your First Request and other edits|12/11/2018|
+|Added Authentication router|8/20/2019|
 
 ## Related Links
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
+[Glossary](/doc/commerce/reference/glossary.html)

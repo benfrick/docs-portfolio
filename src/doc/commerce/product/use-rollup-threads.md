@@ -18,8 +18,6 @@ toc:
     url: /doc/commerce/product/use-rollup-threads.html#troubleshooting
   - h2: Terms of Service
     url: /doc/commerce/product/use-rollup-threads.html#terms-of-service
-  - h2: Glossary
-    url: /doc/commerce/product/use-rollup-threads.html#glossary
   - h2: Document Change Log
     url: /doc/commerce/product/use-rollup-threads.html#document-change-log
   - h2: Related Links
@@ -163,10 +161,6 @@ It is recommended that you send a caller ID header in every request to this API 
 
 No authentication or authorization is required to use this API.
 
-## Glossary
-
-See the [Glossary](/doc/commerce/reference/glossary.html).
-
 ## Document Change Log
 
 |Summary|Date|
@@ -176,6 +170,5 @@ See the [Glossary](/doc/commerce/reference/glossary.html).
 
 ## Related Links
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)

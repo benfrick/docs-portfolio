@@ -8,8 +8,8 @@ url: /doc/commerce/search/use-search.html
 toc:
   - h2: Use Cases
     url: /doc/commerce/search/use-search.html#use-cases
-  - h2: Glossary
-    url: /doc/commerce/search/use-search.html#glossary
+  - h2: Key Terms
+    url: /doc/commerce/search/use-search.html#key-terms
   - h2: E-commerce Search Types
     url: /doc/commerce/search/use-search.html#e-commerce-search-types
   - h2: Rules, Results, and Rankings
@@ -46,7 +46,7 @@ Here are just some of the ways e-commerce search can be used to drive your exper
 - Retrieve a [Product Feed](/doc/commerce/product/use-rollup-threads.html) when you ask a product question in the Consumer Services Portal
 - Finely tune e-commerce search results using the context aware Smart Search rules engine
 
-## Glossary
+## Key Terms
 
 Listed below are some common e-commerce search terms and definitions.
 
@@ -296,6 +296,5 @@ Need to reach out to the Search team?
 
 ## Related Links
 
-[Commerce Docs Home](/index.html)
-
-[Get Started](/doc/getting-started/get-started.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)
