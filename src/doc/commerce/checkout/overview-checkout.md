@@ -31,6 +31,7 @@ The consumer finds a Nike a product that they love in your app. What happens nex
 |<i class="g72-check"></i>&nbsp;&nbsp;[Check the 'buyability' of a product](/doc/commerce/checkout/use-checkout.html#cart)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Review a consumer's cart for checkout](/doc/commerce/checkout/use-checkout.html#cart)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Get available shipping methods and estimated delivery dates](/doc/commerce/checkout/use-checkout.html#shipping-options)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Validate a Shipping Address](/doc/commerce/checkout/use-checkout.html#shipping-address-validation)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/commerce/checkout/use-checkout.htmlpreviewing-a-checkout)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/commerce/checkout/use-checkout.html#submitting-a-checkout)|
 
@@ -49,6 +50,9 @@ The consumer finds a Nike a product that they love in your app. What happens nex
     </li>
     <li>
         <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="new-tab">Shipping Options</a> <span class="guide-details-li-text"></span>
+    </li>
+    <li>
+        <a href="https://developer.niketech.com/docs/projects/AddressValidator?tab=api" target="new-tab">Address Validation</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
         <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="new-tab">Checkouts</a> <span class="guide-details-li-text"></span>

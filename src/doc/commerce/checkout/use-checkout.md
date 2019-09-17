@@ -14,6 +14,8 @@ toc:
     url: /doc/commerce/checkout/use-checkout.html#cart
   - h2: Shipping Options
     url: /doc/commerce/checkout/use-checkout.html#shipping-options
+  - h2: Shipping Address Validation
+    url: /doc/commerce/checkout/use-checkout.html#shipping-address-validation
   - h2: Previewing a Checkout
     url: /doc/commerce/checkout/use-checkout.html#previewing-a-checkout
   - h2: Submitting a Checkout
@@ -41,7 +43,7 @@ toc:
 
 ---
 
-##### Last Updated: 8/1/2019
+##### Last Updated: 9/12/2019
 
 Manage the Cart and Checkout process for the consumer.
 
@@ -177,6 +179,30 @@ https://api.nike.com/buy/shipping_options/v2
 ```
 
 >**TIP:** Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
+
+## Shipping Address Validation
+
+<i class="g72-check"></i>&nbsp;&nbsp;**Ensure the shipping address is deliverable**
+
+After the consumer selects or provides a shipping address, validate the address with the [Address Validator API](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"}. This endpoint can validate any type of address, e.g. billing address.
+
+This service calls a third party vendor to validate the shipping address passed in the request against an address database. The service response contains a `verficationCode`, `score`, and an address. Based on the quality of the address match, the service returns either the consumer-provided address or a corrected address. See the table below to understand how the verificationCode and score work together to determine what actions the consumer needs to take next.
+
+|Verification Code|Score|Consumer needs to|
+|---|---|---|
+|VERIFIED|95 or greater|Address provided by the consumer is verified and is returned in the response. No further action is required by the consumer.|
+|VERIFIED|less than 95|Address provided by the consumer is missing information and a recommended address is returned in the response. Consumer needs to review the recommended address and decide to accept it or retry with a different address.|
+|PARTIALLY_VERIFIED, UNVERIFIED, AMBIGUOUS, CONFLICT, REVERTED|any|Address provided by the consumer could not be verified and is returned in the response. Consumer needs to correct the address and retry.|
+
+>**TIP:** The third party address validation service has a 512 character limit restriction on each address field and a 1024 character limit for the entire address. The client should truncate characters in any address field exceeding the field limit or address limit before making the request.
+
+See the [Address Validation Service](https://confluence.nike.com/pages/viewpage.action?pageId=270586569){:target="new-tab"} page for more information on request and response field mappings between the Address Validator API and the third party.
+
+Sample [Address Validator API](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"} POST request URI. This is a synchronous service and is not JWT-protected:
+
+```
+https://api.nike.com/location/address_validator/v1
+```
 
 ## Previewing a Checkout
 
@@ -457,6 +483,9 @@ To allow consumers to purchase items on their Wish List, you'll need to
 **Shipping Options**
 - [Shipping Options](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="new-tab"}
 
+**Address Validator**
+- [Address Validator](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"}
+
 **Cart Reviews**
 - [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="new-tab"}
 
@@ -666,7 +695,7 @@ Need to contact the Cart & Checkout team?
 
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
-|Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com), [Sree Krishna](mailto:sree.krishna@nike.com) (Carts and Wish Lists only)|
+|Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com), [Sree Krishna](mailto:sree.krishna@nike.com) (Carts, Wish Lists, Address Validation)|
 
 ## Document Change Log
 
@@ -676,6 +705,7 @@ Need to contact the Cart & Checkout team?
 |Added Carts v2 API|03/16/2018|
 |Added Wish Lists API|04/30/2018|
 |Added Key Terms|08/01/2019|
+|Added Address Validation|09/30/2019|
 
 ## Next Steps
 
