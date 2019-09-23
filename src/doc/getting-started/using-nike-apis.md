@@ -188,7 +188,7 @@ Example caller ID: `com.nike:brand.ios.ntc:2.1`
 
 ### Consumer JWTs
 
-This section discusses how to authorize your app or experience to call an API going through the [Authenticate (Edge)](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet#CommerceRouterCheatSheet-Auth){:target="new-tab"} router on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the Edge router and require consumer log in or a visitor id for anonymous visitors. For more information on Commerce Routing including Edge, see the [Commerce Router Cheat Sheet](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet){:target="new-tab"}.
+This section discusses how to authorize your app or experience to call an API going through the [Authenticate (Edge)](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet#CommerceRouterCheatSheet-Auth){:target="new-tab"} router on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the Edge router and require consumer login or a visitor id for anonymous visitors. For more information on Commerce Routing including Edge, see the [Commerce Router Cheat Sheet](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet){:target="new-tab"}.
 
 #### Using the Unite Platform for Profile Management
 
@@ -196,11 +196,11 @@ The [Unite](https://confluence.nike.com/display/USER/Unite+Platform+-+Getting+St
 
 **Registered Nike Consumers**
 
-Those endpoints requiring consumer log in also require the experiences calling them to prove they are authorized to make API calls on behalf of consumers. After consumers log into their Nike account through the Unite platform in your app or experience, Unite returns a consumer access token (JWT) in the response. Clients pass this token in the `Authorization` header to prove they are authorized to make the API call on behalf of a registered Nike consumer. When the request reaches the Edge router, it
-- validates the access token
-- extracts the consumer's upmid and appid from the `Authorization` header
-- adds them as `upmid` and `appId` request headers
-- routes the request to the endpoint
+Those endpoints requiring consumer log in also require the experiences calling them to prove they are authorized to make API calls on behalf of consumers. After consumers log into their Nike account through the Unite platform in your app or experience, Unite returns a consumer access token (JWT) in the response. Clients pass this token in the `Authorization` header to prove they are authorized to make the API call on behalf of a registered Nike consumer. The Edge router does the following:
+- Validates the access token
+- Extracts the consumer's upmid and appid from the `Authorization` header
+- Adds them as `upmid` and `appId` request headers
+- Routes the request to the endpoint
 
 Passing a consumer access token eliminates the need for clients to pass the consumer-sensitive UPMID in the API call.
 
@@ -227,9 +227,9 @@ For more information on Unite login and JWTs, see the links below.
 - [Consumer Access Token Basics](https://confluence.nike.com/display/SECDEV/Nike+NDE+Consumer+Access+Token){:target="new-tab"}
 - [AAA - Getting Started with JWTs](https://confluence.nike.com/display/SECDEV/AAA+-+Getting+Started+with+JWTs){:target="new-tab"}
 
-### Service to Service JWTs
+### Service-to-Service JWTs
 
-Some services are only called by other services and require the calling service to both identify itself and prove it has access to call the endpoint. In this case, calling services need to generate S2S JWTs. The calling service signs the S2S JWT using a private key and the target endpoint uses the public key to validate the JWT. The JWT contains a list of base64-encoded "claims" that contain the calling service ID, list of service(s) it is authorized to call with this JWT, and a list of resources/behaviors it scoped to such as 'read,write.'
+Some services are only called by other services and require the calling service to both identify itself and prove it has access to call the endpoint. In this case, calling services need to generate S2S JWTs. The calling service signs the S2S JWT using the private key and the target endpoint uses the public key to validate the JWT. The JWT contains a list of base64-encoded "claims" that contain the calling service ID, list of services it is authorized to call with this JWT, and a list of resources/behaviors it scoped to such as 'read,write.'
 
 Once your service has generated the S2S JWT, send it in the `X-Nike-Authorization` request header along with the application ID (e.g. "checkouts") authorized to call the endpoint in the `X-Nike-AppId` request header. The application ID must match the service ID of the entity that signed the JWT.
 
