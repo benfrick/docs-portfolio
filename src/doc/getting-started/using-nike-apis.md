@@ -48,7 +48,7 @@ toc:
 
 # USING NIKE APIS
 
-##### Last Updated: 08/20/2019
+##### Last Updated: 09/24/2019
 
 ---
 
@@ -1176,6 +1176,7 @@ Be a good client by following these [Circuit Breaker Best Practices](/doc/commer
 |Initial publish|10/18/2018|
 |Added making Your First Request and other edits|12/11/2018|
 |Added Authentication router|8/20/2019|
+|Added Consumer and S2S JWT to Authentication section|9/24/2019|
 
 ## Related Links
 
