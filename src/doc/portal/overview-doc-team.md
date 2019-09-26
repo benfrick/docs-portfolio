@@ -41,21 +41,27 @@ Here is what's in it for you.
 
 **We write so you don't have to.**
 
-Let's face it. There are those who love to write and those who would rather dive into a pool of Box jellyfish. With your team's input, we'll write about what your users need to know and let you get back to the job you were hired to do (and love, right?).
+Let's face it. There are those who love to write and those who would rather walk on a buttery floor lined with porcupine quill chairs. With your team's input, we'll write about what your users need to know and let you get back to the job you were hired to do (and love, right?).
 
 **But I like to write, why do I need tech writers?**
 
-Already have authored content? Great! We enhance your writing by offering an outsider's perspective of the subject matter. We evaluate if the piece needs more context and offer editing services and give content flow guidance. We also provide writing continuity across development teams by writing in a consistent voice. No one knows your code better than you do, so it is our job to work with you to ensure our content is accurate, easy to understand, and useful to the reader.
+Already have authored content? Great! Tech writers enhance your writing by:
+
+ - Offering an outsider's perspective of the subject matter
+ - Evaluating if the piece needs more context
+ - Providing editing services
+ - Improving content flow
+ - Ensuring writing continuity across development teams
+
+ No one knows your code better than you do, so it is our job to work with you to ensure our content is accurate, easy to understand, and useful to the reader.
 
 **We eliminate (or at least ease) the broken record syndrome.**
 
-How many times have you or your team mates been asked the same question? Do you wish you had a support desk that could field all those Slack questions for you? We can help. We'll take the most common and not so common questions asked of your team, write them down, and put them in a place where people can find them. Now you can refer those answer-seekers to the docs. Everybody wins!
+How many times have you or your teammates been asked the same question from your users? Do you wish you had a support desk that could field all those Slack questions for you? Although we can't staff that support desk for you, we'll take the most common and not-so-common questions asked of your team, write them down, and put them in a place where people can find them. Now you can refer those answer-seekers to the docs. Everybody wins!
 
 **We help "market" your work.**
 
 Through writing, we communicate the many benefits of your hard work, explain its usefulness, and how it makes the world a better place for all mankind. Yeah, you know it does.
-
-
 
 ## What We Do
 
