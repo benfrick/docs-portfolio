@@ -130,4 +130,7 @@ resource "aws_cloudfront_distribution" "website_cdn" {
     minimum_protocol_version = "TLSv1"
   }
   aliases = ["${local.domain_name}"]
+  lifecycle {
+      ignore_changes = ["tags"]
+    }
 }
