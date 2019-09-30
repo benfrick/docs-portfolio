@@ -1,7 +1,7 @@
 <div id="sidebar" class="sidebar">
     <section>
         <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a>
-        <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;{{- page.toctitle -}}</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i>  Docs Team Services</a></h6>
+        <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Tech Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i>  Team Services</a></h6>
         {%- assign grouped_pages = site.pages | group_by: "category" | sort: "name" -%}
         {%- for sorted_cats in grouped_pages -%}
         {%- if sorted_cats.name != "" -%}
@@ -45,6 +45,6 @@
         </ul>
         {%- else -%}{%- endif -%}
         {%- endfor -%}
-        <h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/geo/nike_digital" target="blank">Nike Digital Blog</a></li><li><a href="http://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
+        <h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="http://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
     </section>
 </div>
