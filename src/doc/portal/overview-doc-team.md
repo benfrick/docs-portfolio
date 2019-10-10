@@ -11,7 +11,7 @@ toc:
     url: /doc/portal/overview-doc-team.html#how-can-we-help-you
 ---
 
-# Tech Docs Team Services
+# Commerce Docs Team Services
 
 ---
 <div>
@@ -26,7 +26,7 @@ toc:
 </aside>
 </div>
 
-Hi, we are the Tech Docs Team! We document technologies for the Nike Developer Portal and more, in order to **enhance the developer experience**.
+Hi, we are the Commerce Docs Team. We document technologies for the Nike Developer Portal and more, in order to **enhance the developer experience**.
 
 The documentation serves many audiences. Here are four:
 
