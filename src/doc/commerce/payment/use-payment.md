@@ -1245,7 +1245,7 @@ A successful 202 response includes a link to the job and a status polling eta.
 
 #### **Step 2: Check the debit job status**
 
-Use the [Retrieve Debit Job](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#retrieval-payment-gateway-debit-job-get){:target="new-tab"} endpoint to retrieve the results of the [Request Debit](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#submit-payment-request-for-debit-put){:target="new-tab"} job. After receiving a HTTP 202 and waiting the duration of the eta time specified in the response, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
+Use the [Retrieve Debit Job](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#retrieve-debit-job-get){:target="new-tab"} endpoint to retrieve the results of the [Request Debit](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-debit-put){:target="new-tab"} job. After receiving a HTTP 202 and waiting the duration of the eta time specified in the response, call this endpoint using the same UUID to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the eta period and checking the job status.
 
 To know if the job is done, check the value of the **status** field in the response body as follows:
 
@@ -1292,7 +1292,6 @@ To know if the job is done, check the value of the status field in the response 
 "status": "COMPLETED": job has completed
 
 Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the response object from this endpoint.
-
 
 Listed below is a sample [Retrieve Credit Job](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#retrieve-credit-job-get){:target="new-tab"} GET request URI. This endpoint is not JWT-restricted.
 ```
