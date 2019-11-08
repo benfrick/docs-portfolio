@@ -335,6 +335,15 @@ article h2 {
     margin-left: 6px;
     vertical-align: middle;
 }
+.revised-indicator-lg::after {
+    content: "REVISED";
+    color: white;
+    background-color: #3498db;
+    padding: 2px;
+    font-size: .9rem;
+    margin-left: 6px;
+    vertical-align: middle;
+}
 .numberCircle {
     color: #fff;
     font-size: 13px;
