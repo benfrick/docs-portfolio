@@ -35,7 +35,5 @@ url: /commerce/reference/glossary.html
 
 ## Related Links
 
-- [Commerce Docs Home](/index.html)
-
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 
