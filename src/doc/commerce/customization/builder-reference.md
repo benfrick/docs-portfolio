@@ -24,7 +24,7 @@ toc:
 
 ---
 
-##### Last Updated: 11/08/2019
+##### Last Updated: 11/11/2019
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
 
@@ -331,7 +331,7 @@ Called with the current buildData state of the Builder whenever a new product is
 
 ### Build Data
 
-The Builder returns a `buildData` object (also referred to as Build Data), which describes the current state of the with sizing information, style/color, current product
+The Builder returns a `buildData` object (also referred to as Build Data), which describes the current state of the build with sizing information, style/color, current product
 question/answer pairs, and more.
 
 Here is a [sample buildData object](/doc/commerce/customization/buildDataExample.html).
