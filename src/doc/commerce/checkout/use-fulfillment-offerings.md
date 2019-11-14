@@ -8,8 +8,10 @@ url: /doc/commerce/checkout/use-fulfillment-offerings.html
 toc:
   - h2: Introduction
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#introduction
-  - h2: Wish Lists
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#carts
+  - h2: Get Fulfillment Offerings
+    url: /doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings
+  - h2: Get Shipping Options (Legacy)
+    url: /doc/commerce/checkout/use-fulfillment-offerings.html#get-shipping-options-legacy
   - h2: API Quick Reference
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#api-quick-reference
   - h2: Troubleshooting
@@ -23,9 +25,9 @@ toc:
 
 ---
 
-##### Last Updated: 06/20/2019
+##### Last Updated: 10/22/2019
 
-Use [Fulfillment Offerings](#fulfillment-offerings) to show consumers the options for getting their purchases, no matter where they are.
+Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
 >**TIPS**:
 >- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
@@ -34,53 +36,237 @@ Use [Fulfillment Offerings](#fulfillment-offerings) to show consumers the option
 
 ## Introduction
 
-In a checkout experience, consumers are accustomed to selecting a fulfillment method (e.g. Two-Day shipping) and being shown the costs and estimated delivery dates.
+In a checkout experience, consumers are accustomed to selecting a shipping method (e.g. "Two-Day") while being shown the associated costs and estimated delivery dates.
 
 But what if you want to show them additional options, like a list of nearby stores or other locations where they can pick up their order?
 
-[Fulfillment Offerings](#fulfillment-offerings) gives you all you need to drive a 'Shipping' selection experience like the one shown here.
+[Fulfillment Offerings](#fulfillment-offerings) gives you all you need to drive an interactive 'Shipping' selection experience like the one shown here:
 
-![](/images/commerce/buy/f-offs-select-options.png)
+![Prototype of a Nike shipping selection experience](/images/commerce/buy/f-offs-select-options.png)
 
 ### What are Fulfillment Offerings?
 
-Fulfillment Offerings are the options that the consumer has for receiving the items they are about to purchase. So, how does it work?
+Fulfillment Offerings are a **set of price offers that a consumer has for receiving the items in their cart**, as determined by the [Fulfillment Offerings API](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}.
 
-For each item in a checkout that you send to Fulfillment Offerings, one or more offerings is returned. Each offering has the following attributes:
+Offerings can vary at any moment in time based upon:
 
-|Offering Attribute|Description|Example|
-|---|---|---|
-|**Fulfillment Type**|The type of fulfillment offering|`"type": "SHIP"`,`"type": "PICKUP"`|
-|**Location**|Delivery destinations|postal/email addresses, store IDs, pickup locations, GPS coordinates|
-|**'Get By' Date**|Estimated date (min/max) for the item to be fulfilled|`"dateTime": "2019-02-09T23:59:59.000Z"`|
-|**Expiration Date**|The date on which the offering expires|`"offerExpiration": "2019-02-07T00:00:00.000Z"`|
-|**Price**|Price of the offering|`"total": 8`|
+- Consumer information
+- Delivery destinations (i.e. shipping addresses, store IDs, pickup locations, email addresses, GPS coordinates)
+- Items in cart
+- Total item prices
+- Available discounts/promotions
 
-#### Fulfillment Types
+Turn this into a diagram:
+Send an API request to get the available offerings and then show them to the consumer. As the consumer selects an offer for each item, send additional API requests in order to dynamically refresh the offerings shown. That way, the consumer can make up their mind quickly and easily.
 
-Offerings are grouped by Fulfillment Type. Here are the possible values:
+>**TIP:** You can also [Search for Offerings Using Consumer Location and Intents](#search-for-offerings-using-consumer-location-and-intents).
 
-|Type|Description|Example|
+### What is BOPIS?
+
+Fulfillment Offerings supports the 'Buy Online, Pickup In Store' (BOPIS) scenario. This is where the consumer completes a checkout in the app/web, then travels to a nearby store to pick up their order. See [BOPIS](#bopis) for further details.
+
+## Key Terms
+
+|Term|Definition|
+|---|---|
+|Fulfillment Offering|A set of price offers that a consumer has for fulfilling the items in their cart.|
+|Items|The individual products and services to be fulfilled.|
+|Expiration Date|The date/time after which an offering expires.|
+|Get By|The estimated date (min/max) for the item to be fulfilled.|
+|Fulfillment Group|A grouping of cart items that have the same Fulfillment Type.|
+|Fulfillment Type|The type of offering, one of `SHIP`, `PICKUP`, `INSTORE`, `DIGITAL`|
+|BOPIS|Acronym for 'Buy Online, Pickup In Store'|
+|Locations|The types of locations to be considered for a particular offering, e.g. `address/shipping` or `location/search`|
+|Store|A Nike store at which the consumer can pick up their order, in the case of BOPIS.|
+|Pickup Location|The third-party location at which the consumer picks up their order.|
+|Email|The email address to which the products/services are to be fulfilled, e.g. for digital gift cards.|
+|Shipping Address|The postal address to which the products are to be shipped.|
+
+## Making Your First Request
+
+Let's walk through how to make your first request to the Fulfillment Offerings API, and along the way, define and explain some more concepts.
+
+### What Data Do I Need To Provide?
+
+At minimum, the following is required to be sent in the request body:
+
+- `country` code (e.g. US)
+- `currency` code (e.g. USD)
+- List of `items`, each having:
+    - Unique line item `id` (a UUID that you generate)
+    - Item `quantity`
+    - `locations` (one or more of `address/shipping`, `address/digital`, `location/search`, `store/store_views`, `location/pick_up_locations`)
+
+Optionally, for each item you can send a `fulfillmentType` which describes the consumer's **intended method of fulfillment** for that item (if known).
+
+**Possible values for Fulfillment Type**
+|Type|Description|Example Scenario|
 |---|---|---|
 |`SHIP`|Consumer receives the order at their postal address.|Carrier delivers order to a home address|
 |`PICKUP`|Consumer picks up the order at a Nike store or third-party pickup location|'Buy Online Pickup In Store' (BOPIS).|
 |`INSTORE`|Consumer completes self-checkout via mobile while in a retail store|Instant Checkout in the Nike app|
 |`DIGITAL`|Consumer receives the order at their digital address|Digital gift card is delivered by email.|
 
-#### What Data Do I Need To Provide?
+>**KEY CONCEPT**:
+>Fulfillment Type, along with Location, describe the consumer's intent(s) for receiving the item. More on [intent](#step-1-show-a-ui-to-select-fulfillment-intent) later.
 
-The minimum required data to send to Fulfillment Offerings is:
+>**TIP**: Always check the [Fulfillment Offerings API Reference](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} for the most up-to-date requirements.
 
-- `country` code (e.g. US)
-- `currency` code (e.g. USD)
-- List of `items`, each having:
-    - Unique item `id`
-    - Item `quantity`
-    - `locations` (one or more of `address/shipping`, `address/digital`, `location/search`, `store/store_views`, `location/pick_up_locations`)
+### Send the Request
 
->**TIP**: See the [Fulfillment Offerings API Reference](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} for the most up-to-date requirements.
+Send a HTTP PUT request to https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9. Note the UUID in the URL path, which you must generate.
 
-#### Searching for Offerings Using Consumer Location and Intents
+**Sample Request Body**
+```json
+{
+    "country": "US",
+    "currency": "USD",
+    "locale": "en_US",
+    "items": [
+      {
+        "id": "2c1db6b9-7fd7-401c-acc9-73f926681cb9",
+        "skuId": "935f2623-6010-4da9-a218-571c8e33d7aa",
+        "quantity": 1,
+        "valueAddedServices": [
+          {
+            "id": "88d0475d-30e5-4c2f-9a87-7a31938f8ace",
+            "instruction": {
+              "id": "2027261230",
+              "type": "customization/nike_id"
+            }
+          }
+        ],
+        "locations": [
+          {
+            "type": "address/shipping",
+            "postalAddress": {
+              "country": "US",
+              "address1": "1234 NW Test",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "97006"
+            }
+          }
+        ]
+      },
+      {
+        "id": "a05dcb8a-79e5-4f69-bc30-213dd93f429c",
+        "skuId": "15611769-e81b-45dd-b28c-ca0effb272de",
+        "quantity": 1,
+        "locations": [
+          {
+            "type": "address/shipping",
+            "postalAddress": {
+              "country": "US",
+              "address1": "1234 NW Test",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "97006"
+            }
+          }
+        ],
+        "fulfillmentType": "SHIP"
+      },
+      {
+        "id": "64607a11-eaa8-4997-b2ff-b50b6b323b37",
+        "skuId": "f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7",
+        "quantity": 1,
+        "locations": [
+          {
+            "type": "address/shipping",
+            "postalAddress": {
+              "country": "US",
+              "address1": "1234 NW Test",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "97006"
+            }
+          },
+          {
+            "type": "location/search",
+            "coordinates": {
+              "latitude": 2847475,
+              "longitude": 7799846
+            },
+            "radius": {
+              "distance": 20,
+              "unitOfMeasure": "mi"
+            }
+          },
+          {
+            "type": "location/search",
+            "postalCode": "90401",
+            "radius": {
+              "distance": 20,
+              "unitOfMeasure": "mi"
+            }
+          }
+        ],
+        "fulfillmentType": "PICKUP"
+      }
+    ],
+    "promotionCodes": [
+      "SUMMER20"
+    ],
+    "offeringTypes": [
+      "SHIP",
+      "PICKUP"
+    ]
+}
+```
+
+Query Params for GET request:
+
+- Fulfillment Type (as `fulfillmentTypes`)
+- Location as (`country` or `country` and `postalCode`)
+- Product data (as `skuId` or `gtin`)
+
+### Evaluate the Response
+
+The API response includes a list of items. For each item, one or more offerings are included, along with a [Fulfillment Group](#fulfillment-groups) identifier.
+
+#### What's in an Offering?
+
+Each offering has the following attributes:
+
+**Offering Attributes**
+|Attribute|Description|Example|
+|---|---|---|
+|**Fulfillment Type**|The type of offering|`"type": "SHIP"`,`"type": "PICKUP"`|
+|**Location**|Delivery destinations|postal/email addresses, store IDs, pickup locations, GPS coordinates|
+|**'Get By' Date**|The estimated date (min/max) for the item to be fulfilled|`"dateTime": "2019-02-09T23:59:59.000Z"`|
+|**Expiration Date**|The date on which the offering expires|`"offerExpiration": "2019-02-07T00:00:00.000Z"`|
+|**Price**|The price of the offering|`"total": 8`|
+
+#### Fulfillment Groups
+
+The API response also includes an array of `fulfillmentGroups`, include one group for each applicable Fulfillment Type. For example, if there are multiple options for fulfillment type `SHIP`, they will belong to the same Fulfillment Group, while offerings of other types would be in separate groups.
+
+Fulfillment Groups can be identified by the unique identifiers found in either `items.**fulfillmentGroupId**` or `fulfillmentGroups.**id**`.
+
+>**TIP** Fulfillment Groups help you to show the offerings of same type together in the experience, making it easier for the consumer to make their selections.
+
+## Get Fulfillment Offerings
+
+<i class="g72-check"></i>&nbsp;&nbsp;**Get fulfillment offerings**
+
+Let's walk through some use-cases for integrating Fulfillment Offerings into your experience.
+
+### Step 1: Show a UI to Select Fulfillment Intent
+
+For the consumer to finalize their decision about how to receive their items, first you need to capture some info about their **intent**.
+
+Intent, in the context of Fulfillment Offerings, is the combination of the desired Fulfillment Type and Location.
+
+Price offers are for fulfillment groups.
+
+Intent vs non-intent offerings: intent will have a price offer reference (priceOfferId), while non-intent offerings do not.
+
+Enter shipping address
+
+Select from list?
+
+#### Search for Offerings Using Consumer Location and Intents
 
 What if you want to get additional offerings to show the consumer, for example, based on their GPS coordinates? What if you already know the consumer's intended fulfillment type for some items, but not all items?
 
@@ -93,43 +279,13 @@ For this you can *optionally* send any of the following to Fulfillment Offerings
 
 Fulfillment Offerings adjusts the results based on what you send, making for an efficient way to drive the experience.
 
-#### What is BOPIS?
+### Step 2: Show a UI to Select a Price Offer
 
-Fulfillment Offerings supports the 'Buy Online, Pickup In Store' (BOPIS) scenario. This is the scenario when the consumer completes the checkout in the app/web, then travels to a nearby store to pick up their order. See [BOPIS]() for further details.
 
-**Summary**: Fulfillment Offerings returns everything you need to drive a 'Shipping' selection experience.
 
-## Key Terms
+## Get Shipping Options (Legacy)
 
-|Term|Definition|
-|---|---|
-|Fulfillment Group||
-|Get By||
-|Item(s)||
-|Expiration Date||
-|Offering Type||
-|Pickup Location||
-|Search Nearby||
-|Shipping Address||
-|Store||
-|Email|A type of 'Digital Address' used for Digital Gift Card fulfillment|
-
-## Fulfillment Offerings
-
-<i class="g72-check"></i>&nbsp;&nbsp;**Get fulfillment offerings**
 <i class="g72-check"></i>&nbsp;&nbsp;**Get shipping options (legacy)**
-
-### Get Fulfillment Offerings
-
-Query Params for GET request:
-
-- Fulfillment Type (as `fulfillmentTypes`)
-- Location as (`country` or `country` and `postalCode`)
-- Product data (as `skuId` or `gtin`)
-
-The returned offerings are grouped logically in the API response. For example, if there are multiple options for fulfillment type 'SHIP', then they are grouped together.
-
-### Get Shipping Options (Legacy)
 
 >**IMPORTANT**: The Shipping Options API will be deprecated. New integrators should use Fulfillment Offerings.
 
@@ -143,11 +299,19 @@ Sample [Shipping Options API](https://developer.niketech.com/docs/projects/Shipp
 https://api.nike.com/buy/shipping_options/v2
 ```
 
->**TIP:** Although optional, including a shippingAddress is recommended whenever possible. In China, shipping methods can vary based on the province, city, and district combination. Also, for certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
+>**TIPS:** 
+>- Although optional, including a `shippingAddress` is recommended whenever possible.
+>- In China, shipping methods can vary based on the province, city, and district combination.
+>- For certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
 
 ## API Quick Reference
 
-- [Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+**Fulfillment Offerings**
+- [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+- [Retrieve Fulfillment Offerings Job](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+- [Get Fulfillment Offerings (Cacheable)](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+
+**Shipping Options**
 - [Shipping Options](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="new-tab"}
 
 ## Troubleshooting
@@ -174,7 +338,7 @@ Need to contact the Cart & Checkout team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|06/20/2019|Initial Draft|
+|Initial draft|09/16/2019|Initial Draft|
 
 ## Next Steps
 
