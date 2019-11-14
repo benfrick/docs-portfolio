@@ -24,9 +24,9 @@ toc:
 
 ---
 
-##### Last Updated: 07/30/2019
+##### Last Updated: 11/11/2019
 
-This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
+This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 
 >**TIP**: Also see [Customization Overview](/doc/commerce/customization/overview-customization.html) and [Adding Customization To Your Experience](/doc/commerce/customization/use-customization/html).
 
@@ -154,7 +154,6 @@ var config = {
 
 var builderApi = nikeIdBuilder(rootElement, config)
 ```
-
 
 ### Parameters
 
@@ -332,7 +331,7 @@ Called with the current buildData state of the Builder whenever a new product is
 
 ### Build Data
 
-The Builder returns a `buildData` object (also referred to as Build Data), which describes the current state of the with sizing information, style/color, current product
+The Builder returns a `buildData` object (also referred to as Build Data), which describes the current state of the build with sizing information, style/color, current product
 question/answer pairs, and more.
 
 Here is a [sample buildData object](/doc/commerce/customization/buildDataExample.html).
@@ -341,24 +340,29 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 
 |Field|Type|Description|Example|
 |---|---|---|---|
-|`availability`|Object|The lead time in days for the product to be delivered, when `isAvailable` is true. When false, only an 'out of stock' message is returned.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`pathName`|String|The product pathName for this build.|"ER2teamSP19_barca"|
 |`productId`|String|The product ID for this build.|"PROD372041"|
 |`consumerQuesAnswers`|Array|Collection of product question-and-answer pairs representing the current state of the Builder's pid selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`productQuesAnswers`|Array|A collection of product question-and-answer pairs representing the current state of the Builder's combination selections.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`sizeMarketingComponent`|Object|DEPRECATED and replaced by `sizingData` (see below)|
-|`viewNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 urls for each angle of the product currently being shown within the Builder for your own product carousels or display pages.|"1,2,3,4,5,6"|
+|`viewNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 URLs for each angle of the product currently being shown within the Builder for your own product carousels or display pages.|"1,2,3,4,5,6"|
 |`color`|String|The product color code for this build.|"994"|
 |`price`|String|The product price formatted as string with the currency symbol.|$180|
 |`rawPrice`|Number|The product price formatted as a number.|180|
 |`style`|String|The product style code.|"CK3977"|
 |`country`|String|The current country code for this build.|"US"|
 |`locale`|String|The current locale code for this build.|"en_US"|
-|`viewService`|String|The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the `viewUrlTemplate` field to build scene7 request urls.|See [here](/doc/commerce/customization/buildDataExample.html)|
-|`viewUrlTemplate`|String|Scene7 parameterized url for making requests for product images. Provided with a `{VIEW_NUMBER}` template string which you should target for replacement with a `viewNumber` which you would like to request. Use this field in conjunction with `viewNumbers` and `viewService` in order to template scene7 urls in order to request product images represented by the current buildData.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`imageNumbers`|String|Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 URLs for each angle of the product for your own product carousels or display pages.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`imageService`|String|The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the viewUrlTemplate field to build scene7 image service request URLs.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`imageUrlTemplate`|String|Scene7 parameterized URL for making requests for product images that are returned as opaque JPGs. The URL contains tags that must be replaced with valid values. These tags are {VIEW_NUMBER} (one of the values from imageNumbers), {IMAGE_WIDTH}, {BACKGROUND_COLOR} (in the form f5f5f5), & {JPG_QUALITY} (0 - 100).|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`imageUrlShadowTemplate`|String|This URL is the same as the imageUrlTemplate except it has added parameters that will cause a shadow to be rendered underneath the image.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`viewService`|String|The host of the render service call used to request images of the product represented by the buildData. Use in conjunction with the viewUrlTemplate field to build scene7 render service request URL.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`viewUrlTemplate`|String|Scene7 parameterized URL for making requests for product images that are uncompressed PNGs with a transparent background. The URL contains a tag {VIEW_NUMBER} (one of the values from imageNumbers) that must be replaced with a valid value. You must also add a width to the end of the string in the form &wid={imageWidth} where {imageWidth} represents the width you desire.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`viewUrlShadowTemplate`|String|This URL is the same as the viewUrlTemplate except it has added parameters that will cause a shadow to be rendered underneath the image.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`availability`|Object|The lead time in days for the product to be delivered, when `isAvailable` is true. When false, only an 'out of stock' message is returned.|See [here](/doc/commerce/customization/buildDataExample.html)|
+|`myDesigns`|Array|Array of locally-saved My Designs for the given pathName|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`sizeTypes`|Array|A collection of sizeTypes based on the sizeTypeRegion that was requested in the config data.|See [here](/doc/commerce/customization/buildDataExample.html)|
 |`sizingData`|Array|Contains arrays of gender, width, size, and size chart data. Used for "buying" and "size" tools.|See [here](/doc/commerce/customization/buildDataExample.html)|
-|`myDesigns`|Array|Array of locally-saved My Designs for the given pathName|See [here](/doc/commerce/customization/buildDataExample.html)|
 
 ##### More about **availability**
 
@@ -465,6 +469,91 @@ Sample sizingData:
     ]
   }
 ]
+```
+
+### Working with imageServer Images
+
+The buildData that is returned includes URLs for generating images from the **image server**. These images are opaque JPGs, as opposed to the transparent PNGs provided by the [render server](#working-with-viewserver-images).
+
+- `imageNumbers`
+- `imageService`
+- `imageUrlTemplate`
+- `imageUrlShadowTemplate`
+
+These can be processed to generate the urls you need by adding this function to your code:
+
+```javascript
+/**
+* Get the imageUrls for the current design from the image server
+*
+* @param {Object} buildData - the buildData
+* @param {String} backgroundColor - the background color to use i.e. ('f5f5f5')
+* @param {Integer} imageWidth - the width value of the image
+* @param {Integer} jpgQuality - the jpeg compression quality (0 - 100), I recommend 90
+* @param {Boolean} includeShadow - whether or not to include shadow
+* @returns {Array} - an array of urls
+*/
+getImageUrls(buildData, backgroundColor, imageWidth, jpgQuality, includeShadow) {
+    const imageUrls = [];
+    const imageService = buildData.imageService;
+    const imageTemplate = (includeShadow ? buildData.imageUrlShadowTemplate : buildData.imageUrlTemplate);
+ 
+    if (buildData && buildData.imageNumbers && imageService && imageTemplate) {
+        const viewNumbers = buildData.imageNumbers.split(',');
+        const baseViewUrl = `${imageService}${imageTemplate}`;
+ 
+        for (let viewIndex = 0; viewIndex < viewNumbers.length; viewIndex += 1) {
+            let imageUrl = baseViewUrl.replace(/{VIEW_NUMBER}/, viewNumbers[viewIndex])
+            .replace(/{IMAGE_WIDTH}/, imageWidth)
+            .replace(/{BACKGROUND_COLOR}/, backgroundColor)
+            .replace(/{JPG_QUALITY}/, jpgQuality);
+ 
+            imageUrls.push(imageUrl);
+        }
+    }
+ 
+    return imageUrls;
+}
+```
+
+### Working with viewServer Images
+
+The buildData that is returned will include image URLs for generating images from the **render server**. These images are transparent PNGs, as opposed to the JPGs provided by the [image server](#working-with-imageserver-images).
+
+- `viewNumbers`
+- `viewService`
+- `viewUrlTemplate`
+- `viewUrlShadowTemplate`
+
+These can be processed to generate the URLs you need by adding this function to your code:
+
+```javascript
+/**
+* Get the viewUrls for the current design
+*
+* @param {Object} buildData - the buildData
+* @param {Integer} imageWidth - the width value of the image
+* @param {Boolean} includeShadow - whether or not to include shadow
+* @returns {Array} - an array of urls
+*/
+getViewUrls(buildData, imageWidth, includeShadow) { // eslint-disable-line class-methods-use-this
+    const viewUrls = [];
+    const viewService = buildData.viewService;
+    const viewTemplate = (includeShadow ? buildData.viewUrlShadowTemplate : buildData.viewUrlTemplate);
+ 
+    if (buildData && buildData.viewNumbers && viewService && viewTemplate) {
+        const viewNumbers = privateData.getBuildData().viewNumbers.split(',');
+        const baseViewUrl = `${viewService}${viewTemplate}`;
+ 
+        for (let viewIndex = 0; viewIndex < viewNumbers.length; viewIndex += 1) {
+            const viewUrl = `${baseViewUrl.replace(/{VIEW_NUMBER}/, viewNumbers[viewIndex])}&wid=${imageWidth}`;
+ 
+            viewUrls.push(viewUrl);
+        }
+    }
+ 
+    return viewUrls;
+}
 ```
 
 ## Methods
