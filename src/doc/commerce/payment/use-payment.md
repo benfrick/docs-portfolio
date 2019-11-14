@@ -1144,13 +1144,13 @@ A successful response includes a `resultCode` that determines the authentication
 
 If the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} call returned a resultCode of **IdentifyShopper**, you will need to get the secure device fingerprint.
 
-##### Step 2a: Get the fingerprint result token
+##### Step 2a: Get the Fingerprint Result Token
 
 Follow [Adyen's fingerprint flow for Web, iOs or Android](https://docs.adyen.com/checkout/3d-secure/native-3ds2/api-integration#get-the-3d-secure-2-device-fingerprint){:target="new-tab"} in your app or experience passing the `token` as the fingerprintToken from the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} response in **Step 1**. A successful response returns the device fingerprint result token.
 
-##### Step 2b: Get the fingerprint
+##### Step 2b: Get the Fingerprint
 
-Once you have the device fingerprint result token, call the [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} endpoint passing the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response and the device fingerprint result token.
+Once you have the device fingerprint result token from **Step 2a**, call the [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} endpoint passing the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response and the device fingerprint result token.
 
 Listed below is a sample [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted.**
 
@@ -1170,13 +1170,13 @@ A successful response includes a `resultCode` that determines the authentication
 
 If the [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} call returned a resultCode of **ChallengeShopper**, you will need to present an authentication challenge to the consumer.
 
-##### Step 3a: Present a challenge
+##### Step 3a: Present a Challenge
 
 Follow [Adyen's present a challenge flow for Web, iOs or Android](https://docs.adyen.com/checkout/3d-secure/native-3ds2/api-integration#present-a-challenge){:target="new-tab"} in your app or experience passing the `token` from the [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} response from **Step 2** as the challenge token. A successful response returns a challenge result token.
 
 ##### Step 3b: Request Challenge
 
-Once you have the challenge result token, call the [Request Challenge](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} endpoint passing the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response and the challenge result token as the `challengeResultToken`.
+Once you have the challenge result token from **Step 3a**, call the [Request Challenge](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} endpoint passing the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response and the challenge result token as the `challengeResultToken`.
 
 Listed below is a sample [Request Challenge](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted.**
 
@@ -1196,7 +1196,7 @@ A successful response includes a `resultCode` that determines the authentication
 
 If the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} call returned a resultCode of **RedirectShopper**, you will need to redirect the consumer to the issuer’s site to authenticate the transaction using 3DS 1 as a fallback.
 
-##### Step 4a: Redirect the consumer to the issuer's site
+##### Step 4a: Redirect the Consumer to the Issuer's Site
 
 Redirect the consumer to the `url` from the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} response so the consumer can complete payment authentication. Once the payment is successfully authenticated at the bank site, the consumer will be redirected to your site with `MD` and `PaRes` variables appended.
 
