@@ -1135,8 +1135,8 @@ A successful response includes a `resultCode` that determines the authentication
 
 |Result Code|Next Step|
 |---|---|
-|**AuthenticationFinished**|The payment was successfully authenticated with 3D Secure and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
-|**IdentifyShopper**|The consumer's device fingerprint is required in order to authenticate the payment with 3D Secure. Proceed to **Step 2: Request Fingerprint**.|
+|**AuthenticationFinished**|The payment was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**IdentifyShopper**|The consumer's device fingerprint is required in order to authenticate the payment with 3DS 2. Proceed to **Step 2: Request Fingerprint**.|
 |**RedirectShopper**|The transaction could not be authenticated using 3DS 2. Redirect the consumer to the issuer's site to authenticate the transaction using 3DS 1. Proceed to **Step 4: Redirect Shopper**.|
 |**Error**|An error occurred during the call. Display the error to the consumer.|
 
@@ -1162,8 +1162,8 @@ A successful response includes a `resultCode` that determines the authentication
 
 |Result Code|Next Step|
 |---|---|
-|**AuthenticationFinished**|The payment was successfully authenticated with 3D Secure and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
-|**ChallengeShopper**|The transaction cannot be authenticated.  The consumer must complete an authentication challenge in order for the transaction to be authenticated. Proceed to **Step 3: Request Challenge**.|
+|**AuthenticationFinished**|The payment was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**ChallengeShopper**|The consumer must complete an authentication challenge in order to authenticate the payment with 3DS 2. Proceed to **Step 3: Request Challenge**.|
 |**Error**|An error occurred requesting the fingerprint. Display the error to the consumer.|
 
 #### Step 3: Request Challenge
@@ -1188,7 +1188,7 @@ A successful response includes a `resultCode` that determines the authentication
 
 |Result Code|Next Step|
 |---|---|
-|**AuthenticationFinished**|The consumer was successfully authenticated and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**AuthenticationFinished**|The consumer was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
 |**Error**|An error occurred requesting the fingerprint. Display the error to the consumer.|
 
 
@@ -1214,7 +1214,7 @@ A successful response includes a `resultCode` that determines the authentication
 
 |Result Code|Next Step|
 |---|---|
-|**AuthenticationFinished**|The consumer was successfully authenticated and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**AuthenticationFinished**|The consumer was successfully authenticated with 3DS 1 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
 |**Error**|An error occurred requesting the fingerprint. Display the error to the consumer.|
 
 #### Step 5: Request Checkout Submit
