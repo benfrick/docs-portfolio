@@ -26,7 +26,7 @@ toc:
 
 ##### Last Updated: 11/11/2019
 
-This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html)
+This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 
 >**TIP**: Also see [Customization Overview](/doc/commerce/customization/overview-customization.html) and [Adding Customization To Your Experience](/doc/commerce/customization/use-customization/html).
 
