@@ -18,7 +18,6 @@ toc:
 <aside class="note">
         <h4 style="text-align:center;">Resources</h4>
     <ul>
-        <li>Product Manager: <a href="mailto:jeremy.geiger@nike.com">Jeremy Geiger</a></li>
         <li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#nde-doc</a></li>
         <li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Docs Team</a></li>
         <li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">Doc Project</a></li>
