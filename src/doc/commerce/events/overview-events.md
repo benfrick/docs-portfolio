@@ -6,7 +6,7 @@ position: 9
 title: Events
 url: /doc/commerce/events/overview-events.html
 h1: Analytics Pipeline Overview
-dev-guide: /doc/commerce/events/use-events.html
+dev-guide: /doc/commerce/events/use-eventsv2.html
 ---
 {% include overview-header.html %}
 
