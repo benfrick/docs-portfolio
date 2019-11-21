@@ -26,8 +26,8 @@ toc:
     url: /doc/commerce/payment/use-payment.html#3-d-secure-authentication
   - h2: Payment Approval
     url: /doc/commerce/payment/use-payment.html#payment-approval
-  - h2: Fulfillment Payment Notification
-    url: /doc/commerce/payment/use-payment.html#fulfillment-payment-notification
+  - h2: Post Order Payment Processing
+    url: /doc/commerce/payment/use-payment.html#post-order-payment-processing
   - h2: Third Party Payment Notification
     url: /doc/commerce/payment/use-payment.html#third-party-payment-notification
   - h2: API Quick Reference
@@ -1137,6 +1137,7 @@ A successful response includes a `resultCode` that determines the authentication
 |---|---|
 |**AuthenticationFinished**|The payment was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
 |**IdentifyShopper**|The consumer's device fingerprint is required in order to authenticate the payment with 3DS 2. Proceed to **Step 2: Request Fingerprint**.|
+|**ChallengeShopper**|The consumer must complete an authentication challenge in order to authenticate the payment with 3DS 2. Proceed to **Step 3: Request Challenge**.|
 |**RedirectShopper**|The transaction could not be authenticated using 3DS 2. Redirect the consumer to the issuer's site to authenticate the transaction using 3DS 1. Proceed to **Step 4: Redirect Shopper**.|
 |**Error**|An error occurred during the call. Display the error to the consumer.|
 
@@ -1319,7 +1320,7 @@ https://api.nike.com/payment/approval_summary/v1/ae6575a7-8c0e-44ef-b91b-440bdaf
 A successful 200 response lists a summary of a successful payment approval with masked account information.
 
 
-## Fulfillment Payment Notification
+## Post Order Payment Processing
 
 The following payment actions can be taken on an order after it has been submitted for fulfillment.
 
