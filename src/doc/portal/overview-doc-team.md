@@ -18,7 +18,6 @@ toc:
 <aside class="note">
         <h4 style="text-align:center;">Resources</h4>
     <ul>
-        <li>Product Manager: <a href="mailto:jeremy.geiger@nike.com">Jeremy Geiger</a></li>
         <li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#nde-doc</a></li>
         <li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Docs Team</a></li>
         <li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">Doc Project</a></li>
@@ -34,6 +33,8 @@ The documentation serves many audiences. Here are four:
 - Experienced Developers fixing a bug or implementing a new feature who need **quick, specific answers**
 - Product teams seeking to **solve business problems**
 - Decision Makers seeking to **add business value**
+
+The best time to engage our services for a new or revised API contract is after it is defined, but before teams start integrating with it. This is because questions that arise during the documentation Discovery phase often shed light on common integration questions that can be addressed in the doc. And when integrators get their questions answered via documentation, developers on your team have more time to write code. Win win.
 
 ## How do tech writers make my job easier?
 
@@ -65,7 +66,7 @@ Through writing, we communicate the many benefits of your hard work, explain its
 
 ## What We Do
 
-<a href="/doc/commerce/product/overview-product-feeds.html" target="new-tab"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="/doc/getting-started/using-nike-apis.html" target="new-tab"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
+<a href="https://developer.niketech.com/nde-docs/doc/commerce/product/overview-product-feeds.html" target="new-tab"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="https://developer.niketech.com/nde-docs/doc/getting-started/using-nike-apis.html" target="new-tab"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
 
 ### <i class="fas fa-pen"></i> &nbsp;Write the Docs
 
