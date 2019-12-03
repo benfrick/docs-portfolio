@@ -22,10 +22,12 @@ toc:
     url: /doc/commerce/payment/use-payment.html#deferred-payment
   - h2: Payment Preview
     url: /doc/commerce/payment/use-payment.html#payment-preview
+  - h2: 3-D Secure Authentication
+    url: /doc/commerce/payment/use-payment.html#3-d-secure-authentication
   - h2: Payment Approval
     url: /doc/commerce/payment/use-payment.html#payment-approval
-  - h2: Fulfillment Payment Notification
-    url: /doc/commerce/payment/use-payment.html#fulfillment-payment-notification
+  - h2: Post Order Payment Processing
+    url: /doc/commerce/payment/use-payment.html#post-order-payment-processing
   - h2: Third Party Payment Notification
     url: /doc/commerce/payment/use-payment.html#third-party-payment-notification
   - h2: API Quick Reference
@@ -51,7 +53,7 @@ toc:
 
 ---
 
-##### Last Updated: 10/21/2019
+##### Last Updated: 11/14/2019
 
 Manage the payment process for consumers purchasing Nike products and services.
 
@@ -97,6 +99,8 @@ After an Order has been submitted for fulfillment, it goes through a series of s
 
 |Term|Definition|
 |---|---|
+|3D Secure 1|Payment authentication where consumers leave the checkout flow to perform Strong Customer Authentication (SCA) at a bank site. Once authenticated, the consumer is returned to the shopping flow to complete checkout.|
+|3D Secure 2|Frictionless payment authentication where consumers perform SCA within the shopping flow. SCA can be performed passively such as through an API that obtains a consumer's device fingerprint or actively where a consumer completes an online challenge.|
 |Authorization|A temporary hold on funds in a consumer’s account for a future charge|
 |Credit|Funds that are returned to a consumer’s account|
 |Debit|Funds that are removed from a consumer’s account|
@@ -104,6 +108,7 @@ After an Order has been submitted for fulfillment, it goes through a series of s
 |DOMS|A Distributed Order Management System, also known as Sterling, that handles order fulfillment|
 |ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike's non-commerce systems|
 |PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
+|Strong Customer Authentication|Process where consumers provide something they have (e.g. device fingerprint) and/or know (e.g. password) in order to be authenticated.|
 |[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
 |Reauthorization|When a temporary hold on funds in a consumer's account is reissued, typically when the original authorization has expired|
 |S3|Amazon Simple Storage Service used to store and retrieve data such as files|
@@ -1103,6 +1108,120 @@ A successful 200 response lists the payment types on the Checkout and the amount
 >
 ><i class="mr2-sm g72-check"></i>Get the {id} path parameter from the `id` job UUID in the *Request Payment Preview* response.
 
+## 3-D Secure Authentication
+
+<i class="mr2-sm g72-check"></i>**Prevent fraud and protect the consumer**
+
+The Payment 3DS service (3-Domain Secure) adds a layer of protection against fraud in credit card and debit card transactions. It uses [Adyen](https://www.adyen.com/risk-management/3d-secure-2-0){:target="new-tab"}, a third party 3D Secure 2 provider, to authenticate payment transactions. Not all credit card payment transactions require 3DS. If 3DS is required, your experience calls the Payment 3DS service as a separate step before payment authorization, which takes place during [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"}.
+
+**When do I need to call this service?**
+
+If `is3DSRequired` is **true** in the [Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-retrieve-payment-preview-job-get){:target="new-tab"} response, the transaction requires 3DS authentication. In this case, your experience needs to call the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} endpoint in the Payment 3DS API. Depending upon the response, you will either call additional 3DS and Adyen endpoints or proceed directly to [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"}.
+
+>**TIP:** All 3DS POST endpoints are synchronous.
+
+#### Step 1: Request Authentication
+
+Call the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} endpoint passing the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response, currency, originURL, returnURL, channel, amount, and browser information.
+
+
+Listed below is a sample [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted.**
+
+```
+/payment/3ds_authentications/v1
+```
+
+A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
+
+|Result Code|Next Step|
+|---|---|
+|**AuthenticationFinished**|The payment was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**IdentifyShopper**|The consumer's device fingerprint is required in order to authenticate the payment with 3DS 2. Proceed to **Step 2: Request Fingerprint**.|
+|**ChallengeShopper**|The consumer must complete an authentication challenge in order to authenticate the payment with 3DS 2. Proceed to **Step 3: Request Challenge**.|
+|**RedirectShopper**|The transaction could not be authenticated using 3DS 2. Redirect the consumer to the issuer's site to authenticate the transaction using 3DS 1. Proceed to **Step 4: Redirect Shopper**.|
+|**Error**|An error occurred during the call. Display the error to the consumer.|
+
+#### Step 2: Request Fingerprint
+
+If the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} call returned a resultCode of **IdentifyShopper**, you will need to get the secure device fingerprint.
+
+##### Step 2a: Get the Fingerprint Result Token
+
+Follow [Adyen's fingerprint flow for Web, iOs or Android](https://docs.adyen.com/checkout/3d-secure/native-3ds2/api-integration#get-the-3d-secure-2-device-fingerprint){:target="new-tab"} in your app or experience passing the `token` as the fingerprintToken from the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} response in **Step 1**. A successful response returns the device fingerprint result token.
+
+##### Step 2b: Get the Fingerprint
+
+Once you have the device fingerprint result token from **Step 2a**, call the [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} endpoint passing the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response and the device fingerprint result token.
+
+Listed below is a sample [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted.**
+
+```
+/payment/3ds_fingerprint_shoppers/v1
+```
+
+A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
+
+|Result Code|Next Step|
+|---|---|
+|**AuthenticationFinished**|The payment was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**ChallengeShopper**|The consumer must complete an authentication challenge in order to authenticate the payment with 3DS 2. Proceed to **Step 3: Request Challenge**.|
+|**Error**|An error occurred requesting the fingerprint. Display the error to the consumer.|
+
+#### Step 3: Request Challenge
+
+If the [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} call returned a resultCode of **ChallengeShopper**, you will need to present an authentication challenge to the consumer.
+
+##### Step 3a: Present a Challenge
+
+Follow [Adyen's present a challenge flow for Web, iOs or Android](https://docs.adyen.com/checkout/3d-secure/native-3ds2/api-integration#present-a-challenge){:target="new-tab"} in your app or experience passing the `token` from the [Request Fingerprint](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} response from **Step 2** as the challenge token. A successful response returns a challenge result token.
+
+##### Step 3b: Request Challenge
+
+Once you have the challenge result token from **Step 3a**, call the [Request Challenge](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} endpoint passing the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response and the challenge result token as the `challengeResultToken`.
+
+Listed below is a sample [Request Challenge](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-fingerprint-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted.**
+
+```
+/payment/3ds_challenge_shoppers/v1
+```
+
+A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
+
+|Result Code|Next Step|
+|---|---|
+|**AuthenticationFinished**|The consumer was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**Error**|An error occurred requesting the fingerprint. Display the error to the consumer.|
+
+
+#### Step 4: Redirect Shopper
+
+If the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} call returned a resultCode of **RedirectShopper**, you will need to redirect the consumer to the issuer’s site to authenticate the transaction using 3DS 1 as a fallback.
+
+##### Step 4a: Redirect the Consumer to the Issuer's Site
+
+Redirect the consumer to the `url` from the [Request Authentication](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-authentication-post){:target="new-tab"} response so the consumer can complete payment authentication. Once the payment is successfully authenticated at the bank site, the consumer will be redirected to your site with `MD` and `PaRes` variables appended.
+
+##### Step 4b: Request Redirect
+
+After the transaction was successfully authenticated at the issuer's site in **Step 4a**, call the [Request Redirect](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-redirect-post){:target="new-tab"} endpoint passing  the `paymentPreviewId` from the [Request Payment Preview](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-request-payment-preview-post){:target="new-tab"} response and `MD` and `PaRes` URL parameters returned in **Step 4a**.
+
+Listed below is a sample [Request Redirect](https://developer.niketech.com/docs/projects/Payment3DS?tab=api#request-redirect-post){:target="new-tab"} POST request URI. **This endpoint is JWT-restricted.**
+
+```
+/payment/3ds_redirect_shoppers/v1
+```
+
+A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
+
+|Result Code|Next Step|
+|---|---|
+|**AuthenticationFinished**|The consumer was successfully authenticated with 3DS 1 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
+|**Error**|An error occurred requesting the fingerprint. Display the error to the consumer.|
+
+#### Step 5: Request Checkout Submit
+
+Once the 3DS transaction has been authenticated, follow the steps for [Request Checkout Submit](/doc/commerce/checkout/use-checkout.html#submitting-a-checkout){:target="new-tab"} when the consumer is ready to complete the purchase.
+
 
 ## Payment Approval
 
@@ -1201,7 +1320,7 @@ https://api.nike.com/payment/approval_summary/v1/ae6575a7-8c0e-44ef-b91b-440bdaf
 A successful 200 response lists a summary of a successful payment approval with masked account information.
 
 
-## Fulfillment Payment Notification
+## Post Order Payment Processing
 
 The following payment actions can be taken on an order after it has been submitted for fulfillment.
 
@@ -1723,6 +1842,7 @@ Need to contact the Payment team?
 |Restructured for use cases|02/21/2018|
 |Added Key Terms section|07/18/2019|
 |Added voucher, gift certificate, and Cybersource report to Fulfillment section|10/21/2019|
+|Added 3-D Secure Authentication section|11/14/2019|
 
 ## Next Steps
 

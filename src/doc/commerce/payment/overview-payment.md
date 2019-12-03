@@ -53,6 +53,7 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a wallet transaction for Paypal Express or PayPal Mark.](/doc/commerce/payment/use-payment.html#wallet-payment)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate a deferred payment transaction like WeChat.](/doc/commerce/payment/use-payment.html#deferred-payment)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Save and validate credit card information. Retrieve masked credit card information.](/doc/commerce/payment/use-payment.html#credit-card-payment)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Perform 3-D Secure authentication](/doc/commerce/payment/use-payment.html#3-d-secure-authentication)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Perform fraud check, validation and authorization/debit for all payment types on a customer’s Checkout.](/doc/commerce/payment/use-payment.html#payment-approval)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Send payment notification to debit, credit, void or reauthorize a customer's payment.](/doc/commerce/payment/use-payment.html#fulfillment-payment-notification)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Send third party payment notification to Nike.](/doc/commerce/payment/use-payment.html#third-party-payment-notification)|
@@ -66,16 +67,16 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
             Payment Options</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
+            <a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="new-tab">
+            Payment Stored Payments</a><span class="guide-details-li-text"></span>
+        </li>
+        <li>
             <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">
             Payment Preview</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="new-tab">
-            Payment Stored Payments</a> <span class="guide-details-li-text"></span>
-        </li>
-        <li>
             <a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="new-tab">
-            Payment Apple Pay</a> <span class="guide-details-li-text"></span>
+            Payment Apple Pay</a><span class="guide-details-li-text"></span>
         </li>
         <li>
             <a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="new-tab">
@@ -88,6 +89,13 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
         <li>
             <a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="new-tab">
             Payment Credit Card Submit</a> <span class="guide-details-li-text"></span>
+        </li>
+        <li>
+            <a href="https://developer.niketech.com/docs/projects/Payment3DS?tab=api" target="new-tab">Payment 3DS Service</a><span class="guide-details-li-text"></span>
+        </li>
+        <li>
+            <a href="https://developer.niketech.com/doc/commerce/payment/use-payment.html#payment-approval" target="new-tab">Payment Approval</a><span class="guide-details-li-text"></span>
+        </li>
         <li>
             <a href="https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api" target="new-tab">
             Fulfillment Payment Notification</a> <span class="guide-details-li-text"></span>
@@ -95,7 +103,6 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
         <li>
             <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentnotification/browse/API.md" target="new-tab">
             Third Party Payment Notification</a> <span class="guide-details-li-text"></span>
-           </li>
         </li>
     </ul>
 </aside>
@@ -110,4 +117,4 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 
 ### Connect
 
- We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](https://nikedigital.slack.com/messages/C9Q1MNJ1J){:target="new-tab"}&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:developer.relations@nike.com)
+ We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
