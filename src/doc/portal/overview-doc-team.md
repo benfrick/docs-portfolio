@@ -34,6 +34,8 @@ The documentation serves many audiences. Here are four:
 - Product teams seeking to **solve business problems**
 - Decision Makers seeking to **add business value**
 
+The best time to engage our services for a new or revised API contract is after it is defined, but before teams start integrating with it. This is because questions that arise during the documentation Discovery phase often shed light on common integration questions that can be addressed in the doc. And when integrators get their questions answered via documentation, developers on your team have more time to write code. Win win.
+
 ## How do tech writers make my job easier?
 
 Here is what's in it for you.
