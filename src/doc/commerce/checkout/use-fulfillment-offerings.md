@@ -25,7 +25,7 @@ toc:
 
 ---
 
-##### Last Updated: 10/22/2019
+##### Last Updated: 12/02/2019
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -56,8 +56,8 @@ Offerings can vary at any moment in time based upon:
 - Total item prices
 - Available discounts/promotions
 
-Turn this into a diagram:
-Send an API request to get the available offerings and then show them to the consumer. As the consumer selects an offer for each item, send additional API requests in order to dynamically refresh the offerings shown. That way, the consumer can make up their mind quickly and easily.
+[Turn this into a diagram (?):
+Send an API request to get the available offerings and then show them to the consumer. As the consumer selects an offer for each item, send additional API requests in order to dynamically refresh the offerings shown. That way, the consumer can make up their mind quickly and easily.]
 
 >**TIP:** You can also [Search for Offerings Using Consumer Location and Intents](#search-for-offerings-using-consumer-location-and-intents).
 
@@ -100,6 +100,7 @@ At minimum, the following is required to be sent in the request body:
 Optionally, for each item you can send a `fulfillmentType` which describes the consumer's **intended method of fulfillment** for that item (if known).
 
 **Possible values for Fulfillment Type**
+
 |Type|Description|Example Scenario|
 |---|---|---|
 |`SHIP`|Consumer receives the order at their postal address.|Carrier delivers order to a home address|
@@ -114,10 +115,13 @@ Optionally, for each item you can send a `fulfillmentType` which describes the c
 
 ### Send the Request
 
+#### OPTION 1: Send a PUT request
+
 Send a HTTP PUT request to https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9. Note the UUID in the URL path, which you must generate.
 
 **Sample Request Body**
-```json
+
+```javascript
 {
     "country": "US",
     "currency": "USD",
@@ -215,11 +219,19 @@ Send a HTTP PUT request to https://api.nike.com/buy/fulfillment_offerings_jobs/v
 }
 ```
 
-Query Params for GET request:
+#### OPTION 2: Send a GET request
 
-- Fulfillment Type (as `fulfillmentTypes`)
-- Location as (`country` or `country` and `postalCode`)
-- Product data (as `skuId` or `gtin`)
+In addition to the PUT endpoint mentioned in [Option 1](#option-1-send-a-put-request), a cache-able GET endpoint is also available. The GET endpoint is intended to be used in scenarios where user data isn't necessary to calculate detailed fulfillment offerings, e.g. in a PDP.
+
+Send a GET request to https://api.nike.com/buy/fulfillment_offerings/v1{?filter}.
+
+The `filter` query parameter must be included, with the field/value requirements as follows:
+
+|Filter|Required?|Example|
+|---|---|---|
+|Product|Required|`?filter=skuId()`|
+|Location|Required|`?filter=country(US)&filter=postalCode(97123)`|
+|Fulfillment Type|Optional|`?filter=fulfillmentTypes(SHIP)`|
 
 ### Evaluate the Response
 
@@ -230,6 +242,7 @@ The API response includes a list of items. For each item, one or more offerings 
 Each offering has the following attributes:
 
 **Offering Attributes**
+
 |Attribute|Description|Example|
 |---|---|---|
 |**Fulfillment Type**|The type of offering|`"type": "SHIP"`,`"type": "PICKUP"`|
@@ -240,7 +253,7 @@ Each offering has the following attributes:
 
 #### Fulfillment Groups
 
-The API response also includes an array of `fulfillmentGroups`, include one group for each applicable Fulfillment Type. For example, if there are multiple options for fulfillment type `SHIP`, they will belong to the same Fulfillment Group, while offerings of other types would be in separate groups.
+The API response also includes an array of `fulfillmentGroups`, include one group for each applicable Fulfillment Type. For example, if there are multiple possibilities for fulfillment type `SHIP`, they will belong to the same Fulfillment Group, while other types of offerings would be in separate groups.
 
 Fulfillment Groups can be identified by the unique identifiers found in either `items.**fulfillmentGroupId**` or `fulfillmentGroups.**id**`.
 
@@ -258,13 +271,7 @@ For the consumer to finalize their decision about how to receive their items, fi
 
 Intent, in the context of Fulfillment Offerings, is the combination of the desired Fulfillment Type and Location.
 
-Price offers are for fulfillment groups.
-
-Intent vs non-intent offerings: intent will have a price offer reference (priceOfferId), while non-intent offerings do not.
-
-Enter shipping address
-
-Select from list?
+[Price offers are for fulfillment groups. Intent vs non-intent offerings: intent will have a price offer reference (priceOfferId), while non-intent offerings do not.]
 
 #### Search for Offerings Using Consumer Location and Intents
 
@@ -338,7 +345,7 @@ Need to contact the Cart & Checkout team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|09/16/2019|Initial Draft|
+|Initial draft|12/03/2019|Initial Draft|
 
 ## Next Steps
 
