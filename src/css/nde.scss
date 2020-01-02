@@ -26,6 +26,7 @@ h1 {
     font-size: 1.8em;
     letter-spacing: .5px;
     text-transform: uppercase;
+    word-wrap: normal;
 }
 h2 {
     font-size: 1.7em;
@@ -444,12 +445,9 @@ header form {
     padding: 10px;
 }
 .tile-sm li h5, .tile-med li h5 {
-    line-height: 0.3;
-    }
-    @media (max-width: 600px) {
-    .tile-sm li h5, .tile-med li h5, tile-wide li h5 {
-    line-height: 0.5;
-    }
+    line-height: 1.0;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
 }
 .tile-wide li h5 {
     padding-top: 0.2em;
