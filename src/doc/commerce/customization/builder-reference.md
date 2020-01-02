@@ -24,7 +24,7 @@ toc:
 
 ---
 
-##### Last Updated: 11/11/2019
+##### Last Updated: 01/02/2020
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 
@@ -255,6 +255,8 @@ a key for your platform in advance of making API calls. The current list of supp
 |Nike Order Capture (OCP)|com.nike.commerce.ocp|
 |Nike PI|com.nike.commerce.pi|
 |Nike Email|com.nike.commerce.email|
+|Tmall.com (Desktop)|com.tmall:commerce.idpdp.desktop|
+|Tmall.com (Mobile)|com.tmall:commerce.idpdp.mobile|
 |WIP Tool*|com.nike:wip|
 |Test*|com.nike:test|
 |Localhost*|com.nike:commerce.b16.localhost|
