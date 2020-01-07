@@ -56,13 +56,13 @@ This section discusses topics important to understanding Fulfillment Offerings.
 
 ### Fulfillment Offerings
 
-Fulfillment Offerings are a **set of price offers that a consumer has for receiving the items in their cart**, as determined by the [Fulfillment Offerings API](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}.
+Fulfillment Offerings are a **set of price offers that a consumer has for receiving the items in their Cart**, as determined by the [Fulfillment Offerings API](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}.
 
 Offerings can vary at any moment in time based on:
 
 - Consumer information
 - Delivery destinations (i.e. shipping addresses, store IDs, pickup locations, email addresses, GPS coordinates)
-- Items in cart
+- Items in Cart
 - Total item prices
 - Available discounts/promotions
 
@@ -191,7 +191,7 @@ Optionally, for each item you can send a `fulfillmentType` which describes the c
 
 ### Send the Fulfillment Offerings Request
 
-There are two ways to get a list of Fulfillment Offerings. You can make a PUT request to get the Fulfillment Offerings for each item in cart. This is discussed in **Option 1** below. You can also make a GET request to get a cached version of Fulfillment Offerings for each size of an item in Cart, such as on a Product Display Page. This is discussed in **Option 2** below.
+There are two ways to get a list of Fulfillment Offerings. You can make a PUT request to get the Fulfillment Offerings for each item in Cart. This is discussed in **Option 1** below. You can also make a GET request to get a cached version of Fulfillment Offerings for each size of an item in Cart, such as on a Product Display Page. This is discussed in **Option 2** below.
 
 #### OPTION 1: Send a PUT request
 
@@ -422,7 +422,7 @@ Listed below are the allowed [location type and fulfillment type](#whats-in-an-o
 |`address/digital`|`DIGITAL`|
 |`location/pick_up_locations`|`PICKUP`|
 
-Shown below is a sample [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} PUT request. The client supplies the Job ID, here 5e799c64-dd8e-4861-9d38-9592f35e7aa5. This endpoint is asynchronous, so you will call a different endpoint to check both the status of the job and the job results when the it is complete:
+Shown below is a sample [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} PUT request. The client supplies the Job ID, here 5e799c64-dd8e-4861-9d38-9592f35e7aa5. This endpoint is asynchronous, so you will call a different endpoint to check both the status of the job and the job results when it is complete:
 ```
 https://api.nike.com/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9592f35e7aa5
 ```
