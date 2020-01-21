@@ -25,9 +25,11 @@ When you ask consumers to prove their identify before accessing your app or expe
 
 Nike Authentication uses OAuth to perform consumer authentication, which uses access tokens rather than passwords. That means that your app or experience does not have to deal with handling Nike consumer passwords securely.
 
-After the consumer has successfully authenticated and given permission to your app to connect to their Nike account, you will get two tokens, an access token and a refresh token. You will pass the access token in subsequent calls to Nike APIs, which indicates that the consumer has given permission to your app or experience to make API calls on their behalf.
+After the consumer has successfully authenticated and given permission to your app to connect to their Nike account, you will get a temporary **consumer access token**.
 
-Access tokens expire periodically. When your access token is about to expire, you request a new access token using the refresh token.
+As a last step in the authentication process, you will exchange the consumer access token for an **access token** and a **refresh token**. You will pass the access token in subsequent calls to Nike APIs, which indicates that the consumer has given permission to your app or experience to make API calls on their behalf.
+
+>TIP: Access tokens expire periodically. When your access token is about to expire, you request a new access token using the refresh token.
 
 Now let's go through some key terms related to Authentication.
 
@@ -123,9 +125,11 @@ https://unite.nike.com/oauth.html?client_id=12345&redirect_uri=https://partnersi
 
 ### Step 2: Authenticate the Consumer
 
+Consumers log in or register to their Nike account and accept your terms and conditions.
+
 **Step 2a: Consumer logs in to an existing or registers a new Nike account**
 
-On the Login or Registration page, the consumer logs into their existing Nike account or registers a new one. Under the covers, the page uses three-legged OAuth to authenticate the consumer and generate a Nike Consumer Access Token discussed in **Step 3**.
+On the Nike Login or Registration page, consumers log into their existing Nike account or register a new one. Under the covers, the page uses three-legged OAuth to authenticate the consumer and generate a Nike Consumer Access Token discussed in **Step 3**.
 
 Below are sample Login and Registration pages. This design is subject to change.
 
@@ -133,7 +137,7 @@ Below are sample Login and Registration pages. This design is subject to change.
 
 When there is a login or registration error, the consumer is redirected to the Login or Registration page with an error message explaining the problem. After the consumer fixes the problem, they can retry log in or registration.
 
-Below are sample Login and Registration pages when a consumer-caused error occurs. This design is subject to change.
+Below are sample Login and Registration pages with error messages indicated in red text. This design is subject to change.
 
 ![](/images/partner/authentication/partner-oauth-login-reg-error.png)
 
@@ -147,7 +151,7 @@ Below is a sample Connect Your Nike Account page customized for you with the con
 
 ### Step 3: Redirect to Your App/Experience
 
-After the consumer has successfully authenticated to their Nike account and agreed to connect their account to your app or experience, the consumer is redirected to the URI passed in `redirect_uri` URI parameter with `code` and `state` URI parameters appended. The `code` is a temporary Consumer Access Token discussed in **Step 4**. If you passed the `state` URI parameter into the authentication page, it is also appended as a URI parameter for your use.
+After the consumer successfully authenticates to their Nike account and agrees to connect their account to your app or experience, the consumer is redirected to the `redirect_uri` you passed in the request in **Step 1**, with a `code` URI parameter appended. The `code` is a temporary **Consumer Access Token** discussed in **Step 4**. If you passed the `state` URI parameter in **Step 1**, it is also appended as a URI parameter for your use.
 
 ### Step 4: Get Your Access Token and Refresh Token
 
@@ -232,8 +236,8 @@ A successful 200 response includes the consumer's `user_id` from their profile, 
 
 Token
 
-- [Get Access Token & Refresh Token](#get-access-token--refresh-token)
-- [Refresh Access Token](#refresh-access-token)
+- [Get Access Token & Refresh Token](#get-access-token--refresh-token) **POST** https://api.nike.com/oauth/2.0/token
+- [Refresh Access Token](#refresh-access-token) **POST** https://api.nike.com/oauth/2.0/token
 
 ## Troubleshooting
 
@@ -244,7 +248,7 @@ Token
 If your refresh token expires, you no longer have a connection to the consumer's Nike session. You will need the consumer to repeat the [Authorization](#authorization) prcess to reconnect to the session.
 
 
-## API Documentation
+## API Reference
 
 ### Token
 
@@ -261,6 +265,16 @@ POST https://api.nike.com/oauth/2.0/token
 **Request Headers**
 
 `Content-Type:application/json`
+
+**Arguments**
+
+|Field Name|Description|
+|---|---|
+|`grant_type`|Type of requested access, always `authorization_code`|
+|`code`|Temporary Consumer Access Code|
+|`client_id`|Unique Client ID assigned to your project as an outcome of the [Prerequisites](#prerequisites) phase|
+|`client_secret`|Unique Client Secret generated as an outcome of the [Prerequisites](#prerequisites) phase|
+
 
 **Request Body**
 
@@ -334,6 +348,14 @@ POST https://api.nike.com/oauth/2.0/token
 **Headers**
 
 `Content-Type:application/json`
+
+**Arguments**
+
+|Field Name|Description|
+|---|---|
+|`grant_type`|Type of requested access, always `refresh_token`|
+|`refresh_token`|Refresh token returned from a successful call to either [Get Access Token & Refresh Token](#get-access-token--refresh-token) in **Step 4** or [Refresh Access Token](#refresh-access-token)|
+|`client_id`|Unique Client ID assigned to your project as an outcome of the [Prerequisites](#prerequisites) phase|
 
 **Request Body**
 
