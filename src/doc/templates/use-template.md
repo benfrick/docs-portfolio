@@ -9,8 +9,8 @@
 # toc:
 #  - h2: Introduction
 #    url: {rel link to HTML}#introduction
-#  - h2: Key Terms
-#    url: {rel link to HTML}#key-terms
+#  - h2: Key Concepts & Terms
+#    url: {rel link to HTML}#key-concepts--terms
 #  - h2: Quick Start
 #    url: {rel link to HTML}#quick-start
 #  - h2: {Use case 1 Title}
@@ -46,19 +46,29 @@
 
 ## Introduction
 
-In this guide, we will discuss...
+In this guide, we will discuss how to use {} to...
 
 ### What is {}?
 
-## Key Terms (if applicable)
+Describe the thing, use a picture if possible.
+
+## Key Concepts & Terms
+
+This section discusses the concepts and terms that are important to understanding {}.
+
+### Concept #1
+
+### Concept #2
+
+### Terms
 
 Here are some key terms used in this document.
 
 |Term|Definition|
 |---|---|
-|Term|Describe how this term applies to the API|
+|Term|Define and describe how this term applies to the API|
 
-## Quick Start (if applicable)
+## Quick Start
 
 Outline steps to quickly get up an running. Include cut and paste code snippets and complete cURLs if possible.
 
