@@ -71,7 +71,7 @@ The following table describes the key details of the API:
 
 ### A Note about Segment
 
-Segment is an analytics API and customer data platform which Nike utilizes. As you saw in the above diagram, it is one of several downstream integrations from the Analytics Pipeline API. By integrating with Segment once, Nike unlocks additional downstream integrations like Optimizely for A/B Testing, Kochava for mobile analytics, and several digital marketing integrations.
+Segment is an analytics API and consumer data platform which Nike utilizes. As you saw in the above diagram, it is one of several downstream integrations from the Analytics Pipeline API. By integrating with Segment once, Nike unlocks additional downstream integrations like Optimizely for A/B Testing, Kochava for mobile analytics, and several digital marketing integrations.
 
 Reach out to the Analytics API Product Owner, [Randy Davis](mailto:randall.davis@nike.com), for information on the analytics opportunities available via Segment.
 
