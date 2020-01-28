@@ -86,7 +86,7 @@ Each offering has the following attributes:
 |**'Get By' Date**|The estimated date (min/max) for the item to be fulfilled|`"dateTime": "2019-02-09T23:59:59.000Z"`|
 |**Expiration Date**|The date on which the offering expires|`"offerExpiration": "2019-02-07T00:00:00.000Z"`|
 |**Price**|The price of the offering|`"total": 8`|
-|`priceOfferId`|ID of the price offer. Returned in the response when the customer has indicated their [intent](#intent) for the offering.||
+|`priceOfferId`|ID of the price offer. Returned in the response when the consumer has indicated their [intent](#intent) for the offering.||
 
 Each location in an offering is one of the types listed below.
 
@@ -410,7 +410,7 @@ In this case, you can *optionally* send any of the following to Fulfillment Offe
 
 Fulfillment Offerings adjusts the results based on what you send, making for an efficient way to drive the experience.
 
-Listed below are the allowed [location type and fulfillment type](#whats-in-an-offering) combinations you can send in the request. These two values express the customer's chosen [intent](#intent) to receive that item. Invalid combinations result in an error because inventory cannot be fulfilled.
+Listed below are the allowed [location type and fulfillment type](#whats-in-an-offering) combinations you can send in the request. These two values express the consumer's chosen [intent](#intent) to receive that item. Invalid combinations result in an error because inventory cannot be fulfilled.
 
 **Valid Location Type/Fulfillment Type Combinations**
 

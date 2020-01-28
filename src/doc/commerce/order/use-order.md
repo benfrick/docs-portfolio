@@ -428,7 +428,7 @@ Listed below are the order line statuses, status codes, and simple status.
 |Delivered|3700.70|DELIVERED|
 |Order Delivered|3700.7777|DELIVERED|
 |Ready For Pickup|3700.110|READY FOR PICKUP|
-|Customer Picked Up|3700.120|PICKED UP|
+|Consumer Picked Up|3700.120|PICKED UP|
 |Picked Up|3700.20|PICKED UP|
 |Shipment Delayed|3700.130|SHIPMENT DELAYED|
 |Shipment Delayed|8500|SHIPMENT DELAYED|

@@ -88,7 +88,7 @@ Sometimes consumers are not ready to purchase items or services and want to set 
 |---|---|
 |Cart|The virtual shopping cart used by Nike consumers to collect and compare items for purchase|
 |Checkout|A collection of data describing what may become a consumer order|
-|Fapiao|Tax-related invoice offered to China customers only|
+|Fapiao|Tax-related invoice offered to China consumers only|
 
 ## Cart
 
@@ -598,7 +598,7 @@ Here is an example list of test scenarios for a consumer experience that is inte
 
 Additionally, it's useful to add scenarios for multi-quantity (i.e. quantity > 1) for Inline products, as well as scenarios with multiple Nike iD products in same checkout.
 
->**TIP:** While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Customer Service.
+>**TIP:** While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage. Also, as necessary you can place an order to observe all the checkout calls. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Consumer Services.
 
 ### Test Environment
 
