@@ -12,11 +12,11 @@ url: /doc/taxonomy/overview-taxonomy-tagging.html
 
 ---
 
-Learn how [Taxonomy Tagging for Assets and Content](https://developer.niketech.com/docs/projects/attributions?tab=api){:target="new-tab"} (TTAC) manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike customers.
+Learn how [Taxonomy Tagging for Assets and Content](https://developer.niketech.com/docs/projects/attributions?tab=api){:target="new-tab"} (TTAC) manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike consumers.
 
 ### Taxonomy Tagging for Assets and Content increases conversion by driving personalized assets and content across Nike experiences.
 
-Nike experiences can use these TTAC-managed relationships to dynamically show customized navigation, content, and images to customers in their preferred language that reflects their personal style, interests, and preferences. A personalized experience promotes engagement, often strengthening the commitment to purchase.
+Nike experiences can use these TTAC-managed relationships to dynamically show customized navigation, content, and images to consumers in their preferred language that reflects their personal style, interests, and preferences. A personalized experience promotes engagement, often strengthening the commitment to purchase.
 
 ![SNKRS app payment flow](/images/taxonomy/ttac.png)
 
@@ -49,10 +49,10 @@ Governance will be provided by the following team:
 Step through the TTAC use cases below.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;Tag images so you can determine which image qualities and sizes motivate customers.|
-|<i class="g72-check"></i>&nbsp;&nbsp;Improve engagement by displaying product images most relevant to the customer's navigational path to a product wall. e.g. if a customer navigates to unisex products via a women's navigational path, she prefers to see images of female models instead of male.|
-|<i class="g72-check"></i>&nbsp;&nbsp;Boost conversion by using taxonomy tagging to display images to customers that resonate with their interests and preferences.|
-|<i class="g72-check"></i>&nbsp;&nbsp;Tag content to allow your app to select the most relevant threads to display to the customer.|
+|<i class="g72-check"></i>&nbsp;&nbsp;Tag images so you can determine which image qualities and sizes motivate consumers.|
+|<i class="g72-check"></i>&nbsp;&nbsp;Improve engagement by displaying product images most relevant to the consumer's navigational path to a product wall. e.g. if a consumer navigates to unisex products via a women's navigational path, she prefers to see images of female models instead of male.|
+|<i class="g72-check"></i>&nbsp;&nbsp;Boost conversion by using taxonomy tagging to display images to consumers that resonate with their interests and preferences.|
+|<i class="g72-check"></i>&nbsp;&nbsp;Tag content to allow your app to select the most relevant threads to display to the consumer.|
 
 <h4>Related Information</h4>
 <aside class="note">
