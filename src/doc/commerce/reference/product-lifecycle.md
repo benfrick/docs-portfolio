@@ -8,7 +8,7 @@ url: /commerce/reference/product-lifecycle.html
 toc:
   - h2: Where Product Data Comes From
     url: /doc/commerce/reference/product-lifecycle.html#where-product-data-comes-from
-  - h2: How Product Data Gest To the Customer
+  - h2: How Product Data Gest To the Consumer
     url: /doc/commerce/reference/product-lifecycle.html#how-product-data-gets-to-the-customer
 ---
 
@@ -38,7 +38,7 @@ toc:
 
 - **4** Product Feed Composer Service assembles Launch, Feed, Thread, Card and Inventory data and pushes it to the Search Service.
 
-## How Product Data Gets to the Customer
+## How Product Data Gets to the Consumer
 
 - **a** Nike experiences call the Product Feed service to get Feed and Thread data. Experience calls Scene 7/Cloudinary repository to get image and video media.
 

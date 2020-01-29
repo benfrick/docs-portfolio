@@ -70,9 +70,9 @@ Listed below are the product type codes.
 |**APPAREL**|Product that covers the body |
 |**EQUIPMENT**|Product that is core to playing a sport such as shin guards or soccer ball|
 |**ACCESSORIES**|Product that is not core to playing a sport such as sunglasses or a water bottle|
-|**PHYSICAL_GIFT_CARD**|Physical, pre-loaded debit card shipped to the customer|
-|**DIGITAL_GIFT_CARD**|Electronic, pre-loaded debit card sent electronically to the customer|
-|**VOUCHER**|Credit given to a customer after returning a product that the customer uses to purchase other products and services|
+|**PHYSICAL_GIFT_CARD**|Physical, pre-loaded debit card shipped to the consumer|
+|**DIGITAL_GIFT_CARD**|Electronic, pre-loaded debit card sent electronically to the consumer|
+|**VOUCHER**|Credit given to a consumer after returning a product that the consumer uses to purchase other products and services|
 |**GIFT_WRAP**|Value-added service where product is wrapped for gift purposes|
 |**GIFT_MESSAGE**|Value-added service where a gift message is packaged with the product|
 |**JERSEY_ID**|Team jersey product bought in bulk for a team with customizable team number, emblem and name. This is not a NIKEiD product.|
@@ -84,10 +84,10 @@ Listed below are the product style codes.
 |Style Code|Description|
 |---|---|
 |**INLINE**|Non-customizable, saleable product|
-|**NIKEID**|Customizable, saleable product built to order per customer specifications such as color, badge, material etc.|
-|**VALUE_ADDED_SERVICE**|Saleable service customer purchases as a product add-on such as custom embroidering, gift wrap and gift messaging|
-|**GIFT_CARD**|Physical or electronic debit card customer uses to purchase products and services|
-|**VOUCHER**|Credit given to a customer after returning a product that the customer uses to purchase other products and services|
+|**NIKEID**|Customizable, saleable product built to order per consumer specifications such as color, badge, material etc.|
+|**VALUE_ADDED_SERVICE**|Saleable service consumer purchases as a product add-on such as custom embroidering, gift wrap and gift messaging|
+|**GIFT_CARD**|Physical or electronic debit card consumer uses to purchase products and services|
+|**VOUCHER**|Credit given to a consumer after returning a product that the consumer uses to purchase other products and services|
 
 ## Publish Types
 
@@ -95,8 +95,8 @@ Listed below are the publish type codes.
 
 |Publish Code|Description|
 |---|---|
-|**FLOW**|Product that is available to all NIKE customers for purchase when merchandising is complete and inventory is available|
-|**LAUNCH**|Product that is available for purchase by certain NIKE customers for a discrete time period when merchandising is complete and inventory is available|
+|**FLOW**|Product that is available to all Nike consumers for purchase when merchandising is complete and inventory is available|
+|**LAUNCH**|Product that is available for purchase by certain Nike consumers for a discrete time period when merchandising is complete and inventory is available|
 
 ## Related Links
 

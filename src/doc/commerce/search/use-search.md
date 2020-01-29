@@ -31,7 +31,7 @@ toc:
 
 ##### Last Updated: 8/7/2018
 
-E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike customers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/use-rollup-threads.html) first.
+E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike consumers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/use-rollup-threads.html) first.
 
 ## Use Cases
 
@@ -52,44 +52,44 @@ Listed below are some common e-commerce search terms and definitions.
 
 |Term|Definition|
 |---|---|
-|Context|Customer's marketplace, experience, channel and language|
-|Trigger|Context or customer-initiated query that causes an e-commerce search rule to fire|
+|Context|Consumer's marketplace, experience, channel and language|
+|Trigger|Context or consumer-initiated query that causes an e-commerce search rule to fire|
 |Action|What an e-commerce search rule does when it fires, i.e. manipulates e-commerce search rankings|
-|Query|What the customer is searching for|
+|Query|What the consumer is searching for|
 |Search Rule|Controls how items are ranked or excluded from e-commerce search results|
 |Taxonomy|Nike product attributes|
-|Search Term|Customer-supplied e-commerce search keyword|
-|Concept|Translates a customer-supplied e-commerce search term into Nike product attribute(s)|
+|Search Term|Consumer-supplied e-commerce search keyword|
+|Concept|Translates a consumer-supplied e-commerce search term into Nike product attribute(s)|
 |Authored Concept|Group of concepts|
 |Collection|Group of products such as the Mother's Day collection|
-|Channel|Customer experience such as Bootroom or NIKE.com|
-|Signal|Customer behavior and merchandiser-defined factors used to rank e-commerce search results|
+|Channel|Consumer experience such as Bootroom or NIKE.com|
+|Signal|Consumer behavior and merchandiser-defined factors used to rank e-commerce search results|
 
 ## E-commerce Search Types
 
 E-commerce search can be used to
 
 - tell the Nike story
-- decrease time to purchase by quickly leading customers to the products they need
+- decrease time to purchase by quickly leading consumers to the products they need
 
 Currently, e-commerce search handles product and navigation data. Content will be added in the near future. This section discusses the various search types.
 
 ### Smart Search
-Smart Search is a rule-based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping customer-provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts.
+Smart Search is a rule-based filter. You can access this functionality by calling the [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html). Smart Search uses the experience's default and custom rules to return a result set sorted according to merchandising rules. The e-commerce search engine is optimized by mapping consumer-provided search terms to product attributes, also known as concepts. Concepts can be taxonomy (attribute) based such as "red", size based such as "size 9", collection based such as "Mother's Day" or groups of concepts.
 
 **Used by:** [Bootroom](https://www.nike.com/bootroom) to drive the Athletes product gridwall
 
 ### Autocomplete
-This type of search suggests keywords when customers provide three or more letters of a search term. Nike.com calls Autocomplete Search when the customer types in the search bar. If a customer types "red", Autocomplete search could return keyword suggestions "Boston Red Sox", "Cincinnati Reds" and "Washington Redskins". A keyword suggestion can be used in a subsequent search to find products matching that keyword.
+This type of search suggests keywords when consumers provide three or more letters of a search term. Nike.com calls Autocomplete Search when the consumer types in the search bar. If a consumer types "red", Autocomplete search could return keyword suggestions "Boston Red Sox", "Cincinnati Reds" and "Washington Redskins". A keyword suggestion can be used in a subsequent search to find products matching that keyword.
 
 **Used by:** Nike.com
 
 ### Search Preview
-Search Preview is a simple type of search that uses one or more search keywords to return a subset of product information using default relevancy rankings. Using the Autocomplete example above, hovering over "red sox" returns the top 6 Red Sox products according to the default rule. Nike.com web uses Search Preview from the Search bar to return products matching the first suggested keyword returned from Autocomplete. That experience calls Search Preview each time the customer hovers over an Autocomplete keyword.
+Search Preview is a simple type of search that uses one or more search keywords to return a subset of product information using default relevancy rankings. Using the Autocomplete example above, hovering over "red sox" returns the top 6 Red Sox products according to the default rule. Nike.com web uses Search Preview from the Search bar to return products matching the first suggested keyword returned from Autocomplete. That experience calls Search Preview each time the consumer hovers over an Autocomplete keyword.
 
 **Used by:** Nike.com
 
-The Nike.com image below illustrates how Autocomplete and Search Preview can be used together to quickly lead customers to the products they want.
+The Nike.com image below illustrates how Autocomplete and Search Preview can be used together to quickly lead consumers to the products they want.
 
 ![](/images/commerce/search/autocomplete-search-preview.png){:class="border"}
 
@@ -131,7 +131,7 @@ Smart Search rules play a key role in determining e-commerce search results and 
 
 Custom rules are administered in the Apollo rule management tool and are specific to a channel. Authorized Apollo users can add actions to rules to influence the search rankings such as boosting, burying, and hiding. Custom rules layer on top of the default rule to either work in concert with or override the default rule. Contact the Apollo Product Owner for access to the tool.
 
-Rules are triggered either by customer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.
+Rules are triggered either by consumer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.
 
 The default rule for each experience is listed below. Default rules are not available through the Apollo tool. Contact the Product Owner to create a new or edit an existing default rule. Note that each default rule filters on the same channelId (d9a5bc42-4b9c-4976-858a-f159cf99c647) to get nike.com product threads. Each default rule is associated with an experience through the experience's consumerChannelId passed into the Product Feed Rollup Threads service. See [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html#consumer-channel-id-and-channel-id) to read about the difference between channelId and consumerChannelId.
 

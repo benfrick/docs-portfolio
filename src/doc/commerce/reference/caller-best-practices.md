@@ -198,7 +198,7 @@ Listed below are the best practices for calling each Merchandised Product servic
 
 ### Merchandised Product Caching
 
-Because product and SKU information does not change frequently, service-to-service calls made to the Merchandised Product service should use distributed caching. Pre-loading of the cache prior to launch is recommended so no customer has a degraded shopping experience while the service loads the data into its cache. During launch, retrieve the merchandised product data from cache if available rather than calling the service.
+Because product and SKU information does not change frequently, service-to-service calls made to the Merchandised Product service should use distributed caching. Pre-loading of the cache prior to launch is recommended so no consumer has a degraded shopping experience while the service loads the data into its cache. During launch, retrieve the merchandised product data from cache if available rather than calling the service.
 <p/>
 
 Experiences calling the Merchandised Product services directly should not cache these endpoints. Rather, if the Cache-Control header is set, the browser will cache product data for that time period.
@@ -285,9 +285,9 @@ Listed below are the best practices for calling each Payment service.
 
 |Topic|Best Practice|
 |---|---|
-|**Validation**|When available, always pass in the shipping address to the `FETCH SAVED PAYMENTS FOR A UPMID` endpoint to determine if the customer must validate the stored credit card's CVV before submitting the order.|
-|**Performance**|When gift card balance is not needed, set the includeBalance flag to false so the stored gift card balance is not retrieved when gathering the customer's stored payments.|
-|**Circuit breaker triggers**|Payment Stored Payments' repeated call failure to the<br>Payment Gift Card service when saving a Gift Card or retrieving the balance<br>Payment PayPal service when saving a new PayPal payment type to the customer's profile<br>Payment Cybersource service trying to store or update a customer's credit card.|
+|**Validation**|When available, always pass in the shipping address to the `FETCH SAVED PAYMENTS FOR A UPMID` endpoint to determine if the consumer must validate the stored credit card's CVV before submitting the order.|
+|**Performance**|When gift card balance is not needed, set the includeBalance flag to false so the stored gift card balance is not retrieved when gathering the consumer's stored payments.|
+|**Circuit breaker triggers**|Payment Stored Payments' repeated call failure to the<br>Payment Gift Card service when saving a Gift Card or retrieving the balance<br>Payment PayPal service when saving a new PayPal payment type to the consumer's profile<br>Payment Cybersource service trying to store or update a consumer's credit card.|
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
@@ -298,8 +298,8 @@ Listed below are the best practices for calling each Payment service.
 
 |Topic|Best Practice|
 |---|---|
-|**Performance**|When a customer selects to pay by stored credit card, check the validateCVV flag on the response from the Stored Payments Service. If the value is true, allow the customer to verify their CVV number in your experience and send it to the Payment Credit Card Submit service. Otherwise, Payment Preview will fail due to an unverified CVV number.|
-|**Circuit breaker trigger**|Payment Preview's repeated call failure to the<br>Payment Gift Card service when retrieving the balance<br>Stored Payment service when retrieving the customer's stored payment details<br>Credit Card Submit service when validating the credit card info id|
+|**Performance**|When a consumer selects to pay by stored credit card, check the validateCVV flag on the response from the Stored Payments Service. If the value is true, allow the consumer to verify their CVV number in your experience and send it to the Payment Credit Card Submit service. Otherwise, Payment Preview will fail due to an unverified CVV number.|
+|**Circuit breaker trigger**|Payment Preview's repeated call failure to the<br>Payment Gift Card service when retrieving the balance<br>Stored Payment service when retrieving the consumer's stored payment details<br>Credit Card Submit service when validating the credit card info id|
 |**Circuit breaker fallback behavior**|None|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
@@ -321,7 +321,7 @@ Listed below are the best practices for calling each Payment service.
 
 |Topic|Best Practice|
 |---|---|
-|**Performance**|If the customer is not required to supply credit card information or cvv, do not call a Credit Card Submit endpoint that loads the credit card iFrame.|
+|**Performance**|If the consumer is not required to supply credit card information or cvv, do not call a Credit Card Submit endpoint that loads the credit card iFrame.|
 |**Retry pattern for API callers**|429 responses can be retried twice. Wait the amount of time sent in the Retry-After header between calls.|
 |**Fallback behavior for API callers**|None|
 

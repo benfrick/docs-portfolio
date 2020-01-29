@@ -135,9 +135,9 @@ https://commerce-api.nike.com/commerce/v1/US/en_US/facets/1j7.json?client=test-c
 
 **Cloud**
 
-One option is to use the Cloud [Type Ahead Service](https://bitbucket.nike.com/projects/PHYLCDSB/repos/searchtypeahead/browse/API.md){:target="new-tab"} and the [Visual Search Service](https://bitbucket.nike.com/projects/PHYLCDSB/repos/visualsearchservice/browse/API.md){:target="new-tab"}. This is a two-step process. The first step generates a list of suggested search terms based on customer input and the second step generates a list of suggested products with that search term in the name.
+One option is to use the Cloud [Type Ahead Service](https://bitbucket.nike.com/projects/PHYLCDSB/repos/searchtypeahead/browse/API.md){:target="new-tab"} and the [Visual Search Service](https://bitbucket.nike.com/projects/PHYLCDSB/repos/visualsearchservice/browse/API.md){:target="new-tab"}. This is a two-step process. The first step generates a list of suggested search terms based on consumer input and the second step generates a list of suggested products with that search term in the name.
 
-For example, when a customer types `vap` (enough to form a search term suggestion), call the search suggestion endpoint. The URL below requests search term suggestions with `vap` in the English name in the US. It returns `vaporfly` and `vapormax` searchTerms.
+For example, when a consumer types `vap` (enough to form a search term suggestion), call the search suggestion endpoint. The URL below requests search term suggestions with `vap` in the English name in the US. It returns `vaporfly` and `vapormax` searchTerms.
 
 https://api.nike.com/search/suggestions/v1?language=en&country=us&count=4&text=vap&origin=3957856850
 
