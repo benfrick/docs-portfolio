@@ -348,7 +348,7 @@ List product information for a specific version by ID and by Snapshot ID. If no 
 
 Filter field names are case insensitive.
 
-The caller does not have to send an access token in the Authorization header (indicating the customer is logged in) to use this service.
+The caller does not have to send an access token in the Authorization header (indicating the consumer is logged in) to use this service.
 
 ### Endpoint Details
 
@@ -432,7 +432,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 |**productRollup**|object|Object containing Prodigy rollup attributes|Optional|
 |productRollup.**type**|string|Type of Prodigy rollup attribute associated to the product|Optional|
 |productRollup.**key**|string|Key of Prodigy rollup attribute associated to the product|Optional|
-|**quantityLimit**|integer|Integer restricting how many of this product a customer can purchase at one time|Optional|
+|**quantityLimit**|integer|Integer restricting how many of this product a consumer can purchase at one time|Optional|
 |**nikeidStyleNumber**|string|Nike ID style code, only populated for products of styleType `NIKEID`|Optional|
 |**styleType**|string|Type of style, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products) for a complete list|Optional|
 |**productType**|string|Type of product, see [Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products) for a complete list|Optional|
@@ -461,7 +461,7 @@ https://api.nike.com/merch/products/v2?filter=merchgroup(EU)&filter=style(AJ8646
 
 This service returns product information for the **id** path parameter and **snapshotId** query parameter, if supplied. This endpoint returns the same fields as the [Merchandised Product List](#merchandised-product-list) endpoint except for the pages object, because the endpoint only returns one result.
 
-The caller does not have to send an access token in the **Authorization** header (indicating the customer is logged in) to use this service.
+The caller does not have to send an access token in the **Authorization** header (indicating the consumer is logged in) to use this service.
 
 >**TIP:** If you know the product ID, this endpoint yields faster results than the [Merchandised Product List](#merchandised-product-list) endpoint does because it locates the product record directly by ID rather than filtering the results.
 
@@ -665,7 +665,7 @@ The following sections describe each endpoint of the Merchandised Product Price 
 
 Use this endpoint to list price data by price ID or by product ID and [country](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products). Because price values and currency are localized, both country and productid are required parameters when searching by productid. Country is not required when searching by price ID because the price record for a price ID is for a specific country. To get the price ID in the results, first search by productid and country. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list) endpoint to search by style-color or style. Product ID is returned in the results.
 
-No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.
+No special headers are required to use this endpoint so it can be executed in any browser, and the consumer does not have to be logged in.
 
 ### Endpoint Details
 
@@ -738,7 +738,7 @@ Use this endpoint to list price data by price ID. To get the price ID, search by
 
 Results from this endpoint are almost identical to those returned from the [Merchandised Product List](#merchandised-product-list) endpoint. The difference is no pagination data is returned and you can only search by one price ID at a time.
 
-No special headers are required to use this endpoint so it can be executed in any browser, and the customer does not have to be logged in.
+No special headers are required to use this endpoint so it can be executed in any browser, and the consumer does not have to be logged in.
 
 >**TIP:** If you know the price ID, this endpoint yields faster results than the [Merchandised Prices List](#merchandised-prices-list) endpoint does because it locates the price record directly by ID rather than filtering the results.
 
@@ -793,7 +793,7 @@ See the [Merchandised Prices List](#merchandised-product-list) endpoint for a de
 
 ### Merchandised Value Added Services Overview
 
-Products can be merchandised with one or more Value Added Services (VAS) such as gift wrap or personalization. Digital and physical gift cards are another example of VAS as customers can personalize the gift message and configure the amount. A VAS can be merchandised to an unlimited number of products. Use this service to list, add, and delete VAS.
+Products can be merchandised with one or more Value Added Services (VAS) such as gift wrap or personalization. Digital and physical gift cards are another example of VAS as consumers can personalize the gift message and configure the amount. A VAS can be merchandised to an unlimited number of products. Use this service to list, add, and delete VAS.
 
 - Search for a specific version of the object by ID and Snapshot ID. Searching by a filter other than **snapshotId** returns the most recent version.
 - Filter field names are case-insensitive.
@@ -810,7 +810,7 @@ Use this endpoint to list VAS by type or by VAS ID. Listing by multiple IDs is s
 
 If you want to search by VAS ID but do not know it, call the [Merchandised Product List](#merchandised-product-list) endpoint first. The value_added_service ID will be returned in the search results for each product that has one or more value-added service attributes.
 
-The customer does not have to be logged in to call this endpoint.
+The consumer does not have to be logged in to call this endpoint.
 
 This endpoint requires no special headers so you can execute test calls in any browser.
 
@@ -878,7 +878,7 @@ Use this endpoint when you want to list the fields for one VAS ID. This endpoint
 
 If you do not know the VAS ID, call the [Merchandised Product List](#merchandised-product-list) endpoint first. The value_added_service ID will be returned in the search results for each product that has one or more VAS attributes.
 
-The customer does not have to be logged in to call this endpoint.
+The consumer does not have to be logged in to call this endpoint.
 
 This endpoint requires no special headers so you can execute test calls in any browser.
 
@@ -1010,7 +1010,7 @@ https://api.nike.com/merch/contents/v1/919704-006/content?country=ES&locale=es_E
 |**benefitSummaryList**|string|Localized list of benefits text|Optional|
 |**benefitSummaryVideo**|string|Localized benefits video URI|Optional|
 |**manufacturingCountryOfOrigin**|string|Localized name of country where product was manufactured|Optional|
-|**shippingDelay**|integer|Integer value representing when the customer must be notified of a shipping delay|Optional|
+|**shippingDelay**|integer|Integer value representing when the consumer must be notified of a shipping delay|Optional|
 |**sizeChart**|string|Key of size chart for this product|Optional|
 |**imageBadgeResource**|string|Relative URI to image such as "Editor's Choice" image|Optional|
 |**colors**|array|Array of color items associated with this product|Optional|

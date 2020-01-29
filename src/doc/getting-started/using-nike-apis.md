@@ -369,9 +369,9 @@ The required request headers vary per API and are described in the detailed per-
 |**true-client-ip**|IP address of the client, required if **X-Forwarded-For** is null|
 |**x-forwarded-for**|Used to derive the IP address of the client, often required if **True-Client-IP** is null|
 |**user-agent**|Browser and operating system of the client calling this endpoint|
-|**upmid**|Nike profile ID of customer, required if **x-nike-visitorid** is null|
+|**upmid**|Nike profile ID of consumer, required if **x-nike-visitorid** is null|
 |**x-nike-visitorid**|Visitor id of a non-member, required if **upmid** is null|
-|**usertype**|'nike:swoosh' for Nike Employees, 'nike:plus' for Nike+ Customers, otherwise do not send|
+|**usertype**|'nike:swoosh' for Nike Employees, 'nike:plus' for Nike+ Consumer, otherwise do not send|
 |**origin-order-id**|During v1 to v2 cutover, represents the legacy order id associated to the checkout and is used by downstream systems|
 
 #### Authorization Headers

@@ -62,7 +62,6 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |Brand Code|Description|
 |---|---|
 |**Nike**|NIKE brand|
-|**Hurley**|Hurley brand|
 |**Jordan**|Jordan brand|
 |**Converse**|Converse brand|
 
