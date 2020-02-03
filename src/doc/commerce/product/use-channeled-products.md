@@ -31,11 +31,11 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING CHANNELED PRODUCTS TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
+# Using Channeled Products <i class="g72-swoosh"></i><br>DRAFT
 
 ---
 
-##### Last Updated: 01/22/2020
+##### Last Updated: 01/28/2020
 
 Use the Channeled Products API to get **product data** that is **segmented by channel, marketplace, and channel type** into your app, web, or retail experience.
 
@@ -89,6 +89,8 @@ Consumer Channel Id
 
 Here are other key terms used in this document.
 
+###### Table 1: Key Terms
+
 |Term|Definition|
 |---|---|
 |Product Code|The combination of Nike style code and color code. Example: 654321-001|
@@ -127,6 +129,8 @@ Customize your results by including URL query parameters in the request, as foll
 ### Step 2: Enrich Product Data Set via Other APIs
 
 Optionally, you can build out your product data set even further. Use the data from the Channeled Products response to execute additional API requests, as follows:
+
+###### Table 2: Usage of Fields in API Response
 
 |Field|Data Type|Example|Description|Usage|
 |---|---|---|---|---|
