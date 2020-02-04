@@ -8,7 +8,7 @@
 
 ##### Last Updated: 01/30/2020
 
-The Authentication process uses Nike's [Token API](#api-documentation) to:
+The Authentication process uses Nike's [Token API](#api-reference) to:
 - Allow your consumers to login into their Nike account or register for a new one from your app or experience
 - Enable your consumers to permit your app/experience to connect to their Nike account
 - Authorize your app/experience to call other Nike services on behalf of your consumers
@@ -42,13 +42,13 @@ Here are some important terms used in this guide.
 |**Access Token**|OAuth token used in API calls. Valid for one hour.|
 |**Authentication**|Confirming the identity of someone or something, such as your consumers.|
 |**Authorization**|Allowing someone or something to perform an action or to access a resource, such as consumers authorizing your app to access their Nike account.|
-|**Client ID**|Unique ID assigned to you by Nike. Along with the Client Secret, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [Prequisite](#prequisite) section for details.|
-|**Client Secret**|Unique value assigned to you by Nike. Along with the Client ID, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [Prequisite](#prequisite) section for details.|
+|**Client ID**|Unique ID assigned to you by Nike. Along with the Client Secret, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [prerequisites](#prerequisites) section for details.|
+|**Client Secret**|Unique value assigned to you by Nike. Along with the Client ID, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [prerequisites](#prerequisites) section for details.|
 |**Consumer Access Token**|Temporary token exchanged for an access token and refresh token.|
 |[OAuth](https://oauth.net/2/){:target="new-tab"}|A secure way for consumers to grant apps/experiences access to their information by an exchange of tokens rather than passwords.|
 |**Refresh Token**|Token used to get a new access token when it is about to expire. Valid for one year.|
-|[Token API](api-documentation)|API that manages OAuth tokens.|
-|**Token Experience Configuration**|Configuration that handles customization of the consumer Nike Account Connection page. See the [Prequisite](#prequisite) section for details.|
+|[Token API](#api-reference)|API that manages OAuth tokens.|
+|**Token Experience Configuration**|Configuration that handles customization of the consumer Nike Account Connection page. See the [prerequisites](#prerequisites) section for details.|
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ In addition to generating your OAuth credentials, Nike creates a special configu
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get your access token and refresh token so you can make API calls on behalf of the consumer**
 
-After all of the action items in the [prerequisites](#prerequistes) section are completed, you are ready to add Nike Authentication to your app or experience. Let's walk through how a consumer authenticates and grants access to their Nike account from your app or experience.
+After all of the action items in the [prerequisites](#prerequisites) section are completed, you are ready to add Nike Authentication to your app or experience. Let's walk through how a consumer authenticates and grants access to their Nike account from your app or experience.
 
 ### Step 1: Redirect the Consumer To the Nike Login Page
 
