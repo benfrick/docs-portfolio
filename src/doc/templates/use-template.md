@@ -1,4 +1,4 @@
-<!--Uncomment the front matter below only when ready to publish. Update values within {} -->
+<!--Uncomment the category below only when ready to publish. Update all values in this doc within the {} -->
 ---
 # id: {unique id, usually doc title, hyphens for spaces, without file extension}
 # tags: pdf
@@ -63,6 +63,10 @@ This section discusses the concepts and terms that are important to understandin
 ### Terms
 
 Here are some key terms used in this document.
+
+###### Table 1: Key Terms
+
+<!-- Use table labels only on larger tables where significant data is presented. Link to the label as necessary from elsewhere using the anchor name.-->
 
 |Term|Definition|
 |---|---|
