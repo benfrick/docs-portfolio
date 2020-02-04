@@ -8,7 +8,7 @@
 
 ##### Last Updated: 01/30/2020
 
-The Authentication process uses Nike's [Token API](#api-documentation) to:
+The Authentication process uses Nike's [Token API](#api-reference) to:
 - Allow your consumers to login into their Nike account or register for a new one from your app or experience
 - Enable your consumers to permit your app/experience to connect to their Nike account
 - Authorize your app/experience to call other Nike services on behalf of your consumers
@@ -19,7 +19,7 @@ In this guide, we will step through how to add Nike Authentication to your app o
 
 ![](/images/partner/authentication/partner-oauth-login-reg.png)
 
-### What is Authentication?
+### What Is Authentication?
 
 When you ask your consumers to prove their identify before accessing your app or experience, you ask them to authenticate. This is often done by requiring consumers to provide their account username and password.
 
@@ -42,23 +42,23 @@ Here are some important terms used in this guide.
 |**Access Token**|OAuth token used in API calls. Valid for one hour.|
 |**Authentication**|Confirming the identity of someone or something, such as your consumers.|
 |**Authorization**|Allowing someone or something to perform an action or to access a resource, such as consumers authorizing your app to access their Nike account.|
-|**Client ID**|Unique ID assigned to you by Nike. Along with the Client Secret, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [Prequisite](#prequisite) section for details.|
-|**Client Secret**|Unique value assigned to you by Nike. Along with the Client ID, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [Prequisite](#prequisite) section for details.|
+|**Client ID**|Unique ID assigned to you by Nike. Along with the Client Secret, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [prerequisites](#prerequisites) section for details.|
+|**Client Secret**|Unique value assigned to you by Nike. Along with the Client ID, use it to get an access token and refresh token so you can call other Nike APIs on behalf of the consumer. See the [prerequisites](#prerequisites) section for details.|
 |**Consumer Access Token**|Temporary token exchanged for an access token and refresh token.|
 |[OAuth](https://oauth.net/2/){:target="new-tab"}|A secure way for consumers to grant apps/experiences access to their information by an exchange of tokens rather than passwords.|
 |**Refresh Token**|Token used to get a new access token when it is about to expire. Valid for one year.|
-|[Token API](api-documentation)|API that manages OAuth tokens.|
-|**Token Experience Configuration**|Configuration that handles customization of the consumer Nike Account Connection page. See the [Prequisite](#prequisite) section for details.|
+|[Token API](#api-reference)|API that manages OAuth tokens.|
+|**Token Experience Configuration**|Configuration that handles customization of the consumer Nike Account Connection page. See the [prerequisites](#prerequisites) section for details.|
 
 ## Prerequisites
 
 You need to complete the steps below before you can add Authentication to your app/experience.
 
-#### 1. Pair up with a Nike Account Manager (AM) and Technical Point of Contact (TPC)
+#### 1. Pair Up With a Nike Account Manager (AM) And Technical Point Of Contact (TPC)
 
 Your Nike Business Lead (NBL) will put you in touch with these two points of contact. These contacts help make your integration go smoothly by communicating with various internal Nike teams for you. Your AM handles privacy and legal details. Your TPC handles the technical details of your project.
 
-#### 2. Gather your project requirements
+#### 2. Gather Your Project Requirements
 This is the step where you provide Nike with information about your project and your technical needs.
 
 Your **AM** needs to know:
@@ -82,10 +82,10 @@ Your **TPC** needs to know:
 - **Site traffic requirements:** How many visitors do you expect over what time period? How many simultaneous visitors to you expect at peak times?
 - **Links to your Terms of Service and Privacy Policy Pages**: Nike includes these links as part of your partner configuration. These links display on your customized Connect Your Nike Account page where the consumer gives your app/experience permission to connect to their Nike account. Note that your pages must be static and available in every language you support as Nike cannot pass locale parameters.
 
-#### 3. Get legal and privacy approval
+#### 3. Get Legal And Privacy Approval
 Your NBL will make sure that your project contract is ready to go and that all of the data exchanged between your app/experience and Nike is handled securely. This process generally takes 1 - 5 business days.
 
-#### 4. Get your OAuth credentials
+#### 4. Get Your OAuth Credentials
 
 Once the above prerequisites are complete, your TCM will give you your OAuth credentials (**Client ID** and **Client Secret**) so you start calling the [Token API](#api-reference).
 
@@ -103,9 +103,9 @@ In addition to generating your OAuth credentials, Nike creates a special configu
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get your access token and refresh token so you can make API calls on behalf of the consumer**
 
-After all of the action items in the [Prerequisites](#prerequistes) section are completed, you are ready to add Nike Authentication to your app or experience. Let's walk through how a consumer authenticates and grants access to their Nike account from your app or experience.
+After all of the action items in the [prerequisites](#prerequisites) section are completed, you are ready to add Nike Authentication to your app or experience. Let's walk through how a consumer authenticates and grants access to their Nike account from your app or experience.
 
-### Step 1: Redirect the Consumer to the Nike Login Page
+### Step 1: Redirect the Consumer To the Nike Login Page
 
 Provide a way in your app/experience for your consumers to navigate to the Nike Login page **https://unite.nike.com/oauth.html**. Registered Nike consumers log into their Nike account directly from this page. Guests register for a new Nike account by clicking the Join link at the bottom of the page.
 
@@ -113,8 +113,8 @@ Pass these URI parameters to the Login page:
 
 |Parameter Name|Required|Description|Example|
 |----|---|---|---|
-|`client_id`|**Required**|Unique Client ID assigned to your project as an outcome of the [Prerequisites](#prerequisites) phase.|client_id=12345|
-|`redirect_uri`|**Required**|Unencoded URI to your app/experience to redirect the consumer to after successfully completing Nike authentication. **This URI must be added to Nike's redirect URI whitelist as part of the [Prerequisites](#prerequisites) phase**.|redirect_uri=https://partnersite.com|
+|`client_id`|**Required**|Unique Client ID assigned to your project as an outcome of the [prerequisites](#prerequisites) phase.|client_id=12345|
+|`redirect_uri`|**Required**|Unencoded URI to your app/experience to redirect the consumer to after successfully completing Nike authentication. **This URI must be added to Nike's redirect URI whitelist as part of the [prerequisites](#prerequisites) phase**.|redirect_uri=https://partnersite.com|
 |`response_type`|**Required**|Always `code`.|response_type=code|
 |`state`|Optional|If supplied, this value is returned as a URI parameter when the consumer is redirected to your app/experience after successfully completing Nike authentication.|state=logged_in|
 |`locale`|Optional|Consumer's two-letter, lowercase language code and two-letter, uppercase country code, separated by an underscore "_". Default locale is en_US.|locale=fr_FR|
@@ -131,7 +131,7 @@ https://unite.nike.com/oauth.html?client_id=12345&redirect_uri=https://partnersi
 
 Consumers log in or register to their Nike account and accept Nike's terms and conditions.
 
-**Step 2a: Consumer logs in to an existing or registers a new Nike account**
+**Step 2a: Consumer Logs In To an Existing Or Registers a New Nike Account**
 
 On the Nike Login or Registration page, consumers log into their existing Nike account or register a new one. Under the covers, the page uses three-legged OAuth to authenticate the consumer and generate a Nike Consumer Access Token discussed in **Step 3**. Consumers must also acknowledge Nike's Privacy Policy and Terms of Use.
 
@@ -145,17 +145,17 @@ Below are sample Login and Registration pages with error messages indicated in r
 
 ![](/images/partner/authentication/partner-oauth-login-reg-error.png)
 
-**Step 2b: Consumer allows your app/experience to connect their Nike account**
+**Step 2b: Consumer Allows Your App/Experience To Connect Their Nike Account**
 
 The consumer must approve connecting their Nike account to your app/experience before consumer authentication can be completed.
 
-Consumers can review your Terms and Conditions and Privacy policy from this page. This page is customized for you with information you provided to Nike as part of the [Prerequisites](#prerequisites) phase. They can also check what Apps are connected to their Nike account from this page.
+Consumers can review your Terms and Conditions and Privacy policy from this page. This page is customized for you with information you provided to Nike as part of the [prerequisites](#prerequisites) phase. They can also check what Apps are connected to their Nike account from this page.
 
 Below is a sample Connect Your Nike Account page. This design is subject to change.
 
 ![](/images/partner/authentication/partner-oauth-tandc.png)
 
-### Step 3: Redirect to Your App/Experience
+### Step 3: Redirect To Your App/Experience
 
 After the consumer successfully authenticates to their Nike account and agrees to connect their account to your app or experience, the consumer is redirected to the `redirect_uri` you passed in the request in **Step 1**, with a `code` URI parameter appended. The `code` is a temporary Consumer Access Token discussed in **Step 4**. If you passed the `state` URI parameter in **Step 1**, it is also appended as a URI parameter for your use.
 
@@ -179,8 +179,8 @@ Required POST request body fields:
 |---|---|
 |`grant_type`|Type of requested access, always `authorization_code`|
 |`code`|Temporary Consumer Access Code from **Step 3**|
-|`client_id`|Unique Client ID assigned to your project as an outcome of the [Prerequisites](#prerequisites) phase|
-|`client_secret`|Unique Client Secret generated as an outcome of the [Prerequisites](#prerequisites) phase|
+|`client_id`|Unique Client ID assigned to your project as an outcome of the [prerequisites](#prerequisites) phase|
+|`client_secret`|Unique Client Secret generated as an outcome of the [prerequisites](#prerequisites) phase|
 
 A sample token request body is listed below.
 
@@ -223,7 +223,7 @@ The tokens returned in **Step 4** of the [Get Access Token & Refresh Token](#get
 |---|---|
 |`grant_type`|Type of requested access, always `refresh_token`|
 |`refresh_token`|Refresh token returned from a successful call to [Get Access Token & Refresh Token](#get-access-token--refresh-token)|
-|`client_id`|Unique Client ID assigned to your project as an outcome of the [Prerequisites](#prerequisites) phase|
+|`client_id`|Unique Client ID assigned to your project as an outcome of the [prerequisites](#prerequisites) phase|
 
 A sample token request body is listed below.
 
@@ -275,8 +275,8 @@ POST https://api.nike.com/oauth/2.0/token
 |---|---|
 |`grant_type`|Type of requested access, always `authorization_code`.|
 |`code`|Temporary Consumer Access Code returned after the consumer successfully authenticates to their Nike account and authorizes your app or experience to connect to their Nike account.|
-|`client_id`|Unique Client ID assigned to your project as an outcome of the [Prerequisites](#prerequisites) phase.|
-|`client_secret`|Unique Client Secret generated as an outcome of the [Prerequisites](#prerequisites) phase.|
+|`client_id`|Unique Client ID assigned to your project as an outcome of the [prerequisites](#prerequisites) phase.|
+|`client_secret`|Unique Client Secret generated as an outcome of the [prerequisites](#prerequisites) phase.|
 
 
 **Request Body**
@@ -358,7 +358,7 @@ POST https://api.nike.com/oauth/2.0/token
 |---|---|
 |`grant_type`|Type of requested access, always `refresh_token`|
 |`refresh_token`|Refresh token returned from a successful call to [Get Access Token & Refresh Token](#get-access-token--refresh-token)|
-|`client_id`|Unique Client ID assigned to your project as an outcome of the [Prerequisites](#prerequisites) phase|
+|`client_id`|Unique Client ID assigned to your project as an outcome of the [prerequisites](#prerequisites) phase|
 
 **Request Body**
 
