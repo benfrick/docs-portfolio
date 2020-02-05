@@ -53,7 +53,7 @@ toc:
 
 ---
 
-##### Last Updated: 11/14/2019
+##### Last Updated: 02/04/2020
 
 Manage the payment process for consumers purchasing Nike products and services.
 
@@ -97,6 +97,8 @@ After an Order has been submitted for fulfillment, it goes through a series of s
 
 ## Key Terms
 
+###### Table 1:  Key Payment Terms
+
 |Term|Definition|
 |---|---|
 |3D Secure 1|Payment authentication where consumers leave the checkout flow to perform Strong Customer Authentication (SCA) at a bank site. Once authenticated, the consumer is returned to the shopping flow to complete checkout.|
@@ -117,6 +119,8 @@ After an Order has been submitted for fulfillment, it goes through a series of s
 ### Supported Stored Payment Types
 
 The Stored Payment Service supports storing these types of payment:
+
+###### Table 2:  Supported Stored Payment Types
 
 |Payment Type Description|Value|Storage Limit|
 |---|---|---|
@@ -666,6 +670,8 @@ A successful 200 response contains the encrypted `signature` that your experienc
 
 Your experience can offer two, different PayPal flows, Express and Mark. What's the difference? See the table below.
 
+###### Table 3: Comparison of PayPal Express and Mark Flows
+
 |Express Flow|Mark Flow|
 |---|---|
 |<i class="g72-check"></i>&nbsp;Shipping address is stored at PayPal<br><i class="g72-check"></i>&nbsp;Payment is made in the Nike Experience|<i class="g72-check"></i>&nbsp;Shipping address is stored in the Nike experience<br><i class="g72-check"></i>&nbsp;Payment is made at the PayPal site|
@@ -1133,6 +1139,8 @@ Listed below is a sample [Request Authentication](https://developer.niketech.com
 
 A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
 
+###### Table 4:  Result Codes with Next Steps
+
 |Result Code|Next Step|
 |---|---|
 |**AuthenticationFinished**|The payment was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
@@ -1161,6 +1169,8 @@ Listed below is a sample [Request Fingerprint](https://developer.niketech.com/do
 
 A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
 
+###### Table 5:  Result Codes with Next Steps
+
 |Result Code|Next Step|
 |---|---|
 |**AuthenticationFinished**|The payment was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
@@ -1187,6 +1197,8 @@ Listed below is a sample [Request Challenge](https://developer.niketech.com/docs
 
 A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
 
+###### Table 6:  Result Codes with Next Steps
+
 |Result Code|Next Step|
 |---|---|
 |**AuthenticationFinished**|The consumer was successfully authenticated with 3DS 2 and no further calls to the 3DS API are required. Proceed to **Step 5: Request Checkout Submit**.|
@@ -1212,6 +1224,8 @@ Listed below is a sample [Request Redirect](https://developer.niketech.com/docs/
 ```
 
 A successful response includes a `resultCode` that determines the authentication flow. Check the table below to learn what steps you need to take next.
+
+###### Table 7:  Result Codes with Next Steps
 
 |Result Code|Next Step|
 |---|---|

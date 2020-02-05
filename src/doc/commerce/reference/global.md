@@ -16,13 +16,15 @@ toc:
 
 # COUNTRIES, CHANNELS, & BRANDS
 
-##### Last Updated: 06/05/2018
+##### Last Updated: 02/04/2020
 
 ---
 
 This guide lists the countries, languages, currencies, NIKE brands and NIKE direct sales channels supported by the NIKE APIs.
 
 ## Countries, Languages and Currencies
+
+###### Table 1:  Supported Countries, Languages, Currencies
 
 |Country|ISO2 Country Code|Locale|Language|Currency|
 |---|---|---|---|---|
@@ -51,6 +53,8 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 
 ## Sales Channels
 
+###### Table 2:  Sales Channels
+
 |Channel Code|Description|
 |---|---|
 |**.com**|Available in all digital experiences including web, SNKRS app and Nike App|
@@ -58,6 +62,8 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |**nikeplus**|Available in the NIKE App and Nike+ web experience|
 
 ## Brands
+
+###### Table 3:  Brands
 
 |Brand Code|Description|
 |---|---|

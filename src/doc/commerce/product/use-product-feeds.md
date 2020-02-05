@@ -33,7 +33,7 @@ toc:
 
 ---
 
-##### Last Updated: 01/18/2019
+##### Last Updated: 02/04/2020
 
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
@@ -56,6 +56,8 @@ For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](
 ### What Product Data and Content are Available?
 
 The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:
+
+###### Table 1: Types of Data Available from Product Feeds
 
 |Cloud API|Data Type|Examples|Data Source|
 |---|---|---|---|
@@ -125,6 +127,8 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 
 Here is a terminology guide between Nike CMS and Product Feeds:
 
+###### Table 2:  Common CMS, Product Feeds Terms
+
 |CMS Term|Product Feeds Term|
 |---|---|
 |Collection Group|Channel|
@@ -153,6 +157,8 @@ Sample [Thread by ID](https://developer.niketech.com/docs/projects/Product%20Fee
 ## API Quick Reference
 
 **Product Feeds v2 Endpoints**
+
+###### Table 3:  Product Feeds Endpoints
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
