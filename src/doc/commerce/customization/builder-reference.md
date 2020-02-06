@@ -24,7 +24,7 @@ toc:
 
 ---
 
-##### Last Updated: 01/02/2020
+##### Last Updated: 02/04/2020
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 
@@ -222,6 +222,8 @@ At minimum, the `pathName` and `nike-api-caller-id` properties are required in o
 
 #### Required Properties
 
+###### Table 1:  Required Build Properties
+
 |`pathName`|String|The product pathName for the requested build.|
 |`nike-api-caller-id`|String|A platform-unique key (<<domain name>>:<<appid>>) that identifies the API caller to customization services. See [Architecture Standards](https://github.nike.com/ea-governance/ea-standards/blob/master/api-standards/api-standards-main/API_Standards.md#identifying-a-calling-client) for more.|
 
@@ -230,6 +232,8 @@ At minimum, the `pathName` and `nike-api-caller-id` properties are required in o
 Please contact a team member in [#nikeid-dev-systems](https://nikedigital.slack.com/messages/C0L8C4UM7) or email 
 [Lst-digitaltech.customization.id.systems@nike.com](mailto:Lst-digitaltech.customization.id.systems@nike.com) to obtain 
 a key for your platform in advance of making API calls. The current list of supported values is shown below (Note: items marked with * are for internal tracking purposes):
+
+###### Table 2:  Nike Platforms with Corresponding Caller IDs
 
 |Platform|Value|
 |---|---|
@@ -263,11 +267,15 @@ a key for your platform in advance of making API calls. The current list of supp
 
 #### Properties With Dependencies
 
+###### Table 3:  Build Properties Having Dependencies
+
 |`productId`|String|Product ID for the requested build. Only required when using b16Builder and passing config: builderMode: 'wip'|
 |`country`|String|The current country two character abbreviation, e.g. `US`, `GB`, `CN`. Only required when using builderProductApi|
 |`locale`|String|The current locale abbreviation, e.g. `en_US`, `en_GB`, `zn_CN`. Only required when using builderProductApi|
 
 #### Optional Properties
+
+###### Table 4:  Optional Build Properties
 
 |`abTestCookieName`|String|A unique user id for Optimizely to use for it's a/b tests. If `anonymousId` cookie is present, it will be used over the abTestCookieName.|
 |`builderMode`|String|Determines which services are used by the Builder for product data and scene7 calls. In `default` mode, the production app uses a service call to the V4 Product service in production. In `wip` mode, the Builder uses the idedit preview product service and you must also supply the `productId` to be passed along in the service call.|
@@ -334,11 +342,11 @@ Called with the current buildData state of the Builder whenever a new product is
 ### Build Data
 
 The Builder returns a `buildData` object (also referred to as Build Data), which describes the current state of the build with sizing information, style/color, current product
-question/answer pairs, and more.
+question/answer pairs, and more. Here is a [sample buildData object](/doc/commerce/customization/buildDataExample.html).
 
-Here is a [sample buildData object](/doc/commerce/customization/buildDataExample.html).
+#### Build Data Fields
 
-#### **Build Data Fields**
+###### Table 5:  Fields in Build Data
 
 |Field|Type|Description|Example|
 |---|---|---|---|
@@ -369,6 +377,8 @@ Here is a [sample buildData object](/doc/commerce/customization/buildDataExample
 ##### More about **availability**
 
 The below table describes the contents of the `availability` object:
+
+###### Table 6:  Fields in Availability Object
 
 |Field|Type|Description|Example|
 |---|---|---|---|
@@ -937,6 +947,8 @@ builderApi.setAnswer(questionId, answerId, pidValue)
 
 Description: Allows reloading the Builder with a new product by passing one of the following:
 
+###### Table 7:  Parameters for setBuild Method
+
 |Param|Type|Result|Example|
 |---|---|---|---|
 |`metricId`|String|Build is loaded and applied to the product data.|`setBuild({ metricId: 123456789 });`|
@@ -967,6 +979,8 @@ builderApi.setIsVisible(true)
 ### setMessage
 
 Description: Causes the Builder to display a message. Takes a message object consisting of the following properties:
+
+###### Table 8:  Properties of Message Object in setMessage
 
 |Field|Type|Description|
 |---|---|---|
@@ -1034,6 +1048,8 @@ Description: Persists the current build and returns Promise that resolves to a m
 ### showNotification
 
 Description: Causes the Builder to display a notification. It takes a message object consisting of the following properties:
+
+###### Table 9:  Properties of Message Object in showNotification Method
 
 |Field|Type|Description|
 |---|---|---|

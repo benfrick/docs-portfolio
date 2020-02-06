@@ -31,7 +31,7 @@ toc:
 
 ---
 
-##### Last Updated: 01/07/2020
+##### Last Updated: 02/04/2020
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -48,7 +48,7 @@ But what if you want to show them additional options, like a list of nearby stor
 
 [Fulfillment Offerings](#fulfillment-offerings) gives you all you need to drive an interactive 'Shipping' selection experience like the one shown here:
 
-![Prototype of a Nike shipping selection experience](/images/commerce/buy/f-offs-select-options.png)
+![Prototype of a Nike shipping selection experience](/images/commerce/buy/f-offs-select-options.png){:style="width:1000px"}
 
 ## Key Concepts and Terms
 
@@ -79,6 +79,8 @@ Each offering has the following attributes:
 
 **Offering Attributes**
 
+###### Table 1: Attributes of Fulfillment Offerings
+
 |Attribute|Description|Example|
 |---|---|---|
 |**Fulfillment Type**|The type of offering, if the consumer has indicated [intent](#intent) for the offering.|`"type": "SHIP"`,`"type": "PICKUP"`|
@@ -92,6 +94,8 @@ Each location in an offering is one of the types listed below.
 
 **Location Types**
 
+###### Table 2: Location Types for Fulfillment Offerings
+
 |Location Type|Fulfillment Type|
 |---|---|---|
 |`store/store_views`|Nike store location|
@@ -103,6 +107,8 @@ Each location in an offering is one of the types listed below.
 If the consumer indicated [intent](#intent) for the offering, the offering has a Fulfillment type. The valid types are listed below.
 
 **Fulfillment Types**
+
+###### Table 3: Fulfillment Types for Fulfillment Offerings
 
 |Type|Description|Example Scenario|
 |---|---|---|
@@ -127,6 +133,8 @@ Each group has the following attributes:
 
 **Fulfillment Group Attributes**
 
+###### Table 4: Attributes of Fulfillment Groups for Fulfillment Offerings
+
 |Attribute|Description|Example|
 |---|---|---|
 |`id`|Unique ID in the format of UUID|845a92a6-3cb6-49ce-8d52-2f84728d17d4|
@@ -134,6 +142,8 @@ Each group has the following attributes:
 |`priceOffers`|Array of price offers for the group.|See the next table for `priceOffer` object fields|
 
 **Price Offer Attributes**
+
+###### Table 5: Attributes of Price Offers for Fulfillment Offerings
 
 |Attribute|Description|Example|
 |---|---|---|
@@ -160,6 +170,8 @@ Fulfillment Offerings supports the 'Buy Online, Pickup In Store' (BOPIS) scenari
 ### KEY TERMS
 
 Listed below are some additional Fulfillment Offerings key terms.
+
+###### Table 6: Key Terms with Corresponding Definitions
 
 |Term|Definition|
 |---|---|
@@ -332,6 +344,8 @@ Send a GET request to https://api.nike.com/buy/fulfillment_offerings/v1{?filter}
 
 The `filter` query parameter must be included, with the field/value requirements as follows:
 
+###### Table 7: Filter Requirements for GET Request to Fulfillment Offerings
+
 |Filter|Required?|Example|Notes|
 |---|---|---|
 |Product|Required|`filter=skuId(935f2623-6010-4da9-a218-571c8e33d7aa,f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7)`|Separate multiple skuIds with a comma
@@ -414,6 +428,8 @@ Listed below are the allowed [location type and fulfillment type](#whats-in-an-o
 
 **Valid Location Type/Fulfillment Type Combinations**
 
+###### Table 8: Valid Location Type/Fulfillment Type Combinations for Fulfillment Offerings
+ 
 |Location Type|Fulfillment Type|
 |---|---|---|
 |`store/store_views`|`PICKUP`, `INSTORE`|

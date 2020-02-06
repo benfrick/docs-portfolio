@@ -305,7 +305,7 @@ By sending a request to a Nike API, you access a resource using a particular URI
 
 Access API resources via standard HTTP methods, noting that not all APIs support all methods.
 
-###### Table 3: Description of HTTP Methods
+###### Table 3:  HTTP Methods
 
 |Method|Description|Example|
 |---|---|---|
@@ -321,7 +321,7 @@ The required request headers vary per API and are described in the detailed per-
 
 #### General Request Headers
 
-###### Table 4a: Description of Request Headers (General)
+###### Table 4a:  Request Headers (General)
 
 |Header|Description|
 |---|---|
@@ -337,7 +337,7 @@ The required request headers vary per API and are described in the detailed per-
 
 #### Authorization Headers
 
-###### Table 4b: Description of Request Headers (Authorization)
+###### Table 4b:  Request Headers (Authorization)
 
 |Header|Description|
 |---|---|
@@ -385,7 +385,7 @@ Learn about the common components of HTTP responses returned by Nike APIs. Also 
 
 The HTTP protocol defines status codes to clearly describe the result of an API call. Here is a sampling of standard response codes you may see in responses:
 
-###### Table 6: Description of HTTP Status Codes
+###### Table 6:  HTTP Status Codes
  
 |Code|Description|
 |---|---|
@@ -413,7 +413,7 @@ Every API response includes headers, but the headers sent will vary. Some of the
 
 #### General Response Headers
 
-###### Table 7a: Description of Response Headers (General)
+###### Table 7a:  Response Headers (General)
 
 |Header|Description|
 |---|---|
@@ -432,7 +432,7 @@ Every API response includes headers, but the headers sent will vary. Some of the
 
 If your API request requires a CORS pre-flight message to be sent before the actual request, you may receive the following response headers:
 
-###### Table 7b: Description of Response Headers (CORS)
+###### Table 7b:  Response Headers (CORS)
 
 |Header|Description|
 |---|---|
@@ -448,7 +448,7 @@ See the [CORS](#cors) section for more info.
 
 Nike APIs may use the following custom headers:
 
-###### Table 7c: Description of Response Headers (Custom)
+###### Table 7c:  Response Headers (Custom)
 
 |Header|Description|
 |---|---|
@@ -695,7 +695,7 @@ Akamai caching and routing is managed though a set of configurations at Akamai. 
 
 Listed below are the Production domains that are routed to Akamai's Edge caching server:
 
-###### Table 8a: Description of Nike Domains Routed to Akamai
+###### Table 8a:  Nike Domains Routed to Akamai
 
 |Domain|Description|
 |---|---|
@@ -734,7 +734,7 @@ Caching can also be done on the Browser/Phone device itself. This type of cachin
 
 #### Request
 
-###### Table 8b: Description of Cache-Related Headers (Request)
+###### Table 8b:  Cache-Related Headers (Request)
 
 |Header|Description|Example|
 |---|---|---|
@@ -747,7 +747,7 @@ Caching can also be done on the Browser/Phone device itself. This type of cachin
 
 #### Response
 
-###### Table 8c: Description of Cache-Related Headers (Response)
+###### Table 8c:  Cache-Related Headers (Response)
 
 |Header|Description|Example|
 |---|---|---|
@@ -853,7 +853,7 @@ Error responses from Nike APIs contain the following:
 
 - Response Body Components
 
-###### Table 9a: Description of Error-Related Response Body Components
+###### Table 9a:  Error-Related Response Body Components
 
 |Element Name|Description|
 |---|---|
@@ -1034,7 +1034,7 @@ Depending on the returned HTTP status code, retrying an operation might make sen
 
 Here are some recommendations for retries:
 
-###### Table 9b: Description of HTTP Error Codes with Retry Recommendations
+###### Table 9b:  HTTP Error Codes with Retry Recommendations
  
 |HTTP Code|Description|Retry?|Comments|
 |---|---|---|---|

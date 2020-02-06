@@ -32,7 +32,7 @@ toc:
 
 ---
 
-##### Last Updated: 06/17/2019
+##### Last Updated: 02/04/2020
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
 
@@ -57,6 +57,8 @@ Users of B16 have two adventure options:
 
 In addition to the Builder, the Customization Domain offers a variety of [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} that can be used for specific steps along the user journey.
 
+###### Table 1:  Customization APIs and What They Do
+
 |Service Name|What does it do?|
 |---|---|
 |Consumer Designs|Returns the entire payload of a consumer design for rendering in experiences.|
@@ -66,6 +68,8 @@ In addition to the Builder, the Customization Domain offers a variety of [REST A
 |Inspiration Designs|Returns the entire payload of an inspiration design for rendering in experiences.|
 
 ## Key Terms
+
+###### Table 2:  Key Customization Terms
 
 |Term|Definition|
 |---|---|
@@ -279,6 +283,8 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 
 #### Interact with the Builder
 
+###### Table 3:  Builder Scenarios with Corresponding UX Interactions
+
 |Scenario|Interaction|
 |---|---|
 |Load a new build, either to "reset" the builder or to switch between builds.|Invoke the [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) method, for example by prebuild ID or metric ID.|
@@ -329,7 +335,7 @@ The consumer may wish to save one or more of their designs for later in My Desig
     ```
     
     These two `config` properties are described below in more detail:
-    
+        
     |Property Name|Usage|Default|
     |---|---|---|
     |`myDesignsEnabled`|Value of `true` tells the Builder to enable myDesign local storage, while `false` disables it|`false`|
@@ -391,6 +397,8 @@ The consumer is finished customizing their product, so it's time to get them rea
 #### Show Product Availability Messaging
 
 Show the consumer on the PDP whether the product can be purchased. If it can, show an estimated lead time (in weeks) for the product to be delivered. Here a few example messages:
+
+###### Table 4:  Product Availability Conditions with Corresponding PDP Message
 
 |Condition|Message on PDP|
 |---|---|
