@@ -43,7 +43,7 @@ toc:
 
 ---
 
-##### Last Updated: 9/12/2019
+##### Last Updated: 02/04/2020
 
 Manage the Cart and Checkout process for the consumer.
 
@@ -83,6 +83,8 @@ Thus, both the cart and the checkout serve a specific purpose within the shoppin
 Sometimes consumers are not ready to purchase items or services and want to set them aside to buy at a later date. Consumers can do this by creating a Wish List. Consumers can create an unlimited number of Wish Lists and can add an unlimited number of items and services. When consumers are ready to purchase an item from their Wish List, they use the app/experience to add the item to their Cart and remove the item from their Wish List. While consumers can also manage their future purchases using a Cart, Wish Lists allow greater flexability by allowing multiple Wish Lists that they can name.
 
 ## Key Terms
+
+###### Table 1: Key Terms for Checkout
 
 |Term|Definition|
 |---|---|
@@ -187,6 +189,8 @@ https://api.nike.com/buy/shipping_options/v2
 After the consumer selects or provides a shipping address, validate the address with the [Address Validator API](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"}. This endpoint can validate any type of address, e.g. billing address.
 
 This service calls a third party vendor to validate the shipping address passed in the request against an address database. The service response contains a `verficationCode`, `score`, and an address. Based on the quality of the address match, the service returns either the consumer-provided address or a corrected address. See the table below to understand how the verificationCode and score work together to determine what actions the consumer needs to take next.
+
+###### Table 2: Address Validator Verification Codes and Scores with Next Steps
 
 |Verification Code|Score|Consumer needs to|
 |---|---|---|
@@ -536,6 +540,8 @@ See the User Types section of the [Using Nike APIs](/doc/getting-started/using-n
 
 The following request headers are common to all of the Cart & Checkout APIs:
 
+###### Table 3: Common Request Headers to Cart & Checkout APIs
+
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
@@ -552,6 +558,8 @@ For the list of country code and currency code combinations supported by Cart & 
 ### Idempotence
 
 [Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="new-tab"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkout API? Each PUT request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} and [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:
+
+###### Table 4: Scenarios Illustrating Idempotence Behavior for Checkout Requests
 
 |Scenario|Result|
 |---|---|
