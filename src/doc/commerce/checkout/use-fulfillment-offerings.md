@@ -31,7 +31,7 @@ toc:
 
 ---
 
-##### Last Updated: 02/04/2020
+##### Last Updated: 02/17/2020
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -42,17 +42,17 @@ Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to 
 
 ## Introduction
 
-In a checkout experience, consumers are accustomed to selecting a shipping method (e.g. "Two-Day") while being shown the associated costs and estimated delivery dates.
+In a checkout experience, consumers are accustomed to selecting a shipping speed (e.g. "Two Day") based on cost and estimated delivery dates.
 
-But what if you want to show them additional options, like a list of nearby stores or other locations where they can pick up their order?
+But what if you want to show consumers additional options, like a list of nearby stores or other locations where they can pick up their order?
 
-[Fulfillment Offerings](#fulfillment-offerings) gives you all you need to drive an interactive 'Shipping' selection experience like the one shown here:
+[Fulfillment Offerings](#fulfillment-offerings) gives you all you need to drive an interactive 'Shipping/Pick Up' selection experience like the one shown here:
 
-![Prototype of a Nike shipping selection experience](/images/commerce/buy/f-offs-select-options.png){:style="width:1000px"}
+![Prototype of a Nike fulfillment offering experience](/images/commerce/buy/fo-pickup-ship.png)
 
 ## Key Concepts and Terms
 
-This section discusses topics important to understanding Fulfillment Offerings.
+This section discusses topics important to understanding fulfillment offerings.
 
 ### Fulfillment Offerings
 
@@ -66,84 +66,69 @@ Offerings can vary at any moment in time based on:
 - Total item prices
 - Available discounts/promotions
 
-<!--
-[Turn this into a diagram (?):
-Send an API request to get the available offerings and then show them to the consumer. As the consumer selects an offer for each item, send additional API requests in order to dynamically refresh the offerings shown. That way, the consumer can make up their mind quickly and easily.]todo
--->
-
 >**TIP:** You can also [Search for Offerings Using Consumer Location and Intents](#search-for-offerings-using-consumer-location-and-intents).
 
 #### What's in an Offering?
 
-Each offering has the following attributes:
+Each offering has these attributes.
 
-**Offering Attributes**
-
-###### Table 1: Attributes of Fulfillment Offerings
+###### Table 1.1: Offering Attributes
 
 |Attribute|Description|Example|
 |---|---|---|
-|**Fulfillment Type**|The type of offering, if the consumer has indicated [intent](#intent) for the offering.|`"type": "SHIP"`,`"type": "PICKUP"`|
-|**Location**|Delivery destinations|postal/email addresses, store IDs, pickup locations, GPS coordinates|
-|**'Get By' Date**|The estimated date (min/max) for the item to be fulfilled|`"dateTime": "2019-02-09T23:59:59.000Z"`|
-|**Expiration Date**|The date on which the offering expires|`"offerExpiration": "2019-02-07T00:00:00.000Z"`|
-|**Price**|The price of the offering|`"total": 8`|
-|`priceOfferId`|ID of the price offer. Returned in the response when the consumer has indicated their [intent](#intent) for the offering.||
+|`type`|Type of offering, present when the consumer has indicated [intent](#intent) for the offering|`"type": "SHIP"`,`"type": "PICKUP"`|
+|`location`|Delivery destination|postal/email addresses, store IDs, pickup locations, GPS coordinates|
+|`getBy`|Estimated date (min/max) for the item to be fulfilled|`"dateTime": "2019-02-09T23:59:59.000Z"`|
+|`offerExpiration`|Date the offering expires|`"offerExpiration": "2019-02-07T00:00:00.000Z"`|
+|`price`|Price of the offering|`"total": 8`|
+|`priceOfferId`|ID of the price offer, present when the consumer has indicated [intent](#intent) for the offering|`727a92a6-3cb6-49ce-8d52-2f84728d17d2`|
 
-Each location in an offering is one of the types listed below.
+Each location in an offering is one of these types.
 
-**Location Types**
-
-###### Table 2: Location Types for Fulfillment Offerings
+###### Table 1.2 : Location Types
 
 |Location Type|Fulfillment Type|
 |---|---|---|
 |`store/store_views`|Nike store location|
 |`address/shipping`|Shipping address location|
 |`location/search`|Search nearby Nike stores and third party pickup locations based on latitude and longitude or postal code|
-|`address/digital`|Digital location, an email address|
-|`location/pick_up_locations`|Third party pick up location|
+|`address/digital`|Digital location e.g. an email address|
+|`ship/pickup_points`|Third party pick up location|
 
-If the consumer indicated [intent](#intent) for the offering, the offering has a Fulfillment type. The valid types are listed below.
+If the consumer indicated [intent](#intent) for the offering, the offering has a fulfillment type. The valid types are listed below.
 
-**Fulfillment Types**
-
-###### Table 3: Fulfillment Types for Fulfillment Offerings
+###### Table 1.3: Fulfillment Types
 
 |Type|Description|Example Scenario|
 |---|---|---|
 |`SHIP`|Consumer receives the order at their postal address.|Carrier delivers order to a home address|
-|`PICKUP`|Consumer picks up the order at a Nike store or third-party pickup location|'Buy Online Pickup In Store' (BOPIS) or ships to third party location.|
-|`INSTORE`|Consumer completes self-checkout via mobile while in a retail store|Instant Checkout in the Nike app|
-|`DIGITAL`|Consumer receives the order at their digital address|Digital gift card is delivered by email.|
+|`PICKUP`|Consumer picks up the order at a Nike store or third-party pickup location|'Buy Online Pickup In Store' (BOPIS) or ships to a third party location.|
+|`INSTORE`|Consumer completes self-checkout via mobile while in a retail store|Consumer uses Nike mobile app for Instant Checkout in store and leaves with their purchase|
+|`DIGITAL`|Consumer receives the order at their digital address|Digital gift card is delivered by email|
 
 ### Fulfillment Groups
 
 The [Fulfillment Offering PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-put){:target="new-tab"} response includes an array of `fulfillmentGroups`. All items in a Fulfillment Group share the same:
 - Fulfillment type e.g. PICKUP
 - Location type e.g. store/store_views
-- Location e.g. store ID 91
+- Location e.g. store ID 69b5fec5-e0a6-4dd2-b971-4f9b90d4f85b
 - List of price offers
 
 This means that all items in a Fulfillment Group share the same [intent](#intent).
 
 #### What's in a Fulfillment Group?
 
-Each group has the following attributes:
+Each group has the following attributes.
 
-**Fulfillment Group Attributes**
-
-###### Table 4: Attributes of Fulfillment Groups for Fulfillment Offerings
+###### Table 1.4 Fulfillment Group Attributes
 
 |Attribute|Description|Example|
 |---|---|---|
 |`id`|Unique ID in the format of UUID|845a92a6-3cb6-49ce-8d52-2f84728d17d4|
 |`type`|Fulfillment Type|`PICKUP`|
-|`priceOffers`|Array of price offers for the group.|See the next table for `priceOffer` object fields|
+|`priceOffers`|Array of price offers for the group|See the next table for `priceOffer` object fields|
 
-**Price Offer Attributes**
-
-###### Table 5: Attributes of Price Offers for Fulfillment Offerings
+###### Table 1.5 Price Offer Attributes
 
 |Attribute|Description|Example|
 |---|---|---|
@@ -157,69 +142,424 @@ What happens when items in the same Fulfillment Group have different get by date
 
 Fulfillment Groups can be identified by the unique identifiers found in either `items.**fulfillmentGroupId**` or `fulfillmentGroups.**id**`.
 
->**TIP** Use Fulfillment Groups as a display tool to show offerings of the same [intent](#intent) together in your experience. Displaying items by Fulfillment Group makes it easy for the consumer to make their selections.
+>**TIP** Use Fulfillment Groups as a display tool to show offerings of the same [intent](#intent) together in your experience. Displaying items by Fulfillment Group makes it easy for the consumer to quickly select how to they want to get each item in their Cart.
 
 ### Intent
 
-Intent for an offering is the combination of location and fulfillment type. When consumers choose how and where they want to receive an item in their Cart in your app or experience, they are indicating Fulfillment intent for that offer. For example, a consumer is providing intent by choosing to pick up ('PICKUP' = fulfillment type) the item at the Santa Monica, CA store (store ID 90 = fulfillment location).
+Intent for an offering is the combination of location and fulfillment type. When consumers choose how and where they want to receive an item in their Cart in your app or experience, they are indicating Fulfillment intent for that offer. For example, a consumer is providing intent by choosing to pick up ('PICKUP' = fulfillment type) the item at the Santa Monica, CA store (store ID U30121909 = fulfillment location) for free.
 
 ### BOPIS
 
 Fulfillment Offerings supports the 'Buy Online, Pickup In Store' (BOPIS) scenario. This is when the consumer completes a checkout in the app/web and then travels to a nearby Nike store to pick up their order.
 
-### KEY TERMS
+### Key Terms
 
 Listed below are some additional Fulfillment Offerings key terms.
 
-###### Table 6: Key Terms with Corresponding Definitions
+###### Table 1.6 Fulfillment Offerings Key Terms
 
 |Term|Definition|
 |---|---|
-|Email|The email address to which the products/services are to be sent, for digital gift cards.|
-|Expiration Date|The date/time after which an offering expires.|
-|Items|The individual products and services to be fulfilled.|
-|Get By|The estimated date (min/max) for the item to be fulfilled. Synonymous with legacy Estimated Delivery Date (EDD)|
-|Locations|The location of an offering, e.g `address/shipping` and `location/search`|
-|Pickup Location|The third-party location at which the consumer can pick up their order.|
-|Store|A Nike store at which the consumer can pick up their order, in the case of BOPIS.|
-|Shipping Address|The postal address to which the products are to be shipped.|
+|**Email**|Email address to which the products/services are to be sent, for digital gift cards|
+|**Expiration Date**|Date/time after which a fulfillment offering expires|
+|**Items**|Individual products and services to be fulfilled|
+|**Get By**|Estimated date range (min/max) for an item to be fulfilled. Synonymous with legacy Estimated Delivery Date (EDD)|
+|**Locations**|Location of a fulfillment offering, e.g `address/shipping` and `location/search`|
+|**Pickup Location**|Third-party location at which the consumer can pick up their order|
+|**Store**|Nike store at which the consumer can pick up their order, in the case of BOPIS|
+|**Shipping Address**|Postal address to which the products are to be shipped|
 
 ## Quick Start
 
 Let's walk through how to make your first request to the Fulfillment Offerings API, and along the way, define and explain some more concepts.
 
-### What Data Do I Need To Provide?
-
-At minimum, the following is required to be sent in the request body of the Fulfillment Offerings PUT endpoint:
-
-- `country` code (e.g. US)
-- `currency` code (e.g. USD)
-- List of `items`, each having:
-    - Unique line item `id` (a UUID that you generate)
-    - Item `quantity`
-    - `locations` (one or more of `address/shipping`, `address/digital`, `location/search`, `store/store_views`, `location/pick_up_locations`)
-
-Optionally, for each item you can send a `fulfillmentType` which describes the consumer's [intended method of fulfillment](#intent) for that item (if known). The API puts items that have the same intention in a fulfillment group. This makes it easy for the app or experience to display items by fulfillment group.
-
 ### Send the Fulfillment Offerings Request
 
-There are two ways to get a list of Fulfillment Offerings. You can make a PUT request to get the Fulfillment Offerings for each item in Cart. This is discussed in **Option 1** below. You can also make a GET request to get a cached version of Fulfillment Offerings for each size of an item in Cart, such as on a Product Display Page. This is discussed in **Option 2** below.
+There are two ways to get a list of Fulfillment Offerings. You can make a GET request to the [Get Fulfillment Offerings (Cacheable)](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to get a cached version of Fulfillment Offerings for each size of an item. This is discussed in [Option 1](#option-1-send-a-get-request) below. You can also make a PUT request to the [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to get the Fulfillment Offerings for each item in Cart. This is discussed in [Option 2](#option-2-send-a-put-request) below.
 
-#### OPTION 1: Send a PUT request
+#### OPTION 1: Send a GET request
+
+Table 2.1 Fulfillment Offerings Cacheable GET API Request Headers
+
+|Header Name|Description|Member|Guest|Employee|
+|---|---|---|---|---|
+|`Accept`|Content type you will accept in response, application/json is only value allowed|X|X|X|
+|`Content-Type`|Content type of the request, application/json is only value allowed|X|X|X|
+
+>TIP: This endpoint uses an optional `userType` URL filter parameter instead of upmid or x-nike-visitorid authorization headers.
+
+Send a GET request to return cached fulfillment offerings for all sizes of an item. The GET endpoint is intended to be used in scenarios where consumer information isn't necessary to calculate detailed fulfillment offerings, such as for a Product Display Page. Because this endpoint retrieves cached data, it has a very low response time.
+
+Send a GET request to `https://api.nike.com/buy/fulfillment_offerings/v1{?filter}`.
+
+The `filter` query parameter must be included. See the [Get Cached Fulfillment Offerings](#get-cached-fulfillment-offerings) section for more information on the supported filters.
+
+The GET request below asks for all `SHIP` and `PICKUP` type fulfillment offerings for US zip code 97123 for productId 935f2623-6010-4da9-a218-571c8e33d7aa and currency in US dollars.
+
+**Sample Fulfillment Offerings (Cacheable) Request Body**
+
+```
+https://api.nike.com//?filter=currency(USD)&filter=productId(935f2623-6010-4da9-a218-571c8e33d7aa)&filter=countryCode(US)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97123)
+```
+
+**Sample Fulfillment Offerings (Cacheable) Response Body**
+
+```
+{
+  "country": "US",
+  "currency": "USD",
+  "locale": "en_US",
+  "summary": {
+    "fulfillmentOfferings": [
+      {
+        "type": "SHIP",
+        "location": {
+          "type": "address/shipping",
+          "postalAddress": {
+            "postalCode": "97006",
+            "country": "US"
+          }
+        },
+        "offerExpiration": "2019-02-07T23:59:59.000Z",
+        "fulfillmentAttributes": ["FASTEST"],
+        "getBy": {
+          "minDate": {
+            "dateTime": "2019-02-07T00:00:00.000Z",
+            "timezone": "America/Los_Angeles",
+            "precision": "DAY"
+          },
+          "maxDate": {
+            "dateTime": "2019-02-07T23:59:59.000Z",
+            "timezone": "America/Los_Angeles",
+            "precision": "DAY"
+          }
+        },
+        "price": {
+          "base": 25,
+          "discount": 0,
+          "total": 8
+        }
+      },
+      {
+        "type": "PICKUP",
+        "location": {
+          "type": "store/store_views",
+          "id": "339EF669C22F4B2EE05336680C0A6639",
+          "postalAddress": {
+            "address1": "3485 SW Knowlton Rd",
+            "city": "Beaverton",
+            "state": "OR",
+            "postalCode": "972005",
+            "country": "US"
+          },
+          "name": "Nike Company Store",
+          "timezone": "America/Los_Angeles",
+          "distance": "0.1037204811454481",
+          "operationalDetails": {
+            "hoursOfOperation": {
+              "regularHours": {
+                "monday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "tuesday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "wednesday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "thursday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "friday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "saturday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "sunday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT10H"
+                  }
+                ]
+              },
+              "specialHours": []
+            }
+          }
+        },
+        "offerExpiration": "2019-02-07T23:59:59.000Z",
+        "fulfillmentAttributes": ["CHEAPEST"],
+        "getBy": {
+          "minDate": {
+            "dateTime": "2019-02-07T00:00:00.000Z",
+            "timezone": "America/Los_Angeles",
+            "precision": "DAY"
+          },
+          "maxDate": {
+            "dateTime": "2019-02-07T23:59:59.000Z",
+            "timezone": "America/Los_Angeles",
+            "precision": "DAY"
+          }
+        },
+        "price": {
+          "base": 0,
+          "discount": 0,
+          "total": 0
+        }
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "2c1db6b9-7fd7-401c-acc9-73f926681cb9",
+      "skuId": "935f2623-6010-4da9-a218-571c8e33d7aa",
+      "fulfillmentOfferings": [
+        {
+          "type": "SHIP",
+          "location": {
+            "type": "address/shipping",
+            "postalAddress": {
+              "postalCode": "97006",
+              "country": "US"
+            }
+          },
+          "offerExpiration": "2019-02-07T23:59:59.000Z",
+          "fulfillmentAttributes": ["FASTEST"],
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-07T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "price": {
+            "base": 8,
+            "discount": 0,
+            "total": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "a05dcb8a-79e5-4f69-bc30-213dd93f429c",
+      "skuId": "15611769-e81b-45dd-b28c-ca0effb272de",
+      "fulfillmentOfferings": [
+        {
+          "type": "SHIP",
+          "location": {
+            "type": "address/shipping",
+            "postalAddress": {
+              "postalCode": "97006",
+              "country": "US"
+            }
+          },
+          "offerExpiration": "2019-02-07T23:59:59.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-08T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "price": {
+            "base": 8,
+            "discount": 0,
+            "total": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "64607a11-eaa8-4997-b2ff-b50b6b323b37",
+      "skuId": "f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7",
+      "fulfillmentOfferings": [
+        {
+          "type": "SHIP",
+          "location": {
+            "type": "address/shipping",
+            "postalAddress": {
+              "postalCode": "97006",
+              "country": "US"
+            }
+          },
+          "offerExpiration": "2016-02-07T23:59:59.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-07T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "price": {
+            "base": 8,
+            "discount": 0,
+            "total": 8
+          }
+        },
+        {
+          "type": "PICKUP",
+          "location": {
+            "type": "store/store_views",
+            "id": "339EF669C22F4B2EE05336680C0A6639",
+            "postalAddress": {
+              "address1": "3485 SW Knowlton Rd",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "972005",
+              "country": "US"
+            },
+            "name": "Nike Company Store",
+            "timezone": "America/Los_Angeles",
+            "distance": "0.1037204811454481",
+            "operationalDetails": {
+              "hoursOfOperation": {
+                "regularHours": {
+                  "monday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "tuesday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "wednesday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "thursday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "friday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "saturday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "sunday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT10H"
+                    }
+                  ]
+                },
+                "specialHours": []
+              }
+            }
+          },
+          "offerExpiration": "2019-02-07T23:59:59.000Z",
+          "fulfillmentAttributes": ["CHEAPEST"],
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-07T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "price": {
+            "base": 0,
+            "discount": 0,
+            "total": 0
+          }
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "skuId": "c9176a0b-0664-4c92-8530-a46fe22f8a33",
+      "code": "NOT_FOUND"
+    },
+    {
+      "skuId": "60238fb7-fdfc-4015-a2af-feb9aed51fcd",
+      "code": "VALIDATION_ERROR"
+    }
+  ]
+}
+
+```
+
+A successful Fulfillment Offerings (Cacheable) GET response includes a summary of offerings and offering details for each size of an item.
+
+The offerings for each size are calculated independently. If the service cannot calculate offerings for all sizes, this is a partial success. Sizes for which offerings cannot be calculated are included in a warning list with a code explaining why the offering could not be calculated for that size.
+
+If the service cannot calculate offerings for any size, it returns an error code explaining why the call failed.
+
+#### OPTION 2: Send a PUT request
 
 >**NOTE**: The PUT Fulfillment Offerings endpoint operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
 ##### Step 1: Make a Fulfillment Offerings request
 
-Send a HTTP PUT request to https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9. Note the UUID in the URL path, which you must generate. Make sure to send any consumer information you have such as shipping address, email address, or latitude and longitude of the consumer's physical location to get the most accurate list of offerings for each Cart item.
+###### Table 2.2 Fulfillment Offerings PUT API Request Headers
 
-The sample request body below contains a SHIP `fulfillmentType` for skuId 15611769-e81b-45dd-b28c-ca0effb272de and PICKUP `fulfillmentType` for skuId 15611769-e81b-45dd-b28c-ca0effb272de. This means that the consumer "intends" (has indicated through the experience) to receive those two items through those fulfillment methods.
+|Header Name|Description|Member|Guest|Employee|
+|---|---|---|---|---|
+|`Accept`|Content type you will accept in response, application/json is only value allowed|X|X|X|
+|`Content-Type`|Content type of the request, application/json is only value allowed|X|X|X|
+|`Authorization`|Your access token in the format of Bearer {token} indicating the consumer is logged in|X||X|
+|`x-nike-visitid`|Identifier for the guest (i.e. not logged-in) consumer, validated by the Edge router and passed through to the service||X||
+|`x-nike-visitorid`|Integer identifying the guest’s session||X||
 
-The list of `offeringTypes` restricts the Fulfillment Offerings returned to only `SHIP` and `PICKUP` Fulfillment types.
+>TIP: For the Authorization header, use the token for the consumer’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
 
-**Sample Request Body**
+Send a HTTP PUT request to `https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9`. Note the UUID in the URL path, which you must generate. Make sure to send any consumer information you have such as shipping address, email address, or latitude and longitude of the consumer's physical location to get the most accurate list of offerings for each Cart item.
 
-```javascript
+**Sample Fulfillment Offerings Request Body**
+
+```
 {
     "country": "US",
     "currency": "USD",
@@ -317,9 +657,19 @@ The list of `offeringTypes` restricts the Fulfillment Offerings returned to only
 }
 ```
 
+Let's break down the sample request body.
+
+skuId 935f2623-6010-4da9-a218-571c8e33d7aa is a customizable product because the `type` is `customization/nike_id`. The consumer has not indicated an [intended method of fulfillment](#intent) because there is no `fulfillmentType`, but the shipping address in the `locations` object is used to calculate a `SHIP` fulfillment offering for the customizable product.
+
+The consumer has indicated intent to ship skuId 15611769-e81b-45dd-b28c-ca0effb272de to the address in the `locations` object due to the SHIP `fulfillmentType`. The shipping address in the `locations` object is used to calculate `SHIP` and `PICKUP` type fulfillment offerings returned in the response.
+
+The consumer has indicated intent to pickup skuId f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7 due to the PICKUP `fulfillmentType`. The shipping address and location search data points (postal code and latitude/longitude) in the `locations` object are used to calculate `SHIP` and `PICKUP` type fulfillment offerings returned in the response.
+
+The list of `offeringTypes` restricts the fulfillment offerings returned to the `SHIP` and `PICKUP` fulfillment types.
+
 ##### Step 2: Retrieve the Fulfillment Offerings Job
 
-After calling [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to (https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} using the same Fulfillment Offerings ID to check the status of your job.
+After calling [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Retrieve Job Result](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} using the same Fulfillment Offerings ID to check the status of your job.
 
 To know if the job is done, check the value of the **status** field in the response body as follows:
 
@@ -329,39 +679,394 @@ To know if the job is done, check the value of the **status** field in the respo
 
 - `"status": "COMPLETED"`: job has completed
 
-Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
-
-Sample (https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} request URI:
+Sample [Retrieve Job Result](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} GET request URI:
 ```
-https://api.nike.com/buy/fulfillment_offerings_jobs/v1/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9
 ```
 
-#### OPTION 2: Send a GET request
+Once you receive a 200 response with a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
-In addition to the PUT endpoint mentioned in [Option 1](#option-1-send-a-put-request), a GET endpoint is also available that returns cached Fulfillment Offerings for all sizes of a product or a service in Cart. The GET endpoint is intended to be used in scenarios where consumer information isn't necessary to calculate detailed fulfillment offerings, e.g. in a PDP. Because this endpoint retrieves cached data, it has a very low response time.
+**Sample Retrieve Fulfillment Offerings Job Response Body**
 
-Send a GET request to https://api.nike.com/buy/fulfillment_offerings/v1{?filter}.
+```
+{
+  "resourceType": "fulfillmentOfferingsJob",
+  "id": "5e799c64-dd8e-4861-9d38-9592f35e7aa5",
+  "status": "COMPLETED",
+  "links": {
+    "self": {
+      "ref": "/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9592f35e7aa5"
+    }
+  },
+  "country": "US",
+  "currency": "USD",
+  "locale": "en_US",
+  "items": [
+    {
+      "id": "2c1db6b9-7fd7-401c-acc9-73f926681cb9",
+      "skuId": "935f2623-6010-4da9-a218-571c8e33d7aa",
+      "quantity": 1,
+      "valueAddedServices": [
+        {
+          "id": "88d0475d-30e5-4c2f-9a87-7a31938f8ace",
+          "instruction": {
+            "id": "2027261230",
+            "type": "customization/nike_id"
+          }
+        }
+      ],
+      "fulfillmentGroupId": "68993f5c-0d03-4046-a531-c4489f88c145",
+      "fulfillmentOfferings": [
+        {
+          "type": "SHIP",
+          "location": {
+            "type": "address/shipping",
+            "postalAddress": {
+              "address1": "1234 NW Test",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "97006",
+              "country": "US"
+            }
+          },
+          "offerExpiration": "2016-02-07T23:59:59.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-03-22T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "priceOfferId": "727a92a6-3cb6-49ce-8d52-2f84728d17d2",
+          "price": {
+            "base": 8,
+            "discount": 0,
+            "total": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "a05dcb8a-79e5-4f69-bc30-213dd93f429c",
+      "skuId": "15611769-e81b-45dd-b28c-ca0effb272de",
+      "quantity": 1,
+      "fulfillmentGroupId": "68993f5c-0d03-4046-a531-c4489f88c145",
+      "fulfillmentOfferings": [
+        {
+          "type": "SHIP",
+          "location": {
+            "type": "address/shipping",
+            "postalAddress": {
+              "address1": "1234 NW Test",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "97006",
+              "country": "US"
+            }
+          },
+          "offerExpiration": "2016-02-07T23:59:59.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-09T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "priceOfferId": "6113bd90-406d-4d6a-b58e-70ae725efc60",
+          "price": {
+            "base": 25,
+            "discount": 20,
+            "total": 5
+          },
+          "promotionDiscounts": [
+            {
+              "id": "US_CODE_20_OFF_TWO_DAY",
+              "code": "SUMMER20",
+              "amount": 20
+            }
+          ]
+        },
+        {
+          "type": "PICKUP",
+          "location": {
+            "type": "location/pick_up_locations",
+            "postalAddress": {
+              "address1": "123 Main St",
+              "city": "Portland",
+              "state": "OR",
+              "postalCode": "97035",
+              "country": "US"
+            },
+            "consumerPickupPoint": {
+              "storeId": "U30121909",
+              "storeType": "DEMO",
+              "companyName": "SHOES R US"
+            }
+          },
+          "offerExpiration": "2019-02-07T00:00:00.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-09T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "price": {
+            "base": 8,
+            "discount": 0,
+            "total": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "64607a11-eaa8-4997-b2ff-b50b6b323b37",
+      "skuId": "f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7",
+      "quantity": 1,
+      "fulfillmentGroupId": "1f5f6ff8-4469-4a42-9942-612a864705c5",
+      "fulfillmentOfferings": [
+        {
+          "type": "SHIP",
+          "location": {
+            "type": "address/shipping",
+            "postalAddress": {
+              "address1": "1234 NW Test",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "97006",
+              "country": "US"
+            }
+          },
+          "offerExpiration": "2016-02-07T23:59:59.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-15T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "price": {
+            "base": 8,
+            "discount": 0,
+            "total": 8
+          }
+        },
+        {
+          "type": "PICKUP",
+          "location": {
+            "type": "store/store_views",
+            "id": "339EF669C22F4B2EE05336680C0A6639",
+            "postalAddress": {
+              "address1": "395 Santa Monica Pl.",
+              "city": "Santa Monica",
+              "state": "CA",
+              "postalCode": "90401",
+              "country": "US"
+            },
+            "name": "Nike Santa Monica",
+            "timezone": "America/Los_Angeles",
+            "distance": "0.1037204811454481",
+            "operationalDetails": {
+              "hoursOfOperation": {
+                "regularHours": {
+                  "monday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "tuesday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "wednesday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "thursday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "friday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "saturday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT11H"
+                    }
+                  ],
+                  "sunday": [
+                    {
+                      "startTime": "10:00",
+                      "duration": "PT10H"
+                    }
+                  ]
+                },
+                "specialHours": []
+              }
+            }
+          },
+          "offerExpiration": "2016-02-07T23:59:59.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-07T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "priceOfferId": "ba975ce4-867a-412c-b286-bf7549028692",
+          "price": {
+            "base": 0,
+            "discount": 0,
+            "total": 0
+          }
+        }
+      ]
+    }
+  ],
+  "fulfillmentGroups": [
+    {
+      "id": "68993f5c-0d03-4046-a531-c4489f88c145",
+      "type": "SHIP",
+      "priceOffers": [
+        {
+          "id": "727a92a6-3cb6-49ce-8d52-2f84728d17d2",
+          "price": {
+            "base": 0,
+            "discount": 0,
+            "total": 8
+          },
+          "offerExpiration": "2019-02-07T00:00:00.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-03-22T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          },
+          "promotionDiscounts": [
+            {
+              "id": "US_CODE_20_OFF_TWO_DAY",
+              "code": "SUMMER20",
+              "amount": 20
+            }
+          ]
+        },
+        {
+          "id": "6113bd90-406d-4d6a-b58e-70ae725efc60",
+          "price": {
+            "base": 0,
+            "discount": 0,
+            "total": 5
+          },
+          "offerExpiration": "2019-02-07T00:00:00.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-09T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "promotionDiscounts": [
+              {
+                "id": "US_CODE_20_OFF_TWO_DAY",
+                "code": "SUMMER20",
+                "amount": 20
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1f5f6ff8-4469-4a42-9942-612a864705c5",
+      "type": "PICKUP",
+      "priceOffers": [
+        {
+          "id": "ba975ce4-867a-412c-b286-bf7549028692",
+          "price": {
+            "base": 0,
+            "discount": 0,
+            "total": 0
+          },
+          "offerExpiration": "2019-02-07T00:00:00.000Z",
+          "getBy": {
+            "minDate": {
+              "dateTime": "2019-02-07T00:00:00.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            },
+            "maxDate": {
+              "dateTime": "2019-02-07T23:59:59.000Z",
+              "timezone": "America/Los_Angeles",
+              "precision": "DAY"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
-The `filter` query parameter must be included, with the field/value requirements as follows:
+The Fulfillment Offerings PUT API response includes the list of Cart items and a list of fulfillmentGroups. For each item, it lists the ID of the [fulfillment group](#fulfillment-groups) it is in and the item’s fulfillment offerings.
 
-###### Table 7: Filter Requirements for GET Request to Fulfillment Offerings
+**Get By Date Ranges**
 
-|Filter|Required?|Example|Notes|
+The response contains a `getBy` object for each item (`items[i].fulfillmentOfferings[i].getBy`) and each fulfillment group (`fulfillmentGroups[i].priceOffers[i].getBy`). The `getBy` values are compared in the table below.
+
+###### Table 2.3 Item and Fulfillment Group getBy Date Ranges
+
+|Field Name|Required|Item|Fulfillment Group|
 |---|---|---|
-|Product|Required|`filter=skuId(935f2623-6010-4da9-a218-571c8e33d7aa,f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7)`|Separate multiple skuIds with a comma
-|Location|Required|`filter=country(US)` or `filter=country(US)&filter=postalCode(97123)`|Only one country and postal code are supported|
-|Fulfillment Type|Optional|`filter=fulfillmentTypes(SHIP)`|`SHIP`,`PICKUP`,`INSTORE` are supported. Separate multiple fulfillment types with a comma.|
+|`getBy.minDate`|Optional|Earliest day/time the item will be fulfilled. If item does not have a `getBy.minDate`, the item will be fulfilled any day/time between order placement and the item's `getBy.maxDate.`|Earliest *approximate* day/time any item in the fulfillment group will be fulfilled. |
+|`getBy.maxDate`|**Required**|Latest day/time the item will be fulfilled.|No item in the fulfillment group will be fulfilled after the `maxDate`.|
 
-The GET request below asks for all `SHIP` type Fulfillment Offerings for the US zip code 97123 for skuIds 935f2623-6010-4da9-a218-571c8e33d7aa and f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7.
-
-```
-https://api.nike.com//?filter=skuId(935f2623-6010-4da9-a218-571c8e33d7aa,f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7)&filter=country(US)&filter=postalCode(97123)&ilter=fulfillmentTypes(SHIP)
-
-```
-
-### Evaluate the Response
-
-The API response includes a list of items. For each item, one or more offerings are included, along with a [Fulfillment Group](#fulfillment-groups) identifier.
+For more information on `getBy` dates, see [Semantics of Get-By Data in Nike Experiences](https://confluence.nike.com/pages/viewpage.action?spaceKey=BUY&title=Semantics+of+Get-By+Data+in+Nike+Experiences){:target="new-tab"}.
 
 #### What Do I Do in Case of an Error?
 
@@ -375,37 +1080,41 @@ Listed below is a sample Fulfillment Offerings 404 response.
 
 ## Get Cached Fulfillment Offerings
 
-<i class="g72-check"></i>&nbsp;&nbsp;**Get cached fulfillment offerings for a product or service**
+<i class="g72-check"></i>&nbsp;&nbsp;**Get cached fulfillment offerings for all sizes of a product**
 
-Show the consumer a summary of Fulfillment Offerings and available offerings for each size of a product or service before they add it to Cart by calling the Cacheable Fulfillment Offerings GET endpoint.
+Show the consumer a summary of fulfillment offerings and available offerings for each size of a product before they add it to Cart by calling the [Get Fulfillment Offerings (Cacheable)](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint.
 
 ### Step 1: Display a Preview of a Product's Fulfillment Offerings on a PDP
 
-To get a preview of Fulfillment Offerings for a product or service, execute a request to [Get Fulfillment Offerings (Cacheable)](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint.
+To get a preview of fulfillment offerings for a product, execute a request to [Get Fulfillment Offerings (Cacheable)](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint.
 
-At a minimum, you need to pass:
+The `filter` query parameter must be included. The field/value requirements are listed below.
 
-- Consumer's country code
-- Types of Fulfillment Offerings to return in the response, `SHIP`, `PICKUP`, or both
-- Either product ID (UUID format) or style-color, e.g. 100450-100
+|Filter|Required|Example|Description|
+|---|---|---|
+|`countryCode`|**Required**|`filter=countryCode(US)`|Two-letter country identifier|
+|`currency`|**Required**|`filter=currency(USD)`|Three-letter currency identifier, ISO 4217 standard|
+|`productId`|**Required**|`filter=productId(8e799c64-dd8e-4861-9d38-9592f35e7aa5)`|UUID of product|
+|`offeringTypes`|**Required**|`filter=offeringTypes(SHIP,PICKUP,INSTORE)`|List of offering types to include in the response, `SHIP`,`PICKUP`,`INSTORE` are supported|
+|`postalCode`|Optional|`filter=postalCode(97005)`|5-digit postal code number|
+|`userType`|Optional|`filter=userType(nike:swoosh)`|Type of consumer. `nike:guest`, `nike:plus`, `nike:swoosh` are supported. Defaults to `nike:guest`. See [User Types](https://developer.niketech.com/commerce-docs/doc/getting-started/using-nike-apis.html#data-reference) for more information.|
+|`locationId`|Optional|`filter=locationId(339EF669C22F4B2EE05336680C0A6639)`|Location identifier, UUID storeId or locationId|
+|`locationType`|Optional|`filter=locationType(ship/pickup_points)`|Type of location. Required if filtering by `locationId`. `store/store_views`, `ship/pickup_points` are supported.|
+|`locale`|Optional|`filter=locale(en-US)`|Locale code for localized store views data, BCP 47 or POSIX standard|
 
-You can optionally pass:
-- Consumer's 5-digit postal code
-- Location ID (unique store ID or pickup location ID) and location type, `store/store_views` or `location/pick_up_locations`.
 
-
-Shown below is a sample [Get Fulfillment Offerings (Cacheable)](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} GET request URI for a US product with style-color 100450-100, consumer postal code 97005 filtered by offering type `SHIP` and `PICKUP`:
+Shown below is a sample [Get Fulfillment Offerings (Cacheable)](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} GET request URI for a US product with productId 8e799c64-dd8e-4861-9d38-9592f35e7aa5, consumer postal code 97005 filtered by offering type `SHIP` and `PICKUP` and userType nike:swoosh (a Nike employee).
 ```
-https://api.nike.com/buy/fulfillment_offerings/v1/?filter=countryCode(US)&filter=styleColor(100450-100)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97005)
+https://api.nike.com/buy/fulfillment_offerings/v1/?filter=countryCode(US)&filter=currency(US)&filter=productId(8e799c64-dd8e-4861-9d38-9592f35e7aa5)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97005)&filter=userType(nike:swoosh)
 ```
 
-A successful 200 response includes a summary of available Fulfillment Offerings for the product or service. It also includes Fulfillment Offerings for each size of the product including offer price, location, and estimated `getBy` dates.
+A successful 200 response includes a summary of available fulfillment offerings. It also includes Fulfillment Offerings for each size of the product including offer price, location, and estimated `getBy` dates.
 
 ## Get Fulfillment Offerings
 
-<i class="g72-check"></i>&nbsp;&nbsp;**Get fulfillment offerings**
+<i class="g72-check"></i>&nbsp;&nbsp;**Get fulfillment offerings for each item in Cart**
 
-When you want to show available Fulfillment Offerings to the consumer for each item in their Cart and then capture their choices, follow the iterative steps below.
+When you want to show available fulfillment offerings to the consumer for each item in their Cart and capture each fulfillment offering they select, follow the iterative steps below.
 
 ### Step 1: Show a UI to Select Fulfillment Intent
 
@@ -415,30 +1124,28 @@ In order for the consumer to decide how to receive their items, you need to capt
 
 What if you want to get additional offerings to show the consumer, for example, based on their GPS coordinates? What if you already know the consumer's intended fulfillment type for some items, but not all items?
 
-In this case, you can *optionally* send any of the following to Fulfillment Offerings:
+In this case, you can *optionally* send any of the following to Fulfillment Offerings endpoint:
 
 - **Location search data** (e.g. GPS coordinates, radius)
 - **Known Addresses** (shipping, email or other known addresses for that consumer)
 - **Promotion discount codes**
 - **Allowed fulfillment types** (e.g. return only 'SHIP' and 'PICKUP' types)
 
-Fulfillment Offerings adjusts the results based on what you send, making for an efficient way to drive the experience.
+The Fulfillment Offerings API adjusts the results based on what you send, making for an efficient way to drive the experience. The API groups items of the same intent by fulfillment group. This grouping makes it easy for the app or experience to display items with the same intent.
 
 Listed below are the allowed [location type and fulfillment type](#whats-in-an-offering) combinations you can send in the request. These two values express the consumer's chosen [intent](#intent) to receive that item. Invalid combinations result in an error because inventory cannot be fulfilled.
 
-**Valid Location Type/Fulfillment Type Combinations**
+###### Table 4.1: Valid Location Type/Fulfillment Type Combinations
 
-###### Table 8: Valid Location Type/Fulfillment Type Combinations for Fulfillment Offerings
- 
 |Location Type|Fulfillment Type|
 |---|---|---|
 |`store/store_views`|`PICKUP`, `INSTORE`|
 |`address/shipping`|`SHIP`|
 |`location/search`|`PICKUP`, `INSTORE`|
 |`address/digital`|`DIGITAL`|
-|`location/pick_up_locations`|`PICKUP`|
+|`ship/pickup_points`|`PICKUP`|
 
-Shown below is a sample [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} PUT request. The client supplies the Job ID, here 5e799c64-dd8e-4861-9d38-9592f35e7aa5. This endpoint is asynchronous, so you will call a different endpoint to check both the status of the job and the job results when it is complete:
+Shown below is a sample [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} PUT request. The client supplies the Job ID, here 5e799c64-dd8e-4861-9d38-9592f35e7aa5. This endpoint is asynchronous, so you will call a different endpoint to check both the status of the job and the job results when it is complete.
 ```
 https://api.nike.com/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9592f35e7aa5
 ```
@@ -447,34 +1154,34 @@ https://api.nike.com/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9
 
 After calling [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Retrieve Job Result](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-get-1){:target="new-tab"} using the same Fulfillment Offerings Job ID to check the status of your job.
 
-To know if the job is done, check the value of the **status** field in the response body as follows:
-
-- `"status": "PENDING"`: job processing has not started
-
-- `"status": "IN_PROGRESS"`: job processing is in progress
-
-- `"status": "COMPLETED"`: job has completed
-
-Once you receive a job status of `COMPLETED`, get the results of your job by parsing the data in the **response** object.
-
 Sample [Retrieve Job Result](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-get-1){:target="new-tab"} request URI:
 ```
-https://api.nike.com/GET/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9592f35e7aa5
+https://api.nike.com/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9592f35e7aa5
 ```
 
-A `"COMPLETED"` job response will put each item in a Fulfillment Group. Items with the same [intent](#intent) will be in the same Fulfillment Group. This grouping allows you to easily display items in your experience by Fulfillment Group.
+Once the job status is `COMPLETED`, get the results of your job by parsing the data in the **response** object. Each Cart item in the response is in a Fulfillment Group. Items with the same [intent](#intent) are in the same Fulfillment Group.
 
->TIP: Make sure you pass all Cart items to [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} to group items properly and to get the most accurate Fulfillment Offers for each item.
+>TIP: Make sure you pass all Cart items to [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} to group items properly and to get the most accurate fulfillment offers for each item.
 
 ### Step 3: Repeat **Step 1**
 
-Each time the consumer indicates Fulfillment intent for an item in your experience, call the [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint as described in **Step 1**, passing the consumer's selection. This will regroup items with the same intent and update the list of Fulfillment Offerings for each item in Cart.
+Each time the consumer indicates fulfillment intent for an item in their Cart, call the [Request Fulfillment Offerings](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint as described in **Step 1**, passing the consumer's selection. This will regroup items with the same intent and update the list of fulfillment offerings for each item in Cart.
 
 ### Step 4: Proceed to Checkout
 
-Once the consumer has chosen how they want all items in their Cart fulfilled and you have called Fulfillment Options one last time to get an updated list of Fulfillment Options with price offers, you can proceed with the Checkout process, which includes the optional step of [Previewing a Checkout](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout), gathering [Payment](/doc/commerce/payment/use-payment.html) information, and [Submitting a Checkout](doc/commerce/checkout/use-checkout.html#submitting-a-checkout).
+Once the consumer has chosen how they want all items in their Cart fulfilled and you have called Fulfillment Options one last time to get an updated list of fulfillment offerings with price offers, you can proceed with the Checkout process. This process includes the optional step of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout), [Payment Preview](/doc/commerce/payment/use-payment.html), and [Submitting a Checkout](doc/commerce/checkout/use-checkout.html#submitting-a-checkout).
 
-You will pass the consumer-selected Fulfillment information for each Cart item in the `fulfillmentDetails` request body to the optional step of [Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"} and [Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}. Those APIs call Fulfillment Options for you to make sure the consumer's selections are still valid.
+**Step 4a: Call Checkout Preview (Optional)**
+
+If you choose to call [Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"} to increase the chances of a successful checkout, pass the consumer-selected fulfillment information for each Cart item in the `fulfillmentDetails` object from **Step 3**. The Checkout Preview response body includes a `totals` object that includes the fulfillment offerings totals to use in **Step 4c**.
+
+**Step 4b: Call Payment Preview**
+
+Call [Payment Preview](/doc/commerce/payment/use-payment.html) to gather the consumer's payment information.
+
+**Step 4c: Call Checkout Submit**
+
+Pass the consumer-selected fulfillment information for each Cart item in the `fulfillmentDetails` object from **Step 3** to [Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}. If you called [Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}, pass the `totals` object returned in the response to validate that the prices, including fulfillment offerings prices, have not changed.
 
 ## Get Shipping Options (Legacy)
 
@@ -531,7 +1238,7 @@ Need to contact the Cart & Checkout team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|01/07/2020|Initial Draft|
+|Initial draft|02/17/2020|Initial Draft|
 
 ## Next Steps
 
