@@ -52,7 +52,7 @@ But what if you want to show consumers additional options, like a list of nearby
 
 ## Key Concepts and Terms
 
-This section discusses topics important to understanding Fulfillment Offerings.
+This section discusses topics important to understanding fulfillment offerings.
 
 ### Fulfillment Offerings
 
@@ -1066,7 +1066,7 @@ The response contains a `getBy` object for each item (`items[i].fulfillmentOffer
 |`getBy.minDate`|Optional|Earliest day/time the item will be fulfilled. If item does not have a `getBy.minDate`, the item will be fulfilled any day/time between order placement and the item's `getBy.maxDate.`|Earliest *approximate* day/time any item in the fulfillment group will be fulfilled. |
 |`getBy.maxDate`|**Required**|Latest day/time the item will be fulfilled.|No item in the fulfillment group will be fulfilled after the `maxDate`.|
 
-For more information on `getBy` dates, see [Semantics of Get-By Data in Nike Experiences].(https://confluence.nike.com/pages/viewpage.action?spaceKey=BUY&title=Semantics+of+Get-By+Data+in+Nike+Experiences){:target="new-tab"}
+For more information on `getBy` dates, see [Semantics of Get-By Data in Nike Experiences](https://confluence.nike.com/pages/viewpage.action?spaceKey=BUY&title=Semantics+of+Get-By+Data+in+Nike+Experiences){:target="new-tab"}.
 
 #### What Do I Do in Case of an Error?
 
