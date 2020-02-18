@@ -35,9 +35,9 @@ toc:
 
 ---
 
-##### Last Updated: 01/28/2020
+##### Last Updated: 01/31/2020
 
-Use the Channeled Products API to get **product data** that is **segmented by channel, marketplace, and channel type** into your app, web, or retail experience.
+Use the Channeled Products API to **get product data that is segmented by channel, marketplace, and channel type** into your app.
 
 >**TIP**: Migrating from Merch Products/SKUs? See also the [Channeled Products Migration Guide](link to that guide).
 
@@ -73,11 +73,11 @@ Consumer Channel Id
 
 ### Channel, Marketplace, and Channel Type
 
-- **channel**: a specific intersection of product, services and environment, whether digital or physical retail. Identified uniquely by a UUID. Example: Nike.com, Nike App, SNKRS.
+- **Channel**: a specific intersection of product, services and environment, whether digital or physical retail. Identified uniquely by a UUID. Example: Nike.com, Nike App, SNKRS.
 
-- **marketplace**: a universally-defined location where goods are bought and sold, e.g. geo-political countries. Example: "US".
+- **Marketplace**: a universally-defined location where goods are bought and sold, e.g. geo-political countries. Example: "US".
 
-- **channel type**: types of retailers based on the target consumer, retail format and business model. Example: "Digital".
+- **Channel Type**: types of retailers based on the target consumer, retail format and business model. Example: "Digital".
 
 `(Give an example of what an intersection of these three things looks like)`
 

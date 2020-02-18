@@ -29,7 +29,7 @@ toc:
 
 ---
 
-##### Last Updated: 8/7/2018
+##### Last Updated: 02/04/2020
 
 E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike consumers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/use-rollup-threads.html) first.
 
@@ -50,6 +50,8 @@ Here are just some of the ways e-commerce search can be used to drive your exper
 
 Listed below are some common e-commerce search terms and definitions.
 
+###### Table 1: Definitions of Common Search-Related Terms
+
 |Term|Definition|
 |---|---|
 |Context|Consumer's marketplace, experience, channel and language|
@@ -67,7 +69,7 @@ Listed below are some common e-commerce search terms and definitions.
 
 ## E-commerce Search Types
 
-E-commerce search can be used to
+E-commerce search can be used to:
 
 - tell the Nike story
 - decrease time to purchase by quickly leading consumers to the products they need

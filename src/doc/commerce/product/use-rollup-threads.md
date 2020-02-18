@@ -61,6 +61,8 @@ To get a list of Threads along with the associated Rollup Threads, execute a req
 
 Here are some sample URIs to get you started:
 
+###### Table 1:  Use Cases for Rollup Threads
+
 |Use Case|Sample Query|
 |---|---|
 |Threads for a taxonomy ID|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=marketplace(US)&filter=language(en)&filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)|
@@ -83,11 +85,13 @@ To choose only the Parent Threads that you need, append any of the [supported qu
 
 Here are a few example query parameters.
 
-|Desired filter criteria|Example Query Param|
+###### Table 2:  Example Query Parameters
+
+|Filter Criteria|Example|
 |---|---|
 |Women's products|`filter=productInfo.merchProduct.genders(WOMEN)`|
 |Search keyword|`searchTerms=Your%20search%20terms%20here`|
-|Search Rules 'View'|`view=SEARCH_RESULTS`|
+|Search rules 'View'|`view=SEARCH_RESULTS`|
 
 >**TIPS:** 
 >- The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
@@ -134,6 +138,8 @@ The following diagram describes the how the structure of the response from the R
 ![](/images/commerce/product_feeds/rollup_threads_response.png)
 
 ## API Quick Reference
+
+###### Table 3:  Rollup Threads Endpoints
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|

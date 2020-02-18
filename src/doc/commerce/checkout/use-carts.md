@@ -98,6 +98,8 @@ The consumer has finished adding products to the cart, and you can use the [Cart
 
 Cart Reviews currently has two versions available:
 
+###### Table 1: Versions of Carts
+
 |Version|Notes|
 |---|---|
 |v1|Limited to only basic shipping methods (e.g. Standard, Two-Day)|

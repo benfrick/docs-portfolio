@@ -9,12 +9,17 @@ url: /commerce/reference/glossary.html
 
 # Glossary
 
-##### Last Updated: 08/19/2019
+##### Last Updated: 02/04/2020
 
 ---
 
 ## Key Terms
 
+This guide provides a glossary of Nike terms.
+
+###### Table 1:  Key Terms
+
+|Term|Definition|
 |---|---|
 |**A/B Test**|Test comparing two UI versions of the same web page or app to measure a certain outcome e.g. better performance, higher rate of conversion, more frequent usage etc.|
 |**API.md**|The 'contract' document of an API that lists each endpoint, sample request and response data, and request and response schemas|

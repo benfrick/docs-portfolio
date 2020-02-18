@@ -1,4 +1,4 @@
-<!--Uncomment the front matter below only when ready to publish. Update values within {} -->
+<!--Uncomment the category below only when ready to publish. Update all values in this doc within the {} -->
 ---
 # id: {unique id, usually doc title, hyphens for spaces, without file extension}
 # tags: pdf
@@ -64,6 +64,10 @@ This section discusses the concepts and terms that are important to understandin
 
 Here are some key terms used in this document.
 
+###### Table 1: Key Terms
+
+<!-- Use table labels only on larger tables where significant data is presented. Link to the label as necessary from elsewhere using the anchor name.-->
+
 |Term|Definition|
 |---|---|
 |Term|Define and describe how this term applies to the API|
@@ -90,6 +94,8 @@ You control what is returned in your result set and how it is sorted through URL
 
 The table below lists the fields by which you can filter your {} results. If no filter is applied, {this happens}. While some filters only allow one value, you can send multiple filters in the same request. For instance, {example}. Note that filter parameter names and values are case sensitive.
 
+###### Table 2: Filters
+
 |Field Name|Description|Sample Value|
 |---|---|
 |**Field1**|||
@@ -103,6 +109,8 @@ You can sort {this thing} in several ways using the `sort` query parameter. You 
 {} also supports the {} query parameters to restrict the results {in this way}. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
 
 Let's take a look at some scenarios.
+
+###### Table 3: Scenarios
 
 |I want to...|Sample Query|
 |---|---|
@@ -120,57 +128,15 @@ Listed below is {} POST request URL. This endpoint is not JWT-restricted.
 
 {Some hints/callouts about the data in the response and how it could be handled}
 
-
 >**TIPS:**
->- {helpful tip user needs to know in order to complete this step}
+>- {Helpful tip user needs to know in order to complete this step}
 >- {Another tip}
 
 ### Step 2: {Step description}
 
-Describe how to do this step.
+Describe how to do another step.
 
-### Customizing Your Results (if applicable)
-
-You control what is returned in your result set and how it is sorted through URL parameters.
-
-**Filtering**
-
-The table below lists the fields by which you can filter your {} results. If no filter is applied, {this happens}. While some filters only allow one value, you can send multiple filters in the same request. For instance, {example}. Note that filter parameter names and values are case sensitive.
-
-|Field Name|Description|Sample Value|
-|---|---|
-|**Field1**|||
-
-**Sorting**
-
-You can sort {this thing} in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
-
-**Other Query Parameters**
-
-{} also supports the {} query parameters to restrict the results {in this way}. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
-
-Let's take a look at some scenarios.
-
-|I want to...|Sample Query|
-|---|---|
-|Do this thing|`url to do this thing`|
-
-### Executing the Request
-
-
-Listed below is {} POST request URL. This endpoint is not JWT-restricted.
-```
-{CURL goes here}
-```
-
-### Parsing the Response
-
-{Some hints/callouts about the data in the response and how it could be handled}
-
-
->**TIPS:**
->- {helpful tip user needs to know in order to complete this step}
->- {Another tip}
+{Copy the rest from Step 1 and paste here}
 
 ## API Endpoint Quick Reference
 

@@ -33,7 +33,7 @@ toc:
 
 ---
 
-##### Last Updated: 10/25/2018
+##### Last Updated: 02/11/2020
 
 Retrieve a complete order history for your consumers.
 
@@ -41,11 +41,11 @@ Retrieve a complete order history for your consumers.
 
 Adding order history to your app is a two-step process.
 
-<i class="numberCircle gray">1</i>Your application makes a BFF (backend-for-frontend) Order Summary API request to retrieve all or a filtered [list of a
+<i class="numberCircle gray">1</i>Your application makes a User Order Summary API request to retrieve all or a filtered [list of a
 member's
 orders](#step-1-list-a-members-orders).
 
-<i class="numberCircle gray">2</i>Using an order ID returned in the BFF Order Summary response, your application makes a BFF Order Details API
+<i class="numberCircle gray">2</i>Using an order ID returned in the User Order Summary response, your application makes a BFF Order Details API
 request to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
 
 ### What is an Order?
@@ -70,12 +70,12 @@ An order is created in the last step of [Checkout](/doc/commerce/checkout/use-ch
 
 ## Step 1: List a member's orders
 
-Use the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"} to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
+Use the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
 
 This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest's order, see [List
 order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
 
-The BFF Order Summary API requires that you pass certain request headers. For more information, see [Required Request Headers](#required-request-headers).
+The User Order Summary API requires that you pass certain request headers. For more information, see [Required Request Headers](#required-request-headers).
 
 ### Customizing Your Results
 
@@ -83,11 +83,13 @@ You control what is returned in your result set and how it is sorted through URL
 
 **Filtering**
 
-The table below lists the fields by which you can filter your BFF Order Summary results. If no filter is applied, all
+The table below lists the fields by which you can filter your User Order Summary results. If no filter is applied, all
 of a member's orders are returned. While some filters only allow one value, you can send multiple
  filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
-  allowed, you can request a BFF Order Summary filtered by orderSubmitDateAfter and status. Note that filter parameter names
+  allowed, you can request a User Order Summary filtered by orderSubmitDateAfter and status. Note that filter parameter names
    and values are case sensitive.
+
+###### Table 1:  Available Filters for User Order Summary 
 
 |Order Field Name|Description|Sample Value|
 |---|---|
@@ -95,7 +97,6 @@ of a member's orders are returned. While some filters only allow one value, you 
 |**orderType**|List orders of this type. You can only filter by one orderType at a time.|SALES_ORDER|
 |**storeId**|List orders placed in this store. You can only filter by one storeId at a time.|28382|
 |**orderSubmitDateAfter**|List orders placed after this date. You can only filter by one date at a time.|Format is yyyy-MM-dd'T'HH:mm:ssZ|
-
 
 **Sorting**
 
@@ -105,21 +106,23 @@ You can sort a member's orders in several ways using the `sort` query parameter.
 
 **Other Query Parameters**
 
-The BFF Order Summary API also supports the `fields`, `count` and `anchor` query parameters to restrict the results to certain fields, restrict the number of results, and control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
+The User Order Summary API also supports the `fields`, `count` and `anchor` query parameters to restrict the results to certain fields, restrict the number of results, and control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
 
-Let's take a look at some BFF Order Summary scenarios.
+Let's take a look at some User Order Summary scenarios.
+
+###### Table 2:  Scenarios for User Order Summary 
 
 |I want to list for a member|Sample Query|
 |---|---|
-|orderTypes of RESERVE_ORDER submitted after 2018-01-24 purchased at store 12345|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)&filter=orderType(RESERVE_ORDER)`|
-|orders with a status of `Shipped` or `Delivered`|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)`|
-|all orders sorted in ascending modificationDate|`https://api.nike.com/order_mgmt/user_order_summary/v1?sort=modificationDateAsc`|
-|just the order ID, status and submitted date fields of all orders|https://api.nike.com/order_mgmt/user_order_summary/v1?fields=id,status,orderSubmitDate|
-|two most recently submitted orders|https://api.nike.com/order_mgmt/user_order_summary/v1?count=2|
+|Order types of RESERVE_ORDER, submitted after 2018-01-24, purchased at store 12345|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)&filter=orderType(RESERVE_ORDER)`|
+|Orders with a status of `Shipped` or `Delivered`|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)`|
+|All orders sorted in ascending modificationDate|`https://api.nike.com/order_mgmt/user_order_summary/v1?sort=modificationDateAsc`|
+|Just order ID, status and submitted date fields of all orders|`https://api.nike.com/order_mgmt/user_order_summary/v1?fields=id,status,orderSubmitDate`|
+|Two most-recently-submitted orders|`https://api.nike.com/order_mgmt/user_order_summary/v1?count=2`|
 
 ### Executing the Request
 
-Sample CURL for BFF Order Summary for a Member/Employee
+Sample CURL for User Order Summary for a Member/Employee
 
 ```
 curl -X GET \
@@ -129,16 +132,15 @@ curl -X GET \
 
 ### Parsing the Response
 
-The BFF Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [BFF Order Summary API](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"} for a full list of fields returned in the response.
-
+The User Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} for a full list of fields returned in the response.
 
 ## Step 2: List order details for a member or guest
 
-Use the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a member's orders](#step-1-list-a-members-orders).
+Use the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a member's orders](#step-1-list-a-members-orders).
 
->TIP: The BFF Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the BFF Order Details API to get a list of images for a styleColor and country.
+>TIP: The User Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/nde-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the User Order Details API to get a list of images for a styleColor and country.
 
-The BFF Order Details API requires that you pass certain headers in the request depending upon whether the consumer
+The User Order Details API requires that you pass certain headers in the request depending upon whether the consumer
 is a member, guest, or employee. For more information, see [Required Request Headers](#required-request-headers).
 
 ### Required Request Parameters
@@ -149,19 +151,20 @@ For members and employees, the orderNumber path parameter is required. For valid
 
 ### Customizing Your Results
 
-You control what is returned in your result set through URL parameters. The BFF Order Details API supports the `fields` query parameter to restrict the fields returned in the response. Since the BFF Order Details API only returns one consumer order, the `anchor`, `sort`, `filter` and `count` query parameters are not supported. For more information on the `fields` query parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
+You control what is returned in your result set through URL parameters. The User Order Details API supports the `fields` query parameter to restrict the fields returned in the response. Since the User Order Details API only returns one consumer order, the `anchor`, `sort`, `filter` and `count` query parameters are not supported. For more information on the `fields` query parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
 
+Let's take a look at some User Order Details scenarios.
 
-Let's take a look at some BFF Order Details scenarios.
+###### Table 3:  Scenarios for User Order Details
 
 |I want to|Sample Query|
 |---|---|
-|list the details for order ID C00011554850 for a member|https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850|
-|list the ID, status and shipping method fields for orderNumber C00011554850 for a guest|`https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email(my.email@address.com)&fields=id,status,orderLines.shippingMethod`|
+|List the details for order ID C00011554850 for a member|`https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850`|
+|List the ID, status and shipping method fields for orderNumber C00011554850 for a guest|`https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email(my.email@address.com)&fields=id,status,orderLines.shippingMethod`|
 
 ### Executing the Request
 
-Sample CURL for BFF Order Details C00011554850 for a member/employee:
+Sample CURL for User Order Details C00011554850 for a member/employee:
 
 ```
 curl -X GET \
@@ -169,7 +172,7 @@ curl -X GET \
   -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
 ```
 
-Sample CURL for BFF Order Details C00011554850 for a guest:
+Sample CURL for User Order Details C00011554850 for a guest:
 
 ```
 curl -X GET \
@@ -181,7 +184,7 @@ curl -X GET \
 
 ### Parsing the Response
 
-The BFF Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [BFF Order Details API](https://developer.niketech.com/docs/projects/BFF%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
+The User Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
 
 ## Understanding Order Status
 
@@ -194,16 +197,18 @@ An order line is a Nike service or product associated with a quantity, e.g. Nike
 
 The table below describes each status associated with an order.
 
+###### Table 4: Fields Relating to Order Status for User Order Details/Summary
+
 |Status Field Name|Description|API|
 |---|---|---|
-|status|Status of the order. Matches the orderLines.rolledUpStatus with the highest status code on the order.|BFF Order Summary<br>BFF Order Details|
-|orderLines.rolledUpStatus|Status of an order line. Computed by "Partially" + orderLines.maxOrderLineStatus. e.g. "Partially Shipped".|BFF Order Summary<br>BFF Order Details|
-|orderLines.maxOrderLineStatus|Status of the highest status code on this order line e.g "Shipped". Matches orderLines.rolledUpStatus. This status is included in orderLines.statuses.|BFF Order Details|
-|orderLines.minOrderLineStatus|Status of the lowest status code on this order line e.g. "Factory Delayed". This status is included in orderLines.statuses.|BFF Order Details|
-|orderLines.statuses|An array of statuses for each status code on this order line. The description with the highest status code matches orderLines.maxOrderLineStatus. The description with the lowest status code matches orderLines.minOrderLineStatus.|BFF Order Details|
-|paymentStatus|Status of payment.|BFF Order Summary|
+|`status`|Status of the order. Matches the orderLines.rolledUpStatus with the highest status code on the order.|User Order Summary<br>User Order Details|
+|orderLines.`rolledUpStatus`|Status of an order line. Computed by "Partially" + orderLines.maxOrderLineStatus. e.g. "Partially Shipped".|User Order Summary<br>User Order Details|
+|orderLines.`maxOrderLineStatus`|Status of the highest status code on this order line e.g "Shipped". Matches orderLines.rolledUpStatus. This status is included in orderLines.statuses.|User Order Details|
+|orderLines.`minOrderLineStatus`|Status of the lowest status code on this order line e.g. "Factory Delayed". This status is included in orderLines.statuses.|User Order Details|
+|orderLines.`statuses`|An array of statuses for each status code on this order line. The description with the highest status code matches orderLines.maxOrderLineStatus. The description with the lowest status code matches orderLines.minOrderLineStatus.|User Order Details|
+|`paymentStatus`|Status of payment.|User Order Summary|
 
-In the scenario illustrated by the BFF Order Details response below, a consumer has purchased two order lines. One order line has shipped and has a rolledUpStatus of "Shipped" and the other has been delayed at the factory and has a rolledUpStatus of "Factory Delayed". Because the "Shipped" status has a higher status code than the "Factory Delayed" status code, the order status is "Partially Shipped", calculated by "Partially" + the order line with the highest rolledUpStatus on the order.
+In the scenario illustrated by the User Order Details response below, a consumer has purchased two order lines. One order line has shipped and has a rolledUpStatus of "Shipped" and the other has been delayed at the factory and has a rolledUpStatus of "Factory Delayed". Because the "Shipped" status has a higher status code than the "Factory Delayed" status code, the order status is "Partially Shipped", calculated by "Partially" + the order line with the highest rolledUpStatus on the order.
 
 ```
 {
@@ -248,7 +253,7 @@ In the scenario illustrated by the BFF Order Details response below, a consumer 
 }
 ```
 
-Let's look at a slightly more complex example. As illustrated by the BFF Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the rolledUpStatus of the order line is "Delivered". The highest rolledUpStatus of the order is "Delivered", so the order status is "Partially Delivered".
+Let's look at a slightly more complex example. As illustrated by the User Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the rolledUpStatus of the order line is "Delivered". The highest rolledUpStatus of the order is "Delivered", so the order status is "Partially Delivered".
 
 
 ```
@@ -324,11 +329,13 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 Listed below are the order line statuses, status codes, and simple status.
 
-**STATUS**: The order line status is returned by both the BFF Order Summary and BFF Order Details APIs.
+**STATUS**: The order line status is returned by both the User Order Summary and User Order Details APIs.
 
-**STATUS CODE**: Behind the scenes, status code is used by both APIs to calculate status ranking. However, the status code is not returned by either the BFF Order Summary or BFF Order Details API.
+**STATUS CODE**: Behind the scenes, status code is used by both APIs to calculate status ranking. However, the status code is not returned by either the User Order Summary or User Order Details API.
 
-**SIMPLE STATUS**: The simple status is not returned by either the BFF Order Summary or BFF Order Details API but is provided as a sample, consumer-friendly status. Your experience could perform a similar status-to-simple-status mapping to display status to the consumer.
+**SIMPLE STATUS**: The simple status is not returned by either the User Order Summary or User Order Details API but is provided as a sample, consumer-friendly status. Your experience could perform a similar status-to-simple-status mapping to display status to the consumer.
+
+###### Table 5: Matrix of Order Line Statuses, Status Codes, and Simple Statuses
 
 |STATUS|STATUS CODE<br>* not returned by either API|SIMPLE STATUS<br>* not returned by either API|
 |---|---|---|
@@ -472,15 +479,16 @@ Listed below are the order line statuses, status codes, and simple status.
 
 ## API Endpoint Quick Reference
 
+###### Table 6:  Order History Endpoints
+
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[BFF ORDER SUMMARY](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"}|/order_mgmt/user_order_summary/v1|GET|
-|[BFF ORDER DETAIL](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api){:target="new-tab"}|/order_mgmt/user_order_detail/v1/{orderNumber}|GET|
-
+|[USER ORDER SUMMARY](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"}|/order_mgmt/user_order_summary/v1|GET|
+|[USER ORDER DETAIL](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}|/order_mgmt/user_order_detail/v1/{orderNumber}|GET|
 
 ## Best Practices
 
-Listed below are some best practices for working with BFF Order Summary and BFF Order Details.
+Listed below are some best practices for working with User Order Summary and User Order Details.
 
 ### Conditions for Retries
 
@@ -497,7 +505,6 @@ There are boundaries for testing in production:
 ### Caching Data
 
 None of the endpoints described in this document support caching.
-
 
 ## Troubleshooting
 
@@ -523,7 +530,7 @@ To find out more on how to call Unite services to obtain access tokens, see the 
 
 #### JSON Web Token
 
-Neither the BFF Order Summary nor BFF Order Details endpoints require the additional
+Neither the User Order Summary nor User Order Details endpoints require the additional
 authorization
  of a
  JSON Web Token (JWT). For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
@@ -534,7 +541,7 @@ Sample requests included throughout this guide contain unique IDs and access tok
 
 ### User Types
 
-The BFF Order APIs support 3 distinct user types:
+The User Order APIs support 3 distinct user types:
 
 - Member: user has logged in with their Nike+ account credentials
 
@@ -544,15 +551,17 @@ The BFF Order APIs support 3 distinct user types:
 
 #### Required Request Headers
 
-Listed below are the required request headers based on user type. Since most BFF Order Summary and BFF Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token and passes that token in the request.
+Listed below are the required request headers based on user type. Since most User Order Summary and User Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token and passes that token in the request.
 
-|Header Name|Description|Member|Guest<br>* guest consumers are supported in the BFF Order Details API only|Employee|
+###### Table 7:  Required Order History Request Headers by User Type
+
+|Header Name|Description|Member|Guest<br>* guest consumers are supported in the User Order Details API only|Employee|
 |---|---|---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
 |**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
 |**Authorization**|Your access token in the format of `Bearer {token}` indicating the consumer is logged in|X|X|X|
-|**x-nike-visitorid**|Unique identifier for the guest, validated by the Edge router and passed through to the service. Applies only to BFF Order Details API.||X||
-|**x-nike-visitid**|Integer identifying the guest's session. Applies only to BFF Order Details API.||X||
+|**x-nike-visitorid**|Unique identifier for the guest, validated by the Edge router and passed through to the service. Applies only to User Order Details API.||X||
+|**x-nike-visitid**|Integer identifying the guest's session. Applies only to User Order Details API.||X||
 |**appId**|Application making the API request e.g. com.nike.sport.running.ios|X|X|X|
 
 >**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.

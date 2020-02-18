@@ -24,7 +24,7 @@ toc:
 
 # CIRCUIT BREAKER BEST PRACTICES
 
-##### Last Updated: 05/25/2018
+##### Last Updated: 02/04/2020
 
 ---
 
@@ -78,6 +78,8 @@ Listed below are the best practices for calling each Buy service.
 
 **Endpoint**: /buy/carts/v2/
 
+###### Table 1: Circuit Breaker Best Practices for Carts 
+
 |Topic|Best Practice|
 |---|---|
 |**Validation**|Pass in all Checkout items and a valid two-digit ISO country. When updating an existing cart, ensure the request brand, channel and region matches the saved cart.|
@@ -91,6 +93,8 @@ Listed below are the best practices for calling each Buy service.
 
 **Endpoint**: /buy/cart_reviews/v1/
 
+###### Table 2: Circuit Breaker Best Practices for Cart Reviews 
+
 |Topic|Best Practice|
 |---|---|
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
@@ -99,6 +103,8 @@ Listed below are the best practices for calling each Buy service.
 ### Shipping Options
 
 **Endpoint**: /buy/shipping_options/v2
+
+###### Table 3: Circuit Breaker Best Practices for Shipping Options
 
 |Topic|Best Practice|
 |---|---|
@@ -109,6 +115,8 @@ Listed below are the best practices for calling each Buy service.
 
 **Endpoint**: /buy/checkout_previews/v2
 
+###### Table 4: Circuit Breaker Best Practices for Checkout Previews
+
 |Topic|Best Practice|
 |---|---|
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
@@ -117,6 +125,8 @@ Listed below are the best practices for calling each Buy service.
 ### Checkout Preview Job
 
 **Endpoint**: /buy/checkout_previews/v2/jobs/
+
+###### Table 5: Circuit Breaker Best Practices for Checkout Preview Job
 
 |Topic|Best Practice|
 |---|---|
@@ -127,6 +137,8 @@ Listed below are the best practices for calling each Buy service.
 
 **Endpoint**: /buy/checkouts/v2/
 
+###### Table 6: Circuit Breaker Best Practices for Checkout Submit
+
 |Topic|Best Practice|
 |---|---|
 |**Retry pattern for API callers**|429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
@@ -136,6 +148,8 @@ Listed below are the best practices for calling each Buy service.
 
 **Endpoint**: /buy/checkouts/v2/jobs/
 
+###### Table 7: Circuit Breaker Best Practices for Checkout Submit Job 
+
 |Topic|Best Practice|
 |---|---|
 |**Retry pattern for API callers**|404, 429 and 5xx error responses can be retried up to 6 times. Use the Exponential Backoff Retry Pattern, waiting 100ms between calls.|
@@ -144,6 +158,8 @@ Listed below are the best practices for calling each Buy service.
 ### Launch Checkout Submit
 
 **Endpoint**: /buy/launch_checkouts/v2/
+
+###### Table 8: Circuit Breaker Best Practices for Launch Checkout Submit
 
 |Topic|Best Practice|
 |---|---|
@@ -161,6 +177,8 @@ Listed below are the best practices for calling each Availability service.
 
 **Endpoint**: /deliver/available_products/v1/
 
+###### Table 9: Circuit Breaker Best Practices for Product Availability 
+
 |Topic|Best Practice|
 |---|---|
 |**Performance**|When calling the `Product Availability List` endpoint, send 5 productids in batch at a time.|
@@ -172,6 +190,8 @@ Listed below are the best practices for calling each Availability service.
 ### SKU Availability
 
 **Endpoint**: /deliver/available_skus/v1/
+
+###### Table 10: Circuit Breaker Best Practices for SKU Availability
 
 |Topic|Best Practice|
 |---|---|
@@ -207,6 +227,8 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 **Endpoint**: /merch/products/v2/
 
+###### Table 11: Circuit Breaker Best Practices for Merchandised Producdt 
+
 |Topic|Best Practice|
 |---|---|
 |**Performance**|If you have one product UUID, call the `Merchandised Product by ID` endpoint.<br>If you have a list of product UUIDs, call the `Merchandised Product List` endpoint with the id filter to list the products in batch.<br>When filtering by id, request 25 ids or less at a time.|
@@ -216,6 +238,8 @@ Experiences calling the Merchandised Product services directly should not cache 
 ### Merchandised Product SKUs
 
 **Endpoint**: /merch/skus/v2/
+
+###### Table 12: Circuit Breaker Best Practices for Merchandised Product SKUs
 
 |Topic|Best Practice|
 |---|---|
@@ -227,6 +251,8 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 **Endpoint**:  /merch/prices/v2/
 
+###### Table 13: Circuit Breaker Best Practices for Merchandised Product Prices 
+
 |Topic|Best Practice|
 |---|---|
 |**Performance**|If you have one price UUID, call the `Merchandised Product Prices by ID` endpoint.<br>If you have a list of price UUIDs, call the `Merchandised Product Prices List` endpoint with the id filter to list the prices in batch.<br>When filtering by id, request 25 ids or less at a time.|
@@ -237,15 +263,19 @@ Experiences calling the Merchandised Product services directly should not cache 
 
 **Endpoint:** /merch/contents/v1/
 
+###### Table 14: Circuit Breaker Best Practices for Product Content 
+
 |Topic|Best Practice|
 |---|---|
 |**Performance**|If you need the content or images for only one product, call a single product endpoint with the style-color.<br>When calling a multiple product endpoint, request 25 style-colors or less in the request at a time.|
 |**Retry pattern for API callers**|Use the Exponential Backoff Retry Pattern. The caller should determine the wait time between calls and retry limit.|
 |**Fallback behavior for API callers**|None|
 
-### Merchandised Value-added Services
+### Merchandised Value-Added Services
 
 **Endpoint:** /merch/value_added_services/v1/
+
+###### Table 15: Circuit Breaker Best Practices for Merchandised Value-Added Services
 
 |Topic|Best Practice|
 |---|---|
@@ -270,6 +300,8 @@ Listed below are the best practices for calling each Payment service.
 
 **Endpoints:** /payment/options/v2/, /payment/validate_payments/v2/
 
+###### Table 16: Circuit Breaker Best Practices for Payment Options 
+
 |Topic|Best Practice|
 |---|---|
 |**Validation**|Pass in all Checkout items when available.|
@@ -282,6 +314,8 @@ Listed below are the best practices for calling each Payment service.
 ### Payment Stored Payments
 
 **Endpoint:** /consumer/storedpayments/
+
+###### Table 17: Circuit Breaker Best Practices for Payment Stored Payments
 
 |Topic|Best Practice|
 |---|---|
@@ -296,6 +330,8 @@ Listed below are the best practices for calling each Payment service.
 
 **Endpoint:** /payment/preview/v2
 
+###### Table 18: Circuit Breaker Best Practices for Payment Preview
+
 |Topic|Best Practice|
 |---|---|
 |**Performance**|When a consumer selects to pay by stored credit card, check the validateCVV flag on the response from the Stored Payments Service. If the value is true, allow the consumer to verify their CVV number in your experience and send it to the Payment Credit Card Submit service. Otherwise, Payment Preview will fail due to an unverified CVV number.|
@@ -308,6 +344,8 @@ Listed below are the best practices for calling each Payment service.
 
 **Endpoint:** /payment/approval/v2/
 
+###### Table 19: Circuit Breaker Best Practices for Payment Approval 
+
 |Topic|Best Practice|
 |---|---|
 |**Circuit breaker trigger**|Payment Approval calls several Cloud service endpoints, many of which call third party systems. Repeated call failure to any of these services triggers the circuit breaker|
@@ -319,6 +357,8 @@ Listed below are the best practices for calling each Payment service.
 
 **Endpoint:** /services/, /creditcardsubmit/
 
+###### Table 20: Circuit Breaker Best Practices for Payment Credit Card Submit
+
 |Topic|Best Practice|
 |---|---|
 |**Performance**|If the consumer is not required to supply credit card information or cvv, do not call a Credit Card Submit endpoint that loads the credit card iFrame.|
@@ -328,6 +368,8 @@ Listed below are the best practices for calling each Payment service.
 ### Payment Apple Pay
 
 **Endpoint:** /payment/applepay_sessions/v2/
+
+###### Table 21: Circuit Breaker Best Practices for Payment Apple Pay 
 
 |Topic|Best Practice|
 |---|---|
@@ -340,6 +382,8 @@ Listed below are the best practices for calling each Payment service.
 
 **Endpoint:** /payment/paypal_details/, /payment/paypal_express/v1/, /payment/paypal_mark/v1/
 
+###### Table 22: Circuit Breaker Best Practices for Payment Wallet
+
 |Topic|Best Practice|
 |---|---|
 |**Circuit breaker trigger**|Payment Wallet calls other Cloud service endpoints, some of which call third party systems. Repeated call failure to these external services triggers the circuit breaker.|
@@ -350,6 +394,8 @@ Listed below are the best practices for calling each Payment service.
 ### Payment Deferred Payment
 
 **Endpoint:** /payment/deferred_wechat_payments/v1/, /payment/deferred_payment_forms/v1/, /payment/deferred_payment_status/v1/
+
+###### Table 23: Circuit Breaker Best Practices for Payment Deferred Payment 
 
 |Topic|Best Practice|
 |---|---|
@@ -370,6 +416,8 @@ Listed below are the best practices for calling each Product Feeds Service.
 
 **Endpoint:** /product_feed/threads/v2
 
+###### Table 24: Circuit Breaker Best Practices for Product Feed
+
 |Topic|Best Practice|
 |---|---|
 |**Circuit breaker trigger**|None|
@@ -381,6 +429,8 @@ Listed below are the best practices for calling each Product Feeds Service.
 
 **Endpoint:**  /product_feed/rollup_threads/v2
 
+###### Table 25: Circuit Breaker Best Practices for Product Feed Rollups 
+
 |Topic|Best Practice|
 |---|---|
 |**Circuit breaker trigger**|Product Feed Rollups calls Smart Search. Repeated call failure to this service triggers the circuit breaker.|
@@ -391,6 +441,8 @@ Listed below are the best practices for calling each Product Feeds Service.
 ### Product Feed Exclusive Threads V2
 
 **Endpoint:** /product_feed/exclusive_threads/v2
+
+###### Table 26: Circuit Breaker Best Practices for Product Feed Exclusive Threads 
 
 |Topic|Best Practice|
 |---|---|
