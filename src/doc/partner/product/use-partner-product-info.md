@@ -55,7 +55,10 @@ The Consumer PIF contains Nike product that has inventory and is available for s
 
 ## How does the Product Information Feed Work?
 
+![Product Info System Overview](/images/partner/product-info/partner-prod-info-sys-overview.png)
+
 The PIF is made up of the transformation component and the delivery component.
+
 
 **Transformation Component**
 
