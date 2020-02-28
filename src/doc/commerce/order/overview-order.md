@@ -34,10 +34,10 @@ Step through the Use Cases below to incorporate Order into your experience.
 <h5 style="text-align:center;">APIs:</h5>
 <ul>
 <li markdown="1">
-[BFF Order Summary](https://developer.niketech.com/docs/projects/BFF%20order%20summary?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
+[User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
 </li>
 <li markdown="1">
-[BFF Order Detail](https://developer.niketech.com/docs/projects/BFF%20order%20Details?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
+[User Order Detail](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
 </li>
 </ul>
 </aside>
