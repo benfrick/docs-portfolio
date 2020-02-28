@@ -12,7 +12,7 @@ Nike's Product Information Feed (PIF) pushes Nike products to partners on a sche
 
 ## Introduction
 
-The PIF supplies information that partners need to sell Nike products to their consumers through their ecommerce apps and experiences. Nike works closely with their partners to define a contract specifying the product data, data format, how often the partner needs the feed, and where to deliver it. Nike then sets up a configuration that customizes the feed to suit each partner's needs.
+The PIF supplies information that partners need in order to sell Nike products to consumers through their ecommerce apps and experiences. Nike works closely with their partners to define a contract specifying the product data, data format, how often the partner needs the feed, and where to deliver it. Nike then sets up a configuration that customizes the feed to suit each partner's needs.
 
 Let's take a look at some quick facts about the PIF.
 
@@ -37,8 +37,8 @@ There are two types of PIFs, one for Retail Partners and one for Consumer Partne
 |**Products included**|US line futures|Entire US product line|
 |**Source of product data**|Nike selects futures products for a particular retail partner (store) and season via the Nike Offerings API|Monarch (style-color), Prodigy (copy, description, price, taxonomy),  Asset Delivery (image and video)|
 |**Prices included**|Wholesale and MSRP|MSRP|
-|**Inventory**|No inventory|Inventory available and products are saleable immediately|
-|**How partner uses the feed**|As a catalog of Nike futures products for an upcoming season to help in their ordering process|To populate their ecommerce store with Nike Products and sell them to consumers immediately|
+|**Inventory**|No inventory|Has inventory and products are saleable immediately|
+|**How partner uses the feed**|As a catalog of Nike futures products for an upcoming season to help in their ordering process|To populate their ecommerce store with Nike Products and sell them to consumers|
 |**Season of products included**|Includes products 6 months ahead of current season|Products are not season-specific|
 
 Now let's dig a little deeper into how the PIF works for each type of partner.
@@ -70,7 +70,7 @@ The delivery component is responsible for getting the transformed data to the pa
 
 The delivery time and frequency of the PIF is configurable. Typically, it is pushed on a daily basis.
 
-The delivery component can push the PIF to partners in several ways. It can call partner APIs, push files to AWS S3 buckets and push files using SSH File Transfer Protocol (sFTP) etc. It can also create PIFs in several file formats such as Comma-Separated Value (CSV) or Javascript Object Notation (JSON) format.
+The delivery component can push the PIF to partners in several ways. It can call partner APIs, push files to AWS S3 buckets and push files using SSH File Transfer Protocol (sFTP). It can also create PIFs in several file formats such as Comma-Separated Value (CSV) or Javascript Object Notation (JSON) format.
 
 >**TIP:** Currently, the PIF cannot deliver product updates made since the last time it ran. All eligible products are included in the PIF each time.
 
