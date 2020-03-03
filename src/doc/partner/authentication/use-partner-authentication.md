@@ -2,11 +2,11 @@
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# NIKE PARTNERS - ADDING AUTHENTICATION TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
+# NIKE PARTNERS - ADDING AUTHENTICATION TO YOUR EXPERIENCE
 
 ---
 
-##### Last Updated: 01/30/2020
+##### Last Updated: 03/02/2020
 
 The Authentication process uses Nike's [Token API](#api-reference) to:
 - Allow your consumers to login into their Nike account or register for a new one from your app or experience
@@ -171,7 +171,7 @@ In this step, you will exchange the temporary Consumer Access Token returned in 
 
 **[Get Access Token & Refresh Token](#get-access-token--refresh-token) POST request URI**
 
-`https://api.nike.com/oauth/2.0/token`
+`https://partners.nike.com/oauth/2.0/authorize`
 
 Required POST request body fields:
 
@@ -215,7 +215,7 @@ The tokens returned in **Step 4** of the [Get Access Token & Refresh Token](#get
 
 **[Get Access Token & Refresh Token](#get-access-token--refresh-token) POST request URI**
 
-`https://api.nike.com/oauth/2.0/token`
+`https://partners.nike.com/oauth/2.0/authorize`
 
 **Required POST request body fields**:
 
@@ -240,8 +240,8 @@ A successful 200 response includes the consumer's Nike `user_id`, a new `access_
 
 **Token**
 
-- [Get Access Token & Refresh Token](#get-access-token--refresh-token) **POST** https://api.nike.com/oauth/2.0/token
-- [Refresh Access Token](#refresh-access-token) **POST** https://api.nike.com/oauth/2.0/token
+- [Get Access Token & Refresh Token](#get-access-token--refresh-token) **POST** https://partners.nike.com/oauth/2.0/authorize
+- [Refresh Access Token](#refresh-access-token) **POST** https://partners.nike.com/oauth/2.0/token
 
 ## Troubleshooting
 
@@ -263,7 +263,7 @@ Trade a temporary consumer access token for an access token and refresh token to
 
 **Endpoint**
 
-POST https://api.nike.com/oauth/2.0/token
+POST https://partners.nike.com/oauth/2.0/authorize
 
 **Request Headers**
 
@@ -346,7 +346,7 @@ Refresh tokens are valid for one year. Access tokens are valid for one hour. To 
 
 **Endpoint**
 
-POST https://api.nike.com/oauth/2.0/token
+POST https://partners.nike.com/oauth/2.0/token
 
 **Headers**
 
@@ -425,7 +425,7 @@ Body:
 
 |Summary |Date |
 |---|---|---|
-|Initial publish|01/30/2020|
+|Initial publish|03/02/2020|
 
 <!--
 ## Next Steps
