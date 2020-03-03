@@ -1,0 +1,884 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> <script src="/js/main.js"></script> <script src="/js/nde.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script> <script>
+if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-133456231-1');
+    }
+</script> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/> <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> <link rel="stylesheet" href="/css/style.css"> <link rel="stylesheet" href="/css/aviator-two-column.css"> <link rel="stylesheet" href="/css/nde.css"> <title></title> </head> <body> <div id="toc"></div> <div class="main"> <p><a href="/doc/partner/product/use-partner-product-attributes.pdf" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p> <h1 id="nike-partners---adding-product-attributes-to-your-experience-draft">NIKE PARTNERS - ADDING PRODUCT ATTRIBUTES TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br/>DRAFT</h1> <hr/> <h5 id="last-updated-02282020">Last Updated: 02/28/2020</h5> <p>Get Nike product attributes like sizes, prices, features, marketing copy and more by using the <a href="#api-reference">Product Attributes API</a>.</p> <h2 id="introduction">Introduction</h2> <p>In this guide, we will step through how to use the Product Attributes API to get detailed product data into your app or experience.</p> <p>[(Screenshot of example experience?)]</p> <p>Let’s say that you have a list of Nike style-color codes [(that you got from where?)] and you want get more details.</p> <p>[(Example cURL to accomplish that?)]</p> <p>[(Diagram showing context of using this API with other Nike APIs?)]</p> <h2 id="key-terms">Key Terms</h2> <p>Here are some important terms used in this guide.</p> <table> <thead> <tr> <th>Term</th> <th>Definition</th> </tr> </thead> <tbody> <tr> <td>Product Attributes</td> <td>The set of metadata for a given Nike product code, e.g. sizes, prices, gender, silhouette.</td> </tr> <tr> <td>Product Code</td> <td>The combined Nike style and color codes, e.g. <code class="highlighter-rouge">654321-101</code>. Also known as style-color code.</td> </tr> <tr> <td>Region</td> <td>The Nike geographical region name, e.g. <code class="highlighter-rouge">CHINA</code>.</td> </tr> <tr> <td>Season</td> <td>The Nike season year code, e.g. <code class="highlighter-rouge">SP2020</code> or <code class="highlighter-rouge">FA2021</code>.</td> </tr> </tbody> </table> <h2 id="prerequisites">Prerequisites</h2> <p>You need to complete the steps below before you can add Product Attributes to your app/experience.</p> <h4 id="1-pair-up-with-a-nike-account-manager-am-and-technical-point-of-contact-tpc">1. Pair Up With a Nike Account Manager (AM) And Technical Point Of Contact (TPC)</h4> <p>Your Nike Business Lead (NBL) will put you in touch with these two points of contact. These contacts help make your integration go smoothly by communicating with various internal Nike teams for you. Your AM handles privacy and legal details. Your TPC handles the technical details of your project.</p> <h4 id="2-gather-your-project-requirements">2. Gather Your Project Requirements</h4> <p>This is the step where you provide Nike with information about your project and your technical needs.</p> <p>Your <strong>AM</strong> needs to know:</p> <p><strong>Project Information</strong></p> <ul> <li><strong>Partner name:</strong> What is the name of your company?</li> <li><strong>Project name:</strong> What are you calling your project?</li> <li><strong>Project contacts:</strong> Who are the business and technical contacts for your project?</li> <li><strong>Project goals:</strong> What are the expected outcomes of your project? How does this project benefit your company? Providing URLs to your public-facing project documentation is helpful too.</li> <li><strong>Project timeline:</strong> What are the dates of your project milestones e.g. integration testing, end-to-end testing, production go-live?</li> <li><strong>Contract status:</strong> Where in the contract life cycle is your project? Has it been drafted by Nike, reviewed, and signed by both parties?</li> </ul> <p>Your <strong>TPC</strong> needs to know:</p> <p><strong>Technical Information</strong></p> <ul> <li><strong>List of Nike APIs:</strong> Decide what Nike APIs you need to call to meet your project goals. Talk with your TPC to learn more about Nike APIs and how they can fulfill your business objectives.</li> <li><strong>Nike API usage:</strong> What are the consumer interactions with Nike APIs? Where and how will Nike APIs be accessed in your project?</li> <li><strong>Data:</strong> What partner data will be shared with Nike? What Nike data will be shared with you?</li> <li><strong>Location of your test and production environment:</strong> We’ll need to know your hosting platform, physical location, and consumer-facing URL. We will also need your test and production URLs to add to our list of approved redirects. Nike only redirects to URLs on the whitelist.</li> <li><strong>Site traffic requirements:</strong> How many visitors do you expect over what time period? How many simultaneous visitors to you expect at peak times?</li> <li><strong>Links to your Terms of Service and Privacy Policy Pages</strong>: Nike includes these links as part of your partner configuration. These links display on your customized Connect Your Nike Account page where the consumer gives your app/experience permission to connect to their Nike account. Note that your pages must be static and available in every language you support as Nike cannot pass locale parameters.</li> </ul> <h4 id="3-get-legal-and-privacy-approval">3. Get Legal And Privacy Approval</h4> <p>Your NBL will make sure that your project contract is ready to go and that all of the data exchanged between your app/experience and Nike is handled securely. This process generally takes 1 - 5 business days.</p> <h4 id="4-get-your-oauth-credentials">4. Get Your OAuth Credentials</h4> <p>Once the above prerequisites are complete, your TCM will give you your OAuth credentials (<strong>Client ID</strong> and <strong>Client Secret</strong>) so you can start calling the <a href="#api-reference">Product Attributes API</a>.</p> <blockquote> <p><strong>TIP</strong>: Do not share your Client Secret and make sure you store it securely.</p> </blockquote> <p>In addition to generating your OAuth credentials, Nike creates a special configuration for your project based on your Client ID. This configuration drives UI elements and behaviors on the Nike Account Connection page. This configuration is covered in the next section.</p> <h2 id="get-product-attributes">Get Product Attributes</h2> <p><i class="g72-check"></i>  <strong>Get product attributes for one or more Nike product codes</strong></p> <p>After all of the action items in the <a href="#prerequisites">prerequisites</a> section are completed, you are ready to add Nike Product Attributes to your app or experience.</p> <h3 id="step-1">Step 1:</h3> <h2 id="api-endpoint-quick-reference">API Endpoint Quick Reference</h2> <p><strong>Product Attributes</strong></p> <ul> <li><a href="">Get Product Attributes for a Single Product</a> <strong>GET</strong></li> <li><a href="">Get Product Attributes for Multiple Products</a> <strong>GET</strong></li> </ul> <h2 id="troubleshooting">Troubleshooting</h2> <h3 id="common-questions">Common Questions</h3> <p><strong>What if this bad thing happens?</strong></p> <h2 id="api-reference">API Reference</h2> <h3 id="product-attributes">Product Attributes</h3> <h4 id="get-product-attributes-for-a-single-product">Get Product Attributes for a Single Product</h4> <p>Retrieve product attributes for a single product, when you provide <code class="highlighter-rouge">productCode</code>, <code class="highlighter-rouge">region</code>, and <code class="highlighter-rouge">season</code> as path parameters.</p> <p><em>*REQUEST</em></p> <p><strong>Endpoint</strong></p> <p>GET https://product.api.nike.net/product/v1/{productCode}/{region}/{season}</p> <p><strong>Request Headers</strong></p> <p><code class="highlighter-rouge">Content-Type:application/json</code></p> <p><strong>Path Parameters</strong></p> <table> <thead> <tr> <th>Field Name</th> <th>Description</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><code class="highlighter-rouge">productCode</code></td> <td>Nike product code</td> <td>AA1837-400</td> </tr> <tr> <td><code class="highlighter-rouge">region</code></td> <td>Nike region name</td> <td>CHINA</td> </tr> <tr> <td><code class="highlighter-rouge">season</code></td> <td>Nike season year code</td> <td>SP2020</td> </tr> </tbody> </table> <h3 id="values-for-region">Values for <code class="highlighter-rouge">region</code></h3> <p>The accepted values for <code class="highlighter-rouge">region</code> are as follows:</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GLOBAL
+EUROPEAN UNION
+USA
+EUROPE
+ASIA
+AMERICAS
+JAPAN
+CANADA
+EASTERN EUROPE DISTRIBUTORS
+AFRICAN DISTRIBUTORS
+CHINA
+HONG KONG
+EUROPEAN FREE TRADE ASSO.
+THAILAND
+SINGAPORE
+PHILIPPINES
+AFRICA - DUBAI
+MALAYSIA
+AUSTRALIA
+NEW ZEALAND
+REPUBLIC OF KOREA
+TAIWAN
+CHILE
+MEXICO
+UNITED STATES OF AMERICA
+ARGENTINA
+BRAZIL
+CHINA
+HONG KONG
+THAILAND
+SINGAPORE
+PHILIPPINES
+MALAYSIA
+AUSTRALIA
+NEW ZEALAND
+EUROPE
+REPUBLIC OF KOREA
+TAIWAN
+CHILE
+MEXICO
+ARGENTINA
+BRAZIL
+ICS AMERICA
+ICS ASIA
+INDIA
+INDIA
+ASIA
+ICS SOUTH AFRICA
+SOUTH AFRICA
+SOUTH AFRICA
+URUGUAY
+URUGUAY
+SOUTHEAST ASIA
+PACIFIC
+SOUTHERN CONE SOCO
+UNITED STATES
+EUROPE PROCESSING
+AMERICAS
+INDONESIA
+INDONESIA
+NIKE TRADING COMPANY, SINGAPOR
+NIKE GLOBAL TRADING PTE LTD.
+UMBRO CORPORATE
+UMBRO AND LICENSEE
+UMBRO HEADQUARTERS
+UMBRO LICENSEE HQ
+CANADA
+NORTHERN AND CENTRAL EUROPE
+SUB MEDITERRANEAN
+AUST, GERM, SWIT, SLVN
+UNITED KINGDOM AND IRELAND
+CNTRL EUROPE, MID EAST, AFRICA
+FRANCE AND ITALY
+JAPAN
+GLOBAL
+</code></pre></div></div> <h3 id="values-for-season">Values for <code class="highlighter-rouge">season</code></h3> <p>The accepted values for <code class="highlighter-rouge">season</code> are a concatenation of a valid two-digit season code and a four-digit year number.</p> <p>One of:</p> <table> <thead> <tr> <th>Season Code</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code class="highlighter-rouge">SP</code></td> <td>Spring</td> </tr> <tr> <td><code class="highlighter-rouge">SU</code></td> <td>Summer</td> </tr> <tr> <td><code class="highlighter-rouge">FA</code></td> <td>Fall</td> </tr> <tr> <td><code class="highlighter-rouge">HO</code></td> <td>Holiday</td> </tr> </tbody> </table> <ul> <li><code class="highlighter-rouge">2022</code> = <code class="highlighter-rouge">SP2022</code></li> </ul> <p>Example values for <code class="highlighter-rouge">season</code>: -<code class="highlighter-rouge">FA2021</code> -<code class="highlighter-rouge">HO2022 -</code>SP2023`</p> <ul> <li>etc…</li> </ul> <p><strong>RESPONSE</strong></p> <p><strong>200 OK (Successful Request)</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "season": {
+    "year": 2018,
+    "name": "SPRING"
+  },
+  "styleColorNumber": "AA1837-400",
+  "sizeRange": "7-12, 13, 14, 15",
+  "styleNumber": "AA1837",
+  "color": {
+    "code": 400,
+    "longDescription": [
+      {
+        "lang": "EN",
+        "text": "THUNDER BLUE/WHITE"
+      }
+    ]
+  },
+  "primaryColor": "BLUE",
+  "category": {
+    "desc": "GOLF"
+  },
+  "categoryCoreFocus": {
+    "desc": "NIKE GOLF"
+  },
+  "silhouette": {
+    "desc": "LOW TOP"
+  },
+  "silhouetteType": {
+    "desc": "SHOE"
+  },
+  "genderAge": {
+    "code": 18,
+    "desc": "MENS"
+  },
+  "unitOfMeasure": {
+    "code": "PR",
+    "desc": "PAIR"
+  },
+  "sizes": [
+    {
+      "us": "11",
+      "jp": "29",
+      "kr": "290",
+      "uk": "10",
+      "upc_gtin": "00888411976097",
+      "sortOrder": "23"
+    },
+    {
+      "us": "9.5",
+      "jp": "27.5",
+      "kr": "275",
+      "uk": "8.5",
+      "upc_gtin": "00888411976066",
+      "sortOrder": "20"
+    },
+    {
+      "us": "12",
+      "jp": "30",
+      "kr": "300",
+      "uk": "11",
+      "upc_gtin": "00888411976110",
+      "sortOrder": "25"
+    },
+    {
+      "us": "13",
+      "jp": "31",
+      "kr": "310",
+      "uk": "12",
+      "upc_gtin": "00888411976127",
+      "sortOrder": "27"
+    },
+    {
+      "us": "14",
+      "jp": "32",
+      "kr": "320",
+      "uk": "13",
+      "upc_gtin": "00888411976134",
+      "sortOrder": "29"
+    },
+    {
+      "us": "15",
+      "jp": "33",
+      "kr": "330",
+      "uk": "14",
+      "upc_gtin": "00888411976141",
+      "sortOrder": "31"
+    },
+    {
+      "us": "11.5",
+      "jp": "29.5",
+      "kr": "295",
+      "uk": "10.5",
+      "upc_gtin": "00888411976103",
+      "sortOrder": "24"
+    },
+    {
+      "us": "10.5",
+      "jp": "28.5",
+      "kr": "285",
+      "uk": "9.5",
+      "upc_gtin": "00888411976080",
+      "sortOrder": "22"
+    },
+    {
+      "us": "7",
+      "jp": "25",
+      "kr": "250",
+      "uk": "6",
+      "upc_gtin": "00888411976011",
+      "sortOrder": "15"
+    },
+    {
+      "us": "8",
+      "jp": "26",
+      "kr": "260",
+      "uk": "7",
+      "upc_gtin": "00888411976035",
+      "sortOrder": "17"
+    },
+    {
+      "us": "9",
+      "jp": "27",
+      "kr": "270",
+      "uk": "8",
+      "upc_gtin": "00888411976059",
+      "sortOrder": "19"
+    },
+    {
+      "us": "7.5",
+      "jp": "25.5",
+      "kr": "255",
+      "uk": "6.5",
+      "upc_gtin": "00888411976028",
+      "sortOrder": "16"
+    },
+    {
+      "us": "10",
+      "jp": "28",
+      "kr": "280",
+      "uk": "9",
+      "upc_gtin": "00888411976073",
+      "sortOrder": "21"
+    },
+    {
+      "us": "8.5",
+      "jp": "26.5",
+      "kr": "265",
+      "uk": "7.5",
+      "upc_gtin": "00888411976042",
+      "sortOrder": "18"
+    }
+  ],
+  "prices": [
+    {
+      "wholesale": {
+        "currency": "USD",
+        "price": 49,
+        "effectiveDates": {
+          "begin": 20180101
+        }
+      },
+      "retail": {
+        "currency": "USD",
+        "price": 80,
+        "effectiveDates": {
+          "begin": 20180101
+        }
+      }
+    }
+  ],
+  "names": {
+    "systemStyleName": {
+      "lang": "EN",
+      "text": "ROSHE G"
+    },
+    "consumerStyleName": {
+      "lang": "EN",
+      "text": "Men's Nike Roshe G Golf Shoe Secondary Tertiary"
+    }
+  },
+  "division": {
+    "desc": "FOOTWEAR DIVISION"
+  },
+  "commercialCopy": {
+    "reasonToBuy": [
+      {
+        "lang": "EN",
+        "text": "ICONIC DESIGN. LASTING COMFORT."
+      }
+    ],
+    "productSummary": [
+      {
+        "lang": "EN",
+        "text": "Men's Nike Roshe G Golf Shoe features a pressure-mapped outsole that provides traction in key zones. Inspired by a Nike icon, the mesh upper offers breathability and a modern look, while the soft, flexible, foam midsole cushions every step."
+      }
+    ],
+    "fabricContent": [
+      {
+        "lang": "EN",
+        "text": ""
+      }
+    ],
+    "features": [
+      {
+        "lang": "EN",
+        "text": "Pressure-mapped outsole provides traction in key zones."
+      },
+      {
+        "lang": "EN",
+        "text": "Iconic mesh upper delivers breathability and style."
+      },
+      {
+        "lang": "EN",
+        "text": "Injected midsole delivers soft, lightweight cushioning."
+      },
+      {
+        "lang": "EN",
+        "text": "Elastic gusset on the tongue helps keep out debris."
+      },
+      {
+        "lang": "EN",
+        "text": "Pull tabs on the heel and tongue offer easy on and off."
+      },
+      {
+        "lang": "EN",
+        "text": "Cupsole-like design offers flexible, low-profile support and a stable feel."
+      }
+    ],
+    "allFeatures": [
+      {
+        "lang": "EN",
+        "text": "Pressure-mapped outsole provides traction in key zones. Iconic mesh upper delivers breathability and style. Injected midsole delivers soft, lightweight cushioning. Elastic gusset on the tongue helps keep out debris. Pull tabs on the heel and tongue offer easy on and off. Cupsole-like design offers flexible, low-profile support and a stable feel."
+      }
+    ]
+  },
+  "athlete": {
+    "firstName": "JANE",
+    "lastName": "DOE"
+  },
+  "offerDates": {
+    "productFirstOffer": 20180201,
+    "productLastOffer": 20190331,
+    "productFutureLastOffer": 20190319
+  },
+  "marketingType": {
+    "desc": "IN-LINE"
+  },
+  "carryOver": "N",
+  "launchData": {
+    "coordinatedDescription": "BRAND INITIATIVES"
+  }
+}
+</code></pre></div></div> <p><strong>400 Bad Request (Invalid Season Code)</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "code": "BAD REQUEST - Invalid Season",
+  "message": "INVALID_SEASON"
+}
+</code></pre></div></div> <p><strong>401 Unauthorized</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "message": "Unauthorized"
+}
+</code></pre></div></div> <p><strong>404 Not Found (Invalid Product Code)</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "code": "NOT_FOUND",
+  "message": "NOT FOUND"
+}
+</code></pre></div></div> <h4 id="get-product-attributes-for-multiple-products">Get Product Attributes for Multiple Products</h4> <p>Retrieve product attributes for multiple products, when you provide <code class="highlighter-rouge">productCodes</code>, <code class="highlighter-rouge">region</code>, and <code class="highlighter-rouge">season</code> as query parameters.</p> <p><strong>REQUEST</strong></p> <p><strong>Endpoint</strong></p> <p>GET https://product.api.nike.net/product/v1/{region}/{season}</p> <p><strong>Headers</strong></p> <p><code class="highlighter-rouge">Content-Type:application/json</code></p> <p><strong>Query Parameters</strong></p> <table> <thead> <tr> <th>Field Name</th> <th>Description</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><code class="highlighter-rouge">productCodes</code></td> <td>Comma-separated list of Nike product codes</td> <td>AA1837-400,654321-100</td> </tr> <tr> <td><code class="highlighter-rouge">region</code></td> <td>Nike region name</td> <td>CHINA</td> </tr> <tr> <td><code class="highlighter-rouge">season</code></td> <td>Nike season year</td> <td>SP2020</td> </tr> </tbody> </table> <p><strong>RESPONSE</strong></p> <p><strong>200 OK (Successful Request)</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "products": [
+    {
+      "season": {
+        "year": 2018,
+        "name": "SPRING"
+      },
+      "styleColorNumber": "AA1837-400",
+      "sizeRange": "7-12, 13, 14, 15",
+      "styleNumber": "AA1837",
+      "color": {
+        "code": 400,
+        "longDescription": [
+          {
+            "lang": "EN",
+            "text": "THUNDER BLUE/WHITE"
+          }
+        ]
+      },
+      "primaryColor": "BLUE",
+      "category": {
+        "desc": "GOLF"
+      },
+      "categoryCoreFocus": {
+        "desc": "NIKE GOLF"
+      },
+      "silhouette": {
+        "desc": "LOW TOP"
+      },
+      "silhouetteType": {
+        "desc": "SHOE"
+      },
+      "genderAge": {
+        "code": 18,
+        "desc": "MENS"
+      },
+      "unitOfMeasure": {
+        "code": "PR",
+        "desc": "PAIR"
+      },
+      "sizes": [
+        {
+          "us": "11",
+          "jp": "29",
+          "kr": "290",
+          "uk": "10",
+          "upc_gtin": "00888411976097",
+          "sortOrder": "23"
+        },
+        {
+          "us": "9.5",
+          "jp": "27.5",
+          "kr": "275",
+          "uk": "8.5",
+          "upc_gtin": "00888411976066",
+          "sortOrder": "20"
+        },
+        {
+          "us": "12",
+          "jp": "30",
+          "kr": "300",
+          "uk": "11",
+          "upc_gtin": "00888411976110",
+          "sortOrder": "25"
+        },
+        {
+          "us": "13",
+          "jp": "31",
+          "kr": "310",
+          "uk": "12",
+          "upc_gtin": "00888411976127",
+          "sortOrder": "27"
+        },
+        {
+          "us": "14",
+          "jp": "32",
+          "kr": "320",
+          "uk": "13",
+          "upc_gtin": "00888411976134",
+          "sortOrder": "29"
+        },
+        {
+          "us": "15",
+          "jp": "33",
+          "kr": "330",
+          "uk": "14",
+          "upc_gtin": "00888411976141",
+          "sortOrder": "31"
+        },
+        {
+          "us": "11.5",
+          "jp": "29.5",
+          "kr": "295",
+          "uk": "10.5",
+          "upc_gtin": "00888411976103",
+          "sortOrder": "24"
+        },
+        {
+          "us": "10.5",
+          "jp": "28.5",
+          "kr": "285",
+          "uk": "9.5",
+          "upc_gtin": "00888411976080",
+          "sortOrder": "22"
+        },
+        {
+          "us": "7",
+          "jp": "25",
+          "kr": "250",
+          "uk": "6",
+          "upc_gtin": "00888411976011",
+          "sortOrder": "15"
+        },
+        {
+          "us": "8",
+          "jp": "26",
+          "kr": "260",
+          "uk": "7",
+          "upc_gtin": "00888411976035",
+          "sortOrder": "17"
+        },
+        {
+          "us": "9",
+          "jp": "27",
+          "kr": "270",
+          "uk": "8",
+          "upc_gtin": "00888411976059",
+          "sortOrder": "19"
+        },
+        {
+          "us": "7.5",
+          "jp": "25.5",
+          "kr": "255",
+          "uk": "6.5",
+          "upc_gtin": "00888411976028",
+          "sortOrder": "16"
+        },
+        {
+          "us": "10",
+          "jp": "28",
+          "kr": "280",
+          "uk": "9",
+          "upc_gtin": "00888411976073",
+          "sortOrder": "21"
+        },
+        {
+          "us": "8.5",
+          "jp": "26.5",
+          "kr": "265",
+          "uk": "7.5",
+          "upc_gtin": "00888411976042",
+          "sortOrder": "18"
+        }
+      ],
+      "prices": [
+        {
+          "wholesale": {
+            "currency": "USD",
+            "price": 49,
+            "effectiveDates": {
+              "begin": 20180101
+            }
+          },
+          "retail": {
+            "currency": "USD",
+            "price": 80,
+            "effectiveDates": {
+              "begin": 20180101
+            }
+          }
+        }
+      ],
+      "names": {
+        "systemStyleName": {
+          "lang": "EN",
+          "text": "ROSHE G"
+        },
+        "consumerStyleName": {
+          "lang": "EN",
+          "text": "Men's Nike Roshe G Golf Shoe Secondary Tertiary"
+        }
+      },
+      "division": {
+        "desc": "FOOTWEAR DIVISION"
+      },
+      "commercialCopy": {
+        "reasonToBuy": [
+          {
+            "lang": "EN",
+            "text": "ICONIC DESIGN. LASTING COMFORT."
+          }
+        ],
+        "productSummary": [
+          {
+            "lang": "EN",
+            "text": "Men's Nike Roshe G Golf Shoe features a pressure-mapped outsole that provides traction in key zones. Inspired by a Nike icon, the mesh upper offers breathability and a modern look, while the soft, flexible, foam midsole cushions every step."
+          }
+        ],
+        "fabricContent": [
+          {
+            "lang": "EN",
+            "text": ""
+          }
+        ],
+        "features": [
+          {
+            "lang": "EN",
+            "text": "Pressure-mapped outsole provides traction in key zones."
+          },
+          {
+            "lang": "EN",
+            "text": "Iconic mesh upper delivers breathability and style."
+          },
+          {
+            "lang": "EN",
+            "text": "Injected midsole delivers soft, lightweight cushioning."
+          },
+          {
+            "lang": "EN",
+            "text": "Elastic gusset on the tongue helps keep out debris."
+          },
+          {
+            "lang": "EN",
+            "text": "Pull tabs on the heel and tongue offer easy on and off."
+          },
+          {
+            "lang": "EN",
+            "text": "Cupsole-like design offers flexible, low-profile support and a stable feel."
+          }
+        ],
+        "allFeatures": [
+          {
+            "lang": "EN",
+            "text": "Pressure-mapped outsole provides traction in key zones. Iconic mesh upper delivers breathability and style. Injected midsole delivers soft, lightweight cushioning. Elastic gusset on the tongue helps keep out debris. Pull tabs on the heel and tongue offer easy on and off. Cupsole-like design offers flexible, low-profile support and a stable feel."
+          }
+        ]
+      },
+      "athlete": {
+        "firstName": "JANE",
+        "lastName": "DOE"
+      },
+      "offerDates": {
+        "productFirstOffer": 20180201,
+        "productLastOffer": 20190331,
+        "productFutureLastOffer": 20190319
+      },
+      "marketingType": {
+        "desc": "IN-LINE"
+      },
+      "carryOver": "N",
+      "launchData": {
+        "coordinatedDescription": "BRAND INITIATIVES"
+      }
+    },
+    {
+      "season": {
+        "year": 2018,
+        "name": "SPRING"
+      },
+      "styleColorNumber": "AA1837-401",
+      "sizeRange": "7-12, 13, 14, 15",
+      "styleNumber": "AA1837",
+      "primaryPlatform": "FOAM - INJECTION UNITSOLE",
+      "color": {
+        "code": 401,
+        "longDescription": [
+          {
+            "lang": "EN",
+            "text": "THUNDER RED/WHITE"
+          }
+        ]
+      },
+      "primaryColor": "RED",
+      "category": {
+        "desc": "GOLF"
+      },
+      "categoryCoreFocus": {
+        "desc": "NIKE GOLF"
+      },
+      "silhouette": {
+        "desc": "LOW TOP"
+      },
+      "silhouetteType": {
+        "desc": "SHOE"
+      },
+      "genderAge": {
+        "code": 18,
+        "desc": "MENS"
+      },
+      "unitOfMeasure": {
+        "code": "PR",
+        "desc": "PAIR"
+      },
+      "sizes": [
+        {
+          "us": "8",
+          "jp": "26",
+          "kr": "260",
+          "uk": "7",
+          "upc_gtin": "00888411976035",
+          "sortOrder": "17"
+        },
+        {
+          "us": "11.5",
+          "jp": "29.5",
+          "kr": "295",
+          "uk": "10.5",
+          "upc_gtin": "00888411976103",
+          "sortOrder": "24"
+        },
+        {
+          "us": "7.5",
+          "jp": "25.5",
+          "kr": "255",
+          "uk": "6.5",
+          "upc_gtin": "00888411976028",
+          "sortOrder": "16"
+        },
+        {
+          "us": "11",
+          "jp": "29",
+          "kr": "290",
+          "uk": "10",
+          "upc_gtin": "00888411976097",
+          "sortOrder": "23"
+        },
+        {
+          "us": "7",
+          "jp": "25",
+          "kr": "250",
+          "uk": "6",
+          "upc_gtin": "00888411976011",
+          "sortOrder": "15"
+        },
+        {
+          "us": "10.5",
+          "jp": "28.5",
+          "kr": "285",
+          "uk": "9.5",
+          "upc_gtin": "00888411976080",
+          "sortOrder": "22"
+        },
+        {
+          "us": "10",
+          "jp": "28",
+          "kr": "280",
+          "uk": "9",
+          "upc_gtin": "00888411976073",
+          "sortOrder": "21"
+        },
+        {
+          "us": "14",
+          "jp": "32",
+          "kr": "320",
+          "uk": "13",
+          "upc_gtin": "00888411976134",
+          "sortOrder": "29"
+        },
+        {
+          "us": "9.5",
+          "jp": "27.5",
+          "kr": "275",
+          "uk": "8.5",
+          "upc_gtin": "00888411976066",
+          "sortOrder": "20"
+        },
+        {
+          "us": "13",
+          "jp": "31",
+          "kr": "310",
+          "uk": "12",
+          "upc_gtin": "00888411976127",
+          "sortOrder": "27"
+        },
+        {
+          "us": "9",
+          "jp": "27",
+          "kr": "270",
+          "uk": "8",
+          "upc_gtin": "00888411976059",
+          "sortOrder": "19"
+        },
+        {
+          "us": "12",
+          "jp": "30",
+          "kr": "300",
+          "uk": "11",
+          "upc_gtin": "00888411976110",
+          "sortOrder": "25"
+        },
+        {
+          "us": "8.5",
+          "jp": "26.5",
+          "kr": "265",
+          "uk": "7.5",
+          "upc_gtin": "00888411976042",
+          "sortOrder": "18"
+        }
+      ],
+      "prices": [
+        {
+          "wholesale": {
+            "currency": "USD",
+            "price": 49,
+            "effectiveDates": {
+              "begin": 20180101
+            }
+          },
+          "retail": {
+            "currency": "USD",
+            "price": 80,
+            "effectiveDates": {
+              "begin": 20180101
+            }
+          }
+        }
+      ],
+      "names": {
+        "systemStyleName": {
+          "lang": "EN",
+          "text": "ROSHE G"
+        },
+        "consumerStyleName": {
+          "lang": "EN",
+          "text": "Men's Nike Roshe G Golf Shoe Secondary Tertiary"
+        }
+      },
+      "division": {
+        "desc": "FOOTWEAR DIVISION"
+      },
+      "commercialCopy": {
+        "reasonToBuy": [
+          {
+            "lang": "EN",
+            "text": "ICONIC DESIGN. LASTING COMFORT."
+          }
+        ],
+        "productSummary": [
+          {
+            "lang": "EN",
+            "text": "Men's Nike Roshe G Golf Shoe features a pressure-mapped outsole that provides traction in key zones. Inspired by a Nike icon, the mesh upper offers breathability and a modern look, while the soft, flexible, foam midsole cushions every step."
+          }
+        ],
+        "fabricContent": [
+          {
+            "lang": "EN",
+            "text": ""
+          }
+        ],
+        "features": [
+          [
+            {
+              "lang": "EN",
+              "text": "Pressure-mapped outsole provides traction in key zones."
+            }
+          ],
+          [
+            {
+              "lang": "EN",
+              "text": "Iconic mesh upper delivers breathability and style."
+            }
+          ],
+          [
+            {
+              "lang": "EN",
+              "text": "Injected midsole delivers soft, lightweight cushioning."
+            }
+          ],
+          [
+            {
+              "lang": "EN",
+              "text": "Elastic gusset on the tongue helps keep out debris."
+            }
+          ],
+          [
+            {
+              "lang": "EN",
+              "text": "Pull tabs on the heel and tongue offer easy on and off."
+            }
+          ],
+          [
+            {
+              "lang": "EN",
+              "text": "Cupsole-like design offers flexible, low-profile support and a stable feel."
+            }
+          ]
+        ],
+        "allFeatures": [
+          {
+            "lang": "EN",
+            "text": "Pressure-mapped outsole provides traction in key zones. Iconic mesh upper delivers breathability and style. Injected midsole delivers soft, lightweight cushioning. Elastic gusset on the tongue helps keep out debris. Pull tabs on the heel and tongue offer easy on and off. Cupsole-like design offers flexible, low-profile support and a stable feel."
+          }
+        ]
+      },
+      "athlete": {
+        "firstName": "JANE",
+        "lastName": "DOE"
+      },
+      "offerDates": {
+        "productFirstOffer": 20180201,
+        "productLastOffer": 20190331,
+        "productFutureLastOffer": 20190319
+      },
+      "marketingType": {
+        "desc": "IN-LINE"
+      },
+      "carryOver": "Y",
+      "launchData": {
+        "coordinatedDescription": "BRAND INITIATIVES"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": "NOT_FOUND",
+      "message": "The following product codes were not found:",
+      "metadata": {
+        "field": "productCodes",
+        "value": [
+          "AA1837-403",
+          "AA1837-402"
+        ]
+      }
+    }
+  ]
+}
+</code></pre></div></div> <p><strong>400 Bad Request (Invalid Season Code)</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "code": "BAD REQUEST - Invalid Season",
+  "message": "INVALID_SEASON"
+}
+</code></pre></div></div> <p><strong>401 Unauthorized</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "message": "Unauthorized"
+}
+</code></pre></div></div> <p><strong>404 Not Found (Invalid Product Code)</strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "code": "NOT_FOUND",
+  "message": "NOT FOUND"
+}
+</code></pre></div></div> <h2 id="document-change-log">Document Change Log</h2> <table> <thead> <tr> <th>Summary</th> <th>Date</th> </tr> </thead> <tbody> <tr> <td>Initial publish</td> <td>03/03/2020</td> </tr> </tbody> </table> </div> <header> <form action="/search/index.html" method="get"> <input type="text" name="q" id="search-input" placeholder="Search"> <input type="submit" value="Search" style="display: none;"> </form> <div id="sidebar" class="sidebar"> <section> <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a> <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Commerce Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i> Team Services</a></h6><h6><span name="0-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6> <ul id="0-get-started" class="hide"><li> <a href="/doc/getting-started/using-nike-apis.html" class="">Using Nike APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i> Overviews</span></h6> <ul id="a-overview" class="hide"><li> <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/overview-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/overview-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li> <a href="/doc/commerce/checkout/overview-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li> <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li> <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="">Taxonomy Tagging for Assets and Content</a></li><li> <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li> <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li> <a href="/doc/commerce/events/overview-events.html" class="">Events</a></li><li> <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i> Developer's Guides</span></h6> <ul id="b-use-case" class="hide"><li> <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/use-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li> <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li> <a href="/doc/commerce/checkout/use-checkout.html" class="">Cart, Checkout, and Wish Lists</a></li><li> <a href="/doc/commerce/order/use-order.html" class="">Order</a></li><li> <a href="/doc/commerce/events/use-eventsv2.html" class="">Events</a></li><li> <a href="/doc/commerce/product/capi-migration.html" class="">CAPI Migration</a></li><li> <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i> Reference</span></h6> <ul id="d-reference" class="hide"><li> <a href="/doc/commerce/customization/builder-reference.html" class="">Customization Builder</a></li><li> <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li> <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li> <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li> <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li> <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li> <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i> Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul> </section> </div> </header> </body> </html>
