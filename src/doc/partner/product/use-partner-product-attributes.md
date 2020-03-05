@@ -6,7 +6,7 @@
 
 ---
 
-##### Last Updated: 02/28/2020
+##### Last Updated: 03/05/2020
 
 Get Nike product attributes like sizes, prices, features, marketing copy and more by using the [Product Attributes API](#api-reference).
 
@@ -16,18 +16,29 @@ In this guide, we will step through how to use the Product Attributes API to get
 
 [(Screenshot of example experience?)]
 
-Let's say that you have a list of Nike style-color codes [(that you got from where?)] and you want get more details.
+Let's say that you have a list of Nike style-color codes (that you from the [Offering API]() or otherwise) and you want get more details about each of them. Just execute a cURL command like:
 
-[(Example cURL to accomplish that?)]
+```
+cURL goes here
+```
 
-[(Diagram showing context of using this API with other Nike APIs?)]
+For each style-color that you send, you will get its corresponding attributes like:
+
+[List of juicy attributes from the response]
+
+The Product Attributes API is designed to be used in tandem with the Offerings and Images APIs as follows:
+
+[(Diagram showing context of using this API with Offerings and Images)]
 
 ## Key Terms
 
-Here are some important terms used in this guide.
+Here are some important terms that are used in this guide.
+
+###### Table 1: List of Terms Related to Product Attributes
 
 |Term|Definition|
 |---|---|
+|Offering|A collection of Nike style-color codes provided by the [Offering API]() or obtained otherwise.|
 |Product Attributes|The set of metadata for a given Nike product code, e.g. sizes, prices, gender, silhouette.|
 |Product Code|The combined Nike style and color codes, e.g. `654321-101`. Also known as style-color code.|
 |Region|The Nike geographical region name, e.g. `CHINA`.|
@@ -35,55 +46,41 @@ Here are some important terms used in this guide.
 
 ## Prerequisites
 
-You need to complete the steps below before you can add Product Attributes to your app/experience.
+**Authorization**
 
-#### 1. Pair Up With a Nike Account Manager (AM) And Technical Point Of Contact (TPC)
-
-Your Nike Business Lead (NBL) will put you in touch with these two points of contact. These contacts help make your integration go smoothly by communicating with various internal Nike teams for you. Your AM handles privacy and legal details. Your TPC handles the technical details of your project.
-
-#### 2. Gather Your Project Requirements
-
-This is the step where you provide Nike with information about your project and your technical needs.
-
-Your **AM** needs to know:
-
-**Project Information**
-- **Partner name:** What is the name of your company?
-- **Project name:** What are you calling your project?
-- **Project contacts:** Who are the business and technical contacts for your project?
-- **Project goals:** What are the expected outcomes of your project? How does this project benefit your company? Providing URLs to your public-facing project documentation is helpful too.
-- **Project timeline:** What are the dates of your project milestones e.g. integration testing, end-to-end testing, production go-live?
-- **Contract status:** Where in the contract life cycle is your project? Has it been drafted by Nike, reviewed, and signed by both parties?
-
-Your **TPC** needs to know:
-
-**Technical Information**
-- **List of Nike APIs:** Decide what Nike APIs you need to call to meet your project goals. Talk with your TPC to learn more about Nike APIs and how they can fulfill your business objectives.
-- **Nike API usage:** What are the consumer interactions with Nike APIs? Where and how will Nike APIs be accessed in your project?
-- **Data:** What partner data will be shared with Nike? What Nike data will be shared with you?
-- **Location of your test and production environment:** We'll need to know your hosting platform, physical location, and consumer-facing URL. We will also need your test and production URLs to add to our list of approved redirects. Nike only redirects to URLs on the whitelist.
-- **Site traffic requirements:** How many visitors do you expect over what time period? How many simultaneous visitors to you expect at peak times?
-- **Links to your Terms of Service and Privacy Policy Pages**: Nike includes these links as part of your partner configuration. These links display on your customized Connect Your Nike Account page where the consumer gives your app/experience permission to connect to their Nike account. Note that your pages must be static and available in every language you support as Nike cannot pass locale parameters.
-
-#### 3. Get Legal And Privacy Approval
-
-Your NBL will make sure that your project contract is ready to go and that all of the data exchanged between your app/experience and Nike is handled securely. This process generally takes 1 - 5 business days.
-
-#### 4. Get Your OAuth Credentials
-
-Once the above prerequisites are complete, your TCM will give you your OAuth credentials (**Client ID** and **Client Secret**) so you can start calling the [Product Attributes API](#api-reference).
-
->**TIP**: Do not share your Client Secret and make sure you store it securely.
-
-In addition to generating your OAuth credentials, Nike creates a special configuration for your project based on your Client ID. This configuration drives UI elements and behaviors on the Nike Account Connection page. This configuration is covered in the next section.
+Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before you can add Product Attributes to your app/experience.
 
 ## Get Product Attributes
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get product attributes for one or more Nike product codes**
 
-After all of the action items in the [prerequisites](#prerequisites) section are completed, you are ready to add Nike Product Attributes to your app or experience.
+After completing all of the action items in the [prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
 
-### Step 1: 
+### Step 1: Gather the Required Data
+
+One or more product codes (from [Offering API]() or otherwise)
+Region code
+Season-year
+
+### Step 2: Make the API Request to Product Attributes
+
+If one product code, call the single endpoint.
+
+```
+cURL
+```
+
+If more than one product codes, call the multiple endpoint.
+
+```
+cURL
+```
+
+### Step 3: Parse the Response
+
+Parse the response body to get the attributes that you need.
+
+See [API Reference](#api-reference) for details of the response body.
 
 ## API Endpoint Quick Reference
 
@@ -106,7 +103,7 @@ After all of the action items in the [prerequisites](#prerequisites) section are
 
 Retrieve product attributes for a single product, when you provide `productCode`, `region`, and `season` as path parameters.
 
-**REQUEST*
+**REQUEST**
 
 **Endpoint**
 
@@ -118,15 +115,15 @@ GET https://product.api.nike.net/product/v1/{productCode}/{region}/{season}
 
 **Path Parameters**
 
+The following path parameters are all required in the request URI:
+
 |Field Name|Description|Example|
 |---|---|---|
 |`productCode`|Nike product code|AA1837-400|
 |`region`|Nike region name|CHINA|
 |`season`|Nike season year code|SP2020|
 
-### Values for `region`
-
-The accepted values for `region` are as follows:
+**Possible Values for `region`**
 
 ```
 GLOBAL
@@ -174,12 +171,9 @@ BRAZIL
 ICS AMERICA
 ICS ASIA
 INDIA
-INDIA
 ASIA
 ICS SOUTH AFRICA
 SOUTH AFRICA
-SOUTH AFRICA
-URUGUAY
 URUGUAY
 SOUTHEAST ASIA
 PACIFIC
@@ -187,7 +181,6 @@ SOUTHERN CONE SOCO
 UNITED STATES
 EUROPE PROCESSING
 AMERICAS
-INDONESIA
 INDONESIA
 NIKE TRADING COMPANY, SINGAPOR
 NIKE GLOBAL TRADING PTE LTD.
@@ -202,15 +195,13 @@ AUST, GERM, SWIT, SLVN
 UNITED KINGDOM AND IRELAND
 CNTRL EUROPE, MID EAST, AFRICA
 FRANCE AND ITALY
-JAPAN
-GLOBAL
 ```
 
-### Values for `season`
+**Possible Values for `season`**
 
-The accepted values for `season` are a concatenation of a valid two-digit season code and a four-digit year number.
+An accepted value for `season` is a concatenation of a valid two-digit season code and a four-digit year number.
 
-One of:
+First, take one of the possible season codes:
 
 |Season Code|Description|
 |---|---|
@@ -219,12 +210,13 @@ One of:
 |`FA`|Fall|
 |`HO`|Holiday|
 
-+ `2022` = `SP2022`
+Then, add the year, like `SP` + `2022` = `SP2022`.
 
-Example values for `season`:
--`FA2021`
--`HO2022
--`SP2023`
+Example values for `season` (in no particular sequence):
+
+- `FA2021`
+- `HO2022`
+- `SP2023`
 - etc...
 
 **RESPONSE**
@@ -527,6 +519,8 @@ GET https://product.api.nike.net/product/v1/{region}/{season}
 `Content-Type:application/json`
 
 **Query Parameters**
+
+The following query parameters are required in the request URI:
 
 |Field Name|Description|Example|
 |---|---|---|
@@ -1097,4 +1091,4 @@ GET https://product.api.nike.net/product/v1/{region}/{season}
 
 |Summary|Date|
 |---|---|
-|Initial publish|03/03/2020|
+|Initial publish|03/05/2020|
