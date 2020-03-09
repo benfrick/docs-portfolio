@@ -14,35 +14,40 @@ dev-guide: /doc/commerce/checkout/use-fulfillment-offerings.html
 
 Learn how to use [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
-### Nike Fulfillment Offerings gives consumers delivery choices
+### Allow consumers to choose how to get their favorite Nike products
 
-Nike builds digital experiences that showcase its premium products and tell amazing stories. Powering those experiences is <font class="u-bold">Nike Checkout</font>, built to handle the massive scale of global e-commerce.
+Use Fulfillment Offerings to allow consumers to choose the delivery location, delivery price, and delivery date for each size of a product on a PDP or each item in their order. Fulfillment Offerings supports several delivery locations including:
 
-![SNKRS app payment flow](/images/commerce/payment/snkrs_payment-md.png){:style="float:right;"}
+- Delivery to a shipping address
+- Buying online and picking up in a Nike store (BOPIS) or third party location
+- Self-checkout at a Nike store
+- Digital delivery
 
 #### Use Cases
 
-The consumer finds a Nike a product that they love in your app. Now how do you enable them to choose how to get it? Step through the use cases below for incorporating Fulfillment Offerings capabilities into your experience.
+Ready to get started? Step through the use cases below to learn how to add Fulfillment Offerings to your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List the delivery options for each item in a consumer's order](/doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List the cached delivery options for each item in a consumer's order](/doc/commerce/checkout/use-fulfillment-offerings.html#get-cacheable-fulfillment-offerings)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each size of a product on a PDP](/doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-style-color)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each item in a consumer's Cart](/doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-multi-item)|
 
 <h4>Related Information</h4>
 <aside class="note">
 <h5 style="text-align:center;">APIs</h5>
 <ul>
     <li>
-        <a href="#" target="new-tab">Fulfillment Offerings</a> <span class="guide-details-li-text"></span>
+        <a href="https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api" target="new-tab">Fulfillment Offerings</a> <span class="guide-details-li-text"></span>
     </li>
 </ul>
 </aside>
 
-* [Supported Countries & Currencies:](/doc/commerce/checkout/checkout-country-currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.
+* [Adding Cart & Checkout to Your Experience:](/doc/commerce/checkout/use-checkout.html) Learn how to add Cart & Checkout to your experience
 
 * [Adding Payment to Your Experience:](/doc/commerce/payment/use-payment.html) Learn how to collect payment as part of your checkout flow.
 
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
+
+* [Supported Countries & Currencies:](/doc/commerce/checkout/checkout-country-currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.
 
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 
