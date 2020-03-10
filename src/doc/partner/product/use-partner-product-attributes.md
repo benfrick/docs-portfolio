@@ -14,9 +14,7 @@ Get Nike product attributes like sizes, prices, features, marketing copy and mor
 
 In this guide, we will step through how to use the Product Attributes API to get detailed product data into your app or experience.
 
-[(Screenshot of example experience?)]
-
-Let's say that you have a list of Nike style-color codes (that you from the [Offering API]() or otherwise) and you want get more details about each of them. Just execute a cURL command like:
+Let's say that you have a list of Nike style-color codes and you want get more details about each of them. Just execute a cURL command like:
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020??productCodes=314193-117,654321-101' \
@@ -34,10 +32,6 @@ For each style-color that you send, you can get corresponding attributes like:
 - Athlete
 - Offer Dates
 
-The Product Attributes API is designed to be used in tandem with the Offerings and Images APIs as follows:
-
-[(Diagram showing context of using this API with Offerings and Images)]
-
 ## Key Terms
 
 Here are some important terms that are used in this guide.
@@ -46,17 +40,17 @@ Here are some important terms that are used in this guide.
 
 |Term|Definition|
 |---|---|
-|Offering|A collection of Nike style-color codes provided by the [Offering API]() or obtained otherwise.|
 |Product Attributes|The set of metadata for a given Nike product code, e.g. sizes, prices, gender, silhouette.|
-|Product Code|The combined Nike style and color codes, e.g. `654321-101`. Also known as style-color code.|
-|Region|The Nike geographical region name, e.g. `CHINA`.|
-|Season|The Nike season year code, e.g. `SP2020` or `FA2021`.|
+|Product Code|The combined Nike style and color codes, e.g. 654321-101. Also known as style-color code.|
+|Region|The Nike geographical region name, e.g. CHINA.|
+|Season|The Nike season year code, e.g. SP2020 or FA2021.|
+|Silhouette|The overall shape of the product, e.g. SHOE.|
 
 ## Prerequisites
 
 **Authorization**
 
-Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before you can add Product Attributes to your app/experience.
+Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before attempting to call this API.
 
 ## Get Product Attributes
 
@@ -66,23 +60,23 @@ After completing all of the action items in the [prerequisites](#prerequisites) 
 
 ### Step 1: Gather the Required Data
 
-- One or more product codes (from [Offering API]() or otherwise)
+- One or more product codes
 - Region code
 - Season year code
 
 ### Step 2: Make the API Request to Product Attributes
 
-If only one product code, call the single endpoint, like:
+If only one product code, call the single endpoint with the product code, region, and season as path parameters:
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/AA2148-009/USA/SP2020' \
 --header 'Authorization: Bearer {your token here}'
 ```
 
-If more than one product codes, call the multiple endpoint, like:
+If more than one product codes, call the multiple endpoint with the region and season as path parameters and a comma-separated list of `productCodes` as a query parameter:
 
 ```
-curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020??productCodes=314193-117,654321-101' \
+curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020?productCodes=314193-117,654321-101' \
 --header 'Authorization: Bearer {your token here}'
 ```
 
@@ -96,8 +90,10 @@ See [API Reference](#api-reference) for details of the response body.
 
 **Product Attributes**
 
-- [Get Product Attributes for a Single Product]() **GET**
-- [Get Product Attributes for Multiple Products]() **GET**
+|Endpoint|Method|URI|
+|---|---|---|
+|**Get Product Attributes for a Single Product**|`GET`|https://product.api.nike.net/product/v1/{productCode}/{region}/{season}|
+|**Get Product Attributes for Multiple Products**|`GET`|https://product.api.nike.net/products/v1/{region}/{season}|
 
 ## Troubleshooting
 
@@ -238,27 +234,27 @@ Example values for `season` (in no particular sequence):
 |season.`year`|Season year number (YYYY)|integer|2021|
 |season.`name`|Season name|string|SPRING|
 |`styleColorNumber`|Nike style-color code (same as `productCode`)|string|654321-101|
-|`sizeRange`|Range of size numbers for that style-color|string|7-12, 13, 14, 15|
-|`styleNumber`|Nike style code|string|AA1837|
-|color.`code`|Nike color code|string||
-|color.longDescription.`lang`|Language code for color description|string|EN|
-|color.longDescription.`text`|Text description of color|string|THUNDER BLUE/WHITE|
-|`primaryColor`|Name of the primary color closest to this product's color|string|BLUE|
-|category.`desc`|Description of product category|string|GOLF|
-|categoryCoreFocus.`desc`|Description of the core focus of the product category|string|NIKE GOLF|
+|`sizeRange`|Range of US size numbers for that style-color|string|7-12, 13, 14, 15|
+|`styleNumber`|Nike six-digit style code|string|AA1837|
+|color.`code`|Nike three-digit color code|string|101|
+|color.longDescription.`lang`|Language code|string|EN|
+|color.longDescription.`text`|Description of color|string|THUNDER BLUE/WHITE|
+|`primaryColor`|Name of the closest primary color|string|BLUE|
+|category.`desc`|Description of the product category|string|GOLF|
+|categoryCoreFocus.`desc`|Description of the core focus of that product category|string|NIKE GOLF|
 |silhouette.`desc`|Description of the product silhouette|string|LOW TOP|
 |silhouetteType.`desc`|Type of product silhouette|string|SHOE|
 |genderAge.`code`|Gender-age code|string|18|
 |genderAge.`desc`|Gender-age description|string|MENS|
 |unitOfMeasure.`code`|Unit of measure code|string|PR|
 |unitOfMeasure.`desc`|Unit of measure description|string|PAIR|
-|`sizes`|Array of sizes for this style-color|array||
+|`sizes`|For each size, multiple size codes (US, JP, KR, UK format) and UPC code|array||
 |sizes.`us`|US size code|string|11|
 |sizes.`jp`|Japan size code|string|29|
 |sizes.`kr`|Korea size code|string|290|
 |sizes.`uk`|UK size code|string|10|
 |sizes.`upc_gtin`|UPC/GTIN code|string|11|
-|sizes.`sortOrder`|Sort position of array item |string|27|
+|sizes.`sortOrder`|Sort position of array item|string|27|
 |`prices`|Array of prices for this style-color|array||
 |prices.wholesale.`currency`|Currency code|string|USD|
 |prices.wholesale.`price`|Wholesale price|number|49|
@@ -287,7 +283,7 @@ Example values for `season` (in no particular sequence):
 |offerDates.`productLastOffer`|Last offer date|string|20210101|
 |offerDates.`productFutureLastOffer`|Future last offer date|string|20210101|
 |marketingType.`desc`|Description of marketing type|string|IN-LINE|
-|carryOver|Is a carry-over product, Y or N|string|Y|
+|carryOver|Is it a carry-over product, Y or N|string|Y|
 |launchData.`coordinatedDescription`|Description of coordinated launch|string|BRAND INITIATIVES|
 
 **200 OK (Successful Request)**
