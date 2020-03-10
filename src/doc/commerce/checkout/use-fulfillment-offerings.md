@@ -1,10 +1,11 @@
 ---
 id: use-f-offs
 tags: pdf
-#category: b-use-case
+category: b-use-case
 position: 6
 title: Fulfillment Offerings
 url: /doc/commerce/checkout/use-fulfillment-offerings.html
+dev-guide: /doc/commerce/checkout/use-fulfillment-offerings.html
 toc:
   - h2: Introduction
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#introduction
@@ -16,8 +17,6 @@ toc:
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-style-color
   - h2: Get Fulfillment Offerings Multi-Item
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-multi-item
-  - h2: Get Shipping Options (Legacy)
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#get-shipping-options-legacy
   - h2: API Quick Reference
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#api-quick-reference
   - h2: Troubleshooting
@@ -33,7 +32,7 @@ toc:
 
 ---
 
-##### Last Updated: 02/24/2020
+##### Last Updated: 03/03/2020
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -204,7 +203,7 @@ The GET request below asks for all `SHIP` and `PICKUP` type fulfillment offering
 **Sample Fulfillment Offerings Style-Color Request Body**
 
 ```
-https://api.nike.com//?filter=currency(USD)&filter=productId(935f2623-6010-4da9-a218-571c8e33d7aa)&filter=countryCode(US)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97123)
+https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=productId(935f2623-6010-4da9-a218-571c8e33d7aa)&filter=countryCode(US)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97123)
 ```
 
 **Sample Fulfillment Offerings Style-Color Response Body**
@@ -1075,10 +1074,6 @@ The response contains a `getBy` object for each item (`items[i].fulfillmentOffer
 
 For more information on `getBy` dates, see [Semantics of Get-By Data in Nike Experiences](https://confluence.nike.com/pages/viewpage.action?spaceKey=BUY&title=Semantics+of+Get-By+Data+in+Nike+Experiences){:target="new-tab"}.
 
-#### What Do I Do in Case of an Error?
-
-In the case of a 404 NOT_FOUND response, you can fall back to calling the Shipping Options API covered in [Get Shipping Options (Legacy)](#get-shipping-options-legacy).
-
 Listed below is a sample Fulfillment Offerings Multi-Item 404 response.
 
 ```
@@ -1120,7 +1115,7 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=countryCode(US)&filter
 
 A successful 200 response includes a summary of available fulfillment offerings. It also includes Fulfillment Offerings for each size of the style-color including offer price, location, and estimated `getBy` dates.
 
-## Get Fulfillment Offerings
+## Get Fulfillment Offerings Multi-Item
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get fulfillment offerings for each item in Cart**
 
@@ -1193,36 +1188,12 @@ Call [Payment Preview](/doc/commerce/payment/use-payment.html) to gather the con
 
 Pass the consumer-selected fulfillment information for each Cart item in the `fulfillmentDetails` object from **Step 3** to [Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}. If you called [Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api){:target="new-tab"}, pass the `totals` object returned in the response to validate that the prices, including fulfillment offerings prices, have not changed.
 
-## Get Shipping Options (Legacy)
-
-<i class="g72-check"></i>&nbsp;&nbsp;**Get available shipping methods and estimated delivery dates**
-
->**IMPORTANT**: The Shipping Options API will be deprecated. New integrators should use the Fulfillment Offerings API.
-
-If [Fulfillment Offerings Multi-Item](#get-fulfillment-offerings) returns a 404, you can fall back to calling the [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="new-tab"} legacy endpoint. This endpoint retrieves the available shipping methods for a consumer's Checkout, including any associated costs, estimated delivery dates, or discounts (such as free shipping for members).
-
-To get the shipping options, execute a request to the *Shipping Options* endpoint.
-
-Sample [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="new-tab"} request URI:
-
-```
-https://api.nike.com/buy/shipping_options/v2
-```
-
->**TIPS:**
->- Although optional, including a `shippingAddress` is recommended whenever possible.
->- In China, shipping methods can vary based on the province, city, and district combination.
->- For certain countries (e.g. US), including the shipping address can get you an estimated delivery date versus an estimated delivery range.
-
 ## API Quick Reference
 
 **Fulfillment Offerings Multi-Item**
 - [Fulfillment Offerings Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
 - [Fulfillment Offerings Multi-Item Jobs](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
 - [Fulfillment Offerings Style-Color](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
-
-**Shipping Options**
-- [Shipping Options](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="new-tab"}
 
 ## Troubleshooting
 
@@ -1252,7 +1223,7 @@ Need to contact the Cart & Checkout team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|02/24/2020|Initial Draft|
+|Initial draft|03/03/2020|Initial Publish|
 
 ## Next Steps
 
