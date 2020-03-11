@@ -6,7 +6,7 @@
 
 ---
 
-##### Last Updated: 03/05/2020
+##### Last Updated: 03/10/2020
 
 Get Nike product attributes like sizes, prices, features, marketing copy and more by using the [Product Attributes API](#api-reference).
 
@@ -14,21 +14,23 @@ Get Nike product attributes like sizes, prices, features, marketing copy and mor
 
 In this guide, we will step through how to use the Product Attributes API to get detailed product data into your app or experience.
 
-[(Screenshot of example experience?)]
-
-Let's say that you have a list of Nike style-color codes (that you from the [Offering API]() or otherwise) and you want get more details about each of them. Just execute a cURL command like:
+Let's say that you have a list of Nike style-color codes and you want get more details about each of them. Just execute a cURL command like:
 
 ```
-cURL goes here
+curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020??productCodes=314193-117,654321-101' \
+--header 'Authorization: Bearer {your token here}'
+
 ```
 
-For each style-color that you send, you will get its corresponding attributes like:
+For each style-color that you send, you can get corresponding attributes like:
 
-[List of juicy attributes from the response]
-
-The Product Attributes API is designed to be used in tandem with the Offerings and Images APIs as follows:
-
-[(Diagram showing context of using this API with Offerings and Images)]
+- Sizes (US, JP, KR, UK)
+- Prices (Wholesale, Retail)
+- Features (e.g. Reason to Buy)
+- Gender
+- Silhouette
+- Athlete
+- Offer Dates
 
 ## Key Terms
 
@@ -38,17 +40,17 @@ Here are some important terms that are used in this guide.
 
 |Term|Definition|
 |---|---|
-|Offering|A collection of Nike style-color codes provided by the [Offering API]() or obtained otherwise.|
 |Product Attributes|The set of metadata for a given Nike product code, e.g. sizes, prices, gender, silhouette.|
-|Product Code|The combined Nike style and color codes, e.g. `654321-101`. Also known as style-color code.|
-|Region|The Nike geographical region name, e.g. `CHINA`.|
-|Season|The Nike season year code, e.g. `SP2020` or `FA2021`.|
+|Product Code|The combined Nike style and color codes, e.g. 654321-101. Also known as style-color code.|
+|Region|The Nike geographical region name, e.g. CHINA.|
+|Season|The Nike season year code, e.g. SP2020 or FA2021.|
+|Silhouette|The overall shape of the product, e.g. SHOE.|
 
 ## Prerequisites
 
 **Authorization**
 
-Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before you can add Product Attributes to your app/experience.
+Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before attempting to call this API.
 
 ## Get Product Attributes
 
@@ -58,22 +60,24 @@ After completing all of the action items in the [prerequisites](#prerequisites) 
 
 ### Step 1: Gather the Required Data
 
-One or more product codes (from [Offering API]() or otherwise)
-Region code
-Season-year
+- One or more product codes
+- Region code
+- Season year code
 
 ### Step 2: Make the API Request to Product Attributes
 
-If one product code, call the single endpoint.
+If only one product code, call the single endpoint with the product code, region, and season as path parameters:
 
 ```
-cURL
+curl --location --request GET 'https://product.api.nike.net/product/v1/AA2148-009/USA/SP2020' \
+--header 'Authorization: Bearer {your token here}'
 ```
 
-If more than one product codes, call the multiple endpoint.
+If more than one product codes, call the multiple endpoint with the region and season as path parameters and a comma-separated list of `productCodes` as a query parameter:
 
 ```
-cURL
+curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020?productCodes=314193-117,654321-101' \
+--header 'Authorization: Bearer {your token here}'
 ```
 
 ### Step 3: Parse the Response
@@ -86,8 +90,10 @@ See [API Reference](#api-reference) for details of the response body.
 
 **Product Attributes**
 
-- [Get Product Attributes for a Single Product]() **GET**
-- [Get Product Attributes for Multiple Products]() **GET**
+|Endpoint|Method|URI|
+|---|---|---|
+|**Get Product Attributes for a Single Product**|`GET`|https://product.api.nike.net/product/v1/{productCode}/{region}/{season}|
+|**Get Product Attributes for Multiple Products**|`GET`|https://product.api.nike.net/products/v1/{region}/{season}|
 
 ## Troubleshooting
 
@@ -220,6 +226,65 @@ Example values for `season` (in no particular sequence):
 - etc...
 
 **RESPONSE**
+
+**Response Body**
+
+|Field|Description|Type|Example|
+|---|---|---|---|
+|season.`year`|Season year number (YYYY)|integer|2021|
+|season.`name`|Season name|string|SPRING|
+|`styleColorNumber`|Nike style-color code (same as `productCode`)|string|654321-101|
+|`sizeRange`|Range of US size numbers for that style-color|string|7-12, 13, 14, 15|
+|`styleNumber`|Nike six-digit style code|string|AA1837|
+|color.`code`|Nike three-digit color code|string|101|
+|color.longDescription.`lang`|Language code|string|EN|
+|color.longDescription.`text`|Description of color|string|THUNDER BLUE/WHITE|
+|`primaryColor`|Name of the closest primary color|string|BLUE|
+|category.`desc`|Description of the product category|string|GOLF|
+|categoryCoreFocus.`desc`|Description of the core focus of that product category|string|NIKE GOLF|
+|silhouette.`desc`|Description of the product silhouette|string|LOW TOP|
+|silhouetteType.`desc`|Type of product silhouette|string|SHOE|
+|genderAge.`code`|Gender-age code|string|18|
+|genderAge.`desc`|Gender-age description|string|MENS|
+|unitOfMeasure.`code`|Unit of measure code|string|PR|
+|unitOfMeasure.`desc`|Unit of measure description|string|PAIR|
+|`sizes`|For each size, multiple size codes (US, JP, KR, UK format) and UPC code|array||
+|sizes.`us`|US size code|string|11|
+|sizes.`jp`|Japan size code|string|29|
+|sizes.`kr`|Korea size code|string|290|
+|sizes.`uk`|UK size code|string|10|
+|sizes.`upc_gtin`|UPC/GTIN code|string|11|
+|sizes.`sortOrder`|Sort position of array item|string|27|
+|`prices`|Array of prices for this style-color|array||
+|prices.wholesale.`currency`|Currency code|string|USD|
+|prices.wholesale.`price`|Wholesale price|number|49|
+|prices.wholesale.effectiveDates.`begin`|Start date of price|string|20210101|
+|prices.retail.`currency`|Currency code|string|USD|
+|prices.retail.`price`|Retail price|number|80|
+|prices.retail.effectiveDates.`begin`|Start date of price|string|20210101|
+|names.systemStyleName.`lang`|Language code|string|EN|
+|names.systemStyleName.`text`|System style name|string|ROSHE G|
+|names.consumerStyleName.`lang`|Language code|string|EN|
+|names.consumerStyleName.`text`|Consumer style name|string|Men's Nike Roshe G Golf Shoe Secondary Tertiary|
+|division`desc`|Description of product division|string|FOOTWEAR DIVISION|
+|commercialCopy.reasonToBuy.`lang`|Language code|string|EN|
+|commercialCopy.reasonToBuy.`text`|Reason to buy|string|ICONIC DESIGN. LASTING COMFORT.|
+|commercialCopy.productSummary.`lang`|Language code|string|EN|
+|commercialCopy.productSummary.`text`|Product summary|string|Men's Nike Roshe G Golf Shoe features a pressure-mapped outsole that provides traction in key zones. <br>Inspired by a Nike icon, the mesh upper offers breathability and a modern look, while the soft, flexible, foam midsole cushions every step.|
+|commercialCopy.fabricContent.`lang`|Language code|string|EN|
+|commercialCopy.fabricContent.`text`|Fabric content|string||
+|commercialCopy.features.`lang`|Language code|string|EN|
+|commercialCopy.features.`text`|Features|string|Pressure-mapped outsole provides traction in key zones.|
+|commercialCopy.allFeatures.`lang`|Language code|string|EN|
+|commercialCopy.allFeatures.`text`|All features|string|Pressure-mapped outsole provides traction in key zones. Iconic mesh upper delivers breathability and style. Injected midsole delivers soft, lightweight cushioning. <br>Elastic gusset on the tongue helps keep out debris. Pull tabs on the heel and tongue offer easy on and off. Cupsole-like design offers flexible, low-profile support and a stable feel.|
+|athlete`firstName`|Athlete first name|string|Jane|
+|athlete`lastName`|Athlete last name|string|Doe|
+|offerDates.`productFirstOffer`|First offer date|string|20210101|
+|offerDates.`productLastOffer`|Last offer date|string|20210101|
+|offerDates.`productFutureLastOffer`|Future last offer date|string|20210101|
+|marketingType.`desc`|Description of marketing type|string|IN-LINE|
+|carryOver|Is it a carry-over product, Y or N|string|Y|
+|launchData.`coordinatedDescription`|Description of coordinated launch|string|BRAND INITIATIVES|
 
 **200 OK (Successful Request)**
 
