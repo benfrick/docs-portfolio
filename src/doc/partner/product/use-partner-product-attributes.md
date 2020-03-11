@@ -55,13 +55,15 @@ Here are some important terms that are used in this guide.
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get product attributes for one or more Nike product codes**
 
-After completing all of the action items in the [prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
+After completing all of the action items in the [Prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
 
 ### Step 1: Gather the Required Data
 
 - One or more product codes
 - Region code
 - Season year code
+
+>**TIP**: See the [API Reference](#get-product-attributes-for-a-single-product) for more on which region and season year codes to use.
 
 ### Step 2: Make the API Request to Product Attributes
 
@@ -72,7 +74,7 @@ curl --location --request GET 'https://product.api.nike.net/product/v1/AA2148-00
 --header 'Authorization: Bearer {your token here}'
 ```
 
-If more than one product codes, call the multiple endpoint with the region and season as path parameters and a comma-separated list of `productCodes` as a query parameter:
+If more than one product code, call the multiple endpoint with the region and season as path parameters and a comma-separated list of `productCodes` as a query parameter:
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020?productCodes=314193-117,654321-101' \
