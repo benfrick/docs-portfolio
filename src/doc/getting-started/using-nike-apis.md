@@ -224,7 +224,7 @@ Unite SDKs:
 
 For more information on Unite login and JWTs, see the links below.
 - [Nike Consumer Login Basics](https://confluence.nike.com/display/USER/Nike+Consumer+Login+Basics){:target="new-tab"}
-- [Consumer Access Token Basics](https://confluence.nike.com/display/SECDEV/Nike+NDE+Consumer+Access+Token){:target="new-tab"}
+- [Consumer Access Token Basics](https://confluence.nike.com/display/PACE/Nike+NDE+Consumer+Access+Token){:target="new-tab"}
 - [AAA - Getting Started with JWTs](https://confluence.nike.com/display/SECDEV/AAA+-+Getting+Started+with+JWTs){:target="new-tab"}
 
 ### Service-to-Service JWTs

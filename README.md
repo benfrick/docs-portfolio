@@ -9,11 +9,11 @@ This project provides Nike API guides and other documentation for the following 
 
 ## Using
 
-Visit the Nike Developer Portal for the full documentation set at https://developer.niketech.com/nde-docs.
+Visit the Nike Developer Portal for the full documentation set at https://developer.niketech.com/commerce-docs.
 
 ## Contributing
 
-To report a documentation issue or to make a documentation request, contact the Docs Team at Slack Channel #nde-doc or email Lst-nde.docs@nike.com.
+To report a documentation issue or to make a documentation request, contact the Docs Team at Slack Channel #tech-docs or email Lst-nde.docs@nike.com.
 
 ## Running the Jekyll content server
 
