@@ -6,7 +6,7 @@
 
 ---
 
-##### Last Updated: 03/10/2020
+##### Last Updated: 03/11/2020
 
 Get Nike product attributes like sizes, prices, features, marketing copy and more by using the [Product Attributes API](#api-reference).
 
@@ -14,15 +14,14 @@ Get Nike product attributes like sizes, prices, features, marketing copy and mor
 
 In this guide, we will step through how to use the Product Attributes API to get detailed product data into your app or experience.
 
-Let's say that you have a list of Nike style-color codes and you want get more details about each of them. Just execute a cURL command like:
+Let's say that you have a list of Nike style-color codes and you want get more details about each of them. Just execute a cURL command similar to this one:
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020??productCodes=314193-117,654321-101' \
 --header 'Authorization: Bearer {your token here}'
-
 ```
 
-For each style-color that you send, you can get corresponding attributes like:
+For each style-color that you send, you will get corresponding attributes, for example:
 
 - Sizes (US, JP, KR, UK)
 - Prices (Wholesale, Retail)
@@ -48,21 +47,23 @@ Here are some important terms that are used in this guide.
 
 ## Prerequisites
 
-**Authorization**
+**Authentication**
 
-Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before attempting to call this API.
+- Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before attempting to call this API.
 
 ## Get Product Attributes
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get product attributes for one or more Nike product codes**
 
-After completing all of the action items in the [prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
+After completing all of the action items in the [Prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
 
 ### Step 1: Gather the Required Data
 
 - One or more product codes
 - Region code
 - Season year code
+
+>**TIP**: See the [API Reference](#get-product-attributes-for-a-single-product) for more on which region and season year codes to use.
 
 ### Step 2: Make the API Request to Product Attributes
 
@@ -73,7 +74,7 @@ curl --location --request GET 'https://product.api.nike.net/product/v1/AA2148-00
 --header 'Authorization: Bearer {your token here}'
 ```
 
-If more than one product codes, call the multiple endpoint with the region and season as path parameters and a comma-separated list of `productCodes` as a query parameter:
+If more than one product code, call the multiple endpoint with the region and season as path parameters and a comma-separated list of `productCodes` as a query parameter:
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020?productCodes=314193-117,654321-101' \
@@ -84,16 +85,16 @@ curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP202
 
 Parse the response body to get the attributes that you need.
 
-See [API Reference](#api-reference) for details of the response body.
+>**TIP**: See [API Reference](#api-reference) for details of the response body.
 
 ## API Endpoint Quick Reference
 
-**Product Attributes**
+###### Table 2: Endpoints of the Product Attributes API
 
 |Endpoint|Method|URI|
 |---|---|---|
-|**Get Product Attributes for a Single Product**|`GET`|https://product.api.nike.net/product/v1/{productCode}/{region}/{season}|
-|**Get Product Attributes for Multiple Products**|`GET`|https://product.api.nike.net/products/v1/{region}/{season}|
+|[Get Product Attributes for a Single Product](#get-product-attributes-for-a-single-product)|`GET`|https://product.api.nike.net/product/v1/{productCode}/{region}/{season}|
+|[Get Product Attributes for Multiple Products](#get-product-attributes-for-multiple-products)|`GET`|https://product.api.nike.net/products/v1/{region}/{season}|
 
 ## Troubleshooting
 
@@ -123,6 +124,8 @@ GET https://product.api.nike.net/product/v1/{productCode}/{region}/{season}
 
 The following path parameters are all required in the request URI:
 
+###### Table 3: Required Path Parameters (Single Product)
+ 
 |Field Name|Description|Example|
 |---|---|---|
 |`productCode`|Nike product code|AA1837-400|
@@ -209,6 +212,8 @@ An accepted value for `season` is a concatenation of a valid two-digit season co
 
 First, take one of the possible season codes:
 
+###### Table 4: Season Codes with Descriptions
+
 |Season Code|Description|
 |---|---|
 |`SP`|Spring|
@@ -216,7 +221,7 @@ First, take one of the possible season codes:
 |`FA`|Fall|
 |`HO`|Holiday|
 
-Then, add the year, like `SP` + `2022` = `SP2022`.
+Then, add the year: `SP` + `2022` = `SP2022`.
 
 Example values for `season` (in no particular sequence):
 
@@ -228,6 +233,8 @@ Example values for `season` (in no particular sequence):
 **RESPONSE**
 
 **Response Body**
+
+###### Table 5: Fields in the API Response
 
 |Field|Description|Type|Example|
 |---|---|---|---|
@@ -270,20 +277,20 @@ Example values for `season` (in no particular sequence):
 |commercialCopy.reasonToBuy.`lang`|Language code|string|EN|
 |commercialCopy.reasonToBuy.`text`|Reason to buy|string|ICONIC DESIGN. LASTING COMFORT.|
 |commercialCopy.productSummary.`lang`|Language code|string|EN|
-|commercialCopy.productSummary.`text`|Product summary|string|Men's Nike Roshe G Golf Shoe features a pressure-mapped outsole that provides traction in key zones. <br>Inspired by a Nike icon, the mesh upper offers breathability and a modern look, while the soft, flexible, foam midsole cushions every step.|
+|commercialCopy.productSummary.`text`|Product summary|string|Men's Nike Roshe G Golf Shoe features a pressure-mapped outsole that provides traction in key zones. <br>Inspired by a Nike icon, the mesh upper offers breathability and a modern look, while the soft, flexible, <br>foam midsole cushions every step.|
 |commercialCopy.fabricContent.`lang`|Language code|string|EN|
 |commercialCopy.fabricContent.`text`|Fabric content|string||
 |commercialCopy.features.`lang`|Language code|string|EN|
 |commercialCopy.features.`text`|Features|string|Pressure-mapped outsole provides traction in key zones.|
 |commercialCopy.allFeatures.`lang`|Language code|string|EN|
-|commercialCopy.allFeatures.`text`|All features|string|Pressure-mapped outsole provides traction in key zones. Iconic mesh upper delivers breathability and style. Injected midsole delivers soft, lightweight cushioning. <br>Elastic gusset on the tongue helps keep out debris. Pull tabs on the heel and tongue offer easy on and off. Cupsole-like design offers flexible, low-profile support and a stable feel.|
+|commercialCopy.allFeatures.`text`|All features|string|Pressure-mapped outsole provides traction in key zones. Iconic mesh upper delivers breathability and style. <br>Injected midsole delivers soft, lightweight cushioning. Elastic gusset on the tongue helps keep out debris. Pull tabs on the heel and tongue offer easy on and off. <br>Cupsole-like design offers flexible, low-profile support and a stable feel.|
 |athlete`firstName`|Athlete first name|string|Jane|
 |athlete`lastName`|Athlete last name|string|Doe|
 |offerDates.`productFirstOffer`|First offer date|string|20210101|
 |offerDates.`productLastOffer`|Last offer date|string|20210101|
 |offerDates.`productFutureLastOffer`|Future last offer date|string|20210101|
 |marketingType.`desc`|Description of marketing type|string|IN-LINE|
-|carryOver|Is it a carry-over product, Y or N|string|Y|
+|`carryOver`|Is it a carry-over product, Y or N|string|Y|
 |launchData.`coordinatedDescription`|Description of coordinated launch|string|BRAND INITIATIVES|
 
 **200 OK (Successful Request)**
@@ -571,7 +578,7 @@ Example values for `season` (in no particular sequence):
 
 #### Get Product Attributes for Multiple Products
 
-Retrieve product attributes for multiple products, when you provide `productCodes`, `region`, and `season` as query parameters.
+Retrieve product attributes for multiple products, when you provide `region` and `season` as path parameters and `productCodes` as a query parameter.
 
 **REQUEST**
 
@@ -583,15 +590,26 @@ GET https://product.api.nike.net/product/v1/{region}/{season}
 
 `Content-Type:application/json`
 
+**Path Parameters**
+
+The following path parameters are required in the request URI:
+
+###### Table 6: Required Path Parameters (Multiple Products)
+
+|Field Name|Description|Example|
+|---|---|---|
+|`region`|Nike region name|CHINA|
+|`season`|Nike season year|SP2020|
+
 **Query Parameters**
 
 The following query parameters are required in the request URI:
 
+###### Table 7: Required Query Parameters (Multiple Products)
+
 |Field Name|Description|Example|
 |---|---|---|
 |`productCodes`|Comma-separated list of Nike product codes|AA1837-400,654321-100|
-|`region`|Nike region name|CHINA|
-|`season`|Nike season year|SP2020|
 
 **RESPONSE**
 
@@ -1156,4 +1174,4 @@ The following query parameters are required in the request URI:
 
 |Summary|Date|
 |---|---|
-|Initial publish|03/05/2020|
+|Initial publish|03/11/2020|
