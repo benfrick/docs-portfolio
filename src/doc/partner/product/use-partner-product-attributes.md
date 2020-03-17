@@ -100,11 +100,13 @@ Parse the response body to get the attributes that you need into your app/experi
 |[Get Product Attributes for a Single Product](#get-product-attributes-for-a-single-product)|`GET`|https://product.api.nike.net/product/v1/{productCode}/{region}/{season}|
 |[Get Product Attributes for Multiple Products](#get-product-attributes-for-multiple-products)|`GET`|https://product.api.nike.net/products/v1/{region}/{season}|
 
+<!--
 ## Troubleshooting
 
 ### Common Questions
 
 **What if this bad thing happens?**
+-->
 
 ## API Reference
 
