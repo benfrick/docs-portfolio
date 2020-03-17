@@ -220,7 +220,7 @@ It is not required to execute a request to [Request a Checkout Preview](https://
 
 You can use the info in the response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and places the order, there will be a better chance of success.
 
->**NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](https://developer.niketech.com/nde-docs/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
+>**NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](https://developer.niketech.com/commerce-docs/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
 ### Step 1: Request Checkout Preview
 

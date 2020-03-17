@@ -127,7 +127,7 @@ CURL goes here
 
 The Rollup Threads response is specified in the [API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api), but here's a few things to know about:
 
-- Rollup Threads returns only active product threads. If you want inactive threads included in the response, call [Product Feeds Threads List](https://developer.niketech.com/nde-docs/doc/commerce/product/use-product-feeds.html#product-threads-list) instead.
+- Rollup Threads returns only active product threads. If you want inactive threads included in the response, call [Product Feeds Threads List](https://developer.niketech.com/commerce-docs/doc/commerce/product/use-product-feeds.html#product-threads-list) instead.
 
 {Some hints/callouts about the data in the response and how it could be handled}
 
