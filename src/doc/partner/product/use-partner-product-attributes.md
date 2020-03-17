@@ -6,18 +6,20 @@
 
 ---
 
-##### Last Updated: 03/11/2020
+##### Last Updated: 03/17/2020
 
-Get Nike product attributes like sizes, prices, features, marketing copy and more by using the [Product Attributes API](#api-reference).
+**Get Nike product attributes like sizes, prices, features, marketing copy and more by using the [Product Attributes API](#api-reference).**
 
 ## Introduction
 
 In this guide, we will step through how to use the Product Attributes API to get detailed product data into your app or experience.
 
-Let's say that you have a list of Nike style-color codes and you want get more details about each of them. Just execute a cURL command similar to this one:
+This API provides **product data that is segmented by style-color, region, and season**.
+
+Let's say that you have a list of Nike style-color codes and you want get more details about them for a particular region/season combination. Just execute a cURL command similar to this one:
 
 ```
-curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020??productCodes=314193-117,654321-101' \
+curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020?productCodes=314193-117,654321-101' \
 --header 'Authorization: Bearer {your token here}'
 ```
 
@@ -41,15 +43,15 @@ Here are some important terms that are used in this guide.
 |---|---|
 |Product Attributes|The set of metadata for a given Nike product code, e.g. sizes, prices, gender, silhouette.|
 |Product Code|The combined Nike style and color codes, e.g. 654321-101. Also known as style-color code.|
-|Region|The Nike geographical region name, e.g. CHINA.|
-|Season|The Nike season year code, e.g. SP2020 or FA2021.|
+|Region|The Nike geographical region name associated with the product, e.g. CHINA.|
+|Season|The Nike season year code associated with the product, e.g. SP2020 or FA2021. See [Table 4](#table-4--season-codes-with-descriptions)|
 |Silhouette|The overall shape of the product, e.g. SHOE.|
 
 ## Prerequisites
 
 **Authentication**
 
-- Complete all the steps in [Nike Partners - Adding Authentication to your Experience](../authentication/use-partner-authentication.html) before attempting to call this API.
+This API uses Okta authentication. Work with your Nike Account Manager (AM) And Technical Point Of Contact (TPC) to create your client credentials and to get the next steps for retrieving your access token.
 
 ## Get Product Attributes
 
@@ -58,6 +60,8 @@ Here are some important terms that are used in this guide.
 After completing all of the action items in the [Prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
 
 ### Step 1: Gather the Required Data
+
+The minimum required data you need to construct a valid request is:
 
 - One or more product codes
 - Region code
@@ -83,7 +87,7 @@ curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP202
 
 ### Step 3: Parse the Response
 
-Parse the response body to get the attributes that you need.
+Parse the response body to get the attributes that you need into your app/experience.
 
 >**TIP**: See [API Reference](#api-reference) for details of the response body.
 
@@ -214,12 +218,12 @@ First, take one of the possible season codes:
 
 ###### Table 4: Season Codes with Descriptions
 
-|Season Code|Description|
-|---|---|
-|`SP`|Spring|
-|`SU`|Summer|
-|`FA`|Fall|
-|`HO`|Holiday|
+|Season Code|Description|Date Range|
+|---|---|---|
+|`SP`|Spring|Jan-Mar|
+|`SU`|Summer|Apr-Jun|
+|`FA`|Fall|Jul-Sep|
+|`HO`|Holiday|Oct-Dec|
 
 Then, add the year: `SP` + `2022` = `SP2022`.
 
