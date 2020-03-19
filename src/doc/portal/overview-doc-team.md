@@ -18,7 +18,7 @@ toc:
 <aside class="note">
         <h4 style="text-align:center;">Resources</h4>
     <ul>
-        <li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#nde-doc</a></li>
+        <li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#tech-docs</a></li>
         <li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Docs Team</a></li>
         <li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">Doc Project</a></li>
     </ul>
@@ -66,7 +66,7 @@ Through writing, we communicate the many benefits of your hard work, explain its
 
 ## What We Do
 
-<a href="https://developer.niketech.com/nde-docs/doc/commerce/product/overview-product-feeds.html" target="new-tab"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="https://developer.niketech.com/nde-docs/doc/getting-started/using-nike-apis.html" target="new-tab"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
+<a href="https://developer.niketech.com/commerce-docs/doc/commerce/product/overview-product-feeds.html" target="new-tab"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="https://developer.niketech.com/commerce-docs/doc/getting-started/using-nike-apis.html" target="new-tab"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
 
 ### <i class="fas fa-pen"></i> &nbsp;Write the Docs
 
@@ -91,7 +91,7 @@ Have finished documentation and need help publishing it to the developer portal 
 
 ## How can we help you?
 
-Now that you know more about the services we provide, reach out to our team via Slack [#nde-doc](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting so we can learn more about your documentation needs.
+Now that you know more about the services we provide, reach out to our team via Slack [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting so we can learn more about your documentation needs.
 
 To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} page in Confluence.
 
