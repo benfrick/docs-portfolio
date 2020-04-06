@@ -25,7 +25,7 @@ toc:
 
 ##### Last Updated: 04/10/2020
 
-Read this guide to learn how to add Cart and Cart Review to your experience.
+Read this guide to learn how to add Carts and Cart Reviews to your experience.
 
 >**TIPS**:
 >- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
@@ -43,7 +43,7 @@ At Nike, a cart contains the following:
 - Promotion codes
 - Totals
 
-See also [How is a Wish List different from a Cart?](/doc/commerce/checkout/use-wishlists.html#how-is-a-wishlist-different-from-a-cart) and [What is a Checkout?](/doc/commerce/checkout/use-checkout.html#what-is-a-checkout).
+See also [How Is a Wish List different From a Cart?](/doc/commerce/checkout/use-wishlists.html#how-is-a-wishlist-different-from-a-cart) and [What Is a Checkout?](/doc/commerce/checkout/use-checkout.html#what-is-a-checkout).
 
 ## Cart
 
