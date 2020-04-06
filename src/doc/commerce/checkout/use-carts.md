@@ -19,18 +19,17 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING CARTS TO YOUR EXPERIENCE
+# ADDING CART & CART REVIEWS TO YOUR EXPERIENCE
 
 ---
 
-##### Last Updated: 06/20/2019
+##### Last Updated: 04/10/2020
 
-Read this guide to learn how to add [Carts](#carts) to your experience.
+Read this guide to learn how to add Cart and Cart Review to your experience.
 
 >**TIPS**:
 >- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
 >- Use this guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed here.
->- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html).
 
 ## Introduction
 
@@ -40,13 +39,13 @@ In e-commerce, the shopping cart (also called basket or bag) allows consumers to
 
 At Nike, a cart contains the following:
 
-- Products & services with respective prices, discounts, and quantities
+- Products and services with respective prices, discounts, and quantities
 - Promotion codes
 - Totals
 
-See also [How is a Wish List different from a Cart?](/doc/commerce/checkout/use-wishlists.html#how-is-a-wishlist-different-from-a-cart) and [What is a Checkout?](/doc/commerce/checkout/use-checkouts.html#what-is-a-checkout).
+See also [How is a Wish List different from a Cart?](/doc/commerce/checkout/use-wishlists.html#how-is-a-wishlist-different-from-a-cart) and [What is a Checkout?](/doc/commerce/checkout/use-checkout.html#what-is-a-checkout).
 
-## Carts
+## Cart
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Manage a consumer's shopping cart and get product pricing**
 
@@ -62,18 +61,18 @@ The first step in managing a consumer's cart is to create the cart using the [Ca
 
 To create the cart, execute a request to the [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} or [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put){:target="new-tab"} endpoint.
 
->**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, an error will be returned by the Carts API.
+>**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, the Carts API returns an error response. See [Authorization](https://developer.niketech.com/commerce-docs/doc/getting-started/using-nike-apis.html#authorization){:target="new"} for more information.
 
-Sample [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} request URI:
+Sample [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} PUT request URI:
 ```
 https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
 
-If you successfully create the cart, you will get product pricing and, if the consumer is a member who has saved a shipping address, you will get their default shipping address and recipient (i.e. contact) info from their Nike profile.
+When you successfully create the cart, the response contains product pricing. If the consumer is a member who has saved a shipping address, the response contains their recipient (contact) information and default shipping address from their Nike profile.
 
 ### Step 2: Get a Cart
 
-Now that the cart has been created, you can display the cart to the consumer, for example if they continue shopping and then later want to see the cart details again.
+Now that the cart is created, you can display the cart to the consumer. This allows the consumer to continue shopping and view the cart details again later.
 
 To get a cart, you have a few options depending on what information you need:
 
@@ -94,54 +93,80 @@ The delete operation is optional, even if the cart is empty; member's carts will
 
 ### Step 4: Get a Cart Summary
 
-The consumer has finished adding products to the cart, and you can use the [Cart Reviews API](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="new-tab"} to show them a cart summary before they proceed to checkout.
+After the consumer has finished adding products to their cart, you can use the Cart Reviews API to show them a summary of their cart before they proceed to checkout. The summary includes updated subtotals of all cart items, taxes, estimated delivery/pick up dates and costs.
 
-Cart Reviews currently has two versions available:
+Details on the available Cart Reviews versions are listed below.
 
-###### Table 1: Versions of Carts
+###### Table 1: Cart Reviews API Versions
 
-|Version|Notes|
+|Version|Description|
 |---|---|
-|v1|Limited to only basic shipping methods (e.g. Standard, Two-Day)|
-|v2|Based on [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html), including Buy-Online-Pickup-In-Store (BOPIS)|
+|**V2**|Used in [omni-channel](/doc/commerce/checkout/overview-checkout-new.html#which-api-version-should-i-use) shopping flow<br>Supports [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html), including Buy-Online-Pickup-In-Store (BOPIS)<br>For registered consumers, guest consumers, and employees<br>Asynchronous endpoint|
+|**V1**|Used in [legacy](/doc/commerce/checkout/overview-checkout-new.html#which-api-version-should-i-use) shopping flow<br>Limited to basic [shipping options](/doc/commerce/checkout/use-checkout.html#shipping-options), for example Standard<br>For registered consumers and employees only<br>Synchronous endpoint|
 
-**Using Cart Reviews v2**
 
-- Execute a request to the [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} endpoint with a complete cart.
+#### Cart Reviews V2
 
-    >**NOTE**: It is not required to create a cart with the Carts API prior to sending a request to the Cart Reviews API. Instead of using Cart ID in the request, send the **country**, **currency**, and **brand** associated with the consumer.
+Execute a PUT request to the [Create a Job](https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-put){:target="new-tab"} endpoint with a complete cart, passing the **country**, **currency**, and **fulfillmentDetails** for each item returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) associated with the consumer. The `id` path parameter is a client-generated UUID.
 
-- Include any known fulfillment details in the request as per the [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html#what-are-fulfillment-offerings) schema.
+>**NOTE**: Cart Reviews V2 operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
-Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} request URI:
+Sample [Create a Job](https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-put){:target="new-tab"} PUT request URI:
 ```
-https://api.nike.com/buy/cart_reviews/v2/
+https://api.nike.com/buy/cart_reviews/v2/52bc115b-16e5-43b5-bcaf-dd6168c543g9
 ```
 
-**Using Cart Reviews v1 (Legacy)**
+After calling [Create a Job](https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-put) and receiving a HTTP 202 response, execute a GET request to [Retrieve a Job Result](https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api) using the same Cart Reviews ID to check the status of your job.
 
-- Execute a request to the [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} endpoint with a complete cart.
+To know if the job is done, check the value of the status field in the response body as follows:
 
-- Optionally include additional info in the request to get additional info in the response, as follows:
+- `"status"`: `"PENDING"`: job processing has not started
 
-    - To get sales tax and shipping tax, the request must include postal code.
+- `"status"`: `"IN_PROGRESS"`: job processing is in progress
 
-    - To get estimated delivery date(s), the request must include the shipping method(s).
+- `"status": "COMPLETED"`: job has completed
 
-    - To get shipping group information, the request must include the shipping method and the shipping address associated with each product.
+Once you receive a job status of `COMPLETED`, get the results of your job by parsing the data in the response object.
+
+Sample [Retrieve a Job Result](https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api) GET request:
+
+```
+https://api.nike.com/buy/cart_reviews/v2/52bc115b-16e5-43b5-bcaf-dd6168c543g9
+```
+
+A successful 200 response in the `COMPLETED` state contains `currency`, `locale` and `fulfillmentGroups` information.
+
+#### Cart Reviews V1 (Legacy)
+
+To get a cart summary, execute a request to the [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} endpoint with a complete cart.
+
+>**NOTE**: It is not required to create a cart with the Carts V2 API prior to sending a request to the Cart Reviews V1 API. Instead of using Cart ID in the request, send the **country**, **currency**, and **brand** associated with the consumer.
+
+Cart Reviews V1 does not support guest consumers. The consumer must be logged in.
+
+You can get additional info in the response by including the following in the request:
+
+- To get sales tax and shipping tax, include postal code.
+
+- To get estimated delivery date(s), include the shipping method(s).
+
+- To get shipping group information, include the shipping method and the shipping address associated with each product.
+
+Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} POST request URI:
+
+```
+https://api.nike.com/buy/cart_reviews/v1/
+```
+
+A successful 200 `COMPLETED` response contains `country`, `currency`, `locale`, `brand`, `channel`, and `shippingGroups` information.
 
 >**TIPS:**
 >- Shipping group refers to the grouping of products into multiple shipments with potentially different delivery dates. This is done automatically for you based on Nike business rules.
 >- For China consumers, you can capture and include [Fapiao invoice](https://www.sirva.com/docs/default-source/default-document-library/what-are-fapiaos-and-why-do-they-matter-.pdf) info in the request and it will be returned in the response.
 
-Sample [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api#cart-reviews-augment-a-cart-post){:target="new-tab"} request URI:
-```
-https://api.nike.com/buy/cart_reviews/v1/
-```
-
 ## API Quick Reference
 
-**Carts**
+**Carts V2**
 - [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
 - [Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
 - [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
@@ -153,7 +178,13 @@ https://api.nike.com/buy/cart_reviews/v1/
 - [Delete All Item from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}
 
 **Cart Reviews**
+
+V1:
 - [Augment a Cart](https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api){:target="new-tab"}
+
+V2:
+- [Create a Job](https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api){:target="new-tab"}
+- [Retrieve a Job Result](https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api){:target="new-tab"}
 
 ## Troubleshooting
 
@@ -179,12 +210,16 @@ Need to contact the Cart & Checkout team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|06/20/2019|Initial Draft|
+|Converted to stand alone guide|04/10/2020|Content moved from Cart & Checkout use-case guide|
 
 ## Next Steps
 
-You've learned how to add Carts to your experience. Here are some next steps.
+You've learned how to add Carts to your experience. Here are some related topics.
 
+- [Wishlist](/doc/commerce/checkout/use-wishlists.html)
+- [Checkout](/doc/commerce/checkout/use-checkout.html)
+- [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
+- [Payment](/doc/commerce/payment/use-payment.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
 - [Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
