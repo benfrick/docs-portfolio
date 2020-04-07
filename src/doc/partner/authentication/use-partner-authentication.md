@@ -2,11 +2,11 @@
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# NIKE PARTNERS - ADDING AUTHENTICATION TO YOUR EXPERIENCE
+# NIKE PARTNERS - USING CONSUMER AUTHENTICATION
 
 ---
 
-##### Last Updated: 03/02/2020
+##### Last Updated: 04/07/2020
 
 The Authentication process uses Nike's [Token API](#api-reference) to:
 - Allow your consumers to login into their Nike account or register for a new one from your app or experience
@@ -423,9 +423,10 @@ Body:
 
 ## Document Change Log
 
-|Summary |Date |
+|Summary|Date|Description|
 |---|---|---|
-|Initial publish|03/02/2020|
+|Initial publish|03/02/2020|New document|
+|Title rename|04/07/2020|Renamed to Nike Partners - Using Consumer Authentication|
 
 <!--
 ## Next Steps
