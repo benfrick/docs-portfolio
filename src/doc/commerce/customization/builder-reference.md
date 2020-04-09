@@ -24,7 +24,7 @@ toc:
 
 ---
 
-##### Last Updated: 02/04/2020
+##### Last Updated: 04/09/2020
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 
@@ -579,6 +579,16 @@ Usage:
 builderApi.applyMyDesign(1561569431459)
 ```
 
+### clearJerseyCustomization
+
+Description: Clears the customization (un-answers questions) and returns the new build data, for jerseys exclusively.
+
+Usage:
+
+```javascript
+builderApi.clearJerseyCustomization()
+```
+
 ### clearMessage
 
 Description: Clears the message in the Builder.
@@ -1094,6 +1104,7 @@ builderApi.showNotification(plain);
 |Initial publish|05/17/2019|
 |Added new My Designs methods, added new shareDesign, saveDesign methods, marked saveBuild as deprecated|07/02/2019|
 |Added new methods and buildData info for availability|07/30/2019|
+|Added new clearCustomization method|04/09/2020|
 
 ## Next Steps
 
