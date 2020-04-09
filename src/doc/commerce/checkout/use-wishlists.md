@@ -23,7 +23,7 @@ toc:
 
 ---
 
-##### Last Updated: 03/20/2019
+##### Last Updated: 04/10/2019
 
 Help Nike members save their favorites for later purchase by adding [Wishlists](#wish-lists) to your experience.
 
@@ -275,11 +275,16 @@ Need to contact the team?
 |---|---|---|
 |Initial draft|06/20/2019|Initial Draft|
 |Converted to stand-alone guide|03/20/2019|Content moved from Cart & Checkout use-case guide|
+|Revised Next Steps section links|04/10/2020|Updated links|
 
 ## Next Steps
 
-You've learned how to add wishlists to your experience. Here are some next steps.
+You've learned how to add wishlists to your experience. Here are some related topics.
 
+- [Cart & Cart Review](/doc/commerce/checkout/use-carts.html)
+- [Checkout](/doc/commerce/checkout/use-checkout.html)
+- [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
+- [Payment](/doc/commerce/payment/use-payment.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
 - [Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
