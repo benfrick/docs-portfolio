@@ -579,14 +579,14 @@ Usage:
 builderApi.applyMyDesign(1561569431459)
 ```
 
-### clearCustomization
+### clearJerseyCustomization
 
-Description: Clears the customization (un-answers questions) and returns the new build data.
+Description: Clears the customization (un-answers questions) and returns the new build data, for jerseys exclusively.
 
 Usage:
 
 ```javascript
-builderApi.clearCustomization()
+builderApi.clearJerseyCustomization()
 ```
 
 ### clearMessage
