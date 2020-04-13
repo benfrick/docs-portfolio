@@ -6,7 +6,7 @@
 
 ---
 
-##### Last Updated: 04/10/2020
+##### Last Updated: 04/13/2020
 
 The Nike Server-to-Server (S2S) Authentication process allows partners to make authenticated calls to Nike APIs.
 
@@ -77,7 +77,7 @@ Your NBL will make sure that your project contract is ready to go and that all o
 
 #### 4. Get Your OAuth Credentials
 
-Once the above prerequisites are complete, your TCM will give you your OAuth credentials (**Client ID** and **Client Secret**) so that you can take the next steps towards calling Nike APIs.
+Once the above prerequisites are complete, your TPC will give you your OAuth credentials (**Client ID** and **Client Secret**) so that you can take the next steps towards calling Nike APIs.
 
 >**TIP**: Do not share your Client Secret and make sure you store it securely.
 
@@ -85,7 +85,7 @@ Once the above prerequisites are complete, your TCM will give you your OAuth cre
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get your access token so that you can make API calls**
 
-After all of the action items in the [Prerequisites](#prerequisites) section are completed, you are ready to add Nike S2S Authentication to your server app.
+After completing all the action items in the [Prerequisites](#prerequisites) section, you are ready to add Nike S2S Authentication to your server app.
 
 ### Step 1: Send a Request to the Nike Okta Server
 
@@ -113,7 +113,7 @@ Example request body:
 
 ```
 grant_type=client_credentials
-client_id=kohls.digital.app
+client_id=company.digital.app
 client_secret=yno-T08MctEfC4-oa6ufazFkxwZPYoWBODN9cJYhUieDCv9vLR3dsQ2WgnL69Ejx
 ```
 
@@ -160,4 +160,4 @@ Nike APIs require the access token in a particular format within the `Authorizat
 
 |Summary |Date |
 |---|---|---|
-|Initial publish|04/10/2020|
+|Initial publish|04/13/2020|
