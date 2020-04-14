@@ -6,7 +6,7 @@
 
 ---
 
-##### Last Updated: 04/13/2020
+##### Last Updated: 04/14/2020
 
 The Nike Server-to-Server (S2S) Authentication process allows partners to make authenticated calls to Nike APIs.
 
@@ -14,13 +14,17 @@ The Nike Server-to-Server (S2S) Authentication process allows partners to make a
 
 In this guide, we will step through how to add Nike S2S Authentication to your server app.
 
+>**TIP**: Need consumer-facing authentication instead? See the [Consumer Authentication](/doc/partner/authentication/use-partner-authentication.html) guide for details.
+
 ### What Is S2S Authentication?
 
 S2S Authentication involves obtaining an OAuth 2.0 **access token** from a Nike Okta server so that you can use that token in subsequent calls to Nike APIs to get product data, etc. The process can be summarized as follows:
 
 - Obtain your Nike **Client ID** and **Client Secret** (see [Prerequisites](#prerequisites))
 - Send an API request to the [Nike Okta Server](#get-an-access-token) to get an **access token**
-- Use the **access token** in the Authorization header to call Nike APIs
+- Use the **access token** in the Authorization header to [call Nike APIs](#use-an-access-token-to-call-nike-apis)
+
+>**TIP**: Access tokens expire after 1 hour. Token expired? Just repeat [Step 1: Send a Request to the Nike Okta Server](#step-1-send-a-request-to-the-nike-okta-server) to get a new one.
 
 Now let's go through some key terms related to S2S Authentication.
 
@@ -73,7 +77,7 @@ Your **TPC** needs to know:
 
 #### 3. Get Legal And Privacy Approval
 
-Your NBL will make sure that your project contract is ready to go and that all of the data exchanged between your app and Nike is handled securely. This process generally takes 1-5 business days.
+Your NBL will make sure your project contract is ready to go and that all the data exchanged between your app and Nike is handled securely. This process generally takes 1-5 business days.
 
 #### 4. Get Your OAuth Credentials
 
@@ -128,7 +132,7 @@ Example 200 (success) response, which includes your `access_token`, `expires_in`
 }
 ```
 
->**TIP**: By default, access tokens expire after 1 hour (3600 seconds).
+>**TIP**: Access tokens expire after 1 hour (3600 seconds). Token expired? Just repeat [Step 1: Send a Request to the Nike Okta Server](#step-1-send-a-request-to-the-nike-okta-server) to get a new one.
 
 Example 400 Bad Request response indicating an invalid `client_id`:
 
@@ -144,7 +148,7 @@ Example 400 Bad Request response indicating an invalid `client_id`:
 
 ## Use an Access Token to Call Nike APIs
 
-Now that you have a valid access token, you are ready to make authenticated calls to Nike APIs.
+Once you have a valid access token, you are ready to make authenticated calls to Nike APIs.
 
 ### Step 1: Reformat the Access Token 
 
@@ -160,4 +164,4 @@ Nike APIs require the access token in a particular format within the `Authorizat
 
 |Summary |Date |
 |---|---|---|
-|Initial publish|04/13/2020|
+|Initial publish|04/14/2020|
