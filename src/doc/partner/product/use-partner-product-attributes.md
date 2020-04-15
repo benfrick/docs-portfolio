@@ -2,11 +2,11 @@
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# NIKE PARTNERS - ADDING PRODUCT ATTRIBUTES TO YOUR EXPERIENCE <i class="g72-swoosh"></i><br>DRAFT
+# NIKE PARTNERS - ADDING PRODUCT ATTRIBUTES TO YOUR EXPERIENCE <i class="g72-swoosh"></i>
 
 ---
 
-##### Last Updated: 03/17/2020
+##### Last Updated: 04/13/2020
 
 **Get Nike product attributes like sizes, prices, features, marketing copy and more by using the [Product Attributes API](#api-reference).**
 
@@ -16,7 +16,7 @@ In this guide, we will step through how to use the Product Attributes API to get
 
 This API provides **product data that is segmented by style-color, region, and season**.
 
-Let's say that you have a list of Nike style-color codes and you want get more details about them for a particular region/season combination. Just execute a cURL command similar to this one:
+Let's say that you have a list of Nike style-color codes, and you want get more details about them for a particular region/season combination. Just execute a cURL command similar to this one:
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020?productCodes=314193-117,654321-101' \
@@ -51,13 +51,13 @@ Here are some important terms that are used in this guide.
 
 **Authentication**
 
-This API uses Okta authentication. Work with your Nike Account Manager (AM) And Technical Point Of Contact (TPC) to create your client credentials and to get the next steps for retrieving your access token.
+Using this API requires following Nike's [Server-to-Server Authentication](/doc/partner/authentication/use-partner-auth-s2s.html) process to obtain an **access token**, which you need for [Step 2](#step-2-make-the-api-request-to-product-attributes) of this guide.
 
 ## Get Product Attributes
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get product attributes for one or more Nike product codes**
 
-After completing all of the action items in the [Prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
+After completing all the action items in the [Prerequisites](#prerequisites) section, you are ready to add Nike Product Attributes to your app or experience.
 
 ### Step 1: Gather the Required Data
 
@@ -75,14 +75,14 @@ If only one product code, call the single endpoint with the product code, region
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/AA2148-009/USA/SP2020' \
---header 'Authorization: Bearer {your token here}'
+--header 'Authorization: Bearer {your access token here}'
 ```
 
-If more than one product code, call the multiple endpoint with the region and season as path parameters and a comma-separated list of `productCodes` as a query parameter:
+If more than one product code, call the multiple endpoint with the region and season as path parameters, and a comma-separated list of `productCodes` as a query parameter:
 
 ```
 curl --location --request GET 'https://product.api.nike.net/product/v1/USA/SP2020?productCodes=314193-117,654321-101' \
---header 'Authorization: Bearer {your token here}'
+--header 'Authorization: Bearer {your access token here}'
 ```
 
 ### Step 3: Parse the Response
@@ -99,14 +99,6 @@ Parse the response body to get the attributes that you need into your app/experi
 |---|---|---|
 |[Get Product Attributes for a Single Product](#get-product-attributes-for-a-single-product)|`GET`|https://product.api.nike.net/product/v1/{productCode}/{region}/{season}|
 |[Get Product Attributes for Multiple Products](#get-product-attributes-for-multiple-products)|`GET`|https://product.api.nike.net/products/v1/{region}/{season}|
-
-<!--
-## Troubleshooting
-
-### Common Questions
-
-**What if this bad thing happens?**
--->
 
 ## API Reference
 
@@ -214,7 +206,7 @@ FRANCE AND ITALY
 
 **Possible Values for `season`**
 
-An accepted value for `season` is a concatenation of a valid two-digit season code and a four-digit year number.
+An accepted value for `season` is a concatenation of a valid two-digit season code, and a four-digit year number.
 
 First, take one of the possible season codes:
 
@@ -1180,4 +1172,4 @@ The following query parameters are required in the request URI:
 
 |Summary|Date|
 |---|---|
-|Initial publish|03/11/2020|
+|Initial publish|04/13/2020|
