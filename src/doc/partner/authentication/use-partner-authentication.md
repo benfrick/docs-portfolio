@@ -6,7 +6,7 @@
 
 ---
 
-##### Last Updated: 04/14/2020
+##### Last Updated: 04/15/2020
 
 The Consumer Authentication process uses Nike's [Token API](#api-reference) to:
 
@@ -57,9 +57,9 @@ Here are some important terms used in this guide.
 
 You need to complete the steps below before you can add Consumer Authentication to your app/experience.
 
-#### 1. Pair Up With a Nike Account Manager (AM) And Technical Point Of Contact (TPC)
+#### 1. Pair Up With a Nike Account Manager (AM) And Partner Engineer
 
-Your Nike Business Lead (NBL) will put you in touch with these two points of contact. These contacts help make your integration go smoothly by communicating with various internal Nike teams for you. Your AM handles privacy and legal details. Your TPC handles the technical details of your project.
+Your Nike Business Lead (NBL) will put you in touch with these two points of contact. These contacts help make your integration go smoothly by communicating with various internal Nike teams for you. Your AM handles privacy and legal details. Your Partner Engineer handles the technical details of your project.
 
 #### 2. Gather Your Project Requirements
 
@@ -75,10 +75,10 @@ Your **AM** needs to know:
 - **Project timeline:** What are the dates of your project milestones e.g. integration testing, end-to-end testing, production go-live?
 - **Contract status:** Where in the contract life cycle is your project? Has it been drafted by Nike, reviewed, and signed by both parties?
 
-Your **TPC** needs to know:
+Your **Partner Engineer** needs to know:
 
 **Technical Information**
-- **List of Nike APIs:** Decide what Nike APIs you need to call to meet your project goals. Talk with your TPC to learn more about Nike APIs and how they can fulfill your business objectives.
+- **List of Nike APIs:** Decide what Nike APIs you need to call to meet your project goals. Talk with your Partner Engineer to learn more about Nike APIs and how they can fulfill your business objectives.
 - **Nike API usage:** What are the consumer interactions with Nike APIs? Where and how will Nike APIs be accessed in your project?
 - **Data:** What partner data will be shared with Nike? What Nike data will be shared with you?
 - **Location of your test and production environment:** We'll need to know your hosting platform, physical location, and consumer-facing URL. We will also need your test and production URLs to add to our list of approved redirects. Nike only redirects to URLs on the whitelist.
@@ -91,7 +91,7 @@ Your NBL will make sure that your project contract is ready to go and that all t
 
 #### 4. Get Your OAuth Credentials
 
-Once the above prerequisites are complete, your TPC will give you your OAuth credentials (**Client ID** and **Client Secret**) so you start calling the [Token API](#api-reference).
+Once the above prerequisites are complete, your Partner Engineer will give you your OAuth credentials (**Client ID** and **Client Secret**) so you start calling the [Token API](#api-reference).
 
 >**TIP**: Do not share your Client Secret and make sure you store it securely.
 
@@ -123,7 +123,7 @@ Pass these URI parameters to the Login page:
 |`state`|Optional|If supplied, this value is returned as a URI parameter when the consumer is redirected to your app/experience after successfully completing Nike authentication.|state=logged_in|
 |`locale`|Optional|Consumer's two-letter, lowercase language code and two-letter, uppercase country code, separated by an underscore "_". Default locale is en_US.|locale=fr_FR|
 
->**TIP**: The `locale` URI parameter is used to display the login and registration pages in the proper language. Ask your TPC for a complete list of supported locales.
+>**TIP**: The `locale` URI parameter is used to display the login and registration pages in the proper language. Ask your Partner Engineer for a complete list of supported locales.
 
 Listed below is a sample Login page URI for `client_id` 12345, redirecting to client `redirect_uri` https://partnersite.com/, `state` logged_in for locale fr_FR:
 
