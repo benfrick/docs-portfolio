@@ -2,7 +2,7 @@
 id: use-payment
 tags: pdf
 category: b-use-case
-position: 6
+position: 7
 title: Payment
 url: /doc/commerce/payment/use-payment.html
 toc:

@@ -2,7 +2,7 @@
 id: use-merch-product
 tags: pdf
 category: b-use-case
-position: 8
+position: 14
 title: Merch Product
 url: /doc/commerce/product/use-merch-product.html
 toc:
