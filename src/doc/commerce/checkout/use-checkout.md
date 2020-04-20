@@ -88,9 +88,9 @@ Listed below are some terms important to understanding checkout.
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get available shipping methods and estimated delivery dates**
 
->**TIP:** Shipping Options is for the [legacy fulfillment flow](#legacy-def) only. New implementations should use [Fulfillment Offerings](#get-fulfillment-offerings) instead.
+>**TIP:** Shipping Options is for the [legacy fulfillment](#legacy-def) flow only. New implementations should use [Fulfillment Offerings](#fulfillment-offerings) instead.
 
-Once the consumer finalizes their [cart](/doc/commerce/checkout/use-cart.html), it's time to begin the checkout process. If your app or experience is using the [legacy fulfillment flow](#legacy-def), the first step for consumers is to select a shipping method.
+Once the consumer finalizes their [cart](/doc/commerce/checkout/use-cart.html), it's time to begin the checkout process. If your app or experience is using the [legacy fulfillment](#legacy-def) flow, the first step for consumers is to select a shipping method.
 
 Consumers are accustomed to selecting a shipping method (Standard, Two-Day, Next-Day for example) during the checkout process. But, how do you know which methods to present to them, based on their shopping context?
 
