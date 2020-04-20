@@ -2,7 +2,7 @@
 id: use-f-offs
 tags: pdf
 category: b-use-case
-position: 6
+position: 9
 title: Fulfillment Offerings
 url: /doc/commerce/checkout/use-fulfillment-offerings.html
 dev-guide: /doc/commerce/checkout/use-fulfillment-offerings.html
@@ -13,10 +13,10 @@ toc:
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#key-concepts-and-terms
   - h2: Quick Start
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#quick-start
-  - h2: Get Fulfillment Offerings Style-Color
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-style-color
-  - h2: Get Fulfillment Offerings Multi-Item
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-multi-item
+  - h2: Fulfillment Offerings GET
+    url: /doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-offerings-get
+  - h2: Fulfillment Offerings Jobs PUT
+    url: /doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-offerings-put
   - h2: API Quick Reference
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#api-quick-reference
   - h2: Troubleshooting
@@ -32,7 +32,7 @@ toc:
 
 ---
 
-##### Last Updated: 03/03/2020
+##### Last Updated: 04/20/2020
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -109,7 +109,7 @@ If the consumer indicated [intent](#intent) for the offering, the offering has a
 
 ### Fulfillment Groups
 
-The [Fulfillment Offering Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-put){:target="new-tab"} response includes an array of `fulfillmentGroups`. All items in a Fulfillment Group share the same:
+The [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-put){:target="new-tab"} response includes an array of `fulfillmentGroups`. All items in a Fulfillment Group share the same:
 - Fulfillment type e.g. PICKUP
 - Location type e.g. store/store_views
 - Location e.g. store ID 69b5fec5-e0a6-4dd2-b971-4f9b90d4f85b
@@ -177,15 +177,15 @@ Let's walk through how to make your first request to the Fulfillment Offerings A
 
 ### Send the Fulfillment Offerings Request
 
-There are two ways to get a list of Fulfillment Offerings. You can send a GET request to the [Fulfillment Offerings Style-Color](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to get the fulfillment offerings for each size of a style-color. This is discussed in [Option 1](#option-1-send-a-get-request) below. You can also send a PUT request to the [Fulfillment Offerings Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to get the fulfillment offerings for each item in Cart. This is discussed in [Option 2](#option-2-send-a-put-request) below.
+There are two ways to get a list of Fulfillment Offerings. You can send a request to the [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to list the fulfillment offerings for each size of a style-color. This is discussed in [Option 1](#option-1-send-a-get-request) below. You can also send a request to the [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to get the fulfillment offerings for each item in Cart. This is discussed in [Option 2](#option-2-send-a-put-request) below.
 
 #### OPTION 1: Get fulfillment offerings for each size of a style-color
 
-Call this endpoint when consumer information is not necessary to calculate detailed fulfillment offerings for the sizes of a style-color, such as on a Product Display Page.
+Call [Fulfillment Offerings GET](#fulfillment-offerings-get) when consumer information is not necessary to calculate detailed fulfillment offerings for the sizes of a style-color, such as on a product display page.
 
 This endpoint has a low response rate and  may retrieve cached data.
 
-Table 2.1 Fulfillment Offerings Style-Color GET API Request Headers
+Table 2.1 Fulfillment Offerings GET API Request Headers
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
@@ -196,17 +196,17 @@ Table 2.1 Fulfillment Offerings Style-Color GET API Request Headers
 
 Send a GET request to `https://api.nike.com/buy/fulfillment_offerings/v1{?filter}`.
 
-The `filter` query parameter must be included. See the [Fulfillment Offerings Style-Color](#fulfillment-offerings-style-color) section for more information on the supported filters.
+The `filter` query parameter must be included. See the [Fulfillment Offerings GET](#fulfillment-offerings-get) section for more information on the supported filters.
 
 The GET request below asks for all `SHIP` and `PICKUP` type fulfillment offerings for US zip code 97123 for productId 935f2623-6010-4da9-a218-571c8e33d7aa and currency in US dollars.
 
-**Sample Fulfillment Offerings Style-Color Request Body**
+**Sample Fulfillment Offerings GET Request Body**
 
 ```
 https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=productId(935f2623-6010-4da9-a218-571c8e33d7aa)&filter=countryCode(US)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97123)
 ```
 
-**Sample Fulfillment Offerings Style-Color Response Body**
+**Sample Fulfillment Offerings GET Response Body**
 
 ```
 {
@@ -535,7 +535,7 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
 
 ```
 
-A successful Fulfillment Offerings Style-Color GET response includes a summary of offerings and offering details for each size of a style-color.
+A successful Fulfillment Offerings GET response includes a summary of offerings and offering details for each size of a style-color.
 
 The offerings for each size are calculated independently. If the service cannot calculate offerings for all sizes, this is a partial success. Sizes for which offerings cannot be calculated are included in a warning list with a code explaining why the offering could not be calculated for that size.
 
@@ -543,13 +543,13 @@ If the service cannot calculate offerings for any size, it returns an error code
 
 #### OPTION 2: Get fulfillment offerings for each item in Cart
 
-Allow the consumer to indicate their fulfillment intent for each item in Cart by displaying a list of fulfillment offerings. Get the available options by calling the Fulfillment Offerings Multi-Item endpoint.
+Allow the consumer to indicate their fulfillment intent for each item in Cart by displaying a list of fulfillment offerings. Get the available options by calling the **Fulfillment Offerings Jobs PUT** endpoint.
 
 >**NOTE**: This endpoint operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
-##### Step 1: Make a Fulfillment Offerings Multi-Item request
+##### Step 1: Make a Fulfillment Offerings Jobs PUT request
 
-###### Table 2.2 Fulfillment Offerings Multi-Item PUT API Request Headers
+###### Table 2.2 Fulfillment Offerings Jobs API Request Headers
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
@@ -563,7 +563,7 @@ Allow the consumer to indicate their fulfillment intent for each item in Cart by
 
 Send a HTTP PUT request to `https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9`. Note the UUID in the URL path, which you must generate. Make sure to send any consumer information you have such as shipping address, email address, or latitude and longitude of the consumer's physical location to get the most accurate list of offerings for each Cart item.
 
-**Sample Fulfillment Offerings Multi-Item Request Body**
+**Sample Fulfillment Offerings Jobs PUT Request Body**
 
 ```
 {
@@ -663,7 +663,7 @@ Send a HTTP PUT request to `https://api.nike.com/buy/fulfillment_offerings_jobs/
 }
 ```
 
-Let's break down the sample Fulfillment Offerings Multi-Item request body.
+Let's break down the sample Fulfillment Offerings Jobs PUT request body.
 
 skuId 935f2623-6010-4da9-a218-571c8e33d7aa is a customizable style-color because the `type` is `customization/nike_id`. The consumer has not indicated an [intended method of fulfillment](#intent) because there is no `fulfillmentType`, but the shipping address in the `locations` object is used to calculate a `SHIP` fulfillment offering for the customizable style-color.
 
@@ -673,9 +673,9 @@ The consumer has indicated intent to pickup skuId f1d26307-c6c6-4c3b-afcf-6fbfd3
 
 The list of `offeringTypes` restricts the fulfillment offerings returned to the `SHIP` and `PICKUP` fulfillment types.
 
-##### Step 2: Retrieve the Fulfillment Offerings Multi-Item Job
+##### Step 2: Retrieve the Fulfillment Offerings Jobs result
 
-After calling [Fulfillment Offerings Multi-Items](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Fulfillment Offerings Multi-Item Job](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} using the same Fulfillment Offerings ID to check the status of your job.
+After calling [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} using the same Fulfillment Offerings ID to check the status of your job.
 
 To know if the job is done, check the value of the **status** field in the response body as follows:
 
@@ -685,14 +685,14 @@ To know if the job is done, check the value of the **status** field in the respo
 
 - `"status": "COMPLETED"`: job has completed
 
-Sample [Fulfillment Offerings Multi-Item Job](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} GET request URI:
+Sample [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} GET request URI:
 ```
 https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9
 ```
 
 Once you receive a 200 response with a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
-**Sample Fulfillment Offerings Multi-Item Job Response Body**
+**Sample Fulfillment Offerings Jobs GET Response Body**
 
 ```
 {
@@ -1059,7 +1059,7 @@ Once you receive a 200 response with a job status of COMPLETED, get the results 
 }
 ```
 
-The Fulfillment Offerings Multi-Item Job response includes the list of Cart items and a list of fulfillmentGroups. For each item, it lists the [fulfillment group](#fulfillment-groups) ID and fulfillment offerings.
+The Fulfillment Offerings Jobs GET response includes the list of Cart items and a list of fulfillmentGroups. For each item, it lists the [fulfillment group](#fulfillment-groups) ID and fulfillment offerings.
 
 **Get By Date Ranges**
 
@@ -1074,21 +1074,21 @@ The response contains a `getBy` object for each item (`items[i].fulfillmentOffer
 
 For more information on `getBy` dates, see [Semantics of Get-By Data in Nike Experiences](https://confluence.nike.com/pages/viewpage.action?spaceKey=BUY&title=Semantics+of+Get-By+Data+in+Nike+Experiences){:target="new-tab"}.
 
-Listed below is a sample Fulfillment Offerings Multi-Item 404 response.
+Listed below is a sample Fulfillment Offerings Jobs PUT 404 response.
 
 ```
 {"id":"a49322d6-25cc-4a83-bb9c-a35834572352","status":"COMPLETED","links":{"self":{"ref":"/buy/fulfillment_offerings_jobs/v1/a49322d6-25cc-4a83-bb9c-a35834572352"}},"country":"US","currency":"USD","locale":"en_US","error":{"message":"Not found","httpStatus":404,"code":"NOT_FOUND","errors":[{"field":"/items/0","message":"Fulfillment offerings not found","code":"FULFILLMENT_OFFERINGS_NOT_FOUND"}]},"resourceType":"fulfillmentOfferingsJob"}
 ```
 
-## Get Fulfillment Offerings Style-Color
+## Fulfillment Offerings GET
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get fulfillment offerings for all sizes of a style-color**
 
-Show the consumer a summary of fulfillment offerings and available offerings for each size of a style-color by calling the [Fulfillment Offerings Style-Color](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint.
+Show the consumer a summary of fulfillment offerings and available offerings for each size of a style-color by calling the [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint.
 
 ### Step 1: Display a Preview of a Style-Color's Fulfillment Offerings on a PDP
 
-Execute a Fulfillment Offerings Style-Color GET request to
+Execute a Fulfillment Offerings GET request to
 ```
 https://api.nike.com/buy/fulfillment_offerings/v1/{filter}
 ```
@@ -1108,14 +1108,14 @@ The `filter` query parameter must be included. The field/value requirements are 
 |`locale`|Optional|`filter=locale(en-US)`|Locale code for localized store views data, BCP 47 or POSIX standard|
 
 
-Shown below is a sample [Fulfillment Offerings Style-Color](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} GET request URI for a US style-color with productId 8e799c64-dd8e-4861-9d38-9592f35e7aa5, consumer postal code 97005 filtered by offering type `SHIP` and `PICKUP` and userType nike:swoosh (a Nike employee).
+Shown below is a sample [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} request URI for a US style-color with productId 8e799c64-dd8e-4861-9d38-9592f35e7aa5, consumer postal code 97005 filtered by offering type `SHIP` and `PICKUP` and userType nike:swoosh (a Nike employee).
 ```
 https://api.nike.com/buy/fulfillment_offerings/v1/?filter=countryCode(US)&filter=currency(US)&filter=productId(8e799c64-dd8e-4861-9d38-9592f35e7aa5)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97005)&filter=userType(nike:swoosh)
 ```
 
-A successful 200 response includes a summary of available fulfillment offerings. It also includes Fulfillment Offerings for each size of the style-color including offer price, location, and estimated `getBy` dates.
+A successful 200 response includes a summary of available fulfillment offerings. It also includes fulfillment offerings for each size of the style-color including offer price, location, and estimated `getBy` dates.
 
-## Get Fulfillment Offerings Multi-Item
+## Fulfillment Offerings Jobs PUT
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get fulfillment offerings for each item in Cart**
 
@@ -1150,31 +1150,31 @@ Listed below are the allowed [location type and fulfillment type](#whats-in-an-o
 |`address/digital`|`DIGITAL`|
 |`ship/pickup_points`|`PICKUP`|
 
-Shown below is a sample [Fulfillment Offerings Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} PUT request. The client supplies the Job ID, here 5e799c64-dd8e-4861-9d38-9592f35e7aa5. This endpoint is asynchronous, so you will call a different endpoint to check both the status of the job and the job results when it is complete.
+Shown below is a sample [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} PUT request. The client supplies the Job ID, here 5e799c64-dd8e-4861-9d38-9592f35e7aa5. This endpoint is asynchronous, so you will call a different endpoint to check both the status of the job and the job results when it is complete.
 ```
 https://api.nike.com/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9592f35e7aa5
 ```
 
-### Step 2: Check the status of the Fulfillment Offerings Multi-Item job
+### Step 2: Check the status of the Fulfillment Offerings Job
 
-After calling [Fulfillment Offerings Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Fulfillment Offerings Multi-Item Jobs](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-get-1){:target="new-tab"} using the same Fulfillment Offerings Multi-Item ID to check the status of your job.
+After calling [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-get-1){:target="new-tab"} using the same Fulfillment Offerings Multi-Item ID to check the status of your job.
 
-Sample [Fulfillment Offerings Multi-Item Jobs](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-get-1){:target="new-tab"} request URI:
+Sample [Fulfillment Offerings Job](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-get-1){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/fulfillment_offerings_jobs/v1/5e799c64-dd8e-4861-9d38-9592f35e7aa5
 ```
 
 Once the job status is `COMPLETED`, get the results of your job by parsing the data in the **response** object. Each Cart item in the response is in a Fulfillment Group. Items with the same [intent](#intent) are in the same Fulfillment Group.
 
->**TIP:** Make sure you pass all Cart items to [Fulfillment Offerings Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} to group items properly and to get the most accurate fulfillment offers for each item.
+>**TIP:** Make sure you pass all Cart items to [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} to group items properly and to get the most accurate fulfillment offers for each item.
 
 ### Step 3: Repeat **Step 1**
 
-Each time the consumer indicates fulfillment intent for an item in their Cart, call the [Fulfillment Offerings Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint as described in **Step 1**, passing the consumer's selection. This will regroup items with the same intent and update the list of fulfillment offerings for each item in Cart.
+Each time the consumer indicates fulfillment intent for an item in their Cart, call the [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint as described in **Step 1**, passing the consumer's selection. This will regroup items with the same intent and update the list of fulfillment offerings for each item in Cart.
 
 ### Step 4: Proceed to Checkout
 
-Once the consumer has chosen how they want all items in their Cart fulfilled and you have called Fulfillment Offerings Multi-Item one last time to get an updated list of fulfillment offerings with price offers, you can proceed with the Checkout process. This process includes the optional step of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout), [Payment Preview](/doc/commerce/payment/use-payment.html), and [Submitting a Checkout](doc/commerce/checkout/use-checkout.html#submitting-a-checkout).
+Once the consumer has chosen how they want all items in their Cart fulfilled and you have called Fulfillment Offerings Jobs PUT one last time to get an updated list of fulfillment offerings with price offers, you can proceed with the Checkout process. This process includes the optional step of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout), [Payment Preview](/doc/commerce/payment/use-payment.html), and [Submitting a Checkout](doc/commerce/checkout/use-checkout.html#submitting-a-checkout).
 
 **Step 4a: Call Checkout Preview (Optional)**
 
@@ -1191,9 +1191,9 @@ Pass the consumer-selected fulfillment information for each Cart item in the `fu
 ## API Quick Reference
 
 **Fulfillment Offerings Multi-Item**
-- [Fulfillment Offerings Multi-Item](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
-- [Fulfillment Offerings Multi-Item Jobs](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
-- [Fulfillment Offerings Style-Color](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+- [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+- [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+- [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
 
 ## Troubleshooting
 
@@ -1209,7 +1209,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ## Caching
 
-Although the Fulfillment Offerings Style-Color endpoint may return cached results, the client should not cache results from any Fulfillment Offerings call. There are several factors that affect calculating fulfillment offerings and these factors can change throughout the Checkout process. It is highly recommended that the client call the Fulfillment Offerings Multi-Item endpoint each time the consumer indicates [intent](#intent) for an item in Cart to get the most accurate list of offerings.
+Although the Fulfillment Offerings Style-Color endpoint may return cached results, the client should not cache results from any Fulfillment Offerings call. There are several factors that affect calculating fulfillment offerings and these factors can change throughout the Checkout process. It is highly recommended that the client call the Fulfillment Offerings Jobs PUT endpoint each time the consumer indicates [intent](#intent) for an item in Cart to get the most accurate list of offerings.
 
 ## Contacting the Team
 
@@ -1224,11 +1224,16 @@ Need to contact the Cart & Checkout team?
 |Summary |Date |Description|
 |---|---|---|
 |Initial draft|03/03/2020|Initial Publish|
+|Renamed endpoints|04/20/2020|Renamed endpoints, updated Next Steps section|
 
 ## Next Steps
 
-You've learned how to add Fulfillment Offerings to your experience. Here are some next steps.
+You've learned how to add Fulfillment Offerings to your experience. Here are some related topics.
 
+- [Wishlist](/doc/commerce/checkout/use-wishlists.html)
+- [Cart & Cart Review](/doc/commerce/checkout/use-carts.html)
+- [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
+- [Checkout](/doc/commerce/checkout/use-checkout.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
 - [Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)

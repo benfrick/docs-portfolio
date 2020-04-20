@@ -2,7 +2,7 @@
 id: use-eventsv2
 tags: pdf
 category: b-use-case
-position: 7
+position: 11
 title: Events
 url: /doc/commerce/events/use-eventsv2.html
 toc:

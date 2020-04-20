@@ -1,7 +1,7 @@
 ---
 id: use-carts
 tags: pdf
-#category: b-use-case
+category: b-use-case
 position: 6
 title: Carts
 url: /doc/commerce/checkout/use-carts.html
