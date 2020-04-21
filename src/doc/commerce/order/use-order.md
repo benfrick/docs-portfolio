@@ -2,7 +2,7 @@
 id: use-order
 tags: pdf
 category: b-use-case
-position: 7
+position: 12
 title: Order
 url: /doc/commerce/order/use-order.html
 toc:
