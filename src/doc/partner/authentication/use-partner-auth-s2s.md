@@ -6,7 +6,7 @@
 
 ---
 
-##### Last Updated: 04/14/2020
+##### Last Updated: 04/15/2020
 
 The Nike Server-to-Server (S2S) Authentication process allows partners to make authenticated calls to Nike APIs.
 
@@ -47,9 +47,9 @@ Here are some important terms used in this guide.
 
 You need to complete the steps below before you can add S2S Authentication to your server app.
 
-#### 1. Pair Up With a Nike Account Manager (AM) And Technical Point Of Contact (TPC)
+#### 1. Pair Up With a Nike Account Manager (AM) And Partner Engineer
 
-Your Nike Business Lead (NBL) will put you in touch with these two points of contact. These contacts help make your integration go smoothly by communicating with various internal Nike teams for you. Your AM handles privacy and legal details. Your TPC handles the technical details of your project.
+Your Nike Business Lead (NBL) will put you in touch with these two points of contact. These contacts help make your integration go smoothly by communicating with various internal Nike teams for you. Your AM handles privacy and legal details. Your Partner Engineer handles the technical details of your project.
 
 #### 2. Gather Your Project Requirements
 
@@ -65,10 +65,10 @@ Your **AM** needs to know:
 - **Project timeline:** What are the dates of your project milestones e.g. integration testing, end-to-end testing, production go-live?
 - **Contract status:** Where in the contract life cycle is your project? Has it been drafted by Nike, reviewed, and signed by both parties?
 
-Your **TPC** needs to know:
+Your **Partner Engineer** needs to know:
 
 **Technical Information**
-- **List of Nike APIs:** Decide what Nike APIs you need to call to meet your project goals. Talk with your TPC to learn more about Nike APIs and how they can fulfill your business objectives.
+- **List of Nike APIs:** Decide what Nike APIs you need to call to meet your project goals. Talk with your Partner Engineer to learn more about Nike APIs and how they can fulfill your business objectives.
 - **Nike API usage:** What are the consumer interactions with Nike APIs? Where and how will Nike APIs be accessed in your project?
 - **Data:** What partner data will be shared with Nike? What Nike data will be shared with you?
 - **Location of your test and production environment:** We'll need to know your hosting platform, physical location, and consumer-facing URL. We will also need your test and production URLs to add to our list of approved redirects. Nike only redirects to URLs on the whitelist.
@@ -81,7 +81,7 @@ Your NBL will make sure your project contract is ready to go and that all the da
 
 #### 4. Get Your OAuth Credentials
 
-Once the above prerequisites are complete, your TPC will give you your OAuth credentials (**Client ID** and **Client Secret**) so that you can take the next steps towards calling Nike APIs.
+Once the above prerequisites are complete, your Partner Engineer will give you your OAuth credentials (**Client ID** and **Client Secret**) so that you can take the next steps towards calling Nike APIs.
 
 >**TIP**: Do not share your Client Secret and make sure you store it securely.
 

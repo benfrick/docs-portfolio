@@ -1,8 +1,8 @@
 ---
 id: use-wishlists
 tags: pdf
-#category: b-use-case
-position: 6
+category: b-use-case
+position: 5
 title: Wishlists
 url: /doc/commerce/checkout/use-wishlists.html
 toc:

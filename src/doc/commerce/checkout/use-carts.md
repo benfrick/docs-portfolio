@@ -1,7 +1,7 @@
 ---
 id: use-carts
 tags: pdf
-#category: b-use-case
+category: b-use-case
 position: 6
 title: Carts
 url: /doc/commerce/checkout/use-carts.html
@@ -23,7 +23,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/10/2020
+##### Last Updated: 04/20/2020
 
 Read this guide to learn how to add Carts and Cart Reviews to your experience.
 
@@ -61,7 +61,7 @@ The first step in managing a consumer's cart is to create the cart using the [Ca
 
 To create the cart, execute a request to the [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} or [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put){:target="new-tab"} endpoint.
 
->**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, the Carts API returns an error response. See [Authorization](https://developer.niketech.com/commerce-docs/doc/getting-started/using-nike-apis.html#authorization){:target="new"} for more information.
+>**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, the Carts API returns an error response. See [Authorization](/doc/getting-started/using-nike-apis.html#authorization) for more information.
 
 Sample [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} PUT request URI:
 ```
@@ -210,7 +210,7 @@ Need to contact the Cart & Checkout team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Converted to stand alone guide|04/10/2020|Content moved from Cart & Checkout use-case guide|
+|Converted to stand alone guide|04/20/2020|Content moved from Cart & Checkout use-case guide|
 
 ## Next Steps
 
