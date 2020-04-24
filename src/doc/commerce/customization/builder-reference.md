@@ -24,7 +24,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/09/2020
+##### Last Updated: 04/24/2020
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 
@@ -668,9 +668,25 @@ Usage:
 builderApi.getAvailabilityMessages()
 ```
 
+### getBomXML
+
+Description: Returns the Bill Of Materials (BOM) in XML format. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned. Returns a Promise that either:
+
+- Resolves to a metricId, if the builder data is valid
+
+OR
+
+- Rejects with an error message, if the builder data is invalid
+
+Usage:
+
+```javascript
+builderApi.getBomXML()
+```
+
 ### getBuild
 
-Description: Returns the current build snapshot.
+Description: Returns the current build snapshot. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned.  Also, returns the isJerseyCustomized data.
 
 Usage: 
 
@@ -870,6 +886,16 @@ Example:
 ]
 ```
 
+### isJerseyCustomized
+
+Description: Returns information on the jersey customization. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then the function will return false.
+
+Usage:
+
+```javascript
+builderApi.isJerseyCustomized()
+```
+
 ### isPidAllowed
 
 Description: Returns true if the profanity service allowed the string (no stop word was matched). String passed must match records in the capacity service exactly. Only single strings are supported.
@@ -907,11 +933,11 @@ builderApi.saveBuild()
 
 ### saveDesign
 
-Description: Persists the current build after validating that it can be purchased. Returns a Promise that either:
+Description: Persists the current build after validating it can be purchased. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned. Returns a Promise that either:
 
-- Resolves to a `metricId`, if the builder data is valid
+- Resolves to a metricId, if the builder data is valid
 
-    **OR**
+OR
 
 - Rejects with an error message, if the builder data is invalid
 
@@ -1105,6 +1131,7 @@ builderApi.showNotification(plain);
 |Added new My Designs methods, added new shareDesign, saveDesign methods, marked saveBuild as deprecated|07/02/2019|
 |Added new methods and buildData info for availability|07/30/2019|
 |Added new clearCustomization method|04/09/2020|
+|Added isJerseyCustomized and getBomXML methods, updated descriptions of getBuild and saveDesign|04/24/2020|
 
 ## Next Steps
 
