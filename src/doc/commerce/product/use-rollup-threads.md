@@ -77,7 +77,7 @@ In order to use the Rollup Threads API, you will first need to:
 - **Obtain a Consumer Channel ID -- REQUIRED**
 - **Configure Custom Search Rules -- OPTIONAL**
 
-See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){:target="_blank"} for instructions on the above steps.
+See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){:target="new-tab"} for instructions on the above steps.
 
 ### Choosing the Parent Threads You Need
 
@@ -119,7 +119,7 @@ For example, you can create a rule in Apollo to exclude customized Nike ID produ
 
 Multiple sets of search rules can be defined in **views** in Apollo and then accessed in the Rollup Threads API via the `view` query parameter.
 
-See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){:target="_blank"} for instructions on how to set up views.
+See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){:target="new-tab"} for instructions on how to set up views.
 
 ### Consumer Channel ID Versus Channel ID
 
@@ -155,7 +155,7 @@ See the Best Practices section of the [Product Feeds Developer's Guide](/doc/com
 
 - Check your Smart Search rules configuration in the Apollo application to ensure that the rules are correct.
 - Check the rollup key & type from Prodigy for the Parent Thread is as expected.
-- Reach out to Product Feeds team on Slack for assistance: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="_blank"}
+- Reach out to Product Feeds team on Slack for assistance: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"}
 
 >**TIP:** See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html#troubleshooting) for more general troubleshooting information.
 

@@ -138,7 +138,7 @@ The User Order Summary JSON response contains several fields relating to status.
 
 Use the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a member's orders](#step-1-list-a-members-orders).
 
->TIP: The User Order Details API does not return image URL but you can call the [Merchandised Product API](/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the User Order Details API to get a list of images for a styleColor and country.
+>TIP: The User Order Details API does not return image URL but you can call the [Merchandised Product API](https://developer.niketech.com/commerce-docs/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the User Order Details API to get a list of images for a styleColor and country.
 
 The User Order Details API requires that you pass certain headers in the request depending upon whether the consumer
 is a member, guest, or employee. For more information, see [Required Request Headers](#required-request-headers).

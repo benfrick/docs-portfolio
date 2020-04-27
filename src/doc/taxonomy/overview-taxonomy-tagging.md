@@ -25,8 +25,8 @@ How does it work? CMS, Asset Management, and other internal Nike tools supply th
 #### Contacting the Team
 
 |---|---|
-|Slack|[#asset-delivery](https://nikedigital.slack.com/messages/C20935610){:target="_blank"}|
-|Confluence|[CiC Asset Delivery](https://confluence.nike.com/display/CICAD/CiC+Asset+Delivery){:target="_blank"}|
+|Slack|[#asset-delivery](https://nikedigital.slack.com/messages/C20935610){:target="new-tab"}|
+|Confluence|[CiC Asset Delivery](https://confluence.nike.com/display/CICAD/CiC+Asset+Delivery){:target="new-tab"}|
 |Product Director|[Chris Sparhawk](mailto:chris.sparhawk@nike.com)|
 
 #### About TTAC
@@ -62,7 +62,7 @@ Step through the TTAC use cases below.
         <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">TTAC Metadata Service</a><span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://nike.invisionapp.com/share/XVIYZS8S8YZ#/screens/297921090" target="_blank">TTAC Component Design</a><span class="guide-details-li-text"></span>
+        <a href="https://nike.invisionapp.com/share/XVIYZS8S8YZ#/screens/297921090" target="new-tab">TTAC Component Design</a><span class="guide-details-li-text"></span>
     </li>
     <li>
         <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="new-tab">Merch Taxonomy Attributes</a> <span class="guide-details-li-text"></span>

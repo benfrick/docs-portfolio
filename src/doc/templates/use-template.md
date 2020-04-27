@@ -158,7 +158,7 @@ Listed below are some best practices for working with {}.
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="_blank"} on Confluence.
+For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
 
 ### Test Environment
 
@@ -178,7 +178,7 @@ Describe what is cached and for how long, or if caching is not supported.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the {} team on the [#slack-channel]({url for slack channel}){:target="_blank"} Slack channel for assistance.
+- Contact the {} team on the [#slack-channel]({url for slack channel}){:target="new-tab"} Slack channel for assistance.
 
 ## Terms of Service
 <!--

@@ -54,7 +54,7 @@ toc:
 
 This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Start here before diving into the Developer's guides.
 
->**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics){:target="_blank"} course offered by Nike Architecture team.
+>**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics){:target="new-tab"} course offered by Nike Architecture team.
 
 ## Industry Standards
 
@@ -62,7 +62,7 @@ Learn how Nike APIs were designed with industry standards in mind.
 
 ### REST Architecture
 
-Nike uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="_blank"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicate with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it.
+Nike uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="new-tab"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicate with our APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it.
 
 **Stateless for Improved Performance**
 
@@ -74,7 +74,7 @@ REST is widely used in the industry because the syntax and protocols used (HTTP,
 
 ### JSON-formatted HTTP Requests and Responses
 
-The standard format for exchanging data with Nike APIs is [JSON](http://www.json.org/){:target="_blank"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="_blank"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
+The standard format for exchanging data with Nike APIs is [JSON](http://www.json.org/){:target="new-tab"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
 
 Example of a JSON-formatted request body that was sent to a Nike API:
 
@@ -118,7 +118,7 @@ Example of a JSON-formatted request body that was sent to a Nike API:
 
 ### JSON Schema Helps Define API Contracts
 
-The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="_blank"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="_blank"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, here is a living example of a [JSON request body schema](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json){:target="_blank"}.
+The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, here is a living example of a [JSON request body schema](https://bitbucket.nike.com/projects/PHYLPAY/repos/carts/browse/api/schemas/cart-request-schema-full.json){:target="new-tab"}.
 
 ### Idempotence Guarantee
 
@@ -132,7 +132,7 @@ The security and privacy of your consumer's data is our #1 concern. Whether in-f
 
 In addition to the guides on the Developer Portal, all Nike APIs have the following documents available at the root directory of the Bitbucket repository:
 
-- Well-defined contract (API.md file) for each major version in [API Blueprint](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md){:target="_blank"} format
+- Well-defined contract (API.md file) for each major version in [API Blueprint](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md){:target="new-tab"} format
 
 - Request and response definitions in JSON Schema format within each API.md
 
@@ -188,7 +188,7 @@ Example caller ID: `com.nike:brand.ios.ntc:2.1`
 
 ### Consumer JWTs
 
-This section discusses how to authorize your app or experience to call an API going through the [Authenticate (Edge)](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet#CommerceRouterCheatSheet-Auth){:target="_blank"} router on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the Edge router and require consumer login or a visitor id for anonymous visitors. For more information on Commerce Routing including Edge, see the [Commerce Router Cheat Sheet](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet){:target="new-tab"}.
+This section discusses how to authorize your app or experience to call an API going through the [Authenticate (Edge)](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet#CommerceRouterCheatSheet-Auth){:target="new-tab"} router on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the Edge router and require consumer login or a visitor id for anonymous visitors. For more information on Commerce Routing including Edge, see the [Commerce Router Cheat Sheet](https://confluence.nike.com/display/EDGE/Commerce+Router+Cheat+Sheet){:target="new-tab"}.
 
 #### Using the Unite Platform for Profile Management
 
