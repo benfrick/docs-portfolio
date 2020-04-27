@@ -79,7 +79,7 @@ By calling the Rollup Threads API with the Term, selecting marketplace as US, di
 
 ## Step 1: Create Terms & Collections
 
-Terms and Collections are created in the [Collections admin app](https://adminops.prod.commerce.nikecloud.com/collectionsui/terms){:target="new-tab"}. See [Create a Collection](https://confluence.nike.com/display/APOLLO/Create+a+Collection) for a step-by-step guide.
+Terms and Collections are created in the [Collections admin app](https://adminops.prod.commerce.nikecloud.com/collectionsui/terms){:target="_blank"}. See [Create a Collection](https://confluence.nike.com/display/APOLLO/Create+a+Collection) for a step-by-step guide.
 
 Save the **Term UUID**, the unique identifier for the Term, e.g. `69c1f58b-c36b-45d6-b3bb-afb160c9ab0c`, since you will need it in [Step 3](#step-3-call-rollup-threads).
 
@@ -127,7 +127,7 @@ CURL goes here
 
 The Rollup Threads response is specified in the [API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api), but here's a few things to know about:
 
-- Rollup Threads returns only active product threads. If you want inactive threads included in the response, call [Product Feeds Threads List](https://developer.niketech.com/commerce-docs/doc/commerce/product/use-product-feeds.html#product-threads-list) instead.
+- Rollup Threads returns only active product threads. If you want inactive threads included in the response, call [Product Feeds Threads List](/doc/commerce/product/use-product-feeds.html#product-threads-list) instead.
 
 {Some hints/callouts about the data in the response and how it could be handled}
 
@@ -149,13 +149,13 @@ Answer 1
 
 ## Contacting the Team
 
->**TIP**: To find out more, ask a question on [#collections](https://nikedigital.slack.com/messages/CA2EDLQ4X){:target="new-tab"}.
+>**TIP**: To find out more, ask a question on [#collections](https://nikedigital.slack.com/messages/CA2EDLQ4X){:target="_blank"}.
 
 Need to contact the {} team?
 
 |---|---|
-|Slack|[](){:target="new-tab"}|
-|Confluence Space|[](){:target="new-tab"}|
+|Slack|[](){:target="_blank"}|
+|Confluence Space|[](){:target="_blank"}|
 |Team Contacts|Person1 (Person1 email)|
 
 ## Document Change Log

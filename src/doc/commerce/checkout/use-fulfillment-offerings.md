@@ -1102,7 +1102,7 @@ The `filter` query parameter must be included. The field/value requirements are 
 |`productId`|**Required**|`filter=productId(8e799c64-dd8e-4861-9d38-9592f35e7aa5)`|UUID of style-color|
 |`offeringTypes`|**Required**|`filter=offeringTypes(SHIP,PICKUP,INSTORE)`|List of offering types to include in the response, `SHIP`,`PICKUP`,`INSTORE` are supported|
 |`postalCode`|Optional|`filter=postalCode(97005)`|5-digit postal code number|
-|`userType`|Optional|`filter=userType(nike:swoosh)`|Type of consumer. `nike:guest`, `nike:plus`, `nike:swoosh` are supported. Defaults to `nike:guest`. See [User Types](https://developer.niketech.com/commerce-docs/doc/getting-started/using-nike-apis.html#data-reference) for more information.|
+|`userType`|Optional|`filter=userType(nike:swoosh)`|Type of consumer. `nike:guest`, `nike:plus`, `nike:swoosh` are supported. Defaults to `nike:guest`. See [User Types](/doc/getting-started/using-nike-apis.html#data-reference) for more information.|
 |`locationId`|Optional|`filter=locationId(339EF669C22F4B2EE05336680C0A6639)`|Location identifier, UUID storeId or locationId|
 |`locationType`|Optional|`filter=locationType(ship/pickup_points)`|Type of location. Required if filtering by `locationId`. `store/store_views`, `ship/pickup_points` are supported.|
 |`locale`|Optional|`filter=locale(en-US)`|Locale code for localized store views data, BCP 47 or POSIX standard|
