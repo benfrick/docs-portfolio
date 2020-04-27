@@ -36,6 +36,6 @@ parent.postMessage(location.href,'*');
 window.onclick = function(event) {
   let path = clickmessage.getClosest(event.target,'a');
   let target = event.target.target;
-  if (!path || target == 'new-tab') return;
+  if (!path || target) return;
   parent.postMessage(JSON.stringify({ path }), '*');
 };
