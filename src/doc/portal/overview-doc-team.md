@@ -66,7 +66,7 @@ Through writing, we communicate the many benefits of your hard work, explain its
 
 ## What We Do
 
-<a href="https://developer.niketech.com/commerce-docs/doc/commerce/product/overview-product-feeds.html" target="new-tab"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="https://developer.niketech.com/commerce-docs/doc/getting-started/using-nike-apis.html" target="new-tab"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
+<a href="/doc/commerce/product/overview-product-feeds.html"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="/doc/getting-started/using-nike-apis.html"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
 
 ### <i class="fas fa-pen"></i> &nbsp;Write the Docs
 
