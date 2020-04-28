@@ -71,10 +71,10 @@ The APIs required for the two fulfillment flows are listed below.
         <a href="https://developer.niketech.com/docs/projects/AddressValidator?tab=api" target="new-tab">Address Validation</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        Payment Options <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">V2</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/APIv3.md" target="new-tab">V3</a><span class="guide-details-li-text"></span>
+        Payment Options <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Payment%20Options%20v3%20(Source%20Aware)?tab=api" target="new-tab">V3</a><span class="guide-details-li-text"></span>
     </li>
     <li>
-        Payment Preview <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">V2</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/APIV3.md" target="new-tab">V3</a><span class="guide-details-li-text"></span>
+        Payment Preview <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Payment%20Preview%20V3%20(Source%20aware)?tab=api" target="new-tab">V3</a><span class="guide-details-li-text"></span>
     </li>
     <li>
         Checkout Previews <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api" target="new-tab">V3</a> <span class="guide-details-li-text"></span>
