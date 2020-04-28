@@ -9,7 +9,7 @@ toc:
   - h2: Introduction
     url: /doc/commerce/checkout/use-wishlists.html#introduction
   - h2: Wishlists
-    url: /doc/commerce/checkout/use-wishlists.html#wish-lists
+    url: /doc/commerce/checkout/use-wishlists.html#wishlists
   - h2: API Quick Reference
     url: /doc/commerce/checkout/use-wishlists.html#api-quick-reference
   - h2: Troubleshooting
@@ -25,7 +25,7 @@ toc:
 
 ##### Last Updated: 04/10/2019
 
-Help Nike members save their favorites for later purchase by adding [Wishlists](#wish-lists) to your experience.
+Help Nike members save their favorites for later purchase by adding [Wishlists](#wishlists) to your experience.
 
 >**TIPS**:
 >- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
@@ -49,7 +49,7 @@ Wishlists provide consumers a more flexible way of organizing their future purch
 
 ### Step 1: Create a Wishlist
 
-Execute a request to the [Create or Update a List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put){:target="new-tab"} endpoint to create an empty wishlist. [Step 2](#step-2-modify-a-wish-list) explains how to add items to a wishlist.
+Execute a request to the [Create or Update a List](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put){:target="new-tab"} endpoint to create an empty wishlist. [Step 2](#step-2-modify-a-wishlist) explains how to add items to a wishlist.
 
 - Wishlist `name` must be unique for a user/country combination.
 - Consumers can create wishlists for multiple countries but they can have only one default wishlist per country.
@@ -172,8 +172,6 @@ https://api.nike.com/buy/lists/v1?filter=country(US)
 
 To retrieve **header info** for a single wishlist for an authenticated consumer, execute a request to the [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get){:target="new-tab"} endpoint passing the wishlist `id` as a path parameter.
 
->**TIP:** The list items are **not** included in the response. To get the list items, execute a request to the *Retrieve Items by List* endpoint with the appropriate list identifier.
-
 Listed below is a sample [Retrieve a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get){:target="new-tab"} GET request URI for wishlist `id` 93a333a2-907b-46f1-b9ac-469489909057. This endpoint is not JWT-restricted.
 ```
 https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
@@ -185,9 +183,9 @@ Retrieve one or more wishlist items from one or more of a consumer's wishlists.
 
 #### Retrieve Items in a List by ID
 
-To retrieve the productIds and skuIds (if available) in a single wishlist, execute a request to the [Retrieve Items in a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get-1){:target="new-tab"} endpoint passing the wishlist `id` as a path parameter.
+To retrieve the productIds and skuIds (if available) in a single wishlist, execute a request to the [Retrieve Items in a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get){:target="new-tab"} endpoint passing the wishlist `id` as a path parameter.
 
-Listed below is a sample [Retrieve Items in a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get-1){:target="new-tab"} GET request URI. This endpoint is not JWT-restricted.
+Listed below is a sample [Retrieve Items in a List by ID](https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get){:target="new-tab"} GET request URI. This endpoint is not JWT-restricted.
 
 ```
 https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057/items
