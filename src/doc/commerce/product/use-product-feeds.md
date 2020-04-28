@@ -71,7 +71,7 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 |Launch Views|Launch attributes by style-color (SNKRS, Bootroom only)|method, startEntryDate, stopEntryDate|Launch Admin Tool|
 |Customized PreBuilds|Customized prebuild (e.g. suggested NikeID shoe design)|designId, status, merchGroup|Consumer experiences, Prodigy|
 
->**TIP:** Another great way to evaluate the types of data returned is to analyze a [sample API response](https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json){:target="new-tab"}.
+>**TIP:** Another great way to evaluate the types of data returned is to analyze a [sample API response](https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json){:target="_blank"}.
 
 ### What are Channels and Why Do I Need One?
 
@@ -117,9 +117,9 @@ If there are more threads in the API response than you want, add more specific i
 
 You can use the Product Feeds API for basic product search by including the **searchTerms** query parameter. The API attempts to match the string sent in searchTerms to a fixed set of fields in the product data (see [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api) for the list of fields).
 
-However, for a more accurate search, or if you are merchandising a product wall, it's strongly recommended that you use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api). Rollup Threads can be used in conjunction with Smart Search rules to influence the search results based on your specific use case.
+However, for a more accurate search, or if you are merchandising a product wall, it's strongly recommended that you use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}. Rollup Threads can be used in conjunction with Smart Search rules to influence the search results based on your specific use case.
 
-See [Adding Rollup Threads to Your Experience](https://developer.niketech.com/commerce-docs/doc/commerce/product/use-rollup-threads.html#using-rollup-threads) and [Understanding Search Results](https://developer.niketech.com/commerce-docs/doc/commerce/search/use-search.html) for more.
+See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html#using-rollup-threads) and [Understanding Search Results](https://developer.niketech.com/commerce-docs/doc/commerce/search/use-search.html) for more.
 
 ### Terminology Differences Between CMS and Product Feeds
 
