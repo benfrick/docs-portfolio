@@ -35,6 +35,7 @@ parent.postMessage(location.href,'*');
 
 window.onclick = function(event) {
   let path = clickmessage.getClosest(event.target,'a');
-  if (!path) return;
+  let target = event.target.target;
+  if (!path || target) return;
   parent.postMessage(JSON.stringify({ path }), '*');
 };
