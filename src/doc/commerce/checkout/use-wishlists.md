@@ -23,7 +23,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/10/2019
+##### Last Updated: 04/28/2019
 
 Help Nike members save their favorites for later purchase by adding [Wishlists](#wishlists) to your experience.
 
@@ -273,7 +273,7 @@ Need to contact the team?
 |---|---|---|
 |Initial draft|06/20/2019|Initial Draft|
 |Converted to stand-alone guide|03/20/2019|Content moved from Cart & Checkout use-case guide|
-|Revised Next Steps section links|04/10/2020|Updated links|
+|Revised Next Steps section links|04/28/2020|Updated links|
 
 ## Next Steps
 
