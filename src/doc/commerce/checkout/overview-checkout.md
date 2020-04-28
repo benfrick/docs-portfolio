@@ -39,9 +39,9 @@ The consumer finds a Nike product that they love in your app. What happens next?
 
 The Nike shopping experience involves several APIs. Your app or experience implements one of two fulfillment flows, legacy or omni-channel.
 
-The legacy flow allows consumers to choose how quickly they want all products delivered to a shipping address.
+The **legacy** flow allows consumers to choose how quickly they want all products delivered to a shipping address.
 
-The omni-channel flow expands the fulfillment options to include ship, digital delivery, and pick up for each item based on consumer location, giving consumers much more flexibility in how, when, and where they can receive Nike products.
+The **omni-channel** flow expands the fulfillment options to include ship, digital delivery, and pick up for each item based on consumer location, giving consumers much more flexibility in how, when, and where they can receive Nike products.
 
 The APIs required for the two fulfillment flows are listed below.
 
