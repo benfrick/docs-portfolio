@@ -41,7 +41,7 @@ toc:
 
 ## Introduction
 
-The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="_blank"} provides product data and content in the form of Cards, Threads, and Feeds.
+The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} provides product data and content in the form of Cards, Threads, and Feeds.
 
 ### What are Cards, Threads, and Feeds?
 
