@@ -39,9 +39,9 @@ The consumer finds a Nike product that they love in your app. What happens next?
 
 The Nike shopping experience involves several APIs. Your app or experience implements one of two fulfillment flows, legacy or omni-channel.
 
-The legacy flow allows consumers to choose how quickly they want all products delivered to a shipping address.
+The **legacy** flow allows consumers to choose how quickly they want all products delivered to a shipping address.
 
-The omni-channel flow expands the fulfillment options to include ship, digital delivery, and pick up for each item based on consumer location, giving consumers much more flexibility in how, when, and where they can receive Nike products.
+The **omni-channel** flow expands the fulfillment options to include ship, digital delivery, and pick up for each item based on consumer location, giving consumers much more flexibility in how, when, and where they can receive Nike products.
 
 The APIs required for the two fulfillment flows are listed below.
 
@@ -71,10 +71,10 @@ The APIs required for the two fulfillment flows are listed below.
         <a href="https://developer.niketech.com/docs/projects/AddressValidator?tab=api" target="new-tab">Address Validation</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        Payment Options <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">V2</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentoptions/browse/APIv3.md" target="new-tab">V3</a><span class="guide-details-li-text"></span>
+        Payment Options <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Payment%20Options%20v3%20(Source%20Aware)?tab=api" target="new-tab">V3</a><span class="guide-details-li-text"></span>
     </li>
     <li>
-        Payment Preview <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">V2</a> and <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentpreview/browse/APIV3.md" target="new-tab">V3</a><span class="guide-details-li-text"></span>
+        Payment Preview <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Payment%20Preview%20V3%20(Source%20aware)?tab=api" target="new-tab">V3</a><span class="guide-details-li-text"></span>
     </li>
     <li>
         Checkout Previews <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api" target="new-tab">V3</a> <span class="guide-details-li-text"></span>
