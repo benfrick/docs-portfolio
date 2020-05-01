@@ -41,7 +41,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/20/2020
+##### Last Updated: 04/30/2020
 
 Manage the Checkout process for the consumer.
 
@@ -90,7 +90,7 @@ Listed below are some terms important to understanding checkout.
 
 >**TIP:** Shipping Options is for the [legacy fulfillment](#legacy-def) flow only. New implementations should use [Fulfillment Offerings](#fulfillment-offerings) instead.
 
-Once the consumer finalizes their [cart](/doc/commerce/checkout/use-cart.html), it's time to begin the checkout process. If your app or experience is using the [legacy fulfillment](#legacy-def) flow, the first step for consumers is to select a shipping method.
+Once the consumer finalizes their [cart](/doc/commerce/checkout/use-carts.html), it's time to begin the checkout process. If your app or experience is using the [legacy fulfillment](#legacy-def) flow, the first step for consumers is to select a shipping method.
 
 Consumers are accustomed to selecting a shipping method (Standard, Two-Day, Next-Day for example) during the checkout process. But, how do you know which methods to present to them, based on their shopping context?
 
@@ -116,7 +116,7 @@ A successful 200 response includes the available shipping methods for a consumer
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Get available shipping and pickup locations, costs, and delivery/pickup dates**
 
->**TIP:** Fulfillment Offerings is for the [Omni-channel](#omni-channel-def) fulfillment flow only
+>**TIP:** Fulfillment Offerings is for the [omni-channel](#omni-channel-def) fulfillment flow only
 
 The [Fulfillment Offerings API](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} is a replacement of the [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="new-tab"} just discussed. Fulfillment offerings provides consumers more flexibility in choosing how, when, and where to get Nike products based on consumer location, availability and several other factors. They may be able to choose to have their items digitally delivered, shipped to an address of their choice, pick up at a Nike store, or pick up at a third party location. A user experience driven by the Fulfillment Offerings API helps the consumer make those decisions by providing the cost of each offering and "get by" dates that predict when the consumer can get the product.
 
@@ -126,7 +126,7 @@ See [Adding Fulfillment Offerings To Your Experience](/doc/commerce/checkout/use
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Ensure each shipping address is deliverable**
 
-After the consumer selects or provides a personal shipping address through either the [Shipping Options](#shipping-options) or [Fulfillment Offerings](#get-fulfillment-offerings) API, validate the address with the [Address Validator API](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"}. This endpoint can validate any type of address including a billing address.
+After the consumer selects or provides a personal shipping address through either the [Shipping Options](#shipping-options) or [Fulfillment Offerings](#fulfillment-offerings), validate the address with the [Address Validator API](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"}. This endpoint can validate any type of address including a billing address.
 
 This service calls a third party vendor to validate the shipping address passed in the request against an address database. The service response contains a `verficationCode`, `score`, and an address. Based on the quality of the address match, the service returns either the consumer-provided address or a corrected address. See the table below to understand how the `verificationCode` and `score` work together to determine what actions the consumer needs to take next.
 
@@ -160,7 +160,7 @@ It is not required to [Request a Checkout Preview](https://developer.niketech.co
 
 You can use the details in a successful response to display the final payment amount to the consumer. Once the consumer confirms the payment method details and places the order, there will be a better chance of success.
 
->**NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](https://developer.niketech.com/nde-docs/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
+>**NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
 ### Which Version of Checkout Preview Should I Use?
 
@@ -184,7 +184,7 @@ Execute a PUT request to [Request Checkout Preview](https://developer.niketech.c
 The API ensures that the products and fulfillment details for each item are valid based on Nike pricing, availability, and other factors. You can also get product pricing, sales tax, fulfillment fees and tax, "get by" dates, and checkout subtotals in the response.
 
 
-Sample V3 [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put) PUT request URI:
+Sample V3 [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} PUT request URI:
 ```
 https://api.nike.com//buy/checkout_previews/v3/89rc115b-16e5-43b5-bcaf-dd6168c543u4
 ```
@@ -262,7 +262,7 @@ Checkout Submit performs the final validations of the consumer's information, re
 
 **Checkout Submit V3**
 
-Execute a PUT request to the [Request a Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V3?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"} endpoint, passing the complete cart and `fulfillmentDetails` returned from [fulfillment offerings]() for each item.
+Execute a PUT request to the **Request a Checkout Submit** endpoint, passing the complete cart and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for each item.
 
 Sample [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V3?tab=api#checkout-request-a-checkout-submit-put
 ){:target="new-tab"} PUT request URI:
@@ -272,9 +272,9 @@ https://api.nike.com/buy/checkouts/v3/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 
 **Checkout Submit V2**
 
-Execute a request to the [Request a Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} endpoint when your consumer is ready to complete their purchase.
+Execute a request to the **Request a Checkout Submit** endpoint when your consumer is ready to complete their purchase.
 
-Sample [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} request URI:
+Sample [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"} request URI:
 ```
 https://api.nike.com/buy/checkouts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
@@ -283,14 +283,14 @@ https://api.nike.com/buy/checkouts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 
 After calling either V2 or V3 **Request Checkout Submit** endpoint and receiving a HTTP 202 response, execute a request to either the V2 or V3 **Retrieve Checkout Submit Job** using the same checkout ID to check the status of your job.
 
-The same job statuses apply for this endpoint as they do for [Retrieve Checkout Preview Job](step-2-retrieve-checkout-preview-job). Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
+The same job statuses apply for this endpoint as they do for [Retrieve Checkout Preview Job](#step-2-retrieve-checkout-preview-job). Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
 Sample V3 [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V3?tab=api#checkout-retrieve-checkout-submit-job-get){:target="new-tab"} GET request URI:
 ```
 https://api.nike.com/buy/checkouts/v3/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
 
-Sample V2 [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get-1){:target="new-tab"} GET request URI:
+Sample V2 [Retrieve Checkout Submit Job](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-retrieve-checkout-submit-job-get){:target="new-tab"} GET request URI:
 ```
 https://api.nike.com/buy/checkouts/v2/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
@@ -354,7 +354,7 @@ For the list of country code and currency code combinations supported by Cart & 
 
 ### Idempotence
 
-[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="new-tab"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkout API? Each PUT request to [Request a Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} and [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put-1){:target="new-tab"} includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:
+[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="new-tab"} means that the result of a successful request is independent of the number of times it is executed. What does that mean for the Checkout API? Each PUT request to **Request a Checkout Preview** and **Request Checkout Submit** includes 1) a client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:
 
 ###### Table 4: Scenarios Illustrating Idempotence Behavior for Checkout Requests
 
@@ -492,7 +492,7 @@ Need to contact the Buy team?
 |Initial publish|10/02/2018|
 |Added Key Terms|08/01/2019|
 |Added Address Validation|09/30/2019|
-|Moved Cart and Wishlist to separate docs, added Checkout Preview V3 and Checkout Submit V3 content|04/20/2020|
+|Moved Cart and Wishlist to separate docs, added Checkout Preview V3 and Checkout Submit V3 content|04/30/2020|
 
 ## Next Steps
 
