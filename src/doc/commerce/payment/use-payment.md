@@ -113,7 +113,7 @@ If you are integrating with the Checkout v3 APIs, you must use the latest endpoi
 
 Some Payment endpoints for use with Checkout v3 allow the optional inclusion of a `fulfillmentDetails` object in the request body. This object contains data you previously got from the [Fulfillment Offerings API](/doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-offerings-get).
 
-Depending on the `fulfillmentType`, `getBy` and `maxDate` that you send in this object, these endpoints may adjust what you receive in the responses accordingly. As such, these API versions are sometimes referred to as 'source-aware', referring to the source of fulfillment for each item in the checkout.
+The `fulfillmentType`, `getBy` and `maxDate` values you send in the request may affect the response. As such, these API versions are sometimes referred to as 'source-aware', because they return different results depending on the source of fulfillment for each item in the checkout.
 
 ## Key Terms
 
@@ -1010,7 +1010,7 @@ We recommend reading [JSAPI WeChat Browser](https://confluence.nike.com/display/
 
 Consumers scan a QR code to pay with WeChat in a web browser flow, also known as native payment.
 
-The Vendor generates a transaction QR Code according to the WeChat Payment Protocol, and the Payer goes to "Scan QR Code" in their WeChat in order to complete payment. This mode is applicable to payments made on websites, physical stores, media advertising, or other scenarios.
+The Vendor generates a transaction QR Code according to the WeChat Payment Protocol, and the payer goes to "Scan QR Code" in their WeChat in order to complete payment. This mode is applicable to payments made on websites, physical stores, media advertising, or other scenarios.
 
 Desktop flow: Experience displays QR code at the end of checkout (what generates the QR code?). Consumer scans code with phone and opens WeChat app. User pays. (when is wechat deferred payment called? how is nike notified of payment?
 
@@ -1843,6 +1843,8 @@ The PaymentOptions, PaymentWallet, PaymentPreview and PaymentApproval services u
 ### Sample Flows
 
 Payment API flows vary based on the payment method, and the user experience. Listed below are a few examples of Payment API usage.
+
+>**NOTE**: Although the flows refer to endpoints compatible with v2 Checkout, they also apply to endpoints compatible with v3 Checkout.
 
 **Sample Credit Card Payment Flow without Stored Payment**
 
