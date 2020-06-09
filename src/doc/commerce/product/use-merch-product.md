@@ -146,7 +146,7 @@ If you are retrieving products that are publicly available, no authentication or
 - [Merch Prices Create](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-create){:target="new-tab"}
 - [Merch Prices Delete](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-delete){:target="new-tab"}
 
-**Merch Value Added V1**
+**Merch Value Added Services V1**
 
 - [Merch Value Added Services List](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-list){:target="new-tab"}
 - [Merch Value Added Services by Id](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-by-id){:target="new-tab"}
@@ -160,7 +160,6 @@ If you are retrieving products that are publicly available, no authentication or
 - [Product Content By StyleColor List](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-by-stylecolor-list){:target="new-tab"}
 - [Product Content Field By StyleColor List](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-field-by-stylecolor-list){:target="new-tab"}
 
-**Product Images**
 
 - [Product Image Set by Style Color](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-image-set-by-style-color){:target="new-tab"}
 - [Product Image Set By StyleColor List](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-image-set-by-stylecolor-list){:target="new-tab"}
