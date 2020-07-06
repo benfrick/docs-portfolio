@@ -87,7 +87,7 @@ Both Retail and Digital products are available via [Product Feeds](https://devel
 ###### Table 2: Retail location-related query parameters for Product Feeds
 
 |Param|Description|Example|
-|---|---|---|
+|---|---|---|`
 |`locationIds`|Location Id from [Available GTINs API](https://developer.niketech.com/docs/projects/Available%20GTINs?tab=api){:target="new-tab"}|filter=locationIds(7B988866-4C8C-4062-AF86-E26C14A4AE96)|
 |`locationAvailabilityMethods`|Availability methods ie. SHIP, INSTORE, PICKUP| filter=locationAvailabilityMethods(INSTORE)|
 |`locationAvailabilitySizes`|Sizes available in selected location|filter=locationAvailabilitySizes(4a528b33-a71b-342c-baa2-616a89985fef)|
