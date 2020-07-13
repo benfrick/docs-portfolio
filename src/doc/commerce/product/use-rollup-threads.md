@@ -29,7 +29,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/08/2019
+##### Last Updated: 07/06/2020
 
 Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
@@ -46,6 +46,12 @@ Using Rollup Threads makes it simpler for you to build a product grid wall exper
 ![](/images/commerce/product_feeds/gridwall.png)
 
 This is just one example of how a Parent Thread can have one or more related Rollup Threads. We'll discuss this more later in [Choosing the Rollup Threads You Need](#choosing-the-rollup-threads-you-need).
+
+## Accessing Retail Products
+
+Both Retail and Digital products are available via [Rollup Threads](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}.
+
+See the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html) for some important considerations for working with Retail data.
 
 Next, we'll get started with interacting with the Rollup Threads API.
 
@@ -173,6 +179,7 @@ No authentication or authorization is required to use this API.
 |---|---|
 |Initial publish|05/17/2018|
 |Updated how to obtain a consumerChannelId|07/19/2018|
+|Referenced new Retail data|07/06/2020|
 
 ## Related Links
 

@@ -33,7 +33,7 @@ toc:
 
 ---
 
-##### Last Updated: 02/04/2020
+##### Last Updated: 07/06/2020
 
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
@@ -58,7 +58,7 @@ For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](
 The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} combines data from many Nike Cloud APIs. To understand the variety of data available, and the sources of data, use the following table:
 
 ###### Table 1: Types of Data Available from Product Feeds
-
+    
 |Cloud API|Data Type|Examples|Data Source|
 |---|---|---|---|
 |Merchandised Product Information|Product attributes per style-color, country|styleCode, colorCode, status, genders, sportTags|Prodigy & Product Information Services|
@@ -75,7 +75,33 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 
 ### What are Channels and Why Do I Need One?
 
-A channel is a distinct experience where Nike products are showcased and made available for purchase, e.g. SNKRS, Nike.com. Each channel has a unique **channelId** (channel identifier), which along with **language** and **marketplace**, allows you to get the appropriate data for your experience.
+A channel is a distinct experience where Nike products are showcased and made available for purchase, e.g. SNKRS, Nike.com, Nike Retail. Each channel has a unique `channelId` (channel identifier), which along with `language` and `marketplace`, allows you to get the appropriate data for your experience.
+
+#### Accessing Retail Products
+
+Both Retail and Digital products are available via [Product Feeds](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"}. Here are some important considerations for working with Retail data:
+
+- Use the Nike.com channelId, not the Retail channelId (except Nike Assist app)
+- Use one or more of the following filter URL parameter values:
+
+###### Table 2: Retail location-related query parameters for Product Feeds
+
+|Param|Description|Example|
+|---|---|---|
+|`locationIds`|Location Id from [Available GTINs API](https://developer.niketech.com/docs/projects/Available%20GTINs?tab=api){:target="new-tab"}|filter=locationIds(7B988866-4C8C-4062-AF86-E26C14A4AE96)|
+|`locationAvailabilityMethods`|Availability methods ie. SHIP, INSTORE, PICKUP|filter=locationAvailabilityMethods(INSTORE)|
+|`locationAvailabilitySizes`|Sizes available in the selected location|filter=locationAvailabilitySizes(4a528b33-a71b-342c-baa2-616a89985fef)|
+
+Sample URL:
+```
+https://api.nike.com/product_feed/threads/v2?filter=marketplace(US)&filter=language(en)&filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&anchor=0&count=20&sort=lastFetchTimeDesc&searchTerms=pegasus&filter=locationIds(C5E2DB2B-DBD5-41FE-91CE-91D774F1E9D5)&filter=locationAvailabilityMethods(INSTORE)
+```
+
+#### Retail vs. Digital Inventory
+
+The Product Feeds response contains the Digital inventory values, even when you restrict for Retail products. These are found in the `availableSkus` section of the response.
+
+**Retail inventory values** are available via the [Available GTINs API](https://developer.niketech.com/docs/projects/Available%20GTINs?tab=api){:target="new-tab"}.
 
 >**TIP:** A Feed can be associated with one or more channels, opening up the personalized Feed to many Nike experiences.
 
@@ -89,7 +115,9 @@ To get a list of Threads, execute a request to the [Threads List](https://develo
 
 Sample [Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api#threads-threads-list-get){:target="new-tab"} request URI:
 
-`https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=language(en)&filter=marketplace(US)`
+```
+https://api.nike.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=language(en)&filter=marketplace(US)
+```
 
 >**TIPS:**
 >- For a list of supported locales, see the [Language/Locale Mapping JSON](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json){:target="new-tab"} and the [Language/Locale Mapping README](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md){:target="new-tab"}.
@@ -111,7 +139,9 @@ If there are more threads in the API response than you want, add more specific i
 
     Request only the fields that you want in the response by using the **fields** query parameter. For example, to return fields threadId, styleColor, and MSRP, append query parameter `fields=id,channelId,productInfo.merchProduct.styleColor,productInfo.merchPrice.msrp` to the request URI.
 
->**TIP:** The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
+>**TIPS:**
+>- The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
+>- The Product Feeds API restricts each response to 10,000 products for performance reasons. If you need >10k products at a time, reach out to the Product Owner about using the [Product Feeds Stream API](https://console.platforms.nike.com/developer/docs/projects/Product%20Feeds%20Stream%20API%20V2?tab=api).
 
 ### Can I Use Product Feeds to Search for Products?
 
@@ -127,7 +157,7 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 
 Here is a terminology guide between Nike CMS and Product Feeds:
 
-###### Table 2:  Common CMS, Product Feeds Terms
+###### Table 3: Common CMS, Product Feeds Terms
 
 |CMS Term|Product Feeds Term|
 |---|---|
@@ -158,7 +188,7 @@ Sample [Thread by ID](https://developer.niketech.com/docs/projects/Product%20Fee
 
 **Product Feeds v2 Endpoints**
 
-###### Table 3:  Product Feeds Endpoints
+###### Table 4:  Product Feeds Endpoints
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
@@ -187,7 +217,7 @@ Some considerations about using the test environment:
 
 - Test has a different set of product data than production, but the test data set is similar. For example, many of the constants are the same in test, i.e. the marketplace, language, and channelId, as they are in production.
 
-- Inventory availability data is scarce in the test environment. At the product level, i.e. the values in **productInfo.availability.available**, might show as 'false' in test most of the time. Availability data at the SKU/size level, i.e. in **productInfo.availableSkus**, is *not* present in test.
+- Inventory availability data is scarce in the test environment. At the product level, i.e. the values in `productInfo.availability.available`, might show as 'false' in test most of the time. Availability data at the SKU/size level, i.e. in `productInfo.availableSkus`, is *not* present in test.
 
 - All performance testing activities should be done in test and not in production.
 
@@ -207,13 +237,13 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Common Questions
 
-**Who do I contact with questions about what I'm seeing in the **productInfo** or **publishedContent** sections of the response?**
+**Who do I contact with questions about what I'm seeing in the `productInfo` or `publishedContent` sections of the response?**
 
-- The data in **productInfo** and **publishedContent** is not owned by the Product Feeds team. Refer to [Thread Response Ownership Breakdown](https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown){:target="new-tab"} to find the Slack channel of the team responsible for that data.
+- The data in `productInfo` and `publishedContent` is not owned by the Product Feeds team. Refer to [Thread Response Ownership Breakdown](https://confluence.nike.com/display/DEN/Thread+Response+Ownership+Breakdown){:target="new-tab"} to find the Slack channel of the team responsible for that data.
 
 **How do I know what product attributes are available for me to use to request Threads?**
 
-- Unless you are doing a keyword search using the **searchTerms** query parameter, you need to know in advance which product attributes to include in your requests. The source of product attributes (e.g. slugs, 'best for', and other attributes) is Nike's Prodigy system.
+- Unless you are doing a keyword search using the `searchTerms` query parameter, you need to know in advance which product attributes to include in your requests. The source of product attributes (e.g. slugs, 'best for', and other attributes) is Nike's Prodigy system.
 
 **Why isn't my feed showing up?**
 
@@ -225,17 +255,17 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - There might not be any threads that meet the criteria that you specified, particularly when using optional filters. For example, if you send a request with `filter=productInfo.merchProduct.styleCode(999999)` and there are no threads for style code 999999, you will get an empty 200 response.
 
-- The **publishStartDate** for the requested threads might be in the future, or conversely the **publishEndDate** might be in the past. In other words, if today's date is not within the publish start/end range for the thread, the thread will not be returned in the response.
+- The `publishStartDate` for the requested threads might be in the future, or conversely the `publishEndDate` might be in the past. In other words, if today's date is not within the publish start/end range for the thread, the thread will not be returned in the response.
 
-- The **softLaunchDate** on the product is in the future. The softLaunchDate, when present, overrides the publishStartDate, and thus can affect whether the thread is returned or not.
+- The `softLaunchDate` on the product is in the future. The softLaunchDate, when present, overrides the publishStartDate, and thus can affect whether the thread is returned or not.
 
 **Why am I getting a 404 error from Thread by ID when I know that the thread ID is valid?**
 
 - Today's date might be outside the publish start/end range for the thread.
 
-- The **catalogId** on the product might be blank. To troubleshoot, send a request to the Merchandised Products API with the affected product ID (e.g. https://api.nike.com/merch/products/v2/c98f12d7-7dee-5775-b4a6-c83d0d2dcb9a) to see if a catalog ID is present or not. If not, that is the reason that the thread is not being returned.
+- The `catalogId` on the product might be blank. To troubleshoot, send a request to the Merchandised Products API with the affected product ID (e.g. https://api.nike.com/merch/products/v2/c98f12d7-7dee-5775-b4a6-c83d0d2dcb9a) to see if a catalog ID is present or not. If not, that is the reason that the thread is not being returned.
 
->**TIP:** Be careful not to confuse **legacyCatalogId**, which like **catalogId** is also present in the threads response under **productInfo.merchProduct**, but does not affect thread visibility.
+>**TIP:** Be careful not to confuse `legacyCatalogId`, which like `catalogId` is also present in the threads response under `productInfo.merchProduct`, but does not affect thread visibility.
 
 ## Terms of Service
 
@@ -243,7 +273,7 @@ It is highly recommended that you send a caller ID header in every request to th
 
 ### Authentication
 
-There are no authentication requirements for Product Feeds except when using the **preview** query parameter to preview a Feed or Thread, which is not common. See the [Using Product Feeds v2](#using-product-feeds-v2) section for more details.
+There are no authentication requirements for Product Feeds except when using the `preview` query parameter to preview a Feed or Thread, which is not common. See the [Using Product Feeds v2](#using-product-feeds-v2) section for more details.
 
 ## Contacting the Team
 
@@ -258,6 +288,7 @@ Need to contact the Product Feeds team?
 |Summary|Date|
 |---|---|
 |Initial publish|01/23/2018|
+|Referenced new Retail data|07/06/2020|
 
 ## Related Links
 
