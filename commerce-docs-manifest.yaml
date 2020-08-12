@@ -1,0 +1,22 @@
+---
+manifest: 1.0
+title: Commerce Docs
+description: Manifest for Commerce Docs project on DevPortal
+type: documentation
+tags:
+  - API
+  - Global Technology
+  - Documentation
+  - Commerce
+urls:
+  repository: https://github.nike.com/ngp/nde-devportal-docs
+  slack: slack://channel?team=T0G3T5X2B&id=C6A18NT7W
+maintainerEmail: Lst-nde.docs@nike.com
+documents: &documents
+  documents:
+    - title: Home (HTML)
+      url: https://github.nike.com/ngp/nde-devportal-docs/blob/master/content/index.html
+      type: href
+    - title: Home (MD)
+      url: https://github.nike.com/ngp/nde-devportal-docs/blob/master/src/index.md
+      type: markdown
