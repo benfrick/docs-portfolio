@@ -8,6 +8,8 @@ url: /doc/commerce/product/use-rollup-threads.html
 toc:
   - h2: What is a Rollup Thread?
     url: /doc/commerce/product/use-rollup-threads.html#what-is-a-rollup-thread
+  - h2: Accessing Retail Products
+    url: /doc/commerce/product/use-rollup-threads.html#accessing-retail-products
   - h2: Get a List of Rollup Threads
     url: /doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads
   - h2: API Quick Reference
@@ -29,7 +31,7 @@ toc:
 
 ---
 
-##### Last Updated: 07/06/2020
+##### Last Updated: 07/21/2020
 
 Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
@@ -81,7 +83,7 @@ Here are some sample URIs to get you started:
 In order to use the Rollup Threads API, you will first need to:
 
 - **Obtain a Consumer Channel ID -- REQUIRED**
-- **Configure Custom Search Rules -- OPTIONAL**
+- **Configure Custom Search Rules -- REQUIRED**
 
 See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.action?pageId=233771813){:target="new-tab"} for instructions on the above steps.
 
@@ -111,7 +113,7 @@ Next, choose which Rollup Threads are sent with each Parent Thread using one of 
 
 By default, the rollup is determined by the value in the **productInfo.merchProduct.productRollup.key** field in the API response. The rollup keys are created in the Nike product information system.
 
->TIP: Generally speaking, the default rollup is by Nike style code. If you need a different rollup, use one of the below options.
+>**TIP**: Generally speaking, the default rollup is by Nike style code. If you need a different rollup, use one of the below options.
 
 #### Rollup by Rollup Key
 

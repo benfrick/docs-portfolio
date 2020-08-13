@@ -33,7 +33,7 @@ toc:
 
 ---
 
-##### Last Updated: 07/06/2020
+##### Last Updated: 07/21/2020
 
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
@@ -47,11 +47,13 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 
 [<img style="margin-left:5px; display:inline-block; float:right;" alt="Nike App screenshot" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
 
-|**Cards** contain Nike product information or content such as notifications about upcoming Nike events.|
-|Related Cards are organized into **Threads** that tell a Nike story.|
+|**Cards** are portions of a Thread, such as for use in displaying a heading or banner.|
+|**Threads** contain Nike product information or content that tells a Nike story.|
 |Multiple Threads can be displayed in **Feeds**, customized for your users based on their chosen preferences in a Nike experience.|
 
-For more on Cards, Threads, and Feeds, see the [Product Feeds Confluence Space](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}.
+>**TIPS**:
+>- Card data is also available from the [Product Feed Cards v2 API](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Cards%20API%20V2?tab=api){:target="new-tab"}. 
+>- Find more on Cards, Threads, and Feeds at the [Product Feeds Confluence Space](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}.
 
 ### What Product Data and Content are Available?
 
@@ -67,6 +69,7 @@ The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20F
 |Merchandised Product Content|Display-oriented content by style, country|colorDescription, fullTitle, colors, bestFor, athletes, widths|Prodigy & Product Information Services|
 |Product Inventory Availability|Inventory availability by style-color|true/false|Sterling|
 |SKU Inventory Availability|Inventory availability by style-color-size|true/false|Sterling|
+|GTIN Inventory Availability|Inventory availability by GTIN|true/false|Sterling|
 |Published Content|Authored cards and threads|title, seo slug, image URL, video URL, text|Nike CMS (Content Management System)|
 |Launch Views|Launch attributes by style-color (SNKRS, Bootroom only)|method, startEntryDate, stopEntryDate|Launch Admin Tool|
 |Customized PreBuilds|Customized prebuild (e.g. suggested NikeID shoe design)|designId, status, merchGroup|Consumer experiences, Prodigy|
@@ -82,7 +85,7 @@ A channel is a distinct experience where Nike products are showcased and made av
 Both Retail and Digital products are available via [Product Feeds](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"}. Here are some important considerations for working with Retail data:
 
 - Use the Nike.com channelId, not the Retail channelId (except Nike Assist app)
-- Use one or more of the following filter URL parameter values:
+- Use one or more of the following values in the `?filter` parameter:
 
 ###### Table 2: Retail location-related query parameters for Product Feeds
 
@@ -230,8 +233,6 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 - Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) such as [this](https://nike.splunkcloud.com/en-US/app/nike_search/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D){:target="new-tab"} to check for issues with your request.
-
-- Use the [Product Feeds v2 Overview](https://insights.newrelic.com/apps/accounts/714737/product-feed-service/dashboards/483419){:target="new-tab"} dashboard in Insights (requires access) to see if the service is up and healthy.
 
 - Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"} Slack channel for assistance.
 
