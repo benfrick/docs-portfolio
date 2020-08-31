@@ -1,13 +1,15 @@
 ---
 manifest: 1.0
 title: Commerce Docs
-description: Manifest for Commerce Docs project on DevPortal
+description: Documentation project owned by the Commerce Docs team
 type: documentation
 tags:
   - API
   - Global Technology
   - Documentation
   - Commerce
+  - Foo
+  - Bar
 urls:
   repository: https://github.nike.com/ngp/nde-devportal-docs
   slack: slack://channel?team=T0G3T5X2B&id=C6A18NT7W
@@ -20,15 +22,5 @@ versions:
     documentsDefaultType: markdown
     documents:
       - title: Using Customization
-        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/use-customization.md
+        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/templates/use-customization.md
         type: markdown
-      - title: Consumer Auth
-        url: https://raw.github.nike.com/partner-engineering/devportal-ui/master/data/docs/pageTitle/auth-consumer/introduction.md
-        type: markdown
-        documents:
-        - title: Introduction
-          url: https://raw.github.nike.com/partner-engineering/devportal-ui/master/data/docs/pageTitle/auth-consumer/introduction.md
-          type: markdown
-        - title: Key Terms
-          url: https://raw.github.nike.com/partner-engineering/devportal-ui/master/data/docs/pageTitle/auth-consumer/key-terms.md
-          type: markdown
