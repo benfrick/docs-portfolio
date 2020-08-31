@@ -8,7 +8,7 @@ The **Customization Experience Platform (CXP)** unlocks your ability to add prem
 
 ![Depiction of Nike By You experience at Nike.com](nby-web-chrome.png)
 
->**TIP**: Before using this guide, you should have already completed [Customization Overview](https://github.nike.com/ngp/nde-devportal-docs/raw/master/src/doc/commerce/customization/overview-customization.md).
+>**TIP**: Before using this guide, you should have already completed [Customization Overview](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization).
 
 ## Introduction
 
@@ -94,7 +94,7 @@ In your app's source, create an HTML template and follow these steps:
     >**TIPS**:
     >- The argument for the `rootElement` parameter can be populated with a method like `document.getElementbyId('element-id-where-builder-renders')`.
     >- The argument for the `config` parameter must contain at minimum the `nike-api-caller-id` and `pathName` properties.
-    >- See [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for details about the Builder.
+    >- See [Customization Builder Reference](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference) for details about the Builder.
 
 4. **Navigate to Your Local Host to View the Builder Experience**
     
@@ -102,7 +102,7 @@ In your app's source, create an HTML template and follow these steps:
     
     - Browse to the HTML page on your localhost to view the Builder experience. The URL will vary depending on how your app is being served up locally.
 
-    ![Image of Builder running locally in Chrome](builder-local-web.png)
+    ![Image of Builder running locally in Chrome](../images/builder-local-web.png)
 
     **Example HTML template (initializes builder only):**
     
@@ -143,7 +143,7 @@ In your app's source, create an HTML template and follow these steps:
     </html>
     ```
 
-    >**TIP**: See more at [Customization Builder Reference](/doc/commerce/customization/builder-reference.html), which is the single source of truth for Builder functionality. 
+    >**TIP**: See more at [Customization Builder Reference](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference), which is the single source of truth for Builder functionality. 
 
 ## Show Customizable Products
 
@@ -157,7 +157,7 @@ Load the Builder and interact with the API to help drive the product browsing ex
 
 - In the `pathName` property of the `config` argument, use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds response, like `pathName: 'af1LowChampsSU19'`.
 
-- Use [`bridge`](/doc/commerce/customization/builder-reference.html#bridge-properties), a property of the `config` parameter, to listen for events coming back from the Builder.
+- Use [`bridge`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#bridge-properties), a property of the `config` parameter, to listen for events coming back from the Builder.
     
     **Example (loads the Builder and logs a few things):**
         
@@ -189,7 +189,7 @@ Load the Builder and interact with the API to help drive the product browsing ex
     </script> 
     ```
 
-    >**TIP**: See [Quick-Start: Load the Builder](#quick-start-load-the-builder) and [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for more details about the Builder.
+    >**TIP**: See [Quick-Start: Load the Builder](#quick-start-load-the-builder) and [Customization Builder Reference](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference) for more details about the Builder.
 
 ### Step 2: Show Customizable Products & Color Options
 
@@ -257,15 +257,15 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 
 |Scenario|Interaction|
 |---|---|
-|Load a new build, either to "reset" the builder or to switch between builds.|Invoke the [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) method, for example by prebuild ID or metric ID.|
+|Load a new build, either to "reset" the builder or to switch between builds.|Invoke the [`setBuild`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#setbuild) method, for example by prebuild ID or metric ID.|
 |Display price changes (when customization options are changed).|Listen to the `onPriceUpdate(priceData)` bridge callback and show updated price in UX.|
-|Consumer selects the 'Done' button.|Listen to the `onDone(buildData)` bridge callback, then call [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) and update UX.|
-|Save a build.|Invoke the [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) method, which returns a metric ID for the build.|
-|Edit a design that is already in the cart.|Invoke [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) with the metric ID you previously got from calling [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign).| 
+|Consumer selects the 'Done' button.|Listen to the `onDone(buildData)` bridge callback, then call [`saveDesign`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#savedesign) and update UX.|
+|Save a build.|Invoke the [`saveDesign`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#savedesign) method, which returns a metric ID for the build.|
+|Edit a design that is already in the cart.|Invoke [`setBuild`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#setbuild) with the metric ID you previously got from calling [`saveDesign`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#savedesign).| 
 |A consumer triggers an analytics event.|Listen to the `onAnalyticsEvent(type, payload)` bridge callback, then trigger an action.|
 |An error occurs in the Builder.|Listen to the `onError(error)` bridge callback, handle the error and update UX.|
 
->**TIP**: See [Bridge Properties](/doc/commerce/customization/builder-reference.html#bridge-properties) for more.
+>**TIP**: See [Bridge Properties](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#bridge-properties) for more.
 
 #### Sample JavaScript
 
@@ -317,12 +317,12 @@ The consumer may wish to save one or more of their designs for later in My Desig
 
     Call any of the following Builder or bridge methods:
 
-    - [setAnswer](/doc/commerce/customization/builder-reference.html#setanswer)
-    - [setSizeType](/doc/commerce/customization/builder-reference.html#setsizetype)
-    - [setSizeAnswer](/doc/commerce/customization/builder-reference.html#setsizeanswer)
-    - [OnProductLoad](/doc/commerce/customization/builder-reference.html#onproductloadbuilddata)
-    - [OnDone](/doc/commerce/customization/builder-reference.html#ondonebuilddata)
-    - [getMyDesigns](/doc/commerce/customization/builder-reference.html#getmydesigns)
+    - [setAnswer](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#setanswer)
+    - [setSizeType](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#setsizetype)
+    - [setSizeAnswer](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#setsizeanswer)
+    - [OnProductLoad](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#onproductloadbuilddata)
+    - [OnDone](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#ondonebuilddata)
+    - [getMyDesigns](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#getmydesigns)
 
     In all cases, the build data that is returned to your application includes a list of the myDesigns that have been stored for the current `pathName`, sorted from newest to oldest, like:
 
@@ -386,8 +386,8 @@ OR
 
 **Read the Build Data**
 
-- Availability: From the returned [Build Data](/doc/commerce/customization/builder-reference.html#build-data), if `sizingData.displayName` is "Size", then loop through `sizingData.answers` and evaluate whether `isAvailable` is true or false for all sizes.
-- Lead Time: Call the [getLeadTimeMessage](/doc/commerce/customization/builder-reference.html#getleadtimemessage) method of the Builder API to get the message text and lead time in days for the product.
+- Availability: From the returned [Build Data](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#build-data), if `sizingData.displayName` is "Size", then loop through `sizingData.answers` and evaluate whether `isAvailable` is true or false for all sizes.
+- Lead Time: Call the [getLeadTimeMessage](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#getleadtimemessage) method of the Builder API to get the message text and lead time in days for the product.
 
 >**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, you can access the Build Data. See [Step 1: Load the Builder](#step-1-load-the-builder) for more.
 
@@ -397,8 +397,8 @@ Show the consumer all of the possible gender and size options for the product. F
 
 **Show gender options (if applicable), and confirm consumer's selection**
 
-- Use the info from the `sizingData` object (in the [Build Data](/doc/commerce/customization/builder-reference.html#build-data)) to display the available genders, making note of the respective `questionId` and `answerId` values.
-- Using the `questionId` and `answerId` values for the gender selected by the consumer, call the [`setAnswer`](/doc/commerce/customization/builder-reference.html#setanswer) method of the Builder API, like:
+- Use the info from the `sizingData` object (in the [Build Data](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#build-data)) to display the available genders, making note of the respective `questionId` and `answerId` values.
+- Using the `questionId` and `answerId` values for the gender selected by the consumer, call the [`setAnswer`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#setanswer) method of the Builder API, like:
 
     ```javascript
     builderApi.setAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011','')`
@@ -410,7 +410,7 @@ Show the consumer all of the possible gender and size options for the product. F
 **Show size and width options (if applicable), and confirm consumer's selection**
 
 - Use the info from `sizingData` to display the available sizes, making note of the respective `questionId` and `answerId` values.
-- Using the `questionId` and `answerId` values for the size selected by the consumer, call the [`setSizeAnswer`](/doc/commerce/customization/builder-reference.html#setsizeanswer) method, like:
+- Using the `questionId` and `answerId` values for the size selected by the consumer, call the [`setSizeAnswer`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#setsizeanswer) method, like:
     
     ```javascript
     builderApi.setSizeAnswer('FUTUREELITEFA18:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM403108','LTITEM8132','us-mens'))
@@ -423,7 +423,7 @@ Show the consumer all of the possible gender and size options for the product. F
 
 **Save the Build**
 
-- Call the [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) method like:
+- Call the [`saveDesign`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference#savedesign) method like:
 
     ```javascript
     builderApi.saveDesign()

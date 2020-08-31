@@ -21,6 +21,12 @@ versions:
     documentsBaseUrl: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc
     documentsDefaultType: markdown
     documents:
-      - title: Using Customization
-        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/templates/use-customization.md
+      - title: Customization
+        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/overview-customization.md
         type: markdown
+        - title: Using Customization
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/templates/use-customization.md
+          type: markdown
+        - title: Builder Reference
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder-reference.md
+          type: markdown
