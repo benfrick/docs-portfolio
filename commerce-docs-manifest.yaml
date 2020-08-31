@@ -24,6 +24,7 @@ versions:
       - title: Customization
         url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/overview-customization.md
         type: markdown
+      documents:
         - title: Using Customization
           url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/templates/use-customization.md
           type: markdown
