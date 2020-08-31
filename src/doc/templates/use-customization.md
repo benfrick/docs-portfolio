@@ -2,7 +2,7 @@
 
 ##### Last Updated: 08/31/2020
 
->[PDF](use-customization.pdf)
+>[PDF](https://github.nike.com/ngp/nde-devportal-docs/raw/master/src/doc/templates/use-customization.pdf)
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3):
 
