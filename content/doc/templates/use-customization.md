@@ -8,7 +8,7 @@ The **Customization Experience Platform (CXP)** unlocks your ability to add prem
 
 ![Depiction of Nike By You experience at Nike.com](nby-web-chrome.png)
 
->**TIP**: Before using this guide, you should have already completed [Customization Overview](overview-customization.md).
+>**TIP**: Before using this guide, you should have already completed [Customization Overview](https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/overview-customization.md).
 
 ## Introduction
 
