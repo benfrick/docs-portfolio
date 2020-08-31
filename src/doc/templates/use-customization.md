@@ -8,7 +8,7 @@ The **Customization Experience Platform (CXP)** unlocks your ability to add prem
 
 ![Depiction of Nike By You experience at Nike.com](nby-web-chrome.png)
 
->**TIP**: Before using this guide, you should have already completed [Customization Overview](https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/overview-customization.md).
+>**TIP**: Before using this guide, you should have already completed [Customization Overview](https://github.nike.com/ngp/nde-devportal-docs/raw/master/src/doc/commerce/customization/overview-customization.md).
 
 ## Introduction
 
@@ -147,7 +147,7 @@ In your app's source, create an HTML template and follow these steps:
 
 ## Show Customizable Products
 
-<i class="g72-check"></i>&nbsp;&nbsp;**Which products are customizable? How do I start designing**?
+**Which products are customizable? How do I start designing?**
 
 ### Step 1: Load the Builder
 
@@ -241,7 +241,7 @@ Show the consumer a way to edit the design.
 
 ## Show a Design Experience
 
-<i class="g72-check"></i>&nbsp;&nbsp;**What customization options are available? What does my design look like? How much will it cost?**
+**What customization options are available? What does my design look like? How much will it cost?**
 
 The consumer has selected to edit the design via the 'Edit Design' CTA, so it's time to show them the Builder UX.
 
@@ -274,7 +274,7 @@ For a sample JavaScript class that shows how you might interact with the Builder
 <!-- Can add when new Builder methods become available
 ## Share a Design
 
-|<i class="g72-check"></i>&nbsp;&nbsp;**Share designs**: How do I share my design on social media?|
+**Share designs**: How do I share my design on social media?
 
 Show the consumer a way to share their design on social media.
 
@@ -287,7 +287,7 @@ Show the consumer a way to share their design on social media.
 
 ## Enable My Designs
 
-<i class="g72-check"></i>&nbsp;&nbsp;**How do I save a design in My Designs?**
+**How do I save a design in My Designs?**
 
 The consumer may wish to save one or more of their designs for later in My Designs.
 
@@ -360,7 +360,7 @@ The consumer may wish to save one or more of their designs for later in My Desig
 
 ## Enable Purchasing
 
-<i class="g72-check"></i>&nbsp;&nbsp;**Is the product available for purchase? How do I select a size? When would my design be delivered to me?**
+**Is the product available for purchase? How do I select a size? When would my design be delivered to me?**
 
 The consumer is finished customizing their product, so it's time to get them ready for the checkout process.
 
