@@ -14,16 +14,14 @@ Add product customization to your experience using the [Customization Experience
 
 Here are some use cases for integrating CXP capabilities into your experience.
 
+|Use Cases|
+|---|
 |[Show Customizable Products](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization#show-customizable-products)|Which products are customizable? How do I start designing?|
 |[Show a Design Experience](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization#show-a-design-experience)|What customization options are available? What does my design look like? How much will it cost?|
 |[Enable My Designs](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization#enable-my-designs)|How do I save a design in My Designs?|
 |[Enable Purchasing](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization#enable-purchasing)|Is the product available for purchase? How do I select a size? When would my design be delivered to me?|
 
 >**TIP**: See [Adding Customization to Your Experience](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization) for full integration details.
-
-<!-- Can add when new Builder methods become available
-|[Share a Design](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization#share-a-design): How do I share my design on social media?|
--->
 
 ### User Journey
 
@@ -41,4 +39,7 @@ Here are some use cases for integrating CXP capabilities into your experience.
 
 ### Connect
 
-We're here to help. [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W) [Email](mailto:Lst-nde.docs@nike.com)
+We're here to help. 
+
+- [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W) 
+- [Email](mailto:Lst-nde.docs@nike.com)
