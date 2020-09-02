@@ -50,13 +50,13 @@ versions:
           - title: Enable Purchasing
             url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/enable-purchasing.md
             type: markdown
-          - title: Contacts
+          - title: Contact the Team
             url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/contacts.md
             type: markdown
-          - title: Change Log
+          - title: Doc Change Log
             url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/change-log.md
             type: markdown
-          - title: Next Steps
+          - title: Next-Steps
             url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/next-steps.md
             type: markdown
       - title: Builder Reference
