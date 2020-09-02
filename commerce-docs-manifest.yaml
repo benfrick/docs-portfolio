@@ -60,7 +60,7 @@ versions:
             url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/next-steps.md
             type: markdown
       - title: Builder Reference
-        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/builder-reference.md
+        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/basic-integration.md
         type: markdown
         documents:
         - title: Basic Integration
