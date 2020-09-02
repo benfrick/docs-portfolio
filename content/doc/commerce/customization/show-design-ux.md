@@ -29,17 +29,3 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 #### Sample JavaScript
 
 For a sample JavaScript class that shows how you might interact with the Builder, see [builderBridge.js](https://bitbucket.nike.com/projects/NID/repos/builder-experience/browse/integration/builderBridge.js).
-
-<!-- Can add when new Builder methods become available
-## Share a Design
-
-**Share designs**: How do I share my design on social media?
-
-Show the consumer a way to share their design on social media.
-
-**Display a 'Share my design' CTA that pops a modal with sharing options**
-
-- Get shareable links to Facebook, Twitter, and Pinterest.
-- Get a shareable link to open the design on Nike.com
-- Share URLs for a design can even be obtained for products that cannot be purchased, and before selecting gender/size for a purchaseable product.
--->
