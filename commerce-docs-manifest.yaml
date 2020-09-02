@@ -22,12 +22,65 @@ versions:
     documentsDefaultType: markdown
     documents:
     - title: Customization
-      url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/overview-customization.md
+      url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/overview.md
       type: markdown
       documents:
       - title: Using Customization
-        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/templates/use-customization.md
+        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/introduction.md
         type: markdown
+        documents:
+          - title: Introduction
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/introduction.md
+            type: markdown
+          - title: Key Terms
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/key-terms.md
+            type: markdown
+          - title: Quick-Start
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/quick-start.md
+            type: markdown
+          - title: Show Products
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/show-products.md
+            type: markdown
+          - title: Show a Design UX
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/show-design-ux.md
+            type: markdown
+          - title: Enable My Designs
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/enable-my-designs.md
+            type: markdown
+          - title: Enable Purchasing
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/enable-purchasing.md
+            type: markdown
+          - title: Contacts
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/contacts.md
+            type: markdown
+          - title: Change Log
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/change-log.md
+            type: markdown
+          - title: Next Steps
+            url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/next-steps.md
+            type: markdown
       - title: Builder Reference
         url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder-reference.md
         type: markdown
+        documents:
+        - title: Basic Integration
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/basic-integration.md
+          type: markdown
+        - title: Builder API
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/builder-api.md
+          type: markdown
+        - title: Methods
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/methods.md
+          type: markdown
+        - title: Contacts
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/contacts.md
+          type: markdown
+        - title: Change Log
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/change-log.md
+          type: markdown
+        - title: Next Steps
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/next-steps.md
+          type: markdown
+        - title: buildData Example
+          url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/buildDataExample.md
+          type: markdown
