@@ -1,0 +1,33 @@
+---
+manifest: 1.0
+title: Commerce Docs
+description: Documentation project owned by the Commerce Docs team
+type: documentation
+tags:
+  - API
+  - Global Technology
+  - Documentation
+  - Commerce
+  - Foo
+  - Bar
+urls:
+  repository: https://github.nike.com/ngp/nde-devportal-docs
+  slack: slack://channel?team=T0G3T5X2B&id=C6A18NT7W
+maintainerEmail: Lst-nde.docs@nike.com
+defaultVersion: latest
+versions:
+  latest:
+    status: release
+    documentsBaseUrl: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc
+    documentsDefaultType: markdown
+    documents:
+    - title: Customization
+      url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/overview-customization.md
+      type: markdown
+      documents:
+      - title: Using Customization
+        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/templates/use-customization.md
+        type: markdown
+      - title: Builder Reference
+        url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder-reference.md
+        type: markdown
