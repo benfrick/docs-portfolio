@@ -27,9 +27,9 @@ OR
 **Read the Build Data**
 
 - Availability: From the returned [Build Data](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference/Builder%20API#build-data), if `sizingData.displayName` is "Size", then loop through `sizingData.answers` and evaluate whether `isAvailable` is true or false for all sizes.
-- Lead Time: Call the [getLeadTimeMessage](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference/Methods#getleadtimemessage) method of the Builder API to get the message text and lead time in days for the product.
+- Lead Time: Call the [`getLeadTimeMessage`](https://developer.niketech.com/docs/projects/Commerce%20Docs/Builder%20Reference/Methods#getleadtimemessage) method of the Builder API to get the message text and lead time in days for the product.
 
->**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, you can access the Build Data. See [Step 1: Load the Builder](#step-1-load-the-builder) for more.
+>**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, you can access the Build Data. See [Step 1: Load the Builder](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization/Show%20Products#step-1-load-the-builder) for more.
 
 #### Show Gender, Width and Size Options and Confirm Consumer's Selections
 
@@ -85,7 +85,7 @@ Once you have a metric ID for the build, the consumer should be able to add thei
     ```
     <button style="margin-top: 5px; margin-bottom: 5px;" class="ncss-btn-primary-dark">Add to Bag</button>
 
-- This CTA should only be active once the gender, width, and size-related selections have been passed to the Builder, as shown in [Show Gender, Width, and Size Options and Confirm Consumer's Selections](#show-gender-width-and-size-options-and-confirm-consumers-selections).
+- This CTA should only be active once the gender, width, and size-related selections have been passed to the Builder, as shown in [Show Gender, Width, and Size Options and Confirm Consumer's Selections](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization/Enable%20Purchasing#show-gender-width-and-size-options-and-confirm-consumers-selections).
 
 - Once active, the specific behavior of this CTA can vary depending on your requirements, but here is an example:
 

@@ -1,6 +1,6 @@
 ## Quick-Start: Load the Builder
 
-Want to load the Builder bundle and start interacting with a basic Customization experience? Read this section, otherwise skip to [Show Customizable Products](#show-customizable-products).
+Want to load the Builder bundle and start interacting with a basic Customization experience? Read this section, otherwise skip to [Show Customizable Products](https://developer.niketech.com/docs/projects/Commerce%20Docs/Customization/Using%20Customization/Show%20Products).
 
 In your app's source, create an HTML template and follow these steps:
 
