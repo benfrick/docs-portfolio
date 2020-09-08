@@ -23,7 +23,7 @@ Users of B16 have two adventure options:
 
 ### REST APIs
 
-In addition to the Builder, the Customization Domain offers a variety of [REST APIs](https://developer.niketech.com/?domains=Customization) that can be used for specific steps along the user journey.
+In addition to the Builder, the Customization Domain offers a variety of [REST APIs](https://developer.niketech.com/search?type=apis&q=customization) that can be used for specific steps along the user journey.
 
 ###### Table 1:  Customization APIs and What They Do
 
