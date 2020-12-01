@@ -63,7 +63,7 @@ versions:
         url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/basic-integration.md
         type: markdown
         documents:
-          - title: Basic Integration
+          - title: Introduction
             url: https://raw.github.nike.com/ngp/nde-devportal-docs/master/src/doc/commerce/customization/builder/basic-integration.md
             type: markdown
           - title: Builder API
