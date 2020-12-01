@@ -15,6 +15,14 @@ pre {
   border: none !important;
   width: 100% !important;
   max-height: none !important;
+  display: inline !important;
+}
+pre code {
+    border: none !important;
+}
+code, code span {
+    display: inline !important;
+    border: none !important;
 }
 table {
   width: 100% !important;
