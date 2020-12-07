@@ -594,6 +594,5 @@ Need to contact the Orders team?
 
 You've learned how to add Order History to your experience. Here are some next steps.
 
-- [Capturing User Events](/doc/commerce/events/use-eventsv2.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
