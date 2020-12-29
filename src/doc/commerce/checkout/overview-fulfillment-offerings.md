@@ -30,6 +30,7 @@ Ready to get started? Step through the use cases below to learn how to add Fulfi
 |---|
 |<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each size of a product on a PDP](/doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-style-color)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each item in a consumer's Cart](/doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-multi-item)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the Fulfillment Types, and corresponding Location Types, for a given shopping country](/doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-types)|
 
 <h4>Related Information</h4>
 <aside class="note">
@@ -37,6 +38,9 @@ Ready to get started? Step through the use cases below to learn how to add Fulfi
 <ul>
     <li>
         <a href="https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api" target="new-tab">Fulfillment Offerings</a> <span class="guide-details-li-text"></span>
+    </li>
+    <li>
+        <a href="https://developer.niketech.com/docs/projects/Fulfillment%20Types?tab=api" target="new-tab">Fulfillment Types</a> <span class="guide-details-li-text"></span>
     </li>
 </ul>
 </aside>
