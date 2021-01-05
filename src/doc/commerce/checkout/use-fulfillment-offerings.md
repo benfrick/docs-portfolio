@@ -1204,7 +1204,7 @@ Pass the consumer-selected fulfillment information for each Cart item in the `fu
 The Fulfillment Types API tells you which fulfillment types, and associated location types, are supported for a particular shopping country. By optionally calling Fulfillment Types prior to calling Fulfillment Options, you can streamline your checkout UX in the following ways:
 
 - Show or hide the UI for "Pickup", based on whether fulfillment type "PICKUP" is supported or not
-- Ask Fulfillment Options for "PICKUP" options, or not, based on above
+- Ask Fulfillment Offerings for "PICKUP" options, or not, based on above
 - When showing a UI for "Pickup", show or hide sections like "Nike Stores" or "Pickup Points" based on the supported "PICKUP" location types
 
 ### Step 1: Retrieve Fulfillment Types for a Shopping Country
@@ -1215,7 +1215,7 @@ Execute a GET request to Fulfillment Types:
 https://api.nike.com/buy/fulfillment_types/v1?filter=countryCode(US)
 ```
 
->**NOTE**: The `filter` query parameter must include a two-letter `countryCode` identifier, in the above example it is "US".
+>**NOTE**: The `filter` query parameter must include a two-letter `countryCode` identifier. In the above example, it is "US".
 
 The API response body will look similar to this:
 
@@ -1259,7 +1259,7 @@ The API response body will look similar to this:
 
 ### Step 2: Call Fulfillment Offerings
 
-Based on supported types you got in the API response from Fulfillment Types, call Fulfillment Offerings for only those types. Use the `offeringTypes` array in the request body to restrict the returned offerings to only the supported types:
+Based on the supported types returned in the API response from Fulfillment Types, call Fulfillment Offerings for only those types. Use the `offeringTypes` array in the request body to restrict the returned offerings to only the supported types:
 
 ```
 "offeringTypes": [
@@ -1272,7 +1272,7 @@ Use the API response from Fulfillment Offerings in [Step 3: Adjust Your UI for S
 
 ### Step 3: Adjust Your UI for Selecting Fulfillment Offerings
 
-When you know from calling Fulfillment Types which types are supported (and which are not), you can adjust your UI accordingly for selecting fulfillment offerings. The typical UI changes can be summarized as follows:
+Now that you have the list of supported Fulfillment Types which types are supported (and which are not), you can adjust your UI accordingly for selecting fulfillment offerings. The typical UI changes can be summarized as follows:
 
 - Show or hide the UI for "Pickup", based on whether fulfillment type "PICKUP" is supported or not
 - When showing a UI for "Pickup", show or hide sections like "Nike Stores" or "Pickup Points" based on the supported "PICKUP" location types
