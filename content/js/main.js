@@ -1,19 +1,16 @@
 // expand/collapse sidebar section and highlight sidebar on click
+// collapse all others
 jQuery(function() {
     var $child;
 	var $sidebar = $('#sidebar');
-	//need this to highlight sidebar links at bottom of page
     //highlight sidebar h2 on click event
 	$sidebar.find('a').click(function() {
 		$sidebar.find('a').removeClass('active');
 		$(this).addClass('active');
-		console.log('added active class to '+$(this).attr('name'));
 	});
-    //collapse/expand sidebar section on click event
-    //collapse all others
 	$sidebar.find('span.toggle').click(function() {
-	    var clickedsection = $(this).attr('name'); //h6 name
-	    var $clickedchild = $('#'+clickedsection); //ul id same as h6 name
+	    var clickedsection = $(this).attr('name');
+	    var $clickedchild = $('#'+clickedsection);
 	    var $sections = $sidebar.find('.show');
         if ($clickedchild.hasClass('hide')) {
 	       $clickedchild.removeClass('hide');
