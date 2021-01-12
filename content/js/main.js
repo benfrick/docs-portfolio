@@ -1,23 +1,34 @@
 // expand/collapse sidebar section and highlight sidebar on click
 jQuery(function() {
+    var $child;
 	var $sidebar = $('#sidebar');
 	//need this to highlight sidebar links at bottom of page
     //highlight sidebar h2 on click event
 	$sidebar.find('a').click(function() {
 		$sidebar.find('a').removeClass('active');
 		$(this).addClass('active');
+		console.log('added active class to '+$(this).attr('name'));
 	});
     //collapse/expand sidebar section on click event
+    //collapse all others
 	$sidebar.find('span.toggle').click(function() {
-	    var section = $(this).attr('name');
-	    var $child = $('#'+section);
-	   if ($child.hasClass('hide')) {
-	       $child.removeClass('hide');
-	       $child.addClass('show');
+	    var clickedsection = $(this).attr('name'); //h6 name
+	    var $clickedchild = $('#'+clickedsection); //ul id same as h6 name
+	    var $sections = $sidebar.find('.show');
+        if ($clickedchild.hasClass('hide')) {
+	       $clickedchild.removeClass('hide');
+	       $clickedchild.addClass('show');
 	    } else {
-	        $child.removeClass('show');
-	        $child.addClass('hide');
+	        $clickedchild.removeClass('show');
+	        $clickedchild.addClass('hide');
 	    }
+	    $sections.each(function() {
+	        $child = $('#'+$(this).attr('id'));
+	        if ($child.hasClass('show') && ($clickedchild.attr('id') != $child.attr('id'))) {
+	            $child.removeClass('show');
+            	$child.addClass('hide');
+	        }
+	    });
 	});
 });
 
