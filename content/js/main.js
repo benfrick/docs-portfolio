@@ -1,31 +1,23 @@
 // expand/collapse sidebar section and highlight sidebar on click
-// collapse all others
 jQuery(function() {
-    var $child;
 	var $sidebar = $('#sidebar');
+	//need this to highlight sidebar links at bottom of page
     //highlight sidebar h2 on click event
 	$sidebar.find('a').click(function() {
 		$sidebar.find('a').removeClass('active');
 		$(this).addClass('active');
 	});
+    //collapse/expand sidebar section on click event
 	$sidebar.find('span.toggle').click(function() {
-	    var clickedsection = $(this).attr('name');
-	    var $clickedchild = $('#'+clickedsection);
-	    var $sections = $sidebar.find('.show');
-        if ($clickedchild.hasClass('hide')) {
-	       $clickedchild.removeClass('hide');
-	       $clickedchild.addClass('show');
+	    var section = $(this).attr('name');
+	    var $child = $('#'+section);
+	   if ($child.hasClass('hide')) {
+	       $child.removeClass('hide');
+	       $child.addClass('show');
 	    } else {
-	        $clickedchild.removeClass('show');
-	        $clickedchild.addClass('hide');
+	        $child.removeClass('show');
+	        $child.addClass('hide');
 	    }
-	    $sections.each(function() {
-	        $child = $('#'+$(this).attr('id'));
-	        if ($child.hasClass('show') && ($clickedchild.attr('id') != $child.attr('id'))) {
-	            $child.removeClass('show');
-            	$child.addClass('hide');
-	        }
-	    });
 	});
 });
 
