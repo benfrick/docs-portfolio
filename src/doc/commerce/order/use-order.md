@@ -6,14 +6,18 @@ position: 12
 title: Order
 url: /doc/commerce/order/use-order.html
 toc:
+  - h2: Introduction
+    url: /doc/commerce/order/use-order.html#introduction
+  - h2: Key Terms
+    url: /doc/commerce/order/use-order.html#key-terms
   - h2: List a Member's Orders
     url: /doc/commerce/order/use-order.html#step-1-list-a-members-orders
   - h2: List Order Details for a Member or Guest
     url: /doc/commerce/order/use-order.html#step-2-list-order-details-for-a-member-or-guest
   - h2: Understanding Order Status
     url: /doc/commerce/order/use-order.html#understanding-order-status
-  - h2: API Endpoint Quick Reference
-    url: /doc/commerce/order/use-order.html#api-endpoint-quick-reference
+  - h2: API Quick Reference
+    url: /doc/commerce/order/use-order.html#api-quick-reference
   - h2: Best Practices
     url: /doc/commerce/order/use-order.html#best-practices
   - h2: Troubleshooting
@@ -29,80 +33,88 @@ toc:
 ---
 <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
-# ADDING ORDER HISTORY <br>TO YOUR EXPERIENCE
+# ADDING ORDER HISTORY TO YOUR EXPERIENCE
 
 ---
 
-##### Last Updated: 02/11/2020
+##### Last Updated: 02/17/2021
 
 Retrieve a complete order history for your consumers.
 
 >**TIP**: Before using this guide you should have already completed [Adding Checkout to Your Experience](/doc/commerce/checkout/use-checkout.html).
 
-Adding order history to your app is a two-step process.
+## Introduction
 
-<i class="numberCircle gray">1</i>Your application makes a User Order Summary API request to retrieve all or a filtered [list of a
-member's
-orders](#step-1-list-a-members-orders).
+Adding order history to your app is a two-step process:
 
-<i class="numberCircle gray">2</i>Using an order ID returned in the User Order Summary response, your application makes a BFF Order Details API
-request to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
+**1.** Your application makes a User Order Summary API request to retrieve all, or a filtered [list of a member's orders](#step-1-list-a-members-orders).
+
+**2.** Using an order ID returned in the User Order Summary response, your application makes a User Order Details API request to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
 
 ### What is an Order?
 
 An order consists of all data related to:
 
-- Consumer's purchased items/services
-
-- Consumer’s payment method(s) and billing address(es)
-
-- Consumer’s shipping method(s) and shipping address(es)
-
+- Consumers' purchased items/services
+- Consumers' payment method(s) and billing address(es)
+- Consumers' shipping method(s) and shipping address(es)
 - Pricing
-
 - Taxes
-
 - Promotions
-
 - Status
 
-An order is created in the last step of [Checkout](/doc/commerce/checkout/use-checkout.html) when the consumer has provided all of the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the order lifecycle. See [Understanding Order Status](#understanding-order-status) for more detail.
+An order is created in the last step of [Checkout](/doc/commerce/checkout/use-checkout.html) when the consumer has provided all the necessary checkout information and submits it for fulfillment. After an order is created, it is stamped with a unique order number, the date and time the order was submitted, and a status of `CREATED`. The order is assigned different statuses as it progresses through the order lifecycle. See [Understanding Order Status](#understanding-order-status) for more detail.
 
-## Step 1: List a member's orders
+## Key Terms
 
-Use the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
+Listed below are key terms for the Order History APIs.
 
-This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest's order, see [List
-order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
+###### Table 1: Key Terms for Order History APIs
+
+|Term|Definition|
+|---|---|
+|**Employee**|An employee that is logged in with a Swoosh account|
+|**Guest**|An anonymous consumer, i.e. not logged-in with a Nike account|
+|**Member**|A logged-in consumer with a Nike account|
+|**Order**|A set of data for a checkout submitted by a consumer. Often contains products/services, payment methods, shipping methods, taxes, and promotions|
+|**Order Line**|A line item with an order, representing a product, payment, etc.|
+|**Order Number**|The unique identifier for the order|
+|**Order Status**|The status of an order, as represented for individual lines and payments, or as a combined `status`. See [Understanding Order Status](#understanding-order-status) for more|
+
+## Step 1: List a Member's Orders
+
+Use the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get all, or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
+
+This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest's order, see [List Order Details for a Member or Guest](#step-2-list-order-details-for-a-member-or-guest).
 
 The User Order Summary API requires that you pass certain request headers. For more information, see [Required Request Headers](#required-request-headers).
 
 ### Customizing Your Results
 
-You control what is returned in your result set and how it is sorted through URL parameters.
+You control what is returned in your result set, and how it is sorted, through URL parameters.
 
 **Filtering**
 
-The table below lists the fields by which you can filter your User Order Summary results. If no filter is applied, all
-of a member's orders are returned. While some filters only allow one value, you can send multiple
- filters in the same request. For instance, even though only one orderSubmitDateAfter filter value is
-  allowed, you can request a User Order Summary filtered by orderSubmitDateAfter and status. Note that filter parameter names
-   and values are case sensitive.
+The table below lists the fields by which you can filter your User Order Summary results. If no filter is applied, all of a member's orders are returned. While some filters only allow one value, you can send multiple filters in the same request. For instance, even though only one `orderSubmitDateAfter` filter value is allowed, you can request a User Order Summary filtered by `orderSubmitDateAfter` and status. Note that filter parameter names and values are case-sensitive.
 
-###### Table 1:  Available Filters for User Order Summary 
+###### Table 2: Available Filters for User Order Summary 
 
 |Order Field Name|Description|Sample Value|
 |---|---|
-|**status**|List orders with this status.|Cancelled|
-|**orderType**|List orders of this type. You can only filter by one orderType at a time.|SALES_ORDER|
-|**storeId**|List orders placed in this store. You can only filter by one storeId at a time.|28382|
-|**orderSubmitDateAfter**|List orders placed after this date. You can only filter by one date at a time.|Format is yyyy-MM-dd'T'HH:mm:ssZ|
+|`orderType`|List orders of this type. You can only filter by one orderType at a time.|SALES_ORDER|
+|`storeId`|List orders placed in this store. You can only filter by one storeId at a time.|28382|
+|`status`|List orders with this status.|Cancelled|
+|`orderSubmitDateAfter`|List orders placed after this date. You can only filter by one date at a time.|Format is yyyy-MM-dd'T'HH:mm:ssZ|
+|`orderLines.parentSalesOrderNumber`|Allows search of return orders based on sales order number|O7280930876|
+|`orderLines.parentSalesOrderLineKey`|Allows search of return orders based on sales order line key|2017082205384575313686545|
+|`email`|Filter by customer email address. Only works in combination with `orderLines.parentSalesOrderNumber` or `orderLines.parentSalesOrderLineKey` and it must match email in parent order|sample@gmail.com|
+|`phoneNumber`|Filter by customer phone number. Only number 0-9 are valid. Only works in combination with `orderLines.parentSalesOrderNumber` or `orderLines.parentSalesOrderLineKey` and it must match phone number in parent order|7134567890|
 
 **Sorting**
 
 You can sort a member's orders in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
 
->TIP: It is recommended that your app pass the sort query parameter in the request to ensure that the results are sorted appropriately for your experience.
+>**TIP**: It is recommended that your app pass the `sort` query parameter in the request to ensure that the results are sorted appropriately for your experience.
 
 **Other Query Parameters**
 
@@ -110,57 +122,69 @@ The User Order Summary API also supports the `fields`, `count` and `anchor` quer
 
 Let's take a look at some User Order Summary scenarios.
 
-###### Table 2:  Scenarios for User Order Summary 
+###### Table 3: Scenarios for User Order Summary 
 
 |I want to list for a member|Sample Query|
 |---|---|
-|Order types of RESERVE_ORDER, submitted after 2018-01-24, purchased at store 12345|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)&filter=orderType(RESERVE_ORDER)`|
-|Orders with a status of `Shipped` or `Delivered`|`https://api.nike.com/order_mgmt/user_order_summary/v1?filter=status(Shipped,Delivered)`|
-|All orders sorted in ascending modificationDate|`https://api.nike.com/order_mgmt/user_order_summary/v1?sort=modificationDateAsc`|
-|Just order ID, status and submitted date fields of all orders|`https://api.nike.com/order_mgmt/user_order_summary/v1?fields=id,status,orderSubmitDate`|
-|Two most-recently-submitted orders|`https://api.nike.com/order_mgmt/user_order_summary/v1?count=2`|
+|Order types of RESERVE_ORDER, submitted after 2018-01-24, purchased at store 12345|`https://api.nike.com/order_mgmt/user_order_summary/v2?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)&filter=orderType(RESERVE_ORDER)`|
+|Orders with a status of `Shipped` or `Delivered`|`https://api.nike.com/order_mgmt/user_order_summary/v2?filter=status(Shipped,Delivered)`|
+|All orders sorted in ascending modificationDate|`https://api.nike.com/order_mgmt/user_order_summary/v2?sort=modificationDateAsc`|
+|Just order ID, status and submitted date fields of all orders|`https://api.nike.com/order_mgmt/user_order_summary/v2?fields=id,status,orderSubmitDate`|
+|Two most-recently-submitted orders|`https://api.nike.com/order_mgmt/user_order_summary/v2?count=2`|
 
 ### Executing the Request
 
-Sample CURL for User Order Summary for a Member/Employee
+Sample CURL for User Order Summary for a Member/Employee:
 
 ```
 curl -X GET \
-  https://api.nike.com/order_mgmt/user_order_summary/v1 \
+  https://api.nike.com/order_mgmt/user_order_summary/v2 \
   -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
 ```
 
 ### Parsing the Response
 
-The User Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} for a full list of fields returned in the response.
+The User Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} for a full list of fields returned in the response.
 
-## Step 2: List order details for a member or guest
+## Step 2: List Order Details for a Member or Guest
 
-Use the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information or you want information on more than one order for either a member or employee, see [List a member's orders](#step-1-list-a-members-orders).
+Use the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information, or you want information on more than one order for either a member or employee, see [List a Member's Orders](#step-1-list-a-members-orders).
 
->TIP: The User Order Details API does not return image URL but you can call the [Merchandised Product API](/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the User Order Details API to get a list of images for a styleColor and country.
+>**TIP**: The User Order Details API does not return image URL, but you can call the [Merchandised Product API](/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the User Order Details API to get a list of images for a styleColor and country.
 
-The User Order Details API requires that you pass certain headers in the request depending upon whether the consumer
-is a member, guest, or employee. For more information, see [Required Request Headers](#required-request-headers).
+The User Order Details API requires that you pass certain headers in the request depending upon whether the consumer is a member, guest, or employee. For more information, see [Required Request Headers](#required-request-headers).
 
 ### Required Request Parameters
 
-For members and employees, the orderNumber path parameter is required. For validation purposes for guest consumers, the orderNumber path parameter and email address filter parameter are required.
+For members and employees, the `orderNumber` path parameter is required. For validation purposes for guest consumers, the `orderNumber` path parameter and email address filter parameter are required.
 
->TIPs: To avoid a 404 response, the authentication header for a member request must match the member who created the order.<br>For guests, the email address must match the shipTo email address on the order.
+>**TIPS**:
+>- To avoid a 404 response, the authentication header for a member request must match the member who created the order.
+>- For guests, the email address must match the shipTo email address on the order.
 
 ### Customizing Your Results
 
-You control what is returned in your result set through URL parameters. The User Order Details API supports the `fields` query parameter to restrict the fields returned in the response. Since the User Order Details API only returns one consumer order, the `anchor`, `sort`, `filter` and `count` query parameters are not supported. For more information on the `fields` query parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
+You control what is returned in your result set through URL parameters. The User Order Details API supports the `fields` query parameter to restrict the fields returned in the response. Since the User Order Details API only returns one consumer order, the `anchor`, `sort`, and `count` query parameters are not supported. For more information on the `fields` query parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
+
+**Filtering**
+
+The table below lists the fields by which you can filter your User Order Detail results.
+
+###### Table 4: Available Filters for User Order Summary
+
+|Order Field Name|Description|Sample Value|
+|---|---|
+|`email`|Filter by customer email address|sample@gmail.com|
+|`phoneNumber`|Filter by customer phone number. Only numbers 0-9 allowed|7134567890|
 
 Let's take a look at some User Order Details scenarios.
 
-###### Table 3:  Scenarios for User Order Details
+###### Table 5: Scenarios for User Order Details
 
 |I want to|Sample Query|
 |---|---|
-|List the details for order ID C00011554850 for a member|`https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850`|
-|List the ID, status and shipping method fields for orderNumber C00011554850 for a guest|`https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email(my.email@address.com)&fields=id,status,orderLines.shippingMethod`|
+|List the details for order ID C00011554850 for a member|`https://api.nike.com/order_mgmt/user_order_detail/v2/C00011554850`|
+|List the ID, status and shipping method fields for orderNumber C00011554850 for a guest|`https://api.nike.com/order_mgmt/user_order_details/v2/C00011554850?filter=email(my.email@address.com)&fields=id,status,orderLines.shippingMethod`|
 
 ### Executing the Request
 
@@ -168,7 +192,7 @@ Sample CURL for User Order Details C00011554850 for a member/employee:
 
 ```
 curl -X GET \
-  https://api.nike.com/order_mgmt/user_order_detail/v1/C00011554850 \
+  https://api.nike.com/order_mgmt/user_order_detail/v2/C00011554850 \
   -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
 ```
 
@@ -176,7 +200,7 @@ Sample CURL for User Order Details C00011554850 for a guest:
 
 ```
 curl -X GET \
-  'https://api.nike.com/order_mgmt/user_order_details/v1/C00011554850?filter=email%28my.email@address.com%29' \
+  'https://api.nike.com/order_mgmt/user_order_details/v2/C00011554850?filter=email%28my.email@address.com%29' \
   -H 'X-Nike-Visitorid: 2c83877b-10fa-44da-a92d-2451efef8671' \
   -H 'appid: com.nike.sport.running.ios' \
   -H 'x-nike-visitid: 2'
@@ -184,20 +208,21 @@ curl -X GET \
 
 ### Parsing the Response
 
-The User Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined and the suggested order statuses to display in your experience. See the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
+The User Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
 
 ## Understanding Order Status
 
 An order contains three types of statuses:
+
 - order
 - order line
 - payment
 
-An order line is a Nike service or product associated with a quantity, e.g. Nike Air VaporMax quantity 1. Orders have at least one order line and may have several. Each order line has one or more statuses that map(s) to a numeric status code. Behind the scenes, the status of the order is calculated by evaluating which order line has a rolledUpStatus with the highest status code.
+An order line is a Nike service or product associated with a quantity, e.g. Nike Air VaporMax, quantity 1. Orders have at least one order line and may have several. Each order line has one or more statuses that map(s) to a numeric status code. Behind the scenes, the status of the order is calculated by evaluating which order line has a `rolledUpStatus` with the highest status code.
 
 The table below describes each status associated with an order.
 
-###### Table 4: Fields Relating to Order Status for User Order Details/Summary
+###### Table 6: Fields Relating to Order Status for User Order Details/Summary
 
 |Status Field Name|Description|API|
 |---|---|---|
@@ -208,7 +233,7 @@ The table below describes each status associated with an order.
 |orderLines.`statuses`|An array of statuses for each status code on this order line. The description with the highest status code matches orderLines.maxOrderLineStatus. The description with the lowest status code matches orderLines.minOrderLineStatus.|User Order Details|
 |`paymentStatus`|Status of payment.|User Order Summary|
 
-In the scenario illustrated by the User Order Details response below, a consumer has purchased two order lines. One order line has shipped and has a rolledUpStatus of "Shipped" and the other has been delayed at the factory and has a rolledUpStatus of "Factory Delayed". Because the "Shipped" status has a higher status code than the "Factory Delayed" status code, the order status is "Partially Shipped", calculated by "Partially" + the order line with the highest rolledUpStatus on the order.
+In the scenario illustrated by the User Order Details response below, a consumer has purchased two order lines. One order line has shipped and has a `rolledUpStatus` of "Shipped", and the other has been delayed at the factory and has a `rolledUpStatus` of "Factory Delayed". Because the "Shipped" status has a higher status code than the "Factory Delayed" status code, the order status is "Partially Shipped", calculated by "Partially" + the order line with the highest `rolledUpStatus` on the order.
 
 ```
 {
@@ -253,7 +278,7 @@ In the scenario illustrated by the User Order Details response below, a consumer
 }
 ```
 
-Let's look at a slightly more complex example. As illustrated by the User Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the rolledUpStatus of the order line is "Delivered". The highest rolledUpStatus of the order is "Delivered", so the order status is "Partially Delivered".
+Let's look at a slightly more complex example. As illustrated by the User Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the `rolledUpStatus` of the order line is "Delivered". The highest `rolledUpStatus` of the order is "Delivered", so the order status is "Partially Delivered".
 
 
 ```
@@ -327,15 +352,13 @@ EXCHANGE CREATED - EXCHANGE IN PROCESS - COMPLETED
 
 -->
 
-Listed below are the order line statuses, status codes, and simple status.
+Listed below are the order line statuses, status codes, and simple status:
 
-**STATUS**: The order line status is returned by both the User Order Summary and User Order Details APIs.
+- **STATUS**: The order line status is returned by both the User Order Summary and User Order Details APIs.
+- **STATUS CODE**: Behind the scenes, status code is used by both APIs to calculate status ranking. However, the status code is not returned by either the User Order Summary or User Order Details API.
+- **SIMPLE STATUS**: The simple status is not returned by either the User Order Summary or User Order Details API but is provided as a sample, consumer-friendly status. Your experience could perform a similar status-to-simple-status mapping to display status to the consumer.
 
-**STATUS CODE**: Behind the scenes, status code is used by both APIs to calculate status ranking. However, the status code is not returned by either the User Order Summary or User Order Details API.
-
-**SIMPLE STATUS**: The simple status is not returned by either the User Order Summary or User Order Details API but is provided as a sample, consumer-friendly status. Your experience could perform a similar status-to-simple-status mapping to display status to the consumer.
-
-###### Table 5: Matrix of Order Line Statuses, Status Codes, and Simple Statuses
+###### Table 7: Matrix of Order Line Statuses, Status Codes, and Simple Statuses
 
 |STATUS|STATUS CODE<br>* not returned by either API|SIMPLE STATUS<br>* not returned by either API|
 |---|---|---|
@@ -477,14 +500,14 @@ Listed below are the order line statuses, status codes, and simple status.
 |CREATED||Created (Only for Reserve Orders)|
 |UNRESERVED||UnReserved(Only for Reserve Orders)|
 
-## API Endpoint Quick Reference
+## API Quick Reference
 
-###### Table 6:  Order History Endpoints
+###### Table 8: Order History Endpoints
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[USER ORDER SUMMARY](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"}|/order_mgmt/user_order_summary/v1|GET|
-|[USER ORDER DETAIL](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}|/order_mgmt/user_order_detail/v1/{orderNumber}|GET|
+|[USER ORDER SUMMARY](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"}|/order_mgmt/user_order_summary/v2|GET|
+|[USER ORDER DETAIL](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}|/order_mgmt/user_order_detail/v2/{orderNumber}|GET|
 
 ## Best Practices
 
@@ -508,16 +531,16 @@ None of the endpoints described in this document support caching.
 
 ## Troubleshooting
 
+Here are some troubleshooting tips:
+
 - Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
-
 - Use a Splunk query (requires access) to check for issues with your request.
-
 - Contact the Orders team on the [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"} Slack channel for assistance.
 
 ## Terms of Service
-<!--
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#registration) guide on how to create and register your caller ID.
--->
+
+Following are the terms of service for the Order History APIs.
+
 ### Authorization
 
 #### Access Tokens
@@ -530,30 +553,25 @@ To find out more on how to call Unite services to obtain access tokens, see the 
 
 #### JSON Web Token
 
-Neither the User Order Summary nor User Order Details endpoints require the additional
-authorization
- of a
- JSON Web Token (JWT). For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
+Neither the User Order Summary nor User Order Details endpoints require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
 
 ### Sample Requests
 
-Sample requests included throughout this guide contain unique IDs and access tokens that are spent/expired in the Production environment, so you will not be able use them as-is for testing purposes. Reuse what you can and replace with valid IDs/access tokens when necessary.
+Sample requests included throughout this guide contain unique IDs and access tokens that are spent/expired in the Production environment, so you will not be able to use them as-is for testing purposes. Reuse what you can and replace with valid IDs/access tokens when necessary.
 
 ### User Types
 
 The User Order APIs support 3 distinct user types:
 
 - Member: user has logged in with their Nike+ account credentials
-
 - Guest: user has not logged in (anonymous user)
-
 - Employee: user is an employee of Nike or a subsidiary and has logged in with swoosh.com credentials (also known as Swoosh user type)
 
 #### Required Request Headers
 
-Listed below are the required request headers based on user type. Since most User Order Summary and User Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token and passes that token in the request.
+Listed below are the required request headers based on user type. Since most User Order Summary and User Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app calls the Unite services first to get an access token and passes that token in the request.
 
-###### Table 7:  Required Order History Request Headers by User Type
+###### Table 9:  Required Order History Request Headers by User Type
 
 |Header Name|Description|Member|Guest<br>* guest consumers are supported in the User Order Details API only|Employee|
 |---|---|---|---|---|
@@ -564,7 +582,7 @@ Listed below are the required request headers based on user type. Since most Use
 |**x-nike-visitid**|Integer identifying the guest's session. Applies only to User Order Details API.||X||
 |**appId**|Application making the API request e.g. com.nike.sport.running.ios|X|X|X|
 
->**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
+>**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from Nike Unite/Identity, prefixed by `Bearer ` (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
 
 See the User Types section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#user-types) guide for more information.
 
@@ -572,7 +590,7 @@ See the User Types section of the [Using Nike APIs](/doc/getting-started/using-n
 
 **Is it okay to call Order APIs if my app is hosted in an Amazon Web Services VPC?**
 
-Yes. The APIs are exposed publicly so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"} for help.
+Yes. The APIs are exposed publicly, so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"} for help.
 
 ## Contacting the Team
 
@@ -589,6 +607,7 @@ Need to contact the Orders team?
 |Summary|Date|
 |---|---|---|
 |Initial publish|10/25/2018|
+|Updated for v2 of both endpoints, updated doc format|02/17/2021|
 
 ## Next Steps
 

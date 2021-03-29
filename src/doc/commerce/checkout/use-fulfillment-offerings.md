@@ -34,7 +34,7 @@ toc:
 
 ---
 
-##### Last Updated: 01/01/2021
+##### Last Updated: 01/20/2021
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -190,7 +190,7 @@ There are two ways to get a list of Fulfillment Offerings:
 
 Call [Fulfillment Offerings GET](#fulfillment-offerings-get) when consumer information is not necessary to calculate detailed fulfillment offerings for the sizes of a style-color, such as on a product display page.
 
-This endpoint has a low response rate and  may retrieve cached data.
+This endpoint has a low response rate and may retrieve cached data.
 
 ###### Table 2.1 Fulfillment Offerings GET API Request Headers
 
@@ -226,13 +226,16 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
         "type": "SHIP",
         "location": {
           "type": "address/shipping",
+          "id": "ef92895e-db6d-48a6-8c9a-75890db5ab2f",
           "postalAddress": {
             "postalCode": "97006",
             "country": "US"
           }
         },
         "offerExpiration": "2019-02-07T23:59:59.000Z",
-        "fulfillmentAttributes": ["FASTEST"],
+        "fulfillmentAttributes": [
+          "FASTEST"
+        ],
         "getBy": {
           "minDate": {
             "dateTime": "2019-02-07T00:00:00.000Z",
@@ -317,7 +320,9 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
           }
         },
         "offerExpiration": "2019-02-07T23:59:59.000Z",
-        "fulfillmentAttributes": ["CHEAPEST"],
+        "fulfillmentAttributes": [
+          "CHEAPEST"
+        ],
         "getBy": {
           "minDate": {
             "dateTime": "2019-02-07T00:00:00.000Z",
@@ -347,13 +352,16 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
           "type": "SHIP",
           "location": {
             "type": "address/shipping",
+            "id": "ef92895e-db6d-48a6-8c9a-75890db5ab2f",
             "postalAddress": {
               "postalCode": "97006",
               "country": "US"
             }
           },
           "offerExpiration": "2019-02-07T23:59:59.000Z",
-          "fulfillmentAttributes": ["FASTEST"],
+          "fulfillmentAttributes": [
+            "FASTEST"
+          ],
           "getBy": {
             "minDate": {
               "dateTime": "2019-02-07T00:00:00.000Z",
@@ -382,6 +390,7 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
           "type": "SHIP",
           "location": {
             "type": "address/shipping",
+            "id": "ef92895e-db6d-48a6-8c9a-75890db5ab2f",
             "postalAddress": {
               "postalCode": "97006",
               "country": "US"
@@ -416,6 +425,7 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
           "type": "SHIP",
           "location": {
             "type": "address/shipping",
+            "id": "ef92895e-db6d-48a6-8c9a-75890db5ab2f",
             "postalAddress": {
               "postalCode": "97006",
               "country": "US"
@@ -506,7 +516,9 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
             }
           },
           "offerExpiration": "2019-02-07T23:59:59.000Z",
-          "fulfillmentAttributes": ["CHEAPEST"],
+          "fulfillmentAttributes": [
+            "CHEAPEST"
+          ],
           "getBy": {
             "minDate": {
               "dateTime": "2019-02-07T00:00:00.000Z",
@@ -528,6 +540,99 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
       ]
     }
   ],
+  "locations": [
+    {
+      "id": "ef92895e-db6d-48a6-8c9a-75890db5ab2f",
+      "type": "address/shipping",
+      "details": {
+        "postalAddress": {
+          "postalCode": "97006",
+          "country": "US"
+        }
+      }
+    },
+    {
+      "type": "location/search",
+      "postalCode": "97006",
+      "radius": {
+        "distance": 20,
+        "unitOfMeasure": "mi"
+      },
+      "results": [
+        {
+          "id": "339EF669C22F4B2EE05336680C0A6639",
+          "type": "store/store_views",
+          "details": {
+            "name": "Nike Company Store",
+            "description": "Nike store in Beaverton",
+            "phone": "1234567890",
+            "postalAddress": {
+              "address1": "3485 SW Knowlton Rd",
+              "city": "Beaverton",
+              "state": "OR",
+              "postalCode": "972005",
+              "country": "US"
+            },
+            "coordinates": {
+              "latitude": 123.45,
+              "longitude": 67.89
+            },
+            "searchProximity": {
+              "distance": 20,
+              "unitOfMeasure": "mi"
+            },
+            "hoursOfOperation": {
+              "regularHours": {
+                "monday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "tuesday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "wednesday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "thursday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "friday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "saturday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "sunday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT10H"
+                  }
+                ]
+              },
+              "specialHours": []
+            }
+          }
+        }
+      ]
+    }
+  ],
   "warnings": [
     {
       "skuId": "c9176a0b-0664-4c92-8530-a46fe22f8a33",
@@ -539,11 +644,18 @@ https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=p
     }
   ]
 }
-
 ```
 
-A successful Fulfillment Offerings GET response includes a summary of offerings and offering details for each size of a style-color.
+A successful Fulfillment Offerings GET response includes these important top-level properties:
 
+###### Table 2.2 Important Properties of the Fulfillment Offerings GET API Response
+
+|Property|Data Type|Description|
+|---|---|---|
+|`summary`|object|Contains a list of offerings by type in the embedded `fulfillmentOfferings` array|
+|`items`|array|An array of style-color-sizes, each with an embedded array of `fulfillmentOfferings`|
+|`locations`|array|An array of locations, linked by `id` to the `fulfillmentDetails` section of `items`|
+ 
 The offerings for each size are calculated independently. If the service cannot calculate offerings for all sizes, this is a partial success. Sizes for which offerings cannot be calculated are included in a warning list with a code explaining why the offering could not be calculated for that size.
 
 If the service cannot calculate offerings for any size, it returns an error code explaining why the call failed.
@@ -556,7 +668,7 @@ Allow the consumer to indicate their fulfillment intent for each item in Cart by
 
 ##### Step 1: Make a Fulfillment Offerings Jobs PUT request
 
-###### Table 2.2 Fulfillment Offerings Jobs API Request Headers
+###### Table 2.3 Fulfillment Offerings Jobs API Request Headers
 
 |Header Name|Description|Member|Guest|Employee|
 |---|---|---|---|---|
@@ -672,17 +784,17 @@ Send an HTTP PUT request to `https://api.nike.com/buy/fulfillment_offerings_jobs
 
 Let's break down the sample Fulfillment Offerings Jobs PUT request body.
 
-skuId 935f2623-6010-4da9-a218-571c8e33d7aa is a customizable style-color because the `type` is `customization/nike_id`. The consumer has not indicated an [intended method of fulfillment](#intent) because there is no `fulfillmentType`, but the shipping address in the `locations` object is used to calculate a `SHIP` fulfillment offering for the customizable style-color.
+`skuId` 935f2623-6010-4da9-a218-571c8e33d7aa is a customizable style-color because the `type` is `customization/nike_id`. The consumer has not indicated an [intended method of fulfillment](#intent) because there is no `fulfillmentType`, but the shipping address in the `locations` object is used to calculate a `SHIP` fulfillment offering for the customizable style-color.
 
 The consumer has indicated intent to ship skuId 15611769-e81b-45dd-b28c-ca0effb272de to the address in the `locations` object due to the SHIP `fulfillmentType`. The shipping address in the `locations` object is used to calculate `SHIP` and `PICKUP` type fulfillment offerings returned in the response.
 
-The consumer has indicated intent to pickup skuId f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7 due to the PICKUP `fulfillmentType`. The shipping address and location search data points (postal code and latitude/longitude) in the `locations` object are used to calculate `SHIP` and `PICKUP` type fulfillment offerings returned in the response.
+The consumer has indicated intent to pickup `skuId` f1d26307-c6c6-4c3b-afcf-6fbfd3db00c7 due to the PICKUP `fulfillmentType`. The shipping address and location search data points (postal code and latitude/longitude) in the `locations` object are used to calculate `SHIP` and `PICKUP` type fulfillment offerings returned in the response.
 
 The list of `offeringTypes` restricts the fulfillment offerings returned to the `SHIP` and `PICKUP` fulfillment types.
 
 ##### Step 2: Retrieve the Fulfillment Offerings Jobs Result
 
-After calling [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving a HTTP 202 response, execute a request to [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} using the same Fulfillment Offerings ID to check the status of your job.
+After calling [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and receiving an HTTP 202 response, execute a request to [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} using the same Fulfillment Offerings ID to check the status of your job.
 
 To know if the job is done, check the value of the **status** field in the response body as follows:
 
@@ -734,6 +846,7 @@ Once you receive a 200 response with a job status of COMPLETED, get the results 
           "type": "SHIP",
           "location": {
             "type": "address/shipping",
+            "id": "1d4d0e07-7ab9-4530-a6c6-2e1ea0d0a438",
             "postalAddress": {
               "address1": "1234 NW Test",
               "city": "Beaverton",
@@ -774,6 +887,7 @@ Once you receive a 200 response with a job status of COMPLETED, get the results 
           "type": "SHIP",
           "location": {
             "type": "address/shipping",
+            "id": "1d4d0e07-7ab9-4530-a6c6-2e1ea0d0a438",
             "postalAddress": {
               "address1": "1234 NW Test",
               "city": "Beaverton",
@@ -808,42 +922,6 @@ Once you receive a 200 response with a job status of COMPLETED, get the results 
               "amount": 20
             }
           ]
-        },
-        {
-          "type": "PICKUP",
-          "location": {
-            "type": "location/pick_up_locations",
-            "postalAddress": {
-              "address1": "123 Main St",
-              "city": "Portland",
-              "state": "OR",
-              "postalCode": "97035",
-              "country": "US"
-            },
-            "consumerPickupPoint": {
-              "storeId": "U30121909",
-              "storeType": "DEMO",
-              "companyName": "SHOES R US"
-            }
-          },
-          "offerExpiration": "2019-02-07T00:00:00.000Z",
-          "getBy": {
-            "minDate": {
-              "dateTime": "2019-02-07T00:00:00.000Z",
-              "timezone": "America/Los_Angeles",
-              "precision": "DAY"
-            },
-            "maxDate": {
-              "dateTime": "2019-02-09T23:59:59.000Z",
-              "timezone": "America/Los_Angeles",
-              "precision": "DAY"
-            }
-          },
-          "price": {
-            "base": 8,
-            "discount": 0,
-            "total": 8
-          }
         }
       ]
     },
@@ -857,6 +935,7 @@ Once you receive a 200 response with a job status of COMPLETED, get the results 
           "type": "SHIP",
           "location": {
             "type": "address/shipping",
+            "id": "1d4d0e07-7ab9-4530-a6c6-2e1ea0d0a438",
             "postalAddress": {
               "address1": "1234 NW Test",
               "city": "Beaverton",
@@ -947,7 +1026,11 @@ Once you receive a 200 response with a job status of COMPLETED, get the results 
                 },
                 "specialHours": []
               }
-            }
+            },
+            "published": true,
+            "facilityType": "NIKE_OWNED_STORE",
+            "businessConcept": "BEACON",
+            "brand": "NIKE"
           },
           "offerExpiration": "2016-02-07T23:59:59.000Z",
           "getBy": {
@@ -1062,17 +1145,135 @@ Once you receive a 200 response with a job status of COMPLETED, get the results 
         }
       ]
     }
+  ],
+  "promotionCodes": [
+    {
+      "code": "SPRINGSALE19",
+      "status": "PROMOTION_NOT_APPLIED",
+      "reasons": [
+        {
+          "code": "MEMBERSHIP_REQUIRED"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "1d4d0e07-7ab9-4530-a6c6-2e1ea0d0a438",
+      "type": "address/shipping",
+      "itemAvailability": "PARTIAL",
+      "details": {
+        "postalAddress": {
+          "address1": "1234 NW Test",
+          "city": "Beaverton",
+          "state": "OR",
+          "postalCode": "97006",
+          "country": "US"
+        }
+      }
+    },
+    {
+      "type": "location/search",
+      "postalCode": "90401",
+      "radius": {
+        "distance": 20,
+        "unitOfMeasure": "mi"
+      },
+      "results": [
+        {
+          "id": "339EF669C22F4B2EE05336680C0A6639",
+          "type": "store/store_views",
+          "itemAvailability": "PARTIAL",
+          "details": {
+            "name": "Nike Santa Monica",
+            "description": "Nike store in Santa Monica",
+            "phone": "1234567890",
+            "postalAddress": {
+              "address1": "395 Santa Monica Pl.",
+              "city": "Santa Monica",
+              "state": "CA",
+              "postalCode": "90401",
+              "country": "US"
+            },
+            "coordinates": {
+              "latitude": 123.45,
+              "longitude": 67.89
+            },
+            "searchProximity": {
+              "distance": 20,
+              "unitOfMeasure": "mi"
+            },
+            "hoursOfOperation": {
+              "regularHours": {
+                "monday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "tuesday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "wednesday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "thursday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "friday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "saturday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT11H"
+                  }
+                ],
+                "sunday": [
+                  {
+                    "startTime": "10:00",
+                    "duration": "PT10H"
+                  }
+                ]
+              },
+              "specialHours": []
+            }
+          }
+        }
+      ]
+    }
   ]
 }
 ```
 
-The Fulfillment Offerings Jobs GET response includes the list of Cart items and a list of fulfillmentGroups. For each item, it lists the [fulfillment group](#fulfillment-groups) ID and fulfillment offerings.
+The Fulfillment Offerings Jobs GET response includes the following important top-level properties:
+
+###### Table 2.4 Important Properties of the Fulfillment Offerings Jobs GET Response Body
+
+|Property|Data Type|Description|
+|---|---|---|
+|`items`|array|An array of style-color-sizes, each with an embedded array of `fulfillmentOfferings`|
+|`fulfillmentGroups`|array|A grouping of `priceOffers` by fulfillment type, linked by `id` to `fulfillmentGroupId` in `items`|
+|`promotionCodes`|array|A summary of the status of any applied promotion codes|
+|`locations`|array|An array of locations, linked by `id` to the `fulfillmentDetails` section of `items`. Includes `itemAvailability` for each PICKUP location ("FULL", "PARTIAL", or "NONE"|
 
 **Get By Date Ranges**
 
 The response contains a `getBy` object for each item (`items[i].fulfillmentOfferings[i].getBy`) and each fulfillment group (`fulfillmentGroups[i].priceOffers[i].getBy`). The `getBy` values are compared in the table below.
 
-###### Table 2.3 Item and Fulfillment Group getBy Date Ranges
+###### Table 2.5 Item and Fulfillment Group getBy Date Ranges
 
 |Field Name|Required|Item|Fulfillment Group|
 |---|---|---|
