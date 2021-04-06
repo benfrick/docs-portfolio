@@ -33,7 +33,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/order/use-order.html#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab"" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING ORDER HISTORY TO YOUR EXPERIENCE
 
@@ -49,9 +49,9 @@ Retrieve a complete order history for your consumers.
 
 Adding order history to your app is a two-step process:
 
-**1.** Your application makes an Order Summary API request to retrieve all, or a filtered [list of a member's orders](#step-1-list-a-members-orders).
+**1.** Your application makes an [Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} request to retrieve all, or a filtered [list of a member's orders](#step-1-list-a-members-orders).
 
-**2.** Using an order ID returned in the Order Summary response, your application makes an Order Details API request to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
+**2.** Using an order ID from the Order Summary response, your application makes an Order Details API request to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
 
 ### What is an Order?
 
@@ -79,20 +79,20 @@ Listed below are key terms for the Order History APIs.
 |**Guest**|An anonymous consumer, i.e. not logged-in with a Nike account|
 |**Member**|A logged-in consumer with a Nike account|
 |**Order**|A set of data for a checkout submitted by a consumer. Often contains products/services, payment methods, shipping methods, taxes, and promotions|
-|**Order Details**||
+|**Order Details**|Use the [Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} to get full details of an order for a member or guest|
 |**Order Line**|A line item with an order, representing a product, payment, etc.|
 |**Order Number**|The unique identifier for the order|
 |**Order Status**|The status of an order, as represented for individual lines and payments, or as a combined `status`. See [Understanding Order Status](#understanding-order-status) for more|
-|**Order Summary**||
+|**Order Summary**|Use the [Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get a list of orders for a Nike member|
 |**DOMS**|Nike's Digital Order Management System|
 
 ## Step 1: List a Member's Orders
 
 Use the [Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get all, or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
 
-This API returns limited information about each order. If you need a more in-depth picture of an order that contains pricing, tax information, shipping information, and detailed product information, or if you want to list the details of a guest's order, see [List Order Details for a Member or Guest](#step-2-list-order-details-for-a-member-or-guest).
-
-The Order Summary API requires that you pass certain request headers. For more information, see [Required Request Headers](#required-request-headers).
+>**TIPS**
+>- Order Summary returns limited information about each order. For order pricing, tax, shipping, and detailed product information, or if you want to list the details of a guest's order, see [List Order Details for a Member or Guest](#step-2-list-order-details-for-a-member-or-guest).
+>- For the required request headers, see [Required Request Headers](#required-request-headers).
 
 ### Customizing Your Results
 
@@ -153,7 +153,7 @@ The Order Summary JSON response contains several fields relating to status. See 
 
 ## Step 2: List Order Details for a Member or Guest
 
-Use the [Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information, or you want information on more than one order for either a member or employee, see [List a Member's Orders](#step-1-list-a-members-orders).
+Use the [Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information, or you want information on more than one order for either a member or employee, see [List a Member's Orders](#step-1-list-a-members-orders).
 
 >**TIP**: The Order Details API does not return image URLs, but you can call the [Merchandised Product API](/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the Order Details API to get a list of images for a styleColor and country.
 
@@ -182,7 +182,7 @@ The table below lists the fields by which you can filter your Order Detail resul
 |`email`|Filter by customer email address|sample@gmail.com|
 |`phoneNumber`|Filter by customer phone number. Only numbers 0-9 allowed|7134567890|
 
-Let's take a look at some Order Details scenarios.
+Let's take a look at some [Order Details](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} scenarios.
 
 ###### Table 5: Scenarios for Order Details
 
@@ -213,7 +213,7 @@ curl -X GET \
 
 ### Parsing the Response
 
-The Order Details JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
+The [Order Details](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
 
 ## Understanding Order Status
 
@@ -520,7 +520,7 @@ Listed below are some best practices for working with Order Summary and Order De
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
+For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
 
 ### Testing
 
@@ -540,7 +540,7 @@ When integrating for the first time, we can help ensure basic connectivity in th
 
 Teams should not introduce breaking changes in their contracts, so **mocking downstream dependencies** is often recommended to decouple development & testing between teams.
 
->**TIP**: Tools like [WireMock](http://wiremock.org){:target="blank"} allow you to mock out services for integration testing, or to do dark deployments & traffic shadowing in Prod to validate new functionality.
+>**TIP**: Tools like [WireMock](http://wiremock.org){:target="new-tab""} allow you to mock out services for integration testing, or to do dark deployments & traffic shadowing in Prod to validate new functionality.
 
 **Q:** Why is an order not showing up in the test environment?
 
@@ -643,7 +643,7 @@ Order Details does not purge data. This service has data from February 2012 onwa
 
 **Q: What are the major differences between the Order Details v1 and v2 schemas?**
 
-Order Details v2 responds with orders that match either the v1 or v2 (Source Aware) schema. To see the differences between the two payloads, please see [Analysis - Source Aware - Order Repo changes](https://confluence.nike.com/pages/viewpage.action?spaceKey=CE&title=Analysis+-+Source+Aware+-+Order+Repo+changes){:target="blank"}
+Order Details v2 responds with orders that match either the v1 or v2 (Source Aware) schema. To see the differences between the two payloads, please see [Analysis - Source Aware - Order Repo changes](https://confluence.nike.com/pages/viewpage.action?spaceKey=CE&title=Analysis+-+Source+Aware+-+Order+Repo+changes){:target="new-tab""}
 
 **Q: What is the difference between `channel` and `originApplication`?**
 
@@ -669,7 +669,7 @@ To identify NBY products, check that `orderLine` contains a `customizedProductRe
 
 **Q: How do I get invoice information?**
 
-Order Details has invoice identifiers in `chargeTransactionDetails.invoiceCollectionDetails.invoiceNumber`. With this value, a call can be made to the [Order Invoice API](https://developer.niketech.com/docs/projects/Order%20Invoice%20API?tab=api){:target="blank"}.
+Order Details has invoice identifiers in `chargeTransactionDetails.invoiceCollectionDetails.invoiceNumber`. With this value, a call can be made to the [Order Invoice API](https://developer.niketech.com/docs/projects/Order%20Invoice%20API?tab=api){:target="new-tab""}.
 
 **Q: Where are promotions located, and are they removable after having been applied to the order line?**
 
@@ -755,7 +755,7 @@ Examples:
 - CSRORDER -Order created by consumer services from Internal L3 menu
 - COD - Cash on Delivery order
 
-Please see [List of Values included in the Order Classification Field](https://confluence.nike.com/display/MOM/List+of+Values+included+in+the+Order+Classification+Field){:target="blank"} for other order classifications:
+Please see [List of Values included in the Order Classification Field](https://confluence.nike.com/display/MOM/List+of+Values+included+in+the+Order+Classification+Field){:target="new-tab""} for other order classifications:
 
 The values in `orderLine.orderLineType` describe the type of `orderLine`. See below for an incomplete list of `orderLineType`.
 
@@ -801,7 +801,7 @@ Store information is at the order level for both v1 and v2:
 - store.customerZipCode
 - store.firstSalesPostingRequired
 
->**TIP**: `storeId` can also be used to call the [Store Views API](https://developer.niketech.com/docs/projects/Store%20Views%20V2?tab=api){:target="blank"}.
+>**TIP**: `storeId` can also be used to call the [Store Views API](https://developer.niketech.com/docs/projects/Store%20Views%20V2?tab=api){:target="new-tab""}.
 
 **Q: How do we identify where the order was captured from (i.e. the origin of the order?)**
 
@@ -859,7 +859,7 @@ Each return order has a `parentSalesOrderNumber` that is a one-way link from the
 
 **Q: What events trigger the status of an order to be updated?**
 
-Order Management has series of life cycle events, and there are also modifications triggered by customers, CSP, and Track and Trace. See [Order Status Mapping for Consumers](https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers){:target="blank"} for more information regarding status.
+Order Management has series of life cycle events, and there are also modifications triggered by customers, CSP, and Track and Trace. See [Order Status Mapping for Consumers](https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers){:target="new-tab""} for more information regarding status.
 
 **Q: How do we identify employee purchases?**
 
