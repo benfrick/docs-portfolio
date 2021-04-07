@@ -33,7 +33,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/order/use-order.html#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab"" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
+<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
 
 # ADDING ORDER HISTORY TO YOUR EXPERIENCE
 
@@ -78,13 +78,16 @@ Listed below are key terms for the Order History APIs.
 |**Employee**|An employee that is logged in with a Swoosh account|
 |**Guest**|An anonymous consumer, i.e. not logged-in with a Nike account|
 |**Member**|A logged-in consumer with a Nike account|
-|**Order**|A set of data for a checkout submitted by a consumer. Often contains products/services, payment methods, shipping methods, taxes, and promotions|
-|**Order Details**|Use the [Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} to get full details of an order for a member or guest|
-|**Order Line**|A line item with an order, representing a product, payment, etc.|
-|**Order Number**|The unique identifier for the order|
+|**Order**|A set of data for a checkout submitted by a consumer, e.g. products/services, payment methods, shipping methods, taxes, and promotions|
+|**Order Details**|The [Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} to get full details of an order for a member or guest|
+|**Order Line**|A line item with an order, representing a product, payment, etc. Found in the `lineItems` in the Order Details response|
+|**Order Number**|The unique `id` for the order|
 |**Order Status**|The status of an order, as represented for individual lines and payments, or as a combined `status`. See [Understanding Order Status](#understanding-order-status) for more|
 |**Order Summary**|Use the [Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get a list of orders for a Nike member|
 |**DOMS**|Nike's Digital Order Management System|
+|**BOPIS*|The 'buy online, pick up in store' scenario. BOPIS orders are fulfilled from the same store at which pickup is done by the consumer. Fulfillment time is generally within a few hours, and thus is faster than ShipToStore|
+|**PUP**|Short for 'Pickup Points', a set of scenarios where Nike ships the order to a location of the consumer’s choice for pickup|
+|**ShipToStore**|A subset of Pickup Points, the scenario where Nike ships the order to a Nike store of the consumer’s choice for pickup|
 
 ## Step 1: List a Member's Orders
 
@@ -131,7 +134,7 @@ The Order Summary API also supports the `fields`, `count` and `anchor` query par
 
 |I want to list for a member|Sample Query|
 |---|---|
-|Order types of RESERVE_ORDER, submitted after 2018-01-24, purchased at store 12345|`https://api.nike.com/order_mgmt/user_order_summary/v2?filter=storeId(12345)&filter=orderSubmitDateAfter(2018-01-24)&filter=orderType(RESERVE_ORDER)`|
+|Order types of RESERVE_ORDER, submitted after 2021-01-24, purchased at store 12345|`https://api.nike.com/order_mgmt/user_order_summary/v2?filter=storeId(12345)&filter=orderSubmitDateAfter(2021-01-24)&filter=orderType(RESERVE_ORDER)`|
 |Orders with a status of `Shipped` or `Delivered`|`https://api.nike.com/order_mgmt/user_order_summary/v2?filter=status(Shipped,Delivered)`|
 |All orders sorted in ascending modificationDate|`https://api.nike.com/order_mgmt/user_order_summary/v2?sort=modificationDateAsc`|
 |Just order ID, status and submitted date fields of all orders|`https://api.nike.com/order_mgmt/user_order_summary/v2?fields=id,status,orderSubmitDate`|
@@ -144,7 +147,7 @@ Sample CURL for Order Summary for a Member/Employee:
 ```
 curl -X GET \
   https://api.nike.com/order_mgmt/user_order_summary/v2 \
-  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
+  -H 'Authorization: Bearer <your token here>'
 ```
 
 ### Parsing the Response
@@ -173,7 +176,7 @@ You control what is returned in your result set through URL parameters. The Orde
 
 **Filtering**
 
-The table below lists the fields by which you can filter your Order Detail results.
+The table below lists the fields by which you can filter your Order Details results.
 
 ###### Table 4: Available Filters for Order Summary
 
@@ -198,7 +201,7 @@ Sample CURL for Order Details C00011554850 for a member/employee:
 ```
 curl -X GET \
   https://api.nike.com/order_mgmt/user_order_detail/v2/C00011554850 \
-  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc2YWI1NThkLWMwZTMtNGVhYi05MTljLTJkYjA3YjFjN2NhMHNpZyJ9.eyJpYXQiOjE1MzQxOTMyOTcsImV4cCI6MTUzNDE5Njg5NywiaXNzIjoib2F1dGgyYWNjIiwianRpIjoiY2IyOGE4OGItYWU4ZC00NWM1LWE2NjMtNDRkMmY0NWQwZDZjIiwibGF0IjoxNTM0MTkzMjk3LCJhdWQiOiJjb20ubmlrZS5kaWdpdGFsIiwic3ViIjoiY29tLm5pa2UuY29tbWVyY2UubmlrZWRvdGNvbS53ZWIiLCJzYnQiOiJuaWtlOmFwcCIsInNjcCI6WyJuaWtlLmRpZ2l0YWwiXSwicHJuIjoiMTYxODI2OTIwMTIiLCJwcnQiOiJuaWtlOnN3b29zaCJ9.Nt-Irlborb2gmz6e-CwUmvPlm80m5lEMHR18AEftE5qqVmlm-HbFHNPPA6AWj8gscQRs02ft_CQTkvHZa7EIvQ64RajD-sj0FTTaPBMXUsWqL1JtlfFv61cYmbrErOsEBcV_NWbgOVQ_NNF3aL9FCLIl2OgrVi1pa7ManTLlOP_nmI_SaMN3USawECzKbYlOW58DaHBQjezkpeejyv4AQXm99HL1qWYb5fARnpubrwlcnN7GyUepOwImfNf8xZZrcJKTx4HBXmYVFg8gMskoqzSEjJijfxYNxSy507Y4fUyRq2glISPMnrQnAF5NAwl9SCQm8wZxKxPaxc59OEhMLA'
+  -H 'Authorization: Bearer <your token here>'
 ```
 
 Sample CURL for Order Details C00011554850 for a guest:
@@ -252,7 +255,7 @@ In the scenario illustrated by the Order Details response below, a consumer has 
                 {
                     "description": "Shipped",
                     "quantity": 1,
-                    "date": "2018-01-30T12:16:51Z"
+                    "date": "2021-01-30T12:16:51Z"
                 }
             ],
             "rolledUpStatus": "Shipped",
@@ -269,7 +272,7 @@ In the scenario illustrated by the Order Details response below, a consumer has 
                 {
                     "description": "Factory Delayed",
                     "quantity": 1,
-                    "date": "2018-01-30T12:16:51Z"
+                    "date": "2021-01-30T12:16:51Z"
                 }
             ],
             "rolledUpStatus": "Factory Delayed",
@@ -283,7 +286,7 @@ In the scenario illustrated by the Order Details response below, a consumer has 
 }
 ```
 
-Let's look at a slightly more complex example. As illustrated by the Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the `rolledUpStatus` of the order line is "Delivered". The highest `rolledUpStatus` of the order is "Delivered", so the order status is "Partially Delivered".
+Let's look at a slightly more complex example. As shown in the Order Details response below, a consumer purchased three identical shorts. One short was delivered and has a status of "Delivered", another short was delivered and returned and has a status of "Return Processed", and one short was shipped and has a status of "Shipped". Because the "Delivered" status has the highest status code of the order line, the `rolledUpStatus` of the order line is "Delivered". The highest `rolledUpStatus` of the order is "Delivered", so the order status is "Partially Delivered".
 
 
 ```
@@ -298,17 +301,17 @@ Let's look at a slightly more complex example. As illustrated by the Order Detai
                 {
                     "description": "Delivered",
                     "quantity": 1,
-                    "date": "2018-01-30T12:16:51Z"
+                    "date": "2021-01-30T12:16:51Z"
                 },
                 {
                     "description": "Shipped",
                     "quantity": 1,
-                    "date": "2018-01-30T12:16:51Z"
+                    "date": "2021-01-30T12:16:51Z"
                 }
                 {
                     "description": "Return Processed",
                     "quantity": 1,
-                    "date": "2018-01-30T12:16:51Z"
+                    "date": "2021-01-30T12:16:51Z"
                 }
             ],
             "rolledUpStatus": "Partially Delivered",
@@ -526,15 +529,15 @@ For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except f
 
 It is recommended to test all Order endpoints in the production environment as opposed to the test environment. Using the test environment can have unpredictable results, due to the many downstream dependencies required to provide 'production-like' responses.
 
-**Q:** What are the boundaries for testing in production?
+**Q: What are the boundaries for testing in production?**
 
 Performance tests at high volumes should **never** be done in production. All performance tests should be done in test.
 
-**Q:** Is this service available in the test environment?
+**Q: Is this service available in the test environment?**
 
 All services are available in the test environment, however, the data and services are not always available for end-to-end testing.
 
-**Q:** Why are our integration tests (that use the test environment) failing?
+**Q: Why are our integration tests (that use the test environment) failing?**
 
 When integrating for the first time, we can help ensure basic connectivity in the test environment before you deploy to production. However, we do not recommend relying on connections to the test environment on an ongoing basis, and provide no guarantees on the availability or retention of the data.
 
@@ -542,7 +545,7 @@ Teams should not introduce breaking changes in their contracts, so **mocking dow
 
 >**TIP**: Tools like [WireMock](http://wiremock.org){:target="new-tab""} allow you to mock out services for integration testing, or to do dark deployments & traffic shadowing in Prod to validate new functionality.
 
-**Q:** Why is an order not showing up in the test environment?
+**Q: Why is an order not showing up in the test environment?**
 
 There are not as many system resources dedicated to the test environment, causing delays in asynchronous processing.
 
@@ -550,7 +553,7 @@ There are not as many system resources dedicated to the test environment, causin
 
 Recommended steps:
 
-1. Check if `Extn_Event_processor` table has records. If so, then clear the records before performing a fresh test. Note: all records going forward will go to order repo.
+1. Check if `Extn_Event_processor` table has records. If so, then clear the records before performing a fresh test. Note: all records going forward will go to the order repository.
 2. Run as many instances of `OrderDroptoS3AgentServer`
 
 Sample Query:
@@ -610,7 +613,7 @@ Listed below are the required request headers based on user type. Since most Ord
 
 ###### Table 9:  Required Order History Request Headers by User Type
 
-|Header Name|Description|Member|Guest<br>* guest consumers are supported in the Order Details API only|Employee|
+|Header Name|Description|Member|Guest<br>(Order Details only)|Employee|
 |---|---|---|---|---|
 |**Accept**|Content type you will accept in response, application/json is only value allowed|X|X|X|
 |**Content-Type**|Content type of the request, application/json is only value allowed|X|X|X|
@@ -663,9 +666,9 @@ Yes, these flags are dynamic. The value assigned to these flags are dictated by 
 
 `originalStoreReceiptInformation` is populated when a consumer returns a product at store. It contains the details of the original order. If a store order is returned at a store, this segment will have the complete original store details (transaction no, register no, transaction date, etc.). If a digital order is returned at store, this segment will have the original order number.
 
-**Q: How do we identify order lines that have Nike By You (NBY) products?**
+**Q: How do we identify order lines that have Nike By You products?**
 
-To identify NBY products, check that `orderLine` contains a `customizedProductReference` with a value in it.
+To identify Nike By You products, check that `orderLine` contains a `customizedProductReference` with a value in it.
 
 **Q: How do I get invoice information?**
 
@@ -679,7 +682,7 @@ Promotions, if any, will be present in `orderLines.promotions`, and cannot be re
 
 No, the promotion will still be applied, regardless of order status.
 
-**Q: When will `parentSalesOrderNumber` be populated?**
+**Q: Under what conditions will `parentSalesOrderNumber` be populated?**
 
 `parentSalesOrderNumber` will be populated for the following scenarios:
 
@@ -693,16 +696,16 @@ Yes.
 
 **Q: Is the time in UTC or local time?**
 
-All times in Order History will be in UTC Zulu with no offset, e.g. 2020-03-20T01:06:53Z.
+All times in Order History will be in UTC Zulu with no offset, e.g. 2021-03-20T01:06:53Z.
 
-**Q: How do we decipher VAT and NON-VAT fields, and their respective tax amounts?**
+**Q: What do the VAT and NON-VAT field values mean?**
 
 **VAT (Inclusive tax)**
 - object.headerTax and object.orderLines.lineTaxes.
     - effectiveTaxPercentage
     - effectiveTaxAmount
 
-**Non-Vat (Exclusive tax)**
+**Non-VAT (Exclusive tax)**
 - object.headerTax and object.orderLines.lineTaxes.
     - taxPercentage
     - taxAmount
@@ -711,53 +714,60 @@ All times in Order History will be in UTC Zulu with no offset, e.g. 2020-03-20T0
 
 Yes, total amount includes tax.
 
-**Q: How do we identify different types of order? (BOPIS,PUPS,RESERVE, ShipToStore)**
+**Q: How do we identify different types of order? (BOPIS, PUPs, RESERVE, ShipToStore)**
 
-To identify an order a combination of the following attributes are required:
+Use the following fields to identify the type of order:
+
 - orderVersion
 - orderLines.fulfillmentMethod
 - orderLines.shipTo.address.pickUpLocationType
 - orderLines.shipTo.location.type
 - orderLines.shipTo.address.pickUpLocationIdentifier
 
-BOPIS:
+BOPIS
 - If the order payload matches the v1 schema
     - if orderVersion!=v2 and orderLines.fulfillmentMethod==PICKUP and orderLines.shipTo.address.pickUpLocationType==store_pickup and orderline.orderLineType==INLINE (In this case store address will be present in orderLines.shipTo.address)
 - If the order payload matches the v2 schema
     - if orderVersion==v2 and orderLines.fulfillmentMethod==PICKUP and orderLines.shipTo.location.type==store/store_views (In this case you need to call store/store_views service with orderLines.shipTo.location.id to get the address)
-      PUPS
+
+PUPS
 - If the order payload matches the v1 schema
     - if orderVersion!=v2 and orderLines.shippingMethod:CPG and orderLines.fulfillmentMethod:SHIP and orderLines.shipTo.address.pickUpLocationIdentifier==null (In this case store address will be present in orderLines.shipTo.address)
 - If the order payload matches the v2 schema
     - if orderVersion==v2 and orderLines.shippingMethod:CPG and orderLines.fulfillmentMethod:SHIP and orderLines.shipTo.location.type= ship/pickup_points (In this case you need to call store/store_views service with orderLines.shipTo.location.id to get the address)
-      Reserve
+
+RESERVE
 - If the order payload matches the v1 schema
     - if orderVersion!=v2 and orderLines.fulfillmentMethod==RESERVE and orderLines.shipTo.address.pickUpLocationType==store_pickup and orderline.orderLineType==RESERVE (In this case store address will be present in orderLines.shipTo.address)
 - If the order payload matches the v2 schema
     - if orderVersion==v2 and orderLines.fulfillmentMethod==RESERVE and orderLines.shipTo.location.type==store/store_views (In this case you need to call store/store_views service with orderLines.shipTo.location.id to get the address)
-      ShipToStore
+
+ShipToStore
 - ShipToStore orders has fulfillmentMethod=SHIP and also has shipToStoreNumber associated with them
 
 **Q: How do we identify different types of cancelled or voided orders?**
 
-Each `orderLine` can contain a `cancellationReason`, `lineNotes`, and a `storeOrderLineDetail` object. CancellationReason at the orderLine level express why the orderLine was cancelled. A `lineNotes` object will contain a `reasonCode` field. The `storeOrderLineDetail` will contain a `transactionType` with the value of VOID.
+Each `orderLine` can contain a `cancellationReason`, `lineNotes`, and a `storeOrderLineDetail` object. The `cancellationReason` expresses why the orderLine was cancelled. A `lineNotes` object will contain a `reasonCode` field. The `storeOrderLineDetail` will contain a `transactionType` with the value of VOID.
 
-**Q: How do we distinguish between pure B&M, mixed cart, and pure digital orders? (orderClassification)**
+**Q: How do we distinguish between pure B&M, mixed cart, and pure digital orders?**
 
-Two key identifiers to understand the diversity of an order are OrderClassification and OrderLineType.
+Two key identifiers to understand the classification of an order are `orderClassification` and `orderLineType`.
 
-OrderClassification values describe the kind of order. See below for an incomplete list of orderClassifications.
+`orderClassification` values describe the kind of order. Here are some examples:
 
-Examples:
-- STANDARD - Digitally fulfilled orders from APPS, Web, Partners
-- STORE - Order created in a retails store - Point of Sale as well as Mobile point of sale
-- CONV_STORE - An order paid by Konbini or Convenience store mode of payment
-- CSRORDER -Order created by consumer services from Internal L3 menu
-- COD - Cash on Delivery order
+###### Table 10: Example orderClassification Values
+
+|Value|Description|
+|---|---|
+|STANDARD|Digitally fulfilled orders from APPS, Web, Partners|
+|STORE|Order created in a retails store - Point of Sale as well as Mobile point of sale|
+|CONV_STORE|An order paid by Konbini or Convenience store mode of payment|
+|CSRORDER|Order created by consumer services from Internal L3 menu|
+|COD|Cash on Delivery order|
 
 Please see [List of Values included in the Order Classification Field](https://confluence.nike.com/display/MOM/List+of+Values+included+in+the+Order+Classification+Field){:target="new-tab""} for other order classifications:
 
-The values in `orderLine.orderLineType` describe the type of `orderLine`. See below for an incomplete list of `orderLineType`.
+The values in `orderLines.orderLineType` describe the type of order line, e.g. "GC" for gift card. See below for an incomplete list of `orderLineType`.
 
 Examples:
 - INLINE - Order placed online.
@@ -852,10 +862,23 @@ No, `parentReturnOrder` is only used for exchange orders. If you wish to link th
 
 Each return order has a `parentSalesOrderNumber` that is a one-way link from the return order to sales order. If you want to acquire all return orders associated with a sales order, call Order Summary with a `parentSalesOrderNumber` as a filter.
 
-**Q: How do I obtain the total price of an order?**
+**Q: Where do I find the total price of an order?**
 
-- totalAmount
-- orderTotalDetails.orderTotal
+Both Order Details and Order Summary include the total price of an order in the `totalAmount` field:
+
+```
+  "totalAmount": 100,
+```
+
+Order Details also sends the total in `orderTotalDetails.orderTotal`:
+
+```  
+  "orderTotalDetails": [
+    {
+      "orderTotal": 100
+    }
+  ],
+```
 
 **Q: What events trigger the status of an order to be updated?**
 
@@ -874,40 +897,49 @@ To identify orders placed by employees, the order must be created using their re
 
 **Q: How do we identify a cancelled quantity on an order?**
 
-To identify a cancelled quantity, use the `orderLine.statuses.description` and `orderLine.statuses.quantity` fields. These fields will have the value of "Cancelled" and an integer, respectively.
+Cancelled orders will have "Cancelled" in the `orderLines.statuses.description` field, and 0 as an integer in the `orderLines.statuses.quantity` field, for example:
 
-**Q: How do we decipher between exchange and return orders?**
+```
+      "statuses": [
+        {
+          "description": "Cancelled",
+          "quantity": 1,
+          "date": "2021-11-11T05:38:46.000Z"
+        }
+```
 
-For returns orders the `orderType` would be equal to RETURN_ORDER. For exchange orders the orderType will be SALES_ORDER, and the `parentReturnOrder` will be populated.
+**Q: How do I distinguish between exchange and return orders?**
+
+For returns orders, the `orderType` would be equal to RETURN_ORDER. For exchange orders the orderType will be SALES_ORDER, and the `parentReturnOrder` will be populated.
 
 **Q: Do Apple and Nike products have the same return window?**
 
 No, Apple products must be returned within 14 days. Nike products have a standard return policy of 30 days, but that policy can fluctuate based on market strategies.
 
-**Q: Does Order Detail have Converse orders?**
+**Q: Does Order Details have Converse orders?**
 
-Yes, Order Detail has Converse orders, and they can be identified by checking the `appId` field for the value converseus.
+Yes. To retrieve Converse orders, call Order Details with value "converseus" in the optional `appId` request header. This also works for Order Summary.
 
 **Q: What are XPO orders?**
 
-XPO allows Nike to ship product(s) between its stores.
+XPO orders allow Nike to ship product(s) between its stores.
 
 **Q: How do can I identify EMEA fiscal fields?**
 
-Check whether `additionalAddress.addressType` == FISCAL, and whether the `fiscalInformation` object is present. Below is a list of EMEA fiscal fields in Order Details v2:
+Check the Order Details v2 response for `additionalAddress.addressType` == FISCAL, and check if the nested `fiscalInformation` object is present.
 
-- ENUM: `FISCAL` to `additionalAddress.addressType`.
-- fiscalInformation.
-    - customer
-        - customerType
-        - vatNumber
-        - profession
-        - customerNumber
-        - lotteryNumber
-    - invoice
-        - invoiceType
-        - invoiceNumber
-        - sequenceNumber
+`fiscalInformation` can contain the following EMEA fiscal fields:
+
+- customer
+    - customerType
+    - vatNumber
+    - profession
+    - customerNumber
+    - lotteryNumber
+- invoice
+    - invoiceType
+    - invoiceNumber
+    - sequenceNumber
 
 ## Contacting the Team
 
@@ -923,7 +955,7 @@ Need to contact the Orders team?
 
 |Summary|Date|
 |---|---|---|
-|Initial publish|10/25/2018|
+|Initial publish|10/25/2021|
 |Updated for v2 of both endpoints, updated doc format|02/17/2021|
 |Added Common Questions section & content|04/02/2021|
 
