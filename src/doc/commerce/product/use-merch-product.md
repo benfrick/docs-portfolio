@@ -26,8 +26,8 @@ toc:
     url: /doc/commerce/product/use-merch-product.html#international-considerations
   - h2: Using Merchandised Products
     url: /doc/commerce/product/use-merch-product.html#using-merchandised-products
-  - h2: Using Merchandised Product SKUs
-    url: /doc/commerce/product/use-merch-product.html#using-merchandised-product-skus
+  - h2: Using Merchandised SKU
+    url: /doc/commerce/product/use-merch-product.html#using-merchandised-sku
   - h2: Using Merchandised Prices
     url: /doc/commerce/product/use-merch-product.html#using-merchandised-product-prices
   - h2: Using Merchandised VAS
@@ -68,7 +68,7 @@ The **Merchandised Products API** gives you detailed product information in any 
 - Bulk download of all product data is not supported.
 - Nike Outfits are not supported.
 - No product data metrics are currently sent to Analytics (Business Intelligence).
-- The [Merchandised Products SKUs](#using-merchandised-product-skus) API does not determine if a SKU is in stock. Call the [Availability API](https://developer.niketech.com/docs/projects/Availability%20V2?tab=api){:target="new-tab"} to determine if a SKU is available for purchase.
+- The [Merchandised SKU](#using-merchandised-sku) API does not determine if a SKU is in stock. Call the [Availability API](https://developer.niketech.com/docs/projects/Availability%20V2?tab=api){:target="new-tab"} to determine if a SKU is available for purchase.
 
 ### Consider Using Product Feeds Instead
 
@@ -118,7 +118,7 @@ If you are retrieving products that are publicly available, no authentication or
 |List merchandised product information such as product status, gender, merchandising tags, product type, and launch dates for a list of style-colors.|Merchandised Products API|
 |List the prices of a style-color in a certain country.<br/>Includes retail price, employee price, sale price, current price, and MSRP.|Merchandised Products API<br/>Price API|
 |List all products that can be gift-wrapped.<br/>Returns all value-added services of products that can be gift-wrapped.|Merchandised Value-Added Services API|
-|List the sizes and SKU detail such as Nike size, localized size description, value-added tax (VAT) and Commodity Code for a style-color.|Merchandised Products API<br/>Merchandised SKUs API|
+|List the sizes and SKU detail such as Nike size, localized size description, value-added tax (VAT) and Commodity Code for a style-color.|Merchandised Products API<br/>Merchandised SKU API|
 |List the available images and localized product information such as title, subtitle, and description for a product.<br/>Lists all images in the Scene7 or Cloudinary image set.|Product Content API|
 
 ## API Quick Reference
@@ -136,13 +136,13 @@ If you are retrieving products that are publicly available, no authentication or
 - [Merchandised Product Create](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-create){:target="new-tab"}
 - [Merchandised Product Delete](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-delete){:target="new-tab"}
 
-**Merchandised Product Sku V2**
+**Merchandised Sku V2**
 
-- [Merchandised Product Sku List](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-product-sku-list){:target="new-tab"}
-- [Merchandised Product Sku by Id](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-product-sku-by-id){:target="new-tab"}
-- [Merchandised Product Sku Create](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-product-sku-create){:target="new-tab"}
-- [Merchandised Product Skus Delete](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-product-skus-delete){:target="new-tab"}
-- [Merchandised Product Skus Batch Delete](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-product-skus-batch-delete){:target="new-tab"}
+- [Merchandised Sku List](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-list){:target="new-tab"}
+- [Merchandised Sku by Id](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-by-id){:target="new-tab"}
+- [Merchandised Sku Create](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-create){:target="new-tab"}
+- [Merchandised Sku Delete](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-delete){:target="new-tab"}
+- [Merchandised Sku Batch Delete](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-batch-delete){:target="new-tab"}
 
 **Merchandised Product Price V2**
 
@@ -184,7 +184,7 @@ Follow the steps below to assemble a complete set of product data for a style-co
 <i class="numberCircle green">2</i> Using the product ID from the Merchandised Product response, get prices from the Merchandised Price endpoint (filtered by product ID and country US):
 `https://api.nike.com/merch/prices/v2?filter=productid(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&filter=country(US)`
 
-<i class="numberCircle green">3</i> Using the same product ID, get the SKU data from the Merchandised SKUs endpoint (filtered by country US):
+<i class="numberCircle green">3</i> Using the same product ID, get the SKU data from the Merchandised SKU endpoint (filtered by country US):
 `https://api.nike.com/merch/skus/v2?filter=productId(22d2ea87-d7ce-50e7-a5ca-884788e1d958)&filter=country(US)`
 
 <i class="numberCircle green">4</i> Using style-color 526628-009 (not product ID), get product images from the Product Content service:
@@ -258,7 +258,7 @@ These items are divided into a set of microservices. The relationship between th
 Use these guidelines to find the endpoints to call to get the product data you need:
 
 - If the data can be localized, use the [Content API](#using-product-content).
-- If you are looking for size information, use the [Merchandised SKUs API](#using-merchandised-product-skus).
+- If you are looking for size information, use the [Merchandised SKU API](#using-merchandised-sku).
 - If you are looking for launch-related information or dates associated with a product, use the [Merchandised Products API](#using-merchandised-products).
 
 ### Understanding IDs
@@ -367,13 +367,13 @@ Sample request URI to list product information for ID 58aaa694-5889-5965-a781-6a
 https://api.nike.com/merch/products/v3/productId/58aaa694-5889-5965-a781-6abcc3e4ff68 
 ```
 
-## Using Merchandised Product SKUs
+## Using Merchandised SKU
 
-- [Merchandised Product Sku List](#merchandised-product-sku-list)
+- [Merchandised Sku List](#merchandised-sku-list)
 
-- [Merchandised Product Sku by ID](#merchandised-product-sku-by-id)
+- [Merchandised Sku by ID](#merchandised-sku-by-id)
 
-### Merchandised Product SKU Overview
+### Merchandised SKU Overview
 
 Use this service to list, add, update and delete merchandised SKU information.
 
@@ -383,11 +383,11 @@ Use this service to list, add, update and delete merchandised SKU information.
 - If country is not specified, all countries are returned.
 - This is a synchronous service.
 
-### Merchandised Product SKU List
+### Merchandised SKU List
 
 Use this service to search for multiple SKUs by filter. Search results are sorted in ascending order by the **displayOrder** field and then **stockKeepingUnitId**. Note that the **displayOrder** field is not returned in the results.
 
-Let's take a look at some sample *Merchandised Product SKU* scenarios.
+Let's take a look at some sample *Merchandised SKU* scenarios.
 
 |I Want to List SKUs for filter|Sample Query|
 |---|---|
@@ -395,13 +395,13 @@ Let's take a look at some sample *Merchandised Product SKU* scenarios.
 |GTIN 00887225865153|https://api.nike.com/merch/skus/v2/?filter=gtin(00887225865153)|
 |Legacy SKU (**stockkeepingunitid**) 18925450|https://api.nike.com/merch/skus/v2/?filter=stockkeepingunitid(18925450)|
 
-### Merchandised Product SKU by ID
+### Merchandised SKU by ID
 
-Use this service to search for SKU information by SKU ID. This service returns the same data as the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint returns except for the pages object because the endpoint only returns one result. In order to get a SKU ID, you can query the *Merchandised Product SKU List* endpoint filtering by **productid**.
+Use this service to search for SKU information by SKU ID. This service returns the same data as the [Merchandised SKU List](#merchandised-sku-list) endpoint returns except for the pages object because the endpoint only returns one result. In order to get a SKU ID, you can query the *Merchandised SKU List* endpoint filtering by **productid**.
 
->**TIP:** If you know the SKU ID, this endpoint yields faster results than the [Merchandised Product SKU List](#merchandised-product-sku-list) endpoint does because it locates the SKU record directly by ID rather than filtering the results.
+>**TIP:** If you know the SKU ID, this endpoint yields faster results than the [Merchandised SKU List](#merchandised-sku-list) endpoint does because it locates the SKU record directly by ID rather than filtering the results.
 
-### Merchandised Product SKU by ID Details
+### Merchandised SKU by ID Details
 
 |I Want to List SKU UUID|Sample Query|
 |---|---|
