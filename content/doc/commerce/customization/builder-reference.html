@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/nde.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script>
-<script>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> <script src="/js/main.js"></script> <script src="/js/nde.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script> <script>
 if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -17,152 +6,20 @@ if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
 
     gtag('config', 'UA-133456231-1');
     }
-</script>
-    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/>
-    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/aviator-two-column.css">
-    <link rel="stylesheet" href="/css/nde.css">
-    <title>Customization Builder</title>
-</head>
-<body>
-<div id="toc"></div>
-<div class="main">
-    <p><a href="/doc/commerce/customization/builder-reference.pdf" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
-
-<h1 id="customization-builder-reference">Customization Builder Reference</h1>
-
-<hr />
-
-<h5 id="last-updated-04242020">Last Updated: 04/24/2020</h5>
-
-<p>This is the official reference for the features and functionality of the Customization Experience Builder, a product in the <a href="/doc/commerce/customization/overview-customization.html">Customization Experience Platform (CXP)</a>.</p>
-
-<blockquote>
-  <p><strong>TIP</strong>: Also see <a href="/doc/commerce/customization/overview-customization.html">Customization Overview</a> and <a href="/doc/commerce/customization/use-customization/html">Adding Customization To Your Experience</a>.</p>
-</blockquote>
-
-<p>The Builder is a JavaScript bundle that is your main interface with CXP. It offers the following:</p>
-
-<ul>
-  <li><strong>UX</strong>: Returns a fully-styled UX for customizing products</li>
-  <li><strong>Data API</strong>: Interact with <a href="#build-data">Build Data</a> and CXP REST APIs</li>
-</ul>
-
-<h2 id="basic-integration">Basic Integration</h2>
-
-<p>This section describes how to complete a basic integration of the Builder into a web view or browser-based application.</p>
-
-<blockquote>
-  <p><strong>TIP</strong>: For more detailed integration instructions see <a href="/doc/commerce/customization/use-customization.html">Adding Customization To Your Experience</a>.</p>
-</blockquote>
-
-<h3 id="1-include-the-builder-bundle">1. Include the Builder Bundle</h3>
-
-<p>In your app’s source (e.g. in an HTML template), include the Builder JavaScript bundle in a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> tag in the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> like:</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.bundle.min.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div></div>
-
-<p>This loads the Builder bundle when the page is rendered.</p>
-
-<h4 id="bundle-uris">Bundle URIs</h4>
-
-<p>The bundle URIs to be used in the Test and Production environments are provided below. Reach out to the CXP team to determine which version you should be using.</p>
-
-<p><strong>Test</strong></p>
-
-<ul>
-  <li>Builder UI: https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.[bundleVersion].min.js</li>
-  <li>Product API: https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.[bundleVersion].min.js</li>
-</ul>
-
-<p><strong>Production</strong></p>
-
-<ul>
-  <li>Builder UI: https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.[bundleVersion].min.js</li>
-  <li>Product API: https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.[bundleVersion].min.js</li>
-</ul>
-
-<h3 id="2-add-a-div-for-the-builder-to-load-into">2. Add a &lt;div&gt; for the Builder to Load Into</h3>
-
-<p>Add a <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> in the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> with an <code class="language-plaintext highlighter-rouge">id="nikeid-app"</code> attribute like:</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"nikeid-app-container"</span> <span class="na">style=</span><span class="s">"width: 1000px; height: 800px;"</span><span class="nt">&gt;</span>
+</script> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/> <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> <link rel="stylesheet" href="/css/style.css"> <link rel="stylesheet" href="/css/aviator-two-column.css"> <link rel="stylesheet" href="/css/nde.css"> <title>Customization Builder</title> </head> <body> <div id="toc"></div> <div class="main"> <p><a href="/doc/commerce/customization/builder-reference.pdf" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p> <h1 id="customization-builder-reference">Customization Builder Reference</h1> <hr/> <h5 id="last-updated-04242020">Last Updated: 04/24/2020</h5> <p>This is the official reference for the features and functionality of the Customization Experience Builder, a product in the <a href="/doc/commerce/customization/overview-customization.html">Customization Experience Platform (CXP)</a>.</p> <blockquote> <p><strong>TIP</strong>: Also see <a href="/doc/commerce/customization/overview-customization.html">Customization Overview</a> and <a href="/doc/commerce/customization/use-customization/html">Adding Customization To Your Experience</a>.</p> </blockquote> <p>The Builder is a JavaScript bundle that is your main interface with CXP. It offers the following:</p> <ul> <li><strong>UX</strong>: Returns a fully-styled UX for customizing products</li> <li><strong>Data API</strong>: Interact with <a href="#build-data">Build Data</a> and CXP REST APIs</li> </ul> <h2 id="basic-integration">Basic Integration</h2> <p>This section describes how to complete a basic integration of the Builder into a web view or browser-based application.</p> <blockquote> <p><strong>TIP</strong>: For more detailed integration instructions see <a href="/doc/commerce/customization/use-customization.html">Adding Customization To Your Experience</a>.</p> </blockquote> <h3 id="1-include-the-builder-bundle">1. Include the Builder Bundle</h3> <p>In your app’s source (e.g. in an HTML template), include the Builder JavaScript bundle in a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> tag in the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> like:</p> <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.bundle.min.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div> <p>This loads the Builder bundle when the page is rendered.</p> <h4 id="bundle-uris">Bundle URIs</h4> <p>The bundle URIs to be used in the Test and Production environments are provided below. Reach out to the CXP team to determine which version you should be using.</p> <p><strong>Test</strong></p> <ul> <li>Builder UI: https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.[bundleVersion].min.js</li> <li>Product API: https://assets.test.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.[bundleVersion].min.js</li> </ul> <p><strong>Production</strong></p> <ul> <li>Builder UI: https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16Builder.[bundleVersion].min.js</li> <li>Product API: https://assets.commerce.nikecloud.com/nikeid/builder/dist/b16ProductApi.[bundleVersion].min.js</li> </ul> <h3 id="2-add-a-div-for-the-builder-to-load-into">2. Add a &lt;div&gt; for the Builder to Load Into</h3> <p>Add a <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> in the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> with an <code class="language-plaintext highlighter-rouge">id="nikeid-app"</code> attribute like:</p> <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"nikeid-app-container"</span> <span class="na">style=</span><span class="s">"width: 1000px; height: 800px;"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"nikeid-app"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-
-<p>You can name the <code class="language-plaintext highlighter-rouge">id</code> attribute however you want, just be sure to use the same name in the next step.</p>
-
-<h3 id="3-initialize-the-builder">3. Initialize the Builder</h3>
-
-<p>Initialize the Builder by invoking the <code class="language-plaintext highlighter-rouge">nikeIdBuilder(rootElement, config)</code> function in a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> tag in the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> like:</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+</code></pre></div></div> <p>You can name the <code class="language-plaintext highlighter-rouge">id</code> attribute however you want, just be sure to use the same name in the next step.</p> <h3 id="3-initialize-the-builder">3. Initialize the Builder</h3> <p>Initialize the Builder by invoking the <code class="language-plaintext highlighter-rouge">nikeIdBuilder(rootElement, config)</code> function in a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> tag in the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> like:</p> <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
   <span class="kd">const</span> <span class="nx">builderApi</span> <span class="o">=</span> <span class="nx">nikeIdBuilder</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">nikeid-app</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">nike-api-caller-id</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">com.nike:commerce.b16.localhost</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">pathName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">KobeAD2exoFA18</span><span class="dl">'</span>
   <span class="p">})</span>
 <span class="nt">&lt;/script&gt;</span>
-</code></pre></div></div>
-
-<p>This returns the <a href="#builder-api">Builder API</a> and renders the Customization UX into the specified HTMLElement.</p>
-
-<blockquote>
-  <p><strong>TIPS</strong>:</p>
-  <ul>
-    <li>Make sure to use the same <code class="language-plaintext highlighter-rouge">id</code> used in Step 2 in the <code class="language-plaintext highlighter-rouge">document.getElementById()</code> argument.</li>
-    <li>The <code class="language-plaintext highlighter-rouge">nikeIdBuilder</code> function is described in detail in <a href="#builder-api">Builder API</a></li>
-  </ul>
-</blockquote>
-
-<h3 id="4-navigate-to-the-uri-to-launch-the-experience">4. Navigate to the URI to Launch the Experience</h3>
-
-<ul>
-  <li>
-    <p>Serve your app/page locally by running <code class="language-plaintext highlighter-rouge">npm start</code> or <code class="language-plaintext highlighter-rouge">yarn start</code>.</p>
-  </li>
-  <li>
-    <p>Launch the Customization experience by navigating to the URI with at least the <code class="language-plaintext highlighter-rouge">?pathName</code> query parameter. The value in <code class="language-plaintext highlighter-rouge">?pathName</code> must match what you set in the <code class="language-plaintext highlighter-rouge">pathName</code> property when the Builder was initialized, like:</p>
-  </li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:3000/?pathName=KobeAD2exoFA18
-</code></pre></div></div>
-
-<h4 id="additional-query-params">Additional Query Params</h4>
-
-<p>The following optional query parameters can be used in the URI to affect how the Customization experience is rendered.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">imageSize</code>: sets the size of images returned by the Builder in pixels (max 666)</li>
-  <li><code class="language-plaintext highlighter-rouge">imageQuality</code>: sets the quality (as bit-depth) of the PNG images returned by the Builder (8/24)</li>
-  <li><code class="language-plaintext highlighter-rouge">hideMenu</code>:  shows/hides the harnessMenu on page load (true/false)</li>
-</ul>
-
-<p>Example:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:3000/?imageSize=666&amp;imageQuality=8&amp;hideMenu=true&amp;pathName=metcon20161601
-</code></pre></div></div>
-
-<h3 id="integration-flow">Integration Flow</h3>
-
-<ul>
-  <li>Invoke <code class="language-plaintext highlighter-rouge">nikeIdBuilder(rootElement, config)</code> to get the Builder API. The returned object also contains a method for api.onApiReady, which indicates that the Builder has loaded.</li>
-  <li>Listen to price change, analytic, and “done” events coming from the Builder.</li>
-  <li>For buying tools, use <code class="language-plaintext highlighter-rouge">setSizeType</code> and <code class="language-plaintext highlighter-rouge">setSizeAnswer</code> for answering the size-related questions. Use <code class="language-plaintext highlighter-rouge">setAnswer</code> for answering Gender and Width questions.</li>
-  <li>Invoke <code class="language-plaintext highlighter-rouge">setBuild</code> for loading a new build by prebuild id, metric id, or raw build data. This is mainly meant to “reset” the Builder.</li>
-</ul>
-
-<h2 id="builder-api">Builder API</h2>
-
-<p>Invoking the <code class="language-plaintext highlighter-rouge">nikeIdBuilder(rootElement, config)</code> function returns the Builder API.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <p>This returns the <a href="#builder-api">Builder API</a> and renders the Customization UX into the specified HTMLElement.</p> <blockquote> <p><strong>TIPS</strong>:</p> <ul> <li>Make sure to use the same <code class="language-plaintext highlighter-rouge">id</code> used in Step 2 in the <code class="language-plaintext highlighter-rouge">document.getElementById()</code> argument.</li> <li>The <code class="language-plaintext highlighter-rouge">nikeIdBuilder</code> function is described in detail in <a href="#builder-api">Builder API</a></li> </ul> </blockquote> <h3 id="4-navigate-to-the-uri-to-launch-the-experience">4. Navigate to the URI to Launch the Experience</h3> <ul> <li> <p>Serve your app/page locally by running <code class="language-plaintext highlighter-rouge">npm start</code> or <code class="language-plaintext highlighter-rouge">yarn start</code>.</p> </li> <li> <p>Launch the Customization experience by navigating to the URI with at least the <code class="language-plaintext highlighter-rouge">?pathName</code> query parameter. The value in <code class="language-plaintext highlighter-rouge">?pathName</code> must match what you set in the <code class="language-plaintext highlighter-rouge">pathName</code> property when the Builder was initialized, like:</p> </li> </ul> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:3000/?pathName=KobeAD2exoFA18
+</code></pre></div></div> <h4 id="additional-query-params">Additional Query Params</h4> <p>The following optional query parameters can be used in the URI to affect how the Customization experience is rendered.</p> <ul> <li><code class="language-plaintext highlighter-rouge">imageSize</code>: sets the size of images returned by the Builder in pixels (max 666)</li> <li><code class="language-plaintext highlighter-rouge">imageQuality</code>: sets the quality (as bit-depth) of the PNG images returned by the Builder (8/24)</li> <li><code class="language-plaintext highlighter-rouge">hideMenu</code>: shows/hides the harnessMenu on page load (true/false)</li> </ul> <p>Example:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:3000/?imageSize=666&amp;imageQuality=8&amp;hideMenu=true&amp;pathName=metcon20161601
+</code></pre></div></div> <h3 id="integration-flow">Integration Flow</h3> <ul> <li>Invoke <code class="language-plaintext highlighter-rouge">nikeIdBuilder(rootElement, config)</code> to get the Builder API. The returned object also contains a method for api.onApiReady, which indicates that the Builder has loaded.</li> <li>Listen to price change, analytic, and “done” events coming from the Builder.</li> <li>For buying tools, use <code class="language-plaintext highlighter-rouge">setSizeType</code> and <code class="language-plaintext highlighter-rouge">setSizeAnswer</code> for answering the size-related questions. Use <code class="language-plaintext highlighter-rouge">setAnswer</code> for answering Gender and Width questions.</li> <li>Invoke <code class="language-plaintext highlighter-rouge">setBuild</code> for loading a new build by prebuild id, metric id, or raw build data. This is mainly meant to “reset” the Builder.</li> </ul> <h2 id="builder-api">Builder API</h2> <p>Invoking the <code class="language-plaintext highlighter-rouge">nikeIdBuilder(rootElement, config)</code> function returns the Builder API.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * Function nikeIdBuilder returns the Builder API
  * @param {HTMLElement} rootElement The DOM element in which to inject the Builder
  * @param {Object} config The configuration properties that identify which Builder instance to be returned
@@ -181,23 +38,7 @@ if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">builderApi</span> <span class="o">=</span> <span class="nx">nikeIdBuilder</span><span class="p">(</span><span class="nx">rootElement</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="parameters">Parameters</h3>
-
-<h4 id="rootelement">rootElement</h4>
-
-<p>The argument for the <code class="language-plaintext highlighter-rouge">rootElement</code> parameter must be an HTMLElement target to mount the Builder application into.</p>
-
-<p>Example: <code class="language-plaintext highlighter-rouge">document.getElementById('nike-id-builder-app');</code></p>
-
-<h4 id="config">config</h4>
-
-<p>The argument for the <code class="language-plaintext highlighter-rouge">config</code> parameter must include the configuration properties that identify which Builder instance to be returned.</p>
-
-<p>At minimum, the <code class="language-plaintext highlighter-rouge">pathName</code> and <code class="language-plaintext highlighter-rouge">nike-api-caller-id</code> properties are required in order to initialize the Builder.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+</code></pre></div></div> <h3 id="parameters">Parameters</h3> <h4 id="rootelement">rootElement</h4> <p>The argument for the <code class="language-plaintext highlighter-rouge">rootElement</code> parameter must be an HTMLElement target to mount the Builder application into.</p> <p>Example: <code class="language-plaintext highlighter-rouge">document.getElementById('nike-id-builder-app');</code></p> <h4 id="config">config</h4> <p>The argument for the <code class="language-plaintext highlighter-rouge">config</code> parameter must include the configuration properties that identify which Builder instance to be returned.</p> <p>At minimum, the <code class="language-plaintext highlighter-rouge">pathName</code> and <code class="language-plaintext highlighter-rouge">nike-api-caller-id</code> properties are required in order to initialize the Builder.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
   <span class="c1">// required properties</span>
   <span class="dl">'</span><span class="s1">nike-api-caller-id</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">com.nike:test</span><span class="dl">'</span><span class="p">,</span>
   <span class="nx">pathName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">af1High14_July</span><span class="dl">'</span><span class="p">,</span>
@@ -245,555 +86,7 @@ if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
   <span class="nx">imageSize</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
   <span class="nx">viewPortSize</span><span class="p">:</span> <span class="dl">'</span><span class="s1">S</span><span class="dl">'</span><span class="p">,</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="required-properties">Required Properties</h4>
-
-<h6 id="table-1--required-build-properties">Table 1:  Required Build Properties</h6>
-
-<table>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">pathName</code></td>
-      <td>String</td>
-      <td>The product pathName for the requested build.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">nike-api-caller-id</code></td>
-      <td>String</td>
-      <td>A platform-unique key («domain name»:«appid») that identifies the API caller to customization services. See <a href="https://github.nike.com/ea-governance/ea-standards/blob/master/api-standards/api-standards-main/API_Standards.md#identifying-a-calling-client">Architecture Standards</a> for more.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="getting-a-nike-api-caller-id">Getting a <code class="language-plaintext highlighter-rouge">nike-api-caller-id</code></h5>
-
-<p>Please contact a team member in <a href="https://nikedigital.slack.com/messages/C0L8C4UM7">#nikeid-dev-systems</a> or email 
-<a href="mailto:Lst-digitaltech.customization.id.systems@nike.com">Lst-digitaltech.customization.id.systems@nike.com</a> to obtain 
-a key for your platform in advance of making API calls. The current list of supported values is shown below (Note: items marked with * are for internal tracking purposes):</p>
-
-<h6 id="table-2--nike-platforms-with-corresponding-caller-ids">Table 2:  Nike Platforms with Corresponding Caller IDs</h6>
-
-<table>
-  <thead>
-    <tr>
-      <th>Platform</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Nike.com Desktop PDP</td>
-      <td>com.nike:commerce.idpdp.desktop</td>
-    </tr>
-    <tr>
-      <td>Nike.com Mobile PDP</td>
-      <td>com.nike:commerce.idpdp.mobile</td>
-    </tr>
-    <tr>
-      <td>Nike.com Jersey PDP</td>
-      <td>com.nike:commerce.jerseyidpdp.desktop</td>
-    </tr>
-    <tr>
-      <td>Nike.com Jersey Mobile PDP</td>
-      <td>com.nike:commerce.jerseyidpdp.mobile</td>
-    </tr>
-    <tr>
-      <td>Nike.com Desktop 3D Builder</td>
-      <td>com.nike:commerce.3d.builder.desktop</td>
-    </tr>
-    <tr>
-      <td>Nike.com Mobile 3D Builder</td>
-      <td>com.nike:commerce.3d.builder.mobile</td>
-    </tr>
-    <tr>
-      <td>Converse.com Desktop PDP</td>
-      <td>com.converse:commerce.idpdp.desktop</td>
-    </tr>
-    <tr>
-      <td>Converse.com Mobile PDP</td>
-      <td>com.converse:commerce.idpdp.mobile</td>
-    </tr>
-    <tr>
-      <td>Converse.com Europe Desktop PDP</td>
-      <td>com.converse.eu:commerce.idpdp.desktop</td>
-    </tr>
-    <tr>
-      <td>Converse.com Europe Mobile PDP</td>
-      <td>com.converse.eu:commerce.idpdp.mobile</td>
-    </tr>
-    <tr>
-      <td>Nike App iOS</td>
-      <td>com.nike.commerce.omega.ios</td>
-    </tr>
-    <tr>
-      <td>Nike App Android</td>
-      <td>com.nike.commerce.omega.droid</td>
-    </tr>
-    <tr>
-      <td>NikeElite.com Desktop PDP</td>
-      <td>com.nike.elite:commerce.idpdp.desktop</td>
-    </tr>
-    <tr>
-      <td>NikeElite.com Mobile PDP</td>
-      <td>com.nike.elite:commerce.idpdp.mobile</td>
-    </tr>
-    <tr>
-      <td>Nike Cultivator Desktop</td>
-      <td>com.nike.cultivator:commerce.desktop</td>
-    </tr>
-    <tr>
-      <td>Nike Cultivator Mobile</td>
-      <td>com.nike.cultivator:commerce.mobile</td>
-    </tr>
-    <tr>
-      <td>Nike Factory Collab (FC) (includes FC Lite)</td>
-      <td>com.nike.commerce.fc</td>
-    </tr>
-    <tr>
-      <td>Nike DOMS</td>
-      <td>com.nike.commerce.doms</td>
-    </tr>
-    <tr>
-      <td>Nike CSP</td>
-      <td>com.nike.commerce.csp</td>
-    </tr>
-    <tr>
-      <td>Nike Order Capture (OCP)</td>
-      <td>com.nike.commerce.ocp</td>
-    </tr>
-    <tr>
-      <td>Nike PI</td>
-      <td>com.nike.commerce.pi</td>
-    </tr>
-    <tr>
-      <td>Nike Email</td>
-      <td>com.nike.commerce.email</td>
-    </tr>
-    <tr>
-      <td>Tmall.com (Desktop)</td>
-      <td>com.tmall:commerce.idpdp.desktop</td>
-    </tr>
-    <tr>
-      <td>Tmall.com (Mobile)</td>
-      <td>com.tmall:commerce.idpdp.mobile</td>
-    </tr>
-    <tr>
-      <td>WIP Tool*</td>
-      <td>com.nike:wip</td>
-    </tr>
-    <tr>
-      <td>Test*</td>
-      <td>com.nike:test</td>
-    </tr>
-    <tr>
-      <td>Localhost*</td>
-      <td>com.nike:commerce.b16.localhost</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="properties-with-dependencies">Properties With Dependencies</h4>
-
-<h6 id="table-3--build-properties-having-dependencies">Table 3:  Build Properties Having Dependencies</h6>
-
-<table>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">productId</code></td>
-      <td>String</td>
-      <td>Product ID for the requested build. Only required when using b16Builder and passing config: builderMode: ‘wip’</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">country</code></td>
-      <td>String</td>
-      <td>The current country two character abbreviation, e.g. <code class="language-plaintext highlighter-rouge">US</code>, <code class="language-plaintext highlighter-rouge">GB</code>, <code class="language-plaintext highlighter-rouge">CN</code>. Only required when using builderProductApi</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">locale</code></td>
-      <td>String</td>
-      <td>The current locale abbreviation, e.g. <code class="language-plaintext highlighter-rouge">en_US</code>, <code class="language-plaintext highlighter-rouge">en_GB</code>, <code class="language-plaintext highlighter-rouge">zn_CN</code>. Only required when using builderProductApi</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="optional-properties">Optional Properties</h4>
-
-<h6 id="table-4--optional-build-properties">Table 4:  Optional Build Properties</h6>
-
-<table>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">abTestCookieName</code></td>
-      <td>String</td>
-      <td>A unique user id for Optimizely to use for it’s a/b tests. If <code class="language-plaintext highlighter-rouge">anonymousId</code> cookie is present, it will be used over the abTestCookieName.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">builderMode</code></td>
-      <td>String</td>
-      <td>Determines which services are used by the Builder for product data and scene7 calls. In <code class="language-plaintext highlighter-rouge">default</code> mode, the production app uses a service call to the V4 Product service in production. In <code class="language-plaintext highlighter-rouge">wip</code> mode, the Builder uses the idedit preview product service and you must also supply the <code class="language-plaintext highlighter-rouge">productId</code> to be passed along in the service call.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">currentEnv</code></td>
-      <td>String</td>
-      <td>Determines the environment to be used for Builder backend services. Possible values: <code class="language-plaintext highlighter-rouge">PROD</code>, <code class="language-plaintext highlighter-rouge">ecnXX</code> (any ecn environment), <code class="language-plaintext highlighter-rouge">prdvtools1</code> (any preview environment). If this config value is not set, the Builder will attempt to derive it from the client host URL, and if unsuccessful will default to <code class="language-plaintext highlighter-rouge">PROD</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">dataAsStrings</code></td>
-      <td>Boolean</td>
-      <td>Pass <code class="language-plaintext highlighter-rouge">true</code> to have the Builder API methods return data as a string, avoiding unwanted marshaling side effects.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">disablePalette</code></td>
-      <td>Boolean</td>
-      <td>Pass <code class="language-plaintext highlighter-rouge">true</code> to disable/hide the marketing components/palette navigation.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">eMerchId</code></td>
-      <td>String</td>
-      <td>The prodigy product ID. This can be used to fetch VAS SKU data required for jerseys.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">enableAnimationInit</code></td>
-      <td>Boolean</td>
-      <td>Pass <code class="language-plaintext highlighter-rouge">true</code> if you want to await palette item animations until <code class="language-plaintext highlighter-rouge">builderApi.setIsVisible(true)</code> is called on the Builder</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">fetchCapacity</code></td>
-      <td>Boolean</td>
-      <td>Pass <code class="language-plaintext highlighter-rouge">true</code> to fetch capacity information along with the product.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">fitToContainer</code></td>
-      <td>HTML Element</td>
-      <td>When set to a DOM element (e.g document.getElementById(‘container’)), the experience will only flex to the size of that container rather than attempting to use 100vh or calculating UI dimensions based on the window.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">hasTouch</code></td>
-      <td>Boolean</td>
-      <td>Pass <code class="language-plaintext highlighter-rouge">true</code> if the experience supports touch input.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">isColorMatching</code></td>
-      <td>Boolean</td>
-      <td>Passing <code class="language-plaintext highlighter-rouge">true</code> hides the harness menu and control buttons. This supports color matching work flow in the WIP Builder.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">metricId</code></td>
-      <td>String</td>
-      <td>Passing a <code class="language-plaintext highlighter-rouge">prebuildId</code> or <code class="language-plaintext highlighter-rouge">metricId</code> in config will force the Builder to load the build for the product and apply all the selections in the build to the loaded product. <code class="language-plaintext highlighter-rouge">metricId</code> will always be preferred over <code class="language-plaintext highlighter-rouge">prebuildId</code> if both are supplied.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">prebuildId</code></td>
-      <td>String</td>
-      <td>Passing a <code class="language-plaintext highlighter-rouge">prebuildId</code> or <code class="language-plaintext highlighter-rouge">metricId</code> in config will force the Builder to load the build for the product and apply all the selections in the build to the loaded product. <code class="language-plaintext highlighter-rouge">metricId</code> will always be preferred over <code class="language-plaintext highlighter-rouge">prebuildId</code> if both are supplied.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">sizeTypeRegion</code></td>
-      <td>String</td>
-      <td>The sizeTypeRegion corresponding to the list of sizeTypes that should be returned in the build data.  Valid values are <code class="language-plaintext highlighter-rouge">US</code>, <code class="language-plaintext highlighter-rouge">EU</code>, <code class="language-plaintext highlighter-rouge">JP</code>, <code class="language-plaintext highlighter-rouge">CN</code>, <code class="language-plaintext highlighter-rouge">XP</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">viewPortSize</code></td>
-      <td>String</td>
-      <td>Sets viewport size, and creates values for <code class="language-plaintext highlighter-rouge">imageSize</code> and <code class="language-plaintext highlighter-rouge">imageQuality</code>. Can be <code class="language-plaintext highlighter-rouge">'S'</code>, <code class="language-plaintext highlighter-rouge">'M'</code>, <code class="language-plaintext highlighter-rouge">'L'</code>, <code class="language-plaintext highlighter-rouge">'XL'</code>, <code class="language-plaintext highlighter-rouge">'S8'</code>, <code class="language-plaintext highlighter-rouge">'M8'</code>, <code class="language-plaintext highlighter-rouge">'L8'</code>, <code class="language-plaintext highlighter-rouge">'XL8'</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">imageQuality</code></td>
-      <td>Number</td>
-      <td>Sets the PNG bit depth. Can be either <code class="language-plaintext highlighter-rouge">8</code> or <code class="language-plaintext highlighter-rouge">24</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">imageSize</code></td>
-      <td>Number</td>
-      <td>Number of pixels at which the main shoe image will be rendered.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">skipPriceInfo</code></td>
-      <td>Boolean</td>
-      <td>If set to <code class="language-plaintext highlighter-rouge">true</code>, the pricing information won’t be returned but style-color code will still be returned. Use for any product that is not setup in Prodigy. This flag is added to support Converse EU products.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">styleCode</code></td>
-      <td>String</td>
-      <td>Mandatory when skipPriceInfo is set to <code class="language-plaintext highlighter-rouge">true</code>. Causes the build to be saved with the styleCode from the input config.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">colorCode</code></td>
-      <td>String</td>
-      <td>Mandatory when skipPriceInfo is set to <code class="language-plaintext highlighter-rouge">true</code>. Causes the build to be saved with the colorCode from the input config.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">myDesignsEnabled</code></td>
-      <td>Boolean</td>
-      <td>If set to ‘true’, My Designs local storage will be enabled. Default is ‘false’</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">myDesignCapacity</code></td>
-      <td>Number</td>
-      <td>Number of most recent designs to be stored in local storage. If this maximum value is exceeded, the oldest design(s) will be deleted from storage. Default is ‘15’</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="bridge-properties">Bridge Properties</h4>
-
-<p>The bridge is a set of callbacks provided to the Builder config under the <code class="language-plaintext highlighter-rouge">config.bridge</code> property. They allow you to be notified by actions within the Builder.</p>
-
-<h5 id="onanalyticseventtype-payload">onAnalyticsEvent(type, payload)</h5>
-
-<p>Called upon user invoked events for capturing analytics data.</p>
-
-<p>The <code class="language-plaintext highlighter-rouge">type</code> property will be an event name that is exposed for analytics. This
-list includes:</p>
-
-<ul>
-  <li><strong>ANALYTICS_APPLY_CUSTOMIZATION</strong>: When the user makes any customization change</li>
-  <li><strong>ANALYTICS_COMPLETE_BUILD</strong>: When the user presses ‘done’ to complete the build</li>
-  <li><strong>ANALYTICS_MARKETING_COMPONENT_SELECTED</strong>: When the user selects a marketing component</li>
-  <li><strong>ANALYTICS_SELECT_VIEW</strong>: When the user selects a view from the carousel</li>
-  <li><strong>ANALYTICS_ZOOM_IN</strong>: When the user requests a higher-res image</li>
-</ul>
-
-<p>The <code class="language-plaintext highlighter-rouge">payload</code> property contains meta information about the event type. For example, the meta information for <code class="language-plaintext highlighter-rouge">ANALYTICS_SELECT_VIEW</code> would include the
-selected view number. The same applies for <code class="language-plaintext highlighter-rouge">ANALYTICS_MARKETING_COMPONENT_SELECTED</code>, which will include the id and name of the marketing component.</p>
-
-<h5 id="onapireadyapi">onApiReady(api)</h5>
-<p>Called when the API is ready, shortly after the product has loaded. This returns the API object.</p>
-
-<blockquote>
-  <p><strong>NOTE</strong>: The build is not always ready at this point. Please use <code class="language-plaintext highlighter-rouge">bridge.onProductLoad(buildData)</code> for initial build. Then use <code class="language-plaintext highlighter-rouge">api.getBuild()</code> after that.</p>
-</blockquote>
-
-<h5 id="ondonebuilddata">onDone(buildData)</h5>
-<p>Called with the current buildData whenever is “done” editing their build.</p>
-
-<h5 id="onerrorerror">onError(error)</h5>
-<p>Called when an error response is returned from product data fetching or when a
-initialization error occurs on the client. Error may be either a string or a native JavaScript error.</p>
-
-<h5 id="onpriceupdatepricedata">onPriceUpdate(priceData)</h5>
-<p>Called with price information
-whenever the user makes selection changes.</p>
-
-<h5 id="onproductloadbuilddata">onProductLoad(buildData)</h5>
-<p>Called with the current buildData state of the Builder whenever a new product is loaded, or a build is applied.</p>
-
-<h3 id="build-data">Build Data</h3>
-
-<p>The Builder returns a <code class="language-plaintext highlighter-rouge">buildData</code> object (also referred to as Build Data), which describes the current state of the build with sizing information, style/color, current product
-question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/buildDataExample.html">sample buildData object</a>.</p>
-
-<h4 id="build-data-fields">Build Data Fields</h4>
-
-<h6 id="table-5--fields-in-build-data">Table 5:  Fields in Build Data</h6>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">pathName</code></td>
-      <td>String</td>
-      <td>The product pathName for this build.</td>
-      <td>“ER2teamSP19_barca”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">productId</code></td>
-      <td>String</td>
-      <td>The product ID for this build.</td>
-      <td>“PROD372041”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">consumerQuesAnswers</code></td>
-      <td>Array</td>
-      <td>Collection of product question-and-answer pairs representing the current state of the Builder’s pid selections.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">productQuesAnswers</code></td>
-      <td>Array</td>
-      <td>A collection of product question-and-answer pairs representing the current state of the Builder’s combination selections.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">sizeMarketingComponent</code></td>
-      <td>Object</td>
-      <td>DEPRECATED and replaced by <code class="language-plaintext highlighter-rouge">sizingData</code> (see below)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">viewNumbers</code></td>
-      <td>String</td>
-      <td>Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 URLs for each angle of the product currently being shown within the Builder for your own product carousels or display pages.</td>
-      <td>“1,2,3,4,5,6”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">color</code></td>
-      <td>String</td>
-      <td>The product color code for this build.</td>
-      <td>“994”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">price</code></td>
-      <td>String</td>
-      <td>The product price formatted as string with the currency symbol.</td>
-      <td>$180</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">rawPrice</code></td>
-      <td>Number</td>
-      <td>The product price formatted as a number.</td>
-      <td>180</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">style</code></td>
-      <td>String</td>
-      <td>The product style code.</td>
-      <td>“CK3977”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">country</code></td>
-      <td>String</td>
-      <td>The current country code for this build.</td>
-      <td>“US”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">locale</code></td>
-      <td>String</td>
-      <td>The current locale code for this build.</td>
-      <td>“en_US”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">imageNumbers</code></td>
-      <td>String</td>
-      <td>Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 URLs for each angle of the product for your own product carousels or display pages.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">imageService</code></td>
-      <td>String</td>
-      <td>The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the viewUrlTemplate field to build scene7 image service request URLs.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">imageUrlTemplate</code></td>
-      <td>String</td>
-      <td>Scene7 parameterized URL for making requests for product images that are returned as opaque JPGs. The URL contains tags that must be replaced with valid values. These tags are {VIEW_NUMBER} (one of the values from imageNumbers), {IMAGE_WIDTH}, {BACKGROUND_COLOR} (in the form f5f5f5), &amp; {JPG_QUALITY} (0 - 100).</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">imageUrlShadowTemplate</code></td>
-      <td>String</td>
-      <td>This URL is the same as the imageUrlTemplate except it has added parameters that will cause a shadow to be rendered underneath the image.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">viewService</code></td>
-      <td>String</td>
-      <td>The host of the render service call used to request images of the product represented by the buildData. Use in conjunction with the viewUrlTemplate field to build scene7 render service request URL.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">viewUrlTemplate</code></td>
-      <td>String</td>
-      <td>Scene7 parameterized URL for making requests for product images that are uncompressed PNGs with a transparent background. The URL contains a tag {VIEW_NUMBER} (one of the values from imageNumbers) that must be replaced with a valid value. You must also add a width to the end of the string in the form &amp;wid={imageWidth} where {imageWidth} represents the width you desire.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">viewUrlShadowTemplate</code></td>
-      <td>String</td>
-      <td>This URL is the same as the viewUrlTemplate except it has added parameters that will cause a shadow to be rendered underneath the image.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">availability</code></td>
-      <td>Object</td>
-      <td>The lead time in days for the product to be delivered, when <code class="language-plaintext highlighter-rouge">isAvailable</code> is true. When false, only an ‘out of stock’ message is returned.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">myDesigns</code></td>
-      <td>Array</td>
-      <td>Array of locally-saved My Designs for the given pathName</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">sizeTypes</code></td>
-      <td>Array</td>
-      <td>A collection of sizeTypes based on the sizeTypeRegion that was requested in the config data.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">sizingData</code></td>
-      <td>Array</td>
-      <td>Contains arrays of gender, width, size, and size chart data. Used for “buying” and “size” tools.</td>
-      <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="more-about-availability">More about <strong>availability</strong></h5>
-
-<p>The below table describes the contents of the <code class="language-plaintext highlighter-rouge">availability</code> object:</p>
-
-<h6 id="table-6--fields-in-availability-object">Table 6:  Fields in Availability Object</h6>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">isAvailable</code></td>
-      <td>Boolean</td>
-      <td>Whether the current style-color is available to be purchased</td>
-      <td>true</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">leadtimeUpperBoundInDays</code></td>
-      <td>Number</td>
-      <td>The lead time for the product to be delivered, in days</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">longCapacityMessage</code></td>
-      <td>String</td>
-      <td>The long message text describing the product availability and lead-time.</td>
-      <td>“Custom-made and delivered to you in 3 weeks or less.”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">shortCapacityMessage</code></td>
-      <td>String</td>
-      <td>The short message text describing the product availability and lead-time.</td>
-      <td>“GREAT CHOICE”</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="more-about-sizingdata">More about <strong>sizingData</strong></h5>
-
-<ul>
-  <li>Render the gender, width, and size questions and answer them using the <code class="language-plaintext highlighter-rouge">setAnswer</code> and <code class="language-plaintext highlighter-rouge">setsizeAnswer</code> methods as the consumer makes selections.</li>
-  <li>If a value for the <code class="language-plaintext highlighter-rouge">sizeTypeRegion</code> field is not provided when initializing the Builder, then <code class="language-plaintext highlighter-rouge">sizeTypes</code> will default to undefined.</li>
-  <li>If <code class="language-plaintext highlighter-rouge">fetchCapacity</code> is set to false when initializing the Builder, then all sizes will show as out of stock.</li>
-  <li>Capacity, inventory, restrictions, sizeType and prior answers to sizing questions are all taken into consideration when generating this collection of objects.</li>
-</ul>
-
-<p>Sample sizingData:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+</code></pre></div></div> <h4 id="required-properties">Required Properties</h4> <h6 id="table-1--required-build-properties">Table 1: Required Build Properties</h6> <table> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">pathName</code></td> <td>String</td> <td>The product pathName for the requested build.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">nike-api-caller-id</code></td> <td>String</td> <td>A platform-unique key («domain name»:«appid») that identifies the API caller to customization services. See <a href="https://github.nike.com/ea-governance/ea-standards/blob/master/api-standards/api-standards-main/API_Standards.md#identifying-a-calling-client">Architecture Standards</a> for more.</td> </tr> </tbody> </table> <h5 id="getting-a-nike-api-caller-id">Getting a <code class="language-plaintext highlighter-rouge">nike-api-caller-id</code></h5> <p>Please contact a team member in <a href="https://nikedigital.slack.com/messages/C0L8C4UM7">#nikeid-dev-systems</a> or email <a href="mailto:Lst-digitaltech.customization.id.systems@nike.com">Lst-digitaltech.customization.id.systems@nike.com</a> to obtain a key for your platform in advance of making API calls. The current list of supported values is shown below (Note: items marked with * are for internal tracking purposes):</p> <h6 id="table-2--nike-platforms-with-corresponding-caller-ids">Table 2: Nike Platforms with Corresponding Caller IDs</h6> <table> <thead> <tr> <th>Platform</th> <th>Value</th> </tr> </thead> <tbody> <tr> <td>Nike.com Desktop PDP</td> <td>com.nike:commerce.idpdp.desktop</td> </tr> <tr> <td>Nike.com Mobile PDP</td> <td>com.nike:commerce.idpdp.mobile</td> </tr> <tr> <td>Nike.com Jersey PDP</td> <td>com.nike:commerce.jerseyidpdp.desktop</td> </tr> <tr> <td>Nike.com Jersey Mobile PDP</td> <td>com.nike:commerce.jerseyidpdp.mobile</td> </tr> <tr> <td>Nike.com Desktop 3D Builder</td> <td>com.nike:commerce.3d.builder.desktop</td> </tr> <tr> <td>Nike.com Mobile 3D Builder</td> <td>com.nike:commerce.3d.builder.mobile</td> </tr> <tr> <td>Converse.com Desktop PDP</td> <td>com.converse:commerce.idpdp.desktop</td> </tr> <tr> <td>Converse.com Mobile PDP</td> <td>com.converse:commerce.idpdp.mobile</td> </tr> <tr> <td>Converse.com Europe Desktop PDP</td> <td>com.converse.eu:commerce.idpdp.desktop</td> </tr> <tr> <td>Converse.com Europe Mobile PDP</td> <td>com.converse.eu:commerce.idpdp.mobile</td> </tr> <tr> <td>Nike App iOS</td> <td>com.nike.commerce.omega.ios</td> </tr> <tr> <td>Nike App Android</td> <td>com.nike.commerce.omega.droid</td> </tr> <tr> <td>NikeElite.com Desktop PDP</td> <td>com.nike.elite:commerce.idpdp.desktop</td> </tr> <tr> <td>NikeElite.com Mobile PDP</td> <td>com.nike.elite:commerce.idpdp.mobile</td> </tr> <tr> <td>Nike Cultivator Desktop</td> <td>com.nike.cultivator:commerce.desktop</td> </tr> <tr> <td>Nike Cultivator Mobile</td> <td>com.nike.cultivator:commerce.mobile</td> </tr> <tr> <td>Nike Factory Collab (FC) (includes FC Lite)</td> <td>com.nike.commerce.fc</td> </tr> <tr> <td>Nike DOMS</td> <td>com.nike.commerce.doms</td> </tr> <tr> <td>Nike CSP</td> <td>com.nike.commerce.csp</td> </tr> <tr> <td>Nike Order Capture (OCP)</td> <td>com.nike.commerce.ocp</td> </tr> <tr> <td>Nike PI</td> <td>com.nike.commerce.pi</td> </tr> <tr> <td>Nike Email</td> <td>com.nike.commerce.email</td> </tr> <tr> <td>Tmall.com (Desktop)</td> <td>com.tmall:commerce.idpdp.desktop</td> </tr> <tr> <td>Tmall.com (Mobile)</td> <td>com.tmall:commerce.idpdp.mobile</td> </tr> <tr> <td>WIP Tool*</td> <td>com.nike:wip</td> </tr> <tr> <td>Test*</td> <td>com.nike:test</td> </tr> <tr> <td>Localhost*</td> <td>com.nike:commerce.b16.localhost</td> </tr> </tbody> </table> <h4 id="properties-with-dependencies">Properties With Dependencies</h4> <h6 id="table-3--build-properties-having-dependencies">Table 3: Build Properties Having Dependencies</h6> <table> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">productId</code></td> <td>String</td> <td>Product ID for the requested build. Only required when using b16Builder and passing config: builderMode: ‘wip’</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">country</code></td> <td>String</td> <td>The current country two character abbreviation, e.g. <code class="language-plaintext highlighter-rouge">US</code>, <code class="language-plaintext highlighter-rouge">GB</code>, <code class="language-plaintext highlighter-rouge">CN</code>. Only required when using builderProductApi</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">locale</code></td> <td>String</td> <td>The current locale abbreviation, e.g. <code class="language-plaintext highlighter-rouge">en_US</code>, <code class="language-plaintext highlighter-rouge">en_GB</code>, <code class="language-plaintext highlighter-rouge">zn_CN</code>. Only required when using builderProductApi</td> </tr> </tbody> </table> <h4 id="optional-properties">Optional Properties</h4> <h6 id="table-4--optional-build-properties">Table 4: Optional Build Properties</h6> <table> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">abTestCookieName</code></td> <td>String</td> <td>A unique user id for Optimizely to use for it’s a/b tests. If <code class="language-plaintext highlighter-rouge">anonymousId</code> cookie is present, it will be used over the abTestCookieName.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">builderMode</code></td> <td>String</td> <td>Determines which services are used by the Builder for product data and scene7 calls. In <code class="language-plaintext highlighter-rouge">default</code> mode, the production app uses a service call to the V4 Product service in production. In <code class="language-plaintext highlighter-rouge">wip</code> mode, the Builder uses the idedit preview product service and you must also supply the <code class="language-plaintext highlighter-rouge">productId</code> to be passed along in the service call.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">currentEnv</code></td> <td>String</td> <td>Determines the environment to be used for Builder backend services. Possible values: <code class="language-plaintext highlighter-rouge">PROD</code>, <code class="language-plaintext highlighter-rouge">ecnXX</code> (any ecn environment), <code class="language-plaintext highlighter-rouge">prdvtools1</code> (any preview environment). If this config value is not set, the Builder will attempt to derive it from the client host URL, and if unsuccessful will default to <code class="language-plaintext highlighter-rouge">PROD</code>.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">dataAsStrings</code></td> <td>Boolean</td> <td>Pass <code class="language-plaintext highlighter-rouge">true</code> to have the Builder API methods return data as a string, avoiding unwanted marshaling side effects.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">disablePalette</code></td> <td>Boolean</td> <td>Pass <code class="language-plaintext highlighter-rouge">true</code> to disable/hide the marketing components/palette navigation.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">eMerchId</code></td> <td>String</td> <td>The prodigy product ID. This can be used to fetch VAS SKU data required for jerseys.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">enableAnimationInit</code></td> <td>Boolean</td> <td>Pass <code class="language-plaintext highlighter-rouge">true</code> if you want to await palette item animations until <code class="language-plaintext highlighter-rouge">builderApi.setIsVisible(true)</code> is called on the Builder</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">fetchCapacity</code></td> <td>Boolean</td> <td>Pass <code class="language-plaintext highlighter-rouge">true</code> to fetch capacity information along with the product.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">fitToContainer</code></td> <td>HTML Element</td> <td>When set to a DOM element (e.g document.getElementById(‘container’)), the experience will only flex to the size of that container rather than attempting to use 100vh or calculating UI dimensions based on the window.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">hasTouch</code></td> <td>Boolean</td> <td>Pass <code class="language-plaintext highlighter-rouge">true</code> if the experience supports touch input.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">isColorMatching</code></td> <td>Boolean</td> <td>Passing <code class="language-plaintext highlighter-rouge">true</code> hides the harness menu and control buttons. This supports color matching work flow in the WIP Builder.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">metricId</code></td> <td>String</td> <td>Passing a <code class="language-plaintext highlighter-rouge">prebuildId</code> or <code class="language-plaintext highlighter-rouge">metricId</code> in config will force the Builder to load the build for the product and apply all the selections in the build to the loaded product. <code class="language-plaintext highlighter-rouge">metricId</code> will always be preferred over <code class="language-plaintext highlighter-rouge">prebuildId</code> if both are supplied.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">prebuildId</code></td> <td>String</td> <td>Passing a <code class="language-plaintext highlighter-rouge">prebuildId</code> or <code class="language-plaintext highlighter-rouge">metricId</code> in config will force the Builder to load the build for the product and apply all the selections in the build to the loaded product. <code class="language-plaintext highlighter-rouge">metricId</code> will always be preferred over <code class="language-plaintext highlighter-rouge">prebuildId</code> if both are supplied.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">sizeTypeRegion</code></td> <td>String</td> <td>The sizeTypeRegion corresponding to the list of sizeTypes that should be returned in the build data. Valid values are <code class="language-plaintext highlighter-rouge">US</code>, <code class="language-plaintext highlighter-rouge">EU</code>, <code class="language-plaintext highlighter-rouge">JP</code>, <code class="language-plaintext highlighter-rouge">CN</code>, <code class="language-plaintext highlighter-rouge">XP</code>.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">viewPortSize</code></td> <td>String</td> <td>Sets viewport size, and creates values for <code class="language-plaintext highlighter-rouge">imageSize</code> and <code class="language-plaintext highlighter-rouge">imageQuality</code>. Can be <code class="language-plaintext highlighter-rouge">'S'</code>, <code class="language-plaintext highlighter-rouge">'M'</code>, <code class="language-plaintext highlighter-rouge">'L'</code>, <code class="language-plaintext highlighter-rouge">'XL'</code>, <code class="language-plaintext highlighter-rouge">'S8'</code>, <code class="language-plaintext highlighter-rouge">'M8'</code>, <code class="language-plaintext highlighter-rouge">'L8'</code>, <code class="language-plaintext highlighter-rouge">'XL8'</code>.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">imageQuality</code></td> <td>Number</td> <td>Sets the PNG bit depth. Can be either <code class="language-plaintext highlighter-rouge">8</code> or <code class="language-plaintext highlighter-rouge">24</code>.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">imageSize</code></td> <td>Number</td> <td>Number of pixels at which the main shoe image will be rendered.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">skipPriceInfo</code></td> <td>Boolean</td> <td>If set to <code class="language-plaintext highlighter-rouge">true</code>, the pricing information won’t be returned but style-color code will still be returned. Use for any product that is not setup in Prodigy. This flag is added to support Converse EU products.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">styleCode</code></td> <td>String</td> <td>Mandatory when skipPriceInfo is set to <code class="language-plaintext highlighter-rouge">true</code>. Causes the build to be saved with the styleCode from the input config.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">colorCode</code></td> <td>String</td> <td>Mandatory when skipPriceInfo is set to <code class="language-plaintext highlighter-rouge">true</code>. Causes the build to be saved with the colorCode from the input config.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">myDesignsEnabled</code></td> <td>Boolean</td> <td>If set to ‘true’, My Designs local storage will be enabled. Default is ‘false’</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">myDesignCapacity</code></td> <td>Number</td> <td>Number of most recent designs to be stored in local storage. If this maximum value is exceeded, the oldest design(s) will be deleted from storage. Default is ‘15’</td> </tr> </tbody> </table> <h4 id="bridge-properties">Bridge Properties</h4> <p>The bridge is a set of callbacks provided to the Builder config under the <code class="language-plaintext highlighter-rouge">config.bridge</code> property. They allow you to be notified by actions within the Builder.</p> <h5 id="onanalyticseventtype-payload">onAnalyticsEvent(type, payload)</h5> <p>Called upon user invoked events for capturing analytics data.</p> <p>The <code class="language-plaintext highlighter-rouge">type</code> property will be an event name that is exposed for analytics. This list includes:</p> <ul> <li><strong>ANALYTICS_APPLY_CUSTOMIZATION</strong>: When the user makes any customization change</li> <li><strong>ANALYTICS_COMPLETE_BUILD</strong>: When the user presses ‘done’ to complete the build</li> <li><strong>ANALYTICS_MARKETING_COMPONENT_SELECTED</strong>: When the user selects a marketing component</li> <li><strong>ANALYTICS_SELECT_VIEW</strong>: When the user selects a view from the carousel</li> <li><strong>ANALYTICS_ZOOM_IN</strong>: When the user requests a higher-res image</li> </ul> <p>The <code class="language-plaintext highlighter-rouge">payload</code> property contains meta information about the event type. For example, the meta information for <code class="language-plaintext highlighter-rouge">ANALYTICS_SELECT_VIEW</code> would include the selected view number. The same applies for <code class="language-plaintext highlighter-rouge">ANALYTICS_MARKETING_COMPONENT_SELECTED</code>, which will include the id and name of the marketing component.</p> <h5 id="onapireadyapi">onApiReady(api)</h5> <p>Called when the API is ready, shortly after the product has loaded. This returns the API object.</p> <blockquote> <p><strong>NOTE</strong>: The build is not always ready at this point. Please use <code class="language-plaintext highlighter-rouge">bridge.onProductLoad(buildData)</code> for initial build. Then use <code class="language-plaintext highlighter-rouge">api.getBuild()</code> after that.</p> </blockquote> <h5 id="ondonebuilddata">onDone(buildData)</h5> <p>Called with the current buildData whenever is “done” editing their build.</p> <h5 id="onerrorerror">onError(error)</h5> <p>Called when an error response is returned from product data fetching or when a initialization error occurs on the client. Error may be either a string or a native JavaScript error.</p> <h5 id="onpriceupdatepricedata">onPriceUpdate(priceData)</h5> <p>Called with price information whenever the user makes selection changes.</p> <h5 id="onproductloadbuilddata">onProductLoad(buildData)</h5> <p>Called with the current buildData state of the Builder whenever a new product is loaded, or a build is applied.</p> <h3 id="build-data">Build Data</h3> <p>The Builder returns a <code class="language-plaintext highlighter-rouge">buildData</code> object (also referred to as Build Data), which describes the current state of the build with sizing information, style/color, current product question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/buildDataExample.html">sample buildData object</a>.</p> <h4 id="build-data-fields">Build Data Fields</h4> <h6 id="table-5--fields-in-build-data">Table 5: Fields in Build Data</h6> <table> <thead> <tr> <th>Field</th> <th>Type</th> <th>Description</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">pathName</code></td> <td>String</td> <td>The product pathName for this build.</td> <td>“ER2teamSP19_barca”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">productId</code></td> <td>String</td> <td>The product ID for this build.</td> <td>“PROD372041”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">consumerQuesAnswers</code></td> <td>Array</td> <td>Collection of product question-and-answer pairs representing the current state of the Builder’s pid selections.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">productQuesAnswers</code></td> <td>Array</td> <td>A collection of product question-and-answer pairs representing the current state of the Builder’s combination selections.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">sizeMarketingComponent</code></td> <td>Object</td> <td>DEPRECATED and replaced by <code class="language-plaintext highlighter-rouge">sizingData</code> (see below)</td> <td> </td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">viewNumbers</code></td> <td>String</td> <td>Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 URLs for each angle of the product currently being shown within the Builder for your own product carousels or display pages.</td> <td>“1,2,3,4,5,6”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">color</code></td> <td>String</td> <td>The product color code for this build.</td> <td>“994”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">price</code></td> <td>String</td> <td>The product price formatted as string with the currency symbol.</td> <td>$180</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">rawPrice</code></td> <td>Number</td> <td>The product price formatted as a number.</td> <td>180</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">style</code></td> <td>String</td> <td>The product style code.</td> <td>“CK3977”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">country</code></td> <td>String</td> <td>The current country code for this build.</td> <td>“US”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">locale</code></td> <td>String</td> <td>The current locale code for this build.</td> <td>“en_US”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">imageNumbers</code></td> <td>String</td> <td>Comma-separated list of views currently being displayed by the Builder, in the order in which they are being displayed. Provides a way to template scene7 URLs for each angle of the product for your own product carousels or display pages.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">imageService</code></td> <td>String</td> <td>The host of the service call used to request images of the product represented by the buildData. Use in conjunction with the viewUrlTemplate field to build scene7 image service request URLs.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">imageUrlTemplate</code></td> <td>String</td> <td>Scene7 parameterized URL for making requests for product images that are returned as opaque JPGs. The URL contains tags that must be replaced with valid values. These tags are {VIEW_NUMBER} (one of the values from imageNumbers), {IMAGE_WIDTH}, {BACKGROUND_COLOR} (in the form f5f5f5), &amp; {JPG_QUALITY} (0 - 100).</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">imageUrlShadowTemplate</code></td> <td>String</td> <td>This URL is the same as the imageUrlTemplate except it has added parameters that will cause a shadow to be rendered underneath the image.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">viewService</code></td> <td>String</td> <td>The host of the render service call used to request images of the product represented by the buildData. Use in conjunction with the viewUrlTemplate field to build scene7 render service request URL.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">viewUrlTemplate</code></td> <td>String</td> <td>Scene7 parameterized URL for making requests for product images that are uncompressed PNGs with a transparent background. The URL contains a tag {VIEW_NUMBER} (one of the values from imageNumbers) that must be replaced with a valid value. You must also add a width to the end of the string in the form &amp;wid={imageWidth} where {imageWidth} represents the width you desire.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">viewUrlShadowTemplate</code></td> <td>String</td> <td>This URL is the same as the viewUrlTemplate except it has added parameters that will cause a shadow to be rendered underneath the image.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">availability</code></td> <td>Object</td> <td>The lead time in days for the product to be delivered, when <code class="language-plaintext highlighter-rouge">isAvailable</code> is true. When false, only an ‘out of stock’ message is returned.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">myDesigns</code></td> <td>Array</td> <td>Array of locally-saved My Designs for the given pathName</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">sizeTypes</code></td> <td>Array</td> <td>A collection of sizeTypes based on the sizeTypeRegion that was requested in the config data.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">sizingData</code></td> <td>Array</td> <td>Contains arrays of gender, width, size, and size chart data. Used for “buying” and “size” tools.</td> <td>See <a href="/doc/commerce/customization/buildDataExample.html">here</a></td> </tr> </tbody> </table> <h5 id="more-about-availability">More about <strong>availability</strong></h5> <p>The below table describes the contents of the <code class="language-plaintext highlighter-rouge">availability</code> object:</p> <h6 id="table-6--fields-in-availability-object">Table 6: Fields in Availability Object</h6> <table> <thead> <tr> <th>Field</th> <th>Type</th> <th>Description</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">isAvailable</code></td> <td>Boolean</td> <td>Whether the current style-color is available to be purchased</td> <td>true</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">leadtimeUpperBoundInDays</code></td> <td>Number</td> <td>The lead time for the product to be delivered, in days</td> <td>22</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">longCapacityMessage</code></td> <td>String</td> <td>The long message text describing the product availability and lead-time.</td> <td>“Custom-made and delivered to you in 3 weeks or less.”</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">shortCapacityMessage</code></td> <td>String</td> <td>The short message text describing the product availability and lead-time.</td> <td>“GREAT CHOICE”</td> </tr> </tbody> </table> <h5 id="more-about-sizingdata">More about <strong>sizingData</strong></h5> <ul> <li>Render the gender, width, and size questions and answer them using the <code class="language-plaintext highlighter-rouge">setAnswer</code> and <code class="language-plaintext highlighter-rouge">setsizeAnswer</code> methods as the consumer makes selections.</li> <li>If a value for the <code class="language-plaintext highlighter-rouge">sizeTypeRegion</code> field is not provided when initializing the Builder, then <code class="language-plaintext highlighter-rouge">sizeTypes</code> will default to undefined.</li> <li>If <code class="language-plaintext highlighter-rouge">fetchCapacity</code> is set to false when initializing the Builder, then all sizes will show as out of stock.</li> <li>Capacity, inventory, restrictions, sizeType and prior answers to sizing questions are all taken into consideration when generating this collection of objects.</li> </ul> <p>Sample sizingData:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
   {
     "displayName":"Size Chart",
     "questionId":"huarRunESS1702:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM380033",
@@ -877,22 +170,7 @@ question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/
     ]
   }
 ]
-</code></pre></div></div>
-
-<h3 id="working-with-imageserver-images">Working with imageServer Images</h3>
-
-<p>The buildData that is returned includes URLs for generating images from the <strong>image server</strong>. These images are opaque JPGs, as opposed to the transparent PNGs provided by the <a href="#working-with-viewserver-images">render server</a>.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">imageNumbers</code></li>
-  <li><code class="language-plaintext highlighter-rouge">imageService</code></li>
-  <li><code class="language-plaintext highlighter-rouge">imageUrlTemplate</code></li>
-  <li><code class="language-plaintext highlighter-rouge">imageUrlShadowTemplate</code></li>
-</ul>
-
-<p>These can be processed to generate the urls you need by adding this function to your code:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="working-with-imageserver-images">Working with imageServer Images</h3> <p>The buildData that is returned includes URLs for generating images from the <strong>image server</strong>. These images are opaque JPGs, as opposed to the transparent PNGs provided by the <a href="#working-with-viewserver-images">render server</a>.</p> <ul> <li><code class="language-plaintext highlighter-rouge">imageNumbers</code></li> <li><code class="language-plaintext highlighter-rouge">imageService</code></li> <li><code class="language-plaintext highlighter-rouge">imageUrlTemplate</code></li> <li><code class="language-plaintext highlighter-rouge">imageUrlShadowTemplate</code></li> </ul> <p>These can be processed to generate the urls you need by adding this function to your code:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * Get the imageUrls for the current design from the image server
 *
 * @param {Object} buildData - the buildData
@@ -923,22 +201,7 @@ question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/
  
     <span class="k">return</span> <span class="nx">imageUrls</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="working-with-viewserver-images">Working with viewServer Images</h3>
-
-<p>The buildData that is returned will include image URLs for generating images from the <strong>render server</strong>. These images are transparent PNGs, as opposed to the JPGs provided by the <a href="#working-with-imageserver-images">image server</a>.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">viewNumbers</code></li>
-  <li><code class="language-plaintext highlighter-rouge">viewService</code></li>
-  <li><code class="language-plaintext highlighter-rouge">viewUrlTemplate</code></li>
-  <li><code class="language-plaintext highlighter-rouge">viewUrlShadowTemplate</code></li>
-</ul>
-
-<p>These can be processed to generate the URLs you need by adding this function to your code:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="working-with-viewserver-images">Working with viewServer Images</h3> <p>The buildData that is returned will include image URLs for generating images from the <strong>render server</strong>. These images are transparent PNGs, as opposed to the JPGs provided by the <a href="#working-with-imageserver-images">image server</a>.</p> <ul> <li><code class="language-plaintext highlighter-rouge">viewNumbers</code></li> <li><code class="language-plaintext highlighter-rouge">viewService</code></li> <li><code class="language-plaintext highlighter-rouge">viewUrlTemplate</code></li> <li><code class="language-plaintext highlighter-rouge">viewUrlShadowTemplate</code></li> </ul> <p>These can be processed to generate the URLs you need by adding this function to your code:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * Get the viewUrls for the current design
 *
 * @param {Object} buildData - the buildData
@@ -964,213 +227,64 @@ question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/
  
     <span class="k">return</span> <span class="nx">viewUrls</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="methods">Methods</h2>
-
-<h3 id="applymydesign">applyMyDesign</h3>
-
-<p>Description: Loads the design associated with the included designKey into the Builder. The <code class="language-plaintext highlighter-rouge">onProductLoad</code> bridge method will be called in response to a successful load.</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">applyMyDesign</span><span class="p">(</span><span class="mi">1561569431459</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="clearjerseycustomization">clearJerseyCustomization</h3>
-
-<p>Description: Clears the customization (un-answers questions) and returns the new build data, for jerseys exclusively.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">clearJerseyCustomization</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="clearmessage">clearMessage</h3>
-
-<p>Description: Clears the message in the Builder.</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">clearMessage</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="deletemydesign">deleteMyDesign</h3>
-
-<p>Description: Deletes the myDesign associated with the included designKey from the localStorageCache. See also <a href="#deletemydesigns">deleteMyDesigns</a></p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">deleteMyDesign</span><span class="p">(</span><span class="mi">1561569431459</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="deletemydesigns">deleteMyDesigns</h3>
-
-<p>Description: Deletes all of the myDesigns from the localStorageCache. See also <a href="#deletemydesign">deleteMyDesign</a></p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">deleteMyDesigns</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getaffectedquestionmap">getAffectedQuestionMap</h3>
-
-<p>Description: Return questionsMappingInfo based on the questionId</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h2 id="methods">Methods</h2> <h3 id="applymydesign">applyMyDesign</h3> <p>Description: Loads the design associated with the included designKey into the Builder. The <code class="language-plaintext highlighter-rouge">onProductLoad</code> bridge method will be called in response to a successful load.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">applyMyDesign</span><span class="p">(</span><span class="mi">1561569431459</span><span class="p">)</span>
+</code></pre></div></div> <h3 id="clearjerseycustomization">clearJerseyCustomization</h3> <p>Description: Clears the customization (un-answers questions) and returns the new build data, for jerseys exclusively.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">clearJerseyCustomization</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="clearmessage">clearMessage</h3> <p>Description: Clears the message in the Builder.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">clearMessage</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="deletemydesign">deleteMyDesign</h3> <p>Description: Deletes the myDesign associated with the included designKey from the localStorageCache. See also <a href="#deletemydesigns">deleteMyDesigns</a></p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">deleteMyDesign</span><span class="p">(</span><span class="mi">1561569431459</span><span class="p">)</span>
+</code></pre></div></div> <h3 id="deletemydesigns">deleteMyDesigns</h3> <p>Description: Deletes all of the myDesigns from the localStorageCache. See also <a href="#deletemydesign">deleteMyDesign</a></p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">deleteMyDesigns</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="getaffectedquestionmap">getAffectedQuestionMap</h3> <p>Description: Return questionsMappingInfo based on the questionId</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array}
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getAffectedQuestionMap</span><span class="p">()</span>
 
-</code></pre></div></div>
-
-<h3 id="getanswersbycode">getAnswersByCode</h3>
-
-<p>Description: Returns answers and their matching questionsId which can then be used to display an answer. Useful for tapping into specific question or answer nodes.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getanswersbycode">getAnswersByCode</h3> <p>Description: Returns answers and their matching questionsId which can then be used to display an answer. Useful for tapping into specific question or answer nodes.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of normalized questions
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getAnswersByCode</span><span class="p">(</span><span class="dl">'</span><span class="s1">jersey</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="getavailability">getAvailability</h3>
-
-<p>Description: Returns promise to fetch availability information for the current configuration.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getavailability">getAvailability</h3> <p>Description: Returns promise to fetch availability information for the current configuration.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 • @returns {Promise-&gt;Array} a promise to return availability data
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getAvailability</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getavailabilitymessages">getAvailabilityMessages</h3>
-
-<p>Description: Returns promise to fetch availability messages information for the current configuration.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getavailabilitymessages">getAvailabilityMessages</h3> <p>Description: Returns promise to fetch availability messages information for the current configuration.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 • @returns {Promise-&gt;Object} a promise to return availability messages including leadtimeUpperBoundInDays, longCapacityMessage, and shortCapacityMessage
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getAvailabilityMessages</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getbomxml">getBomXML</h3>
-
-<p>Description: Returns the Bill Of Materials (BOM) in XML format. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned. Returns a Promise that either:</p>
-
-<ul>
-  <li>Resolves to a metricId, if the builder data is valid</li>
-</ul>
-
-<p>OR</p>
-
-<ul>
-  <li>Rejects with an error message, if the builder data is invalid</li>
-</ul>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">getBomXML</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getbuild">getBuild</h3>
-
-<p>Description: Returns the current build snapshot. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned.  Also, returns the isJerseyCustomized data.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getbomxml">getBomXML</h3> <p>Description: Returns the Bill Of Materials (BOM) in XML format. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned. Returns a Promise that either:</p> <ul> <li>Resolves to a metricId, if the builder data is valid</li> </ul> <p>OR</p> <ul> <li>Rejects with an error message, if the builder data is invalid</li> </ul> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">getBomXML</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="getbuild">getBuild</h3> <p>Description: Returns the current build snapshot. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned. Also, returns the isJerseyCustomized data.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @return {Object} The current build snapshot
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getBuild</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getcapacity">getCapacity</h3>
-
-<p>Description: Returns promise to fetch capacity information for current or passed-in product configuration.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getcapacity">getCapacity</h3> <p>Description: Returns promise to fetch capacity information for current or passed-in product configuration.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Promise-&gt;Object} a promise to return capacity data
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getCapacity</span><span class="p">().</span><span class="nx">then</span><span class="p">()</span> 
 <span class="c1">// or</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getCapacity</span><span class="p">({</span> <span class="nx">country</span><span class="p">,</span> <span class="nx">pathName</span> <span class="p">}).</span><span class="nx">then</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getleadtimemessage">getLeadTimeMessage</h3>
-
-<p>Description: Returns promise to fetch lead time information for current or passed-in product configuration.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getleadtimemessage">getLeadTimeMessage</h3> <p>Description: Returns promise to fetch lead time information for current or passed-in product configuration.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Promise-&gt;Object} a promise to return leadTimeMessage data
 */</span>
 <span class="nx">builderApi</span><span class="p">(</span><span class="nx">getLeadTimeMessage</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="getmarketingcomponents">getMarketingComponents</h3>
-
-<p>Description: Returns a list of normalized marketing components with nested question keys. The questions index can be used to lookup nested question values.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getmarketingcomponents">getMarketingComponents</h3> <p>Description: Returns a list of normalized marketing components with nested question keys. The questions index can be used to lookup nested question values.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Object} the current prouduct marketing components data
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getMarketingComponents</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getmydesigns">getMyDesigns</h3>
-
-<p>Description: Gets all of the myDesigns from the localStorageCache. Returns an Array of myDesigns sorted from newest to oldest.</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getmydesigns">getMyDesigns</h3> <p>Description: Gets all of the myDesigns from the localStorageCache. Returns an Array of myDesigns sorted from newest to oldest.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array}
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getMyDesigns</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getproductcolorpalette">getProductColorPalette</h3>
-
-<p>Description: Returns a list of unique colors for the loaded builder.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getproductcolorpalette">getProductColorPalette</h3> <p>Description: Returns a list of unique colors for the loaded builder.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @return {Array} List of selected color answers unique by hex
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getProductColorPalette</span><span class="p">()</span>
-</code></pre></div></div>
-<h3 id="getproductfillcolors">getProductFillColors</h3>
-
-<p>Description: Returns a list of unique colors applicable to all marketing components for the loaded Builder</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getproductfillcolors">getProductFillColors</h3> <p>Description: Returns a list of unique colors applicable to all marketing components for the loaded Builder</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of selected color answers unique by hex
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getProductFillColors</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getquestionsindex">getQuestionsIndex</h3>
-
-<p>Description: Returns a normalized array of questions keyed by their ID. Effectively, this is a flattened tree of all questions contained in the product data with nested questions as keys.</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getquestionsindex">getQuestionsIndex</h3> <p>Description: Returns a normalized array of questions keyed by their ID. Effectively, this is a flattened tree of all questions contained in the product data with nested questions as keys.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of normalized questions
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getQuestionsIndex</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p>Example:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+</code></pre></div></div> <p>Example:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
   pathName:questionId: {
     id: 'pathName:questionId',
     isHidden: false,
@@ -1179,80 +293,31 @@ question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/
     ]
   }
 }
-</code></pre></div></div>
-
-<h3 id="getselectedcolors">getSelectedColors</h3>
-
-<p>Description: Returns a collection of all selected colors from the current build, unique by hex(attribute).</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getselectedcolors">getSelectedColors</h3> <p>Description: Returns a collection of all selected colors from the current build, unique by hex(attribute).</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of selected color answers unique by hex
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getSelectedColors</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getselectedcolorspatterns">getSelectedColorsPatterns</h3>
-
-<p>Description: Returns a collection of all selected colors and patterns from the current build. Colors are unique by hex(attribute) and patterns are unique by src(attribute).</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getselectedcolorspatterns">getSelectedColorsPatterns</h3> <p>Description: Returns a collection of all selected colors and patterns from the current build. Colors are unique by hex(attribute) and patterns are unique by src(attribute).</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of selected color answers unique by hex &amp; pattern type questions unique by src
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getSelectedColorsPatterns</span>
-</code></pre></div></div>
-
-<h3 id="getselectedpalette">getSelectedPalette</h3>
-
-<p>Description: Returns a list of unique colors for the selected answers of the loaded builder.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getselectedpalette">getSelectedPalette</h3> <p>Description: Returns a list of unique colors for the selected answers of the loaded builder.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of selected color answers unique by displayName
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getSelectedPalette</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="getselectedpatterns">getSelectedPatterns</h3>
-
-<p>Description: Returns a collection of all selected patterns from the current build, unique by src(attribute).</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getselectedpatterns">getSelectedPatterns</h3> <p>Description: Returns a collection of all selected patterns from the current build, unique by src(attribute).</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array} List of selected pattern answers unique by src
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getSelectedPatterns</span>
-</code></pre></div></div>
-
-<h3 id="getselectedquestionanswerpairs">getSelectedQuestionAnswerPairs</h3>
-
-<p>Description: Returns a collection of all answered questions along with their answer. For most products this will return the majority of questions, as defaults are selected in B16 APIs.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getselectedquestionanswerpairs">getSelectedQuestionAnswerPairs</h3> <p>Description: Returns a collection of all answered questions along with their answer. For most products this will return the majority of questions, as defaults are selected in B16 APIs.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array}
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getSelectedQuestionAnswerPairs</span>
-</code></pre></div></div>
-<h3 id="getupcharges">getUpCharges</h3>
-
-<p>Description: Returns an array of applicable up-charge objects corresponding to the answered questions.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="getupcharges">getUpCharges</h3> <p>Description: Returns an array of applicable up-charge objects corresponding to the answered questions.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Object}
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">getUpCharges</span><span class="p">()</span>
-</code></pre></div></div>
-<p>Example:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+</code></pre></div></div> <p>Example:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
     {
       answer: "ANSWER_ID",
       displayName: "Display Name",
@@ -1260,198 +325,43 @@ question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/
       upCharge: "$0"_
     }
 ]
-</code></pre></div></div>
-
-<h3 id="isjerseycustomized">isJerseyCustomized</h3>
-
-<p>Description: Returns information on the jersey customization. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then the function will return false.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">isJerseyCustomized</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="ispidallowed">isPidAllowed</h3>
-
-<p>Description: Returns true if the profanity service allowed the string (no stop word was matched). String passed must match records in the capacity service exactly. Only single strings are supported.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="isjerseycustomized">isJerseyCustomized</h3> <p>Description: Returns information on the jersey customization. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then the function will return false.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">isJerseyCustomized</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="ispidallowed">isPidAllowed</h3> <p>Description: Returns true if the profanity service allowed the string (no stop word was matched). String passed must match records in the capacity service exactly. Only single strings are supported.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Promise-&gt;Boolean} a promise to return profanity result
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">isPidAllowed</span><span class="p">(</span><span class="dl">'</span><span class="s1">MYPID</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="openhighresimageurl">openHighResImageUrl</h3>
-
-<p>Description: Returns the high-resolution image URL in a new window.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">openHighResImageUrl</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="savebuild-deprecated">saveBuild (Deprecated)</h3>
-
-<p>Description: Persists build data and returns promise to send back a metric ID for that build.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="openhighresimageurl">openHighResImageUrl</h3> <p>Description: Returns the high-resolution image URL in a new window.</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">openHighResImageUrl</span><span class="p">()</span>
+</code></pre></div></div> <h3 id="savebuild-deprecated">saveBuild (Deprecated)</h3> <p>Description: Persists build data and returns promise to send back a metric ID for that build.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Promise-&gt;String}
 */</span>
 
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">saveBuild</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="savedesign">saveDesign</h3>
-
-<p>Description: Persists the current build after validating it can be purchased. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned. Returns a Promise that either:</p>
-
-<ul>
-  <li>Resolves to a metricId, if the builder data is valid</li>
-</ul>
-
-<p>OR</p>
-
-<ul>
-  <li>Rejects with an error message, if the builder data is invalid</li>
-</ul>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="savedesign">saveDesign</h3> <p>Description: Persists the current build after validating it can be purchased. Filters out options with blank pidText, meaning, if the user selects only customizable options and enters no text for those options, then there will be no customization returned. Returns a Promise that either:</p> <ul> <li>Resolves to a metricId, if the builder data is valid</li> </ul> <p>OR</p> <ul> <li>Rejects with an error message, if the builder data is invalid</li> </ul> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Promise-&gt;String}
 */</span>
 
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">saveDesign</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h3 id="savemydesign">saveMyDesign</h3>
-
-<p>Description: Saves a myDesign to the localStorageCache. Returns the new Array of myDesigns sorted from newest to oldest.</p>
-
-<p>Usage:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="savemydesign">saveMyDesign</h3> <p>Description: Saves a myDesign to the localStorageCache. Returns the new Array of myDesigns sorted from newest to oldest.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @returns {Array}
 */</span>
 <span class="nx">builder</span><span class="p">.</span><span class="nx">Api</span><span class="p">.</span><span class="nx">saveMyDesign</span>
-</code></pre></div></div>
-
-<h3 id="setanswer">setAnswer</h3>
-
-<p>Description: Returns the current build snapshot after changing the answer to a question in the Builder. Send the full question path, e.g. <code class="language-plaintext highlighter-rouge">"af1High14_July:LTITEM8170:LTITEM12012:LTITEM236023:LTITEM213006"</code> and the ID of the answer you would like to apply for that question, e.g. <code class="language-plaintext highlighter-rouge">"LTITEM167036"</code>.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="setanswer">setAnswer</h3> <p>Description: Returns the current build snapshot after changing the answer to a question in the Builder. Send the full question path, e.g. <code class="language-plaintext highlighter-rouge">"af1High14_July:LTITEM8170:LTITEM12012:LTITEM236023:LTITEM213006"</code> and the ID of the answer you would like to apply for that question, e.g. <code class="language-plaintext highlighter-rouge">"LTITEM167036"</code>.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @param {String} questionId
 * @param {String} answerId
 * @param {String} pidValue
 * @returns {Object} Updated build snapshot
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">setAnswer</span><span class="p">(</span><span class="nx">questionId</span><span class="p">,</span> <span class="nx">answerId</span><span class="p">,</span> <span class="nx">pidValue</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="setbuild">setBuild</h3>
-
-<p>Description: Allows reloading the Builder with a new product by passing one of the following:</p>
-
-<h6 id="table-7--parameters-for-setbuild-method">Table 7:  Parameters for setBuild Method</h6>
-
-<table>
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Result</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">metricId</code></td>
-      <td>String</td>
-      <td>Build is loaded and applied to the product data.</td>
-      <td><code class="language-plaintext highlighter-rouge">setBuild({ metricId: 123456789 });</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">prebuildId</code></td>
-      <td>String</td>
-      <td>Build is loaded and applied to the product data.</td>
-      <td><code class="language-plaintext highlighter-rouge">setBuild({ prebuildId: 123456789 });</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">buildData</code></td>
-      <td>Object</td>
-      <td>Product for that build is reloaded and has the build data applied to the product.</td>
-      <td><code class="language-plaintext highlighter-rouge">setBuild({ buildData: buildData });</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>After calling this method the <code class="language-plaintext highlighter-rouge">bridge.onProductLoad</code> callback is called with the <code class="language-plaintext highlighter-rouge">buildData</code> for the newly-applied build.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="setbuild">setBuild</h3> <p>Description: Allows reloading the Builder with a new product by passing one of the following:</p> <h6 id="table-7--parameters-for-setbuild-method">Table 7: Parameters for setBuild Method</h6> <table> <thead> <tr> <th>Param</th> <th>Type</th> <th>Result</th> <th>Example</th> </tr> </thead> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">metricId</code></td> <td>String</td> <td>Build is loaded and applied to the product data.</td> <td><code class="language-plaintext highlighter-rouge">setBuild({ metricId: 123456789 });</code></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">prebuildId</code></td> <td>String</td> <td>Build is loaded and applied to the product data.</td> <td><code class="language-plaintext highlighter-rouge">setBuild({ prebuildId: 123456789 });</code></td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">buildData</code></td> <td>Object</td> <td>Product for that build is reloaded and has the build data applied to the product.</td> <td><code class="language-plaintext highlighter-rouge">setBuild({ buildData: buildData });</code></td> </tr> </tbody> </table> <p>After calling this method the <code class="language-plaintext highlighter-rouge">bridge.onProductLoad</code> callback is called with the <code class="language-plaintext highlighter-rouge">buildData</code> for the newly-applied build.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @param {Object} buildData
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">setBuild</span><span class="p">(</span><span class="nx">buildData</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="setisvisible">setIsVisible</h3>
-
-<p>Description: Informs the Builder whether it is visible on-screen or not. To take effect, <code class="language-plaintext highlighter-rouge">enableAnimationInit: true</code> needs to be passed in the initialization config options.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">setIsVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="setmessage">setMessage</h3>
-
-<p>Description: Causes the Builder to display a message. Takes a message object consisting of the following properties:</p>
-
-<h6 id="table-8--properties-of-message-object-in-setmessage">Table 8:  Properties of Message Object in setMessage</h6>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">header</code></td>
-      <td>String</td>
-      <td>The text displayed at the top of the message.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">content</code></td>
-      <td>String</td>
-      <td>The text displayed under the header.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>String</td>
-      <td>The type of message to be displayed, which controls how the message is displayed. Default is ‘COUNTDOWN’. Possible values are: <br />‘COUNTDOWN’, <br />‘COUNTDOWN_URGENT’, <br />‘COUNTDOWN_EXPIRED’</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="setisvisible">setIsVisible</h3> <p>Description: Informs the Builder whether it is visible on-screen or not. To take effect, <code class="language-plaintext highlighter-rouge">enableAnimationInit: true</code> needs to be passed in the initialization config options.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">builderApi</span><span class="p">.</span><span class="nx">setIsVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div></div> <h3 id="setmessage">setMessage</h3> <p>Description: Causes the Builder to display a message. Takes a message object consisting of the following properties:</p> <h6 id="table-8--properties-of-message-object-in-setmessage">Table 8: Properties of Message Object in setMessage</h6> <table> <thead> <tr> <th>Field</th> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">header</code></td> <td>String</td> <td>The text displayed at the top of the message.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">content</code></td> <td>String</td> <td>The text displayed under the header.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">type</code></td> <td>String</td> <td>The type of message to be displayed, which controls how the message is displayed. Default is ‘COUNTDOWN’. Possible values are: <br/>‘COUNTDOWN’, <br/>‘COUNTDOWN_URGENT’, <br/>‘COUNTDOWN_EXPIRED’</td> </tr> </tbody> </table> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @param {Object} message
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">setMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Examples:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countdownMessage</span> <span class="o">=</span> <span class="p">{</span> <span class="na">header</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Available for</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">22:14:54:06</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">COUNTDOWN</span><span class="dl">'</span> <span class="p">};</span>
+</code></pre></div></div> <p>Examples:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countdownMessage</span> <span class="o">=</span> <span class="p">{</span> <span class="na">header</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Available for</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">22:14:54:06</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">COUNTDOWN</span><span class="dl">'</span> <span class="p">};</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">setMessage</span><span class="p">(</span><span class="nx">countdownMessage</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">countdownUrgentMessage</span> <span class="o">=</span> <span class="p">{</span> <span class="na">header</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Available for</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">00:00:10:06</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">COUNTDOWN_URGENT</span><span class="dl">'</span> <span class="p">};</span>
@@ -1460,89 +370,23 @@ question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/
 <span class="kd">var</span> <span class="nx">countdownExpiredMessage</span> <span class="o">=</span> <span class="p">{</span> <span class="na">header</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Great choice but...</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">This one sold out fast. Check back soon for availability. Keep customizing, save your design and share it with friends.</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">COUNTDOWN_EXPIRED</span><span class="dl">'</span> <span class="p">};</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">setMessage</span><span class="p">(</span><span class="nx">countdownExpiredMessage</span><span class="p">);</span>
 
-</code></pre></div></div>
-
-<h3 id="setsizeanswer">setSizeAnswer</h3>
-
-<p>Description: Given a question ID and answer ID, answer the corresponding question in the build.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="setsizeanswer">setSizeAnswer</h3> <p>Description: Given a question ID and answer ID, answer the corresponding question in the build.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @param {String} questionId
 * @param {String} answerId
 * @param {String} sizeType
 * @returns {Object} Updated build snapshot
 */</span>
 <span class="nx">setSizeAnswer</span><span class="p">(</span><span class="nx">questionId</span><span class="p">,</span> <span class="nx">answerId</span><span class="p">,</span> <span class="nx">sizeType</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="setsizetype">setSizeType</h3>
-
-<p>Description: Allows updating the Builder’s internal state for selected size type, which updates the size, price, and color data when the Builder creates the buildData.</p>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="setsizetype">setSizeType</h3> <p>Description: Allows updating the Builder’s internal state for selected size type, which updates the size, price, and color data when the Builder creates the buildData.</p> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @param {String} sizeType
 * @returns {Object} Updated build snapshot
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">setSizeType</span><span class="p">(</span><span class="nx">sizeType</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="sharedesign">shareDesign</h3>
-
-<p>Description: Persists the current build and returns Promise that resolves to a metricId. Unlike <a href="#savedesign">saveDesign</a>, with <code class="language-plaintext highlighter-rouge">shareDesign</code> no validation is done on the build.</p>
-
-<h3 id="shownotification">showNotification</h3>
-
-<p>Description: Causes the Builder to display a notification. It takes a message object consisting of the following properties:</p>
-
-<h6 id="table-9--properties-of-message-object-in-shownotification-method">Table 9:  Properties of Message Object in showNotification Method</h6>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>String</td>
-      <td>The type of message. Only one message of a given type will be displayed.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">message</code></td>
-      <td>String</td>
-      <td>The message text.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">level</code></td>
-      <td>String</td>
-      <td>Optional - Determines the message level. Possible values: ‘alert’, undefined/null.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">title</code></td>
-      <td>String</td>
-      <td>Optional - The message title.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Usage:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+</code></pre></div></div> <h3 id="sharedesign">shareDesign</h3> <p>Description: Persists the current build and returns Promise that resolves to a metricId. Unlike <a href="#savedesign">saveDesign</a>, with <code class="language-plaintext highlighter-rouge">shareDesign</code> no validation is done on the build.</p> <h3 id="shownotification">showNotification</h3> <p>Description: Causes the Builder to display a notification. It takes a message object consisting of the following properties:</p> <h6 id="table-9--properties-of-message-object-in-shownotification-method">Table 9: Properties of Message Object in showNotification Method</h6> <table> <thead> <tr> <th>Field</th> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code class="language-plaintext highlighter-rouge">type</code></td> <td>String</td> <td>The type of message. Only one message of a given type will be displayed.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">message</code></td> <td>String</td> <td>The message text.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">level</code></td> <td>String</td> <td>Optional - Determines the message level. Possible values: ‘alert’, undefined/null.</td> </tr> <tr> <td><code class="language-plaintext highlighter-rouge">title</code></td> <td>String</td> <td>Optional - The message title.</td> </tr> </tbody> </table> <p>Usage:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 * @param {Object} message
 */</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Examples:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">alert</span> <span class="o">=</span> <span class="p">{</span> <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">This is an alert with the orange thing</span><span class="dl">'</span><span class="p">,</span> <span class="na">level</span><span class="p">:</span> <span class="dl">'</span><span class="s1">alert</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">some val</span><span class="dl">'</span> <span class="p">};</span>
+</code></pre></div></div> <p>Examples:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">alert</span> <span class="o">=</span> <span class="p">{</span> <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">This is an alert with the orange thing</span><span class="dl">'</span><span class="p">,</span> <span class="na">level</span><span class="p">:</span> <span class="dl">'</span><span class="s1">alert</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">some val</span><span class="dl">'</span> <span class="p">};</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="nx">alert</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">titled</span> <span class="o">=</span> <span class="p">{</span> <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">This is just a plain message, but with a title</span><span class="dl">'</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hey yo!</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">some val</span><span class="dl">'</span> <span class="p">};</span>
@@ -1550,131 +394,4 @@ question/answer pairs, and more. Here is a <a href="/doc/commerce/customization/
 
 <span class="kd">var</span> <span class="nx">plain</span> <span class="o">=</span> <span class="p">{</span> <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">just a plain old message. not that fun, sorry.</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">some val</span><span class="dl">'</span> <span class="p">};</span>
 <span class="nx">builderApi</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="nx">plain</span><span class="p">);</span>
-</code></pre></div></div>
-
-<h2 id="contacting-the-team">Contacting the Team</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Slack</td>
-      <td><a href="https://nikedigital.slack.com/archives/C0L8C4UM7" target="new-tab">#nikeid-dev-systems</a></td>
-    </tr>
-    <tr>
-      <td>Confluence Space</td>
-      <td><a href="https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home" target="new-tab">NikeiD Systems Home</a></td>
-    </tr>
-    <tr>
-      <td>Team Contacts</td>
-      <td><a href="mailto:jason.mueller@nike.com">Jason Mueller, Product Manager</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="document-change-log">Document Change Log</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Summary</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Initial publish</td>
-      <td>05/17/2019</td>
-    </tr>
-    <tr>
-      <td>Added new My Designs methods, added new shareDesign, saveDesign methods, marked saveBuild as deprecated</td>
-      <td>07/02/2019</td>
-    </tr>
-    <tr>
-      <td>Added new methods and buildData info for availability</td>
-      <td>07/30/2019</td>
-    </tr>
-    <tr>
-      <td>Added new clearCustomization method</td>
-      <td>04/09/2020</td>
-    </tr>
-    <tr>
-      <td>Added isJerseyCustomized and getBomXML methods, updated descriptions of getBuild and saveDesign</td>
-      <td>04/24/2020</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="next-steps">Next Steps</h2>
-
-<ul>
-  <li><a href="/doc/commerce/customization/use-customization.html">Adding Customization To Your Experience</a></li>
-  <li><a href="/doc/getting-started/using-nike-apis.html">Using Nike APIs</a></li>
-  <li><a href="/doc/commerce/reference/glossary.html">Glossary</a></li>
-</ul>
-
-</div>
-<header>
-    <form action="/search/index.html" method="get">
-        <input type="text" name="q" id="search-input" placeholder="Search">
-        <input type="submit" value="Search" style="display: none;">
-    </form>
-    <div id="sidebar" class="sidebar">
-    <section>
-        <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a>
-        <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Commerce Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i>  Team Services</a></h6><h6><span name="0-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
-        <ul id="0-get-started" class="hide"><li>
-                <a href="/doc/getting-started/using-nike-apis.html" class="">Using Nike APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
-        <ul id="a-overview" class="hide"><li>
-                <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
-                <a href="/doc/commerce/product/overview-rollup-threads.html" class="">Rollup Threads</a></li><li>
-                <a href="/doc/commerce/customization/overview-customization.html" class="">Customization</a></li><li>
-                <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
-                <a href="/doc/commerce/checkout/overview-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li>
-                <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li>
-                <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="">Taxonomy Tagging for Assets and Content</a></li><li>
-                <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li>
-                <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li>
-                <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
-        <ul id="b-use-case" class="hide"><li>
-                <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
-                <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li>
-                <a href="/doc/commerce/customization/use-customization.html" class="">Customization</a></li><li>
-                <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li>
-                <a href="/doc/commerce/checkout/use-wishlists.html" class="">Wishlists</a></li><li>
-                <a href="/doc/commerce/checkout/use-carts.html" class="">Carts</a></li><li>
-                <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li>
-                <a href="/doc/commerce/checkout/use-checkout.html" class="">Checkout</a></li><li>
-                <a href="/doc/commerce/checkout/use-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li>
-                <a href="/doc/commerce/order/use-order.html" class="">Order</a></li><li>
-                <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
-        <ul id="d-reference" class=""><li>
-                <a href="/doc/commerce/customization/builder-reference.html" class="active">Customization Builder</a><ul><li>
-                        <a href="/doc/commerce/customization/builder-reference.html#basic-integration"
-                           class="">Basic Integration</a>
-                    </li><li>
-                        <a href="/doc/commerce/customization/builder-reference.html#builder-api"
-                           class="">Builder API</a>
-                    </li><li>
-                        <a href="/doc/commerce/customization/builder-reference.html#methods"
-                           class="">Methods</a>
-                    </li><li>
-                        <a href="/doc/commerce/customization/builder-reference.html#contacting-the-team"
-                           class="">Contacting the Team</a>
-                    </li><li>
-                        <a href="/doc/commerce/customization/builder-reference.html#document-change-log"
-                           class="">Document Change Log</a>
-                    </li><li>
-                        <a href="/doc/commerce/customization/builder-reference.html#next-steps"
-                           class="">Next Steps</a>
-                    </li></ul></li><li>
-                <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li>
-                <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li>
-                <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li>
-                <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li>
-                <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li>
-                <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
-    </section>
-</div>
-</header>
-</body>
-</html>
+</code></pre></div></div> <h2 id="contacting-the-team">Contacting the Team</h2> <table> <tbody> <tr> <td>Slack</td> <td><a href="https://nikedigital.slack.com/archives/C0L8C4UM7" target="new-tab">#nikeid-dev-systems</a></td> </tr> <tr> <td>Confluence Space</td> <td><a href="https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home" target="new-tab">NikeiD Systems Home</a></td> </tr> <tr> <td>Team Contacts</td> <td><a href="mailto:jason.mueller@nike.com">Jason Mueller, Product Manager</a></td> </tr> </tbody> </table> <h2 id="document-change-log">Document Change Log</h2> <table> <thead> <tr> <th>Summary</th> <th>Date</th> </tr> </thead> <tbody> <tr> <td>Initial publish</td> <td>05/17/2019</td> </tr> <tr> <td>Added new My Designs methods, added new shareDesign, saveDesign methods, marked saveBuild as deprecated</td> <td>07/02/2019</td> </tr> <tr> <td>Added new methods and buildData info for availability</td> <td>07/30/2019</td> </tr> <tr> <td>Added new clearCustomization method</td> <td>04/09/2020</td> </tr> <tr> <td>Added isJerseyCustomized and getBomXML methods, updated descriptions of getBuild and saveDesign</td> <td>04/24/2020</td> </tr> </tbody> </table> <h2 id="next-steps">Next Steps</h2> <ul> <li><a href="/doc/commerce/customization/use-customization.html">Adding Customization To Your Experience</a></li> <li><a href="/doc/getting-started/using-nike-apis.html">Using Nike APIs</a></li> <li><a href="/doc/commerce/reference/glossary.html">Glossary</a></li> </ul> </div> <header> <form action="/search/index.html" method="get"> <input type="text" name="q" id="search-input" placeholder="Search"> <input type="submit" value="Search" style="display: none;"> </form> <div id="sidebar" class="sidebar"> <section> <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a> <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Commerce Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i> Team Services</a></h6><h6><span name="0-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6> <ul id="0-get-started" class="hide"><li> <a href="/doc/getting-started/using-nike-apis.html" class="">Using Nike APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i> Overviews</span></h6> <ul id="a-overview" class="hide"><li> <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/overview-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/overview-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li> <a href="/doc/commerce/checkout/overview-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li> <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li> <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="">Taxonomy Tagging for Assets and Content</a></li><li> <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li> <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li> <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i> Developer's Guides</span></h6> <ul id="b-use-case" class="hide"><li> <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/use-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li> <a href="/doc/commerce/checkout/use-wishlists.html" class="">Wishlists</a></li><li> <a href="/doc/commerce/checkout/use-carts.html" class="">Carts</a></li><li> <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li> <a href="/doc/commerce/checkout/use-checkout.html" class="">Checkout</a></li><li> <a href="/doc/commerce/checkout/use-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li> <a href="/doc/commerce/order/use-order.html" class="">Order</a></li><li> <a href="/doc/commerce/product/use-merch-product.html" class="">Merchandised Product</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i> Reference</span></h6> <ul id="d-reference" class=""><li> <a href="/doc/commerce/customization/builder-reference.html" class="active">Customization Builder</a><ul><li> <a href="/doc/commerce/customization/builder-reference.html#basic-integration" class="">Basic Integration</a> </li><li> <a href="/doc/commerce/customization/builder-reference.html#builder-api" class="">Builder API</a> </li><li> <a href="/doc/commerce/customization/builder-reference.html#methods" class="">Methods</a> </li><li> <a href="/doc/commerce/customization/builder-reference.html#contacting-the-team" class="">Contacting the Team</a> </li><li> <a href="/doc/commerce/customization/builder-reference.html#document-change-log" class="">Document Change Log</a> </li><li> <a href="/doc/commerce/customization/builder-reference.html#next-steps" class="">Next Steps</a> </li></ul></li><li> <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li> <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li> <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li> <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li> <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li> <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i> Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul> </section> </div> </header> </body> </html>
