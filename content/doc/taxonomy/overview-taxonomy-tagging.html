@@ -1,4 +1,15 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> <script src="/js/main.js"></script> <script src="/js/nde.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script> <script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/nde.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script>
+<script>
 if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -6,4 +17,180 @@ if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
 
     gtag('config', 'UA-133456231-1');
     }
-</script> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/> <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> <link rel="stylesheet" href="/css/style.css"> <link rel="stylesheet" href="/css/aviator-two-column.css"> <link rel="stylesheet" href="/css/nde.css"> <title>Taxonomy Tagging for Assets and Content</title> </head> <body> <div id="toc"></div> <div class="main"> <p><a href="/doc/taxonomy/overview-taxonomy-tagging.pdf" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p> <h1 id="taxonomy-tagging-for-assets-and-content">Taxonomy Tagging for Assets and Content</h1> <hr/> <p>Learn how <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">Taxonomy Tagging for Assets and Content</a> (TTAC) manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike consumers.</p> <h3 id="taxonomy-tagging-for-assets-and-content-increases-conversion-by-driving-personalized-assets-and-content-across-nike-experiences">Taxonomy Tagging for Assets and Content increases conversion by driving personalized assets and content across Nike experiences.</h3> <p>Nike experiences can use these TTAC-managed relationships to dynamically show customized navigation, content, and images to consumers in their preferred language that reflects their personal style, interests, and preferences. A personalized experience promotes engagement, often strengthening the commitment to purchase.</p> <p><img src="/images/taxonomy/ttac.png" alt="SNKRS app payment flow"/></p> <p>How does it work? CMS, Asset Management, and other internal Nike tools supply the content and assets. Taxonomy definitions including navigation, categories, and consumer preference are supplied by Semaphore via the <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="new-tab">Merch Taxonomy Attributes</a> service. TTAC connects these tools to front-end web experiences through TTAC components and the TTAC metadata (Attributions) service. TTAC components enable Nike experiences to tag content threads and assets with taxonomy attributes through a user interface. The TTAC metadata service stores and retrieves those taxonomical relationships in the form of UUIDs.</p> <h4 id="contacting-the-team">Contacting the Team</h4> <table> <tbody> <tr> <td>Slack</td> <td><a href="https://nikedigital.slack.com/messages/C20935610" target="new-tab">#asset-delivery</a></td> </tr> <tr> <td>Confluence</td> <td><a href="https://confluence.nike.com/display/CICAD/CiC+Asset+Delivery" target="new-tab">CiC Asset Delivery</a></td> </tr> <tr> <td>Product Director</td> <td><a href="mailto:chris.sparhawk@nike.com">Chris Sparhawk</a></td> </tr> </tbody> </table> <h4 id="about-ttac">About TTAC</h4> <p>The project is in development in PI-26 and is scheduled for release February 2019.</p> <table> <tbody> <tr> <td>API</td> <td><a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">TTAC Metadata Service</a></td> </tr> <tr> <td>COMPONENTS</td> <td>to be published 2/5/19</td> </tr> </tbody> </table> <p>The TTAC Service and Components are inner-sourced within Nike and open to contributions from all development teams to submit design suggestions and code PRs.</p> <p>Governance will be provided by the following team:</p> <ul> <li>Architecture: Aaron Hall</li> <li>Engineering: Edmund Adjei</li> <li>Taxonomy: Rebecca Roberts</li> </ul> <h4 id="use-cases">Use Cases</h4> <p>Step through the TTAC use cases below.</p> <table> <tbody> <tr> <td><i class="g72-check"></i>  Tag images so you can determine which image qualities and sizes motivate consumers.</td> </tr> <tr> <td><i class="g72-check"></i>  Improve engagement by displaying product images most relevant to the consumer’s navigational path to a product wall. e.g. if a consumer navigates to unisex products via a women’s navigational path, she prefers to see images of female models instead of male.</td> </tr> <tr> <td><i class="g72-check"></i>  Boost conversion by using taxonomy tagging to display images to consumers that resonate with their interests and preferences.</td> </tr> <tr> <td><i class="g72-check"></i>  Tag content to allow your app to select the most relevant threads to display to the consumer.</td> </tr> </tbody> </table> <h4>Related Information</h4> <aside class="note"> <h5 style="text-align:center;">APIs</h5> <ul> <li> <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">TTAC Metadata Service</a><span class="guide-details-li-text"></span> </li> <li> <a href="https://nike.invisionapp.com/share/XVIYZS8S8YZ#/screens/297921090" target="new-tab">TTAC Component Design</a><span class="guide-details-li-text"></span> </li> <li> <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="new-tab">Merch Taxonomy Attributes</a> <span class="guide-details-li-text"></span> </li> <li> <a href="https://developer.niketech.com/docs/projects/recommendconceptsv1?tab=api" target="new-tab">Recommend Concepts API</a> <span class="guide-details-li-text"></span> </li> </ul> </aside> <ul> <li> <p><a href="/doc/commerce/reference/caller-best-practices.html">Working with Circuit Breakers:</a> Learn how to be a good client by following these best practices.</p> </li> <li> <p><a href="/doc/commerce/reference/glossary.html">Glossary:</a> Common terms explained.</p> </li> <li> <p><a href="/doc/commerce/reference/product-lifecycle.html">Product Life Cycle:</a> Discover how Nike products become available for purchase in an experience.</p> </li> </ul> <h4 id="connect">Connect</h4> <p>We’re here to help.   <i class="g72-chat"></i> <a href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W">#Slack</a>   <i class="g72-email"></i> <a href="mailto:Lst-nde.docs@nike.com">Email</a></p> </div> <header> <form action="/search/index.html" method="get"> <input type="text" name="q" id="search-input" placeholder="Search"> <input type="submit" value="Search" style="display: none;"> </form> <div id="sidebar" class="sidebar"> <section> <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a> <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Commerce Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i> Team Services</a></h6><h6><span name="0-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6> <ul id="0-get-started" class="hide"><li> <a href="/doc/getting-started/using-nike-apis.html" class="">Using Nike APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i> Overviews</span></h6> <ul id="a-overview" class=""><li> <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/overview-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/overview-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li> <a href="/doc/commerce/checkout/overview-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li> <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li> <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="active">Taxonomy Tagging for Assets and Content</a></li><li> <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li> <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li> <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i> Developer's Guides</span></h6> <ul id="b-use-case" class="hide"><li> <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/use-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li> <a href="/doc/commerce/checkout/use-wishlists.html" class="">Wishlists</a></li><li> <a href="/doc/commerce/checkout/use-carts.html" class="">Carts</a></li><li> <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li> <a href="/doc/commerce/checkout/use-checkout.html" class="">Checkout</a></li><li> <a href="/doc/commerce/checkout/use-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li> <a href="/doc/commerce/order/use-order.html" class="">Order</a></li><li> <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i> Reference</span></h6> <ul id="d-reference" class="hide"><li> <a href="/doc/commerce/customization/builder-reference.html" class="">Customization Builder</a></li><li> <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li> <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li> <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li> <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li> <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li> <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i> Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul> </section> </div> </header> </body> </html>
+</script>
+    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/>
+    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/aviator-two-column.css">
+    <link rel="stylesheet" href="/css/nde.css">
+    <title>Taxonomy Tagging for Assets and Content</title>
+</head>
+<body>
+<div id="toc"></div>
+<div class="main">
+    <p><a href="/doc/taxonomy/overview-taxonomy-tagging.pdf" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
+
+<h1 id="taxonomy-tagging-for-assets-and-content">Taxonomy Tagging for Assets and Content</h1>
+
+<hr />
+
+<p>Learn how <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">Taxonomy Tagging for Assets and Content</a> (TTAC) manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike consumers.</p>
+
+<h3 id="taxonomy-tagging-for-assets-and-content-increases-conversion-by-driving-personalized-assets-and-content-across-nike-experiences">Taxonomy Tagging for Assets and Content increases conversion by driving personalized assets and content across Nike experiences.</h3>
+
+<p>Nike experiences can use these TTAC-managed relationships to dynamically show customized navigation, content, and images to consumers in their preferred language that reflects their personal style, interests, and preferences. A personalized experience promotes engagement, often strengthening the commitment to purchase.</p>
+
+<p><img src="/images/taxonomy/ttac.png" alt="SNKRS app payment flow" /></p>
+
+<p>How does it work? CMS, Asset Management, and other internal Nike tools supply the content and assets. Taxonomy definitions including navigation, categories, and consumer preference are supplied by Semaphore via the <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="new-tab">Merch Taxonomy Attributes</a> service. TTAC connects these tools to front-end web experiences through TTAC components and the TTAC metadata (Attributions) service. TTAC components enable Nike experiences to tag content threads and assets with taxonomy attributes through a user interface. The TTAC metadata service stores and retrieves those taxonomical relationships in the form of UUIDs.</p>
+
+<h4 id="contacting-the-team">Contacting the Team</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Slack</td>
+      <td><a href="https://nikedigital.slack.com/messages/C20935610" target="new-tab">#asset-delivery</a></td>
+    </tr>
+    <tr>
+      <td>Confluence</td>
+      <td><a href="https://confluence.nike.com/display/CICAD/CiC+Asset+Delivery" target="new-tab">CiC Asset Delivery</a></td>
+    </tr>
+    <tr>
+      <td>Product Director</td>
+      <td><a href="mailto:chris.sparhawk@nike.com">Chris Sparhawk</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="about-ttac">About TTAC</h4>
+
+<p>The project is in development in PI-26 and is scheduled for release February 2019.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>API</td>
+      <td><a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">TTAC Metadata Service</a></td>
+    </tr>
+    <tr>
+      <td>COMPONENTS</td>
+      <td>to be published 2/5/19</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The TTAC Service and Components are inner-sourced within Nike and open to contributions from all development teams to submit design suggestions and code PRs.</p>
+
+<p>Governance will be provided by the following team:</p>
+<ul>
+  <li>Architecture: Aaron Hall</li>
+  <li>Engineering: Edmund Adjei</li>
+  <li>Taxonomy: Rebecca Roberts</li>
+</ul>
+
+<h4 id="use-cases">Use Cases</h4>
+
+<p>Step through the TTAC use cases below.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><i class="g72-check"></i>  Tag images so you can determine which image qualities and sizes motivate consumers.</td>
+    </tr>
+    <tr>
+      <td><i class="g72-check"></i>  Improve engagement by displaying product images most relevant to the consumer’s navigational path to a product wall. e.g. if a consumer navigates to unisex products via a women’s navigational path, she prefers to see images of female models instead of male.</td>
+    </tr>
+    <tr>
+      <td><i class="g72-check"></i>  Boost conversion by using taxonomy tagging to display images to consumers that resonate with their interests and preferences.</td>
+    </tr>
+    <tr>
+      <td><i class="g72-check"></i>  Tag content to allow your app to select the most relevant threads to display to the consumer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Related Information</h4>
+<aside class="note">
+<h5 style="text-align:center;">APIs</h5>
+<ul>
+   <li>
+        <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">TTAC Metadata Service</a><span class="guide-details-li-text"></span>
+    </li>
+    <li>
+        <a href="https://nike.invisionapp.com/share/XVIYZS8S8YZ#/screens/297921090" target="new-tab">TTAC Component Design</a><span class="guide-details-li-text"></span>
+    </li>
+    <li>
+        <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="new-tab">Merch Taxonomy Attributes</a> <span class="guide-details-li-text"></span>
+    </li>
+    <li>
+            <a href="https://developer.niketech.com/docs/projects/recommendconceptsv1?tab=api" target="new-tab">Recommend Concepts API</a> <span class="guide-details-li-text"></span>
+    </li>
+  </ul>
+</aside>
+
+<ul>
+  <li>
+    <p><a href="/doc/commerce/reference/caller-best-practices.html">Working with Circuit Breakers:</a> Learn how to be a good client by following these best practices.</p>
+  </li>
+  <li>
+    <p><a href="/doc/commerce/reference/glossary.html">Glossary:</a> Common terms explained.</p>
+  </li>
+  <li>
+    <p><a href="/doc/commerce/reference/product-lifecycle.html">Product Life Cycle:</a> Discover how Nike products become available for purchase in an experience.</p>
+  </li>
+</ul>
+
+<h4 id="connect">Connect</h4>
+
+<p>We’re here to help.   <i class="g72-chat"></i> <a href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W">#Slack</a>   <i class="g72-email"></i> <a href="mailto:Lst-nde.docs@nike.com">Email</a></p>
+
+</div>
+<header>
+    <form action="/search/index.html" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+    <div id="sidebar" class="sidebar">
+    <section>
+        <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a>
+        <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Commerce Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i>  Team Services</a></h6><h6><span name="0-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
+        <ul id="0-get-started" class="hide"><li>
+                <a href="/doc/getting-started/using-nike-apis.html" class="">Using Nike APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
+        <ul id="a-overview" class=""><li>
+                <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/overview-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/customization/overview-customization.html" class="">Customization</a></li><li>
+                <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
+                <a href="/doc/commerce/checkout/overview-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li>
+                <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="active">Taxonomy Tagging for Assets and Content</a></li><li>
+                <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li>
+                <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li>
+                <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
+        <ul id="b-use-case" class="hide"><li>
+                <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/customization/use-customization.html" class="">Customization</a></li><li>
+                <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li>
+                <a href="/doc/commerce/checkout/use-wishlists.html" class="">Wishlists</a></li><li>
+                <a href="/doc/commerce/checkout/use-carts.html" class="">Carts</a></li><li>
+                <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/commerce/checkout/use-checkout.html" class="">Checkout</a></li><li>
+                <a href="/doc/commerce/checkout/use-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li>
+                <a href="/doc/commerce/order/use-order.html" class="">Order</a></li><li>
+                <a href="/doc/commerce/product/use-merch-product.html" class="">Merch Product</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
+        <ul id="d-reference" class="hide"><li>
+                <a href="/doc/commerce/customization/builder-reference.html" class="">Customization Builder</a></li><li>
+                <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li>
+                <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li>
+                <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li>
+                <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li>
+                <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li>
+                <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
+    </section>
+</div>
+</header>
+</body>
+</html>

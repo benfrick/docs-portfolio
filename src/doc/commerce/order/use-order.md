@@ -39,7 +39,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/02/2021
+##### Last Updated: 04/08/2021
 
 Retrieve a complete order history for your consumers.
 
@@ -85,9 +85,10 @@ Listed below are key terms for the Order History APIs.
 |**Order Status**|The status of an order, as represented for individual lines and payments, or as a combined `status`. See [Understanding Order Status](#understanding-order-status) for more|
 |**Order Summary**|Use the [Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get a list of orders for a Nike member|
 |**DOMS**|Nike's Digital Order Management System|
-|**BOPIS*|The 'buy online, pick up in store' scenario. BOPIS orders are fulfilled from the same store at which pickup is done by the consumer. Fulfillment time is generally within a few hours, and thus is faster than ShipToStore|
-|**PUP**|Short for 'Pickup Points', a set of scenarios where Nike ships the order to a location of the consumer’s choice for pickup|
-|**ShipToStore**|A subset of Pickup Points, the scenario where Nike ships the order to a Nike store of the consumer’s choice for pickup|
+|**BOPIS**|The 'Buy Online, Pickup In Store' scenario. Consumer buys products online from a nearby Nike store's inventory, then does pickup at said Nike store (usually within a few hours)|
+|**PUP**|'Pickup Points', where consumer buys online, then Nike ships the order to a pickup location of the consumer’s choice|
+|**RESERVE**|Consumer reserves products online from a nearby Nike store's inventory, then optionally purchases reserved products from said store|
+|**ShipToStore**|Consumer buys products online, then Nike ships the order to a Nike store of the consumer’s choice for pickup|
 
 ## Step 1: List a Member's Orders
 
@@ -714,36 +715,13 @@ All times in Order History will be in UTC Zulu with no offset, e.g. 2021-03-20T0
 
 Yes, total amount includes tax.
 
-**Q: How do we identify different types of order? (BOPIS, PUPs, RESERVE, ShipToStore)**
+**Q: How do we identify omnichannel orders (BOPIS, PUPs, RESERVE, ShipToStore)?**
 
-Use the following fields to identify the type of order:
+The following graphic describes how to select for various types of omnichannel orders:
 
-- orderVersion
-- orderLines.fulfillmentMethod
-- orderLines.shipTo.address.pickUpLocationType
-- orderLines.shipTo.location.type
-- orderLines.shipTo.address.pickUpLocationIdentifier
+![Graphic showing example queries for selecting 4 types of Nike omnichannel orders](/images/commerce/order/selecting-omni-orders.png)
 
-BOPIS
-- If the order payload matches the v1 schema
-    - if orderVersion!=v2 and orderLines.fulfillmentMethod==PICKUP and orderLines.shipTo.address.pickUpLocationType==store_pickup and orderline.orderLineType==INLINE (In this case store address will be present in orderLines.shipTo.address)
-- If the order payload matches the v2 schema
-    - if orderVersion==v2 and orderLines.fulfillmentMethod==PICKUP and orderLines.shipTo.location.type==store/store_views (In this case you need to call store/store_views service with orderLines.shipTo.location.id to get the address)
-
-PUPS
-- If the order payload matches the v1 schema
-    - if orderVersion!=v2 and orderLines.shippingMethod:CPG and orderLines.fulfillmentMethod:SHIP and orderLines.shipTo.address.pickUpLocationIdentifier==null (In this case store address will be present in orderLines.shipTo.address)
-- If the order payload matches the v2 schema
-    - if orderVersion==v2 and orderLines.shippingMethod:CPG and orderLines.fulfillmentMethod:SHIP and orderLines.shipTo.location.type= ship/pickup_points (In this case you need to call store/store_views service with orderLines.shipTo.location.id to get the address)
-
-RESERVE
-- If the order payload matches the v1 schema
-    - if orderVersion!=v2 and orderLines.fulfillmentMethod==RESERVE and orderLines.shipTo.address.pickUpLocationType==store_pickup and orderline.orderLineType==RESERVE (In this case store address will be present in orderLines.shipTo.address)
-- If the order payload matches the v2 schema
-    - if orderVersion==v2 and orderLines.fulfillmentMethod==RESERVE and orderLines.shipTo.location.type==store/store_views (In this case you need to call store/store_views service with orderLines.shipTo.location.id to get the address)
-
-ShipToStore
-- ShipToStore orders has fulfillmentMethod=SHIP and also has shipToStoreNumber associated with them
+>**TIP:** For v1 payloads, the store address will be present in `orderLines.shipTo.address`. For v2 payloads, call the [Store Views API](https://developer.niketech.com/docs/projects/Store%20Views%20V2?tab=api){:target="new-tab"} with the value from `orderLines.shipTo.location.id` to get the address.
 
 **Q: How do we identify different types of cancelled or voided orders?**
 
