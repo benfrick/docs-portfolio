@@ -142,7 +142,7 @@ ul  {
 pre {
     display: inline-block;
     white-space: pre-wrap;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 500px;
     max-width: 100%;
     margin-top: 5px;
@@ -340,7 +340,7 @@ article h2 {
 .revised-indicator-lg::after {
     content: "REVISED";
     color: white;
-    background-color: #3498db;
+    background-color: #9e9898;
     padding: 2px;
     font-size: .9rem;
     margin-left: 6px;
@@ -453,7 +453,6 @@ header form {
 .tile-wide li h5 {
     padding-top: 0.2em;
     padding-bottom: 0.3em;
-    line-height: 0.9;
     font-size: 1.4rem;
     }
 .lt-blue {
