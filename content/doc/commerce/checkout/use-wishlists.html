@@ -1,4 +1,15 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> <script src="/js/main.js"></script> <script src="/js/nde.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script> <script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/nde.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133456231-1"></script>
+<script>
 if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -6,16 +17,417 @@ if (window.location.origin.includes('//nde-devportal-docs.niketech.com')){
 
     gtag('config', 'UA-133456231-1');
     }
-</script> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/> <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/> <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> <link rel="stylesheet" href="/css/style.css"> <link rel="stylesheet" href="/css/aviator-two-column.css"> <link rel="stylesheet" href="/css/nde.css"> <title>Wishlists</title> </head> <body> <div id="toc"></div> <div class="main"> <p><a href="/doc/commerce/checkout/use-wishlists.pdf" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p> <h1 id="adding-wishlists-to-your-experience">ADDING WISHLISTS TO YOUR EXPERIENCE</h1> <hr/> <h5 id="last-updated-04282019">Last Updated: 04/28/2019</h5> <p>Help Nike members save their favorites for later purchase by adding <a href="#wishlists">Wishlists</a> to your experience.</p> <blockquote> <p><strong>TIPS</strong>:</p> <ul> <li>Before using this guide, read <a href="/doc/getting-started/using-nike-apis.html">Using Nike APIs</a> and <a href="/doc/commerce/checkout/overview-checkout.html">Cart &amp; Checkout Overview</a>.</li> <li>Use this guide as a supplement to the API Reference for detailed use cases. See <a href="#api-quick-reference">API Quick Reference</a> for links to all the API Reference docs discussed here.</li> </ul> </blockquote> <h2 id="introduction">Introduction</h2> <p>Sometimes consumers want to set aside items or services to buy at a later date. They can do this by creating a wishlist.</p> <h4 id="how-is-a-wishlist-different-from-a-cart">How is a Wishlist different from a Cart?</h4> <p>Wishlists provide consumers a more flexible way of organizing their future purchases than the cart can. Here are some considerations:</p> <ul> <li>Consumers can have an unlimited number of wishlists but only one cart.</li> <li>Consumers can name their wishlists but not their cart.</li> <li>All Nike consumers can use cart but only Nike members and employees can use wishlists.</li> </ul> <h2 id="wishlists">Wishlists</h2> <p><i class="g72-check"></i>  <strong>Manage a Nike member’s or an employee’s wishlist of products and services</strong></p> <h3 id="step-1-create-a-wishlist">Step 1: Create a Wishlist</h3> <p>Execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> endpoint to create an empty wishlist. <a href="#step-2-modify-a-wishlist">Step 2</a> explains how to add items to a wishlist.</p> <ul> <li>Wishlist <code class="language-plaintext highlighter-rouge">name</code> must be unique for a user/country combination.</li> <li>Consumers can create wishlists for multiple countries but they can have only one default wishlist per country.</li> <li>A wishlist can only be set as the country default when it is created. This flag cannot be changed after the wishlist is created.</li> <li>When a consumer’s wishlist is created with the <code class="language-plaintext highlighter-rouge">isDefault</code> flag set to true, this flag is set to false on the rest of the wishlists for the same country.</li> <li>If the <code class="language-plaintext highlighter-rouge">id</code> path parameter does not match the <code class="language-plaintext highlighter-rouge">id</code> of the wishlist, a new wishlist is created.</li> </ul> <blockquote> <p>TIP: You need to generate the unique <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">id</code> in UUID format and pass it as a path parameter.</p> </blockquote> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> PUT request URI that creates a new wishlist with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
-</code></pre></div></div> <h3 id="step-2-modify-a-wishlist">Step 2: Modify a Wishlist</h3> <p>Now that you’ve created a wishlist for the consumer, allow them to add or remove items, delete the list, or rename it.</p> <h4 id="add-item-to-list">Add Item to List</h4> <p>To add a product or service to an existing wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-put" target="new-tab">Add Item to List</a> endpoint.</p> <ul> <li>Current product pricing is provided in the response.</li> <li>If you add a product that is already on the list, the product will be replaced.</li> <li>Only the product being added is included in the response, not all products in the list.</li> <li>The <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">country</code> will override the <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">country</code> when looking up prices.</li> <li>Because this endpoint can replace items, the response includes <code class="language-plaintext highlighter-rouge">isCurrentPriceChanged</code> set to true when an item’s <code class="language-plaintext highlighter-rouge">currentPrice</code> has changed since creation.</li> <li>The response contains an <code class="language-plaintext highlighter-rouge">isAvailable</code> flag indicating whether or not the product is purchasable. This value is determined by the <a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="new-tab">Availability service</a>.</li> </ul> <blockquote> <p>TIP: You need to generate the unique <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">id</code> in UUID format and pass it in the path parameter.</p> </blockquote> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-put" target="new-tab">Add Item to List</a> PUT request URI that creates a new wishlist item with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909123. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909123
-</code></pre></div></div> <h4 id="add-multiple-items-to-list">Add Multiple Items to List</h4> <p>To add more than one item at a time to one or more wishlists, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-patch" target="new-tab">Add Item to List</a> endpoint.</p> <ul> <li>You can add new items to the wishlist but not replace them.</li> <li>Current product pricing is provided in the response.</li> <li>The <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">country</code> will override the <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">country</code> when looking up prices.</li> <li>You can add items to different wishlists in the same call by supplying different <code class="language-plaintext highlighter-rouge">wishlistId</code>s in each value object in the PATCH request body.</li> <li>Unless you supply filter query parameters to restrict the result set, all newly-added items are returned in the response.</li> <li>The response contains an <code class="language-plaintext highlighter-rouge">isAvailable</code> flag indicating whether or not the product is purchasable. This value is determined by the <a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="new-tab">Availability service</a>.</li> </ul> <blockquote> <p>TIP: You need to generate each unique wishlist item <code class="language-plaintext highlighter-rouge">id</code> in UUID format and pass them in the PATCH request body.</p> </blockquote> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-patch" target="new-tab">Add Item to List</a> PATCH request limiting the response to include only the added items from wishlists with 93a333a2-907b-46f1-b9ac-469489909057 and 93a333a2-907b-46f1-b9ac-469489909000 IDs. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://api.nike.com/buy/list_items/v1?filter=wishlistId(93a333a2-907b-46f1-b9ac-469489909057,93a333a2-907b-46f1-b9ac-469489909000)
-</code></pre></div></div> <h4 id="remove-item-from-list">Remove Item from List</h4> <p>To delete a single item from a list, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a> endpoint passing the <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">id</code> as a path parameter.</p> <blockquote> <p>TIP: You do not need to send the <code class="language-plaintext highlighter-rouge">wishlistId</code> in the DELETE request. You only need to send the wishlist item <code class="language-plaintext highlighter-rouge">id</code> you want to delete in the path parameter.</p> </blockquote> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a> DELETE request URI to delete wishlist item with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909123. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909123
-</code></pre></div></div> <h4 id="remove-multiple-items-from-list">Remove Multiple Items from List</h4> <p>To delete several items from a wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-items-from-list-delete" target="new-tab">Remove Items from List</a> endpoint passing the list of <strong>wishlist item</strong> IDs as a filter query parameter.</p> <blockquote> <p>TIP: You do not need to send the <code class="language-plaintext highlighter-rouge">wishlistId</code> in the DELETE request. You only need to send the <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">id</code> you want to delete in the filter query parameter.</p> </blockquote> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-items-from-list-delete" target="new-tab">Remove Items from List</a> DELETE request to delete wishlist items with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057 and 93a333a2-907b-46f1-b9ac-469489909000. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1?filter=id(93a333a2-907b-46f1-b9ac-469489909057,93a333a2-907b-46f1-b9ac-469489909000)
-</code></pre></div></div> <h4 id="delete-a-list">Delete a List</h4> <p>To delete a wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a> endpoint passing the <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">id</code> as a path parameter. Note that <strong>all of the items on the list will be removed</strong>.</p> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a> DELETE request URI that deletes wishlist 93a333a2-907b-46f1-b9ac-469489909057 and all of its items. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
-</code></pre></div></div> <h4 id="change-the-name-of-the-wishlist">Change the Name of the Wishlist</h4> <p>Make a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> endpoint to update the name of an existing wishlist.</p> <ul> <li>Pass the same <code class="language-plaintext highlighter-rouge">country</code> and <code class="language-plaintext highlighter-rouge">brand</code> values used when the wishlist was created while also passing an updated wishlist <code class="language-plaintext highlighter-rouge">name</code>.</li> <li><code class="language-plaintext highlighter-rouge">name</code> must be unique for a user/country combination.</li> <li>If the <code class="language-plaintext highlighter-rouge">id</code> path parameter does not match the <code class="language-plaintext highlighter-rouge">id</code> of the wishlist, a new wishlist will be created.</li> </ul> <blockquote> <p>TIP: Pass the same wishlist <code class="language-plaintext highlighter-rouge">id</code> as the one used to create it in the path parameter.</p> </blockquote> <p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> PUT request URI that updates the name of wishlist with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
-</code></pre></div></div> <h3 id="step-3-get-a-wishlist">Step 3: Get a Wishlist</h3> <p>Allow the consumer to view the <strong>header info</strong> of all their wishlists, or just one.</p> <h4 id="retrieve-lists-for-authenticated-user">Retrieve Lists for Authenticated User</h4> <p>To retrieve <strong>header info</strong> for all wishlists for an authenticated consumer, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a> endpoint.</p> <ul> <li>The list items are <strong>not</strong> included in the response. To get the list items, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> endpoint with the appropriate list identifier.</li> <li>You can use filter and field query parameters to restrict the result set.</li> </ul> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a> GET request URI that retrieves all of a consumer’s wishlists for the US. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1?filter=country(US)
-</code></pre></div></div> <h4 id="retrieve-a-list-by-id">Retrieve a List by ID</h4> <p>To retrieve <strong>header info</strong> for a single wishlist for an authenticated consumer, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a> endpoint passing the wishlist <code class="language-plaintext highlighter-rouge">id</code> as a path parameter.</p> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a> GET request URI for wishlist <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
-</code></pre></div></div> <h3 id="step-4-get-a-wishlist-item">Step 4: Get a Wishlist Item</h3> <p>Retrieve one or more wishlist items from one or more of a consumer’s wishlists.</p> <h4 id="retrieve-items-in-a-list-by-id">Retrieve Items in a List by ID</h4> <p>To retrieve the productIds and skuIds (if available) in a single wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get" target="new-tab">Retrieve Items in a List by ID</a> endpoint passing the wishlist <code class="language-plaintext highlighter-rouge">id</code> as a path parameter.</p> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get" target="new-tab">Retrieve Items in a List by ID</a> GET request URI. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057/items
-</code></pre></div></div> <h4 id="retrieve-items-by-list">Retrieve Items by List</h4> <p>To retrieve all or a filtered set of items from all of a consumer’s wishlists, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> endpoint. The response contains detailed information for each wishlist item.</p> <p>You can use filter, anchor, count, fields, and sort query parameters to restrict the result set.</p> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> GET request URI that returns all items in the wishlist with <code class="language-plaintext highlighter-rouge">id</code> 3ebf8798-2c86-4e29-a67b-7435ebad62af. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
-</code></pre></div></div> <h4 id="retrieve-item-by-id">Retrieve Item by ID</h4> <p>To retrieve a single list item, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a> endpoint, passing the client generated wishlist item <code class="language-plaintext highlighter-rouge">id</code> as a URL parameter. The response contains detailed information for the wishlist item.</p> <p>You can use the fields query parameter to restrict the result set.</p> <p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a> GET request URI. This endpoint is not JWT-restricted.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
-</code></pre></div></div> <h3 id="step-5-purchase-from-a-wishlist">Step 5: Purchase from a Wishlist</h3> <p>Follow the steps below to allow consumers to purchase items from their wishlist:</p> <ol> <li> <p>Call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a> to get the wishlist ID or call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a> if you already know the wishlist ID.</p> </li> <li> <p>Call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> to get the wishitem ID or call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a> if you already know the wishlist item ID.</p> </li> <li> <p>Using the wishlist data from <strong>Step 1</strong> and the wishlist item data from <strong>Step 2</strong>, call <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put" target="new-tab">Create or Update a Cart</a> to add the wishlist item to Cart.</p> </li> <li> <p>Using the wishlist item ID from <strong>Step 2</strong>, call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a>.</p> </li> <li> <p>(Optional) If there are no items left in the wishlist, call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a>.</p> </li> </ol> <h2 id="api-quick-reference">API Quick Reference</h2> <p><strong>Wishlist endpoints</strong></p> <ul> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a></li> </ul> <p><strong>Wishlist item endpoints</strong></p> <ul> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-put" target="new-tab">Add Item to List</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-patch" target="new-tab">Add Item to List (PATCH)</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get" target="new-tab">Retrieve Items in a List by ID</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a></li> <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-items-from-list-delete" target="new-tab">Remove Items from List</a></li> </ul> <h2 id="troubleshooting">Troubleshooting</h2> <p>Listed below are ways to troubleshoot unexpected responses using this API.</p> <h3 id="use-troubleshooting-tools">Use Troubleshooting Tools</h3> <ul> <li> <p>Use the general troubleshooting tips in the <a href="/doc/getting-started/using-nike-apis.html#troubleshooting">Using Nike APIs</a> guide.</p> </li> <li> <p>Use a Splunk query (requires access) to check for issues with your request.</p> </li> <li> <p>Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="new-tab">#cic-order-integration</a> Slack channel for assistance.</p> </li> </ul> <h2 id="contacting-the-team">Contacting the Team</h2> <p>Need to contact the team?</p> <table> <tbody> <tr> <td>Slack</td> <td><a href="https://nikedigital.slack.com/messages/C38BE20SV" target="new-tab">#cic-order-integration</a></td> </tr> <tr> <td>Confluence Space</td> <td><a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="new-tab">CiC Order Capture</a></td> </tr> <tr> <td>Team Contacts</td> <td><a href="mailto:dan.robertson@nike.com">Dan Robertson</a>, <a href="mailto:saket.shrivastava@nike.com">Saket Shrivastava</a></td> </tr> </tbody> </table> <h2 id="document-change-log">Document Change Log</h2> <table> <thead> <tr> <th>Summary</th> <th>Date</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>Initial draft</td> <td>06/20/2019</td> <td>Initial Draft</td> </tr> <tr> <td>Converted to stand-alone guide</td> <td>03/20/2019</td> <td>Content moved from Cart &amp; Checkout use-case guide</td> </tr> <tr> <td>Revised Next Steps section links</td> <td>04/28/2020</td> <td>Updated links</td> </tr> </tbody> </table> <h2 id="next-steps">Next Steps</h2> <p>You’ve learned how to add wishlists to your experience. Here are some related topics.</p> <ul> <li><a href="/doc/commerce/checkout/use-carts.html">Cart &amp; Cart Review</a></li> <li><a href="/doc/commerce/checkout/use-checkout.html">Checkout</a></li> <li><a href="/doc/commerce/checkout/use-fulfillment-offerings.html">Fulfillment Offerings</a></li> <li><a href="/doc/commerce/payment/use-payment.html">Payment</a></li> <li><a href="/doc/getting-started/using-nike-apis.html">Using Nike APIs</a></li> <li><a href="/doc/commerce/reference/glossary.html">Glossary</a></li> <li><a href="/doc/commerce/checkout/checkout-country-currency.html">Supported Countries &amp; Currencies</a></li> </ul> </div> <header> <form action="/search/index.html" method="get"> <input type="text" name="q" id="search-input" placeholder="Search"> <input type="submit" value="Search" style="display: none;"> </form> <div id="sidebar" class="sidebar"> <section> <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a> <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Commerce Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i> Team Services</a></h6><h6><span name="0-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6> <ul id="0-get-started" class="hide"><li> <a href="/doc/getting-started/using-nike-apis.html" class="">Using Nike APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i> Overviews</span></h6> <ul id="a-overview" class="hide"><li> <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/overview-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/overview-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li> <a href="/doc/commerce/checkout/overview-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li> <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li> <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="">Taxonomy Tagging for Assets and Content</a></li><li> <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li> <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li> <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i> Developer's Guides</span></h6> <ul id="b-use-case" class=""><li> <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li> <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li> <a href="/doc/commerce/customization/use-customization.html" class="">Customization</a></li><li> <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li> <a href="/doc/commerce/checkout/use-wishlists.html" class="active">Wishlists</a><ul><li> <a href="/doc/commerce/checkout/use-wishlists.html#introduction" class="">Introduction</a> </li><li> <a href="/doc/commerce/checkout/use-wishlists.html#wishlists" class="">Wishlists</a> </li><li> <a href="/doc/commerce/checkout/use-wishlists.html#api-quick-reference" class="">API Quick Reference</a> </li><li> <a href="/doc/commerce/checkout/use-wishlists.html#troubleshooting" class="">Troubleshooting</a> </li><li> <a href="/doc/commerce/checkout/use-wishlists.html#contacting-the-team" class="">Contacting the Team</a> </li></ul></li><li> <a href="/doc/commerce/checkout/use-carts.html" class="">Carts</a></li><li> <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li> <a href="/doc/commerce/checkout/use-checkout.html" class="">Checkout</a></li><li> <a href="/doc/commerce/checkout/use-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li> <a href="/doc/commerce/order/use-order.html" class="">Order</a></li><li> <a href="/doc/commerce/product/use-merch-product.html" class="">Merchandised Product</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i> Reference</span></h6> <ul id="d-reference" class="hide"><li> <a href="/doc/commerce/customization/builder-reference.html" class="">Customization Builder</a></li><li> <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li> <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li> <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li> <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li> <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li> <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i> Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul> </section> </div> </header> </body> </html>
+</script>
+    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/glyphs/2.3/css/glyphs.min.css"/>
+    <link rel="stylesheet" href="https://assets.commerce.nikecloud.com/ncss/1.0/dotcom/desktop/css/ncss.en-us.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/aviator-two-column.css">
+    <link rel="stylesheet" href="/css/nde.css">
+    <title>Wishlists</title>
+</head>
+<body>
+<div id="toc"></div>
+<div class="main">
+    <p><a href="/doc/commerce/checkout/use-wishlists.pdf" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a></p>
+
+<h1 id="adding-wishlists-to-your-experience">ADDING WISHLISTS TO YOUR EXPERIENCE</h1>
+
+<hr />
+
+<h5 id="last-updated-04282019">Last Updated: 04/28/2019</h5>
+
+<p>Help Nike members save their favorites for later purchase by adding <a href="#wishlists">Wishlists</a> to your experience.</p>
+
+<blockquote>
+  <p><strong>TIPS</strong>:</p>
+  <ul>
+    <li>Before using this guide, read <a href="/doc/getting-started/using-nike-apis.html">Using Nike APIs</a> and <a href="/doc/commerce/checkout/overview-checkout.html">Cart &amp; Checkout Overview</a>.</li>
+    <li>Use this guide as a supplement to the API Reference for detailed use cases. See <a href="#api-quick-reference">API Quick Reference</a> for links to all the API Reference docs discussed here.</li>
+  </ul>
+</blockquote>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Sometimes consumers want to set aside items or services to buy at a later date. They can do this by creating a wishlist.</p>
+
+<h4 id="how-is-a-wishlist-different-from-a-cart">How is a Wishlist different from a Cart?</h4>
+
+<p>Wishlists provide consumers a more flexible way of organizing their future purchases than the cart can. Here are some considerations:</p>
+
+<ul>
+  <li>Consumers can have an unlimited number of wishlists but only one cart.</li>
+  <li>Consumers can name their wishlists but not their cart.</li>
+  <li>All Nike consumers can use cart but only Nike members and employees can use wishlists.</li>
+</ul>
+
+<h2 id="wishlists">Wishlists</h2>
+
+<p><i class="g72-check"></i>  <strong>Manage a Nike member’s or an employee’s wishlist of products and services</strong></p>
+
+<h3 id="step-1-create-a-wishlist">Step 1: Create a Wishlist</h3>
+
+<p>Execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> endpoint to create an empty wishlist. <a href="#step-2-modify-a-wishlist">Step 2</a> explains how to add items to a wishlist.</p>
+
+<ul>
+  <li>Wishlist <code class="language-plaintext highlighter-rouge">name</code> must be unique for a user/country combination.</li>
+  <li>Consumers can create wishlists for multiple countries but they can have only one default wishlist per country.</li>
+  <li>A wishlist can only be set as the country default when it is created. This flag cannot be changed after the wishlist is created.</li>
+  <li>When a consumer’s wishlist is created with the <code class="language-plaintext highlighter-rouge">isDefault</code> flag set to true, this flag is set to false on the rest of the wishlists for the same country.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">id</code> path parameter does not match the <code class="language-plaintext highlighter-rouge">id</code> of the wishlist, a new wishlist is created.</li>
+</ul>
+
+<blockquote>
+  <p>TIP: You need to generate the unique <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">id</code> in UUID format and pass it as a path parameter.</p>
+</blockquote>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> PUT request URI that creates a new wishlist with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057. This endpoint is not JWT-restricted.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+</code></pre></div></div>
+
+<h3 id="step-2-modify-a-wishlist">Step 2: Modify a Wishlist</h3>
+
+<p>Now that you’ve created a wishlist for the consumer, allow them to add or remove items, delete the list, or rename it.</p>
+
+<h4 id="add-item-to-list">Add Item to List</h4>
+
+<p>To add a product or service to an existing wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-put" target="new-tab">Add Item to List</a> endpoint.</p>
+
+<ul>
+  <li>Current product pricing is provided in the response.</li>
+  <li>If you add a product that is already on the list, the product will be replaced.</li>
+  <li>Only the product being added is included in the response, not all products in the list.</li>
+  <li>The <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">country</code> will override the <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">country</code> when looking up prices.</li>
+  <li>Because this endpoint can replace items, the response includes <code class="language-plaintext highlighter-rouge">isCurrentPriceChanged</code> set to true when an item’s <code class="language-plaintext highlighter-rouge">currentPrice</code> has changed since creation.</li>
+  <li>The response contains an <code class="language-plaintext highlighter-rouge">isAvailable</code> flag indicating whether or not the product is purchasable. This value is determined by the <a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="new-tab">Availability service</a>.</li>
+</ul>
+
+<blockquote>
+  <p>TIP: You need to generate the unique <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">id</code> in UUID format and pass it in the path parameter.</p>
+</blockquote>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-put" target="new-tab">Add Item to List</a> PUT request URI that creates a new wishlist item with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909123. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909123
+</code></pre></div></div>
+
+<h4 id="add-multiple-items-to-list">Add Multiple Items to List</h4>
+
+<p>To add more than one item at a time to one or more wishlists, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-patch" target="new-tab">Add Item to List</a> endpoint.</p>
+
+<ul>
+  <li>You can add new items to the wishlist but not replace them.</li>
+  <li>Current product pricing is provided in the response.</li>
+  <li>The <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">country</code> will override the <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">country</code> when looking up prices.</li>
+  <li>You can add items to different wishlists in the same call by supplying different <code class="language-plaintext highlighter-rouge">wishlistId</code>s in each value object in the PATCH request body.</li>
+  <li>Unless you supply filter query parameters to restrict the result set, all newly-added items are returned in the response.</li>
+  <li>The response contains an <code class="language-plaintext highlighter-rouge">isAvailable</code> flag indicating whether or not the product is purchasable. This value is determined by the <a href="https://developer.niketech.com/docs/projects/Availability?tab=api" target="new-tab">Availability service</a>.</li>
+</ul>
+
+<blockquote>
+  <p>TIP: You need to generate each unique wishlist item <code class="language-plaintext highlighter-rouge">id</code> in UUID format and pass them in the PATCH request body.</p>
+</blockquote>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-patch" target="new-tab">Add Item to List</a> PATCH request limiting the response to include only the added items from wishlists with 93a333a2-907b-46f1-b9ac-469489909057 and 93a333a2-907b-46f1-b9ac-469489909000 IDs. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://api.nike.com/buy/list_items/v1?filter=wishlistId(93a333a2-907b-46f1-b9ac-469489909057,93a333a2-907b-46f1-b9ac-469489909000)
+</code></pre></div></div>
+
+<h4 id="remove-item-from-list">Remove Item from List</h4>
+
+<p>To delete a single item from a list, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a> endpoint passing the <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">id</code> as a path parameter.</p>
+
+<blockquote>
+  <p>TIP: You do not need to send the <code class="language-plaintext highlighter-rouge">wishlistId</code> in the DELETE request. You only need to send the wishlist item <code class="language-plaintext highlighter-rouge">id</code> you want to delete in the path parameter.</p>
+</blockquote>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a> DELETE request URI to delete wishlist item with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909123. This endpoint is not JWT-restricted.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909123
+</code></pre></div></div>
+<h4 id="remove-multiple-items-from-list">Remove Multiple Items from List</h4>
+
+<p>To delete several items from a wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-items-from-list-delete" target="new-tab">Remove Items from List</a> endpoint passing the list of <strong>wishlist item</strong> IDs as a filter query parameter.</p>
+
+<blockquote>
+  <p>TIP: You do not need to send the <code class="language-plaintext highlighter-rouge">wishlistId</code> in the DELETE request. You only need to send the <strong>wishlist item</strong> <code class="language-plaintext highlighter-rouge">id</code> you want to delete in the filter query parameter.</p>
+</blockquote>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-items-from-list-delete" target="new-tab">Remove Items from List</a> DELETE request to delete wishlist items with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057 and 93a333a2-907b-46f1-b9ac-469489909000. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1?filter=id(93a333a2-907b-46f1-b9ac-469489909057,93a333a2-907b-46f1-b9ac-469489909000)
+</code></pre></div></div>
+
+<h4 id="delete-a-list">Delete a List</h4>
+
+<p>To delete a wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a> endpoint passing the <strong>wishlist</strong> <code class="language-plaintext highlighter-rouge">id</code> as a path parameter. Note that <strong>all of the items on the list will be removed</strong>.</p>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a> DELETE request URI that deletes wishlist 93a333a2-907b-46f1-b9ac-469489909057 and all of its items. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+</code></pre></div></div>
+
+<h4 id="change-the-name-of-the-wishlist">Change the Name of the Wishlist</h4>
+
+<p>Make a request to the <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> endpoint to update the name of an existing wishlist.</p>
+
+<ul>
+  <li>Pass the same <code class="language-plaintext highlighter-rouge">country</code> and <code class="language-plaintext highlighter-rouge">brand</code> values used when the wishlist was created while also passing an updated wishlist <code class="language-plaintext highlighter-rouge">name</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">name</code> must be unique for a user/country combination.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">id</code> path parameter does not match the <code class="language-plaintext highlighter-rouge">id</code> of the wishlist, a new wishlist will be created.</li>
+</ul>
+
+<blockquote>
+  <p>TIP: Pass the same wishlist <code class="language-plaintext highlighter-rouge">id</code> as the one used to create it in the path parameter.</p>
+</blockquote>
+
+<p>Sample <a href="https://developer.niketech.com/docs/projects/Buy%20Lists?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a> PUT request URI that updates the name of wishlist with <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+</code></pre></div></div>
+
+<h3 id="step-3-get-a-wishlist">Step 3: Get a Wishlist</h3>
+
+<p>Allow the consumer to view the <strong>header info</strong> of all their wishlists, or just one.</p>
+
+<h4 id="retrieve-lists-for-authenticated-user">Retrieve Lists for Authenticated User</h4>
+
+<p>To retrieve <strong>header info</strong> for all wishlists for an authenticated consumer, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a> endpoint.</p>
+
+<ul>
+  <li>The list items are <strong>not</strong> included in the response. To get the list items, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> endpoint with the appropriate list identifier.</li>
+  <li>You can use filter and field query parameters to restrict the result set.</li>
+</ul>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a> GET request URI that retrieves all of a consumer’s wishlists for the US. This endpoint is not JWT-restricted.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1?filter=country(US)
+</code></pre></div></div>
+
+<h4 id="retrieve-a-list-by-id">Retrieve a List by ID</h4>
+
+<p>To retrieve <strong>header info</strong> for a single wishlist for an authenticated consumer, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a> endpoint passing the wishlist <code class="language-plaintext highlighter-rouge">id</code> as a path parameter.</p>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a> GET request URI for wishlist <code class="language-plaintext highlighter-rouge">id</code> 93a333a2-907b-46f1-b9ac-469489909057. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057
+</code></pre></div></div>
+
+<h3 id="step-4-get-a-wishlist-item">Step 4: Get a Wishlist Item</h3>
+
+<p>Retrieve one or more wishlist items from one or more of a consumer’s wishlists.</p>
+
+<h4 id="retrieve-items-in-a-list-by-id">Retrieve Items in a List by ID</h4>
+
+<p>To retrieve the productIds and skuIds (if available) in a single wishlist, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get" target="new-tab">Retrieve Items in a List by ID</a> endpoint passing the wishlist <code class="language-plaintext highlighter-rouge">id</code> as a path parameter.</p>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get" target="new-tab">Retrieve Items in a List by ID</a> GET request URI. This endpoint is not JWT-restricted.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/lists/v1/93a333a2-907b-46f1-b9ac-469489909057/items
+</code></pre></div></div>
+
+<h4 id="retrieve-items-by-list">Retrieve Items by List</h4>
+
+<p>To retrieve all or a filtered set of items from all of a consumer’s wishlists, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> endpoint. The response contains detailed information for each wishlist item.</p>
+
+<p>You can use filter, anchor, count, fields, and sort query parameters to restrict the result set.</p>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> GET request URI that returns all items in the wishlist with <code class="language-plaintext highlighter-rouge">id</code> 3ebf8798-2c86-4e29-a67b-7435ebad62af. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1?filter=wishlistId(3ebf8798-2c86-4e29-a67b-7435ebad62af)
+</code></pre></div></div>
+
+<h4 id="retrieve-item-by-id">Retrieve Item by ID</h4>
+
+<p>To retrieve a single list item, execute a request to the <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a> endpoint, passing the client generated wishlist item <code class="language-plaintext highlighter-rouge">id</code> as a URL parameter. The response contains detailed information for the wishlist item.</p>
+
+<p>You can use the fields query parameter to restrict the result set.</p>
+
+<p>Listed below is a sample <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a> GET request URI. This endpoint is not JWT-restricted.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.nike.com/buy/list_items/v1/93a333a2-907b-46f1-b9ac-469489909057
+</code></pre></div></div>
+
+<h3 id="step-5-purchase-from-a-wishlist">Step 5: Purchase from a Wishlist</h3>
+
+<p>Follow the steps below to allow consumers to purchase items from their wishlist:</p>
+
+<ol>
+  <li>
+    <p>Call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a> to get the wishlist ID or call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a> if you already know the wishlist ID.</p>
+  </li>
+  <li>
+    <p>Call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a> to get the wishitem ID or call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a> if you already know the wishlist item ID.</p>
+  </li>
+  <li>
+    <p>Using the wishlist data from <strong>Step 1</strong> and the wishlist item data from <strong>Step 2</strong>, call <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put" target="new-tab">Create or Update a Cart</a> to add the wishlist item to Cart.</p>
+  </li>
+  <li>
+    <p>Using the wishlist item ID from <strong>Step 2</strong>, call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a>.</p>
+  </li>
+  <li>
+    <p>(Optional) If there are no items left in the wishlist, call <a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a>.</p>
+  </li>
+</ol>
+
+<h2 id="api-quick-reference">API Quick Reference</h2>
+
+<p><strong>Wishlist endpoints</strong></p>
+
+<ul>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-create-or-update-a-list-put" target="new-tab">Create or Update a List</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-delete-a-list-delete" target="new-tab">Delete a List</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-a-list-by-id-get" target="new-tab">Retrieve a List by ID</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-lists-for-authenticated-user-get" target="new-tab">Retrieve Lists for Authenticated User</a></li>
+</ul>
+
+<p><strong>Wishlist item endpoints</strong></p>
+
+<ul>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-put" target="new-tab">Add Item to List</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-add-item-to-list-patch" target="new-tab">Add Item to List (PATCH)</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-operations-retrieve-the-items-in-a-list-by-id-get" target="new-tab">Retrieve Items in a List by ID</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-items-by-list-get" target="new-tab">Retrieve Items by List</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-retrieve-item-by-id-get" target="new-tab">Retrieve Item by ID</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-item-from-list-delete" target="new-tab">Remove Item from List</a></li>
+  <li><a href="https://developer.niketech.com/docs/projects/Wishlist?tab=api#list-item-operations-remove-items-from-list-delete" target="new-tab">Remove Items from List</a></li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>Listed below are ways to troubleshoot unexpected responses using this API.</p>
+
+<h3 id="use-troubleshooting-tools">Use Troubleshooting Tools</h3>
+
+<ul>
+  <li>
+    <p>Use the general troubleshooting tips in the <a href="/doc/getting-started/using-nike-apis.html#troubleshooting">Using Nike APIs</a> guide.</p>
+  </li>
+  <li>
+    <p>Use a Splunk query (requires access) to check for issues with your request.</p>
+  </li>
+  <li>
+    <p>Contact the Buy team on the <a href="https://nikedigital.slack.com/messages/C38BE20SV" target="new-tab">#cic-order-integration</a> Slack channel for assistance.</p>
+  </li>
+</ul>
+
+<h2 id="contacting-the-team">Contacting the Team</h2>
+
+<p>Need to contact the team?</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Slack</td>
+      <td><a href="https://nikedigital.slack.com/messages/C38BE20SV" target="new-tab">#cic-order-integration</a></td>
+    </tr>
+    <tr>
+      <td>Confluence Space</td>
+      <td><a href="https://confluence.nike.com/pages/viewpage.action?pageId=163654070" target="new-tab">CiC Order Capture</a></td>
+    </tr>
+    <tr>
+      <td>Team Contacts</td>
+      <td><a href="mailto:dan.robertson@nike.com">Dan Robertson</a>, <a href="mailto:saket.shrivastava@nike.com">Saket Shrivastava</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="document-change-log">Document Change Log</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Summary</th>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Initial draft</td>
+      <td>06/20/2019</td>
+      <td>Initial Draft</td>
+    </tr>
+    <tr>
+      <td>Converted to stand-alone guide</td>
+      <td>03/20/2019</td>
+      <td>Content moved from Cart &amp; Checkout use-case guide</td>
+    </tr>
+    <tr>
+      <td>Revised Next Steps section links</td>
+      <td>04/28/2020</td>
+      <td>Updated links</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>You’ve learned how to add wishlists to your experience. Here are some related topics.</p>
+
+<ul>
+  <li><a href="/doc/commerce/checkout/use-carts.html">Cart &amp; Cart Review</a></li>
+  <li><a href="/doc/commerce/checkout/use-checkout.html">Checkout</a></li>
+  <li><a href="/doc/commerce/checkout/use-fulfillment-offerings.html">Fulfillment Offerings</a></li>
+  <li><a href="/doc/commerce/payment/use-payment.html">Payment</a></li>
+  <li><a href="/doc/getting-started/using-nike-apis.html">Using Nike APIs</a></li>
+  <li><a href="/doc/commerce/reference/glossary.html">Glossary</a></li>
+  <li><a href="/doc/commerce/checkout/checkout-country-currency.html">Supported Countries &amp; Currencies</a></li>
+</ul>
+
+</div>
+<header>
+    <form action="/search/index.html" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+    <div id="sidebar" class="sidebar">
+    <section>
+        <a style="color:#ffffff;border-radius:5px;padding-left:0px;letter-spacing:0.3px;" href="slack://channel?team=T0G3T5X2B&amp;id=C6A18NT7W" class="headline-md-brand ncss-btn-primary-dark"><i class="g72-alert"></i>&nbsp;&nbsp;FIND AN ISSUE? SLACK US!</a>
+        <h6><a href="/index.html" class="toctitle"><i class="fas fa-home"></i>&nbsp;Commerce Docs Home</a></h6><h6><a href="/doc/portal/overview-doc-team.html" class="toctitle"><i class="fas fa-info-circle"></i>  Team Services</a></h6><h6><span name="0-get-started" class="toggle"><i class="fas fa-play-circle"></i> Get Started</span></h6>
+        <ul id="0-get-started" class="hide"><li>
+                <a href="/doc/getting-started/using-nike-apis.html" class="">Using Nike APIs</a><li><a href="https://confluence.nike.com/pages/viewpage.action?spaceKey=NEA&title=API+Standards" target="blank">API Standards</a></li><li><a href="https://github.nike.com/nde-architecture/principles" target="blank">Architectural Principles</a></li></li></ul><h6><span name="a-overview" class="toggle"><i class="fas fa-cogs"></i>  Overviews</span></h6>
+        <ul id="a-overview" class="hide"><li>
+                <a href="/doc/commerce/product/overview-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/overview-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/customization/overview-customization.html" class="">Customization</a></li><li>
+                <a href="/doc/commerce/checkout/overview-checkout.html" class="">Cart & Checkout</a></li><li>
+                <a href="/doc/commerce/checkout/overview-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li>
+                <a href="/doc/commerce/payment/overview-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/taxonomy/overview-taxonomy-tagging.html" class="">Taxonomy Tagging for Assets and Content</a></li><li>
+                <a href="/doc/commerce/order/overview-order.html" class="">Order</a></li><li>
+                <a href="/doc/commerce/uxf/overview-uxf.html" class="">UX Foundation</a></li><li>
+                <a href="/doc/commerce/search/nacl.html" class="">Admin Client Library</a></li></ul><h6><span name="b-use-case" class="toggle"><i class="fas fa-map"></i>  Developer's Guides</span></h6>
+        <ul id="b-use-case" class=""><li>
+                <a href="/doc/commerce/product/use-product-feeds.html" class="">Product Feeds</a></li><li>
+                <a href="/doc/commerce/product/use-rollup-threads.html" class="">Rollup Threads</a></li><li>
+                <a href="/doc/commerce/customization/use-customization.html" class="">Customization</a></li><li>
+                <a href="/doc/commerce/search/use-search.html" class="">Search</a></li><li>
+                <a href="/doc/commerce/checkout/use-wishlists.html" class="active">Wishlists</a><ul><li>
+                        <a href="/doc/commerce/checkout/use-wishlists.html#introduction"
+                           class="">Introduction</a>
+                    </li><li>
+                        <a href="/doc/commerce/checkout/use-wishlists.html#wishlists"
+                           class="">Wishlists</a>
+                    </li><li>
+                        <a href="/doc/commerce/checkout/use-wishlists.html#api-quick-reference"
+                           class="">API Quick Reference</a>
+                    </li><li>
+                        <a href="/doc/commerce/checkout/use-wishlists.html#troubleshooting"
+                           class="">Troubleshooting</a>
+                    </li><li>
+                        <a href="/doc/commerce/checkout/use-wishlists.html#contacting-the-team"
+                           class="">Contacting the Team</a>
+                    </li></ul></li><li>
+                <a href="/doc/commerce/checkout/use-carts.html" class="">Carts</a></li><li>
+                <a href="/doc/commerce/payment/use-payment.html" class="">Payment</a></li><li>
+                <a href="/doc/commerce/checkout/use-checkout.html" class="">Checkout</a></li><li>
+                <a href="/doc/commerce/checkout/use-fulfillment-offerings.html" class="">Fulfillment Offerings</a></li><li>
+                <a href="/doc/commerce/order/use-order.html" class="">Order</a></li><li>
+                <a href="/doc/commerce/product/use-merch-product.html" class="">Merchandised Product</a></li></ul><h6><span name="d-reference" class="toggle"><i class="fas fa-book-open"></i>  Reference</span></h6>
+        <ul id="d-reference" class="hide"><li>
+                <a href="/doc/commerce/customization/builder-reference.html" class="">Customization Builder</a></li><li>
+                <a href="/doc/commerce/reference/caller-best-practices.html" class="">Circuit Breaker Best Practices</a></li><li>
+                <a href="/doc/commerce/reference/glossary.html" class="">Glossary</a></li><li>
+                <a href="/doc/commerce/reference/product-lifecycle.html" class="">Product Life Cycle</a></li><li>
+                <a href="/doc/commerce/checkout/checkout-country-currency.html" class="">Countries & Currencies</a></li><li>
+                <a href="/doc/commerce/reference/global.html" class="">Countries, Channels, Brands</a></li><li>
+                <a href="/doc/commerce/product/merch-product-field-reference.html" class="">Merch Product Fields</a></li></ul><h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6><ul id="community" class="hide"><li><a href="https://zero.nike.com/home/sites/nikedirect/archives?tag=digital%20engineering%20blog" target="blank">Engineering Blog</a></li><li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li><li><a href="https://nike-inc.github.io/" target="_blank">Nike OSS</a></li></ul>
+    </section>
+</div>
+</header>
+</body>
+</html>
