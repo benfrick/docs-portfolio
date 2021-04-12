@@ -12,6 +12,8 @@ toc:
     url: /doc/commerce/checkout/use-checkout.html#key-terms
   - h2: Shipping Options
     url: /doc/commerce/checkout/use-checkout.html#shipping-options
+  - h2: Address Geocoding
+    url: /doc/commerce/checkout/use-checkout.html#address-geocoding
   - h2: Fulfillment Offerings
     url: /doc/commerce/checkout/use-checkout.html#fulfillment-offerings
   - h2: Shipping Address Validation
@@ -41,7 +43,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/30/2020
+##### Last Updated: 04/12/2021
 
 Manage the Checkout process for the consumer.
 
@@ -77,11 +79,13 @@ Listed below are some terms important to understanding checkout.
 
 |Term|Definition|
 |---|---|
+|**Address Geocoding**|Converts a text-based description of a location such as an address, into latitude and longitude coordinates|
 |**Cart**|The virtual shopping cart used by Nike consumers to collect and compare items for purchase|
 |**Checkout**|A collection of data, including cart data, describing what may become a consumer order|
 |**Fapiao**|Tax-related invoice offered to China consumers only|
 |<a id="legacy-def"></a>**Legacy fulfillment flow**|Checkout flow supporting ship to consumer address and digital delivery only|
 |<a id="omni-channel-def"></a>**Omni-channel fulfillment flow**|Checkout flow supporting ship to consumer address, digital delivery, Buy-Online-Pickup-in-Store (BOPIS), pickup at third party location, and Instant Checkout|
+|**Reverse geocoding**|Converts latitude and longitude coordinates into a text-based description of a location such as an address|
 |**Source-aware**|Using consumer location and other factors to offer the best options of when, where, and how to receive Nike product|
 
 ## Shipping Options
@@ -111,6 +115,59 @@ A successful 200 response includes the available shipping methods for a consumer
 >**TIPS:**
 - Although optional, pass a `shippingAddress` when available. In certain countries including the US, passing `shippingAddress` returns an estimated delivery date instead of an estimated delivery range.
 - In China, shipping methods vary based on the province, city, and district combination.
+
+## Address Geocoding
+
+<i class="g72-check"></i>&nbsp;&nbsp;**Turn an address into latitude and longitude coordinates**
+
+<i class="g72-check"></i>&nbsp;&nbsp;**Turn latitude and longitude coordinates into an address**
+
+The [Geocoding API](https://developer.niketech.com/docs/projects/Geocoding?tab=api) allows you to interchange an address with latitude and longitude geo coordinates. This service is not JWT-protected.
+
+### Get geographic coordinates from an address
+
+Need to call an API that requires the consumer's latitude and longitude location coordinates but you only have the consumer's address? Call the **Get Geocodes from Address API** passing address information as query parameters. 
+
+**Request Query Parameters**
+
+|Parameter Name|Description|Required?|Example|
+|---|---|---|
+|**country**|2-alpha character ISO 3166 country code|**Required**|US|
+|**address1**|String|Optional|One Bowerman Drive|
+|**address2**|String|Optional|1st Floor|
+|**address3**|String|Optional|Suite 100|
+|**city**|String|Optional|Beaverton|
+|**state**|ISO 3166-2 subdivision code. 2-alpha character ISO 3166-2 state code for US addresses|Optional|OR|
+|**county**|String. Holds regional data for non-US addresses|Optional|Washington|
+|**postalCode**|String. Both 5 digit and 5 digit-4 digit formats are supported for US addresses|Optional|97005|
+
+>**Tip**: If address values contain spaces, enclose the value in quotes for example, `filter=address1("1 Bowerman Drive")`.
+
+Sample [Get Geocodes from Address](https://developer.niketech.com/docs/projects/Geocoding?tab=api) cURL GET request:
+```
+curl -X GET "https://api.nike.com/buy/geocodes/v1?filter=country(US)&filter=address1("1 Bowerman Drive")&filter=city("Beaverton")&filter=state(OR)&filter=postalCode(97005)" -H  "accept: application/json; charset=UTF-8"
+```
+A successful 200 response contains the `country` passed in the request, `latitude`, `longitude` and in some cases, `geoDistance`. `geoDistance` represents the accuracy radius in meters between the geocode coordinates and the physical location.
+
+### Get an address from geographic coordinates
+
+For the convenience of consumers, your experience may not want to require them to enter their postal code in order to perform a location search by [Fulfillment Offerings](#fulfillment-offerings). You can turn latitude and longitude geo coordinates into a physical address by calling the **Get Address from Geocodes API**.
+
+### Step 1: Get the consumer's geographic coordinates (optional)
+
+If you don't have the consumer's latitude and longitude coordinates, you can get them from the [browser](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) or through the operating system's location API on an [iPhone](https://developer.apple.com/documentation/corelocation/getting_the_user_s_location) or [Android](https://developer.android.com/training/location) mobile device.
+
+> **Note**: You will need the consumer's permission to get their location.
+
+### Step 2: Get the consumers' address
+
+Once you have the geo coordinates, call the **Get Address from Geocodes API** to retrieve the consumer's full address. Send `country`,`latitude` and `longitude` number values as query parameters in the GET request. All query parameters are required.
+
+Sample [Get Address from Geocodes](https://developer.niketech.com/docs/projects/Geocoding?tab=api) cURL request:
+```
+curl -X GET "https://api.nike.com/buy/reverse_geocodes/v1?filter=country(US)&filter=latitude(45.50696)&filter=longitude(-122.82701)" -H  "accept: application/json; charset=UTF-8"
+```
+A successful 200 response contains address information of the physical location matching the geocode coordinates passed in the request.
 
 ## Fulfillment Offerings
 
@@ -304,6 +361,10 @@ https://api.nike.com/buy/checkouts/v2/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 **Address Validator**
 - [Address Validator](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"}
 
+**Address Geocoding**
+- [Get Geocodes from Address](https://developer.niketech.com/docs/projects/Geocoding?tab=api)
+- [Get Address from Geocodes](https://developer.niketech.com/docs/projects/Geocoding?tab=api)
+
 **Checkouts**
 - Request Checkout Preview [V2](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} and [V3](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"}
 - Retrieve Checkout Preview Job [V2](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-retrieve-checkout-preview-job-get){:target="new-tab"} and [V3](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-retrieve-checkout-preview-job-get){:target="new-tab"}
@@ -493,6 +554,7 @@ Need to contact the Buy team?
 |Added Key Terms|08/01/2019|
 |Added Address Validation|09/30/2019|
 |Moved Cart and Wishlist to separate docs, added Checkout Preview V3 and Checkout Submit V3 content|04/30/2020|
+|Added Address Geocoding|4/12/2021|
 
 ## Next Steps
 
