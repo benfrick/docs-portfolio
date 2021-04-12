@@ -165,7 +165,7 @@ Once you have the geo coordinates, call the **Get Address from Geocodes API** to
 
 Sample [Get Address from Geocodes](https://developer.niketech.com/docs/projects/Geocoding?tab=api) cURL request:
 ```
-curl -X GET "https://snkrs.prod.commerce.nikecloud.com/buy/reverse_geocodes/v1?filter=country(US)&filter=latitude(45.4311)&filter=longitude(-122.73681)" -H  "accept: application/json; charset=UTF-8"
+curl -X GET "https://snkrs.prod.commerce.nikecloud.com/buy/reverse_geocodes/v1?filter=country(US)&filter=latitude(45.50696)&filter=longitude(-122.82701)" -H  "accept: application/json; charset=UTF-8"
 ```
 A successful 200 response contains address information of the physical location matching the geocode coordinates passed in the request as well as latitude, longitude and geoDistance.
 
