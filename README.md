@@ -1,6 +1,6 @@
 # Dev Portal Documentation
 
-This project provides Nike API guides and other documentation for the following audiences:
+This proj ect provides Nike API guides and other documentation for the following audiences:
 
 - New Developers looking for an **easy way to try out the API** for the first time
 - Experienced Developers making a bug fix or implementing a new feature who need a **quick API reference**
