@@ -34,7 +34,7 @@ toc:
 
 ---
 
-##### Last Updated: 01/20/2021
+##### Last Updated: 4/19/2021
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -680,7 +680,9 @@ Allow the consumer to indicate their fulfillment intent for each item in Cart by
 
 >**TIP:** For the Authorization header, use the token for the consumer’s login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
 
-Send an HTTP PUT request to `https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9`. Note the UUID in the URL path, which you must generate. Make sure to send any consumer information you have such as shipping address, email address, or latitude and longitude of the consumer's physical location to get the most accurate list of offerings for each Cart item.
+Send an HTTP PUT request to `https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9`. Note the UUID in the URL path, which you must generate. Make sure to send any consumer information you have such as shipping address, email address, or latitude and longitude of the consumer's physical location to get the most accurate list of offerings for each Cart item. 
+
+>**TIP**: See the [Address Geocoding API](http://localhost:4000/doc/commerce/checkout/use-address.html#address-geocoding) section of the Address Tools guide for information on how to get coordinates from an address.
 
 **Sample Fulfillment Offerings Jobs PUT Request Body**
 
@@ -1337,12 +1339,14 @@ In order for the consumer to decide how to receive their items, you need to capt
 
 What if you want to get additional offerings to show the consumer, for example, based on their GPS coordinates? What if you already know the consumer's intended fulfillment type for some items, but not all items?
 
+> **TIP**: See the [Address Geocoding API](http://localhost:4000/doc/commerce/checkout/use-address.html#address-geocoding) section of the Address Tools guide for information on how to get coordinates from an address.
+
 In this case, you can *optionally* send any of the following to Fulfillment Offerings endpoint:
 
-- **Location search data** (e.g. GPS coordinates, radius)
+- **Location search data** (for example, GPS coordinates)
 - **Known Addresses** (shipping, email or other known addresses for that consumer)
 - **Promotion discount codes**
-- **Allowed fulfillment types** (e.g. return only 'SHIP' and 'PICKUP' types)
+- **Allowed fulfillment types** (for example return only 'SHIP' and 'PICKUP' types)
 
 The Fulfillment Offerings API adjusts the results based on what you send, making for an efficient way to drive the experience. The API groups items of the same intent by fulfillment group. This grouping makes it easy for the app or experience to display items with the same intent.
 
@@ -1550,9 +1554,10 @@ Need to contact the Cart & Checkout team?
 
 |Summary |Date |Description|
 |---|---|---|
-|Initial draft|03/03/2020|Initial Publish|
-|Renamed endpoints|04/20/2020|Renamed endpoints, updated Next Steps section|
-|Added section|01/01/2021|Added Fulfillment Types section|
+|Initial draft|3/03/2020|Initial Publish|
+|Renamed endpoints|4/20/2020|Renamed endpoints, updated Next Steps section|
+|Added section|1/01/2021|Added Fulfillment Types section|
+|Added links to Address Geocoding guide|4/19/2021|For obtaining coordinates from an address|
 
 ## Next Steps
 
@@ -1560,7 +1565,7 @@ You've learned how to add Fulfillment Offerings to your experience. Here are som
 
 - [Wishlist](/doc/commerce/checkout/use-wishlists.html)
 - [Cart & Cart Review](/doc/commerce/checkout/use-carts.html)
-- [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
+- [Address Tools](/doc/commerce/checkout/use-address.html)
 - [Checkout](/doc/commerce/checkout/use-checkout.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
