@@ -336,6 +336,7 @@ article h2 {
     font-size: .9rem;
     margin-left: 6px;
     vertical-align: middle;
+    display: inline-block;
 }
 .revised-indicator-lg::after {
     content: "REVISED";
@@ -345,6 +346,7 @@ article h2 {
     font-size: .9rem;
     margin-left: 6px;
     vertical-align: middle;
+    display: inline-block;
 }
 .numberCircle {
     color: #fff;
