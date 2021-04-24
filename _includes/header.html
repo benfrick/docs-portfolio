@@ -1,0 +1,17 @@
+<!-- Header for all pages, includes search bar and Slack button. Included in /_layouts/two-column.html -->
+
+<div class="ncss-container" id="overview-header">
+    <nav>
+        <li class="header-title"><h2>Commerce Docs</h2></li>
+        <li class="search">
+            <form action= {{"/search/index.html" | absolute_url }} method="get">
+                <input type="text" name="q" id="search-input" placeholder="Search">
+                <input type="submit" value="Search" style="display: none;">
+            </form>
+        </li>
+        <li class="slack">
+            <a class="ncss-btn-secondary-grey guide-button" href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W">SLACK</a>
+        </li>
+    </nav>
+</div>
+

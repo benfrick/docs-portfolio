@@ -1,11 +1,11 @@
 # ----
 # Site
 
-title: Aviator
-description: Jekyll template for API documentation.
-url: https://example.com
-google_analytics_key:
+title: Commerce Docs
+description: API guides for Nike developers
 permalink: none
+#url: https://pages.github.nike.com
+baseurl: /nike-cx/nde-devportal-docs
 
 # -----
 # Build
@@ -16,64 +16,19 @@ timezone: Etc/UTC
 exclude:
   - templates/
 
-plugins:
-# minifies html, css, js
-  - jekyll-minifier
-
-# jekyll-minifier doesn't seem to work without this setting related to ES6 syntax
-jekyll-minifier:
-  compress_javascript: false
-  uglifier_args:
-    harmony: true
-
 defaults:
   -
     scope:
       path: ""
     values:
       layout: two-column
-      toctitle: "Commerce Docs Home"
 
 kramdown:
   # parse markdown inside block-level HTML tag
   #parse_block_html: true
 
-# publish to/from
-source: src
-destination: ./content/
+# publish from a source dir to a destination dir
+destination: ./_site/
 
 # only convert changed files
-#incremental: true
-
-# -----------
-# CloudCannon
-
-types:
-  - get
-  - put
-  - delete
-  - post
-
-languages:
-  bash: Bash
-  c: C
-  css: CSS
-  html: HTML
-  java: Java
-  javascript: JavaScript
-  json: JSON
-  php: PHP
-  python: Python
-  ruby: Ruby
-
-_options:
-  content_markdown:
-    format: p h4 h5 h6
-    bold: true
-    italic: true
-    link: true
-    bulletedlist: true
-    numberedlist: true
-    image: true
-    table: true
-    styles: /css/editor.css
+incremental: true

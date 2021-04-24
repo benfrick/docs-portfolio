@@ -1,0 +1,62 @@
+<!-- Persistent left-side sidebar navigation. Displays doc category (e.g. "b-template" as set in the front matter at the top of
+each markdown doc), then displays doc title, then displays all the h2's in the doc. Note that the topmost anchor link to
+Slack in <section> has an empty href. Either update with your own Slack link or delete entire line.  -->
+
+<div id="sidebar" class="sidebar">
+    <section>
+        <h6><a href="{{ "/index.html" | absolute_url }}" class="toctitle"><i class="fas fa-home"></i>&nbsp;Home</a></h6>
+        {%- assign grouped_pages = site.pages | group_by: "category" | sort: "name" -%}
+        {%- for sorted_cats in grouped_pages -%}
+        {%- if sorted_cats.name != "" -%}
+        <h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "b-use-case" -%}<i
+                class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "a-overview" -%}<i
+                class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "0-get-started" -%}<i
+                class="fas fa-play-circle"></i> Get Started{%- elsif sorted_cats.name == "d-reference" -%}<i
+                class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
+        <ul id="{{ sorted_cats.name }}"
+            class="{%- if sorted_cats.name != page.category -%}hide{% else %}show{%- endif -%}">
+            {%- assign docs = sorted_cats.items | sort: "position" -%}
+            {%- for doc in docs -%}
+            {%- if doc.status != "retired" and (doc.category == "a-overview" or doc.category == "b-use-case" or
+            doc.category == "0-get-started" or doc.category == "d-reference") -%}
+            <li>
+                <a href="{{- doc.url | absolute_url -}}" class="{%- if doc.url == page.url -%}active{%- endif -%}">
+                    {{- doc.title -}}
+                    {%- if doc.type -%}<span class="endpoint {{- doc.type -}}"></span>{%- endif -%}
+                </a>
+                {%- if doc.url == page.url and doc.toc and doc.toc[0] -%}
+                <ul>
+                    {%- for firstlevel in doc.toc -%}
+                    <li>
+                        <a href="{{- firstlevel.url | absolute_url -}}"
+                           class="{%- if page.url == firstlevel.url -%}active{%- endif -%}">{{- firstlevel.h2 -}}</a>
+                    </li>
+                    {%- if firstlevel.subheadings[0] -%}
+                    <ul>
+                        {%- for secondlevel in firstlevel.subheadings -%}
+                        <li>
+                            <a href="{{- secondlevel.url | absolute_url-}}"
+                               class="{%- if page.url == secondlevel.url -%}active{%- endif -%}">{{-
+                                secondlevel.h3-}}</a>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                    {%- endif -%}
+                    {%- endfor -%}
+                </ul>
+                {%- endif -%}
+            </li>
+            {%- endif -%}
+            {%- endfor -%}
+        </ul>
+        {%- else -%}{%- endif -%}
+        {%- endfor -%}
+        <h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6>
+        <ul id="community" class="hide">
+            <li><a href="https://pages.github.nike.com/comm/internal-blog/"
+                   target="blank">Global Tech Engineering Blog</a></li>
+            <li><a href="https://cop-playbook.niketech.com/" target="_blank">COP Playbook</a></li>
+            <li><a href="https://github.com/Nike-Inc" target="_blank">Nike OSS</a></li>
+        </ul>
+    </section>
+</div>
