@@ -50,4 +50,4 @@ junit.xml
 *.iml
 /.sass-cache
 /_site
-.jekyll-metadata
+.jekyll-metadata*
