@@ -48,5 +48,6 @@ client/swagger-editor
 /.history/
 junit.xml
 *.iml
-.sass-cache/
-/_site/
+/.sass-cache
+/_site
+.jekyll-metadata
