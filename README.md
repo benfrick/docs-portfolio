@@ -7,20 +7,20 @@ url: /README.html
 status: active
 tag: help
 toc:
-- h2: Table of Contents
-  url: /README.html#table-of-contents
-- h2: Overview
-  url:  /README.html#overview
-- h2: Quick Start
-  url:  /README.html#quick-start
-- h2: Blueprint Basics
-  url: /README.html#blueprint-basics
-- h2: Making the Site Your Own
-  url: /README.html#making-the-site-your-own
-- h2: Contributing
-  url: /README.html#contributing
-- h2: Contact Us
-  url: /README.html#contact-us
+  - h2: Table of Contents
+    url: /README.html#table-of-contents
+  - h2: Overview
+    url:  /README.html#overview
+  - h2: Quick Start
+    url:  /README.html#quick-start
+  - h2: Blueprint Basics
+    url: /README.html#blueprint-basics
+  - h2: Making the Site Your Own
+    url: /README.html#making-the-site-your-own
+  - h2: Contributing
+    url: /README.html#contributing
+  - h2: Contact Us
+    url: /README.html#contact-us
 ---
 
 # Blueprint Guide
