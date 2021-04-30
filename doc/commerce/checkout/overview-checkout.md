@@ -18,7 +18,6 @@ Learn how to use Cart, Checkout, and Payment to enable the purchase of Nike prod
 
 Nike builds digital experiences that showcase its premium products and tell amazing stories. Powering those experiences are <font class="u-bold">Nike Cart, Checkout, and Payment</font>, built to handle the massive scale of global e-commerce.
 
-![SNKRS app payment flow](/images/commerce/payment/snkrs_payment-md.png){:style="float:right;"}
 
 #### Adding Cart, Checkout, and Payment To Your App or Experience
 

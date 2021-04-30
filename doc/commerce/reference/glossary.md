@@ -7,7 +7,7 @@ title: Glossary
 url: /commerce/reference/glossary.html
 ---
 
-# Glossary
+{% include ref-header.html %}
 
 ##### Last Updated: 02/04/2020
 

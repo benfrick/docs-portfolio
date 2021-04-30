@@ -12,7 +12,7 @@ toc:
     url: /doc/commerce/reference/product-lifecycle.html#how-product-data-gets-to-the-customer
 ---
 
-# PRODUCT LIFE CYCLE
+{% include ref-header.html %}
 
 ##### Last Updated: 04/19/2018
 

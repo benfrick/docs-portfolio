@@ -20,9 +20,11 @@ toc:
     url: /doc/commerce/product/merch-product-field-reference.html#publish-types
 ---
 
-# MERCHANDISED PRODUCT FIELD REFERENCE
+# Merchandised Product Field Reference
 
 ##### Last Updated: 05/24/2018
+
+---
 
 This guide describes the product and value-added service merchandising codes flowing from Prodigy (the system of record) to the Merchandised Product API.
 

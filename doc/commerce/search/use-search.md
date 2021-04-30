@@ -23,9 +23,7 @@ toc:
   - h2: Related Links
     url: /doc/commerce/search/use-search.html#related-links
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
-
-# UNDERSTANDING SEARCH RESULTS
+{% include dev-header.html %}
 
 ---
 

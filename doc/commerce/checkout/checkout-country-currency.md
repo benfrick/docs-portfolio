@@ -11,6 +11,8 @@ url: /commerce/checkout/checkout-country-currency.html
 
 ##### Last Updated: 02/04/2020
 
+---
+
 ## Countries and Currencies
 
 The following describes the shipping countries supported by the Nike Checkout APIs, including the ISO country and currency codes.

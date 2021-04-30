@@ -46,7 +46,7 @@ toc:
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
 
-# USING NIKE APIS
+# USING NIKE APIS <a href="/doc/getting-started/using-nike-apis.pdf" class="green-button" style="float:right;margin-bottom:10px;">DOWNLOAD</a>
 
 ##### Last Updated: 02/04/2020
 

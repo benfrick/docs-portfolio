@@ -23,9 +23,7 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/checkout/use-address.html#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
-
-# ADDING ADDRESS TOOLS TO YOUR EXPERIENCE
+{% include dev-header.html %}
 
 ---
 

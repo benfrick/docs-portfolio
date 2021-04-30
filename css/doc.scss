@@ -33,11 +33,12 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size:38px;
+  font-size:34px;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 30px;
+  color: #5f78b3;
 }
 
 h4, h5, h6 {
@@ -102,7 +103,7 @@ section img {
 
 blockquote {
   border-left:5px solid #ab3333;
-  margin:0;
+  margin: 10px;
   padding:0 0 0 5px;
 }
 
@@ -175,8 +176,8 @@ dt {
   font-weight: normal;
 }
 section {
-  max-width:700px;
-  padding: 30px 0px 50px 0px;
+  max-width:800px;
+  padding: 30px 0px 50px 40px;
   margin-top: 34px;
 
   #title {
@@ -350,7 +351,7 @@ section {
     }
     li a{
         color: #ffffff;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 }
 i {
@@ -365,6 +366,9 @@ i {
     border: 1px solid #ffcc00;
     i {
         padding: 10px 0px 10px 0px;
+    }
+    li {
+    list-style: none;
     }
     .tile-desc {
       font-size:1.55rem;

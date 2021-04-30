@@ -13,8 +13,6 @@ dev-guide: /doc/commerce/order/use-order.html
 
 ---
 
-![WeChat Order History](/images/commerce/order/wechat-order-history.png){:class="border"}{:style="float:right;"}
-
 Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Order](/doc/commerce/order/use-order.html) to your app.
 
 #### Happy consumers are a good thing. What keeps them happy? Assuring them that their order is on the way.

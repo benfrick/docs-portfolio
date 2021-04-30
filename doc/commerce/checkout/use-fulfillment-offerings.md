@@ -28,9 +28,7 @@ toc:
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#contacting-the-team
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
-
-# ADDING FULFILLMENT OFFERINGS TO YOUR EXPERIENCE
+{% include dev-header.html %}
 
 ---
 

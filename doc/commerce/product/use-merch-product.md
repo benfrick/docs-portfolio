@@ -3,7 +3,7 @@ id: use-merch-product
 tags: pdf
 category: b-use-case
 position: 14
-title: Merchandised Product
+title: Merchandised Products
 url: /doc/commerce/product/use-merch-product.html
 toc:
   - h2: Introduction
@@ -43,9 +43,7 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-merch-product.html#related-links
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
-
-# ADDING MERCHANDISED PRODUCTS <br>TO YOUR EXPERIENCE
+{% include dev-header.html %}
 
 ---
 

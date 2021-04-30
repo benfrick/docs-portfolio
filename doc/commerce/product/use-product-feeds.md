@@ -27,9 +27,7 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-product-feeds.html#related-links
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
-
-# ADDING PRODUCT FEEDS TO YOUR EXPERIENCE
+{% include dev-header.html %}
 
 ---
 
@@ -44,8 +42,6 @@ toc:
 The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api){:target="new-tab"} provides product data and content in the form of Cards, Threads, and Feeds.
 
 ### What are Cards, Threads, and Feeds?
-
-[<img style="margin-left:5px; display:inline-block; float:right;" alt="Nike App screenshot" src="/images/commerce/product_feeds/nike_app_annotated_sm.png">](/doc/commerce/product/nike_app_annotated.html)
 
 |**Cards** are portions of a Thread, such as for use in displaying a heading or banner.|
 |**Threads** contain Nike product information or content that tells a Nike story.|

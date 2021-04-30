@@ -3,7 +3,7 @@ id: use-order
 tags: pdf
 category: b-use-case
 position: 12
-title: Order
+title: Order History
 url: /doc/commerce/order/use-order.html
 toc:
   - h2: Introduction
@@ -33,9 +33,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/order/use-order.html#next-steps
 ---
-<a href="{{ page.url | replace: '.html','.pdf'}}" target="new-tab" class="ncss-btn-secondary-grey guide-button float"><i class="fas fa-arrow-alt-circle-right"></i> DOWNLOAD</a>
-
-# ADDING ORDER HISTORY TO YOUR EXPERIENCE
+{% include dev-header.html %}
 
 ---
 

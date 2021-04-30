@@ -14,7 +14,7 @@ toc:
     url: /doc/commerce/reference/global.html#brands
 ---
 
-# COUNTRIES, CHANNELS, & BRANDS
+{% include ref-header.html %}
 
 ##### Last Updated: 02/04/2020
 
