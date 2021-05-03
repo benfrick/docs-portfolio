@@ -439,3 +439,18 @@ section ul li {
         padding: 15px 0px 15px 0px;
     }
 }
+aside {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     float: right;
+     max-width: 50%;
+}
+aside.note {
+    padding: 8px;
+    margin: 0 20px 20px 40px;
+    z-index: 2;
+
+    @media (max-width: 600px) {
+        margin: 10px;
+        padding: 5px;
+    }
+}
