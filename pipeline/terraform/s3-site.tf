@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "site" {
     error_document = "404.html"
   }
 
-  tags {}
+   tags = {}
 
   force_destroy = true
 }
