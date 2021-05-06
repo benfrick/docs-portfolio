@@ -57,8 +57,7 @@ jobs:
       - run:
           name: deploy
           command: .circleci/deploy.sh preprod
-#     - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Deploy to preprod completed for '${CIRCLE_PROJECT_REPONAME}', go to <https://circleci-ghec.nike.com/workflow-run/'${CIRCLE_WORKFLOW_WORKSPACE_ID}'|Workflow> to approve for production deploy\"}' ${NDE_DOCS_SLACK_WEBHOOK}"
-  - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Deploy to preprod completed for '${CIRCLE_PROJECT_REPONAME}', go to <https://circleci-ghec.nike.com/workflow-run/'${CIRCLE_WORKFLOW_WORKSPACE_ID}'|Workflow> to approve for production deploy\"}' https://hooks.slack.com/services/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"
+      - run: "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Deploy to preprod completed for '${CIRCLE_PROJECT_REPONAME}', go to <https://circleci-ghec.nike.com/workflow-run/'${CIRCLE_WORKFLOW_WORKSPACE_ID}'|Workflow> to approve for production deploy\"}' https://hooks.slack.com/services/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"
 
   deploy_prod:
     <<: *container_config
