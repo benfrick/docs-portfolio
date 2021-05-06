@@ -10,7 +10,7 @@ WORKSPACE=${1}
 pushd pipeline/terraform
 terraform init \
        -backend-config bucket="${terraform_state_bucket}"
-# If the workspace doesn not exist, create it.
+# If the workspace does not exist, create it.
 if ! terraform workspace select ${WORKSPACE}; then
     terraform workspace new ${WORKSPACE} 
 fi
