@@ -51,7 +51,8 @@ resource "aws_cloudfront_distribution" "website_cdn" {
 
   # http_version = "http2"
 
-  "origin" {
+#  "origin" {
+  origin {
     origin_id = "origin-bucket-${aws_s3_bucket.site.id}"
 
     # domain_name = "${aws_s3_bucket.site.website_endpoint}"
