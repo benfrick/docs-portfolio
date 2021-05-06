@@ -19,5 +19,4 @@ terraform init \
 terraform apply -auto-approve
 popd
 
-aws s3 sync content/ s3://$s3_site_bucket/ --delete --exclude \"*.DS_Store*\"; exit_status=$?; if [ $exit_status
--eq 2 ]; then exit 0; fi; exit $exit_status
+aws s3 sync content/ s3://$s3_site_bucket/ --delete --exclude \"*.DS_Store*\"; exit_status=$?; if [ $exit_status -eq 2 ]; then exit 0; fi; exit $exit_status
