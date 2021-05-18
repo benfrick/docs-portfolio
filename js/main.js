@@ -2,9 +2,19 @@
 jQuery(function() {
 	var $sidebar = $('#sidebar');
     //highlight sidebar h2 on click event
-	$sidebar.find('a').click(function() {
+	$sidebar.find('a').click(function(e) {
 		$sidebar.find('a').removeClass('active');
 		$(this).addClass('active');
+        var hash = $(this).attr('href').split('#');
+        var $section,$sectionheader,scrollamt;
+        // scroll to anchor
+        if(hash.length>1){
+            e.preventDefault();
+            $section = $('section');
+            $sectionheader = $section.find('#'+hash[1]);
+            scrollamt = $sectionheader.offset().top - 60;
+            window.scrollTo(0,scrollamt);
+        }
 	});
 
     //collapse/expand sidebar section on click event
