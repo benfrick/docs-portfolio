@@ -77,4 +77,5 @@ $( document ).ready(function() {
     $(window).on("scroll", function(evt) {
         highlightClosestHeader();
     });
+    //var top = ($(".apps_intro_wrapper_inner").offset() || { "top": NaN }).top + 800;
 });
