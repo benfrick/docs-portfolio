@@ -23,16 +23,16 @@ Nike builds digital experiences that showcase its premium products and tell amaz
 
 The consumer finds a Nike product that they love in your app. What happens next? Step through the check list below to incorporate Cart, Checkout, and Payment capabilities into your experience.
 
-|---|
-|<i class="numberCircle gray">1</i>&nbsp;&nbsp;[Manage a consumer's shopping cart and get product pricing](/doc/commerce/checkout/use-carts.html#cart)|
-|<i class="numberCircle gray">2</i>&nbsp;&nbsp;[Manage a consumer's wishlist (member/employee only) of products and services](/doc/commerce/checkout/use-wishlists.html)|
-|<i class="numberCircle gray">3</i>&nbsp;&nbsp;[Review a consumer's cart for checkout](/doc/commerce/checkout/use-carts.html#step-4-get-a-cart-summary)|
-|<i class="numberCircle gray">4</i>&nbsp;&nbsp;[Get available shipping options](/doc/commerce/checkout/use-checkout.html#shipping-options) or [get available fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See [Which API Version Should I Use](#which-api-version-should-i-use) for more details.|
-|<i class="numberCircle gray">5</i>&nbsp;&nbsp;[Validate a shipping address](/doc/commerce/checkout/use-checkout.html#shipping-address-validation)|
-|<i class="numberCircle gray">6</i>&nbsp;&nbsp;[Validate a checkout for fulfillment](/doc/commerce/checkout/use-checkout.html#checkout-preview)|
-|<i class="numberCircle gray">7</i>&nbsp;&nbsp;[Get available payment methods](/doc/commerce/payment/use-payment.html#listing-and-validating-payment-options)|
-|<i class="numberCircle gray">8</i>&nbsp;&nbsp;[Validate payment](/doc/commerce/payment/use-payment.html#payment-preview)|
-|<i class="numberCircle gray">9</i>&nbsp;&nbsp;[Submit a checkout for fulfillment](/doc/commerce/checkout/use-checkout.html#checkout-submit)|
+
+- [Manage a consumer's shopping cart and get product pricing](/doc/commerce/checkout/use-carts.html#cart)
+- [Manage a consumer's wishlist (member/employee only) of products and services](/doc/commerce/checkout/use-wishlists.html)
+- [Review a consumer's cart for checkout](/doc/commerce/checkout/use-carts.html#step-4-get-a-cart-summary)
+- [Get available shipping options](/doc/commerce/checkout/use-checkout.html#shipping-options) or [get available fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html). See [Which API Version Should I Use](#which-api-version-should-i-use) for more details.
+- [Validate a shipping address](/doc/commerce/checkout/use-checkout.html#shipping-address-validation)
+- [Validate a checkout for fulfillment](/doc/commerce/checkout/use-checkout.html#checkout-preview)
+- [Get available payment methods](/doc/commerce/payment/use-payment.html#listing-and-validating-payment-options)
+- [Validate payment](/doc/commerce/payment/use-payment.html#payment-preview)
+- [Submit a checkout for fulfillment](/doc/commerce/checkout/use-checkout.html#checkout-submit)
 
 #### Which API Version Should I Use?
 

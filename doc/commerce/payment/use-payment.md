@@ -68,19 +68,19 @@ Manage the payment process for consumers purchasing Nike products and services.
 
 The payment process during Checkout consists of four steps:
 
-<i class="numberCircle gray">1</i>**Listing Payment Methods and Managing Stored Payments**
+**1. Listing Payment Methods and Managing Stored Payments**
 
 Your experience can get a list of stored payments for a logged-in consumer by calling the [Stored Payments](#storing-payment) service. The Stored Payments service can also be used to add, delete, and update a consumer's stored payments, including the default stored payment. The [Payment Options](#listing-and-validating-payment-options) service lists and validates non-stored payments.
 
-<i class="numberCircle gray">2</i>**Preparing Payment for Purchase**
+**2. Preparing Payment for Purchase**
 
 Depending upon the payment type, your experience will need to perform different actions to prepare the payment for purchase. Before a consumer can pay with [Apple Pay](#apple-pay-payment), an Apple Pay session must be started. To allow consumers to pay in the PayPal Express or PayPal Mark flows, you will need to call the [Wallet Payment](#wallet-payment) service to start a PayPal session. When paying by a non-stored credit card, your experience will need to collect the consumer’s credit card information using the [Credit Card Submit](#credit-card-payment) service. If consumers pay by a [Deferred Payment](#deferred-payment) type such as Alipay or WeChat, your experience will need to generate a signed URL and redirect the consumer, so they can pay at the vendor’s site after they submit the Nike Checkout.
 
-<i class="numberCircle gray">3</i>**Payment Preview**
+**3. Payment Preview**
 
 Because consumers can pay for their Checkout using Gift Cards, Vouchers, and another payment type, it is necessary to calculate how much of the Checkout will be paid by each payment type by calling [Payment Preview](#payment-preview). Your experience can display the payment allocation results to consumers, so they can verify their payment details before submitting the Checkout.
 
-<i class="numberCircle gray">4</i>**Payment Approval**
+**4. Payment Approval**
 
 Before the Checkout can be submitted for fulfillment, payment information needs to be validated and certain payment types need to be authorized to make sure there are enough funds. Both validation and authorization are handled by [Payment Approval](#payment-approval), but your experience does not need to call the endpoint directly. The Checkout API does it for you when you call [Request a Checkout Submit](/doc/commerce/checkout/use-checkout.html#checkout-submit).
 
@@ -240,11 +240,11 @@ Use the [Add Stored Payment](https://developer.niketech.com/docs/projects/Paymen
 
 The typical flow for storing a new credit card **pre-authorization** for a consumer is:
 
-<i class="numberCircle gray">1</i>Call the [Add Credit Card with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} endpoint of the Credit Card Submit service to securely transmit credit card information via iFrame to the PCI-certified Credit Card Submit service, passing a client-generated UUID as the `creditCardInfoId`.
+1. Call the [Add Credit Card with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} endpoint of the Credit Card Submit service to securely transmit credit card information via iFrame to the PCI-certified Credit Card Submit service, passing a client-generated UUID as the `creditCardInfoId`.
 
-<i class="numberCircle gray">2</i>Call [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"}, passing the same `creditCardInfoId` from **Step 1** to look up the credit card information from short term storage and save it to long term storage.
+2. Call [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"}, passing the same `creditCardInfoId` from **Step 1** to look up the credit card information from short term storage and save it to long term storage.
 
-<i class="numberCircle gray">3</i>Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just saved to confirm that the credit card was securely stored. Credit Card account numbers are masked in the response.
+3. Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just saved to confirm that the credit card was securely stored. Credit Card account numbers are masked in the response.
 
 Listed below is the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} POST request URI. This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
 
@@ -259,11 +259,11 @@ Use the [Modify Credit Card Stored Payment](https://developer.niketech.com/docs/
 
 The typical flow for modifying a stored credit card is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
+1. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
-<i class="numberCircle gray">2</i>Call [Modify Credit Card Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-put){:target="new-tab"} . Get the `payment_id` path parameter from the appropriate `paymentId` field that was returned in the response of **Step 1**.
+2. Call [Modify Credit Card Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-put){:target="new-tab"} . Get the `payment_id` path parameter from the appropriate `paymentId` field that was returned in the response of **Step 1**.
 
-<i class="numberCircle gray">3</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just modified to confirm that the credit card was updated. Credit Card account numbers are masked in the response.
+3. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just modified to confirm that the credit card was updated. Credit Card account numbers are masked in the response.
 
 Listed below is the [Modify Credit Card Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-put){:target="new-tab"} PUT request URI. This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
 
@@ -279,11 +279,11 @@ Use the [Modify the Default Stored Payment'](https://developer.niketech.com/docs
 
 The typical flow for modifying the default stored payment is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
+1. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
-<i class="numberCircle gray">2</i>Call [Modify Default Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-default-stored-payment-put){:target="new-tab"} passing the `payment_id` path parameter using the appropriate `paymentId` field returned in the response of **Step 1**.
+2. Call [Modify Default Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-default-stored-payment-put){:target="new-tab"} passing the `payment_id` path parameter using the appropriate `paymentId` field returned in the response of **Step 1**.
 
-<i class="numberCircle gray">3</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just modified to confirm that the default credit card was changed. Credit Card account numbers are masked in the response.
+3. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all stored payments including the one just modified to confirm that the default credit card was changed. Credit Card account numbers are masked in the response.
 
 Listed below is a [Modify Default Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-default-stored-payment-put){:target="new-tab"} PUT request URI. The endpoint is not JWT-restricted.
 
@@ -298,11 +298,11 @@ Use the [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/pr
 
 The typical flow for deleting all stored payments for a consumer is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
+1. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
-<i class="numberCircle gray">2</i>Call [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} to delete all of a consumer's stored payments.
+2. Call [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} to delete all of a consumer's stored payments.
 
-<i class="numberCircle gray">3</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to verify that no stored payments are returned.
+3. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to verify that no stored payments are returned.
 
 Listed below is a sample [Delete Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-delete-stored-payments-by-upmid-delete){:target="new-tab"} DELETE request URI. **This endpoint is JWT-restricted.**
 
@@ -318,11 +318,11 @@ Use the [Delete Stored Payment by ID](https://developer.niketech.com/docs/projec
 
 The typical flow for deleting a stored payment for a consumer is:
 
-<i class="numberCircle gray">1</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
+1. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get all of a consumer's stored payments. Credit Card account numbers are masked in the response.
 
-<i class="numberCircle gray">2</i>Call [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} to delete a consumer's stored payment for the given `payment_id`.
+2. Call [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} to delete a consumer's stored payment for the given `payment_id`.
 
-<i class="numberCircle gray">3</i>[Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to verify that no stored payments are returned.
+3. [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to verify that no stored payments are returned.
 
 Listed below is a [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-modify-credit-card-stored-payment-delete){:target="new-tab"} DELETE request URI. This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
 
@@ -430,15 +430,15 @@ In order to save PayPal as a stored payment, the consumer must [Start a PayPal B
 
 Follow these steps to allow consumers to Add a PayPal stored payment in your experience.
 
-<i class="numberCircle gray">1</i>Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get a list all the consumer's saved payments to make sure the consumer doesn't already have a PayPal stored payment. Consumers can have only one PayPal stored payment.
+1. Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to get a list all the consumer's saved payments to make sure the consumer doesn't already have a PayPal stored payment. Consumers can have only one PayPal stored payment.
 
-<i class="numberCircle gray">2</i>Call the [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"} endpoint, passing the `returnURL` and `cancelURL` as query parameters so PayPal can return the consumer to your experience.
+2. Call the [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"} endpoint, passing the `returnURL` and `cancelURL` as query parameters so PayPal can return the consumer to your experience.
 
-<i class="numberCircle gray">3</i>Redirect the consumer to the `redirectURL` in the response, so the consumer to provide payment details, approve, and subscribe to the Billing Agreement. Once the consumer accepts or cancels the Billing agreement, PayPal redirects the consumer to either the `returnURL` or `cancelURL` provided in the query parameter.
+3. Redirect the consumer to the `redirectURL` in the response, so the consumer to provide payment details, approve, and subscribe to the Billing Agreement. Once the consumer accepts or cancels the Billing agreement, PayPal redirects the consumer to either the `returnURL` or `cancelURL` provided in the query parameter.
 
-<i class="numberCircle gray">4</i>Call the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} endpoint to save the PayPal billing agreement.
+4. Call the [Add Stored Payment](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-add-stored-payment-post){:target="new-tab"} endpoint to save the PayPal billing agreement.
 
-<i class="numberCircle gray">5</i>(Optional) Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to list all the consumer's saved payments.
+5. (Optional) Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to list all the consumer's saved payments.
 
 Listed below is a sample [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"} GET request URI for the SNKRS mobile experience. This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
 
@@ -1848,21 +1848,21 @@ Payment API flows vary based on the payment method, and the user experience. Lis
 
 Listed below is a sample credit card payment flow. In this flow, the consumer is a Nike registered member who has added products and services to the [Checkout](/doc/commerce/checkout/use_checkout.html), provided a shipping address, and has the intention to purchase.
 
-<i class="numberCircle gray">1</i>Your experience calls [Payment Options](#payment-options) to get a list of valid payment methods for the consumer.
+1. Your experience calls [Payment Options](#payment-options) to get a list of valid payment methods for the consumer.
 
-<i class="numberCircle gray">2</i>The consumer selects to pay by a non-stored credit card from the list of payment options in your app.
+2. The consumer selects to pay by a non-stored credit card from the list of payment options in your app.
 
-<i class="numberCircle gray">3</i>Your experience calls [Credit Card Submit](#credit-card-submit) to capture the consumer's credit card information in a PCI-compliant UI. Since the consumer is a registered member, your experience may ask to store her credit card for future use.
+3. Your experience calls [Credit Card Submit](#credit-card-submit) to capture the consumer's credit card information in a PCI-compliant UI. Since the consumer is a registered member, your experience may ask to store her credit card for future use.
 
-<i class="numberCircle gray">4</i>If the registered member has chosen to store the credit card for reuse, your experience calls [Stored Payment](#storing-payment) to validate, securely store, and display masked credit card information.
+4. If the registered member has chosen to store the credit card for reuse, your experience calls [Stored Payment](#storing-payment) to validate, securely store, and display masked credit card information.
 
-<i class="numberCircle gray">5</i>Your experience passes the Checkout and credit card information to [Payment Preview](#payment-preview) in order to allocate the order total across the selected payment methods and generate the Payment Preview ID.
+5. Your experience passes the Checkout and credit card information to [Payment Preview](#payment-preview) in order to allocate the order total across the selected payment methods and generate the Payment Preview ID.
 
-<i class="numberCircle gray">6</i>Your experience calls [Checkout Preview](/doc/commerce/checkout/api_checkout.html#request-checkout-preview) to validate Checkout and calculate item pricing, shipping and taxes.
+6. Your experience calls [Checkout Preview](/doc/commerce/checkout/api_checkout.html#request-checkout-preview) to validate Checkout and calculate item pricing, shipping and taxes.
 
-<i class="numberCircle gray">7</i>Your experience calls [Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) with the Payment Preview ID to validate payment for a final time, authorizes the credit card by calling [Payment Approval](#payment-approval), and submits the Checkout for fulfillment.
+7. Your experience calls [Checkout Submit](/doc/commerce/checkout/api_checkout.html#request-checkout-submit) with the Payment Preview ID to validate payment for a final time, authorizes the credit card by calling [Payment Approval](#payment-approval), and submits the Checkout for fulfillment.
 
-<i class="numberCircle gray">8</i>Your experience calls [Payment Approval Summary](#get-payment-approval-summary) to display the payment details to the consumer for order confirmation.
+8. Your experience calls [Payment Approval Summary](#get-payment-approval-summary) to display the payment details to the consumer for order confirmation.
 
 **Sample Credit Card Payment Flow with Stored Payment**
 

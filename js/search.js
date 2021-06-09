@@ -61,7 +61,7 @@
 
 		if (results.length) {
 			var resultsHTML = "";
-			var baseurl = "/nike-tech-docs/techdocs-blueprint";
+			var baseurl = "";
 			results.forEach(function (result) {
 				var item = window.data[result.ref],
 					contentPreview = getPreview(query, item.content, 170),

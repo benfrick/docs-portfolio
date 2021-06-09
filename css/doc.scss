@@ -28,6 +28,11 @@ p, ul, ol, table, pre, dl {
   margin:0 0 10px;
 }
 
+ol {
+  list-style: decimal;
+  color: white;
+}
+
 h1, h2, h3 {
   line-height:1.1;
 }
@@ -81,7 +86,7 @@ a small {
   display:block;
 }
 
-ul{
+ul {
   list-style-image:url('../images/bullet.png');
 }
 

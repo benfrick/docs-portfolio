@@ -23,7 +23,7 @@ permalink: /search/
 							"title": "{{ item.title | xml_escape }}",
 							"category": "{{ item.category | xml_escape }}",
 							"url": "{{ item.url | xml_escape }}",
-							"content": {{ item.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
+							"content": {{ item.content | markdownify | strip_html | remove: "{% include dev-header.html" | remove: "{% include ref-header.html" | remove: "{% include overview-header.html" | jsonify }}
 						}
 						{%- assign added = true -%}
 					{%- endunless -%}
