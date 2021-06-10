@@ -313,7 +313,7 @@ section {
         }
         &.devportal {
             color: white;
-            border: 1px solid #4A20BD;
+            border: 1px solid #188E73;
             background: linear-gradient(#20BD99, #188E73);
             border-radius: 2px;
             box-shadow: inset 0px 1px 0px rgba(255,255,255,.3), 0px 3px 7px rgba(0,0,0,.7);
@@ -326,9 +326,9 @@ section {
             text-align:center;
 
             &:hover {
-              background: linear-gradient(#749619, #527f0e);
-              background-color: #659e10;
-              border: 1px solid #527f0e;
+              background: linear-gradient(#188E73, #188E73);
+              background-color: #0C4739;
+              border: 1px solid #188E73;
               box-shadow: inset 0px 1px 1px rgba(0,0,0,.2), 0px 1px 0px rgba(0,0,0,.0);
             }
         }
