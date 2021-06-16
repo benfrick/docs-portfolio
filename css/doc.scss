@@ -483,3 +483,19 @@ aside.note {
         padding: 5px;
     }
 }
+.banner {
+  height: auto;
+  position: relative;
+  padding: 15px 5px 15px 5px;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+  background: white;
+  color: black;
+  font-weight: 600;
+  font-size: 1.1em;
+  a {
+    color: #5f78b3;
+    font-weight: bold;
+  }
+}
