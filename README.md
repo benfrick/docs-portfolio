@@ -9,12 +9,12 @@ This project provides Nike API guides and other documentation for the following 
 
 ## Using
 
-Visit the Nike Developer Portal for the full documentation set at https://developer.niketech.com/commerce-docs.
+Visit the Nike Developer Portal for the full documentation set at https://nde-devportal-docs.niketech.com.
 
 ## Contributing
 
-To report a documentation issue or to make a documentation request, contact the Docs Team at Slack Channel #tech-docs or email Lst-nde.docs@nike.com.
+To report a documentation issue or to make a documentation request, contact the Docs Team at Slack Channel #tech-docs.
 
-## Running the Jekyll content server
+## Running the Jekyll Content Server
 
-`JEKYLL_ENV=production jekyll s`
+`bundle exec jekyll s`
