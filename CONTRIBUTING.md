@@ -1,9 +1,3 @@
----
-id: contributing
-title: Contributing to the Docs
-url: /contributing.html
----
-
 # <i class="fas fa-people-carry"></i> &nbsp;Contributing to the Docs
 
 So you want to contribute to Commerce Docs? Great! Read on to find out how you can have a positive impact on the site.
