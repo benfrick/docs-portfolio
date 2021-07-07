@@ -83,26 +83,26 @@ We use a [Doc Lifecycle](https://confluence.nike.com/display/APID/Doc+Lifecycle+
 
 ### <i class="fas fa-edit"></i> &nbsp;Edit the Docs
 
-Have content that is outdated or that needs to be edited for style and/or content? See the [Doc Style Guide](https://confluence.nike.com/display/APID/NDe+Doc+Style+Guide){:target="new-tab"} to learn about some of the writing standards that we use.
+Have content that is outdated or that needs to be edited for style and/or content? See the [Doc Style Guide](https://confluence.nike.com/display/APID/Tech+Docs+Style+Guide){:target="new-tab"} to learn about the writing standards we use.
 
 ### <i class="fas fa-upload"></i> &nbsp;Publish the Docs
 
-Have finished documentation and need help publishing it to the developer portal or creating a PDF? We can help!
+Do you  have finished documentation and need help publishing it to the Commerce Docs site or creating a PDF? We can help!
 
 ## How can we help you?
 
-Now that you know more about the services we provide, reach out to our team via Slack [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting so we can learn more about your documentation needs.
+Now that you know more about the services we provide, reach out to our team via Slack [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting to gain an understanding of your documentation needs.
 
-To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} page in Confluence.
+To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Tech+Docs+Style+Guide?src=contextnavpagetreemode){:target="new-tab"} page in Confluence.
 
 We are looking forward to working with your team.
 
-<!--
 ### <i class="fas fa-people-carry"></i> &nbsp;Self-Service Doc Updates
 
-If you have existing content on the Developer Portal, you can update it yourself directly in our [GitHub repo](https://github.nike.com/ngp/nde-devportal-docs){:target="new-tab"}.
+If you have existing content on the Commerce Docs site, you can update it yourself by forking the [techdocs.site GitHub repo](https://github.com/nike-internal/techdocs.site){:target="new-tab"} and submitting a PR.
 
-At minimum, you need to be able to write in [Markdown](https://www.markdownguide.org/cheat-sheet/){:target="new-tab"}, and coordinate with us to publish the changes.
+At minimum, you need to be able to write in [Markdown](https://www.markdownguide.org/cheat-sheet/){:target="new-tab"} and coordinate with us to publish the changes.
 
+<!--
 See [here](#) for details about self-service doc updates.
 -->
