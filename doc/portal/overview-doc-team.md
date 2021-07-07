@@ -2,13 +2,6 @@
 id: tech-docs-team-services
 title: Team Services
 url: /doc/portal/overview-doc-team.html
-toc:
-  - h2: How do tech writers make my job easier
-    url: /doc/portal/overview-doc-team.html#How-do-tech-writers-make-my-job-easier
-  - h2: What we do
-    url: /doc/portal/overview-doc-team.html#what-we-do
-  - h2: How can we help you?
-    url: /doc/portal/overview-doc-team.html#how-can-we-help-you
 ---
 
 # Tech Docs Team Services
@@ -65,8 +58,12 @@ How many times have you or your teammates been asked the same question from your
 Through writing, we communicate the many benefits of your hard work, explain its usefulness, and how it makes the world a better place for all mankind. Yeah, you know it does.
 
 ## What We Do
-
+<!--
 <a href="/doc/commerce/product/overview-product-feeds.html"><img class="border" src="/images/portal/portal-overview-sample.png"></a> <a href="/doc/getting-started/using-nike-apis.html"><img class="border" src="/images/portal/portal-using-apis-sample.png"></a>
+-->
+The Customization Developer Guide
+
+<a href="/doc/commerce/customization/use-customization.html"><img class="border" src="/images/portal/portal-dev-sample.png"></a>
 
 ### <i class="fas fa-pen"></i> &nbsp;Write the Docs
 
@@ -93,16 +90,18 @@ Do you  have finished documentation and need help publishing it to the Commerce 
 
 Now that you know more about the services we provide, reach out to our team via Slack [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting to gain an understanding of your documentation needs.
 
-To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Tech+Docs+Style+Guide?src=contextnavpagetreemode){:target="new-tab"} page in Confluence.
+To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} page in Confluence.
 
 We are looking forward to working with your team.
 
-### <i class="fas fa-people-carry"></i> &nbsp;Self-Service Doc Updates
+### <i class="fas fa-people-carry"></i> &nbsp;Contributing to the Docs
 
-If you have existing content on the Commerce Docs site, you can update it yourself by forking the [techdocs.site GitHub repo](https://github.com/nike-internal/techdocs.site){:target="new-tab"} and submitting a PR.
+If you want to edit existing or create new content, here are the steps to take to publish your changes to the Commerce Docs site.
 
-At minimum, you need to be able to write in [Markdown](https://www.markdownguide.org/cheat-sheet/){:target="new-tab"} and coordinate with us to publish the changes.
-
-<!--
-See [here](#) for details about self-service doc updates.
--->
+1. Notify the Tech Docs team what you will be contributing. Slack the [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W) channel or use the feedback button available on every page on the site. Filling out the feedback form creates a Jira ticket on the API Docs board.
+2. Fork the [techdocs.site GitHub repo](https://github.com/nike-internal/techdocs.site){:target="new-tab"}.
+3. Install the [Jekyll](https://jekyllrb.com/docs/installation/) server to test your changes locally. See the [README.md](https://github.com/nike-internal/techdocs.site#readme) for instructions on how to run the Jekyll server.
+4. Make your documentation changes. First, create a meaningful branch name that explains the changes you are making. A good example of a branch name is "updating-checkout-to-v3". Your edits should be written in [Markdown](https://www.markdownguide.org/cheat-sheet/){:target="new-tab"} and follow the standards outlined in our
+   [Doc Style Guide](https://confluence.nike.com/display/APID/Tech+Docs+Style+Guide){:target="new-tab"}.
+5. Submit your pull request and choose the "techdocs" team as reviewers.
+6. The team will work with you if your changes require revision. When everyone is satisfied with the changes, the team approves the pull request and merges them into the codebase. Your changes publish immediately to the Commerce Docs site.
