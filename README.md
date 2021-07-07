@@ -9,7 +9,7 @@ This project provides Nike API guides and other documentation for the following 
 
 ## Using
 
-Visit the Nike Developer Portal for the full documentation set at https://nde-devportal-docs.niketech.com.
+Visit the Commerce Docs site for the full documentation set at https://nde-devportal-docs.niketech.com.
 
 ## Contributing
 
