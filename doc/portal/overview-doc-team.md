@@ -96,7 +96,7 @@ We are looking forward to working with your team.
 
 ### <i class="fas fa-people-carry"></i> &nbsp;Contributing to the Docs
 
-If you want to edit existing or create new content, here are the steps to take to publish your changes to the Commerce Docs site.
+If you want to edit existing or create new content yourself, here are the steps to take to publish your changes to the Commerce Docs site.
 
 1. Notify the Tech Docs team what you will be contributing. Slack the [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W) channel or use the feedback button available on every page on the site. Filling out the feedback form creates a Jira ticket on the API Docs board.
 2. Fork the [techdocs.site GitHub repo](https://github.com/nike-internal/techdocs.site){:target="new-tab"}.
