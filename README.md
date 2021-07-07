@@ -13,7 +13,7 @@ Visit the Commerce Docs site for the full documentation set at https://nde-devpo
 
 ## Contributing
 
-To report a documentation issue or to make a documentation request, contact the Tech Docs Team at Slack Channel #tech-docs. Or, perform self-service content updates by [contributing to the docs](/contributing.html).
+To report a documentation issue or to make a documentation request, contact the Tech Docs Team at Slack Channel #tech-docs. Or, perform self-service content updates by [contributing to the docs](/CONTRIBUTING.md).
 
 ## Running the Jekyll Content Server
 
