@@ -1920,7 +1920,7 @@ In order to abide by PCI-compliance rules, payment logging requires special Splu
 
 ### Inspect Browser Activity in a Live Experience
 
-Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as [SNKRS Web](http://www.nike.com/launch){:target="new-tab"}. Or, set up Charles and your favorite device to proxy service calls made from the Nike SNKRS or Nike+ Apps. Sometimes seeing what other experiences are doing might address your question or concern.
+Try using your browser's built-in tools for inspecting web service calls made from a live Nike experience such as [SNKRS Web](http://www.nike.com/launch){:target="new-tab"}. Or, set up Charles and your favorite device to proxy service calls made from SNKRS or other Nike apps. Sometimes seeing what other experiences are doing might address your question or concern.
 
 >**TIP:** While inspecting http://www.nike.com/launch, you can change your shopping country with the flag icon at the upper right of the homepage to test different locales. Place orders in different countries with different payment methods to view the Payment call flow with other CiC services. Orders can be cancelled via self-service within 30 minutes of submission, otherwise contact Nike Consumer Services.
 

@@ -59,7 +59,7 @@ This guide lists the countries, languages, currencies, NIKE brands and NIKE dire
 |---|---|
 |**.com**|Available in all digital experiences including web, SNKRS app and Nike App|
 |**snkrs**|Available in the SNKRS App and SNKRS web experience|
-|**nikeplus**|Available in the NIKE App and Nike+ web experience|
+|**nikeplus**|Available in the Nike App and Nike.com web experience|
 
 ## Brands
 
