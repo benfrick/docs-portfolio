@@ -1567,4 +1567,4 @@ You've learned how to add Fulfillment Offerings to your experience. Here are som
 - [Checkout](/doc/commerce/checkout/use-checkout.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
-- [Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
+- [Supported Countries](/doc/commerce/reference/global.html)

@@ -85,7 +85,7 @@ The APIs required for the two fulfillment flows are listed below.
 </ul>
 </aside>
 
-* [Supported Countries & Currencies:](/doc/commerce/checkout/checkout-country-currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.
+* [Supported Countries](/doc/commerce/reference/global.html) Refer to this guide for the list of supported country code, language, and currency code combinations.
 
 * [Wishlist:](/doc/commerce/checkout/use-wishlists.html) Learn how to add Wishlist to your shopping experience.
 

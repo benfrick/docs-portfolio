@@ -222,4 +222,4 @@ You've learned how to add Carts to your experience. Here are some related topics
 - [Payment](/doc/commerce/payment/use-payment.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
-- [Supported Countries & Currencies](/doc/commerce/checkout/checkout-country-currency.html)
+- [Supported Countries](/doc/commerce/reference/global.html)
