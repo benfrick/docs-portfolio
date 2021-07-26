@@ -705,7 +705,7 @@ To identify orders placed by employees, the order must be created using their re
 
 **Q: How do we identify a cancelled quantity on an order?**
 
-Cancelled orders will have "Cancelled" in the `orderLines.statuses.description` field, and 0 as an integer in the `orderLines.statuses.quantity` field, for example:
+Cancelled orders will have "Cancelled" in the `orderLines.statuses.description` field, and a non-zero integer in the `orderLines.statuses.quantity` field, for example:
 
 ```
       "statuses": [
