@@ -164,6 +164,8 @@ The API ensures that the products and fulfillment details for each item are vali
 
 SMS Checkout Preview allows both Nike members and guests to purchase Nike products using a mobile phone number instead of an email address. If the consumer is purchasing using an email address, you can skip this section.
 
+>**Note**: SMS checkout is currently available in China only
+
 **Nike member SMS checkout preview requests**
 
 In addition to the usual Checkout preview request values, these are SMS-specific:
@@ -172,7 +174,7 @@ In addition to the usual Checkout preview request values, these are SMS-specific
 - Send the SMS phone number from the consumer's profile in`phoneNumber.subscriberNumber`, 1 - 13 digits
 - Send the country code in`phoneNumber.countryCode`, 1 - 3 digits
 - Send the Nike member's profile ID in `phoneNumber.accountId` 
-- Do not send`email`
+- Do not send `email`
 
 **Guest SMS checkout preview requests**
 
@@ -200,8 +202,8 @@ A successful 200 response returns a `validationToken` and `validationTimestamp`.
 In addition to the usual Checkout preview request values, these are SMS-specific:
 
 - Send the value '**SMS_VERIFY**' in `phoneNumber.type` 
-- Send the SMS phone number in`phoneNumber.subscriberNumber`, 1 - 13 digits
-- Send the country code in`phoneNumber.countryCode`, 1 - 3 digits
+- Send the SMS phone number in `phoneNumber.subscriberNumber`, 1 - 13 digits
+- Send the country code in `phoneNumber.countryCode`, 1 - 3 digits
 - Send the `validationToken` from Step 3 in `phoneNumber.verifyId`
 - Do not send `email` 
 
@@ -290,6 +292,8 @@ Execute a PUT request to the **Request a Checkout Submit** endpoint, passing the
 **SMS Checkout Submit (China Only)**
 
 SMS Checkout Submit allows both Nike members and guests to purchase Nike products using a mobile phone number instead of an email address. If the consumer is purchasing using an email address, you can skip this section.
+
+>**Note**: SMS checkout is currently available in China only
 
 Follow the steps in [SMS Checkout Preview (China Only)](#sms-checkout-preview-china-only) to implement SMS Checkout Submit in your app or experience.
 
