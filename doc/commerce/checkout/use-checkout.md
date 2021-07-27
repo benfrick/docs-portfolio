@@ -80,6 +80,7 @@ Listed below are some terms important to understanding checkout.
 |**Fapiao**|Tax-related invoice offered to China consumers only|
 |<a id="legacy-def"></a>**Legacy fulfillment flow**|Checkout flow supporting ship to consumer address and digital delivery only|
 |<a id="omni-channel-def"></a>**Omni-channel fulfillment flow**|Checkout flow supporting ship to consumer address, digital delivery, Buy-Online-Pickup-in-Store (BOPIS), pickup at third party location, and Instant Checkout|
+|**SMS**|Short Message Service used to send text messages to mobile phones|
 |**Source-aware**|Using consumer location and other factors to offer the best options of when, where, and how to receive Nike product|
 
 ## Shipping Options
@@ -148,17 +149,63 @@ Table 1: Checkout Preview API Versions
 
 |Version|Description|
 |---|---|
-|V3|Used in [omni-channel](#omni-channel-def) shopping flow<br>Supports fulfillment offerings, including Buy-Online-Pickup-In-Store (BOPIS)|
+|V3|Used in [omni-channel](#omni-channel-def) shopping flow<br>Supports fulfillment offerings, including Buy-Online-Pickup-In-Store (BOPIS) and SMS (China only)|
 |V2|Used in [legacy](#legacy-def) shopping flow<br>Limited to basic shipping options and estimated delivery date (EDD), for example Standard|
 
 ### Step 1: Request Checkout Preview
 
 #### Checkout Preview V3
 
-Execute a PUT request to [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} endpoint, passing the complete cart and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for each item .
+Execute a PUT request to the [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} endpoint, passing the complete cart and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for each item.
 
 The API ensures that the products and fulfillment details for each item are valid based on Nike pricing, availability, and other factors. You can also get product pricing, sales tax, fulfillment fees and tax, "get by" dates, and checkout subtotals in the response.
 
+##### SMS Checkout Preview (China Only)
+
+SMS Checkout Preview allows both Nike members and guests to purchase Nike products using a mobile phone number instead of an email address. If the consumer is purchasing using an email address, you can skip this section.
+
+**Nike member SMS checkout preview requests**
+
+In addition to the usual Checkout preview request values, these are SMS-specific:
+
+- Send the value '**SMS_ACCOUNT**' in `phoneNumber.type`
+- Send the SMS phone number from the consumer's profile in`phoneNumber.subscriberNumber`, 1 - 13 digits
+- Send the country code in`phoneNumber.countryCode`, 1 - 3 digits
+- Send the Nike member's profile ID in `phoneNumber.accountId` 
+- Do not send`email`
+
+**Guest SMS checkout preview requests**
+
+Checkout preview for guest SMS consumers requires a few extra steps to check that the SMS phone number is valid.
+
+1) Send the consumer a verification code to the SMS phone number they provide
+
+After capturing the guest consumer's phone number in your app or experience, call the [Identity Initiation](https://developer.niketech.com/docs/projects/IdnVerify?tab=api) endpoint at /identity/verify/contact_channel/initiation/v1. Send the guest consumer's SMS phone number in `contactChannel`. A successful 204 response sends the identity-generated verification code to the consumer at the SMS phone number provided.
+
+2) The consumer submits the verification code
+
+Your app or experience provides a UI into which the consumer enters and submits the verification code from Step 1.
+
+3) Get the validation token
+
+Once your UI captures the verification code, call the [Identity Completion](https://developer.niketech.com/docs/projects/IdnVerify?tab=api) endpoint at /identity/verify/contact_channel/completion/v1, sending:
+
+- SMS phone number in `contactChannel`
+- Verification code from Step 2 in `verificationCode`
+    
+A successful 200 response returns a `validationToken` and `validationTimestamp`.
+
+4) Call the Checkout Preview endpoint 
+
+In addition to the usual Checkout preview request values, these are SMS-specific:
+
+- Send the value '**SMS_VERIFY**' in `phoneNumber.type` 
+- Send the SMS phone number in`phoneNumber.subscriberNumber`, 1 - 13 digits
+- Send the country code in`phoneNumber.countryCode`, 1 - 3 digits
+- Send the `validationToken` from Step 3 in `phoneNumber.verifyId`
+- Do not send `email` 
+
+>**Note**: Checkout preview requests with both a `phoneNumber.subscriberNumber` and `email` will be rejected.
 
 Sample V3 [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} PUT request URI:
 ```
@@ -240,6 +287,13 @@ Checkout Submit performs the final validations of the consumer's information, re
 
 Execute a PUT request to the **Request a Checkout Submit** endpoint, passing the complete cart and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for each item.
 
+**SMS Checkout Submit (China Only)**
+
+SMS Checkout Submit allows both Nike members and guests to purchase Nike products using a mobile phone number instead of an email address. If the consumer is purchasing using an email address, you can skip this section.
+
+Follow the steps in [SMS Checkout Preview (China Only)](#sms-checkout-preview-china-only) to implement SMS Checkout Submit in your app or experience.
+
+
 Sample [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V3?tab=api#checkout-request-a-checkout-submit-put
 ){:target="new-tab"} PUT request URI:
 ```
@@ -295,6 +349,7 @@ Here are some best practices. We'll start with an example sequence of API calls 
 ### User Types
 
 The Checkout API supports 3 distinct user types:
+
 
 - Member: user has logged in with their Nike account credentials
 
