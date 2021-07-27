@@ -51,7 +51,7 @@ Ready to get started? Step through the use cases below to learn how to add Fulfi
 
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
 
-* [Supported Countries & Currencies:](/doc/commerce/checkout/checkout-country-currency.html) Refer to this guide for the list of supported country code and currency code combinations allowed by Cart & Checkout.
+* [Supported Countries:](/doc/commerce/reference/global.html) Refer to this guide for the list of supported country code, language, and currency code combinations.
 
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 
