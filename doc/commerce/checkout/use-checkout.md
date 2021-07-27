@@ -296,7 +296,7 @@ Here are some best practices. We'll start with an example sequence of API calls 
 
 The Checkout API supports 3 distinct user types:
 
-- Member: user has logged in with their Nike+ account credentials
+- Member: user has logged in with their Nike account credentials
 
 - Guest: user has not logged in (anonymous user)
 

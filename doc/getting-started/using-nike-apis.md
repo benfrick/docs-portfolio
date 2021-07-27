@@ -332,7 +332,7 @@ The required request headers vary per API and are described in the detailed per-
 |`user-agent`|Browser and operating system of the client calling this endpoint|
 |`upmid`|Nike profile ID of consumer, required if `x-nike-visitorid` is null|
 |`x-nike-visitorid`|Visitor id of a non-member, required if `upmid` is null|
-|`usertype`|'nike:swoosh' for Nike Employees, 'nike:plus' for Nike+ Consumer, otherwise do not send|
+|`usertype`|'nike:swoosh' for Nike Employees, 'nike:plus' for Nike members, otherwise do not send|
 |`origin-order-id`|Represents the legacy order id associated to the checkout and is used by downstream systems|
 
 #### Authorization Headers
@@ -1058,11 +1058,11 @@ Nike APIs support 3 distinct user types for commerce applications. In this guide
 
 #### Member
 
-Nike members have previously registered a [Nike+](https://www.nike.com/us/en_us/e/nike-plus-membership){:target="new-tab"} account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an _access token_ must be obtained from Nike Unite services and included in the `Authorization` request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on our business rules.
+Nike's members have previously registered a [Nike](https://www.nike.com/us/en_us/e/nike-plus-membership){:target="new-tab"} account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an _access token_ must be obtained from Nike Unite services and included in the `Authorization` request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on our business rules.
 
 #### Guest
 
-The guest user has not logged in with their Nike+ account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would. For API calls involving guests, the `nike-visitor-id` and `appId` headers must be included with the request. The `nike-visitor-id` header value is a UUID that you get by calling Nike Unite's [getVisitData](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()){:target="new-tab"} function in their SDK. The `appId` header value is the identifier for your app.
+The guest user has not logged in with their Nike account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would. For API calls involving guests, the `nike-visitor-id` and `appId` headers must be included with the request. The `nike-visitor-id` header value is a UUID that you get by calling Nike Unite's [getVisitData](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()){:target="new-tab"} function in their SDK. The `appId` header value is the identifier for your app.
 
 #### Employee
 
