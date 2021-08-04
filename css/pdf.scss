@@ -1,46 +1,97 @@
 ---
 ---
-#sidebar {
-    display: none !important;
+
+body {
+  background: white !important;
+  font-family: 'Trade Gothic', 'Helvetica Neue Regular', Helvetica, Arial, sans-serif !important;
 }
-.guide-button {
-    display: none !important;
+header {
+  display: none !important;
+}
+#overview-header {
+  display: none !important;
+}
+.green-button {
+  display: none !important;
 }
 html, body {
-    background-color: white !important;
-    padding: 0px;
-    margin: 0px;
+  background-color: white !important;
 }
-pre {
-  border: none !important;
-  width: 100% !important;
-  max-height: none !important;
-  display: inline !important;
-}
-pre code {
-    border: none !important;
-}
-code, code span {
-    display: inline !important;
-    border: none !important;
-}
-table {
-  width: 100% !important;
+h1 {
+  color: black !important;
 }
 .main {
   border: none !important;
-  width: 100%;
-  /*background-color: white !important;*/
+  margin: 0px !important;
+  background-color: white !important;
+  padding: 0px !important;
+  width: 100% !important;
+  p {
+    color: black !important;
+  }
 }
+pre {
+  width: 100% !important;
+  max-height: none !important;
+  background-color: white !important;
+  box-shadow: none !important;
+  border-radius: 2px !important;
+  border: 1px solid #888 !important;
+
+  code {
+    border: none !important;
+    background-color: white !important;
+    text-shadow: none;
+    font-family: Courier !important;
+    color: black !important;
+  }
+}
+
+code, code span {
+    background-color: white !important;
+    color: black !important;
+    font-family: Courier !important;
+}
+
+a {
+  color: #5f78b3 !important;
+  font-weight: bold !important;
+}
+
+ul {
+  list-style-image: none !important;
+  list-style: circle !important;
+}
+
+table {
+  table-layout: fixed !important;
+  color: black !important;
+}
+
+th, td {
+  color: black !important;
+}
+
+td {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  word-wrap: break-word !important;
+}
+
+ol, li {
+  color: black !important;
+}
+
 /* insert the actual URL after links, prepend relative links */
 a[href^="/doc"]::after {
-    content: " ( https://developer.niketech.com/nde-docs" attr(href) " )";
+    content: " ( https://nde-devportal-docs.niketech.com" attr(href) " )";
 }
 a[href^="http"]::after, a[href^="https"]::after {
     content: " ( " attr(href) " )";
 }
 /* header: h1 text centered top except for first page, page count center bottom */
 @page {
+  margin: 20px;
   @top {
     content: string(doctitle,first-except);
   }

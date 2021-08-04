@@ -14,14 +14,14 @@ toc.setAttribute('style','break-after: page');
 /* generate toc title from h1 */
 if(title){
     div = document.createElement('div');
-    div.setAttribute('style','font-weight:bold;font-size:2.3em;margin-bottom:25px;');
-    text = document.createTextNode(title.replace("<br>",""));
+    div = document.createElement('h1');
+    text = document.createTextNode(title.toUpperCase().replace("<br>",""));
     div.appendChild(text);
     toc.appendChild(div);
 }
 /* generate Table of Contents static title */
 div = document.createElement('div');
-div.setAttribute('style','font-weight:bold;font-size:2.1em;margin-bottom:15px;');
+div = document.createElement('h3');
 text = document.createTextNode('Table of Contents');
 div.appendChild(text);
 toc.appendChild(div);
