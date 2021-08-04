@@ -19,6 +19,7 @@ html, body {
 }
 h1 {
   color: black !important;
+  font-size: 30px !important;
 }
 .main {
   border: none !important;
@@ -52,34 +53,34 @@ code, code span {
     color: black !important;
     font-family: Courier !important;
 }
-
 a {
   color: #5f78b3 !important;
   font-weight: bold !important;
 }
-
 ul {
   list-style-image: none !important;
   list-style: circle !important;
 }
-
 table {
   table-layout: fixed !important;
   color: black !important;
 }
-
 th, td {
   color: black !important;
 }
-
 td {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   word-wrap: break-word !important;
 }
-
 ol, li {
   color: black !important;
+}
+aside li {
+  word-wrap: break-word !important;
+}
+blockquote {
+  word-wrap: break-word !important;
 }
 
 /* insert the actual URL after links, prepend relative links */
