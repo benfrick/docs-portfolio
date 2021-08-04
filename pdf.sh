@@ -6,5 +6,5 @@
 for file in $(cat ./_site/prince-list.txt); do
   echo "Converting to pdf: $file";
 output=$(echo $file | sed -e 's/_site//g' | sed -e 's/.html//g');
-prince $file -j --script=js/toc.js --style=_site/css/pdf.css -o .$output.pdf --fileroot=_site --no-warn-css;
+prince $file --script=js/toc.js --style=_site/css/pdf.css -o .$output.pdf --fileroot=_site --no-warn-css;
 done
