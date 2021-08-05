@@ -46,7 +46,11 @@ toc:
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
 
-# USING NIKE APIS <a href="/doc/getting-started/using-nike-apis.pdf" class="green-button" style="float:right;margin-bottom:10px;">DOWNLOAD</a>
+<div style="display:inline-block; float:right; margin-bottom:10px; vertical-align:top;">
+    <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="green-button">DOWNLOAD</a>
+</div>
+
+# Using Nike APIs
 
 ##### Last Updated: 02/04/2020
 
