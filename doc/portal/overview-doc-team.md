@@ -12,36 +12,40 @@ url: /doc/portal/overview-doc-team.html
         <h4 style="text-align:center;">Resources</h4>
     <ul>
         <li>Slack: <a href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W" target="new-tab">#tech-docs</a></li>
-        <li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Docs Team</a></li>
-        <li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">Doc Project</a></li>
+        <li>Confluence: <a href="https://confluence.nike.com/display/APID" target="new-tab">Tech Docs Team</a></li>
+        <li>JIRA: <a href="https://jira.nike.com/secure/RapidBoard.jspa?rapidView=4715&projectKey=APID&view=planning.nodetail" target="new-tab">API Doc Project</a></li>
     </ul>
 </aside>
 </div>
 
-Hi, we are the Tech Docs Team. We document technologies for the Nike Developer Portal and more, in order to **enhance the developer experience**.
+Hi, we are the Tech Docs Team. We support the Consumer & Marketplace organization by documenting how to use and integrate with customer-facing commerce Cloud APIs on the [Nike Developer Portal](https://developer.niketech.com/){:target="_blank"}. We also document API usage for third-party vendors on [Partner Hub](https://partners.nike.com){:target="_blank"}. Our goal is to **enhance the developer experience** through documentation.
 
-The documentation serves many audiences. Here are four:
+## Who We Support
+
+The Tech Docs team serves many audiences. Here are four:
 
 - New Developers looking to **discover and learn the fundamentals**
 - Experienced Developers fixing a bug or implementing a new feature who need **quick, specific answers**
 - Product teams seeking to **solve business problems**
 - Decision Makers seeking to **add business value**
 
-The best time to engage our services for a new or revised API contract is after it is defined, but before teams start integrating with it. This is because questions that arise during the documentation Discovery phase often shed light on common integration questions that can be addressed in the doc. And when integrators get their questions answered via documentation, developers on your team have more time to write code. Win win.
+### When to Engage the Team
+
+For a new or revised API contract, the best time to engage our services is after the contract is defined, but before teams start integrating with it. This is because questions that arise during the documentation Discovery phase often shed light on common integration questions that can be addressed in the doc. And when integrators get their questions answered via documentation, developers on your team have more time to write code. Win-win.
 
 ## How do tech writers make my job easier?
 
 Here is what's in it for you.
 
-**We write so you don't have to.**
+**We write which means you don't have to.**
 
-Let's face it. There are those who love to write and those who would rather walk on a buttery floor lined with porcupine quill chairs. With your team's input, we'll write about what your users need to know and let you get back to the job you were hired to do (and love, right?).
+Let's face it. There are those who love to write, and those who would rather walk on a buttery floor lined with porcupine quill chairs. With your team's input, we'll write about what your users need to know and let you get back to the job you were hired to do (and love, right?).
 
-**But I like to write, why do I need tech writers?**
+**If I like to write, why do I need tech writers?**
 
 Already have authored content? Great! Tech writers enhance your writing by:
 
- - Offering an outsider's perspective of the subject matter
+ - Offering an outsider's perspective of the subject
  - Evaluating if the piece needs more context
  - Providing editing services
  - Improving content flow
@@ -51,11 +55,11 @@ Already have authored content? Great! Tech writers enhance your writing by:
 
 **We eliminate (or at least ease) the broken record syndrome.**
 
-How many times have you or your teammates been asked the same question from your users? Do you wish you had a support desk that could field all those Slack questions for you? Although we can't staff that support desk for you, we'll take the most common and not-so-common questions asked of your team, write them down, and put them in a place where people can find them. Now you can refer those answer-seekers to the docs. Everybody wins!
+How many times have your integrators asked you or your teammates the same question? Do you wish you had a support desk to field all those Slack questions for you? Although we can't staff your support desk, we'll take the most common questions asked of your team, write them down, and put them in a place where people can find them. Now you can refer those answer-seekers to the docs, which means you and your teammates provide less integrator support.
 
 **We help "market" your work.**
 
-Through writing, we communicate the many benefits of your hard work, explain its usefulness, and how it makes the world a better place for all mankind. Yeah, you know it does.
+Through writing, we communicate the many benefits of your hard work, explain its usefulness, and how it makes the world a better place for all humankind. Yeah, you know it does.
 
 ## What We Do
 <!--
@@ -75,33 +79,38 @@ Need new content from scratch? We can create any of the following for you:
 - Tutorials
 - FAQs
 - Technical Reference Guides
+- Documentation templates
 
 We use a [Doc Lifecycle](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} process to create and maintain content.
 
 ### <i class="fas fa-edit"></i> &nbsp;Edit the Docs
 
-Have content that is outdated or that needs to be edited for style and/or content? See the [Doc Style Guide](https://confluence.nike.com/display/APID/Tech+Docs+Style+Guide){:target="new-tab"} to learn about the writing standards we use.
+Have content that is outdated or needs to be edited for style and/or content? We will bring your existing documentation up to date using the [Doc Style Guide](https://confluence.nike.com/display/APID/Tech+Docs+Style+Guide){:target="new-tab"} writing standards.
 
 ### <i class="fas fa-upload"></i> &nbsp;Publish the Docs
 
-Do you  have finished documentation and need help publishing it to the Commerce Docs site or creating a PDF? We can help!
+Do you have finished documentation and need help publishing it to the Commerce Docs site or creating a PDF? We can help!
 
-## How can we help you?
+### <i class="fas fa-shapes"></i> &nbsp;Templates for Docs
 
-Now that you know more about the services we provide, reach out to our team via Slack [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting to gain an understanding of your documentation needs.
-
-To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} page in Confluence.
-
-We are looking forward to working with your team.
+Use Tech Docs-designed templates to help standardize your content. Check out the templates [here](/docs/portal/templates.html).
 
 ### <i class="fas fa-people-carry"></i> &nbsp;Contributing to the Docs
 
-If you want to edit existing or create new content yourself, here are the steps to take to publish your changes to the Commerce Docs site.
+If you want to edit existing or create new content for the Commerce Docs site yourself, here are the publishing steps.
 
-1. Notify the Tech Docs team what you will be contributing. Slack the [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W) channel or use the feedback button available on every page on the site. Filling out the feedback form creates a Jira ticket on the API Docs board.
+1. Notify the Tech Docs team what content you will be contributing. Slack the [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W) channel or use the feedback button available on every page on the site. Filling out the feedback form creates a Jira ticket on the API Docs board.
 2. Fork the [techdocs.site GitHub repo](https://github.com/nike-internal/techdocs.site){:target="new-tab"}.
 3. Install the [Jekyll](https://jekyllrb.com/docs/installation/) server to test your changes locally. See the [README.md](https://github.com/nike-internal/techdocs.site#readme) for instructions on how to run the Jekyll server.
 4. Make your documentation changes. First, create a meaningful branch name that explains the changes you are making. A good example of a branch name is "updating-checkout-to-v3". Your edits should be written in [Markdown](https://www.markdownguide.org/cheat-sheet/){:target="new-tab"} and follow the standards outlined in our
    [Doc Style Guide](https://confluence.nike.com/display/APID/Tech+Docs+Style+Guide){:target="new-tab"}.
 5. Submit your pull request. The Tech Docs team is assigned as PR reviewers by default.
-6. The team will work with you if your changes require revision. When everyone is satisfied with the changes, the team approves the pull request and merges them into the codebase. Your changes publish immediately to the Commerce Docs site.
+6. The Tech Docs team will work with you if your changes require revision. When everyone is satisfied with the changes, the team approves the pull request and merges them into the codebase. Your changes publish immediately to the Commerce Docs site.
+
+## How can we help you?
+
+Now that you know more about the services we provide and to whom we provide them, reach out to our team via Slack [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W){:target="new-tab"} or [email](mailto:Lst-nde.docs@nike.com) to kick off the first phase of writing called Discovery. At your convenience, we will set up the first Discovery meeting to gain an understanding of your documentation needs.
+
+To learn what to expect throughout the writing process including how to prepare for the initial Discovery meeting, visit the [Doc Lifecycle and Definition of Done](https://confluence.nike.com/display/APID/Doc+Lifecycle+and+Definition+of+Done){:target="new-tab"} page in Confluence.
+
+We are looking forward to working with your team.
