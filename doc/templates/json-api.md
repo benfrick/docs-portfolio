@@ -7,7 +7,7 @@ url: /doc/templates/json-api.html
 # {{ page.title }}
 
 ---
-
+```
 FORMAT: 1A
 
 # Service Name
@@ -315,3 +315,4 @@ This service retrieves the results of the service by ID.
 + Response 500
 
 + Response 503
+```
