@@ -21,11 +21,12 @@ url: /doc/portal/templates.html
 The Tech Docs team has created templates from which you can create your own general documentation site, knowledge base and API contracts. 
 
 |||
-|[Tech Docs Blueprint repository](https://github.com/nike-internal/techdocs.blueprint)|GitHub pages blueprint template repository for creating a documentation site|
-|[Tech Docs Demo repository](https://github.com/nike-internal/techdocs.demo)|GitHub pages demo repository for creating a knowledgebase|
-|[API.md template](/doc/templates/json-api.html)|Template for creating a new json API contract|
+|[Tech Docs Blueprint repository](https://github.com/nike-internal/techdocs.blueprint)|Use the GitHub pages blueprint template repository to create your own documentation site. Includes landing page, overview, use-case, and team information templates as well as sample overview and use-case articles.|
+|[Tech Docs Demo repository](https://github.com/nike-internal/techdocs.demo)|Clone the GitHub pages demo repository to create a team or product knowledge base. Includes templates for feature exploration, features, how-to, incidents, meeting notes, process, proof-of-concept and proposal, with sample articles.|
+|[API.md template](/doc/templates/json-api.html)|Use this template to create a new or update an existing JSON API contract.|
+|[API.yml template](/doc/templates/yaml-api.html)|Use this template to create a new or update an existing yaml API contract.|
 
 &nbsp;
-> Have ideas for more templates? Use the Provide Feedback button on the right to submit your suggestions to the Tech Docs team.
+> Have an idea for additional templates? Use the Provide Feedback button on the right to submit your suggestions to the Tech Docs team.
 
 
