@@ -18,9 +18,10 @@ UX Foundation offers products that solve common problems for hosted user experie
 
 |---|
 |<i class="g72-check"></i>&nbsp;&nbsp;[NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss){:target="new-tab"}: The global Nike stylesheet|
-|<i class="g72-check"></i>&nbsp;&nbsp;[NES (Nike Experience Server)](https://tourguide.prod.commerce.nikecloud.com/nes-server){:target="new-tab"}: Adds localization, feature flags, styling, analytics, monitoring, and more|
+|<i class="g72-check"></i>&nbsp;&nbsp;[NES (Nike Experience System)](https://tourguide.prod.commerce.nikecloud.com/nes-pipeline){:target="new-tab"}: Platform that solves common problems for Nike.com experiences, such as unified CI/CD pipeline, static content delivery, and more|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Global Nav](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="new-tab"}: Adds the latest global header/footer, search, and analytics|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Web Shell](https://super-bassoon-778bf849.pages.github.io/){:target="new-tab"}: Standardizes common functionality needed to build web pages on Nike.com|
 
 ### Connect
 
- We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
