@@ -103,7 +103,7 @@ Product Feeds v3 is an extension of Product Feeds v2 that was created to handle 
 
 The differences between v2 and v3 are as follows:
 
-- Product Feeds v3 does not support data from availableSkus in the response, instead replacing it with `productInfo.availableGtins`. (See API docs for schema at [Available GTINs V3]())
+- Product Feeds v3 does not support data from availableSkus in the response, instead replacing it with `productInfo.availableGtins`. (See API docs for schema at [Available GTINs V3](https://developer.niketech.com/docs/projects/Available%20Gtins%20V3?tab=api))
 - `productInfo.imageUrls`: The imageUrls section is deprecated due to Scene7 deprecation. Images should be used from publishedContent.
 - Product Feeds v3 has different endpoints for internal calls with valid JWT authorization. The endpoints for internal JWT end in `/secured`.
 - If Product Feeds v3 is called with an authorized JWT on the `/secured` endpoints, it will allow the same query parameters and filters as Product Feeds v2.
