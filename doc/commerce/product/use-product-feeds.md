@@ -9,6 +9,7 @@ toc:
   - h2: Introduction
     url: /doc/commerce/product/use-product-feeds.html#introduction
   - h2: V2/V3 Differences
+    url: /doc/commerce/product/use-product-feeds.html#v2v3-differences
   - h2: Get a List of Product Threads
     url: /doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads
   - h2: Get a Product Thread by ID
