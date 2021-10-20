@@ -104,12 +104,12 @@ Product Feeds v3 is an extension of Product Feeds v2 that was created to handle 
 The differences between v2 and v3 are as follows:
 
 - Product Feeds v3 does not support data from availableSkus in the response, instead replacing it with `productInfo.availableGtins`. (See API docs for schema at [Available GTINs V3](https://developer.niketech.com/docs/projects/Available%20Gtins%20V3?tab=api))
-- `productInfo.imageUrls`: The imageUrls section is deprecated due to Scene7 deprecation. Images should be used from publishedContent.
+- `productInfo.imageUrls`: The imageUrls section is deprecated. Images should be used from publishedContent.
 - Product Feeds v3 has different endpoints for internal calls with valid JWT authorization. The endpoints for internal JWT end in `/secured`.
 - If Product Feeds v3 is called with an authorized JWT on the `/secured` endpoints, it will allow the same query parameters and filters as Product Feeds v2.
-- If Product Feeds v3 calls are made to the non-secured endpoints, then restrictions will be in place as follows:
+- If Product Feeds v3 calls are made to the non-secured endpoints, the following restrictions apply:
     - No fields param will be allowed, and a 400 error will be returned on the multi GET or by id GET endpoints.
-    - On the List GET endpoint, the filter param can only contain a single value. No arrays in a filter will be supported, except in the exclusiveAccess filter.
+    - On the List GET endpoint, the filter param can only contain a single value. No filter arrays will be supported, except in the exclusiveAccess filter.
     - On the List GET endpoint, the count param can only contain the values of 50 or 100
     - On the List GET endpoint, the anchor param must be a multiple of 50.
 
@@ -161,7 +161,7 @@ See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-
 
 ### Terminology Differences Between CMS and Product Feeds
 
-The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V3?tab=api) includes product content from Nike CMS in responses. Nike CMS sometimes uses different names for the same field as Product Feeds. For example, the CMS **collectionGroupId** that you will see in responses is the same as the **channelId** query parameter you might send to Product Feeds.
+The [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V3?tab=api) includes product content from Nike CMS in responses. Nike CMS sometimes uses field names that are different from Product Feeds. For example, the CMS **collectionGroupId** that you will see in responses is the same as the **channelId** query parameter you might send to Product Feeds.
 
 Here is a terminology guide between Nike CMS and Product Feeds:
 
