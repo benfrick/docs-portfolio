@@ -547,3 +547,30 @@ header {
 	margin: 30px 0 0 0;
 	display: none;
 }
+
+.updated-indicator::after {
+  content: "UPDATED";
+  color: white;
+  font-weight: strong;
+  background-color: #188E73;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 2px;
+  font-size: .9rem;
+  margin-left: 6px;
+  line-height: 1em;
+  border-radius: 4px;
+}
+
+.new-indicator::after {
+  content: "NEW";
+  color: white;
+  background-color: #5d910b;
+  padding: 2px;
+  font-size: .9rem;
+  margin-left: 6px;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1em;
+  border-radius: 4px;
+}
