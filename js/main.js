@@ -12,6 +12,7 @@ jQuery(function() {
             e.preventDefault();
             $section = $('section');
             $sectionheader = $section.find('#'+hash[1]);
+            window.location.hash = hash[1]; //updates hash of url without reloading page
             scrollamt = $sectionheader.offset().top - 60;
             window.scrollTo(0,scrollamt);
         }
