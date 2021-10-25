@@ -14,8 +14,6 @@ toc:
   url: /doc/commerce/checkout/use-address.html#address-geocoding
 - h2: API Quick Reference
   url: /doc/commerce/checkout/use-address.html#api-quick-reference
-- h2: Troubleshooting
-  url: /doc/commerce/checkout/use-address.html#troubleshooting
 - h2: Contacting the Team
   url: /doc/commerce/checkout/use-address.html#contacting-the-team
 - h2: Document Change Log
