@@ -53,7 +53,7 @@ toc:
 
 ---
 
-##### Last Updated: 05/07/2020
+##### Last Updated: 10/19/2021
 
 Manage the payment process for consumers purchasing Nike products and services.
 
