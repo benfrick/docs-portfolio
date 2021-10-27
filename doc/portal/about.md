@@ -8,22 +8,16 @@ url: /doc/portal/about.html
 
 ---
 
-[Commerce Docs](/index.html) is intended primarily for developers who build commerce-related experiences and services at Nike. It was born from a desire to augment the API reference docs on [developer.niketech.com](https://developer.niketech.com){:target="new-tab"} as follows:
+[Commerce Docs](/index.html) is intended primarily for developers who build commerce-related experiences and services at Nike. The content is designed to augment the API reference docs on [developer.niketech.com](https://developer.niketech.com){:target="new-tab"}. Developer's Guides on the Commerce Docs site:
 
 - Provide context about how an API (or set of APIs) fits into the larger ecosystem
-- Provide step-by-step instructions for accomplishing specific use cases, including those that span multiple domains
+- Step through commerce-related use cases, including those that span multiple domains
 
-Some content on this site is intended more for Product Managers, Engineering Managers, and others who don't write code, but who might be involved with the planning and design of commerce solutions.
+The Overviews on this site are geared toward Product Managers, Engineering Managers, and others who don't write code, but who might be involved with the planning and design of commerce solutions.
 
 ## How Do I Get Started?
 
 A good place to start, if you are new to integrating with Nike APIs, is to read the [Using Nike APIs](/doc/getting-started/using-nike-apis.html) guide. This provides a good overview of common API features across the Nike landscape.
-
-There are 3 main ways to navigate the site:
-
-- Use the **home page** to browse by domain. Open an Overview doc, and optionally follow the link to the corresponding Developer's Guide
-- Use the **side navigation** to browse all docs. Click on a category to expand the docs for that category
-- Do a **keyword search** in the search bar in the header, and follow any hits to corresponding docs
 
 ## What Types of Content are Available?
 
