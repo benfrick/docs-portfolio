@@ -39,7 +39,7 @@ toc:
 
 ---
 
-##### Last Updated: 04/19/2021
+##### Last Updated: 08/04/2021
 
 Manage the Checkout process for the consumer.
 
@@ -527,6 +527,7 @@ Need to contact the Buy team?
 |Moved Cart and Wishlist to separate docs, added Checkout Preview V3 and Checkout Submit V3 content|04/30/2020|
 |Added Address Geocoding|4/12/2021|
 |Moved Address Geocoding and Address Validation into [Address Tools](/doc/commerce/checkout/use-address.html) guide|4/19/2021|
+|Added SMS|08/04/2021|
 
 ## Next Steps
 
