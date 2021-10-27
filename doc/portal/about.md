@@ -37,7 +37,7 @@ The following table describes ALL types of content available, who the target aud
 
 |Doc Type|Description|Audience|Example|
 |---|---|---|---|
-|Overview|Gives an overview of a domain or set of APIs and the use cases that can be accomplished|Product Managers, Engineering Managers|[Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html)|
+|Overview|Gives an overview of a domain or set of APIs, and lists the use cases covered in the corresponding developer's guides|Product Managers, Engineering Managers|[Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html)|
 |Developer's Guide|Detailed implementation steps for specific API use cases|Developers|[Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html)|
 |Reference Guide|Reference information that is relevant to API integration|Developers|[Circuit Breaker Best Practices](/doc/commerce/reference/caller-best-practices.html)|
 |Templates|Templates for writing your own docs|Developers, Product Managers|[JSON API Contract](/doc/templates/json-api.html)|
