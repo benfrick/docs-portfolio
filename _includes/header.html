@@ -1,7 +1,7 @@
 <!-- Header for all pages, includes search bar and Slack button. Included in /_layouts/two-column.html -->
 
 <div class="ncss-container" id="overview-header" xmlns="http://www.w3.org/1999/html">
-    <nav>
+    <nav><ul>
         <li class="header-title"><h3><a href="{{ 'index.html' | relative_url }}" >Commerce Docs</a></h3></li>
         <li class="search">
             <form action= {{"/search/index.html" | relative_url }} method="get">
@@ -15,5 +15,6 @@
         <li class="devportal">
             <a class="devportal guide-button" href="https://developer.niketech.com" target="_blank">DEV PORTAL</a>
         </li>
+    </ul>
     </nav>
 </div>
