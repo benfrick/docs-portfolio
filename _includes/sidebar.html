@@ -8,11 +8,11 @@ Slack in <section> has an empty href. Either update with your own Slack link or 
         {%- assign grouped_pages = site.pages | group_by: "category" | sort: "name" -%}
         {%- for sorted_cats in grouped_pages -%}
         {%- if sorted_cats.name != "" -%}
-        <h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "b-use-case" -%}<i
-                class="fas fa-map"></i>  Developer's Guides{%- elsif sorted_cats.name == "a-overview" -%}<i
-                class="fas fa-cogs"></i>  Overviews{%- elsif sorted_cats.name == "0-get-started" -%}<i
-                class="fas fa-play-circle"></i> Get Started{%- elsif sorted_cats.name == "d-reference" -%}<i
-                class="fas fa-book-open"></i>  Reference{%- endif -%}</span></h6>
+        <h6><span name="{{ sorted_cats.name}}" class="toggle">{%- if sorted_cats.name == "b-use-case" -%}<a href="#"><i
+                class="fas fa-map"></i>  <span class="gray-nav-item">Developer's Guides</span></a>{%- elsif sorted_cats.name == "a-overview" -%}<a href="#"><i
+                class="fas fa-cogs"></i>  <span class="gray-nav-item">Overviews</span></a>{%- elsif sorted_cats.name == "0-get-started" -%}<a href="#"><i
+                class="fas fa-play-circle"></i> <span class="gray-nav-item">Get Started</span></a>{%- elsif sorted_cats.name == "d-reference" -%}<a href="#"><i
+                class="fas fa-book-open"></i>  <span class="gray-nav-item">Reference</span></a>{%- endif -%}</span></h6>
         <ul id="{{ sorted_cats.name }}"
             class="{%- if sorted_cats.name != page.category -%}hide{% else %}show{%- endif -%}">
             {%- assign docs = sorted_cats.items | sort: "position" -%}
@@ -51,7 +51,7 @@ Slack in <section> has an empty href. Either update with your own Slack link or 
         </ul>
         {%- else -%}{%- endif -%}
         {%- endfor -%}
-        <h6><span name="community" class="toggle"><i class="far fa-comments"></i>  Community</span></h6>
+        <h6><span name="community" class="toggle"><a href="#"><i class="far fa-comments"></i>  <span class="gray-nav-item">Community</span></a></span></h6>
         <ul id="community" class="hide">
             <li><a href="https://engineering-blog.nikecloud.com/"
                    target="blank">Global Tech Engineering Blog</a></li>
