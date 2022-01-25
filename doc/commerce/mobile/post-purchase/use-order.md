@@ -44,11 +44,15 @@ DRAFT
 
 ##### Last Updated: 1/25/2022
 
-Retrieve a complete order history for your mobile consumers with the added flexibility of self-service options such as start a return and track shipment using the [Post Purchase API]{:target="_blank"}.
+Retrieve a complete order history for your mobile consumers with the added flexibility of self-service options such as "Start a Return" and "Track Shipment" using the [Post Purchase API]{:target="_blank"}.
 
 >**TIP**: Before using this guide, we recommend reading [Adding Consumer Order History to Your Experience] to understand the basics of Order History.
 
 ## Introduction
+
+The use-case flow for registered members/employees and guests are described below.
+
+### For Registered Members and Employees
 
 Adding order history to your mobile app for a registered member is a three-step process:
 
@@ -56,13 +60,15 @@ Adding order history to your mobile app for a registered member is a three-step 
 
 **2.** Using an order ID from the **Member List Orders** response, your mobile app makes a request to the [Member List Order Details by ID]{:target="new-tab"} to [list order details for a member](#step-2-list-a-members-order-details).
 
-**3.** Your mobile app makes a call to [List Pickup Details]{:target="new-tab"} to get a [list of pickup points](#step-3-list-pickup-details) for the order based on filter criteria where the consumer can pick up their items.
+**3.** Your mobile app makes a call to [List Pickup Details]{:target="new-tab"} to get a [list of pickup points](#step-3-list-pickup-details) for the order based on where the consumer can pick up their items.
+
+### For Guests
 
 Adding order history to your mobile app for a guest consumer is a two-step process:
 
 **1.** Using an order ID provided by the guest, your mobile app makes a [Guest List Order Details by ID]{:target="new-tab"} request to [list order details for a guest](#step-1-list-a-guests-order-details).
 
-**2.** Your mobile app makes a call to [List Pickup Details]{:target="new-tab"} to get a [list of pickup details](#step-3-list-pickup-details) for the order based on filter criteria where the consumer can pick up their items.
+**2.** Your mobile app makes a call to [List Pickup Details]{:target="new-tab"} to get a [list of pickup details](#step-3-list-pickup-details) for the order based where the consumer can pick up their items.
 
 ## Key Terms
 
@@ -70,7 +76,7 @@ See the [Key Terms](/doc/commerce/order/use-order.html#key-terms) section of the
 
 ## Step 1: List a Member's Orders
 
-Use the [Member List Orders]{:target="new-tab"} endpoint to get either all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
+Use the **Member List Orders**,**Guest List Order Details by ID** endpoint to get either all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
 
 >**TIPS**
 - For the required request headers, see [Required Request Headers](#required-request-headers).
@@ -94,15 +100,34 @@ curl -X GET \
   -H 'language: en'
 ```
 
-### Parsing the Response
+### Common Response Considerations
 
-The Member List Orders JSON response contains high-level details of a member's orders. Depending upon the status of each order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order results UI of your mobile experience so consumers can "Buy It Again", check "Order Details", "Shop Similar" and more. 
+The **Member List Orders**, **Member List Order Details by ID**, and **Guest List Order Details by ID** JSON responses contains several fields relating to status. Examples of order status are "Shipped", "Partially Delivered" and "Return Processed". See [Understanding Order Status] for more detail about how status is determined, and the suggested order statuses to display in your experience. 
 
-The response contains several fields relating to status. See [Understanding Order Status] for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [Post Purchase API]{:target="_blank"} for a full list of fields in the response.
+See the [Post Purchase API]{:target="_blank"} for a full list of fields in each API's response.
+
+Depending upon the status of an order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order results UI of your mobile experience so consumers can "Buy It Again", check "Order Details", "Shop Similar" and more. 
+
+```
+      "actions": {
+        "buyItAgain": {
+          "appCallback": "string",
+          "webLink": "string"
+        },
+        "orderDetails": {
+          "appCallback": "string",
+          "webLink": "string"
+        },
+        "shopSimilar": {
+          "appCallback": "string",
+          "webLink": "string"
+        }
+      }
+```
 
 ## Step 2: List a Member's Order Details
 
-Use the [Member List Order Details by ID]{:target="new-tab"} endpoint to get details for a member's order by ID. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information, or you want information on more than one order for a member, see [list a member's orders](#step-1-list-a-members-orders).
+Use the [Member List Order Details by ID]{:target="new-tab"} endpoint to get details for a member's order by ID. This API returns a complete picture of an order including product detail, tax information, and line item details. If you are looking for higher level order information, or you want information on more than one order for a member, see [list a member's orders](#step-1-list-a-members-orders).
 
 ### Required Request Parameters
 
@@ -129,9 +154,7 @@ curl -X GET \
 
 ### Parsing the Response
 
-The [Member List Order Details by ID]{:target="new-tab"} JSON response contains several fields relating to status. See [Understanding Order Status] for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [Post Purchase API]{:target="_blank"} for a full list of fields in the response.
-
-Depending upon the status of an order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order details UI of your mobile experience so the consumer can take actions on the order such as "Return", "Track Shipment" and view "Directions to Store".
+See the [Common Response Considerations](#common-response-considerations) for information on response fields including order status and actions.
 
 ## Step 3: List Pickup Details
 
@@ -157,7 +180,7 @@ curl -X GET \
 ```
 
 ### Parsing the Response
-The response contains one or more objects representing a pickup detail offering, including address, gps coordinates, and hours of operation. See [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for more detailed information on pickup details. 
+The response contains one or more objects representing a pickup detail offering, including address, GPS coordinates, and hours of operation. See [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for more detailed information on pickup details. 
 
 ## Step 1: List a Guest's Order Details
 
@@ -174,7 +197,7 @@ The `country` and `language` path parameters are required.
 
 ### Executing the Request
 
-Sample CURL for Guest List Order Details by (order) ID C00011554850 for a guest shopping in the US in the english language:
+Sample CURL for Guest List Order Details by (order) ID C00011554850 for a guest shopping in the US in the English language:
 
 ```
 curl -X GET \
@@ -189,9 +212,7 @@ curl -X GET \
 
 ### Parsing the Response
 
-The [Guest List Order Details by ID]{:target="new-tab"} JSON response contains several fields relating to status. See [Understanding Order Status] for more detail about how status is determined, and the suggested order statuses to display in your experience. See the Guest List Order Details by ID for a full list of fields in the response.
-
-Depending upon the status of an order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order details UI of your mobile experience so the consumer can take actions on the order such as "Return", "Track Shipment" and view "Directions to Store".
+See the [Common Response Considerations](#common-response-considerations) for information on response fields including order status and actions.
 
 ## Step 2: List Pickup Details
 See the [List Pickup Details](#step-3-list-pickup-details) section for more details on how to list pickup details for a guest.
@@ -200,7 +221,14 @@ See the [List Pickup Details](#step-3-list-pickup-details) section for more deta
 
 The Manufacturer's Suggested Retail Price (MSRP) in the both the Member List Order Details by ID and Guest List Order Details by ID response come from downstream services. When the downstream service returns a null MSRP, the Post Purchase API attempts to calculate the value. 
 
-First, the Post Purchase API gets the MSRP value from the [Product Feeds V2 API]{:target="new-tab"}. It then gets the line item quantity and retail price from the [User Order Details API]{:target="new-tab"}. If the MSRP is null, the Post Purchase API calculates and compares two variables to determine MSRP, `possibleMSRP` and `lineItemChargedPrice`. Once it calculates the two variables, it determines whether to include both MSRP and `lineItemChargedPrice` in the response, or just `lineItemChargedPrice`. The calculations and comparisons of those two variables are described below.
+The Post Purchase API:
+
+1. Gets the MSRP value from the [Product Feeds V2 API]{:target="new-tab"}. 
+2. Gets the line item quantity and retail price from the [User Order Details API]{:target="new-tab"}. 
+3. If MSRP is null, it calculates and compares two variables to determine MSRP, `possibleMSRP` and `lineItemChargedPrice`. 
+4. Based on the value of the two variables and other factors, it determines whether to include both MSRP and `lineItemChargedPrice` in the response, or just `lineItemChargedPrice`.
+
+The calculations and comparisons of `possibleMSRP` and `lineItemChargedPrice` are described below.
 
 > **TIP**: Certain geographies such as Japan explicitly require that MSRP be excluded from the order details response.
 
@@ -245,7 +273,7 @@ Listed below are some best practices for working with the Post Purchase API.
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
+The general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
 
 ### Testing
 
