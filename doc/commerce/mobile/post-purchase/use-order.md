@@ -50,7 +50,7 @@ Retrieve a complete order history for your mobile consumers with the added flexi
 
 ## Introduction
 
-The use-case flow for registered members/employees and guests are described below.
+The use-case flows for registered members/employees and guests are described below.
 
 ### For Registered Members and Employees
 
@@ -76,7 +76,7 @@ See the [Key Terms](/doc/commerce/order/use-order.html#key-terms) section of the
 
 ## Step 1: List a Member's Orders
 
-Use the **Member List Orders**,**Guest List Order Details by ID** endpoint to get either all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
+Use the **Member List Orders** endpoint to get either all or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
 
 >**TIPS**
 - For the required request headers, see [Required Request Headers](#required-request-headers).
@@ -84,7 +84,7 @@ Use the **Member List Orders**,**Guest List Order Details by ID** endpoint to ge
 
 ### Customizing Your Results
 
-The Member List Orders API supports the `timezone`, `count` and `anchor` query parameters to restrict the results to a certain timezone, restrict the number of results, and control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of Using Nike APIs.
+The **Member List Orders** endpoint supports the `timezone`, `count` and `anchor` query parameters to restrict the results to a certain timezone, restrict the number of results, and control pagination. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of Using Nike APIs.
 
 ### Executing the Request
 
@@ -102,11 +102,9 @@ curl -X GET \
 
 ### Common Response Considerations
 
-The **Member List Orders**, **Member List Order Details by ID**, and **Guest List Order Details by ID** JSON responses contains several fields relating to status. Examples of order status are "Shipped", "Partially Delivered" and "Return Processed". See [Understanding Order Status] for more detail about how status is determined, and the suggested order statuses to display in your experience. 
+The **Member List Orders**, **Member List Order Details by ID**, and **Guest List Order Details by ID** JSON responses contain several fields relating to status. Examples of order status are "Shipped", "Partially Delivered", and "Return Processed". See [Understanding Order Status] for more detail about how status is determined, and the suggested order statuses to display in your experience.
 
-See the [Post Purchase API]{:target="_blank"} for a full list of fields in each API's response.
-
-Depending upon the status of an order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order results UI of your mobile experience so consumers can "Buy It Again", check "Order Details", "Shop Similar" and more. 
+Depending upon the status of an order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order results UI of your mobile experience so consumers can "Buy It Again", check "Order Details", "Shop Similar", and more. 
 
 ```
       "actions": {
@@ -124,6 +122,8 @@ Depending upon the status of an order, the response may also include one or more
         }
       }
 ```
+
+See the [Post Purchase API]{:target="_blank"} for a full list of fields in each API's response.
 
 ## Step 2: List a Member's Order Details
 
@@ -158,7 +158,7 @@ See the [Common Response Considerations](#common-response-considerations) for in
 
 ## Step 3: List Pickup Details
 
-Use the [List Pickup Details](https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api){:target="new-tab"} endpoint to gather a list of pickup points that both guests and members can use to pick up their Nike orders in person.
+Use the [List Pickup Details](https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api){:target="new-tab"} endpoint to gather a list of pickup points that both guests and members can use to pick up their Nike order in person.
 
 ### Required Request Parameters
 
@@ -180,7 +180,7 @@ curl -X GET \
 ```
 
 ### Parsing the Response
-The response contains one or more objects representing a pickup detail offering, including address, GPS coordinates, and hours of operation. See [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for more detailed information on pickup details. 
+The response contains the pickup details available to the consumer, including address, GPS coordinates, and hours of operation. See [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) for more detailed information on pickup details. 
 
 ## Step 1: List a Guest's Order Details
 
