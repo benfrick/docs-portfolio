@@ -104,7 +104,7 @@ curl -X GET \
 
 The **Member List Orders**, **Member List Order Details by ID**, and **Guest List Order Details by ID** JSON responses contain several fields relating to status. Examples of order status are "Shipped", "Partially Delivered", and "Return Processed". See [Understanding Order Status] for more detail about how status is determined, and the suggested order statuses to display in your experience.
 
-Depending upon the status of an order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order results UI of your mobile experience so consumers can "Buy It Again", check "Order Details", "Shop Similar", and more. 
+Depending upon the status of an order, the response may also include one or more action objects. Action objects include a callback link to the mobile app and a corresponding web link. Display the actions in the order results UI of your mobile experience so consumers can "Buy It Again", check "Order Details", and more. 
 
 ```
       "actions": {
@@ -113,10 +113,6 @@ Depending upon the status of an order, the response may also include one or more
           "webLink": "string"
         },
         "orderDetails": {
-          "appCallback": "string",
-          "webLink": "string"
-        },
-        "shopSimilar": {
           "appCallback": "string",
           "webLink": "string"
         }
