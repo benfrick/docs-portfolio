@@ -115,10 +115,6 @@ Depending upon the status of an order, the response may also include one or more
         "orderDetails": {
           "appCallback": "string",
           "webLink": "string"
-        },
-        "shopSimilar": {
-          "appCallback": "string",
-          "webLink": "string"
         }
       }
 ```
