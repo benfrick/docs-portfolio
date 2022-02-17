@@ -1,7 +1,7 @@
 ---
 id: overview-uxf
 category: a-overview
-position: 9
+position: 10
 title: UX Foundation
 url: /commerce/uxf/overview-uxf.html
 ---
