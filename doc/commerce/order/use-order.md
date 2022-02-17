@@ -893,7 +893,7 @@ Need to contact the Orders team?
 
 ## Next Steps
 
-You've learned how to add consumer Order History to your experience. Here are some next steps.
+You've learned how to add Consumer Order History to your experience. Here are some next steps.
 
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)

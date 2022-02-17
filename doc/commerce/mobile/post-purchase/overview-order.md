@@ -14,7 +14,7 @@ dev-guide: /doc/commerce/mobile/post-purchase/use-order.html
 
 Mobile consumers demand the ability to track their order after purchase and stay on top of their order history without having to call Consumer Services. Luckily, that rich functionality is easy to integrate into your mobile experience with [Mobile Order History](/doc/commerce/mobile/post-purchase/use-order.html).
 
-#### Keep consumer order information right at their fingertips.
+#### Keep consumer order information right at their fingertips
 
 Incorporate the Post Purchase API into your mobile experience so consumers can check the status of an order and view their complete order history with the click of a button. Depending upon the status of an order, consumers can also perform actions such as order cancellation and buy it again.
 

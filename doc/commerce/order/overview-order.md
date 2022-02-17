@@ -21,7 +21,7 @@ Use the Consumer Order History API in your experience so consumers can check the
 
 ### Use Cases
 
-Step through the use cases below to incorporate consumer Order History into your experience.
+Step through the use cases below to incorporate Consumer Order History into your experience.
 
 |---|
 |<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use-order.html#step-1-list-a-members-orders)|
