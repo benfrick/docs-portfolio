@@ -1,7 +1,7 @@
 ---
 id: post-purchase
 tags: pdf
-#category: b-use-case
+category: b-use-case
 position: 13
 title: Mobile Order History
 url: /doc/commerce/mobile/post-purchase/use-order.html
@@ -37,12 +37,11 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/mobile/post-purchase/use-order.html#next-steps
 ---
-DRAFT
 {% include dev-header.html %}
 
 ---
 
-##### Last Updated: 1/25/2022
+##### Last Updated: 2/17/2022
 
 Retrieve a complete order history for your mobile consumers with the added flexibility of self-service options such as "Start a Return" and "Track Shipment" using the [Post Purchase API]{:target="_blank"}.
 
@@ -379,7 +378,7 @@ Need to contact the Post Purchase team?
 
 |Summary|Date|
 |---|---|---|
-|Initial publish|1/25/2022|
+|Initial publish|2/17/2022|
 
 ## Next Steps
 

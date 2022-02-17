@@ -3,25 +3,25 @@ id: overview-order
 tags: pdf
 category: a-overview
 position: 8
-title: Order
+title: Consumer Order History
 url: /doc/commerce/order/overview-order.html
 id: overview-order
-h1: Order Overview
+h1: Consumer Order History Overview
 dev-guide: /doc/commerce/order/use-order.html
 ---
 {% include overview-header.html %}
 
 ---
 
-Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Order](/doc/commerce/order/use-order.html) to your app.
+Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Consumer Order History](/doc/commerce/order/use-order.html) to your app.
 
 #### Happy consumers are a good thing. What keeps them happy? Assuring them that their order is on the way.
 
-Use the Order APIs in your experience so consumers can check the status of an order and view their complete order history without contacting Consumer Services. Imagine that.
+Use the Consumer Order History API in your experience so consumers can check the status of an order and view their complete order history without contacting Consumer Services. Imagine that.
 
 ### Use Cases
 
-Step through the Use Cases below to incorporate Order into your experience.
+Step through the use cases below to incorporate consumer Order History into your experience.
 
 |---|
 |<i class="g72-check"></i>&nbsp;&nbsp;[List some or all of a member's orders.](/doc/commerce/order/use-order.html#step-1-list-a-members-orders)|

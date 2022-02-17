@@ -3,7 +3,7 @@ id: use-order
 tags: pdf
 category: b-use-case
 position: 12
-title: Order History
+title: Consumer Order History
 url: /doc/commerce/order/use-order.html
 toc:
 - h2: Introduction
@@ -37,11 +37,13 @@ toc:
 
 ---
 
-##### Last Updated: 07/21/2021
+##### Last Updated: 01/21/2022
 
 Retrieve a complete order history for your consumers.
 
->**TIP**: Before using this guide you should have already completed [Adding Checkout to Your Experience](/doc/commerce/checkout/use-checkout.html).
+>**TIPS**: 
+>- Before using this guide you should have already completed [Adding Checkout to Your Experience](/doc/commerce/checkout/use-checkout.html).
+>- See the [Adding Mobile Order History to Your Experience](/doc/commerce/mobile/post-purchase/use-order.html) guide for information on how to add order history to your mobile experience.
 
 ## Introduction
 
@@ -887,10 +889,12 @@ Need to contact the Orders team?
 |Initial publish|10/25/2021|
 |Updated for v2 of both endpoints, updated doc format|02/17/2021|
 |Added Common Questions section & content|07/21/2021|
+|Added reference to Mobile Order History guide and renamed this guide to Consumer Order History|01/21/2022|
 
 ## Next Steps
 
-You've learned how to add Order History to your experience. Here are some next steps.
+You've learned how to add consumer Order History to your experience. Here are some next steps.
 
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
+- [Adding Mobile Order History to Your Experience](/doc/commerce/mobile/post-purchase/use-order.html)

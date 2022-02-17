@@ -2,7 +2,7 @@
 id: nacl
 tags: pdf
 category: a-overview
-position: 10
+position: 11
 title: Admin Client Library
 url: /doc/commerce/search/nacl.html
 ---
