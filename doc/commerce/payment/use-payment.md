@@ -22,6 +22,8 @@ toc:
     url: /doc/commerce/payment/use-payment.html#wallet-payment
   - h2: Deferred Payment
     url: /doc/commerce/payment/use-payment.html#deferred-payment
+  - h2: Korea Payment
+    url: /doc/commerce/payment/use-payment.html#korea-payment
   - h2: Payment Preview
     url: /doc/commerce/payment/use-payment.html#payment-preview
   - h2: 3-D Secure Authentication
@@ -53,7 +55,7 @@ toc:
 
 ---
 
-##### Last Updated: 10/19/2021
+##### Last Updated: 3/8/2022
 
 Manage the payment process for consumers purchasing Nike products and services.
 
@@ -74,7 +76,7 @@ Your experience can get a list of stored payments for a logged-in consumer by ca
 
 **2. Preparing Payment for Purchase**
 
-Depending upon the payment type, your experience will need to perform different actions to prepare the payment for purchase. Before a consumer can pay with [Apple Pay](#apple-pay-payment), an Apple Pay session must be started. To allow consumers to pay in the PayPal Express or PayPal Mark flows, you will need to call the [Wallet Payment](#wallet-payment) service to start a PayPal session. When paying by a non-stored credit card, your experience will need to collect the consumer’s credit card information using the [Credit Card Submit](#credit-card-payment) service. If consumers pay by a [Deferred Payment](#deferred-payment) type such as Alipay or WeChat, your experience will need to generate a signed URL and redirect the consumer, so they can pay at the vendor’s site after they submit the Nike Checkout.
+Depending upon the payment type, your experience needs to perform different actions to prepare the payment for purchase. Before a consumer can pay with [Apple Pay](#apple-pay-payment), you must start an Apple Pay session. To allow consumers to pay in the PayPal Express or PayPal Mark flows, call the [Wallet Payment](#wallet-payment) service to start a PayPal session. When paying by a non-stored credit card, your experience collects the consumer’s credit card information using the [Credit Card Submit](#credit-card-payment) service. If consumers pay by a [Deferred Payment](#deferred-payment) type such as Alipay or WeChat, your experience generates a signed URL and redirects the consumer, so they can pay at the vendor’s site after they submit the Nike Checkout. If your consumer is shopping in Korea, [Request a Ready Payment](#korea-payment) with the appropriate vendor.
 
 **3. Payment Preview**
 
@@ -128,10 +130,11 @@ The `fulfillmentType`, `getBy` and `maxDate` values you send in the request may 
 |DOMS|A Distributed Order Management System, also known as Sterling, that handles order fulfillment|
 |ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike's non-commerce systems|
 |PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
-|Strong Customer Authentication|Process where consumers provide something they have (e.g. device fingerprint) and/or know (e.g. password) in order to be authenticated.|
 |[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
 |Reauthorization|When a temporary hold on funds in a consumer's account is reissued, typically when the original authorization has expired|
+|Ready Payment|All non-stored Korea payments must go through the [Ready Payment](#korea-payment) process to gather  information needed by a payment vendor when consumers go to the vendor's site to authenticate|
 |S3|Amazon Simple Storage Service used to store and retrieve data such as files|
+|Strong Customer Authentication|Process where consumers provide something they have (e.g. device fingerprint) and/or know (e.g. password) in order to be authenticated.|
 |Void (of payment)|Reverses a successful payment authorization, also known as an authorization reversal|
 
 ### Supported Stored Payment Types
@@ -231,6 +234,8 @@ A successful 200 response lists all payments provided in the request and true if
 <i class="g72-check"></i>&nbsp;&nbsp;**Validate a stored credit card**
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Start a PayPal billing agreement**
+
+<i class="g72-check"></i>&nbsp;&nbsp;**Start and save a Fiserv billing key registration**
 
 The Stored Payment service is used to manage (add/update/delete/list) a consumer’s stored payments. Consumers must be registered Nike members and log in to use stored payment. Guest consumers are not supported. See [Supported Stored Payment Types](#supported-stored-payment-types) to get storage limits by payment type.
 
@@ -426,7 +431,7 @@ A successful 200 response returns credit card or gift certificate validation and
 
 #### Start a PayPal Billing Agreement
 
-In order to save PayPal as a stored payment, the consumer must [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"}. This agreement pre-authorizes Nike to charge the consumer’s PayPal account for purchases without requiring the consumer to visit the PayPal site to authorize each purchase. Setting up a PayPal billing agreement makes purchasing easy by keeping the consumer in your experience.
+In order to save PayPal as a stored payment, the consumer must [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-start-a-paypal-billing-agreement-get){:target="new-tab"}. This agreement pre-authorizes Nike to charge the consumer’s PayPal account for purchases without requiring the consumer to visit the PayPal site to authorize each purchase. Once the consumer sets up a PayPal billing agreement, purchasing by PayPal is easy because the consumer can stay in your experience without having to go the PayPal site.
 
 Follow these steps to allow consumers to Add a PayPal stored payment in your experience.
 
@@ -447,6 +452,40 @@ https://api.nike.com/commerce/storedpayments/consumer/paypalagreement?returnUrl=
 ```
 
 A successful 200 response lists the `requestToken`, `paypalToken`, and `redirectURL` at which the consumer can accept the billing agreement.
+
+##### Start and Save a Fiserv Billing Key Registration
+
+In order to save a Fiserv credit card as a stored payment, the consumer must [Start a Fiserv Billing Key Registration](https://developer.niketech.com/docs/projects/Stored%20Payments?tab=api#start-a-fiserv-billkey-registration-v1-post){:target="new-tab"}. This agreement pre-authorizes Nike to charge the consumer’s Fiserv credit card for purchases. Storing their Fiserv credit card is convenient for customers because they do not need to authenticate at the Fiserv site during the checkout flow. This way, consumers can stay in your experience and checkout faster and easier.
+
+Consumers can store up to four Fiserv credit cards.
+
+Follow these steps to allow consumers to add a Fiserv stored payment in your experience.
+
+1. Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} to check if the stored payment exists. If so, skip the rest of this section and proceed to [Payment Preview](#payment-preview).
+
+2. Make a POST call to the [Start a Fiserv Bill Key Registration](https://developer.niketech.com/docs/projects/Stored%20Payments?tab=api#start-a-fiserv-billkey-registration-v1-post){:target="new-tab"} endpoint, passing the billing and shipping information, `returnURL` and `cancelURL` so Fiserv can return the consumer to your experience in **Step 3**. A successful response contains the Fiserv `url` and the `fields` object consisting of name/value pairs.
+
+3. Make a POST call to the Fiserv `url`, passing each name/value pair from the `fields` object returned in **Step 2**. At the Fiserve site, the consumer completes their bill key registration. Once the consumer accepts or cancels registration, Fiserv redirects the consumer to either the `returnURL` and `cancelURL` you provided in **Step 2**, and appends their own query parameters needed to save the Fiserve stored payment at Nike.
+
+4. Make a POST call to the [Save a Fiserve Bill Key Registration](https://developer.niketech.com/docs/projects/Stored%20Payments?tab=api#start-a-fiserv-billkey-registration-v1-post-1){:target="new-tab"} endpoint to save the Fiserve bill key registration and payment details.
+
+5. (Optional) Call [Get Stored Payments by UPMID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api#stored-payment-get-stored-payments-by-upmid-post){:target="new-tab"} again to list all of the consumer's saved payments to make sure the newly added Fiserve credit card is in the list.
+
+Listed below is a sample **Start a Fiserv Bill Key Registration** POST request URI. This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
+
+```
+https://api.nike.com/commerce/storedpayments/payment/fiserv_billkeyreg/v1
+```
+
+A successful 200 response lists the Fiserve bill key registration `url` and the name/value pairs in the `fields` object for your experience to send in the Fiserve bill key registration POST call in **Step 3** above.
+
+Listed below is a sample **Save a Fiserve Bill Key Registration** POST request URI in **Step 4** above. This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
+
+```
+https://api.nike.com/commerce/storedpayments/payment/fiserv_savepayment/v1
+```
+
+A 201 response indicates a status of `success`. Other possible responses are a 500 and 429.
 
 ## Credit Card Payment
 
@@ -658,7 +697,7 @@ Use the [Start Apple Pay Session](https://developer.niketech.com/docs/projects/P
 
 Once you get a successful 200 response from [Start an Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"}, you have all the information you need to call [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} and continue the purchase flow as you would for a credit card.
 
->**TIP:** WWen calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
 
 Listed below is a sample [Start Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"} POST request URI and body. The `validationURL` is passed to your experience from the Apple Pay JS API when you [provide merchant validation](https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api/providing_merchant_validation){:target="new-tab"}.
 
@@ -912,7 +951,13 @@ For details, see [Retrieve PayPal Details Job](#step-4-retrieve-paypal-details-j
 
 #### Step 1: Request Deferred Payment Form
 
-Use the [Request Deferred Payment Form](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-form-request-deferred-payment-form-post){:target="new-tab"} endpoint to generate a signed link used to redirect the consumer to pay at a third-party site or app. This endpoint is used for experiences that support iDeal, Sofort and/or Alipay, Tenpay, and UnionPay China payment types. For WeChat payment, see the [Request WeChat Deferred Payment](#request-wechat-deferred-payment) endpoint.
+Use the [Request Deferred Payment Form](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-form-request-deferred-payment-form-post){:target="new-tab"} endpoint to generate a signed link used to redirect the consumer to pay at a third-party site or app. This endpoint is used for experiences that support these payment types:
+- iDeal
+- Sofort and/or Alipay
+- Tenpay
+- UnionPay
+
+For WeChat payment, see the [Request WeChat Deferred Payment](#request-wechat-deferred-payment) endpoint.
 
 In the request body, your experience will need to pass the `approvalId` returned from [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-post){:target="new-tab"} and your experience's `returnURL` that the third-party vendor will redirect the consumer to after making payment at their site.
 
@@ -1068,6 +1113,190 @@ When consumers pay by WeChat in a mobile phone web browser, your experience will
 In-App payment refers to a mobile-based payment in which the Vendor calls the WeChat payment module by using the open SDK integrated in their mobile-based app to pay for transactions.
 
 After consumer chooses to pay with wechat, experience calls WeChat deferred payment to get values. Calls JS API using those values to open WeChat App. User pays. WeChat sends callback to notify experience of payment. Experience loads order confirmation page.
+
+## Korea Payment
+
+<i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Start and Save a Fiserv Billing Key Registration](#step-1-initiate-a-ready-payment-request)
+
+<i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Ready a payment for vendor authentication](#step-2-ready-a-payment-for-vendor-authentication)
+
+<i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Get the Ready Payment job result](#step-3-get-the-ready-payment-job-result)
+
+<i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Call Vendor UI for authentication and payment information](#step-4-call-vendor-ui-for-authentication-and-payment-information)
+
+#### Step 1: Register a Bill Key
+
+Ready a payment for vendor authentication
+
+For registered consumers who choose to pay by Fiserv credit card, your experience must first check if the consumer has saved the credit card as a stored payment. See [Start and Save a Fiserv Billing Key Registration](#start-and-save-a-fiserv-billing-key-registration) in **Storing Payment** for more information. 
+
+If the customer is paying with a stored payment Fiserv credit card, you can skip the rest of this section and proceed to [Payment Preview](#payment-preview) where you will pass the stored payment `paymentId`.
+
+#### Step 2: Ready a payment for vendor authentication
+If the consumer is not paying with a stored payment credit card, you need to initiate a session with the vendor site for all Korea payment types including credit cards. This step gathers information needed by the vendor when the consumer visits their site to authenticate and provide payment details during the checkout flow. Do this by calling [Request Ready Payment](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-put){:target="new-tab"} once the consumer has selected the Korea payment method in your experience. 
+
+The supported Korea Payment types are:
+
+- [KakaoPay](#kakaopay-web)
+- [Naver Pay](#naverpay)
+- [Credit card](#fiserve)
+- [PayCo](#fiserve)
+- [Bank transfer](#fiserve)
+
+Pass `paymentType`, `checkoutId`, `returnURL`, `cancelURL`, `failURL` and order details such as shipping and billing information in the **Ready Payment** request. The vendor uses the `returnURL` to redirect the consumer after successful authentication and gathering of payment information, the `cancelURL` if the consumer cancels the action, and the `failURL` in case of an error.
+
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+
+Listed below is a sample [Request Ready Payment](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-put){:target="new-tab"}{:target="new-tab"} POST request URI. This endpoint is asynchronous.
+
+```
+https://api.nike.com/payment/ready_payment/v1
+```
+
+##### Response Body
+The successful 202 response contains the UUID job `id` used to retrieve the job results in **Step 3** and the job status with a `resourceType` value of `payment/ready_payment`.
+
+A response in the PENDING or IN_PROGRESS status includes a link to the job (including the UUID job id) and a status polling ETA. 
+
+A response in COMPLETED status also includes the response object containing the job results. 
+
+#### Step 3: Get the Ready Payment job result
+
+Use the [Retrieve Ready Payment Job](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-get){:target="new-tab"} endpoint to check the status of the [Request Ready Payment](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-put){:target="new-tab"}. After receiving a HTTP 202 and waiting the duration of the ETA time, call this endpoint using the same UUID job `id` to check the status of your job. If the status is not COMPLETED, continue the cycle of waiting the ETA period and checking the job status.
+
+To know if the job is done, check the value of the status field in the response body as follows:
+
+- "status": "PENDING": job processing has not started
+- "status": "IN_PROGRESS": job processing in progress
+- "status": "COMPLETED": job has completed
+
+Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
+
+>**TIPS:**
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- Get the {id} path parameter from the `id` job UUID in the Retrieve Ready Payment Job response.
+
+Listed below is a sample [Retrieve Ready Payment Job](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-get){:target="new-tab"} GET request URI with 621827cc-82b4-408b-9e63-7292795fa233 as the `id` path parameter.
+
+```
+https://api.nike.com/payment/ready_payment_jobs/v1/621827cc-82b4-408b-9e63-7292795fa233
+```
+
+##### Response Body
+
+Depending upon the `paymentType`, a successful 200 response includes a `fields` object containing an array of name/value pairs and may include the payment vendor `url`. Your experience passes the fields as query parameters in the vendor's `url` so the consumer can authenticate at the vendor's site, explained in the next step.
+
+- **All Fiserv payments**: The response also contains an encrypted `signature` that your experience passes in the `paymentData` field to [Payment Preview](#payment-preview).
+- **Fiserv credit card payments**: The response contains a hash number that you will pass in [Step 4](#step-4-call-vendor-ui-for-authentication-and-payment-information).
+- **Naver Pay payments**: Use the values in the `fields` object in the response and pass them to the vendor's script loaded in your UX. Note that vendor `url` is not returned in the Naver Pay response.
+
+#### Step 4: Call Vendor UI for authentication and payment information
+
+After initiating a session with the vendor site in [Step 2](#step-2-ready-a-payment-for-vendor-authentication) and gathering the job results in [Step 3](#step-3-get-the-ready-payment-job-result), it's time for the consumer to authenticate with the payment vendor and provide their payment information. The consumer's experience depends upon on the `paymentType` they select.
+
+##### KakaoPay Web <a id="kakaopay-web">
+
+After you receive the KakaoPay `url` and `fields` from [Step 3](#step-3-get-the-ready-payment-job-result), your web experience opens the KakaoPay `url` passing the name/value pairs from the `fields` object as query parameters, including the unique KakaoPay transaction ID (TID). KakaoPay uses the TID to link transactions together such as approvals and cancellations.
+
+KakaoPay authentication flow:
+- Your experience loads the KakaoPay payment request page in a layer or popup appending the name/value pairs in the `fields` object as query parameters
+- On the KakaoPay payment request page, the consumer either scans the QR code on the web browser from their phone or sends themselves a payment message through the KakaoTalk App
+- In the KakaoTalk app, the consumer selects the payment method and completes authentication
+- Once authentication is complete, the KakaoPay payment request page redirects to one of three urls:
+  - **Success**: If payment is successful, KakaoPay redirects the consumer to the `returnURL` you provided in **Step 2**, appending the authorization `pg_token` as a query parameter. This token is required for payment approval. 
+  - **Cancel**: If the consumer decides to cancel during authentication, KakaoPay redirects the user to the `cancelURL` you provided in **Step 2**
+  - **Fail**: If payment is not completed within 15 minutes of calling [initiating a ready payment request](#step-2-ready-a-payment-for-vendor-authentication), KakaoPay redirects the consumer to the `failURL` you provided in **Step 2** and the transaction is cancelled
+- Your experience calls [payment preview](#payment-preview) passing the KakaoPay `pg_token` in the `authorizationToken` field. 
+- Nike checkout flow continues normally, including authorizing the KakaoPay payment through Checkouts
+- Once the consumer completes Nike checkout, the consumer receives a confirmation push notification and email from KakaoPay as well as an order confirmation email from Nike
+
+>**TIP**: Scroll to the bottom of the [KakaoPay Integration Confluence page](https://confluence.nike.com/display/PHYLON/KakaoPay+integration){:target="new-tab"} to view the KakaoPay Developer guide for more information.
+
+##### KakaoPay Mobile<a id="kakaopay-mobile">
+
+Similar to the  [KakaoPay Web](#kakaopay-web) flow, your mobile app displays the `url` from [Step 3](#step-3-get-the-ready-payment-job-result) in a webview. 
+
+This opens the KakaoTalk mobile app where the consumer selects the payment method and completes authentication on the KakaoTalk payment page.
+
+From here, the experience is identical to the [KakaoPay Web](#kakaopay-web) flow.
+
+##### Naver Pay<a id="naverpay">
+
+Naver Pay provides a simple version of their script to both display the Naver Pay button in your experience and load their payment form UI, which uses the standard Naver Pay button. You can create your own button using the custom version of the script. 
+
+>**Note**: Naver Pay does not allow loading their payment form in an iFrame for security reasons.
+
+Your experience can open the Naver Pay payment form by these **Open Type** methods. If you do not want to open the form by the default method, use the **custom** version of the script:
+
+|Open Type|Web|Mobile<a id="opentype">|
+|---|---|---|
+|`layer`|X (default)||
+|`page`|X|X (default)|
+|`popup`|X|X|
+
+An example of how to load the **simple** Naver Pay script is displayed below:
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body><!--// mode : development or production-->
+<!--// data-chain-id : For group type, enter the chainIdvalue.-->
+<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"
+  data-client-id="{#_clientId}"data-mode="{#_mode}"
+  data-merchant-user-key="{#_merchantUserKey}"
+  data-merchant-pay-key="{#_merchantPayKey}"
+  data-product-name="{#_productName}"
+  data-total-pay-amount="{#_totalPayAmount}"
+  data-tax-scope-amount="{#_taxScopeAmount}"data-tax-ex-scope-amount="{#_taxExScopeAmount}"
+  data-return-url="{#_returnUrl}">
+</script>
+</body>
+</html>
+```
+
+An example of how to load the **custom** Naver Pay script is displayed below:
+```
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<input type="button" id="naverPayBtn" value="NAVER Pay button">
+<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
+<script>var oPay = Naver.Pay.create({ // See the SDK parameters."mode" : "{#_mode}","clientId": "{#_clientId}"//"chainId" : "{For grouptype, enter the chainId value.}"});// Assign a click event on the custom NAVER Pay button.var elNaverPayBtn = document.getElementById("naverPayBtn");elNaverPayBtn.addEventListener("click", function(){oPay.open({ // See the Pay Reserve parameters."merchantUserKey": "{#_merchantUserKey}","merchantPayKey": "{#_merchantPayKey}","productName": "{#_productName}","totalPayAmount": {#_totalPayAmount},"taxScopeAmount": {#_taxScopeAmount},"taxExScopeAmount": {#_taxExScopeAmount},"returnUrl": "{#_returnUrl}"});});</script>
+</body>
+</html
+```
+
+Naver Pay authentication flow: 
+- Naver Pay script displays the Naver Pay payment form in the [Open Type](#opentype) your experience defined so the consumer can authenticate with Naver Pay 
+- In the Naver Pay payment form, the consumer logs in, selects escrow or pay with card, and agrees to share their payment information with nike.com
+- When Naver Pay requires self-verification, the consumer enters their birthday and phone number 
+  - Naver Pay system calls the consumer's phone number with a verification code 
+  - Consumer enters the verification code in the Naver Pay UI 
+- Once authentication is complete, Naver Pay redirects the consumer to the `redirectURL` passed in **Step 2** with the Naver Pay-generated `PaymentId` and `resultCode` (`Success` or `Fail`) query parameters appended
+- Your experience calls [Payment Preview](#payment-preview), passing the Naver Pay `PaymentId` in the `authorizationToken` field
+- Nike checkout flow continues normally, including authorizing the Naver Pay payment through Checkouts
+- Once the consumer completes Nike checkout, the Consumer receives a confirmation push notification and email from Naver Pay as well as an order confirmation email from Nike
+
+>**TIP**: Scroll to the bottom of the [Naver Pay Integration Confluence page](https://confluence.nike.com/display/PHYLON/Naver+Pay+Integration){:target="new-tab"} to view the Naver Pay Integration guide for more information.
+
+##### Credit Card, Payco, and Bank Transfer <a id="fiserve">
+
+These three payment methods go through the Fiserv Korea Payment Gateway and have identical consumer flows. Fiserv offers a hosted payment page that your UX experience loads from the Checkout Payment page.
+
+Fiserv authentication flow:
+- Your experience redirects to the Fiserv `url` from [Step 3](#step-3-get-the-ready-payment-job-result), passing the name/value pairs from the `fields` object
+- On the Fiserv site, the consumer selects the payment method and completes authentication
+  - If paying by credit card, the consumer provides their credit card information
+  - If paying by PayCo, Fiserve redirects the consumer to complete authentication at the PayCo site
+- Once authentication is complete, Fiserv redirects the consumer to the `returnURL` you provided in [Step 2](#step-2-ready-a-payment-for-vendor-authentication), appending the authorization `FDTid` as a query parameter. This token is required for payment approval.
+- Your experience calls [payment preview](#payment-preview) passing the Fiserv `FDTid` in the `authorizationToken` field
+- Nike checkout flow continues normally, including authorizing the Fiserv payment through Checkouts
+
+>**TIP**: Scroll to the bottom of the [Fiserv Credit Card Integration Confluence page](https://confluence.nike.com/display/PHYLON/Credit+card+integration){:target="new-tab"} to view the Fiserv UI Integration guide for more information.
 
 ## Payment Preview
 
@@ -1825,6 +2054,8 @@ v3:
 - [Delete Stored Payment by ID](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}
 - [Validate Stored Payment Credit Card CVV](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}
 - [Start a PayPal Billing Agreement](https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api){:target="new-tab"}
+- [Start a FiServ Billkey Registration V1](https://developer.niketech.com/docs/projects/Stored%20Payments?tab=api#start-a-fiserv-billkey-registration){:target="new-tab"}
+- [Save a FiServ Billkey Registration  V1](https://developer.niketech.com/docs/projects/Stored%20Payments?tab=api#start-a-fiserv-billkey-registration-v1-post-1){:target="new-tab"}
 
 **Payment Wallet**
 
@@ -1845,6 +2076,11 @@ v3:
 - [Retrieve PayPal Express Job](https://developer.niketech.com/docs/projects/Payment%20Wallet%20V2%20(Source%20Aware)?tab=api){:target="new-tab"}
 - [Request PayPal Mark](https://developer.niketech.com/docs/projects/Payment%20Wallet%20V2%20(Source%20Aware)?tab=api){:target="new-tab"}
 - [Retrieve PayPal Mark Job](https://developer.niketech.com/docs/projects/Payment%20Wallet%20V2%20(Source%20Aware)?tab=api){:target="new-tab"}
+
+**Korea Payment**
+
+- [Ready Payment](https://developer.niketech.com/docs/projects/payment_korea_read_payment_v1_api?tab=api#ready-payment-post){:target="new-tab"}
+- [Retrieve Ready Payment Job](https://developer.niketech.com/docs/projects/payment_korea_read_payment_v1_api?tab=api#ready-payment-get){:target="new-tab"}
 
 ## Caching Data
 
@@ -1973,14 +2209,15 @@ Need to contact the Payment team?
 
 |Date|Summary|
 |---|---|
-|01/08/2018|Initial publish|
+|1/8/2018|Initial publish|
 |11/26/2018|Added Payment Gateway detail|
-|02/21/2018|Restructured for use cases|
-|07/18/2019|Added Key Terms section|
+|2/21/2018|Restructured for use cases|
+|7/18/2019|Added Key Terms section|
 |10/21/2019|Added voucher, gift certificate, and CyberSource report to Fulfillment section|
 |11/14/2019|Added 3-D Secure Authentication section|
-|05/07/2020|Added Source-Aware endpoints for Options, Wallet, Preview, Approval|
+|5/7/2020|Added Source-Aware endpoints for Options, Wallet, Preview, Approval|
 |10/19/2021|Added SMS support and third-party payment gateway (Adyen)|
+|3/8/2022|Added Korea payment|
 
 ## Next Steps
 
