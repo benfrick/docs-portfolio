@@ -130,10 +130,11 @@ The `fulfillmentType`, `getBy` and `maxDate` values you send in the request may 
 |DOMS|A Distributed Order Management System, also known as Sterling, that handles order fulfillment|
 |ESB|Enterprise Service Bus, similar to PAC but used to communicate with Nike's non-commerce systems|
 |PAC|Messaging system used by DOMS to communicate with other Nike commerce systems|
-|Strong Customer Authentication|Process where consumers provide something they have (e.g. device fingerprint) and/or know (e.g. password) in order to be authenticated.|
 |[PCI-DSS](https://www.pcisecuritystandards.org/pci_security/){:target="new-tab"}|Payment Card Industry Data Security Standard provides secure standards for handling credit card data. All Nike CiC payment services are PCI-DSS compliant.|
 |Reauthorization|When a temporary hold on funds in a consumer's account is reissued, typically when the original authorization has expired|
+|Ready Payment|All non-stored Korea payments must go through the [Ready Payment](#korea-payment) process to gather  information needed by a payment vendor when consumers go to the vendor's site to authenticate|
 |S3|Amazon Simple Storage Service used to store and retrieve data such as files|
+|Strong Customer Authentication|Process where consumers provide something they have (e.g. device fingerprint) and/or know (e.g. password) in order to be authenticated.|
 |Void (of payment)|Reverses a successful payment authorization, also known as an authorization reversal|
 
 ### Supported Stored Payment Types
@@ -1117,7 +1118,7 @@ After consumer chooses to pay with wechat, experience calls WeChat deferred paym
 
 <i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Start and Save a Fiserv Billing Key Registration](#step-1-initiate-a-ready-payment-request)
 
-<i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Initiate a Ready Payment request](#step-2-initiate-a-ready-payment-request)
+<i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Ready a payment for vendor authentication](#step-2-ready-a-payment-for-vendor-authentication)
 
 <i class="mr2-sm g72-check"></i>&nbsp;&nbsp;[Get the Ready Payment job result](#step-3-get-the-ready-payment-job-result)
 
@@ -1125,12 +1126,14 @@ After consumer chooses to pay with wechat, experience calls WeChat deferred paym
 
 #### Step 1: Register a Bill Key
 
+Ready a payment for vendor authentication
+
 For registered consumers who choose to pay by Fiserv credit card, your experience must first check if the consumer has saved the credit card as a stored payment. See [Start and Save a Fiserv Billing Key Registration](#start-and-save-a-fiserv-billing-key-registration) in **Storing Payment** for more information. 
 
 If the customer is paying with a stored payment Fiserv credit card, you can skip the rest of this section and proceed to [Payment Preview](#payment-preview) where you will pass the stored payment `paymentId`.
 
-#### Step 2: Initiate a Ready Payment request
-If the consumer is not paying with a stored payment credit card, you need to initiate a session with the vendor site for all Korea payment types including credit cards. Do this by calling [Request Ready Payment](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-put){:target="new-tab"} once the consumer has selected the Korea payment method in your experience. 
+#### Step 2: Ready a payment for vendor authentication
+If the consumer is not paying with a stored payment credit card, you need to initiate a session with the vendor site for all Korea payment types including credit cards. This step gathers information needed by the vendor when the consumer visits their site to authenticate and provide payment details during the checkout flow. Do this by calling [Request Ready Payment](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-put){:target="new-tab"} once the consumer has selected the Korea payment method in your experience. 
 
 The supported Korea Payment types are:
 
@@ -1189,20 +1192,20 @@ Depending upon the `paymentType`, a successful 200 response includes a `fields` 
 
 #### Step 4: Call Vendor UI for authentication and payment information
 
-After initiating a session with the vendor site in [Step 2](#step-2-initiate-a-ready-payment-request) and gathering the job results in [Step 3](#step-3-get-the-ready-payment-job-result), it's time for the consumer to authenticate with the payment vendor and provide their payment information. The consumer's experience depends upon on the `paymentType` they select.
+After initiating a session with the vendor site in [Step 2](#step-2-ready-a-payment-for-vendor-authentication) and gathering the job results in [Step 3](#step-3-get-the-ready-payment-job-result), it's time for the consumer to authenticate with the payment vendor and provide their payment information. The consumer's experience depends upon on the `paymentType` they select.
 
 ##### KakaoPay Web <a id="kakaopay-web">
 
 After you receive the KakaoPay `url` and `fields` from [Step 3](#step-3-get-the-ready-payment-job-result), your web experience opens the KakaoPay `url` passing the name/value pairs from the `fields` object as query parameters, including the unique KakaoPay transaction ID (TID). KakaoPay uses the TID to link transactions together such as approvals and cancellations.
 
-This is the KakaoPay authentication flow when the consumer chooses to pay with KakaoPay in your experience:
+KakaoPay authentication flow:
 - Your experience loads the KakaoPay payment request page in a layer or popup appending the name/value pairs in the `fields` object as query parameters
 - On the KakaoPay payment request page, the consumer either scans the QR code on the web browser from their phone or sends themselves a payment message through the KakaoTalk App
 - In the KakaoTalk app, the consumer selects the payment method and completes authentication
 - Once authentication is complete, the KakaoPay payment request page redirects to one of three urls:
   - **Success**: If payment is successful, KakaoPay redirects the consumer to the `returnURL` you provided in **Step 2**, appending the authorization `pg_token` as a query parameter. This token is required for payment approval. 
   - **Cancel**: If the consumer decides to cancel during authentication, KakaoPay redirects the user to the `cancelURL` you provided in **Step 2**
-  - **Fail**: If payment is not completed within 15 minutes of calling [initiating a ready payment request](#step-2-initiate-a-ready-payment-request), KakaoPay redirects the consumer to the `failURL` you provided in **Step 2** and the transaction is cancelled
+  - **Fail**: If payment is not completed within 15 minutes of calling [initiating a ready payment request](#step-2-ready-a-payment-for-vendor-authentication), KakaoPay redirects the consumer to the `failURL` you provided in **Step 2** and the transaction is cancelled
 - Your experience calls [payment preview](#payment-preview) passing the KakaoPay `pg_token` in the `authorizationToken` field. 
 - Nike checkout flow continues normally, including authorizing the KakaoPay payment through Checkouts
 - Once the consumer completes Nike checkout, the consumer receives a confirmation push notification and email from KakaoPay as well as an order confirmation email from Nike
@@ -1219,7 +1222,7 @@ From here, the experience is identical to the [KakaoPay Web](#kakaopay-web) flow
 
 ##### Naver Pay<a id="naverpay">
 
-Naver Pay provides a Simple version of their script to both display the Naver Pay button in your experience and load their payment form UI, which uses the standard Naver Pay button. You can create your own button using the Custom version of the script. 
+Naver Pay provides a simple version of their script to both display the Naver Pay button in your experience and load their payment form UI, which uses the standard Naver Pay button. You can create your own button using the custom version of the script. 
 
 >**Note**: Naver Pay does not allow loading their payment form in an iFrame for security reasons.
 
@@ -1267,7 +1270,7 @@ An example of how to load the **custom** Naver Pay script is displayed below:
 </html
 ```
 
-This is the Naver Pay authentication flow when the consumer chooses to pay with Naver Pay in your experience: 
+Naver Pay authentication flow: 
 - Naver Pay script displays the Naver Pay payment form in the [Open Type](#opentype) your experience defined so the consumer can authenticate with Naver Pay 
 - In the Naver Pay payment form, the consumer logs in, selects escrow or pay with card, and agrees to share their payment information with nike.com
 - When Naver Pay requires self-verification, the consumer enters their birthday and phone number 
@@ -1284,12 +1287,12 @@ This is the Naver Pay authentication flow when the consumer chooses to pay with 
 
 These three payment methods go through the Fiserv Korea Payment Gateway and have identical consumer flows. Fiserv offers a hosted payment page that your UX experience loads from the Checkout Payment page.
 
-This is the Fiserv authentication flow when the consumer selects paying by credit card, bank transfer, or PayCo in your experience:
+Fiserv authentication flow:
 - Your experience redirects to the Fiserv `url` from [Step 3](#step-3-get-the-ready-payment-job-result), passing the name/value pairs from the `fields` object
 - On the Fiserv site, the consumer selects the payment method and completes authentication
   - If paying by credit card, the consumer provides their credit card information
   - If paying by PayCo, Fiserve redirects the consumer to complete authentication at the PayCo site
-- Once authentication is complete, Fiserv redirects the consumer to the `returnURL` you provided in [Step 2](#step-2-initiate-a-ready-payment-request), appending the authorization `FDTid` as a query parameter. This token is required for payment approval.
+- Once authentication is complete, Fiserv redirects the consumer to the `returnURL` you provided in [Step 2](#step-2-ready-a-payment-for-vendor-authentication), appending the authorization `FDTid` as a query parameter. This token is required for payment approval.
 - Your experience calls [payment preview](#payment-preview) passing the Fiserv `FDTid` in the `authorizationToken` field
 - Nike checkout flow continues normally, including authorizing the Fiserv payment through Checkouts
 
