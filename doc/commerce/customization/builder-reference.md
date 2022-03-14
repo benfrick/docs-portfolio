@@ -224,7 +224,7 @@ At minimum, the `pathName` and `nike-api-caller-id` properties are required in o
 ###### Table 1:  Required Build Properties
 
 |`pathName`|String|The product pathName for the requested build.|
-|`nike-api-caller-id`|String|A platform-unique key (<<domain name>>:<<appid>>) that identifies the API caller to customization services. See [Architecture Standards](https://github.nike.com/ea-governance/ea-standards/blob/master/api-standards/api-standards-main/API_Standards.md#identifying-a-calling-client) for more.|
+|`nike-api-caller-id`|String|A platform-unique key (<<domain name>>:<<appid>>) that identifies the API caller to customization services. See [Architecture Standards](https://cuddly-sniffle-c799ad24.pages.github.io/api-standards/#identifying-a-calling-client) for more.|
 
 ##### Getting a `nike-api-caller-id`
 
