@@ -274,7 +274,7 @@ Query parameters can be added to the end of the URI to **allow you to be more sp
 - Multiple query parameters can be chained together with ampersands like `?marketplace=US&marketplace=EU`.
 - The available query parameters vary per Nike API. Check the Developer Guide for the API in question to confirm the query parameter requirements.
 
->**TIP:** See also [API Standards](https://confluence.nike.com/display/NEA/API+Standards){:target="new-tab"} for more info on using query parameters with Nike APIs.
+>**TIP:** See also [API Standards](https://confluence.nike.com/display/AGS/API+Standards){:target="new-tab"} for more info on using query parameters with Nike APIs.
 
 #### Common Query Parameters
 
@@ -679,7 +679,7 @@ As Nike APIs are enhanced over time to add new features and fix bugs, the versio
 
 - When moving to a new, major version of an API (e.g. a change from synchronous to asynchronous operation), expect to make some changes to your app to ensure compatibility with the new version.
 
->**TIP:** For more details about the versioning of Nike APIs, see the [API Versioning Strategy](https://confluence.nike.com/display/NEA/API+Standards){:target="new-tab"} document.
+>**TIP:** For more details about the versioning of Nike APIs, see the [API Versioning Strategy](https://confluence.nike.com/display/AGS/API+Standards){:target="new-tab"} document.
 
 ## Caching
 

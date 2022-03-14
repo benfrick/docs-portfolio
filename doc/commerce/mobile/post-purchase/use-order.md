@@ -268,7 +268,7 @@ Listed below are some best practices for working with the Post Purchase API.
 
 ### Conditions for Retries
 
-The general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/NEA/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
+The general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
 
 ### Testing
 

@@ -12,5 +12,5 @@ Choose a template and get started writing!
 - [Team Info]({{ "/doc/templates/team-info.html" | absolute_url }})  
 
 >**TIPS**:
-> - See the [Knowledge Base Demo Site](https://pages.github.nike.com/nike-tech-docs/blueprint-demo/index.html) for more templates.
+> - See the [Knowledge Base Demo Site](https://effective-guide-170af2f4.pages.github.io/) for more templates.
 > - Template links are also found in the navigation sidebar.
