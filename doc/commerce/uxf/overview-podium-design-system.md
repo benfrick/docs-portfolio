@@ -45,14 +45,14 @@ You can find the PDS component library with cut-and-paste code examples (includi
 
 Visit the [NDS Component Demos](https://nike-design-system.s3.amazonaws.com/demos/production/latest/index.html){:target="new-tab"} site to see how the NDS library can be used to create feature-rich functionality such as product carousels, modals, dropdowns and form validation.
 
-Interested in contributing to PDS? See the [InnerSource How to Contribute](hhttps://confluence.nike.com/display/TG/CoreUX+-+InnerSource+How+to+contribute+to+the+Nike+Design+System%3A+Squad+Supports+Contributions){:target="new-tab"} page in Confluence for details.
+Interested in contributing to PDS? See the [InnerSource How to Contribute](https://confluence.nike.com/display/TG/CoreUX+-+InnerSource+How+to+contribute+to+the+Nike+Design+System%3A+Squad+Supports+Contributions){:target="new-tab"} page in Confluence for details.
 
 #### Contacting the Podium Design team:
 
 |---|---|
-|Slack|[#podium_design_system](https://nikedigital.slack.com/archives/CK1A5TXQA)|
+|Slack|[#podium_design_system](slack://channel?team=T0G3T5X2B&id=CK1A5TXQA)|
 |Confluence Space|[Podium Design System](https://confluence.nike.com/display/PDS/Podium+Design+System){:target="new-tab"}
-|Product Owner|[gayla.hilton@nike.com](mailto:gayla.hilton@nike.com){:target="new-tab"}|
+|Product Owner|[gayla.hilton@nike.com](mailto:gayla.hilton@nike.com)|
 
 ### Connect
 
