@@ -1,6 +1,7 @@
 ---
 id: overview-podium
 category: a-overview
+tags: pdf
 position: 11
 title: Podium Design System
 url: /commerce/uxf/overview-podium-design-system.html
@@ -41,11 +42,10 @@ export default function HomePage() {
 
 ## Where can I find out more?
 
-You can find the PDS component library with cut-and-paste code examples (including Beta) in the [Nike Design System Storybook](https://nike-design-system.s3.amazonaws.com/storybook/production/latest/index.html?path=/story/intro-getting-started--page){:target="new-tab"}. This comprehensive guide also covers the design token library, icon library, v0 to v1 migration, and how to profile React components.
-
-Visit the [NDS Component Demos](https://nike-design-system.s3.amazonaws.com/demos/production/latest/index.html){:target="new-tab"} site to see how the NDS library can be used to create feature-rich functionality such as product carousels, modals, dropdowns and form validation.
-
-Interested in contributing to PDS? See the [InnerSource How to Contribute](https://confluence.nike.com/display/TG/CoreUX+-+InnerSource+How+to+contribute+to+the+Nike+Design+System%3A+Squad+Supports+Contributions){:target="new-tab"} page in Confluence for details.
+|---|---|
+|[Storybook](https://nike-design-system.s3.amazonaws.com/storybook/production/latest/index.html?path=/story/intro-getting-started--page){:target="new-tab"}|Storybook is a detailed guide to using the PDS component library with cut-and-paste code examples (including Beta). It also covers the design token library, icon library, v0 to v1 migration, hooks, and how to profile React components.|
+|[Component Demos](https://nike-design-system.s3.amazonaws.com/demos/production/latest/index.html){:target="new-tab"}|Experience how the PDS component library can be used to create feature-rich functionality such as product carousels, modals, dropdowns and form validation on this live demo site.|
+|[Contributing](https://confluence.nike.com/display/TG/CoreUX+-+InnerSource+How+to+contribute+to+the+Nike+Design+System%3A+Squad+Supports+Contributions){:target="new-tab"}|Interested in contributing to PDS? Get the details on our InnerSource model in Confluence.|
 
 #### Contacting the Podium Design team:
 
