@@ -42,6 +42,10 @@ The following table describes ALL types of content available, who the target aud
 |Reference Guide|Reference information that is relevant to API integration|Developers|[Circuit Breaker Best Practices](/doc/commerce/reference/caller-best-practices.html)|
 |Templates|Templates for writing your own docs|Developers, Product Managers|[JSON API Contract](/doc/templates/json-api.html)|
 
+## Contribute
+
+If you are looking for more general information about this site including how to contribute to the docs, you can find more details in our [GitHub](https://github.com/nike-internal/techdocs.site) project.
+
 ## Related Links
 
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
