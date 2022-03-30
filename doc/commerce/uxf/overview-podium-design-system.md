@@ -22,7 +22,7 @@ Nike's Podium Consumer provides a scalable, flexible and responsive toolset that
 **Podium Consumer icons** are available as React components through the @nike/nike-design-system-icons library. You can find a complete list of icons in both [Figma](https://www.figma.com/file/WHGv51Q14Zeq8XZ3Y6UIT3/Podium-DS-Icon-Library?node-id=0%3A25){:target="new-tab"} and the [Podium Consumer Storybook](https://nike-design-system.s3.amazonaws.com/storybook/production/latest/index.html?path=/story/icons-nike-design-system-icons--all-icons){:target="new-tab"}. If you can not find the icon you need, [request a new icon](https://www.figma.com/file/ry0cSgMD99gA9B3WXNWVvo/Podium-DS-Icon-Creation-Form?node-id=2%3A244).
 
 ## Can Podium Consumer be used with Web Shell?
-Yes! The Podium Consumer component and design token libraries are automatically accessible in [Web Shell](https://super-bassoon-778bf849.pages.github.io/){:target="new-tab"} with no special configuration necessary. You need to configure the icon library manually in order to use it in Web Shell projects.
+Yes! The Podium Consumer component and design token libraries are automatically accessible in [Web Shell](https://super-bassoon-778bf849.pages.github.io/){:target="new-tab"} with no special configuration necessary. In order to use the icon library in your Web Shell project, you need add `@nike/nike-design-system-icons` to your Web Shell project manually.
 
 The code script below sets the Podium Consumer button component using the design token `borderRadius` with a border width of value `buttonBorderRadiusS`.
 
