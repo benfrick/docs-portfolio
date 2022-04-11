@@ -11,13 +11,15 @@ url: /commerce/uxf/overview-podium-design-system.html
 
 ---
 
+![Carousel Component](../../../images/uxf/carousel.png){:width="100%"}
+
 ## What is it?
 
-Nike's Podium Consumer provides a scalable, flexible and responsive toolset that is used to standardize the look, feel and functionality of UI elements across Nike experiences. Podium Consumer achieves this by offering a comprehensive set of system (UI) components, design tokens and icons. It is recommended that all Nike commerce web and mobile experiences adopt Podium Consumer.
+Nike's Podium Consumer provides a scalable, flexible and responsive toolset that is used to standardize the look, feel and functionality of UI elements across Nike experiences. Podium Consumer achieves this by offering a comprehensive set of system (UI) components, design tokens and icons. It is recommended that all Nike commerce desktop and mobile web experiences adopt Podium Consumer.
 
-**Podium Consumer components** can use one or more design tokens to create simple or complex UI elements such as carousels, buttons and images. Components contain several configurable properties that represent HTML attributes.
+**Podium Consumer components** are used to create simple or complex UI elements such as carousels, buttons and images. Components may contain one or more configurable `props` that represent HTML attributes.
 
-**Podium Consumer design tokens** represent style values. For example, the web color token named `colorContentPrimary` represents the hex color value `#111111`. They are used by design system components behind the scenes, but you can also use design tokens directly.
+**Podium Consumer design tokens** represent style values. For example, the web color token named `colorContentPrimary` represents the hex color value `#111111`. Design tokens are used by components behind-the-scenes, but you can also use them directly to override and customize style components.
 
 **Podium Consumer icons** are available as React components through the @nike/nike-design-system-icons library. You can find a complete list of icons in both [Figma](https://www.figma.com/file/WHGv51Q14Zeq8XZ3Y6UIT3/Podium-DS-Icon-Library?node-id=0%3A25){:target="new-tab"} and the [Podium Consumer Storybook](https://nike-design-system.s3.amazonaws.com/storybook/production/latest/index.html?path=/story/icons-nike-design-system-icons--all-icons){:target="new-tab"}. If you can not find the icon you need, [request a new icon](https://www.figma.com/file/ry0cSgMD99gA9B3WXNWVvo/Podium-DS-Icon-Creation-Form?node-id=2%3A244).
 
