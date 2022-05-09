@@ -285,7 +285,7 @@ You can also get product pricing, sales tax, fulfillment fees and tax,
 
 SMS Checkout Preview allows both Nike members and guests
 to purchase Nike products using a mobile phone number instead of an email address.
-If the consumer is purchasing using an email address, you can skip this section.
+If the consumer is purchasing with an email address, you can skip this section.
 
 >**Note**: SMS checkout is currently available in China only
 
@@ -428,7 +428,7 @@ and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/che
 
 SMS Checkout Submit allows both Nike members and guests
 to purchase Nike products using a mobile phone number instead of an email address.
-If the consumer is purchasing using an email address, you can skip this section.
+If the consumer is purchasing with an email address, you can skip this section.
 
 >**Note**: SMS checkout is currently available in China only
 
@@ -561,7 +561,7 @@ see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?space
 ### Honor the ETAs for Best Performance
 
 For async endpoints that return an ETA, i.e. the estimated time for the job to be completed,
-it is important for your app to honor the ETA for best performance.
+it is important for your app to honor the ETA for the best performance.
 For example, if the ETA is 2000ms,
 your app should wait 2000ms
 to start polling the /jobs endpoint to avoid consuming network and other resources unnecessarily.
@@ -664,7 +664,7 @@ Most calls through the Nike API gateway (api.nike.com) require an access token b
 This allows Nike to verify that your app is authorized to perform the action on behalf of the consumer.
 Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
 
-See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide for more
+See the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide for more
 on how to call Unite services.
 
 #### JSON Web Token

@@ -92,15 +92,15 @@ The APIs required for the two fulfillment flows are listed below.
 </ul>
 </aside>
 
-- [Supported Countries](/doc/commerce/reference/global.html) Refer to this guide for the list of supported country code, language, and currency code combinations.
-- [Wishlist:](/doc/commerce/checkout/use-wishlists.html) Learn how to add Wishlist to your shopping experience.
-- [Carts:](/doc/commerce/checkout/use-carts.html) Learn how to manage a Cart as part of your checkout flow.
-- [Fulfillment Offerings:](/doc/commerce/checkout/use-fulfillment-offerings.html) Enable your consumers to choose how and when to get Nike product.
-- [Checkout:](/doc/commerce/checkout/use-checkout.html) Learn how to manage a Checkout as part of your shopping flow.
-- [Payment:](/doc/commerce/payment/use-payment.html) Learn how to collect payment as part of your checkout flow.
-- [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
-- [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
-- [Product Life Cycle:](/doc/commerce/reference/product-lifecycle.html) Discover how Nike products become available for purchase in an experience.
+- [Supported Countries](/doc/commerce/reference/global.html): Refer to this guide for the list of supported country code, language, and currency code combinations.
+- [Wishlist](/doc/commerce/checkout/use-wishlists.html): Learn how to add Wishlist to your shopping experience.
+- [Carts](/doc/commerce/checkout/use-carts.html): Learn how to manage a Cart as part of your checkout flow.
+- [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html): Enable your consumers to choose how and when to get Nike product.
+- [Checkout](/doc/commerce/checkout/use-checkout.html): Learn how to manage a Checkout as part of your shopping flow.
+- [Payment](/doc/commerce/payment/use-payment.html): Learn how to collect payment as part of your checkout flow.
+- [Working with Circuit Breakers](/doc/commerce/reference/caller-best-practices.html): Learn how to be a good client by following these best practices.
+- [Glossary](/doc/commerce/reference/glossary.html): Common terms explained.
+- [Product Life Cycle](/doc/commerce/reference/product-lifecycle.html): Discover how Nike products become available for purchase in an experience.
 
 #### Connect
 
