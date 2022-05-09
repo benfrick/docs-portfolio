@@ -36,7 +36,7 @@ Read this guide to learn how to add Carts to your experience.
 ### What is a Cart?
 
 In e-commerce,
-the shopping cart (also called a basket or bag)
+the shopping cart (also called a bag)
 allows consumers to collect and compare products that they are considering for purchase,
 but without requiring membership or entering any shipping and billing information.
 
