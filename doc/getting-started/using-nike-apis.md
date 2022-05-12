@@ -196,7 +196,7 @@ Example header: `nike-api-caller-id: nike:dotcom:browse.wall.client:1.0`
 
 ### Consumer JWTs
 
-This section discusses how to authorize your app or experience to call an API going through the [United Edge Router](https://confluence.nike.com/display/EDGE/Unified+Edge+Router%3A+UER){:target="new-tab"} (UER) on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the UER and require consumer login or a visitor id for anonymous visitors.
+This section discusses how to authorize your app or experience to call an API going through the [Unified Edge Router](https://confluence.nike.com/display/EDGE/Unified+Edge+Router%3A+UER){:target="new-tab"} (UER) on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the UER and require consumer login or a visitor id for anonymous visitors.
 
 #### OpenID Connect (OIDC)
 
