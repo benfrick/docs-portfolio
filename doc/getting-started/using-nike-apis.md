@@ -136,7 +136,7 @@ The security and privacy of your consumer's data is Nike's #1 concern. Whether i
 
 In addition to the guides on the [Developer Portal](https://developer.niketech.com/){:target="new-tab"}, all Nike APIs have the following documents available at the root directory of the GitHub repository:
 
-- Well-defined contract (API.md or API.yaml file) for each major version in [API Blueprint](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md){:target="new-tab"} format. Nike has a Springboot blueprint found [here](Java SpringBoot Blueprint).
+- Well-defined contract (API.md or API.yaml file) for each major version in [API Blueprint](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md){:target="new-tab"} format. Nike has a Springboot blueprint found [here](https://github.com/nike-internal/blueprint.service.java-springboot){:target="new-tab"}.
 
 - Request and response definitions in JSON Schema format within each API contract
 
@@ -293,7 +293,7 @@ Query parameters can be added to the end of the URI to **allow you to be more sp
 - Multiple query parameters can be chained together with ampersands like `?marketplace=US&marketplace=EU`.
 - The available query parameters vary per Nike API. Check the Developer Guide for the API in question to confirm the query parameter requirements.
 
->**TIP:** See also [API Standards](https://confluence.nike.com/display/AGS/API+Standards){:target="new-tab"} for more information on using query parameters with Nike APIs.
+>**TIP:** See also [API Standards](https://github.com/nike-api-governance/ea-standards){:target="new-tab"} repository for more information on using query parameters with Nike APIs.
 
 #### Common Query Parameters
 
@@ -320,7 +320,7 @@ Read about the common components of HTTP requests sent to Nike APIs. Also see th
 
 ### URI (Universal Resource Identifier)
 
-By sending a request to a Nike API, you access a resource using a particular URI ([Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier){:target="new-tab"}) comprised of a string of characters.
+By sending a request to a Nike API, you access a resource using a particular URI [Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier){:target="new-tab"} comprised of a string of characters.
 
 >**TIP**: See the [URI Patterns](#uri-patterns) section for more.
 
@@ -674,7 +674,7 @@ Some values in the response are exactly what you sent in the request, but the va
 
 ### Another Example
 
-For your next request, send a GET request to the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get) endpoint of the Carts API, using the cart `id` that you created in the previous step.
+For your next request, send a GET request to the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="new-tab"} endpoint of the Carts API, using the cart `id` that you created in the previous step.
 
 For the request headers, use the same headers you used in the previous step.
 
@@ -691,13 +691,13 @@ curl -X GET \
   -H 'content-type: application/json'
 ```
 
-The response body from the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get) endpoint is the same as [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put), so the process of parsing it is also the same.
+The response body from the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="new-tab"} endpoint is the same as [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"}, so the process of parsing it is also the same.
 
 ## Versioning
 
 As Nike APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](http://semver.org/){:target="new-tab"} guidelines. Some high-level considerations:
 
-- For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URI does not change. If you are using the [Tolerant Reader Pattern](http://servicedesignpatterns.com/WebServiceEvolution/TolerantReader){:target="new-tab"}, you can continue to use the API without having to make changes to your app.
+- For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URI does not change. If you are using the [Tolerant Reader Pattern](https://martinfowler.com/bliki/TolerantReader.html){:target="new-tab"}, you can continue to use the API without having to make changes to your app.
 
 - When moving to a new, major version of an API (e.g. a change from synchronous to asynchronous operation), expect to make some changes to your app to ensure compatibility with the new version.
 
@@ -715,7 +715,7 @@ Nike APIs take advantage of three layers of caching in order to keep service per
 
 ### Akamai Caching
 
-Nike uses the [Akamai Content Delivery Framework](https://www.akamai.com/us/en/cdn/){:target="new-tab"} as the UER caching solution for public service requests. It is utilized when the client makes a request for a Nike public resource configured to go through Akamai's Edge server.
+Nike uses the [Akamai Content Delivery Framework](https://www.akamai.com/our-thinking/cdn/what-is-a-cdn){:target="new-tab"} as the UER caching solution for public service requests. It is utilized when the client makes a request for a Nike public resource configured to go through Akamai's Edge server.
 
 Akamai caching and routing is managed though a set of configurations at Akamai. It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike's UER. Akamai operates on a set of configured rules that determine what resources can be cached, how long to cache the resource, and how to determine if the origin of the resource has an updated version (stale resource). Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time.
 
@@ -1171,7 +1171,6 @@ Be a good client by following these [Circuit Breaker Best Practices](/doc/commer
 |Updated with UER, OSCAR, OIDC|5/11/2022|
 
 ## Related Links
-
-[API Standards](https://cuddly-sniffle-c799ad24.pages.github.io/){:target="new-tab"}
+- [API Standards](https://cuddly-sniffle-c799ad24.pages.github.io/){:target="new-tab"}
 - [Glossary](/doc/commerce/reference/glossary.html)
 - [Circuit Breaker Best Practices](/doc/commerce/reference/caller-best-practices.html)
