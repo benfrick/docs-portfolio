@@ -1,5 +1,4 @@
 ---
-id: contributing
 title: Contributing
 url: /contributing.html
 ---
