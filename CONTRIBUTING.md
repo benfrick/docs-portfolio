@@ -1,4 +1,7 @@
 ---
+id: contributing
+title: Contributing
+url: /contributing.html
 ---
 # Contributing to the Docs
 
