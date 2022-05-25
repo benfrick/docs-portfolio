@@ -497,11 +497,13 @@ a .gray-nav-item {
 .close:not(:disabled):not(.disabled):hover {
     color: gray;
 }
-
 section ul li .lunrsearchresult {
     margin-left: 0px;
 }
 .btn-group-sm>.btn, .btn-sm {
     font-size: 14px;
     padding: 5px;
+}
+#overview-header nav li .lunrsearchresult {
+    line-height: 25px;
 }
