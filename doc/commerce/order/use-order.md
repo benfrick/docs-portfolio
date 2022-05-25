@@ -33,10 +33,6 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/order/use-order.html#next-steps
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 01/21/2022
 
 Retrieve a complete order history for your consumers.

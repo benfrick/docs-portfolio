@@ -18,12 +18,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/customization/builder-reference.html#next-steps
 ---
-
-{% include ref-header.html %}
-
 ##### Last Updated: 04/24/2020
-
----
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 

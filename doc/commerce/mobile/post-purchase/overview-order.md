@@ -8,10 +8,6 @@ url: /doc/commerce/mobile/post-purchase/overview-order.html
 h1: Mobile Order History Overview
 dev-guide: /doc/commerce/mobile/post-purchase/use-order.html
 ---
-{% include overview-header.html %}
-
----
-
 Mobile consumers demand the ability to track their order after purchase and stay on top of their order history without having to call Consumer Services. Luckily, that rich functionality is easy to integrate into your mobile experience with [Mobile Order History](/doc/commerce/mobile/post-purchase/use-order.html).
 
 #### Keep consumer order information right at their fingertips

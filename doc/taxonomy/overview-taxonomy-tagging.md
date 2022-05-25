@@ -6,10 +6,6 @@ position: 7
 title: TTAC
 url: /doc/taxonomy/overview-taxonomy-tagging.html
 ---
-{% include dev-header.html %}
-
----
-
 Learn how [Taxonomy Tagging for Assets and Content](https://developer.niketech.com/docs/projects/attributions?tab=api){:target="new-tab"} (TTAC) manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike consumers.
 
 ### TTAC increases conversion by driving personalized assets and content across Nike experiences.

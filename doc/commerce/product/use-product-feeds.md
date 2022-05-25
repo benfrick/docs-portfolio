@@ -29,10 +29,6 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-product-feeds.html#related-links
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 10/20/2021
 
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V3?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.

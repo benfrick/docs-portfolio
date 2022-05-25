@@ -8,10 +8,6 @@ url: /doc/commerce/customization/overview-customization.html
 h1: Customization Overview
 dev-guide: /doc/commerce/customization/use-customization.html
 ---
-{% include overview-header.html %}
-
----
-
 ### Powering the Co-Creation Generation
 
 Add product customization to your experience using the [Customization Experience Platform (CXP)](/doc/commerce/customization/use-customization.html).

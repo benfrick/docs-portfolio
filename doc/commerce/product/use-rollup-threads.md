@@ -25,10 +25,6 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-rollup-threads.html#related-links
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 07/21/2020
 
 Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.

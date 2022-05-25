@@ -6,12 +6,7 @@ position: 6
 title: Supported Countries
 url: /commerce/reference/global.html
 ---
-
-{% include ref-header.html %}
-
 ##### Last Updated: 07/26/2021
-
----
 
 This guide lists the countries, languages, and currencies supported by the NIKE APIs.
 

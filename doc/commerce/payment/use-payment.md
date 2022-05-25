@@ -51,10 +51,6 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/payment/use-payment.html#next-steps
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 3/8/2022
 
 Manage the payment process for consumers purchasing Nike products and services.

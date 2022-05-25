@@ -26,10 +26,6 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/customization/use-customization.html#next-steps
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 02/04/2020
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
