@@ -28,10 +28,6 @@ toc:
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#contacting-the-team
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 4/19/2021
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.

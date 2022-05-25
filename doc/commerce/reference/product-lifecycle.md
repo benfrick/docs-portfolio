@@ -11,12 +11,7 @@ toc:
   - h2: How Product Data Gest To the Consumer
     url: /doc/commerce/reference/product-lifecycle.html#how-product-data-gets-to-the-customer
 ---
-
-{% include ref-header.html %}
-
 ##### Last Updated: 04/19/2018
-
----
 
 ![](/images/commerce/reference/product_life_cycle.png)
 

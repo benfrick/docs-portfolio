@@ -1,13 +1,11 @@
 <!-- Header for all pages, includes search bar and Slack button. Included in /_layouts/two-column.html -->
 
 <div class="ncss-container" id="overview-header" xmlns="http://www.w3.org/1999/html">
-    <nav><ul>
+    <nav>
+    <ul>
         <li class="header-title"><h3><a href="{{ 'index.html' | relative_url }}" >Commerce Docs</a></h3></li>
         <li class="search">
-            <form action= {{"/search/index.html" | relative_url }} method="get">
-                <input type="text" name="q" id="search-input" placeholder="Search">
-                <input type="submit" value="Search" style="display: none;">
-            </form>
+            {% include search-lunr.html %}
         </li>
         <li class="slack">
             <a class="guide-button body-2" href="{{ 'contributing.html' | relative_url }}">Contribute&nbsp;&nbsp;</a>
@@ -21,3 +19,13 @@
     </ul>
     </nav>
 </div>
+
+{%- if page.category contains 'a-overview' -%}
+    {%- include overview-header.html -%}
+{%- elsif page.category contains 'b-use-case' -%}
+     {%- include dev-header.html -%}
+{%- elsif page.category contains 'd-reference' -%}
+    {%- include ref-header.html -%}
+{%- else -%}
+{%- endif -%}
+<hr/>

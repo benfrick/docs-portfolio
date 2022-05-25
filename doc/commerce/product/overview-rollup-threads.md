@@ -8,10 +8,6 @@ url: /doc/commerce/product/overview-rollup-threads.html
 h1: Rollup Threads Overview
 dev-guide: /doc/commerce/product/use-rollup-threads.html
 ---
-{% include overview-header.html %}
-
----
-
 Need a product grid wall, or customized search results in your experience? Read on to learn about [Rollup Threads](/doc/commerce/product/use-rollup-threads.html).
 
 #### Use Rollup Threads to showcase Nike products using digital product data and authored content.

@@ -8,10 +8,6 @@ url: /doc/commerce/payment/overview-payment.html
 h1: Payment Overview
 dev-guide: /doc/commerce/payment/use-payment.html
 ---
-{% include overview-header.html %}
-
----
-
 Learn how to use [Payment](/doc/commerce/payment/use-payment.html) to manage the purchase process for consumers purchasing Nike products and services.
 
 #### Nike Payment gives consumers fast and easy ways to pay for purchases with support for popular payment methods across the globe.

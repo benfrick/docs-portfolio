@@ -80,8 +80,8 @@ a {
 }
 
 a small {
-  font-size: 11px;
-  color: #666;
+  font-size: 14px;
+  color: #F0E7D6;
   margin-top: -0.6em;
   display: block;
 }
@@ -483,4 +483,25 @@ a .gray-nav-item {
   color: #888;
   font-size: 15px;
   font-weight: 700;
+}
+// search overrides
+.modal-content {
+    background-color: #232323;
+    border: 1px solid white;
+}
+.close {
+    text-shadow: none;
+    color: white;
+    opacity: 1;
+}
+.close:not(:disabled):not(.disabled):hover {
+    color: gray;
+}
+
+section ul li .lunrsearchresult {
+    margin-left: 0px;
+}
+.btn-group-sm>.btn, .btn-sm {
+    font-size: 14px;
+    padding: 5px;
 }

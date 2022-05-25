@@ -8,9 +8,6 @@ url: /doc/commerce/checkout/overview-fulfillment-offerings.html
 h1: Fulfillment Offerings Overview
 dev-guide: /doc/commerce/checkout/use-fulfillment-offerings.html
 ---
-{% include overview-header.html %}
-
----
 
 Learn how to use [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 

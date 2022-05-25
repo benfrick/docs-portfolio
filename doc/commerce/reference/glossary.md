@@ -6,12 +6,7 @@ position: 3
 title: Glossary
 url: /commerce/reference/glossary.html
 ---
-
-{% include ref-header.html %}
-
 ##### Last Updated: 02/04/2020
-
----
 
 ## Key Terms
 

@@ -1,0 +1,21 @@
+<script src="{{site.baseurl}}/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult { list-style: none; margin-bottom:1.5rem;}
+    .lunrsearchresult .title {color: #ffcc00;}
+    .lunrsearchresult .url {color: #F0E7D6;}
+    .lunrsearchresult a {display: inline;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('search-input').value);">
+    <input type="text" id="search-input" name="q" maxlength="255" value="" placeholder="Search"/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="{{site.baseurl}}/js/lunrsearchengine.js"></script>

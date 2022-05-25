@@ -23,10 +23,6 @@ toc:
   - h2: Related Links
     url: /doc/commerce/search/use-search.html#related-links
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 02/04/2020
 
 E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike consumers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/use-rollup-threads.html) first.
