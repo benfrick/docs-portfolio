@@ -37,10 +37,6 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/checkout/use-checkout.html#next-steps
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 05/09/2022
 
 Manage the Checkout process for the consumer.

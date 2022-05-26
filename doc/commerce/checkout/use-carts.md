@@ -19,10 +19,6 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/checkout/use-carts.html#next-steps
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 05/09/2022
 
 Read this guide to learn how to add Carts to your experience.
