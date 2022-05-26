@@ -1,4 +1,6 @@
 ---
+id: build-data-example
+exclude-from-search: true
 ---
 
 ```
