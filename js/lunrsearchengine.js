@@ -4,7 +4,7 @@ sitemap: false
 ---
 
 {% assign counter = 0 %}
-var documents = [{% for page in site.pages %}{% if page.url contains 'templates' %}{% else %}{
+var documents = [{% for page in site.pages %}{% if page.url contains 'templates' or page.exclude-from-search %}{% else %}{
     "id": {{ counter }},
     "url": "{{site.baseurl}}{{ page.url }}",
     "title": "{{ page.title }}",

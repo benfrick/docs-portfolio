@@ -45,16 +45,7 @@ toc:
   - h2: Related Links
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
-
-<div style="display:inline-block; float:right; margin-bottom:10px; vertical-align:top;">
-    <a href="{{ page.url | replace: '.html','.pdf'}}" target="blank" class="green-button">DOWNLOAD</a>
-</div>
-
-# Using Nike APIs
-
 ##### Last Updated: 5/11/2022
-
----
 
 This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Start here before diving into the Developer's guides.
 
