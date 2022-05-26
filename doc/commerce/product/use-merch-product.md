@@ -43,10 +43,6 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-merch-product.html#related-links
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 4/6/2021
 
 Use the **Merchandised Products API** to get global product, sku, price, content, and value-added service (VAS) information, tailored to the needs of Nike consumers.

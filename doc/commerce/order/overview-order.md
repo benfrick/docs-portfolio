@@ -9,10 +9,6 @@ id: overview-order
 h1: Consumer Order History Overview
 dev-guide: /doc/commerce/order/use-order.html
 ---
-{% include overview-header.html %}
-
----
-
 Apps like NRC, NTC, WeChat Mini,and Facebook provide consumers with the self-service of order history. See how easy it is to add [Consumer Order History](/doc/commerce/order/use-order.html) to your app.
 
 #### Happy consumers are a good thing. What keeps them happy? Assuring them that their order is on the way.

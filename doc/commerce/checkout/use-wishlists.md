@@ -17,10 +17,6 @@ toc:
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-wishlists.html#contacting-the-team
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 04/28/2019
 
 Help Nike members save their favorites for later purchase by adding [Wishlists](#wishlists) to your experience.

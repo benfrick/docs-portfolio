@@ -3,7 +3,7 @@ id: merch-product-field-reference
 tags: pdf
 category: d-reference
 position: 6
-title: Merch Product Fields
+title: Merchandised Product Field Reference
 url: /commerce/product/merch-product-field-reference.html
 toc:
   - h2: Status Codes
@@ -19,12 +19,7 @@ toc:
   - h2: Publish Types
     url: /doc/commerce/product/merch-product-field-reference.html#publish-types
 ---
-
-# Merchandised Product Field Reference
-
 ##### Last Updated: 05/24/2018
-
----
 
 This guide describes the product and value-added service merchandising codes flowing from Prodigy (the system of record) to the Merchandised Product API.
 

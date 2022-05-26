@@ -37,10 +37,6 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/mobile/post-purchase/use-order.html#next-steps
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 2/17/2022
 
 Retrieve a complete order history for your mobile consumers with the added flexibility of self-service options such as "Start a Return" and "Track Shipment" using the [Post Purchase API]{:target="_blank"}.

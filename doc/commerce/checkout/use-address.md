@@ -21,10 +21,6 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/checkout/use-address.html#next-steps
 ---
-{% include dev-header.html %}
-
----
-
 ##### Last Updated: 04/19/2021
 
 Read this guide to learn how to use address tools in your experience.

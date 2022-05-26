@@ -21,12 +21,7 @@ toc:
   - h2: Product Feeds Service
     url: /doc/commerce/reference/caller-best-practices.html#product-feeds-service
 ---
-
-{% include ref-header.html %}
-
 ##### Last Updated: 02/04/2020
-
----
 
 This guide discusses best practices for calling Nike services in peak traffic periods such as during a product launch. High-heat launches put an intense load on services and system resources. The goal of this document is to outline best practices to avoid putting further stress on system health from clients. In addition to the general recommendations listed in the [Service Call Best Practices](#service-call-best-practices) section, specific performance, retry and fallback best practices are listed by service.
 

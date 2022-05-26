@@ -8,10 +8,6 @@ url: /doc/commerce/checkout/overview-checkout.html
 h1: Cart & Checkout Overview
 dev-guide: /doc/commerce/checkout/use-checkout.html
 ---
-{% include overview-header.html %}
-
----
-
 Learn how to use Cart, Checkout, and Payment to enable the purchase of Nike products and services in your app.
 
 ### Consumers purchase quickly and easily using Nike Cart, Checkout, and Payment
