@@ -3,28 +3,46 @@ title Example of API Calls to <font color =orange>Nike Checkout</font>
 
 participant Client
 participant Carts
+participant "Cart Views"
 participant "Cart Reviews"
-participant "Shipping Options"
+participant "Fulfillment Offerings"
 participant "Checkout Preview"
 participant "Payment Options"
 participant "Stored Payments"
 participant "Payment Preview"
 participant "Checkout Submit"
 
-group Carts
-note over Carts, "Cart Reviews" #3F7FBF: Cart optional for checkout
+group Carts & Cart Views
+note over Carts, "Cart Views" #3F7FBF: Cart optional for checkout
 Client->Carts: PUT ///buy/carts/v2/{id}//: Cart items and quantities
 Carts-[#blue]->Client: Validated cart with item prices and subtotals
 
-Client->"Cart Reviews": POST ///buy/cart_reviews/v1///: Cart items, shipping country
-"Cart Reviews"-[#blue]->Client: Cart summary with estimated taxes, delivery date(s), ship group(s)
+Client->"Cart Views": PUT ///buy/cart_views/v1/{jobId}//
+"Cart Views"-[#blue]->Client: 202 with job ID and ETA
+loop
+Client->"Cart Views": GET ///buy/cart_views/v1/{jobId}//
+note over "Cart Views" #lightgreen: Wait ETA, Poll until job is done
+"Cart Views"-[#blue]->Client: Cart details
+end loop
 end
 
-group Shipping & Checkout Preview
+group Cart Reviews, Fulfillment Offerings, & Checkout Preview
 
-Client->"Shipping Options": POST ///buy/shipping_options/v2//: Items, shipping address
-note over "Shipping Options" #3F7FBF: Shipping Options optional if shipping methods are always known
-"Shipping Options"-[#blue]->Client: Available shipping methods w/costs and estimated delivery dates
+Client-> "Cart Reviews": POST ///buy/cart_reviews/v2//: Items, shipping address
+"Cart Reviews"->Client: Cart summary with estimated taxes, delivery date(s), and ship group(s)
+
+Client->"Fulfillment Offerings": GET ///buy/fulfillment_offerings/v1{?filter}//: a productId for a style-color
+"Fulfillment Offerings"-[#blue]->Client: Available fulfillment offerings for all sizes of the included style-color
+
+    alt 2nd option
+        Client->"Fulfillment Offerings": PUT ///buy/fulfillment_offerings/v1/{id}//: one or more items with consumer address(es), location(s), etc.
+        "Fulfillment Offerings"-[#blue]->Client: 202 with job ID and ETA
+        loop
+        Client->"Fulfillment Offerings": GET ///buy/fulfillment_offerings_jobs/v1/{id}//
+        note over "Fulfillment Offerings" #lightgreen: Wait ETA, Poll until job is done
+        "Fulfillment Offerings"->Client: Fulfillment options for each item included
+        end loop
+    end
 
 Client->"Checkout Preview": PUT ///buy/checkout_previews/v2/{id}//: Items, shipping address, shipping method
 "Checkout Preview"-[#blue]->Client: 202 with job ID and ETA
@@ -56,7 +74,7 @@ group Checkout Submit
 Client->"Checkout Submit": PUT ///buy/checkouts/v2/{id}//: Items, shipping address, shipping method, payment token
 "Checkout Submit"-[#blue]->Client: 202 with job ID and ETA
 loop
-Client->"Checkout Submit": GET ///buy/checkoutz/v2/jobs/{id}//
+Client->"Checkout Submit": GET ///buy/checkouts/v2/jobs/{id}//
 note over "Checkout Submit" #lightgreen: Wait ETA, Poll /jobs until job is done
 "Checkout Submit"-[#blue]->Client: Item prices/taxes, shipping prices/taxes/groups, estimated delivery date(s), order subtotals
 end loop
