@@ -28,7 +28,7 @@ toc:
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#contacting-the-team
 ---
-##### Last Updated: 4/19/2021
+##### Last Updated: 06/01/2022
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -103,7 +103,7 @@ If the consumer indicated [intent](#intent) for the offering, the offering has a
 |`INSTORE`|Consumer completes self-checkout via mobile while in a retail store|Consumer uses Nike mobile app for Instant Checkout in store and leaves with their purchase|
 |`DIGITAL`|Consumer receives the order at their digital address|Digital gift card is delivered by email|
 
->**TIP**: Get Fulfillment Types, and associated Location Types, by country by calling the [Fulfillment Types API](#get-fulfillment-types).  
+>**TIP**: Get Fulfillment Types, and associated Location Types, by country by calling the [Fulfillment Types API](#fulfillment-offerings-get).  
 
 ### Fulfillment Groups
 
@@ -177,8 +177,8 @@ Let's walk through how to make your first request to the Fulfillment Offerings A
 
 There are two ways to get a list of Fulfillment Offerings:
 
-- [Option 1](#option-1-send-a-get-request): Send a request to the [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to list the fulfillment offerings for each size of a style-color.
-- [Option 2](#option-2-send-a-put-request): Send a request to the [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to get the fulfillment offerings for each item in Cart.
+- [Option 1](#option-1-get-fulfillment-offerings-for-each-size-of-a-style-color): Send a request to the [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to list the fulfillment offerings for each size of a style-color.
+- [Option 2](#option-2-get-fulfillment-offerings-for-each-item-in-cart): Send a request to the [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} endpoint to get the fulfillment offerings for each item in Cart.
 
 #### OPTION 1: Get Fulfillment Offerings for Each Size of a Style-Color
 
@@ -1382,7 +1382,7 @@ Each time the consumer indicates fulfillment intent for an item in their Cart, c
 
 ### Step 4: Proceed to Checkout
 
-Once the consumer has chosen how they want all items in their Cart fulfilled, and you have called Fulfillment Offerings Jobs PUT one last time to get an updated list of fulfillment offerings with price offers, you can proceed with the Checkout process. This process includes the optional step of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#previewing-a-checkout), [Payment Preview](/doc/commerce/payment/use-payment.html), and [Submitting a Checkout](doc/commerce/checkout/use-checkout.html#submitting-a-checkout).
+Once the consumer has chosen how they want all items in their Cart fulfilled, and you have called Fulfillment Offerings Jobs PUT one last time to get an updated list of fulfillment offerings with price offers, you can proceed with the Checkout process. This process includes the optional step of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#checkout-preview), [Payment Preview](/doc/commerce/payment/use-payment.html), and [Submitting a Checkout](doc/commerce/checkout/use-checkout.html#checkout-submit).
 
 **Step 4a: Call Checkout Preview (Optional)**
 
@@ -1467,7 +1467,7 @@ Based on the supported types returned in the API response from Fulfillment Types
 ]
 ```
 
-Use the API response from Fulfillment Offerings in [Step 3: Adjust Your UI for Selecting Fulfillment Offerings](#step-3--adjust-your-ui-for-selecting-fulfillment-offerings).
+Use the API response from Fulfillment Offerings in [Step 3: Adjust Your UI for Selecting Fulfillment Offerings](#step-3-adjust-your-ui-for-selecting-fulfillment-offerings).
 
 ### Step 3: Adjust Your UI for Selecting Fulfillment Offerings
 

@@ -42,7 +42,7 @@ With Nike payment, your app does not need to handle sensitive consumer payment d
 Step through the Use Cases below to incorporate Payment capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options.](/doc/commerce/payment/use-payment.html#payment-options)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get available payment options.](/doc/commerce/payment/use-payment.html#listing-and-validating-payment-options)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Manage a consumer's stored payments.](/doc/commerce/payment/use-payment.html#storing-payment)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Allocate amount owed across payment types.](/doc/commerce/payment/use-payment.html#payment-preview)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Initiate an Apple Pay transaction.](/doc/commerce/payment/use-payment.html#apple-pay-payment)|
@@ -52,7 +52,7 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
 |<i class="g72-check"></i>&nbsp;&nbsp;[Save and validate credit card information. Retrieve masked credit card information.](/doc/commerce/payment/use-payment.html#credit-card-payment)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Perform 3-D Secure authentication](/doc/commerce/payment/use-payment.html#3-d-secure-authentication)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Perform fraud check, validation and authorization/debit for all payment types on a consumer’s Checkout.](/doc/commerce/payment/use-payment.html#payment-approval)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Send payment notification to debit, credit, void or reauthorize a consumer's payment.](/doc/commerce/payment/use-payment.html#fulfillment-payment-notification)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Send payment notification to debit, credit, void or reauthorize a consumer's payment.](/doc/commerce/payment/use-payment.html#post-order-payment-processing)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Send third party payment notification to Nike.](/doc/commerce/payment/use-payment.html#third-party-payment-notification)|
 {:max-width="85%"}
 

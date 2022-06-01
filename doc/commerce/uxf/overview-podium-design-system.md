@@ -5,10 +5,7 @@ tags: pdf
 position: 11
 title: Podium Consumer
 url: /commerce/uxf/overview-podium-design-system.html
----
-
-# Podium Consumer Overview
-
+h1: Podium Consumer Overview
 ---
 
 ![Carousel Component](../../../images/uxf/carousel.png){:width="100%"}

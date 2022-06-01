@@ -26,7 +26,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/customization/use-customization.html#next-steps
 ---
-##### Last Updated: 02/04/2020
+##### Last Updated: 06/01/2022
 
 The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
 
@@ -293,7 +293,7 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 
 #### Sample JavaScript
 
-For a sample JavaScript class that shows how you might interact with the Builder, see [builderBridge.js](https://bitbucket.nike.com/projects/NID/repos/builder-experience/browse/integration/builderBridge.js){:target="new-tab"}.
+For a sample JavaScript class that shows how you might interact with the Builder, see [builderBridge.js](https://github.com/nike-internal/customization.web.builder-experience/blob/master/integration/builderBridge.js){:target="new-tab"}.
 
 <!-- Can add when new Builder methods become available
 ## Share a Design
@@ -473,7 +473,7 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 
 - Once active, the specific behavior of this CTA can vary depending on your requirements, but here is an example:
 
-    - Call the [Carts API](/doc/commerce/checkout/use-checkout.html#cart) with the metric ID for the build to add the product to a cart.
+    - Call the [Carts API](/doc/commerce/checkout/use-carts.html#carts) with the metric ID for the build to add the product to a cart.
     - Show an updated cart item count on the PDP and/or navigate the consumer to a cart page/view.
 
     >**TIP**: For more see [Adding Cart and Checkout to your Experience](/doc/commerce/checkout/use-checkout.html).

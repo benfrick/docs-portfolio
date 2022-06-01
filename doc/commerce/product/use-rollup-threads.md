@@ -25,7 +25,7 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-rollup-threads.html#related-links
 ---
-##### Last Updated: 07/21/2020
+##### Last Updated: 06/01/2022
 
 Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
@@ -39,7 +39,7 @@ A **Rollup Thread** is a Thread that is related to, and nested within, a Parent 
 
 Using Rollup Threads makes it simpler for you to build a product grid wall experience like this:
 
-![](/images/commerce/product_feeds/gridwall.png)
+![Screenshot of a Nike.com product wall, annotated to show the parent thread and rollup threads](/images/commerce/product_feeds/gridwall.png)
 
 This is just one example of how a Parent Thread can have one or more related Rollup Threads. We'll discuss this more later in [Choosing the Rollup Threads You Need](#choosing-the-rollup-threads-you-need).
 
@@ -135,13 +135,13 @@ Consumer Channel ID and Channel ID are not directly related and therefore should
 
 ### I Already Use Product Feeds v2. How is This API Response Different?
 
-The following diagram describes the how the structure of the response from the Rollup Threads API differs from Product Feeds:
+The following diagram describes how the structure of the response from the Rollup Threads API differs from Product Feeds:
 
-![](/images/commerce/product_feeds/rollup_threads_response.png)
+![Diagram the response structure of Product Feeds v2 versus Rollup Threads List, noting the main differences](/images/commerce/product_feeds/rollup_threads_response.png)
 
 ## API Quick Reference
 
-###### Table 3:  Rollup Threads Endpoints
+###### Table 3: Rollup Threads Endpoints
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|

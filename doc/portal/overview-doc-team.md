@@ -67,7 +67,7 @@ Through writing, we communicate the many benefits of your hard work, explain its
 -->
 The Customization Developer Guide
 
-<a href="/doc/commerce/customization/use-customization.html"><img class="border" src="/images/portal/portal-dev-sample.png"></a>
+<a href="/doc/commerce/customization/use-customization.html"><img class="border" src="/images/portal/portal-dev-sample.png" alt="Screenshot of one of the docs on the Commerce Docs site"></a>
 
 ### <i class="fas fa-pen"></i> &nbsp;Write the Docs
 
@@ -93,7 +93,7 @@ Do you have finished documentation and need help publishing it to the Commerce D
 
 ### <i class="fas fa-shapes"></i> &nbsp;Templates for Docs
 
-Use Tech Docs-designed templates to help standardize your content. Check out the templates [here](/docs/portal/templates.html).
+Use Tech Docs-designed templates to help standardize your content. Check out the templates [here](/doc/portal/templates.html).
 
 ### <i class="fas fa-people-carry"></i> &nbsp;Contributing to the Docs
 

@@ -29,7 +29,7 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-product-feeds.html#related-links
 ---
-##### Last Updated: 10/20/2021
+##### Last Updated: 06/01/2022
 
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V3?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
@@ -124,8 +124,7 @@ https://api.nike.com/product_feed/threads/v3?filter=channelId(d9a5bc42-4b9c-4976
 ```
 
 >**TIPS:**
->- For a list of supported locales, see the [Language/Locale Mapping JSON](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/localization.json){:target="new-tab"} and the [Language/Locale Mapping README](https://bitbucket.nike.com/projects/MOON/repos/language-tunnel-json/browse/README.md){:target="new-tab"}.
->- For a sample *Threads List* response, see [here](https://bitbucket.nike.com/projects/PFA/repos/productfeedv2/browse/API/response/thread/multiple.json){:target="new-tab"}.
+>- For a sample *Threads List* response, see [here](https://github.com/nike-internal/search.service.productfeedv2/blob/master/API/response/thread/multiple.json){:target="new-tab"}.
 
 ### How to Get Only the Threads You Need
 
@@ -153,7 +152,7 @@ You can use the Product Feeds API for basic product search by including the **se
 
 However, for a more accurate search, or if you are merchandising a product wall, it's strongly recommended that you use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}. Rollup Threads can be used in conjunction with Smart Search rules to influence the search results based on your specific use case.
 
-See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html#using-rollup-threads) and [Understanding Search Results](/doc/commerce/search/use-search.html) for more.
+See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads) and [Understanding Search Results](/doc/commerce/search/use-search.html) for more.
 
 ### Terminology Differences Between CMS and Product Feeds
 
@@ -207,7 +206,7 @@ Listed below are some best practices for working with Product Feeds.
 
 Here is an example of a sequence of API calls to get content from Product Feeds v2 (note: v3 follows the same pattern):
 
-![](/images/commerce/product_feeds/seq_dgm.png){:style="max-width:80%;"}
+![Web sequence diagram showing example calls to the Threads List and Thread by ID endpoints of the Product Feeds v2 API](/images/commerce/product_feeds/seq_dgm.png){:style="max-width:80%;"}
 
 ### Test Environment
 
@@ -233,7 +232,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 
-- Use a Splunk query (requires access) such as [this](https://nike.splunkcloud.com/en-US/app/nike_search/search/search?q=search%20index%3Dweb%20environment%3Dprod%20application%3Dproductfeedv2%20source%3D%2Fvar%2Flog%2Fnike%2Fproductfeedv2%2Faccess.log&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=-1h%40h&latest=now&sid=1518466951.667397_002B2083-7782-48F4-ADBB-A22C4546544D){:target="new-tab"} to check for issues with your request.
+- Use a Splunk report (requires access) found [here](https://nike.splunkcloud.com/en-US/app/nike_search/reports){:target="new-tab"} to check for issues with your request.
 
 - Contact the Product Feeds Team on the [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"} Slack channel for assistance.
 

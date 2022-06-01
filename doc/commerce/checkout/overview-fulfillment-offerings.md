@@ -25,8 +25,8 @@ Use Fulfillment Offerings to allow consumers to choose the delivery location, de
 Ready to get started? Step through the use cases below to learn how to add Fulfillment Offerings to your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each size of a product on a PDP](/doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-style-color)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each item in a consumer's Cart](/doc/commerce/checkout/use-fulfillment-offerings.html#get-fulfillment-offerings-multi-item)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each size of a product on a PDP](/doc/commerce/checkout/use-fulfillment-offerings.html#option-1-get-fulfillment-offerings-for-each-size-of-a-style-color)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[List the fulfillment offerings for each item in a consumer's Cart](/doc/commerce/checkout/use-fulfillment-offerings.html#option-2-get-fulfillment-offerings-for-each-item-in-cart)|
 |<i class="g72-check"></i>&nbsp;&nbsp;[List the Fulfillment Types, and corresponding Location Types, for a given shopping country](/doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-types)|
 
 <h4>Related Information</h4>

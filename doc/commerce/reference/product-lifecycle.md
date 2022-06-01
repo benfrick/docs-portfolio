@@ -8,12 +8,12 @@ url: /commerce/reference/product-lifecycle.html
 toc:
   - h2: Where Product Data Comes From
     url: /doc/commerce/reference/product-lifecycle.html#where-product-data-comes-from
-  - h2: How Product Data Gest To the Consumer
-    url: /doc/commerce/reference/product-lifecycle.html#how-product-data-gets-to-the-customer
+  - h2: How Product Data Gets To the Consumer
+    url: /doc/commerce/reference/product-lifecycle.html#how-product-data-gets-to-the-consumer
 ---
-##### Last Updated: 04/19/2018
+##### Last Updated: 06/01/2022
 
-![](/images/commerce/reference/product_life_cycle.png)
+![Block diagram showing the Cloud Product Lifecycle, starting with Prodigy and going through multiple systems/services until it reaches consumer experiences](/images/commerce/reference/product_life_cycle.png)
 
 ## Where Product Data Comes From
 

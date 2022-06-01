@@ -18,11 +18,11 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/customization/builder-reference.html#next-steps
 ---
-##### Last Updated: 04/24/2020
+##### Last Updated: 06/01/2022
 
 This is the official reference for the features and functionality of the Customization Experience Builder, a product in the [Customization Experience Platform (CXP)](/doc/commerce/customization/overview-customization.html).
 
->**TIP**: Also see [Customization Overview](/doc/commerce/customization/overview-customization.html) and [Adding Customization To Your Experience](/doc/commerce/customization/use-customization/html).
+>**TIP**: Also see [Customization Overview](/doc/commerce/customization/overview-customization.html) and [Adding Customization To Your Experience](/doc/commerce/customization/use-customization.html).
 
 The Builder is a JavaScript bundle that is your main interface with CXP. It offers the following:
 

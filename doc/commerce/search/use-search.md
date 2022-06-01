@@ -23,7 +23,7 @@ toc:
   - h2: Related Links
     url: /doc/commerce/search/use-search.html#related-links
 ---
-##### Last Updated: 02/04/2020
+##### Last Updated: 06/01/2022
 
 E-commerce search provides a robust and consistent e-commerce search experience that is personalized for Nike consumers around the globe. Most search functionality is accessed through the Product Feeds Rollup Threads Service API. If you are not familiar with that service, we recommend reading the [Product Feed Rollup Threads V2 API Developer's Guide](/doc/commerce/product/use-rollup-threads.html) first.
 
@@ -87,7 +87,7 @@ Search Preview is a simple type of search that uses one or more search keywords 
 
 The Nike.com image below illustrates how Autocomplete and Search Preview can be used together to quickly lead consumers to the products they want.
 
-![](/images/commerce/search/autocomplete-search-preview.png){:class="border"}
+![Screenshot of Nike.com search with autocomplete and search preview](/images/commerce/search/autocomplete-search-preview.png){:class="border"}
 
 >**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="new-tab"}.
 
@@ -129,7 +129,7 @@ Custom rules are administered in the Apollo rule management tool and are specifi
 
 Rules are triggered either by consumer activity such as searching for a particular term or by context such as the experience or geography. The two rule types are Grid Wall and Navigation. Grid Wall rules are used to merchandise a product wall of related products for an experience in a particular geography and/or marketplace. Navigation rules are used to build a dynamic navigation filter tree based on search terms and attribute IDs.
 
-The default rule for each experience is listed below. Default rules are not available through the Apollo tool. Contact the Product Owner to create a new or edit an existing default rule. Note that each default rule filters on the same channelId (d9a5bc42-4b9c-4976-858a-f159cf99c647) to get nike.com product threads. Each default rule is associated with an experience through the experience's consumerChannelId passed into the Product Feed Rollup Threads service. See [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html#consumer-channel-id-and-channel-id) to read about the difference between channelId and consumerChannelId.
+The default rule for each experience is listed below. Default rules are not available through the Apollo tool. Contact the Product Owner to create a new or edit an existing default rule. Note that each default rule filters on the same channelId (d9a5bc42-4b9c-4976-858a-f159cf99c647) to get nike.com product threads. Each default rule is associated with an experience through the experience's consumerChannelId passed into the Product Feed Rollup Threads service. See [Product Feed Rollup Threads V2 service](/doc/commerce/product/use-rollup-threads.html#consumer-channel-id-versus-channel-id) to read about the difference between channelId and consumerChannelId.
 
 **SNKRS/nike.com**
 ```
@@ -224,7 +224,7 @@ Behind the scenes, the rules engine uses signals as part of the search strategy 
 If the products returned by e-commerce search are either not ranked as you expect or not returned at all, there are a few steps you can take to trouble shoot.
 
 ### Check Splunk
-Use Splunk to trace the call to provide insight into what rules are being applied and what results the Search API returns.  All you need is the Trace Id. See the [Query Logs with a Trace ID](/content/doc/getting-started/using-nike-apis.html#query-logs-with-a-trace-id) section of the Using Nike APIs guide to learn how to get and use the trace id of the response to query Splunk.
+Use Splunk to trace the call to provide insight into what rules are being applied and what results the Search API returns.  All you need is the Trace Id. See the [Query Logs with a Trace ID](/doc/getting-started/using-nike-apis.html#query-logs-with-a-trace-id) section of the Using Nike APIs guide to learn how to get and use the trace id of the response to query Splunk.
 
 An abbreviated Splunk trace sequence for Trace Id 65519e4e2c01ba2d is listed below for the Neymar Jr. gridwall in Bootroom, URL https://www.nike.com/soccer/bootroom/f/neymar-jr/.
 
@@ -281,7 +281,6 @@ Need to reach out to the Search team?
 |---|---|
 |Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="new-tab"}|
 |Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="new-tab"}|
-|Mailing List|[Lst-nde.pdm.merch.dev@nike.com](mailto:Lst-digitaltech.merch.apis)|
 |Email the Product Manager|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
 ## Document Change Log
