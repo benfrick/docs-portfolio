@@ -22,7 +22,7 @@ The consumer finds a Nike product that they love in your app.
 What happens next?
 Step through the checklist below to incorporate Cart, Checkout, and Payment capabilities into your experience.
 
-- [Manage a consumer's shopping cart and get product pricing](/doc/commerce/checkout/use-carts.html#cart)
+- [Manage a consumer's shopping cart and get product pricing](/doc/commerce/checkout/use-carts.html#carts)
 - [Manage a consumer's wishlist (member/employee only) of products and services](/doc/commerce/checkout/use-wishlists.html)
 - [Review a consumer's cart for checkout](/doc/commerce/checkout/use-carts.html#step-2-get-a-cart)
 - [Get available fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html) (Legacy: [get shipping options](/doc/commerce/checkout/use-checkout.html#shipping-options)) 

@@ -5,6 +5,7 @@ category: a-overview
 position: 7
 title: TTAC
 url: /doc/taxonomy/overview-taxonomy-tagging.html
+h1: TTAC Overview
 ---
 Learn how [Taxonomy Tagging for Assets and Content](https://developer.niketech.com/docs/projects/attributions?tab=api){:target="new-tab"} (TTAC) manages complex taxonomical relationships that can be used by front-end Nike experiences to display personalized assets and content to Nike consumers.
 
@@ -54,9 +55,6 @@ Step through the TTAC use cases below.
 <ul>
    <li>
         <a href="https://developer.niketech.com/docs/projects/attributions?tab=api" target="new-tab">TTAC Metadata Service</a><span class="guide-details-li-text"></span>
-    </li>
-    <li>
-        <a href="https://nike.invisionapp.com/share/XVIYZS8S8YZ#/screens/297921090" target="new-tab">TTAC Component Design</a><span class="guide-details-li-text"></span>
     </li>
     <li>
         <a href="https://developer.niketech.com/docs/projects/Merch%20Taxonomy%20Attributes%20V1?tab=api" target="new-tab">Merch Taxonomy Attributes</a> <span class="guide-details-li-text"></span>

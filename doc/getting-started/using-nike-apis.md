@@ -45,7 +45,7 @@ toc:
   - h2: Related Links
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
-##### Last Updated: 5/11/2022
+##### Last Updated: 06/01/2022
 
 This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Start here before diving into the Developer's guides.
 
@@ -266,7 +266,7 @@ The Nike Application Authentication and Authorization (AAA) library and the Shoe
 
 The standard URI pattern used for Nike APIs (v2 or later) is as follows:
 
-![](/images/getting_started/url-format.png)
+![Diagram showing an api.nike.com URL with a generic domain, resource, and version component. They are color-coded and labeled to show the standard parts of the URL](/images/getting_started/url-format.png)
 
 For example, all Checkout APIs reside under the `/buy` domain using the URI https://api.nike.com/buy/. The resource section of the URI varies depending on the endpoint, e.g. `https://api.nike.com/buy/carts/` or `https://api.nike.com/buy/checkout_previews/`.
 
@@ -1135,7 +1135,7 @@ Use your browser's built-in tools for inspecting the web service calls which occ
 
 1. Right-click anywhere in browser main window, select `Inspect`.
 
-![](/images/getting_started/troubleshooting_chrome_inspect.png)
+![Screenshot of Nike.com checkout with right-click dialog open, and 'Inspect' option shown](/images/getting_started/troubleshooting_chrome_inspect.png)
 
 2. In Inspect window, select `Network` tab.
 
@@ -1143,7 +1143,7 @@ Use your browser's built-in tools for inspecting the web service calls which occ
 
 4. In the `Network` tab, scan through the list for any items with "api.nike.com". In this case, click to select the call to "api.nike.com/buy/shipping_options".
 
-![](/images/getting_started/troubleshooting_chrome_inspect_details.png)
+![Screenshot of Nike.com checkout with 'Inspect' window open on the right side of the browser](/images/getting_started/troubleshooting_chrome_inspect_details.png)
 
 5. Study the data in the Headers, Preview, and Response tabs. Is there some request header data present that you hadn't considered? Is the data in the request body or response body as expected?
 

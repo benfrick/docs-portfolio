@@ -37,7 +37,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/checkout/use-checkout.html#next-steps
 ---
-##### Last Updated: 05/09/2022
+##### Last Updated: 06/01/2022
 
 Manage the Checkout process for the consumer.
 
@@ -490,7 +490,7 @@ Here are some best practices. We'll start with an example sequence of API calls 
 
 ### Example Implementation Diagram
 
-![](/images/commerce/buy/checkout_seq_dgm.png){:class="border"}
+![Web sequence diagram showing example API calls to cart and checkout endpoints](/images/commerce/buy/checkout_seq_dgm.png){:class="border"}
 
 ### User Types
 

@@ -33,7 +33,7 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/order/use-order.html#next-steps
 ---
-##### Last Updated: 01/21/2022
+##### Last Updated: 06/01/2022
 
 Retrieve a complete order history for your consumers.
 
@@ -47,7 +47,7 @@ Adding consumer order history to your app can be as simple as this two-step proc
 
 **1.** Your application makes an [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} request to retrieve all, or a filtered [list of a member's orders](#step-1-list-a-members-orders).
 
-**2.** Using an order ID from the [User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} response, your application makes a request to the [User Order Details API]((https://developer.niketech.com/docs/projects/User%20order%20sdetails?tab=api){:target="new-tab"}) to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
+**2.** Using an order ID from the [User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} response, your application makes a request to the [User Order Details API]((https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}) to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
 
 ### What is an Order?
 
@@ -876,7 +876,7 @@ Need to contact the Orders team?
 |Slack|[#mp-athena](slack://channel?team=T0G3T5X2B&id=C1H7ZM7J4)|
 |Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="new-tab"}|
 |Team Contacts|**Intake, new requirements, onboarding, troubleshooting**<br> Team Athena <Lst-CE.Athena@nike.com>|
-|Intake|Please fill out an [intake form](https://confluence.nike.com/display/MDPM/Intake+Form+for+Inventory+Management%2C+Order+Management+and+Digital+Fulfillment){:target="new-tab"}.|
+|Intake|Please fill out an [intake form](https://confluence.nike.com/display/CCommerceAPM/Intake+Form+for+Inventory+Management%2C+Order+Management+and+Digital+Fulfillment){:target="new-tab"}.|
 
 ## Document Change Log
 

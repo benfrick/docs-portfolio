@@ -2,12 +2,10 @@
 id: overview-uxf
 category: a-overview
 position: 10
+tags: pdf
 title: UX Foundation
 url: /commerce/uxf/overview-uxf.html
----
-
-# UX Foundation Overview
-
+h1: UX Foundation Overview
 ---
 
 UX Foundation offers products that solve common problems for hosted user experiences. The documentation is available on [Tour Guide](https://tourguide.prod.commerce.nikecloud.com/){:target="new-tab"}.
