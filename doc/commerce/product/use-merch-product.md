@@ -297,7 +297,7 @@ A Merch Group is a collection of countries defined in Prodigy. Merch Groups are 
 
 Within each Merch Group, each country may include translations and size conversions for more than one language-dialect.
 
-For most API calls, Merch Group and Country are required. For the current list of supported Merch Groups, countries, and languages see [Merchandised Products Field Reference](/doc/commerce/product/merchandised-product-field-reference.html) guide.
+For most API calls, Merch Group and Country are required. For the current list of supported Merch Groups, countries, and languages see [Merchandised Products Field Reference](/doc/commerce/product/merch-product-field-reference.html) guide.
 
 ### Excluding Countries Where a Specific Product Should Not Be Offered
 
@@ -324,7 +324,7 @@ The two data points reflect two views of the same data. You should use **commerc
 
 Use the Merchandised Products service to list product information. Unlike the V2 version of these endpoints, V3 endpoints only take path parameters. They do not accept filter query parameters such as fields.
 
-None of the Merchandised Product endpoints are [JWT-restricted](/doc/getting-started/using-nike-apis.html#jwt-json-web-token) but results differ based on whether or not this header is sent in the request. If no JWT header is supplied, the response contains products with an ACTIVE status. If a valid JWT header is supplied, the response contains products matching the criteria regardless of status.
+None of the Merchandised Product endpoints are [JWT-restricted](/doc/getting-started/using-nike-apis.html#authorization) but results differ based on whether or not this header is sent in the request. If no JWT header is supplied, the response contains products with an ACTIVE status. If a valid JWT header is supplied, the response contains products matching the criteria regardless of status.
 
 This is a synchronous service.
 
@@ -420,7 +420,7 @@ The following sections describe each endpoint of the Merchandised Product Price 
 
 ### Merchandised Prices List
 
-Use this endpoint to list price data by price **id** or by **productId** and [country](/doc/commerce/product/merchandised-product-field-reference.html).
+Use this endpoint to list price data by price **id** or by **productId** and [country](/doc/commerce/product/merch-product-field-reference.html).
 
 Because price values and currency are localized, both **country** and **productId** are required parameters when searching by **productId**. **country** is not required when searching by price **id** because the price record is for a specific country. To get the price **id** in the results, first search by **productid** and **country**. If you do not know the **productid**, use the [Merchandised Product List](#merchandised-product-list-by-merchgroup-and-style) endpoint to search by style-color or style. **productid** is returned in the results.
 
@@ -433,7 +433,7 @@ No special headers are required to use this endpoint so it can be executed in an
 
 ### Merchandised Prices by ID
 
-Use this endpoint to list price data by price **id**. To get the price **id**, search by **productid** and [country](/doc/commerce/product/merchandised-product-field-reference.html) using the [Merchandised Prices List](#merchandised-prices-list) endpoint and Price ID is returned in the results. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list-by-merchgroup-and-style) endpoint to search by style-color or style. Product ID is returned in the results.
+Use this endpoint to list price data by price **id**. To get the price **id**, search by **productid** and [country](/doc/commerce/product/merch-product-field-reference.html) using the [Merchandised Prices List](#merchandised-prices-list) endpoint and Price ID is returned in the results. If you do not know the product id, use the [Merchandised Product List](#merchandised-product-list-by-merchgroup-and-style) endpoint to search by style-color or style. Product ID is returned in the results.
 
 Results from this endpoint are almost identical to those returned from the [Merchandised Product List](#merchandised-product-list-by-merchgroup-and-style) endpoint. The difference is no pagination data is returned and you can only search by one price **id** at a time.
 
@@ -442,10 +442,10 @@ No special headers are required to use this endpoint so it can be executed in an
 >**TIP:** If you know the price **id**, this endpoint yields faster results than the [Merchandised Prices List](#merchandised-prices-list) endpoint does because it locates the price record directly by **id** rather than filtering the results.
 
 
-|I Want to List Merchandised Price for|Sample Query|
-|---|---|
-|price ID 486d098c-a403-5fb7-8305-243d71625d4c|https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c|
-|price ID 486d098c-a403-5fb7-8305-243d71625d4c and snapshotId 85ebb452-f61c-46a2-b0ce-14a89a542816|https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c?filter=snapshotId(85ebb452-f61c-46a2-b0ce-14a89a542816)
+| I Want to List Merchandised Price for                                                             | Sample Query                                                                                                                      |
+|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| price ID 486d098c-a403-5fb7-8305-243d71625d4c                                                     | https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c                                                         |
+| price ID 486d098c-a403-5fb7-8305-243d71625d4c and snapshotId 85ebb452-f61c-46a2-b0ce-14a89a542816 | https://api.nike.com/merch/prices/v2/486d098c-a403-5fb7-8305-243d71625d4c?filter=snapshotId(85ebb452-f61c-46a2-b0ce-14a89a542816) |
 
 ## Using Merchandised VAS
 
@@ -513,7 +513,7 @@ This endpoint requires no special headers so you can execute test calls in any b
 
 ### Product Content Overview
 
-Use these services to list product content such as title, subtitle, description, and images by [country](/doc/commerce/product/merchandised-product-field-reference.html) and locale.
+Use these services to list product content such as title, subtitle, description, and images by [country](/doc/commerce/product/merch-product-field-reference.html) and locale.
 
 There are two sets of Product Content services, internal and external.
 
@@ -525,7 +525,7 @@ All endpoints are synchronous.
 
 ### Product Content by Style Color
 
-Use this endpoint to list localized product content for a style-color, [country](/doc/commerce/product/merchandised-product-field-reference.html) and locale.
+Use this endpoint to list localized product content for a style-color, [country](/doc/commerce/product/merch-product-field-reference.html) and locale.
 
 |I Want to List Product Content for|Sample Query|
 |---|---|
@@ -533,7 +533,7 @@ Use this endpoint to list localized product content for a style-color, [country]
 
 ### Product Content by Style Color List
 
-Use this endpoint to list localized product content for a list of style-colors, [country](/doc/commerce/product/merchandised-product-field-reference.html) and locale. Only one country and locale is supported.
+Use this endpoint to list localized product content for a list of style-colors, [country](/doc/commerce/product/merch-product-field-reference.html) and locale. Only one country and locale is supported.
 
 |I Want to List Product Content for|Sample Query|
 |---|---|
@@ -541,7 +541,7 @@ Use this endpoint to list localized product content for a list of style-colors, 
 
 ### Product Content Item by Style Color
 
-Use this endpoint to list one item (field) of product content for a style-color, [country](/doc/commerce/product/merchandised-product-field-reference.html) and locale. Only one style-color, itemName, country and locale is supported. You can use any valid itemName in the path parameter.
+Use this endpoint to list one item (field) of product content for a style-color, [country](/doc/commerce/product/merch-product-field-reference.html) and locale. Only one style-color, itemName, country and locale is supported. You can use any valid itemName in the path parameter.
 
 |I Want to List Product Content for|Sample Query|
 |---|---|
@@ -549,7 +549,7 @@ Use this endpoint to list one item (field) of product content for a style-color,
 
 ### Product Content Field by Style Color List
 
-Use this endpoint to list one item (field) of product content for a list of style-colors, [country](/doc/commerce/product/merchandised-product-field-reference.html) and locale. Only one itemName, country and locale is supported. You can use any valid itemName in the path parameter.
+Use this endpoint to list one item (field) of product content for a list of style-colors, [country](/doc/commerce/product/merch-product-field-reference.html) and locale. Only one itemName, country and locale is supported. You can use any valid itemName in the path parameter.
 
 |I Want to List Product Content for|Sample Query|
 |---|---|
@@ -643,17 +643,17 @@ Need to contact the Product Data Management team?
 
 ## Document Change Log
 
-|Summary|Date|
-|---|---|
-|Initial publish|12/01/2017|
-|Added detail on internationalization and product flow|12/7/2017|
-|Clarified **count** description|02/12/2018|
-|Updated contact info, restructured sections, updated links|06/09/2020|
-|Added Merchandised Product V3 endpoint|04/06/2021
+| Summary                                                    | Date       |
+|------------------------------------------------------------|------------|
+| Initial publish                                            | 12/01/2017 |
+| Added detail on internationalization and product flow      | 12/7/2017  |
+| Clarified **count** description                            | 02/12/2018 |
+| Updated contact info, restructured sections, updated links | 06/09/2020 |
+| Added Merchandised Product V3 endpoint                     | 04/06/2021 |
 
 ## Related Links
 
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
-- [Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html#using-merchandised-products)
+- [Merchandised Product Field Reference Guide](/doc/commerce/product/merch-product-field-reference.html)
 - [Product Feeds API](/doc/commerce/product/use-product-feeds.html)

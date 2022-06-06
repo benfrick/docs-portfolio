@@ -34,7 +34,7 @@ url: /doc/commerce/reference/reference.html
            <div class="ncss-col-sm-6 ta-sm-c va-sm-t tile">
                <ul>               
                    <li style="margin-left:0px;" class="group-header"><i class="fas fa-flag fa-2x"></i><h4>Countries and Currencies</h4></li>
-                   <li style="line-height:0.8em; margin-left:0px;"><a class="tile-desc" href="/doc/commerce/checkout/checkout-country-currency.html">
+                   <li style="line-height:0.8em; margin-left:0px;"><a class="tile-desc" href="/doc/commerce/reference/global.html">
                    List of supported countries and currencies that can be used in Checkout</a></li>
                </ul>
            </div>        

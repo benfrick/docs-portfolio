@@ -667,7 +667,7 @@ on how to call Unite services.
 
 Only one Buy API endpoint requires the additional authorization of a JSON Web Token (JWT), **Checkout Submit (Launch)**.
 For more information,
-see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
+see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization).
 
 ## Contacting the Team
 

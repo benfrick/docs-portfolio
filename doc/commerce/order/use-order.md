@@ -611,7 +611,7 @@ See the User Types section of the [Using Nike APIs](/doc/getting-started/using-n
 
 #### JSON Web Token
 
-The core Order Summary and Order Details endpoints require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
+The core Order Summary and Order Details endpoints require the additional authorization of a JSON Web Token (JWT). For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization).
 
 The User Order Summary and User Order Details endpoints do not require JWT authorization.
 

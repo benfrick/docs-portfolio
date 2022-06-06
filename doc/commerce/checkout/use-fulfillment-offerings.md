@@ -1382,7 +1382,7 @@ Each time the consumer indicates fulfillment intent for an item in their Cart, c
 
 ### Step 4: Proceed to Checkout
 
-Once the consumer has chosen how they want all items in their Cart fulfilled, and you have called Fulfillment Offerings Jobs PUT one last time to get an updated list of fulfillment offerings with price offers, you can proceed with the Checkout process. This process includes the optional step of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#checkout-preview), [Payment Preview](/doc/commerce/payment/use-payment.html), and [Submitting a Checkout](doc/commerce/checkout/use-checkout.html#checkout-submit).
+Once the consumer has chosen how they want all items in their Cart fulfilled, and you have called Fulfillment Offerings Jobs PUT one last time to get an updated list of fulfillment offerings with price offers, you can proceed with the Checkout process. This process includes the optional step of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#checkout-preview), [Payment Preview](/doc/commerce/payment/use-payment.html), and [Submitting a Checkout](/doc/commerce/checkout/use-checkout.html#checkout-submit).
 
 **Step 4a: Call Checkout Preview (Optional)**
 

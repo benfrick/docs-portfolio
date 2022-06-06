@@ -102,7 +102,7 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
             Fulfillment Payment Notification</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://bitbucket.nike.com/projects/PHYLPAY/repos/paymentnotification/browse/API.md" target="new-tab">
+            <a href="https://github.com/nike-internal/payment.service.paymentnotification/blob/master/API.md" target="new-tab">
             Third Party Payment Notification</a> <span class="guide-details-li-text"></span>
         </li>
     </ul>
