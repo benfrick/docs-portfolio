@@ -207,7 +207,7 @@ To find out more on how to call Unite services to obtain access tokens, see the 
 
 {Does this thing require JWT?}
 
-For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#jwt-json-web-token).
+For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization).
 
 ### Sample Requests
 
