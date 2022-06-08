@@ -676,7 +676,7 @@ Allow the consumer to indicate their fulfillment intent for each item in Cart by
 
 Send an HTTP PUT request to `https://api.nike.com/buy/fulfillment_offerings_jobs/v1/2c1db6b9-7fd7-401c-acc9-73f926681cb9`. Note the UUID in the URL path, which you must generate. Make sure to send any consumer information you have such as shipping address, email address, or latitude and longitude of the consumer's physical location to get the most accurate list of offerings for each Cart item. 
 
->**TIP**: See the [Address Geocoding API](http://localhost:4000/doc/commerce/checkout/use-address.html#address-geocoding) section of the Address Tools guide for information on how to get coordinates from an address.
+>**TIP**: See the [Address Geocoding API](/doc/commerce/checkout/use-address.html#address-geocoding) section of the Address Tools guide for information on how to get coordinates from an address.
 
 **Sample Fulfillment Offerings Jobs PUT Request Body**
 
@@ -1333,7 +1333,7 @@ In order for the consumer to decide how to receive their items, you need to capt
 
 What if you want to get additional offerings to show the consumer, for example, based on their GPS coordinates? What if you already know the consumer's intended fulfillment type for some items, but not all items?
 
-> **TIP**: See the [Address Geocoding API](http://localhost:4000/doc/commerce/checkout/use-address.html#address-geocoding) section of the Address Tools guide for information on how to get coordinates from an address.
+> **TIP**: See the [Address Geocoding API](/doc/commerce/checkout/use-address.html#address-geocoding) section of the Address Tools guide for information on how to get coordinates from an address.
 
 In this case, you can *optionally* send any of the following to Fulfillment Offerings endpoint:
 

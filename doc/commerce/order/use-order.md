@@ -47,7 +47,7 @@ Adding consumer order history to your app can be as simple as this two-step proc
 
 **1.** Your application makes an [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} request to retrieve all, or a filtered [list of a member's orders](#step-1-list-a-members-orders).
 
-**2.** Using an order ID from the [User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} response, your application makes a request to the [User Order Details API]((https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}) to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
+**2.** Using an order ID from the [User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} response, your application makes a request to the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
 
 ### What is an Order?
 
