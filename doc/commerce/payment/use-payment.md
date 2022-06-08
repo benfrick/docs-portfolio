@@ -1749,7 +1749,7 @@ A successful 200 response gives the job status. If COMPLETED, the response lists
 
 #### **Step 1: Request an Unauth**
 
-Use the [Request Unauth](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-unauth-put){:target="new-tab"} endpoint to release the hold on funds set aside by authorization for a future debit. See the [Payment Gateway API]([UNAUTH](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-unauth){:target="new-tab"}) for details on void request and response information for each payment type.
+Use the [Request Unauth](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-unauth-put){:target="new-tab"} endpoint to release the hold on funds set aside by authorization for a future debit. See the [Payment Gateway API](https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api#request-unauth){:target="new-tab"} for details on void request and response information for each payment type.
 
 >**TIP**: The `authorizationRequestId` and `authorizationRequestToken` request body fields come from the `requestId` and `requestToken` in the [Request Payment Approval](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-request-payment-approval-put){:target="new-tab"} response.
 
