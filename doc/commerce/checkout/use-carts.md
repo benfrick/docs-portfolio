@@ -19,7 +19,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/checkout/use-carts.html#next-steps
 ---
-##### Last Updated: 05/09/2022
+##### Last Updated: 07/20/2022
 
 Read this guide to learn how to add Carts to your experience.
 
@@ -284,6 +284,7 @@ Need to contact the Cart & Checkout team?
 |--------------------------------------------------------------------------------------------------------------------------|------------|
 | Converted to stand alone guide, formerly in Cart & Checkout guide                                                        | 04/23/2020 |
 | Changed cart 'get' operations to use Cart Views instead of Carts v2, moved Cart Reviews content to Cart & Checkout guide | 05/09/2022 |
+| Add discussion of Fulfillment Details with Cart Views                                                                    | 07/20/2022 |
 
 ## Next Steps
 
