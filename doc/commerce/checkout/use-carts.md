@@ -78,12 +78,19 @@ the response contains their recipient (contact) information and default shipping
 Now that the cart is created, you can display the cart to the consumer by calling the Cart Views API.
 This allows the consumer to continue shopping and view the cart details again later.
 
->**NOTE**: Cart Views operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
+>**NOTE**: The Cart Views API operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
 #### Step 2a: Send a PUT to Cart Views
 
-Execute a PUT request to [Request Cart Views](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put){:target="new-tab"}
+Execute a PUT request
+to [Request Cart Views](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put){:target="new-tab"}
 to initiate a job to generate a view of a cart.
+You will need to generate and send a unique `jobId` for each request.
+
+Sample PUT request URI:
+```
+https://api.nike.com/buy/cart_views/v1/{jobId}
+```
 
 The request for cart views can be made in one of two ways:
 
@@ -105,7 +112,6 @@ Sample Request Body:
 
 **2. Request by Cart ID**
 
-Note that `fulfillmentDetails` are optional.
 
 Sample Request Body:
 ```json
@@ -129,7 +135,88 @@ Sample Request Body:
 }
 ```
 
->**TIP**: All Carts Views PUT requests must include a `locale`, e.g. "en_US"
+>**TIPS**:
+> - All Carts Views PUT requests must include a `locale`, e.g. "en_US"
+> - See the [API Reference](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put){:target="new-tab"} for the latest endpoint details
+
+#### OPTIONAL: Show Total Shipping Price in a Cart Summary UX
+
+If you are showing a Cart Summary UX,
+you may want to show a total shipping price separately from the total product price for the cart.
+Here the total shipping amount is a placeholder, used only for showing 
+the consumer an estimated total order amount before they enter the checkout process.
+
+To do this, optionally include some of the consumer's shipping details
+(e.g. `postalCode` and `country`) in a `fulfillmentDetails` object in the request.
+
+Sample object:
+```
+   "fulfillmentDetails": {
+      "type": "SHIP",
+      "location": {
+        "type": "address/shipping",
+        "postalAddress": {
+          "postalCode": "97005",
+          "country": "US"
+        }
+```
+
+Pass in ship location details to get the cheapest shipping offering in the response.
+Or, if known, pass in the fulfillment details from the cart (e.g. shipping address, email info, or store number) and
+the cheapest from a wider array of fulfillment offerings will be returned in the response.
+
+In any case, the total shipping price is returned in the response in totals.`fulfillment`:
+```
+    "totals": {
+      "items": {
+        "total": 85,
+        "details": {
+          "price": 85,
+          "discount": 8.5
+        }
+      },
+      "valueAddedServices": {
+        "total": 0,
+        "details": {
+          "price": 0,
+          "discount": 0
+        }
+      },
+      "fulfillment": {
+        "total": 0,
+        "details": {
+          "price": 5,
+          "discount": 5
+        }
+      },
+      "taxes": {
+        "total": 8.5,
+        "details": {
+          "items": {
+            "tax": 8.5,
+            "type": "SALESTAX"
+          },
+          "valueAddedServices": {
+            "tax": 0,
+            "type": "SALESTAX"
+          }
+        }
+      },
+      "total": 85
+    }
+},
+```
+
+The fulfillment type (e.g. "SHIP") is returned in response.items.`fulfillmentDetails`:
+```
+        "fulfillmentDetails": {
+          "type": "SHIP"
+        },
+```
+
+>**NOTES**:
+> - Fulfillment offerings are supported for carts containing digital gift cards
+> - Fulfillment Offerings are only added for countries on the global platform, e.g. US, CN, and Western Europe. [Contact the team](#contacting-the-team) for additional info. 
 
 #### Step 2b: Retrieve the Cart Views Job
 
