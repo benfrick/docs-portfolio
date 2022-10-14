@@ -10,7 +10,7 @@ Read on to find out how easy it is to maintain your team's documentation on Comm
 
 ## Submitting a Content PR (Non-technical)
 
-To add/edit pages on the Commerce Docs site:
+To add/edit pages on the Commerce Docs site using the GitHub UI:
 1. Contact the Tech Docs team regarding your proposed changes. The Tech Docs team will reach out to discuss them with you.
    - Slack the [#tech-docs](slack://channel?team=T0G3T5X2B&id=C6A18NT7W) channel
    - OR
@@ -36,19 +36,24 @@ Your changes publish immediately to the Commerce Docs site!
 
 ## Running Commerce Docs Locally (Technical)
 
-You can review your documentation changes locally before checking them into Github by using the Jekyll static HTML site generator. Jekyll generates HTML from your Markdown and runs as a local content server. You can view your pages formatted exactly as they will appear on the Commerce Docs site.
+You can review your documentation changes locally before checking them into Github by using the Jekyll static HTML site generator. Jekyll generates HTML files from your Markdown and runs as a local content server. You can view your pages formatted exactly as they will appear on the Commerce Docs site. 
 
-Commerce Docs source content is written in Markdown and runs on a GitHub Pages site. GitHub Pages automatically converts Markdown (.md) files to HTML by GitHub.
+Jekyll puts the static HTML files it generates in the `_site` directory along with the assets it needs to run the site, including javascript, images, and css.
 
 For more info on Jekyll, visit https://jekyllrb.com/docs/.
 
->**NOTE**: We assume that you are using macOS where the Ruby language and the Ruby Gems package manager are installed by default.
+>NOTE: Commerce Docs is a GitHub Pages site. Unlike Jekyll that creates HTML files from .md files, GitHub Pages automatically converts Markdown (.md) files to HTML on the fly. When checking in changes to the techdocs.site GitHub repo, do not check in files from the `_site` directory.
+
+These instructions assume that you are using macOS where the Ruby language and the Ruby Gems package manager are installed by default.
 
 To run Commerce Docs locally:
 
 |---|---|
 |Fork the Commerce Docs Repo|https://github.com/nike-internal/techdocs.site|
+|Create a branch|Branch name should explain the changes you are making, for example "updating-checkout-to-v3"|
 |Install Jekyll|https://jekyllrb.com/docs/installation/macos/|
 |Start the Jekyll server| From the techdocs.site folder in Terminal, start the Jekyll server (which also builds the project) using the `s` (serve) command:<br/>`jekyll s`<br/>If you get errors, use the `bundle exec` command to ensure that the project dependencies play well together:<br/>`bundle exec jekyll s`|
 |Test Commerce Docs and Jekyll server|Navigate http://localhost:4000/ in your browser|
 |Troubleshoot| Configuration Options: https://jekyllrb.com/docs/configuration/options/<br/>Default Configuration: https://jekyllrb.com/docs/configuration/default/<br/>Bundle Info: https://bundler.io/rationale.html<br/><br/>To list and remove a certain version of a gem, replace the "[gem-name]" below:<br/>`$ gem uninstall [gem-name]`<br/>Select gem to uninstall:<br/>1. [gem-name]-0.8.7<br/>2. [gem-name]-0.9.2<br/>3. All versions<br/>> 2<br/>Successfully uninstalled [gem-name]-0.9.2|
+
+When ready, submit a PR from your branch to the [techdocs.site GitHub repo](https://github.com/nike-internal/techdocs.site/tree/main/doc).
