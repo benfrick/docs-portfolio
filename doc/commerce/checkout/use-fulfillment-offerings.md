@@ -67,7 +67,7 @@ Listed below are some Fulfillment Offerings key terms used in this guide.
 | Term                     | Definition                                                                                                       |
 |--------------------------|------------------------------------------------------------------------------------------------------------------|
 | **Expiration Date**      | Date/time after which a fulfillment offering expires                                                             |
-| **(Fulfillment) Intent** | When a consumer indicates how they want to receive their item, for example SHIP                                  |
+| **(Fulfillment) Intent** | When a consumer indicates how they want to receive their item, for example, SHIP                                 |
 | **Get By**               | Estimated date range (min/max) for an item to be fulfilled. Synonymous with legacy Estimated Delivery Date (EDD) |
 | **Locations**            | Location of a fulfillment offering, e.g `address/shipping` and `location/search`                                 |
 | **Pickup Location**      | Third-party location at which the consumer can pick up their order                                               |
@@ -112,7 +112,7 @@ Each location in an offering is one of these types:
 |`store/store_views`|Nike store location|
 |`address/shipping`|Shipping address location|
 |`location/search`|Search nearby Nike stores and third party pickup locations based on latitude and longitude or postal code|
-|`address/digital`|Digital location for example, an email address|
+|`address/digital`|Digital location, for example, an email address|
 |`ship/pickup_points`|Third party pick up location|
 
 If the consumer indicated [intent](#intent) for the offering, the offering has a fulfillment type. The valid types are listed below.
@@ -131,9 +131,9 @@ If the consumer indicated [intent](#intent) for the offering, the offering has a
 ### Fulfillment Groups
 
 The [Fulfillment Offerings Jobs PUT V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-put){:target="new-tab"} and [Fulfillment Offerings Jobs PUT V2](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-4){:target="new-tab"} response includes an array of `fulfillmentGroups`. All items in a fulfillment group share the same:
-- Fulfillment type for example, PICKUP
-- Location type for example, store/store_views
-- Location for example, store ID 69b5fec5-e0a6-4dd2-b971-4f9b90d4f85b
+- Fulfillment type, for example, PICKUP
+- Location type, for example, store/store_views
+- Location, for example, store ID 69b5fec5-e0a6-4dd2-b971-4f9b90d4f85b
 - List of price offers
 
 This means that all items in a fulfillment group share the same [intent](#intent).
@@ -427,36 +427,36 @@ If all items in the fulfillment group can be delivered on the same day at the sa
 ...
 "getBy": {
   "minDate": {
-    "dateTime": "2019-02-07T00:00:00.000Z",
+    "dateTime": "2022-02-07T00:00:00.000Z",
     "timezone": "America/Los_Angeles",
     "precision": "DAY"
   },
   "maxDate": {
-    "dateTime": "2019-03-22T23:59:59.000Z",
+    "dateTime": "2022-03-22T23:59:59.000Z",
     "timezone": "America/Los_Angeles",
     "precision": "DAY"
    },
    "fulfillmentWindows": [
      {
        "minDate": {
-         "dateTime": "2019-02-07T10:00:00.000Z",
+         "dateTime": "2022-02-07T10:00:00.000Z",
          "timezone": "America/Los_Angeles",
          "precision": "MINUTE"
        },
         "maxDate": {
-          "dateTime": "2019-02-07T12:00:00.000Z",
+          "dateTime": "2022-02-07T12:00:00.000Z",
           "timezone": "America/Los_Angeles",
           "precision": "MINUTE"
         }
      },
      {
        "minDate": {
-         "dateTime": "2019-02-07T12:00:00.000Z",
+         "dateTime": "2022-02-07T12:00:00.000Z",
          "timezone": "America/Los_Angeles",
          "precision": "MINUTE"
         },
         "maxDate": {
-          "dateTime": "2019-02-07T14:00:00.000Z",
+          "dateTime": "2022-02-07T14:00:00.000Z",
           "timezone": "America/Los_Angeles",
           "precision": "MINUTE"
         }
@@ -475,7 +475,7 @@ If a price offer has one or more fulfillment windows:
 - Selection of the fulfillment window by the consumer in an experience applies to all items in the fulfillment group
 
 >**NOTES**: 
->- Mixed carts containing NIKEiD customized products, pre-order products, or physical gift cards do not have fulfillment windows
+>- Mixed carts containing Nike By You customized products, pre-order products, or physical gift cards do not have fulfillment windows
 >- Carts with products shipping from different inventory sources may limit the number of fulfillment windows available
 
 ## Fulfillment Offerings GET
@@ -534,7 +534,7 @@ In this case, you can *optionally* send any of the following to Fulfillment Offe
 - **Location search data** (for example, GPS coordinates)
 - **Known Addresses** (shipping, email or other known addresses for that consumer)
 - **Promotion discount codes**
-- **Allowed fulfillment types** (for example return only 'SHIP' and 'PICKUP' types)
+- **Allowed fulfillment types** (for example, return only 'SHIP' and 'PICKUP' types)
 
 The Fulfillment Offerings API adjusts the results based on what you send, making for an efficient way to drive the experience. The API groups items of the same intent by fulfillment group. This grouping makes it easy for the app or experience to display items with the same intent.
 
