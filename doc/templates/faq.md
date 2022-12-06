@@ -37,7 +37,7 @@ Visit the [Support playbook]() for information on monitoring, troubleshooting an
 
 - How do I integrate with your services?
 
-A great place to start is to read the [API integration guide]() on Git Hub. It describes our services and has sample code and step-by-step instructions for each use case. If you have further questions, contact us on [#Slack]().
+A great place to start is to read the [API integration guide]() on Git Hub. It describes our services and has sample code and step-by-step instructions for each use case. If you have further questions, contact us on [Slack]().
    
 - How long does integration generally take?
 

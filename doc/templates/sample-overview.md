@@ -43,4 +43,4 @@ Step through the use cases below to integrate this thing into your experience.
 
 ### Connect
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:)
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [Slack](slack://)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:)

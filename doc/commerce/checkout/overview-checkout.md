@@ -98,6 +98,6 @@ The APIs required for the two fulfillment flows are listed below.
 - [Glossary](/doc/commerce/reference/glossary.html): Common terms explained.
 - [Product Life Cycle](/doc/commerce/reference/product-lifecycle.html): Discover how Nike products become available for purchase in an experience.
 
-#### Connect
+#### Connect to the Docs Team
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)

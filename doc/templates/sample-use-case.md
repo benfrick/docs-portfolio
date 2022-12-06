@@ -189,7 +189,7 @@ Describe what is cached and for how long, or if caching is not supported.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the {} team on the [#slack-channel]({url for slack channel}){:target="new-tab"} Slack channel for assistance.
+- Contact the {} team on the [Slack-channel]({url for slack channel}){:target="new-tab"} Slack channel for assistance.
 
 ## Terms of Service
 

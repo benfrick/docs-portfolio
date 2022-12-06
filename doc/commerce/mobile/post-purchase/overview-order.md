@@ -40,6 +40,6 @@ Step through the use cases below to incorporate Mobile Order History into your m
 * [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
 * [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
 
-### Connect
+### Connect to the Docs Team
 
-Need to get in touch with the Tech Docs team? We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
+Need to get in touch with the Tech Docs team? We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
