@@ -3,6 +3,10 @@ GEM
   specs:
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    async (2.3.0)
+      console (~> 1.10)
+      io-event (~> 1.1)
+      timers (~> 4.1)
     colorator (1.1.0)
     concurrent-ruby (1.1.10)
     console (1.16.2)
