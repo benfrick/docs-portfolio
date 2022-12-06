@@ -47,6 +47,11 @@ But what if you want to show consumers additional options, like a list of nearby
 
 ![Prototype of a Nike fulfillment offering experience](/images/commerce/buy/fo-pickup-ship.png)
 
+#### Which Version of Fulfillment Offerings Should I Use?
+
+Comparing V2 to V1, the V2 response has an improved schema that greatly reduces the length of the response. In addition, V2 does not contain a separate GET endpoint that returns a cached version of get-by dates, fulfillment costs and offerings that does not require authentication. All V2 endpoints require either the `umpid` header for members or `x-nike-visitorid` and `x-nike-visitid` header for guests. It is recommended that new experiences use Fulfillment Offerings V2.
+
+
 ## Key Concepts and Terms
 
 This section discusses topics important to understanding fulfillment offerings.
@@ -1512,10 +1517,15 @@ UX calls Fulfillment Types for country "BE" and learns that the following fulfil
 
 ## API Quick Reference
 
+**V1**
 **Fulfillment Offerings Multi-Item**
 - [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
 - [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
 - [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+
+**V2**
+- [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-4){:target="new-tab"}
+- [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-get-4){:target="new-tab"}
 
 **Fulfillment Types**
 - [Fulfillment Types GET](https://developer.niketech.com/docs/projects/Fulfillment%20Types?tab=api){:target="new-tab"}
@@ -1538,11 +1548,11 @@ Although the Fulfillment Offerings Style-Color endpoint may return cached result
 
 ## Contacting the Team
 
-Need to contact the Cart & Checkout team?
+Need to contact the Buy team?
 
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
-|Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
+|Team Contacts|[Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
 
 ## Document Change Log
 
