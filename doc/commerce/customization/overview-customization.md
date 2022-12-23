@@ -52,6 +52,6 @@ Here are some use cases for integrating CXP capabilities into your experience.
 - [Customization Builder Reference:](/doc/commerce/customization/builder-reference.html){:style="padding-right: 5px;} The reference doc for the Customization Builder.
 - [Adding Product Feeds to Your Experience:](/doc/commerce/product/use-product-feeds.html){:style="padding-right: 5px;} Discover how to integrate with Product Feeds.
 
-### Connect
+### Connect to the Docs Team
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)

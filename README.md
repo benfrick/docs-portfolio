@@ -13,7 +13,6 @@ Visit the Commerce Docs site for the full documentation set at https://nde-devpo
 
 ## Contributing
 
-- [Learn how to contribute](https://nde-devportal-docs.niketech.com/contributing.html) content updates to Commerce Docs using a GitHub self-service process
+- [Learn how to contribute](contributing.md) content updates to Commerce Docs using a GitHub self-service process
 - Create a pull request with your changes in the [techdocs.site](https://github.com/nike-internal/techdocs.site) repo
 - Report issues or request changes via the Tech Docs team on Slack at [#tech-docs](https://nikedigital.slack.com/archives/C6A18NT7W)
-- 

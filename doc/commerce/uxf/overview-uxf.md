@@ -20,6 +20,6 @@ UX Foundation offers products that solve common problems for hosted user experie
 |<i class="g72-check"></i>&nbsp;&nbsp;[Global Nav](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="new-tab"}: Adds the latest global header/footer, search, and analytics|
 |<i class="g72-check"></i>&nbsp;&nbsp;[Web Shell](https://super-bassoon-778bf849.pages.github.io/){:target="new-tab"}: Standardizes common functionality needed to build web pages on Nike.com|
 
-### Connect
+### Connect to the Docs Team
 
-We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [#Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
