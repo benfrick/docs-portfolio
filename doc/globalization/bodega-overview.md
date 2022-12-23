@@ -27,6 +27,8 @@ With Bodega, you can:
 
 ### Who Uses Bodega?
 
+Here are some examples of folks who might use Bodega (note: this is not an exclusive list):
+
 - Globalization Operations
 - Developers
 - Product Managers
@@ -41,8 +43,8 @@ With Bodega, you can:
 
 ### Contact the Globalization Team
 
-- [Slack](https://nikedigital.slack.com/messages/CBSEHUK1N){:target="new-tab"}
-- [Confluence Space](https://confluence.nike.com/display/G11N/Capability+Development){:target="new-tab"}
+- [Slack](https://nikedigital.slack.com/archives/C0KB38Y5P){:target="new-tab"}
+- [Confluence Space](https://confluence.nike.com/display/G11N/Nike+Globalization){:target="new-tab"}
 - [Bodega Team Roster](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/About.aspx#team){:target="new-tab"}
 
 ### Connect to the Docs Team
