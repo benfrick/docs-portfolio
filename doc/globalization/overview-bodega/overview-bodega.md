@@ -2,9 +2,9 @@
 id: overview-bodega
 tags: pdf
 category: a-overview
-position: 10
+position: 9
 title: Bodega
-url: /doc/globalization/bodega-overview.html
+url: /doc/globalization/overview-bodega/overview-bodega.html
 h1: Bodega Overview
 ---
 
