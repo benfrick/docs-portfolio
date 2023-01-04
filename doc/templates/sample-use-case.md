@@ -32,7 +32,7 @@ toc:
 ---
 
 # {{ page.title }} <i style="float: right;" class="g72-swoosh"></i>
-###### Last Updated: 03/05/2021
+###### Last Updated: 01/04/2023
 ###### Tags: {{ page.tag }}
 
 ---
@@ -199,9 +199,9 @@ Describe what is cached and for how long, or if caching is not supported.
 
 Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user.
 
-Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
+Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
+To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
 
 #### JSON Web Token
 
@@ -215,7 +215,7 @@ Sample requests included throughout this guide contain unique IDs and access tok
 
 #### Required Request Headers
 
-Listed below are the required request headers. Since most requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls the Unite services first to get an access token and passes that token in the request.
+Listed below are the required request headers. Since most requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} first to get an access token and passes that token in the request.
 
 |Header Name|Description|
 |---|---|

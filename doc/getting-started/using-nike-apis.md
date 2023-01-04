@@ -45,7 +45,7 @@ toc:
   - h2: Related Links
     url: /doc/getting-started/using-nike-apis.html#related-links
 ---
-##### Last Updated: 06/01/2022
+##### Last Updated: 01/04/2023
 
 This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Start here before diving into the Developer's guides.
 
@@ -556,7 +556,7 @@ For the request headers, the following considerations apply (at minimum):
 
 - Always send `application/json` in both the `Accept` and `Content-Type` headers.
 
-- Send the consumer's access token as obtained from Unite services in the `Authorization` header.
+- Send the consumer's access token as obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} in the `Authorization` header.
 
 ```
 Accept: application/json
@@ -1075,7 +1075,7 @@ Nike APIs support 3 distinct user types for commerce applications. In this guide
 
 #### Member
 
-Nike's members have previously registered a [Nike](https://www.nike.com/us/en_us/e/nike-plus-membership){:target="new-tab"} account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an _access token_ must be obtained from Nike Unite services and included in the `Authorization` request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on Nike business rules.
+Nike's members have previously registered a [Nike](https://www.nike.com/us/en_us/e/nike-plus-membership){:target="new-tab"} account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an _access token_ must be obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} and included in the `Authorization` request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on Nike business rules.
 
 #### Guest
 
@@ -1153,13 +1153,14 @@ Be a good client by following these [Circuit Breaker Best Practices](/doc/commer
 
 ## Document Change Log
 
-|Summary|Date|
-|---|---|
-|Initial publish|10/18/2018|
-|Added making Your First Request and other edits|12/11/2018|
-|Added Authentication router|8/20/2019|
-|Added Consumer and S2S JWT to Authentication section|9/24/2019|
-|Updated with UER, OSCAR, OIDC|5/11/2022|
+|Summary| Date       |
+|---|------------|
+|Initial publish| 10/18/2018 |
+|Added making Your First Request and other edits| 12/11/2018 |
+|Added Authentication router| 08/20/2019 |
+|Added Consumer and S2S JWT to Authentication section| 09/24/2019 |
+|Updated with UER, OSCAR, OIDC| 05/11/2022 |
+|Added accounts.nike.com| 01/04/2023 |
 
 ## Related Links
 - [API Standards](https://cuddly-sniffle-c799ad24.pages.github.io/){:target="new-tab"}

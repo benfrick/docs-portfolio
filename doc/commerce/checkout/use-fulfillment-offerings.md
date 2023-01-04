@@ -30,7 +30,7 @@ toc:
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#contacting-the-team
 ---
-##### Last Updated: 11/14/2022
+##### Last Updated: 01/04/2023
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -248,7 +248,7 @@ Send a request to the PUT endpoint with the following headers:
 |`x-nike-visitid`|Identifier for the guest (i.e. not logged-in) consumer, validated by the Edge router and passed through to the service||X||
 |`x-nike-visitorid`|Integer identifying the guest’s session||X||
 
->**TIP:** For the Authorization header, use the token for the consumer’s login session that you obtained from Nike Unite/Identity or [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"}, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
+>**TIP:** For the Authorization header, use the token for the consumer’s login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
 
 Send a request to one of the **Fulfillment Offerings PUT** URLs below. Note the UUID in the URL path, which you must generate. Make sure to send any consumer information you have such as shipping address, email address, or latitude and longitude of the consumer's physical location to get the most accurate list of offerings for each cart item.
 
@@ -757,13 +757,14 @@ Need to contact the Buy team?
 
 ## Document Change Log
 
-|Summary | Date       | Description                                   |
-|---|------------|-----------------------------------------------|
-|Initial draft| 3/03/2020  | Initial Publish                               |
-|Renamed endpoints| 4/20/2020  | Renamed endpoints, updated Next Steps section |
-|Added section| 1/01/2021  | Added Fulfillment Types section               |
-|Added links to Address Geocoding guide| 4/19/2021  | For obtaining coordinates from an address     |
-|Added fulfillment windows| 11/14/2022 | For Japan                                     |
+| Summary                                       | Date       | 
+|-----------------------------------------------|------------|
+| Initial Publish                               | 03/03/2020 |
+| Renamed endpoints, updated Next Steps section | 04/20/2020 |
+| Added Fulfillment Types section               | 01/01/2021 |
+| Added links to Address Geocoding guide        | 04/19/2021 |
+| Added fulfillment windows for Japan           | 11/14/2022 |
+| Added accounts.nike.com                       | 01/04/2023 |
 
 ## Next Steps
 

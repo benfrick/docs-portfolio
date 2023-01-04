@@ -37,7 +37,7 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/mobile/post-purchase/use-order.html#next-steps
 ---
-##### Last Updated: 2/17/2022
+##### Last Updated: 01/04/2023
 
 Retrieve a complete order history for your mobile consumers with the added flexibility of self-service options such as "Start a Return" and "Track Shipment" using the [Post Purchase API]{:target="_blank"}.
 
@@ -312,9 +312,9 @@ Following are the terms of service for the Post Purchase APIs.
 
 Calls to the Member List Orders and Member List Order Details by ID endpoints require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the consumer.
 
-Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
+Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the [Authorization](/doc/getting-started/using-nike-apis.html#authorization) section of the Using Nike APIs guide.
+To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} to obtain access tokens, see the [Authorization](/doc/getting-started/using-nike-apis.html#authorization) section of the Using Nike APIs guide.
 
 ### User Types
 
@@ -326,7 +326,7 @@ The Order APIs support 3 distinct user types:
 
 ### Required Request Headers
 
-Listed below are the required request headers, which vary based on user type. Since most Member List Orders, Member List Order Details by ID and Guest List Order Details by ID requests come through the Nike Edge router, these header values will be set automatically, provided your app calls the Unite services first to get an access token and passes that token in the request.
+Listed below are the required request headers, which vary based on user type. Since most Member List Orders, Member List Order Details by ID and Guest List Order Details by ID requests come through the Nike Edge router, these header values will be set automatically, provided your app calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} first to get an access token and passes that token in the request.
 
 ###### Table 3: Required Order History Request Headers by User Type
 
@@ -339,7 +339,7 @@ Listed below are the required request headers, which vary based on user type. Si
 |**x-nike-visitorid**|Unique identifier for the guest, validated by the Edge router and passed through to the service. Applies only to the Guest List Order Details by ID API.||X||
 |**x-nike-visitid**|Integer identifying the guest's session. Applies only to the Guest List Order Details by ID API.||X||
 
->**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from Nike Unite/Identity, prefixed by `Bearer ` (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
+>**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}, prefixed by `Bearer ` (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
 
 See the [User Types](/doc/getting-started/using-nike-apis.html#user-types) section of the Using Nike APIs guide for more information.
 
@@ -374,7 +374,8 @@ Need to contact the Post Purchase team?
 
 |Summary|Date|
 |---|---|---|
-|Initial publish|2/17/2022|
+|Initial publish|02/17/2022|
+|Added accounts.nike.com|01/04/2023|
 
 ## Next Steps
 
