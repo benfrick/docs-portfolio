@@ -16,7 +16,7 @@ With Bodega, you can:
 - Improve accuracy and relevancy for Nike's international users
 - Reduce the time-to-market for new global feature releases and new experiences
 
->**TIP**: Head over to the [Bodega Sharepoint Site](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Home.aspx) for comprehensive documentation.
+>**TIP**: Head over to the [Bodega Sharepoint Site](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Home.aspx){:target="new-tab"} for comprehensive documentation.
 
 ### Bodega Features
 
@@ -27,7 +27,7 @@ With Bodega, you can:
 
 ### Who Uses Bodega?
 
-Here are some examples of folks who might use Bodega (note: this is not an exclusive list):
+Here are some examples of folks who might use Bodega (note: this is a partial list):
 
 - Globalization Operations
 - Developers
