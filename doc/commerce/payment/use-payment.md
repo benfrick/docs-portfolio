@@ -51,7 +51,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/payment/use-payment.html#next-steps
 ---
-##### Last Updated: 06/01/2022
+##### Last Updated: 01/04/2023
 
 Manage the payment process for consumers purchasing Nike products and services.
 
@@ -181,7 +181,7 @@ For v3 Checkout, use the [Get Payment Options v3](https://developer.niketech.com
 **Common Considerations**
 
 - The results of a successful 200 response lists valid payment methods that a consumer can use to pay for the Nike checkout. The list includes the payment name (e.g. "Visa") and payment type (e.g. "CreditCard").
-- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 - Even though `items` is an optional request field, it is recommended that you pass it if available so product validation is performed as early as possible in the purchase flow.
 - The endpoint validates all items passed in the request body. For performance reasons, the products are held in cache for 15 minutes. After the cache expires or if the product is not in cache, the service attempts to get fresh product data from the Merchandised Product API. If the Merchandised Product service is unreachable, the service defaults the product type to "INLINE" and continues validating the product.
 - It is best practice to send all optional request headers, if the data is available, to avoid unexpected responses.
@@ -202,7 +202,7 @@ A successful 200 response lists the billing countries valid for the shipping cou
 
 >**TIPS:**
 >- The consumer's billing country must be in the billing country results list in order for them to make a purchase.
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Your experience needs to pass the country code that the consumer is shopping in the `shippingCountry` query parameter.
 
 #### Step 3: Validate Payments
@@ -218,7 +218,7 @@ https://api.nike.com/payment/validate_payments/v2
 A successful 200 response lists all payments provided in the request and true if the billing country and payment type combination is valid, false if not.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- It is best practice to send all optional request headers and body fields, if the data is available, to avoid unexpected responses.
 
 ## Storing Payment
@@ -507,7 +507,7 @@ This service lists, modifies, deletes and stores a consumer's credit card and Ap
 
 The [Add Credit Card Info with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} endpoint is called by experiences that are not PCI-certified. This endpoint renders an iFrame with editable masked credit card number, expiration date, and CVV fields pre-populated with values matching the `creditCardInfoId` passed in the path parameter. If the `creditCardInfoId` is not found, the iFrame renders blank, editable credit card number, expiration date and CVV fields. When each field has a value, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the new or updated values. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the new or updated credit card data.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 Listed below is a sample [Add Credit Card Info with CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-with-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -523,7 +523,7 @@ The response renders the iFrame below with editable credit card number, expirati
 
 The [Add Credit Card Info without CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-without-cvv-get){:target="new-tab"} endpoint is called by experiences that are not PCI-certified. This endpoint renders an iFrame with the editable masked credit card number and expiration date fields matching the `creditCardInfoId` passed in the path parameter. If the `creditCardInfoId` is not found, the iFrame renders blank, editable credit card number and date fields. When each field has a value, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the new or updated values. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the new or updated credit card data.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 Listed below is a sample [Add Credit Card Info without CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-credit-card-without-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -539,7 +539,7 @@ The response renders the iFrame below with editable credit card number and expir
 
 The [Add or Update Credit Card CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-cvv-get){:target="new-tab"} endpoint is called by experiences that are not PCI-certified. This endpoint renders an iFrame with an editable CVV field. When the consumer provides a CVV value, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the CVV if it found a credit card matching the `creditCardInfoId` path parameter. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the updated CVV.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 Listed below is a sample [Add or Update Credit Card CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -555,7 +555,7 @@ The response renders the iFrame below with an editable CVV field.
 
 The [Add or Update Credit Card Expiry and CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-expiry-and-cvv-get){:target="new-tab"} endpoint is called by experiences that are not PCI-certified. This endpoint renders an iFrame with an editable credit card expiration date and CVV fields. When the consumer provides the appropriate values, the iFrame calls the [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} endpoint and temporarily stores the data for the `creditCardInfoId` path parameter. As a last step, the iFrame calls the [Validate Credit Card](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-validate-credit-card-get){:target="new-tab"} endpoint to validate the updated expiration date and CVV values.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 Listed below is a sample [Add or Update Credit Card Expiry and CVV](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-add-or-update-credit-card-expiry-and-cvv-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -693,7 +693,7 @@ Use the [Start Apple Pay Session](https://developer.niketech.com/docs/projects/P
 
 Once you get a successful 200 response from [Start an Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"}, you have all the information you need to call [Store Credit Card for Validation and Purchase](https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api#credit-card-information-store-credit-card-for-validation-and-purchase-post){:target="new-tab"} and continue the purchase flow as you would for a credit card.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 Listed below is a sample [Start Apple Pay Session](https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api#payment-applepay-start-apple-pay-payment-session-post){:target="new-tab"} POST request URI and body. The `validationURL` is passed to your experience from the Apple Pay JS API when you [provide merchant validation](https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api/providing_merchant_validation){:target="new-tab"}.
 
@@ -767,7 +767,7 @@ If the consumer cancels the PayPal Express session on the PayPal site, PayPal re
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a link to the job and a status polling ETA. A successful response in `COMPLETED` status also includes the response object containing the job results.
 
@@ -796,7 +796,7 @@ To know if the job is done, check the value of the status field in the response 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the Request PayPal Express response.
 
 A successful 200 response lists the `paypalToken` and `redirectURL`
@@ -822,7 +822,7 @@ For v3 Checkout, use the [Request PayPal Details v2](https://developer.niketech.
 - This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
 - This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 - A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a link to the job and a status polling ETA. A successful response in `COMPLETED` status also includes the response object containing the job results.
-- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 #### Step 4: Retrieve PayPal Details Job
 
@@ -849,7 +849,7 @@ To know if the job is done, check the value of the status field in the response 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the Request PayPal Express response.
 
 A successful 200 response lists shipping and billing addresses.
@@ -895,7 +895,7 @@ After the consumer pays for the Checkout or cancels the PayPal Mark session on t
 
 This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
 
->**TIP**: When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP**: When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a link to the job and a status polling ETA. A successful response in `COMPLETED` status also includes the response object containing the job results.
 
@@ -924,7 +924,7 @@ To know if the job is done, check the value of the status field in the response 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the Request PayPal Express response.
 
 A successful 200 response lists the `paypalToken` and `redirectURL`
@@ -968,7 +968,7 @@ https://api.nike.com/payment/deferred_payment_forms/v1
 A successful 202 response in the `PENDING` or `IN_PROGRESS` status includes a link to the job and a status polling ETA. A successful response in `COMPLETED` status also includes the response object containing the job results.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Parsing the 'COMPLETED' job result directly is best practice because it eliminates making another service call.
 
 #### Step 2: Retrieve Deferred Payment Form Job
@@ -984,7 +984,7 @@ To know if the job is done, check the value of the `status` field in the respons
 Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the `response` object from this endpoint.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
 Listed below is a sample [Retrieve Deferred Payment Form Job](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-form-retrieve-deferred-payment-form-job-get){:target="new-tab"} GET request URI. The endpoint is not JWT-restricted.
@@ -1013,7 +1013,7 @@ Listed below is a sample [Request Deferred Payment Status](https://developer.nik
 https://api.nike.com/payment/deferred_payment_status/v1
 ```
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 A successful 202 response in `COMPLETED` status lists the payment status and amount paid if the payment status is `PAYMENT_SUCCESSFUL`. If the 202 response is `PENDING` or `IN_PROGRESS`, it includes a link to the job and a status polling ETA.
 
@@ -1030,7 +1030,7 @@ To know if the job is done, check the value of the status field in the response 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the Deferred Payment Status response.
 
 Listed below is a sample [Retrieve Deferred Payment Status Job](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#deferred-payment-status-retrieve-deferred-payment-status-job-get){:target="new-tab"} GET request URI. This endpoint requires a service-to-service JWT in the X-Nike-Authorization header.
@@ -1074,7 +1074,7 @@ https://api.nike.com/payment/deferred_wechat_payments/v1
 
 A successful 202 response includes a link to the job and a status polling ETA.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 #### Step 3: Retrieve WeChat Deferred Payment Job
 
@@ -1089,7 +1089,7 @@ To know if the job is done, check the value of the status field in the response 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the Deferred Payment Form response.
 
 Listed below is a sample [Retrieve Deferred WeChat Payment Job](https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api#wechat-deferred-payment-retrieve-wechat-deferred-payment-job-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
@@ -1141,7 +1141,7 @@ The supported Korea Payment types are:
 
 Pass `paymentType`, `checkoutId`, `returnURL`, `cancelURL`, `failURL` and order details such as shipping and billing information in the **Ready Payment** request. The vendor uses the `returnURL` to redirect the consumer after successful authentication and gathering of payment information, the `cancelURL` if the consumer cancels the action, and the `failURL` in case of an error.
 
->**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP:** When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 Listed below is a sample [Request Ready Payment](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-put){:target="new-tab"}{:target="new-tab"} POST request URI. This endpoint is asynchronous.
 
@@ -1169,7 +1169,7 @@ To know if the job is done, check the value of the status field in the response 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the Retrieve Ready Payment Job response.
 
 Listed below is a sample [Retrieve Ready Payment Job](https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api#ready-payment-get){:target="new-tab"} GET request URI with 621827cc-82b4-408b-9e63-7292795fa233 as the `id` path parameter.
@@ -1326,7 +1326,7 @@ OR
 
 - The `paymentPreviewId` returned by this service is a required key when calling [Request Checkout Submit](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-request-a-checkout-submit-put){:target="new-tab"} to validate and authorize/debit payment before submitting a Checkout to Nike for fulfillment.
 - This endpoint operates **asynchronously** which means that there are extra steps to retrieve the results of your request. Read the Asynchronous Operation section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) guide to learn more about working with asynchronous Nike APIs.
-- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 - `Promotion` in the response.payments.`type` field is an indicator that the entire order is allocated to a promotion.
 - A successful 202 response includes a link to the job and a status polling ETA.
 
@@ -1366,7 +1366,7 @@ To know if the job is done, check the value of the status field in the response 
 Once you receive a job status of "COMPLETED", get the results of your job by parsing the data in the response object from this endpoint. Alternatively, follow the link to the [Retrieve Payment Preview Result](https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api#payment-preview-retrieve-payment-preview-result-get){:target="new-tab"} endpoint which is provided in the `links` object response body.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` field from the Request Payment Preview response.
 >- Parsing the "COMPLETED" job result directly is best practice because it eliminates making another service call.
 
@@ -1387,7 +1387,7 @@ Listed below is a sample [Retrieve Payment Preview Result](https://developer.nik
 A successful 200 response lists the payment types on the Checkout, and the amount allocated to each type.
 
 >**TIPS:**
->- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>- When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 >- Get the {id} path parameter from the `id` job UUID in the *Request Payment Preview* response.
 
 ## 3-D Secure Authentication
@@ -1636,7 +1636,7 @@ Use the [Get Payment Approval Summary](https://developer.niketech.com/docs/proje
 
 Note that if the Payment Approval result is not in either `ACCEPT` or `PENDING_PAYMENT` status, the service returns a 404 response.
 
->**TIP**: When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by Nike Unite.
+>**TIP**: When calling this endpoint through the public router, the `upmid` (for logged-in consumers), `appId` and `usertype` headers are automatically added by the Nike Edge Router based on the access token in the Authorization header populated by [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}.
 
 Listed below is a sample [Get Payment Approval Summary](https://developer.niketech.com/docs/projects/Payment%20Approval?tab=api#payment-approval-get-payment-approval-summary-get){:target="new-tab"} GET request URI. It is not JWT-restricted.
 
@@ -2184,9 +2184,9 @@ It is recommended that you send a caller ID header in every request to this API 
 
 Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your experience is authorized to perform the action on behalf of the user.
 
-Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
+Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call Unite services to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
+To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
 
 #### JSON Web Token
 
@@ -2203,17 +2203,18 @@ Need to contact the Payment team?
 
 ## Document Change Log
 
-|Date|Summary|
-|---|---|
-|1/8/2018|Initial publish|
-|11/26/2018|Added Payment Gateway detail|
-|2/21/2018|Restructured for use cases|
-|7/18/2019|Added Key Terms section|
-|10/21/2019|Added voucher, gift certificate, and CyberSource report to Fulfillment section|
-|11/14/2019|Added 3-D Secure Authentication section|
-|5/7/2020|Added Source-Aware endpoints for Options, Wallet, Preview, Approval|
-|10/19/2021|Added SMS support and third-party payment gateway (Adyen)|
-|3/8/2022|Added Korea payment|
+|Date| Summary    |
+|---|------------|
+|Initial publish| 01/8/2018  |
+|Added Payment Gateway detail| 11/26/2018 |
+|Restructured for use cases| 02/21/2018 |
+|Added Key Terms section| 07/18/2019 |
+|Added voucher, gift certificate, and CyberSource report to Fulfillment section| 10/21/2019 |
+|Added 3-D Secure Authentication section| 11/14/2019 |
+|Added Source-Aware endpoints for Options, Wallet, Preview, Approval| 05/7/2020  |
+|Added SMS support and third-party payment gateway (Adyen)| 10/19/2021 |
+|Added Korea payment| 03/8/2022  |
+|Added accounts.nike.com| 01/04/2023 |
 
 ## Next Steps
 

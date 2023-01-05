@@ -37,7 +37,7 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/checkout/use-checkout.html#next-steps
 ---
-##### Last Updated: 06/01/2022
+##### Last Updated: 01/04/2023
 
 Manage the Checkout process for the consumer.
 
@@ -519,7 +519,7 @@ The following request headers are common to all the Cart & Checkout APIs:
 | **Authorization**    | Your access token in the format of `Bearer {token}` indicating the consumer is logged in                               | X      |       | X        |
 | **x-nike-visitorid** | Identifier for the guest (i.e. not logged-in) consumer, validated by the Edge router and passed through to the service |        | X     |          |
 
->**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from Nike Unite/Identity, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
+>**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
 
 ### Supported Countries & Currencies
 
@@ -658,10 +658,10 @@ on how to create and register your caller ID.
 
 Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header.
 This allows Nike to verify that your app is authorized to perform the action on behalf of the consumer.
-Access tokens are obtained by calling Nike Unite services prior to calling the API which you ultimately want to reach.
+Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
 
-See the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide for more
-on how to call Unite services.
+See [Authorization](/doc/getting-started/using-nike-apis.html#authorization) for more information
+on how to call accounts.nike.com and Nike Unite/Identity services.
 
 #### JSON Web Token
 
@@ -689,6 +689,7 @@ Need to contact the Buy team?
 | Moved Address Geocoding and Address Validation into [Address Tools](/doc/commerce/checkout/use-address.html) guide | 04/19/2021 |
 | Added SMS                                                                                                          | 08/04/2021 |
 | Added Cart Reviews v1/v2 content from Carts guide                                                                  | 05/09/2022 |
+| Added accounts.nike.com                       | 01/4/2023  |
 
 ## Next Steps
 
