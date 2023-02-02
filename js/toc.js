@@ -4,6 +4,7 @@ TOC Builder for .pdfs
 - appends links to the #toc <div> as <li> at beginning of pdf
 - builds fully qualified links from relative links so they work
 */
+
 var h2s = document.getElementsByTagName('h2');
 var relLinks = document.querySelectorAll('a[href^="/doc"]');
 

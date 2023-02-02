@@ -131,7 +131,7 @@ A successful 200 response contains address information of the physical location 
 
 |Slack|Address Verification: [#cic-payment](https://nikedigital.slack.com/archives/C0Z9P2E5Q){:target="new-tab"}<br>Address Geocoding: [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
 |Confluence Space|Address Verification: [Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="new-tab"}<br>Address Geocoding: [Buy](https://confluence.nike.com/display/BUY/Buy+Domain){:target="new-tab"}|
-|Team Contacts|Address Verification: [Sree Krishna](mailto:sree.krishna@nike.com)<br>Address Geocoding: [Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
+|Team Contacts|Address Verification: [Lori Brown](mailto:lori.brown@nike.com)<br>Address Geocoding: [Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
 
 ## Document Change Log
 
