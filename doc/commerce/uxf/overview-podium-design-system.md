@@ -54,6 +54,6 @@ export default function HomePage() {
 |Confluence Space|[Podium Component](https://confluence.nike.com/display/PDS/Podium+Design+System){:target="new-tab"}
 |Product Owner|[gayla.hilton@nike.com](mailto:gayla.hilton@nike.com)|
 
-### Connect to the Docs Team
+#### Connect to the Docs Team
 
-The Tech Docs team is here to help with your doc needs. Reach us through &nbsp;<i class="g72-chat"></i> [Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com) or click the Provide Feedback button in the lower right corner.
+We're here to help.&nbsp;&nbsp;&nbsp;<i class="g72-chat"></i> [Slack](slack://channel?team=T0G3T5X2B&id=C6A18NT7W)&nbsp;&nbsp;&nbsp;<i class="g72-email"></i> [Email](mailto:Lst-nde.docs@nike.com)
