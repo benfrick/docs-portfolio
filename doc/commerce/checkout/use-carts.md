@@ -277,7 +277,7 @@ Need to contact the Cart & Checkout team?
 
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
-|Team Contacts|[Sree Krishna](mailto:sree.krishna@nike.com)|
+|Team Contacts|[Saket Shrivastava](mailto:Saket.Shrivastava@nike.com)|
 
 ## Document Change Log
 

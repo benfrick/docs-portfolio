@@ -6,6 +6,8 @@ position: 2
 title: Rollup Threads
 url: /doc/commerce/product/use-rollup-threads.html
 toc:
+  - h2: Introduction
+    url: /doc/commerce/product/use-rollup-threads.html#introduction
   - h2: What is a Rollup Thread?
     url: /doc/commerce/product/use-rollup-threads.html#what-is-a-rollup-thread
   - h2: Accessing Retail Products
@@ -25,11 +27,14 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-rollup-threads.html#related-links
 ---
-##### Last Updated: 06/01/2022
+##### Last Updated: 01/09/2023
 
 Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
 >**TIP:** Before using this guide, first read the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html) to understand the basics about Threads.
+
+## Introduction
+The [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} returns product data in the form of rollup threads. These threads contain related product data can then be displayed in a gridwall. For example, you could call the API to return master thread and rollup threads product data for "Air Jordan" or a particular style code.
 
 ## What is a Rollup Thread?
 
@@ -169,15 +174,27 @@ It is recommended that you send a caller ID header in every request to this API 
 
 No authentication or authorization is required to use this API.
 
+## Contacting the Team
+
+Need to contact the Product Feeds team?
+
+|Slack|[#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"}|
+|Confluence Space|[Product and Feeds API](https://confluence.nike.com/display/DEN/Denali+%28formerly+Product+Feeds+API%29+Team){:target="new-tab"}|
+|Team Contacts|[Sylvain Payot](mailto:sylvain.payot@nike.com), Product Owner|
+
 ## Document Change Log
 
-|Summary|Date|
-|---|---|
-|Initial publish|05/17/2018|
-|Updated how to obtain a consumerChannelId|07/19/2018|
-|Referenced new Retail data|07/06/2020|
+| Summary                                   | Date       |
+|-------------------------------------------|------------|
+| Initial publish                           | 05/17/2018 |
+| Updated how to obtain a consumerChannelId | 07/19/2018 |
+| Referenced new Retail data                | 07/06/2020 |
+| Updated contact info                      | 01/09/2023 |
 
 ## Related Links
 
+Now that you've learned about Rollup Threads, here are some related topics.
+
+- [Product Feeds](/doc/commerce/product/use-product-feeds.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)

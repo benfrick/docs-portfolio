@@ -2199,7 +2199,7 @@ Need to contact the Payment team?
 |---|---|
 |Slack|[#cic-payment](https://nikedigital.slack.com/messages/C0Z9P2E5Q){:target="new-tab"}|
 |Confluence Space|[CiC Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="new-tab"}|
-|Product Owner|[Sree Krishna](mailto:sree.krishna@nike.com)|
+|Product Owner|[Lori Brown](mailto:lori.brown@nike.com)|
 
 ## Document Change Log
 

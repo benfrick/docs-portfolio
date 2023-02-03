@@ -29,7 +29,7 @@ toc:
   - h2: Related Links
     url: /doc/commerce/product/use-product-feeds.html#related-links
 ---
-##### Last Updated: 06/01/2022
+##### Last Updated: 01/09/2023
 
 **Use the [Product Feeds API](https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V3?tab=api){:target="new-tab"} to show relevant Nike product-related content, including details about the products with images, videos, and more**.
 
@@ -281,18 +281,22 @@ There are no authentication requirements for Product Feeds except when using the
 Need to contact the Product Feeds team?
 
 |Slack|[#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"}|
-|Confluence Space|[Product and Feeds API](https://confluence.nike.com/display/DEN/Product+And+Feeds+API){:target="new-tab"}|
-|Team Contacts|[Andy Sun](mailto:andy.sun@nike.com)|
+|Confluence Space|[Product and Feeds API](https://confluence.nike.com/display/DEN/Denali+%28formerly+Product+Feeds+API%29+Team){:target="new-tab"}|
+|Team Contacts|[Sylvain Payot](mailto:sylvain.payot@nike.com), Product Owner|
 
 ## Document Change Log
 
-|Summary|Date|
-|---|---|
-|Initial publish|01/23/2018|
-|Referenced new Retail data|07/06/2020|
-|Updated for v3|10/20/2021|
+| Summary                    | Date       |
+|----------------------------|------------|
+| Initial publish            | 01/23/2018 |
+| Referenced new Retail data | 07/06/2020 |
+| Updated for v3             | 10/20/2021 |
+| Updated contact info       | 01/09/2023 |
 
-## Related Links
+## Next Steps
 
+Now that you've learned about Product Feeds, here are some related topics.
+
+- [Product Threads](/doc/commerce/product/use-rollup-threads.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
