@@ -16,8 +16,12 @@ toc:
     url: /doc/commerce/checkout/use-wishlists.html#troubleshooting
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-wishlists.html#contacting-the-team
+  - h2: Document Change Log
+    url: /doc/commerce/checkout/use-wishlists.html#document-change-log
+  - h2: Next Steps
+    url: /doc/commerce/checkout/use-wishlists.html#next-steps
 ---
-##### Last Updated: 04/28/2019
+##### Last Updated: 04/28/2020
 
 Help Nike members save their favorites for later purchase by adding [Wishlists](#wishlists) to your experience.
 

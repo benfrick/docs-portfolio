@@ -72,10 +72,10 @@ h6 {
 a {
   color: #ffcc00;
   font-weight: 400;
-  text-decoration: none;
 
   &:hover {
     color: #ffeb9b;
+    text-decoration: none;
   }
 }
 
@@ -374,9 +374,12 @@ section {
         letter-spacing: 1px;
         font-weight: bold;
     }
-    li a{
+    li a {
         color: #ffffff;
         font-size: 1.4rem;
+    }
+    li a:hover {
+      color: #888;
     }
 }
 i {
@@ -396,14 +399,14 @@ i {
       list-style: none;
     }
     .tile-desc {
-      font-size: 1.55rem;
-      color: #5f78b3;
+      font-size: 15.5px;
       line-height: 1.25em;
     }
-    .tile-article-count {
-      color: #888;
-      font-size:1.25rem;
-      line-height: 2em;
+    .tile-desc a {
+      color: #5f78b3;
+    }
+    .tile-desc a:hover {
+      color: #007bff;
     }
 }
 .green {

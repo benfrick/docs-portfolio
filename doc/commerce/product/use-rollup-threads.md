@@ -24,8 +24,8 @@ toc:
     url: /doc/commerce/product/use-rollup-threads.html#terms-of-service
   - h2: Document Change Log
     url: /doc/commerce/product/use-rollup-threads.html#document-change-log
-  - h2: Related Links
-    url: /doc/commerce/product/use-rollup-threads.html#related-links
+  - h2: Next Steps
+    url: /doc/commerce/product/use-rollup-threads.html#next-steps
 ---
 ##### Last Updated: 01/09/2023
 
@@ -191,7 +191,7 @@ Need to contact the Product Feeds team?
 | Referenced new Retail data                | 07/06/2020 |
 | Updated contact info                      | 01/09/2023 |
 
-## Related Links
+## Next Steps
 
 Now that you've learned about Rollup Threads, here are some related topics.
 

@@ -20,8 +20,8 @@ toc:
     url: /doc/commerce/search/use-search.html#contacting-the-team
   - h2: Document Change Log
     url: /doc/commerce/search/use-search.html#document-change-log
-  - h2: Related Links
-    url: /doc/commerce/search/use-search.html#related-links
+  - h2: Next Steps
+    url: /doc/commerce/search/use-search.html#next-steps
 ---
 ##### Last Updated: 06/01/2022
 
@@ -289,7 +289,9 @@ Need to reach out to the Search team?
 |---|---|
 |Initial publish|08/7/2018|
 
-## Related Links
+## Next Steps
+
+Now that you've learned about Search, here are some related topics.
 
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
