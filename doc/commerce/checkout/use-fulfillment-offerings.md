@@ -29,6 +29,10 @@ toc:
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#caching
   - h2: Contacting the Team
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#contacting-the-team
+  - h2: Document Change Log
+    url: /doc/commerce/checkout/use-fulfillment-offerings.html#document-change-log
+  - h2: Next Steps
+    url: /doc/commerce/checkout/use-fulfillment-offerings.html#next-steps
 ---
 ##### Last Updated: 01/04/2023
 
