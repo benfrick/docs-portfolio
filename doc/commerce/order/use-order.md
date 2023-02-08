@@ -550,7 +550,7 @@ When integrating for the first time, we can help ensure basic connectivity in th
 
 Teams should not introduce breaking changes in their contracts, so **mocking downstream dependencies** is often recommended to decouple development & testing between teams.
 
->**TIP**: Tools like [WireMock](http://wiremock.org){:target="new-tab"} allow you to mock out services for integration testing. Also, techniques like dark deployments & traffic shadowing can be used in Prod to validate new functionality.
+>**TIP**: Tools like [WireMock](https://wiremock.org){:target="new-tab"} allow you to mock out services for integration testing. Also, techniques like dark deployments & traffic shadowing can be used in Prod to validate new functionality.
 
 **Q: Why is an order not showing up in the test environment?**
 

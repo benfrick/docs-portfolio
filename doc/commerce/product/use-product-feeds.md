@@ -26,8 +26,8 @@ toc:
     url: /doc/commerce/product/use-product-feeds.html#contacting-the-team
   - h2: Document Change Log
     url: /doc/commerce/product/use-product-feeds.html#document-change-log
-  - h2: Related Links
-    url: /doc/commerce/product/use-product-feeds.html#related-links
+  - h2: Next Steps
+    url: /doc/commerce/product/use-product-feeds.html#next-steps
 ---
 ##### Last Updated: 01/09/2023
 
