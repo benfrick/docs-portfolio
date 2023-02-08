@@ -528,7 +528,7 @@ see [Supported Countries](/doc/commerce/reference/global.html).
 
 ### Idempotence
 
-[Idempotence](http://restcookbook.com/HTTP%20Methods/idempotency/){:target="new-tab"} means that the result of a 
+[Idempotence](https://restcookbook.com/HTTP%20Methods/idempotency/){:target="new-tab"} means that the result of a 
 successful request is independent of the number of times it is executed. What does that mean for the Checkout API? 
 Each PUT request to **Request a Checkout Preview** and **Request Checkout Submit** includes 1) a 
 client-generated UUID (checkout ID) in the URL and 2) an Entity in the request body. There are 4 possible scenarios:

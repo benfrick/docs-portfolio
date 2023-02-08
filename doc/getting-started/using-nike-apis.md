@@ -69,7 +69,7 @@ REST is widely used in the industry because the syntax and protocols used (HTTP,
 
 ### JSON-formatted HTTP Requests and Responses
 
-The standard format for exchanging data with Nike APIs is [JSON](http://www.json.org/){:target="new-tab"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
+The standard format for exchanging data with Nike APIs is [JSON](https://www.json.org/){:target="new-tab"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
 
 Example of a JSON-formatted request body that was sent to a Nike API:
 
@@ -113,7 +113,7 @@ Example of a JSON-formatted request body that was sent to a Nike API:
 
 ### JSON Schema Helps Define API Contracts
 
-The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](http://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, here is a living example of a [JSON request body schema](https://github.com/nike-internal/buy.service.carts/blob/master/src/main/resources/schema/cart-request-schema-full.json){:target="new-tab"}  for a Cart request.
+The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](https://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, here is a living example of a [JSON request body schema](https://github.com/nike-internal/buy.service.carts/blob/master/src/main/resources/schema/cart-request-schema-full.json){:target="new-tab"}  for a Cart request.
 
 ### Idempotence Guarantee
 
@@ -686,7 +686,7 @@ The response body from the [Get a Cart for a Cart ID](https://developer.niketech
 
 ## Versioning
 
-As Nike APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](http://semver.org/){:target="new-tab"} guidelines. Some high-level considerations:
+As Nike APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](https://semver.org/){:target="new-tab"} guidelines. Some high-level considerations:
 
 - For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URI does not change. If you are using the [Tolerant Reader Pattern](https://martinfowler.com/bliki/TolerantReader.html){:target="new-tab"}, you can continue to use the API without having to make changes to your app.
 
@@ -1083,7 +1083,7 @@ The guest user has not logged in with their Nike account credentials, effectivel
 
 #### Employee
 
-The third type of user is an employee of Nike or one of it's subsidiaries (or an immediate family member of said employee) who has logged in with their [Swoosh](http://www.swoosh.com){:target="new-tab"} account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest. For API calls involving employees, the same `Authorization` request header is used like for members.
+The third type of user is an employee of Nike or one of it's subsidiaries (or an immediate family member of said employee) who has logged in with their [Swoosh](https://www.swoosh.com){:target="new-tab"} account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest. For API calls involving employees, the same `Authorization` request header is used like for members.
 
 ## Testing
 

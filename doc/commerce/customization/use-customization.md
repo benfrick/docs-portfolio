@@ -233,7 +233,6 @@ Whether it's a [Nike By You](https://www.nike.com/us/en_us/c/nikeid){:target="ne
 >**TIPS**:
 >- [Rollup Threads](/doc/commerce/product/use-rollup-threads.html) is best for displaying a grid wall, where alternate colors are shown with each product in the grid.
 >- See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html) and [Adding Product Feeds to Your Experience](/doc/commerce/product/use-product-feeds.html) for more integration info.
->- See [TTAC](/doc/taxonomy/overview-taxonomy-tagging.html) for more about the benefits of using taxonomy tagging.
 
 ### Step 3: Show a PDP for a Customizable Product
 
