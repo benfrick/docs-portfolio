@@ -40,8 +40,8 @@ toc:
     url: /doc/commerce/product/use-merch-product.html#contacting-the-team
   - h2: Document Change Log
     url: /doc/commerce/product/use-merch-product.html#document-change-log
-  - h2: Related Links
-    url: /doc/commerce/product/use-merch-product.html#related-links
+  - h2: Next Steps
+    url: /doc/commerce/product/use-merch-product.html#next-steps
 ---
 ##### Last Updated: 06/01/2022
 
@@ -651,7 +651,9 @@ Need to contact the Product Data Management team?
 | Updated contact info, restructured sections, updated links | 06/09/2020 |
 | Added Merchandised Product V3 endpoint                     | 04/06/2021 |
 
-## Related Links
+## Next Steps
+
+Now that you have learned about Merchandised Products, here are some related links:
 
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
