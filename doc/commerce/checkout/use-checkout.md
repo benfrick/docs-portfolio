@@ -245,8 +245,7 @@ See the [Address Validation](/doc/commerce/checkout/use-address.html#address-val
 The consumer can choose to add optional **value-added services
 (VAS)** like **gift wrap** or **gift messages** to specific items in a checkout.
 In your app, you can create these VAS instructions 
-using the [Gift Wrap](#gift-wrap) and [Gift Messages](#gift-messages) APIs,
-respectively.
+using the [Gift Wrap](#gift-wrap) and [Gift Messages](#gift-messages) APIs.
 These APIs allow you to:
 
 - Validate that the VAS is approved to be added to the particular item (`skuid`) in a checkout
