@@ -18,6 +18,8 @@ toc:
     url: /doc/commerce/checkout/use-checkout.html#fulfillment-offerings
   - h2: Shipping Address Validation
     url: /doc/commerce/checkout/use-checkout.html#shipping-address-validation
+  - h2: Value-Added Services
+    url: /doc/commerce/checkout/use-checkout.html#value-added-services
   - h2: Checkout Preview
     url: /doc/commerce/checkout/use-checkout.html#checkout-preview
   - h2: Checkout Submit
@@ -37,16 +39,21 @@ toc:
   - h2: Next Steps
     url: /doc/commerce/checkout/use-checkout.html#next-steps
 ---
-##### Last Updated: 01/04/2023
+##### Last Updated: 04/10/2023
 
 Manage the Checkout process for the consumer.
 
 >**TIPS**:
->- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
->- Use this Developer's Guide to supplement the API Reference with detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
->- The steps involving **Payment** are covered in [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
+>- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and 
+   [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
+>- Use this Developer's Guide to supplement the API Reference with detailed use cases.
+   See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
+>- The steps involving **Payment** are covered in 
+   [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
 
 ## Introduction
+
+In this guide, you'll learn how to add Nike checkout to your experience.
 
 ### What is a Checkout?
 
@@ -66,7 +73,8 @@ At Nike, a checkout includes **all the information from a cart, plus the followi
 
 The Nike shopping experience involves several APIs.
 To support the latest features, sometimes certain API versions must be used together.
-See [Which API Version Should I Use](/doc/commerce/checkout/overview-checkout.html#which-api-version-should-i-use) in the **Cart & Checkout Overview** for more information on the Checkout version you need.
+See [Which API Version Should I Use](/doc/commerce/checkout/overview-checkout.html#which-api-version-should-i-use) 
+in the **Cart & Checkout Overview** for more information on the Checkout version you need.
 
 ## Key Terms
 
@@ -83,13 +91,14 @@ Listed below are some terms important to understanding checkout.
 | <a id="omni-channel-def"></a>**Omnichannel fulfillment flow** | Checkout flow supporting ship to consumer address, digital delivery, Buy-Online-Pickup-in-Store (BOPIS), pickup at third party location, and Instant Checkout |
 | **SMS**                                                       | Short Message Service used to send text messages to mobile phones                                                                                             |
 | **Source-aware**                                              | Using consumer location and other factors to offer the best options of when, where, and how to receive Nike product                                           |
+| **VAS (Value-Added Service)**                                 | Additional services that can be applied to items like gift wrap and/or gift messages                                                                          |
 
 ## Cart Reviews
 
 Use the Cart Reviews API to show the consumer a summary of their cart as an initial step in the checkout,
 or alternatively, as an intermediate step between cart and checkout.
 
-The cart summary includes updated subtotals of all cart items, taxes, estimated delivery/pick up dates and costs.
+The cart summary includes updated subtotals of all cart items, taxes, estimated delivery/pick-up dates and costs.
 
 Details on the available Cart Reviews versions are listed below.
 
@@ -154,7 +163,7 @@ You can get additional info in the response by including the following in the re
 
 - To get sales tax and shipping tax, include postal code.
 
-- To get estimated delivery date(s), include the shipping method(s).
+- To get estimated delivery dates, include the shipping methods.
 
 - To get shipping group information, include the shipping method and the shipping address associated with each product.
 
@@ -192,7 +201,7 @@ Use the [Shipping Options API](https://developer.niketech.com/docs/projects/Ship
 
 To show a UI of shipping options available for each item in a consumer's cart,
 execute a request to the *Shipping Options* endpoint.
-Pass the consumer's shopping country, currency, locale and item information, including promotional codes.
+Pass the consumer's shopping country, currency, locale, and item information including promotional codes.
 
 Sample [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api#shipping-options-post){:target="new-tab"} POST request URI:
 
@@ -215,7 +224,7 @@ associated costs, estimated delivery dates, and discounts such as free shipping 
 
 The [Fulfillment Offerings API](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} is a replacement of the [Shipping Options API](https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api){:target="new-tab"} just discussed.
 Fulfillment Offerings provides consumers more flexibility in choosing how, when,
-and where to get Nike products based on consumer location, availability and several other factors.
+and where to get Nike products based on consumer location, availability, and several other factors.
 They may be able to choose to have their items digitally delivered,
 shipped to an address of their choice, pick up at a Nike store, or pick up at a third party location.
 A user experience
@@ -230,6 +239,56 @@ After the consumer selects
 or provides a personal shipping address through either the Shipping Options or Fulfillment Offerings,
 validate the address with the Address Validation API.
 See the [Address Validation](/doc/commerce/checkout/use-address.html#address-validation) section of the **Address Tools** guide for more information.
+
+## Value-Added Services
+
+The consumer can choose to add optional **value-added services
+(VAS)** like **gift wrap** or **gift messages** to specific items in a checkout.
+In your app, you can create these VAS instructions 
+using the [Gift Wrap](#gift-wrap) and [Gift Messages](#gift-messages) APIs,
+respectively.
+These APIs allow you to:
+
+- Validate that the VAS is approved to be added to the particular item (`skuid`) in a checkout
+- Later successfully submit that checkout with VAS using other Checkout APIs
+
+### Gift Wrap
+
+To add a gift wrap VAS instruction to a `skuId` in a checkout, follow these steps:
+
+1. Execute a request to the [Gift Wrap PUT endpoint](https://developer.niketech.com/docs/projects/Gift%20Wrap?tab=api#add-gift-wrap-as-vas-gift-wrap-operations-put){:target="new-tab"} 
+   with a `valueAddedServiceId` (always `cffd7c09-f634-b6ed-339e-081089c2b2b8`),`skuId`,
+   and `country` to create the VAS instruction.
+
+  The `id` path parameter is a client-generated UUID. 
+
+2. If the API successfully creates the gift wrap VAS instruction for that `skuId`, it returns a 201 response.
+
+3. (Optional) Get a gift wrap VAS instruction by its ID from the [Gift Wrap GET endpoint](https://developer.niketech.com/docs/projects/Gift%20Wrap?tab=api#add-gift-wrap-as-vas-gift-wrap-operations-get){:target="new-tab"}.
+
+4. Include the VAS instructions when you submit the checkout.
+   This ensures that all necessary fees and taxes are added to the checkout,
+   and that the VAS instructions can be carried out during order fulfillment.
+
+### Gift Messages
+
+To add a gift message VAS instruction to a `skuId` in a checkout, follow these steps:
+
+1. Execute a request to the [Gift Message PUT endpoint](https://developer.niketech.com/docs/projects/Gift%20Messages?tab=api#add-gift-message-as-vas-gift-message-operations-put){:target="new-tab"}
+   with a `valueAddedServiceId` (always `d6046ee3-ab06-46d0-a38d-e71e7710dcd9`),`skuId`,
+   and the `giftMessage` (string entered by the consumer) to create the VAS instruction.
+
+   The `id` path parameter is a client-generated UUID.
+
+   The `country`, `locale`, and `language` are also required in the request body.
+
+2. If the API successfully creates the gift message VAS instruction for that `skuId`, it returns a 201 response.
+
+3. (Optional) Get a gift message VAS instruction by its ID from the [Gift Message GET endpoint](https://developer.niketech.com/docs/projects/Gift%20Messages?tab=api#add-gift-message-as-vas-gift-message-operations-get){:target="new-tab"}.
+
+4. Include the VAS instructions when you submit the checkout.
+   This ensures that all necessary fees and taxes are added to the checkout,
+   and that the VAS instructions can be carried out during order fulfillment.
 
 ## Checkout Preview
 
@@ -285,9 +344,9 @@ If the consumer is purchasing with an email address, you can skip this section.
 
 >**Note**: SMS checkout is currently available in China only
 
-**Nike member SMS checkout preview requests**
+**Nike Member SMS Checkout Preview Requests**
 
-In addition to the usual Checkout preview request values, these are SMS-specific:
+In addition to the usual Checkout Preview request values, these are SMS-specific:
 
 - Send the value '**SMS_ACCOUNT**' in `phoneNumber.type`
 - Send the SMS phone number from the consumer's profile in`phoneNumber.subscriberNumber`, 1–13 digits
@@ -295,35 +354,35 @@ In addition to the usual Checkout preview request values, these are SMS-specific
 - Send the Nike member's profile ID in `phoneNumber.accountId` 
 - Do not send `email`
 
-**Guest SMS checkout preview requests**
+**Guest SMS Checkout Preview Requests**
 
-Checkout preview for guest SMS consumers requires a few extra steps to check that the SMS phone number is valid.
+Checkout Preview for guest SMS consumers requires a few extra steps to check that the SMS phone number is valid.
 
-1) Send the consumer a verification code to the SMS phone number they provide
+1. Send the consumer a verification code to the SMS phone number they provide
 
-After capturing the guest consumer's phone number in your app or experience,
-call the [Identity Initiation](https://developer.niketech.com/docs/projects/IdnVerify?tab=api) endpoint at /identity/verify/contact_channel/initiation/v1.
-Send the guest consumer's SMS phone number in `contactChannel`.
-A successful 204 response sends the identity-generated verification code to the consumer at the SMS phone number provided.
+    After capturing the guest consumer's phone number in your app or experience,
+    call the [Identity Initiation](https://developer.niketech.com/docs/projects/IdnVerify?tab=api) endpoint at /identity/verify/contact_channel/initiation/v1.
+    Send the guest consumer's SMS phone number in `contactChannel`.
+    A successful 204 response sends the identity-generated verification code to the consumer at the SMS phone number provided.
 
-2) The consumer submits the verification code
+2. The consumer submits the verification code
 
-Your app or experience provides a UI into which the consumer enters and submits the verification code from Step 1.
+    Your app or experience provides a UI into which the consumer enters and submits the verification code from Step 1.
 
-3) Get the validation token
+3. Get the validation token
 
-Once your UI captures the verification code,
-call the [Identity Completion](https://developer.niketech.com/docs/projects/IdnVerify?tab=api) endpoint at /identity/verify/contact_channel/completion/v1,
-sending:
+    Once your UI captures the verification code,
+    call the [Identity Completion](https://developer.niketech.com/docs/projects/IdnVerify?tab=api) endpoint at /identity/verify/contact_channel/completion/v1,
+    sending:
 
-- SMS phone number in `contactChannel`
-- Verification code from Step 2 in `verificationCode`
+   - SMS phone number in `contactChannel`
+   - Verification code from Step 2 in `verificationCode`
     
 A successful 200 response returns a `validationToken` and `validationTimestamp`.
 
-4) Call the Checkout Preview endpoint 
+4. Call the Checkout Preview endpoint 
 
-In addition to the usual Checkout preview request values, these are SMS-specific:
+In addition to the usual Checkout Preview request values, these are SMS-specific:
 
 - Send the value '**SMS_VERIFY**' in `phoneNumber.type` 
 - Send the SMS phone number in `phoneNumber.subscriberNumber`, 1–13 digits
@@ -331,7 +390,7 @@ In addition to the usual Checkout preview request values, these are SMS-specific
 - Send the `validationToken` from Step 3 in `phoneNumber.verifyId`
 - Do not send `email` 
 
->**Note**: Checkout preview requests with both a `phoneNumber.subscriberNumber` and `email` will be rejected.
+>**Note**: Checkout Preview requests with both a `phoneNumber.subscriberNumber` and `email` will be rejected.
 
 Sample V3 [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} PUT request URI:
 ```
@@ -342,10 +401,10 @@ https://api.nike.com//buy/checkout_previews/v3/89rc115b-16e5-43b5-bcaf-dd6168c54
 
 Execute a request to the [Request Checkout Preview](https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put){:target="new-tab"} endpoint.
 
-The API ensures that the products, shipping method(s),
-and shipping address(es) are valid based on Nike pricing and address rules.
+The API ensures that the products, shipping methods,
+and shipping addresses are valid based on Nike pricing and address rules.
 You can also get product pricing, sales tax, shipping fee and tax,
-estimated delivery date(s), and checkout subtotals in the response.
+estimated delivery dates, and checkout subtotals in the response.
 
 >**TIP:** For more context, see a step-by-step example of all the requests in a checkout in the diagram in the [Best Practices](#best-practices) section of this document. For more info about Payment, see [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html).
 
@@ -550,16 +609,17 @@ For retry information by Checkout endpoint,
 visit [Retry Patterns for Checkout Clients](https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients){:target="new-tab"} in Confluence.
 
 For all Checkout APIs,
-the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried.
+the general rule is that HTTP 4XX error codes (except for 429) should not be retried,
+but HTTP 5XX errors can be retried.
 For general information on Nike error retry practices,
 see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="new-tab"} on Confluence.
 
 ### Honor the ETAs for Best Performance
 
-For async endpoints that return an ETA, i.e. the estimated time for the job to be completed,
+For async endpoints that return an ETA, that is the estimated time for the job to be completed,
 it is important for your app to honor the ETA for the best performance.
-For example, if the ETA is 2000ms,
-your app should wait 2000ms
+For example, if the ETA is 2000 ms,
+your app should wait 2000 ms
 to start polling the /jobs endpoint to avoid consuming network and other resources unnecessarily.
 
 ### Test Scenarios
@@ -587,7 +647,7 @@ Here is an example list of test scenarios for a consumer experience that is inte
 
 Test low-volume requests using production Checkout endpoints rather test environment endpoints. 
 Test environment endpoint responses can be unpredictable due to the many downstream services these endpoints rely on 
-in order to simulate typical 'production-like' responses.
+to simulate typical 'production-like' responses.
 
 Keep in mind the following:
 
@@ -656,7 +716,7 @@ on how to create and register your caller ID.
 
 #### Access Tokens
 
-Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header.
+Most calls through the Nike API gateway (api.nike.com) require an access token to be sent in the request header.
 This allows Nike to verify that your app is authorized to perform the action on behalf of the consumer.
 Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
 
@@ -674,8 +734,8 @@ see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.ht
 Need to contact the Buy team?
 
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
-|Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
-|Team Contacts|[Dan Robertson](mailto:dan.robertson@nike.com), [Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
+|Confluence Space|[Buy Domain](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
+|Team Contacts|[Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
 
 ## Document Change Log
 
@@ -689,7 +749,8 @@ Need to contact the Buy team?
 | Moved Address Geocoding and Address Validation into [Address Tools](/doc/commerce/checkout/use-address.html) guide | 04/19/2021 |
 | Added SMS                                                                                                          | 08/04/2021 |
 | Added Cart Reviews v1/v2 content from Carts guide                                                                  | 05/09/2022 |
-| Added accounts.nike.com                       | 01/4/2023  |
+| Added accounts.nike.com                                                                                            | 01/04/2023 |
+| Added VAS section with Gift Wrap and Gift Messages APIs                                                            | 04/10/2023 |
 
 ## Next Steps
 
