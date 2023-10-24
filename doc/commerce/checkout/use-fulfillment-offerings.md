@@ -35,7 +35,7 @@ toc:
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#next-steps
 ---
 
-##### Last Updated: 08/11/2023
+##### Last Updated: 10/23/2023
 
 Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to show consumers the best options for getting their purchases, wherever they are.
 
@@ -594,7 +594,7 @@ The `filter` query parameter must be included. The field/value requirements are 
 |`userType`|Optional|`filter=userType(nike:swoosh)`|Type of consumer. `nike:guest`, `nike:plus`, `nike:swoosh` are supported. Defaults to `nike:guest`. See [User Types](/doc/getting-started/using-nike-apis.html#data-reference) for more information.|
 |`locationId`|Optional|`filter=locationId(339EF669C22F4B2EE05336680C0A6639)`|Location identifier, UUID storeId or locationId|
 |`locationType`|Optional|`filter=locationType(ship/pickup_points)`|Type of location. Required if filtering by `locationId`. `store/store_views`, `ship/pickup_points` are supported.|
-|`locale`|Optional|`filter=locale(en-US)`|Locale code for localized store views data, BCP 47 or POSIX standard|
+|`locale`|Optional|`filter=locale(en-US)`|Locale code, following BCP 47 or POSIX standard|
 
 Shown below is
 a sample [Fulfillment Offerings GET V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} request URI for a 
@@ -904,6 +904,7 @@ Need to contact the Buy team?
 | 11/14/2022 | Added fulfillment windows for Japan           |
 | 01/04/2023 | Added accounts.nike.com                       |
 | 08/11/2023 | Added validationToken explanation             |
+| 10/23/2023 | Updated locale filter description             |
 
 ## Next Steps
 
