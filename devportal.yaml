@@ -18,50 +18,47 @@ urls:
 
 maintainerEmail: Lst-nde.docs@nike.com
 defaultVersion: latest
-
 versions:
   latest:
     status: release
-
-documents:
     documents:
-      - title: Home
-        type: markdown
-        url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/index.md
-        slug: home
-      - title: About
-        type: markdown
-        url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/portal/about.md
-        slug: about
-      - title: Get Started
-        type: markdown
-        slug: get-started
-        documents:
-          - title: Using Nike APIs
-            type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/getting-started/using-nike-apis.md
-            slug: using-nike-apis
-      - title: Overviews
-        type: markdown
-        slug: overviews
-        documents:
-          - title: Product Feeds Overview
-            type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/overview-product-feeds.md
-            slug: overview-product-feeds
-          - title: Rollup Threads Overview
-            type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/overview-rollup-threads.md
-            slug: overview-rollup-threads
-      - title: Developer's Guides
-        type: markdown
-        slug: developers-guides
-        documents:
-          - title: Product Feeds
-            type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/use-product-feeds.md
-            slug: use-product-feeds
-          - title: Rollup Threads
-            type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/use-rollup-threads.md
-            slug: use-rollup-threads
+    - title: Home
+      type: markdown
+      url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/index.md
+      slug: home
+    - title: About
+      type: markdown
+      url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/portal/about.md
+      slug: about
+    - title: Get Started
+      type: markdown
+      slug: get-started
+      documents:
+        - title: Using Nike APIs
+          type: markdown
+          url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/getting-started/using-nike-apis.md
+          slug: using-nike-apis
+    - title: Overviews
+      type: markdown
+      slug: overviews
+      documents:
+        - title: Product Feeds Overview
+          type: markdown
+          url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/overview-product-feeds.md
+          slug: overview-product-feeds
+        - title: Rollup Threads Overview
+          type: markdown
+          url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/overview-rollup-threads.md
+          slug: overview-rollup-threads
+    - title: Developer's Guides
+      type: markdown
+      slug: developers-guides
+      documents:
+        - title: Product Feeds
+          type: markdown
+          url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/use-product-feeds.md
+          slug: use-product-feeds
+        - title: Rollup Threads
+          type: markdown
+          url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/use-rollup-threads.md
+          slug: use-rollup-threads
