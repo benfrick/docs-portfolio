@@ -2,7 +2,7 @@
 # Manifest version.  See the latest versions in Dev Portal Repo.
 # https://github.com/nike-cx/devportal-api/tree/main/src/projects/schemas
 manifest: '1.2'
-title: Commerce Docs
+title: commerce-docs
 description: Use-case guides for Community & Marketplace commerce cloud APIs
 type: documentation
 tags:
