@@ -30,14 +30,14 @@ versions:
         type: markdown
         url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/portal/about.md
         slug: about
-#      - title: Get Started
-#        type: markdown
-#        slug: get-started
-#        documents:
-#          - title: Using Nike APIs
-#            type: markdown
-#            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/getting-started/using-nike-apis.md
-#            slug: using-nike-apis
+      - title: Get Started
+        type: markdown
+        slug: get-started
+        documents:
+          - title: Using Nike APIs
+            type: markdown
+            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/getting-started/using-nike-apis.md
+            slug: using-nike-apis
 #      - title: Overviews
 #        type: markdown
 #        slug: overviews
