@@ -23,8 +23,8 @@ versions:
   latest:
     status: release
 
+documents:
     documents:
-      # Title of the document
       - title: Home
         type: markdown
         url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/index.md
