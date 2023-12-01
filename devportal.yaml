@@ -2,67 +2,27 @@
 # Manifest version.  See the latest versions in Dev Portal Repo.
 # https://github.com/nike-cx/devportal-api/tree/main/src/projects/schemas
 manifest: '1.2'
-
-# Your project title
 title: Commerce Docs
-
-# A brief description of your project.  This will show up in search results to inform users searching for projects.
 description: Use-case guides for Community & Marketplace commerce cloud APIs
-
-# Project type. Use 'documentation' for Documentation projects.
 type: documentation
-
-# Include some tags for your project. Tags help provide search terms for users to find your project.  Optional.
 tags:
   - commerce
   - cloud
   - API
   - Global Technology
 
-# Additional URLs to provide to the user.  All URLs are optional.
 urls:
-  # URL of the git repository for the project
   repository: https://github.com/nike-internal/techdocs.site
-
-  # Where can user's go to file an issue with this project? URL to Jira, Issue tracker, support form, etc.
   issues: https://jira.nike.com/secure/RapidBoard.jspa?rapidView=14727
-
-  # Who can be contacted about this project?  Should be a link to a channel.
-  # To get the link, right click the channel name on the left bar, then select
-  # "Copy->Copy Link" then paste that in the property below
   slack: https://nikedigital.slack.com/archives/C6A18NT7W
 
-# Email address of the primary contact for the project.  Use a mailing list.
 maintainerEmail: Lst-nde.docs@nike.com
-
-# This will be the version users see by default when viewing your project.  Must be one of the versions listed below.
 defaultVersion: latest
 
-# Project's can have multiple versions, each with their own documentation configuration.
 versions:
-  # Name of the version.  Must be a string.  Use stringified numbers for numbered versions.  For example: '1', '1.0', '2.23', etc.
   latest:
-    # Version status.  Must be one of: [ design, develop, beta, release, deprecated, removed ]
     status: release
-    # Must be one of the environments listed below
-    defaultEnvironment: production
-    # Hosted Environments for the Project. Should only be used with APIs and Services.  Supports multiple entries.
-    environments:
-      # Name of the environment
-      production:
-        # Host URL of the Environment
-        url: <URL>
-        # Health URL of the Environment
-        healthUrl: <URL>
-        # Location of the environment. See manifest schema for all options.
-        # https://github.com/nike-cx/devportal-api/blob/main/src/projects/schemas/1.2/api.yaml
-        location: <Location>
 
-      <Environment Name>:
-        url: <URL>
-        healthUrl: <URL>
-        location: <Location>
-    # Project documentation.  Documents can be nested 5 levels deep.
     documents:
       # Title of the document
       - title: Home
