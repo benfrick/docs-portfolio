@@ -198,3 +198,23 @@ Now that you've learned about Rollup Threads, here are some related topics.
 - [Product Feeds](/doc/commerce/product/use-product-feeds.html)
 - [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
+
+Portal Link Testing
+
+../../images/commerce/product_feeds/gridwall.png
+![](../../images/commerce/product_feeds/gridwall.png)
+
+../../../images/commerce/product_feeds/gridwall.png
+![](../../../images/commerce/product_feeds/gridwall.png)
+
+images/commerce/product_feeds/gridwall.png
+![](../images/commerce/product_feeds/gridwall.png)
+
+../main/images/commerce/product_feeds/gridwall.png
+![](../main/images/commerce/product_feeds/gridwall.png)
+
+gridwall.png
+![](gridwall.png)
+
+https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/overview-rollup-threads.md
+![](https://raw.githubusercontent.com/nike-internal/techdocs.site/main/images/commerce/product_feeds/gridwall.png)
