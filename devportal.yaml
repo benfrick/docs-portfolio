@@ -16,7 +16,7 @@ urls:
   issues: https://jira.nike.com/secure/RapidBoard.jspa?rapidView=14727
   slack: https://nikedigital.slack.com/archives/C6A18NT7W
 
-APID-926tainerEmail: Lst-nde.docs@nike.com
+maintainerEmail: Lst-nde.docs@nike.com
 defaultVersion: latest
 versions:
   latest:
