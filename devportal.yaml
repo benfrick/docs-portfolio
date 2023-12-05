@@ -1,6 +1,6 @@
 ---
 # Manifest version.  See the latest versions in Dev Portal Repo.
-# https://github.com/nike-cx/devportal-api/tree/main/src/projects/schemas
+# https://github.com/nike-cx/devportal-api/tree/APID-926/src/projects/schemas
 manifest: '1.2'
 title: commerce-docs
 description: Use-case guides for Community & Marketplace commerce cloud APIs
@@ -12,11 +12,11 @@ tags:
   - Global Technology
 
 urls:
-  repository: https://github.com/nike-internal/techdocs.site
+  repository: https://github.com/nike-internal/techdocs.site/tree/APID-926
   issues: https://jira.nike.com/secure/RapidBoard.jspa?rapidView=14727
   slack: https://nikedigital.slack.com/archives/C6A18NT7W
 
-maintainerEmail: Lst-nde.docs@nike.com
+APID-926tainerEmail: Lst-nde.docs@nike.com
 defaultVersion: latest
 versions:
   latest:
@@ -24,11 +24,11 @@ versions:
     documents:
       - title: Home
         type: markdown
-        url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/index.md
+        url: https://raw.githubusercontent.com/nike-internal/techdocs.site/APID-926/index.md
         slug: home
       - title: About
         type: markdown
-        url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/portal/about.md
+        url: https://raw.githubusercontent.com/nike-internal/techdocs.site/APID-926/doc/portal/about.md
         slug: about
       - title: Get Started
         type: heading
@@ -36,7 +36,7 @@ versions:
         documents:
           - title: Using Nike APIs
             type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/getting-started/using-nike-apis.md
+            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/APID-926/doc/getting-started/using-nike-apis.md
             slug: using-nike-apis
       - title: Overviews
         type: heading
@@ -44,11 +44,11 @@ versions:
         documents:
           - title: Product Feeds Overview
             type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/overview-product-feeds.md
+            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/APID-926/doc/commerce/product/overview-product-feeds.md
             slug: overview-product-feeds
           - title: Rollup Threads Overview
             type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/overview-rollup-threads.md
+            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/APID-926/doc/commerce/product/overview-rollup-threads.md
             slug: overview-rollup-threads
       - title: Developer's Guides
         type: heading
@@ -56,9 +56,9 @@ versions:
         documents:
           - title: Product Feeds
             type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/use-product-feeds.md
+            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/APID-926/doc/commerce/product/use-product-feeds.md
             slug: use-product-feeds
           - title: Rollup Threads
             type: markdown
-            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/main/doc/commerce/product/use-rollup-threads.md
+            url: https://raw.githubusercontent.com/nike-internal/techdocs.site/APID-926/doc/commerce/product/use-rollup-threads.md
             slug: use-rollup-threads

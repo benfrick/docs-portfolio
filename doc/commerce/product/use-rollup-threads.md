@@ -6,26 +6,26 @@ position: 2
 title: Rollup Threads
 url: /doc/commerce/product/use-rollup-threads.html
 toc:
-  - h2: Introduction
-    url: /doc/commerce/product/use-rollup-threads.html#introduction
-  - h2: What is a Rollup Thread?
-    url: /doc/commerce/product/use-rollup-threads.html#what-is-a-rollup-thread
-  - h2: Accessing Retail Products
-    url: /doc/commerce/product/use-rollup-threads.html#accessing-retail-products
-  - h2: Get a List of Rollup Threads
-    url: /doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads
-  - h2: API Quick Reference
-    url: /doc/commerce/product/use-rollup-threads.html#api-quick-reference
-  - h2: Best Practices
-    url: /doc/commerce/product/use-rollup-threads.html#best-practices
-  - h2: Troubleshooting
-    url: /doc/commerce/product/use-rollup-threads.html#troubleshooting
-  - h2: Terms of Service
-    url: /doc/commerce/product/use-rollup-threads.html#terms-of-service
-  - h2: Document Change Log
-    url: /doc/commerce/product/use-rollup-threads.html#document-change-log
-  - h2: Next Steps
-    url: /doc/commerce/product/use-rollup-threads.html#next-steps
+- h2: Introduction
+  url: /doc/commerce/product/use-rollup-threads.html#introduction
+- h2: What is a Rollup Thread?
+  url: /doc/commerce/product/use-rollup-threads.html#what-is-a-rollup-thread
+- h2: Accessing Retail Products
+  url: /doc/commerce/product/use-rollup-threads.html#accessing-retail-products
+- h2: Get a List of Rollup Threads
+  url: /doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads
+- h2: API Quick Reference
+  url: /doc/commerce/product/use-rollup-threads.html#api-quick-reference
+- h2: Best Practices
+  url: /doc/commerce/product/use-rollup-threads.html#best-practices
+- h2: Troubleshooting
+  url: /doc/commerce/product/use-rollup-threads.html#troubleshooting
+- h2: Terms of Service
+  url: /doc/commerce/product/use-rollup-threads.html#terms-of-service
+- h2: Document Change Log
+  url: /doc/commerce/product/use-rollup-threads.html#document-change-log
+- h2: Next Steps
+  url: /doc/commerce/product/use-rollup-threads.html#next-steps
 ---
 ##### Last Updated: 01/09/2023
 
@@ -100,7 +100,7 @@ Here are a few example query parameters.
 |Search keyword|`searchTerms=Your%20search%20terms%20here`|
 |Search rules 'View'|`view=SEARCH_RESULTS`|
 
->**TIPS:** 
+>**TIPS:**
 >- The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
 >- For more on Search Rules, see [Rollup by Search Rules](#rollup-by-search-rules)
 
