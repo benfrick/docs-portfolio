@@ -12,7 +12,7 @@ tags:
   - Global Technology
 
 urls:
-  repository: https://github.com/nike-internal/techdocs.site
+  repository: https://github.com/nike-internal/techdocs.site/tree/APID-926
   issues: https://jira.nike.com/secure/RapidBoard.jspa?rapidView=14727
   slack: https://nikedigital.slack.com/archives/C6A18NT7W
 

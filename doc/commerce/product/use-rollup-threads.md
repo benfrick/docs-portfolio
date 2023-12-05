@@ -1,29 +1,58 @@
+---
+id: use-rollup-threads
+tags: pdf
+category: b-use-case
+position: 2
+title: Rollup Threads
+url: /doc/commerce/product/use-rollup-threads.html
+toc:
+- h2: Introduction
+  url: /doc/commerce/product/use-rollup-threads.html#introduction
+- h2: What is a Rollup Thread?
+  url: /doc/commerce/product/use-rollup-threads.html#what-is-a-rollup-thread
+- h2: Accessing Retail Products
+  url: /doc/commerce/product/use-rollup-threads.html#accessing-retail-products
+- h2: Get a List of Rollup Threads
+  url: /doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads
+- h2: API Quick Reference
+  url: /doc/commerce/product/use-rollup-threads.html#api-quick-reference
+- h2: Best Practices
+  url: /doc/commerce/product/use-rollup-threads.html#best-practices
+- h2: Troubleshooting
+  url: /doc/commerce/product/use-rollup-threads.html#troubleshooting
+- h2: Terms of Service
+  url: /doc/commerce/product/use-rollup-threads.html#terms-of-service
+- h2: Document Change Log
+  url: /doc/commerce/product/use-rollup-threads.html#document-change-log
+- h2: Next Steps
+  url: /doc/commerce/product/use-rollup-threads.html#next-steps
+---
 ##### Last Updated: 01/09/2023
 
 Use the [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to get related product content for your digital experience, for example to show consumers a grid wall of Nike products.
 
->**TIP:** Before using this guide, first read the [Product Feeds Developer's Guide](../APID-926/doc/commerce/product/use-product-feeds) to understand the basics about Threads.
+>**TIP:** Before using this guide, first read the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html) to understand the basics about Threads.
 
 ## Introduction
 The [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} returns product data in the form of rollup threads. These threads contain related product data can then be displayed in a gridwall. For example, you could call the API to return master thread and rollup threads product data for "Air Jordan" or a particular style code.
 
 ## What is a Rollup Thread?
 
-A Thread contains content and information about a Nike product, and you can get a list of threads from the [Product Feeds API](../APID-926/doc/commerce/product/use-product-feeds). The [Rollup Threads API](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} takes it a step further.
+A Thread contains content and information about a Nike product, and you can get a list of threads from the [Product Feeds API](/doc/commerce/product/use-product-feeds.html). The [Rollup Threads API](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} takes it a step further.
 
 A **Rollup Thread** is a Thread that is related to, and nested within, a Parent Thread. For example: a Thread containing content for a particular shoe color might have seven Rollup Threads nested within in it, one for each of the other available colors of that shoe.
 
 Using Rollup Threads makes it simpler for you to build a product grid wall experience like this:
 
-![Screenshot of a Nike.com product wall, annotated to show the parent thread and rollup threads](../APID-926/images/commerce/product_feeds/gridwall.png)
+![Screenshot of a Nike.com product wall, annotated to show the parent thread and rollup threads](/images/commerce/product_feeds/gridwall.png)
 
 This is just one example of how a Parent Thread can have one or more related Rollup Threads. We'll discuss this more later in [Choosing the Rollup Threads You Need](#choosing-the-rollup-threads-you-need).
 
 ## Accessing Retail Products
 
-Both Retail and Digital products are available via [Rollup Threads](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}.
+Both Retail and Digital products are available via [Rollup Threads](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}.
 
-See the [Product Feeds Developer's Guide](../APID-926/doc/commerce/product/use-product-feeds) for some important considerations for working with Retail data.
+See the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html) for some important considerations for working with Retail data.
 
 Next, we'll get started with interacting with the Rollup Threads API.
 
@@ -35,7 +64,7 @@ Next, we'll get started with interacting with the Rollup Threads API.
 
 ### Getting Started
 
-To get a list of Threads along with the associated Rollup Threads, execute a request to the [Rollup Threads List](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api#rollup-threads-rollup-threads-list-get){:target="new-tab"} endpoint.
+To get a list of Threads along with the associated Rollup Threads, execute a request to the [Rollup Threads List](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api#rollup-threads-rollup-threads-list-get){:target="new-tab"} endpoint.
 
 Here are some sample URIs to get you started:
 
@@ -46,7 +75,7 @@ Here are some sample URIs to get you started:
 |Threads for a taxonomy ID|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=marketplace(US)&filter=language(en)&filter=taxonomyIds(c2228131-f12b-4513-84cd-55ae15d6723d)|
 |Search all Nike.com products in US by "Men's Jordan", sorted by newest first|https://api.nike.com/product_feed/rollup_threads/v2?consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&filter=language(en)&filter=marketplace(US)&searchTerms=Men's%20Jordan&sort=effectiveStartSellDateDesc|
 
->**TIP:** For sample responses, see the [Rollup Threads API Reference](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}.
+>**TIP:** For sample responses, see the [Rollup Threads API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}.
 
 ### Prerequisites
 
@@ -59,7 +88,7 @@ See [Consumer Channel ID & View](https://confluence.nike.com/pages/viewpage.acti
 
 ### Choosing the Parent Threads You Need
 
-To choose only the Parent Threads that you need, append any of the [supported query parameters](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to your request URI to get more specific results in the response.
+To choose only the Parent Threads that you need, append any of the [supported query parameters](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} to your request URI to get more specific results in the response.
 
 Here are a few example query parameters.
 
@@ -71,8 +100,8 @@ Here are a few example query parameters.
 |Search keyword|`searchTerms=Your%20search%20terms%20here`|
 |Search rules 'View'|`view=SEARCH_RESULTS`|
 
->**TIPS:** 
->- The [Product Feeds API Reference](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
+>**TIPS:**
+>- The [Product Feeds API Reference](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"} is the source of truth for all supported query parameters.
 >- For more on Search Rules, see [Rollup by Search Rules](#rollup-by-search-rules)
 
 ### Choosing the Rollup Threads You Need
@@ -113,7 +142,7 @@ Consumer Channel ID and Channel ID are not directly related and therefore should
 
 The following diagram describes how the structure of the response from the Rollup Threads API differs from Product Feeds:
 
-![Diagram the response structure of Product Feeds v2 versus Rollup Threads List, noting the main differences](../APID-926/images/commerce/product_feeds/rollup_threads_response.png)
+![Diagram the response structure of Product Feeds v2 versus Rollup Threads List, noting the main differences](/images/commerce/product_feeds/rollup_threads_response.png)
 
 ## API Quick Reference
 
@@ -121,11 +150,11 @@ The following diagram describes how the structure of the response from the Rollu
 
 |HTTP Verb|Endpoint Name|Endpoint Description|URI Format|
 |---|---|---|---|
-|GET|Rollup Threads|[Get a product Thread with related Threads nested within](https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
+|GET|Rollup Threads|[Get a product Thread with related Threads nested within](https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api){:target="new-tab"}|`/product_feed/rollup_threads/v2{?filter,anchor,count,sort,searchTerms,rollupCount,rollupField,consumerChannelId}`|
 
 ## Best Practices
 
-See the Best Practices section of the [Product Feeds Developer's Guide](../APID-926/doc/commerce/product/use-product-feeds#best-practices).
+See the Best Practices section of the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html#best-practices).
 
 ## Troubleshooting
 
@@ -135,11 +164,11 @@ See the Best Practices section of the [Product Feeds Developer's Guide](../APID-
 - Check the rollup key & type from Prodigy for the Parent Thread is as expected.
 - Reach out to Product Feeds team on Slack for assistance: [#nde-product-feeds](https://nikedigital.slack.com/messages/CAPF62A66){:target="new-tab"}
 
->**TIP:** See the Troubleshooting section of the [Product Feeds Developer's Guide](../APID-926/doc/commerce/product/use-product-feeds#troubleshooting) for more general troubleshooting information.
+>**TIP:** See the Troubleshooting section of the [Product Feeds Developer's Guide](/doc/commerce/product/use-product-feeds.html#troubleshooting) for more general troubleshooting information.
 
 ## Terms of Service
 
-It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using Nike APIs](../APID-926/doc/getting-started/using-nike-apis#registration) on how to create and register your caller ID.
+It is recommended that you send a caller ID header in every request to this API to help troubleshoot unexpected responses. See the Registration section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#registration) on how to create and register your caller ID.
 
 ### Authentication
 
@@ -166,6 +195,6 @@ Need to contact the Product Feeds team?
 
 Now that you've learned about Rollup Threads, here are some related topics.
 
-- [Product Feeds](../APID-926/doc/commerce/product/use-product-feeds)
-- [Using Nike APIs](../APID-926/doc/getting-started/using-nike-apis)
-- [Glossary](../APID-926/doc/commerce/reference/glossary)
+- [Product Feeds](/doc/commerce/product/use-product-feeds.html)
+- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Glossary](/doc/commerce/reference/glossary.html)
