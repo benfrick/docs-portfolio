@@ -28,10 +28,10 @@ Step through the use cases below to incorporate Consumer Order History into your
 <h5 style="text-align:center;">APIs:</h5>
 <ul>
 <li markdown="1">
-[User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
+[User Order Summary](https://console.platforms.nike.com/developer/docs/projects/User%20order%20summary?tab=api)<span class="guide-details-li-text"></span>
 </li>
 <li markdown="1">
-[User Order Detail](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
+[User Order Detail](https://console.platforms.nike.com/developer/docs/projects/User%20order%20details?tab=api)<span class="guide-details-li-text"></span>
 </li>
 </ul>
 </aside>

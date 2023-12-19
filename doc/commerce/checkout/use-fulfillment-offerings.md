@@ -83,8 +83,8 @@ Listed below are some Fulfillment Offerings key terms used in this guide.
 ### Fulfillment Offerings
 
 Fulfillment Offerings are a set of price offers that a consumer has for receiving the items in their cart, 
-as determined by the [Fulfillment Offerings API V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} and 
-[Fulfillment Offerings API V2](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2){:target="new-tab"} APIs.
+as determined by the [Fulfillment Offerings API V1](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api) and 
+[Fulfillment Offerings API V2](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings%20V2) APIs.
 
 Offerings can vary at any moment in time based on:
 
@@ -138,7 +138,7 @@ If the consumer indicated [intent](#intent) for the offering, the offering has a
 
 ### Fulfillment Groups
 
-The [Fulfillment Offerings Jobs PUT V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-put){:target="new-tab"} and [Fulfillment Offerings Jobs PUT V2](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-4){:target="new-tab"} response includes an array of `fulfillmentGroups`. All items in a fulfillment group share the same:
+The [Fulfillment Offerings Jobs PUT V1](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-endpoint-put) and [Fulfillment Offerings Jobs PUT V2](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-4) response includes an array of `fulfillmentGroups`. All items in a fulfillment group share the same:
 - Fulfillment type, for example, PICKUP
 - Location type, for example, store/store_views
 - Location, for example, store ID 69b5fec5-e0a6-4dd2-b971-4f9b90d4f85b
@@ -203,12 +203,12 @@ Let's walk through how to make your first request to the Fulfillment Offerings A
 
 There are two ways to get a list of Fulfillment Offerings:
 
-- [Option 1](#option-1-get-fulfillment-offerings-for-each-size-of-a-style-color): Send a request to the [Fulfillment Offerings GET V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-get-get-2){:target="new-tab"} endpoint to list the fulfillment offerings for each size of a style-color.
-- [Option 2](#option-2-get-fulfillment-offerings-for-each-item-in-cart): Send a request to the [Fulfillment Offerings Jobs PUT V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-5){:target="new-tab"} or [Fulfillment Offerings Jobs PUT V2](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put){:target="new-tab"} endpoint to get the fulfillment offerings for each item in cart.
+- [Option 1](#option-1-get-fulfillment-offerings-for-each-size-of-a-style-color): Send a request to the [Fulfillment Offerings GET V1](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-get-get-2) endpoint to list the fulfillment offerings for each size of a style-color.
+- [Option 2](#option-2-get-fulfillment-offerings-for-each-item-in-cart): Send a request to the [Fulfillment Offerings Jobs PUT V1](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-5) or [Fulfillment Offerings Jobs PUT V2](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put) endpoint to get the fulfillment offerings for each item in cart.
 
 #### OPTION 1: Get Fulfillment Offerings for Each Size of a Style-Color
 
-Call [Fulfillment Offerings GET (V1)](#fulfillment-offerings-get){:target="new-tab"}
+Call [Fulfillment Offerings GET (V1)](#fulfillment-offerings-get)
 when consumer information is not necessary to 
 calculate detailed fulfillment offerings for the sizes of a style-color, such as on a product display page.
 
@@ -226,7 +226,7 @@ This endpoint has a low response rate and may retrieve cached data.
 Send a GET request to `https://api.nike.com/buy/fulfillment_offerings/v1{?filter}`.
 
 The `filter` query parameter must be included.
-See the [Fulfillment Offerings GET V1](#fulfillment-offerings-get){:target="new-tab"} section 
+See the [Fulfillment Offerings GET V1](#fulfillment-offerings-get) section 
 for more information on the supported filters.
 
 The GET request below asks for all `SHIP` and `PICKUP` type fulfillment offerings for US zip code 97123 for 
@@ -238,7 +238,7 @@ productId 935f2623-6010-4da9-a218-571c8e33d7aa and currency in US dollars.
 https://api.nike.com/buy/fulfillment_offerings/v1/?filter=currency(USD)&filter=productId(935f2623-6010-4da9-a218-571c8e33d7aa)&filter=countryCode(US)&filter=offeringTypes(SHIP,PICKUP)&filter=postalCode(97123)
 ```
 
-See [Fulfillment Offerings GET V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-get-get){:target="new-tab"} endpoint for a sample response body.
+See [Fulfillment Offerings GET V1](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-get-get) endpoint for a sample response body.
 
 A successful Fulfillment Offerings GET response includes these important top-level properties:
 
@@ -309,7 +309,7 @@ Send a request to the PUT endpoint with the following headers:
 | `x-nike-visitid`   | Identifier for the guest (i.e. not logged-in) consumer, validated by the Edge router and passed through to the service |        | X     |          |
 | `x-nike-visitorid` | Integer identifying the guest’s session                                                                                |        | X     |          |
 
->**TIP:** For the Authorization header, use the token for the consumer’s login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}, prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
+>**TIP:** For the Authorization header, use the token for the consumer’s login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation), prefixed by **Bearer ** (note the single space after Bearer). This is necessary for Nike to verify that you are authorized to perform the requested operation on behalf of the consumer.
 
 Send a request to one of the **Fulfillment Offerings PUT** URLs below.
 Note the UUID in the URL path, 
@@ -449,9 +449,9 @@ The list of `offeringTypes` restricts the fulfillment offerings returned to the 
 ##### Step 2: Retrieve the Fulfillment Offerings Jobs Result
 
 After calling either **Fulfillment Offerings Jobs PUT** V1 or V2 and receiving an HTTP 202 response, 
-execute a request to [Fulfillment Offerings Jobs GET V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-get-3){:target="new-tab"} 
+execute a request to [Fulfillment Offerings Jobs GET V1](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-get-3) 
 or [Fulfillment Offerings Jobs
-GET V2](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-get-2){:target="new-tab"}
+GET V2](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-get-2)
 using the same Fulfillment Offerings ID to check the status of your job.
 
 V1:
@@ -500,7 +500,7 @@ The `getBy` values are defined in the table below.
 | `getBy.minDate` | Optional     | Earliest day/time the item will be fulfilled. If the item does not have a `getBy.minDate`, the item will be fulfilled any day/time between order placement and the item's `getBy.maxDate.` | Earliest *approximate* day/time any item in the fulfillment group will be fulfilled. |
 | `getBy.maxDate` | **Required** | Latest day/time the item will be fulfilled.                                                                                                                                                | No item in the fulfillment group will be fulfilled after the `maxDate`.              |
 
-For more information on `getBy` dates, see [Semantics of Get-By Data in Nike Experiences](https://confluence.nike.com/pages/viewpage.action?spaceKey=BUY&title=Semantics+of+Get-By+Data+in+Nike+Experiences){:target="new-tab"}.
+For more information on `getBy` dates, see [Semantics of Get-By Data in Nike Experiences](https://confluence.nike.com/pages/viewpage.action?spaceKey=BUY&title=Semantics+of+Get-By+Data+in+Nike+Experiences).
 
 ##### Fulfillment Windows (Japan only)
 
@@ -597,7 +597,7 @@ The `filter` query parameter must be included. The field/value requirements are 
 |`locale`|Optional|`filter=locale(en-US)`|Locale code, following BCP 47 or POSIX standard|
 
 Shown below is
-a sample [Fulfillment Offerings GET V1](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"} request URI for a 
+a sample [Fulfillment Offerings GET V1](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api) request URI for a 
 US style-color with productId 8e799c64-dd8e-4861-9d38-9592f35e7aa5,
 consumer postal code 97005 filtered by offering type `SHIP` and `PICKUP` and userType nike:swoosh
 (a Nike employee).
@@ -850,18 +850,18 @@ UX calls Fulfillment Types for country "BE", which returns the following fulfill
 
 **V1**
 **Fulfillment Offerings Multi-Item**
-- [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
-- [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+- [Fulfillment Offerings Jobs PUT](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api)
+- [Fulfillment Offerings Jobs GET](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api)
 
 **Fulfillment Offerings (Single) Style-Color**
-- [Fulfillment Offerings GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api){:target="new-tab"}
+- [Fulfillment Offerings GET](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api)
 
 **V2**
-- [Fulfillment Offerings Jobs PUT](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-4){:target="new-tab"}
-- [Fulfillment Offerings Jobs GET](https://developer.niketech.com/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-get-4){:target="new-tab"}
+- [Fulfillment Offerings Jobs PUT](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-put-4)
+- [Fulfillment Offerings Jobs GET](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings%20V2?tab=api#fulfillment-offerings-endpoints-fulfillment-offerings-jobs-put-get-get-4)
 
 **Fulfillment Types**
-- [Fulfillment Types GET](https://developer.niketech.com/docs/projects/Fulfillment%20Types?tab=api){:target="new-tab"}
+- [Fulfillment Types GET](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Types?tab=api)
 
 ## Troubleshooting
 
@@ -873,7 +873,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"} Slack channel for assistance.
+- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV) Slack channel for assistance.
 
 ## Caching
 
@@ -889,8 +889,8 @@ the consumer indicates [intent](#intent) for an item in cart to get the most acc
 
 Need to contact the Buy team?
 
-|Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
-|Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
+|Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)|
+|Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070)|
 |Team Contacts|[Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
 
 ## Document Change Log

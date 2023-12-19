@@ -28,7 +28,7 @@ Great experiences like Nike.com offer many ways to display products to consumers
     <h5 style="text-align:center;">APIs:</h5>
     <ul>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api" target="new-tab">Rollup Threads API Reference</a> <span class="guide-details-li-text"></span>
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Rollup%20Threads%20Service%20API%20V2?tab=api" >Rollup Threads API Reference</a> <span class="guide-details-li-text"></span>
         </li>
     </ul>
 </aside>

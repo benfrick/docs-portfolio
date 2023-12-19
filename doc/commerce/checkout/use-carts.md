@@ -56,16 +56,16 @@ Now that you know what a cart is, let's explore how to add it to your experience
 ### Step 1: Create the Cart
 
 The first step
-in managing a consumer's cart is to create the cart using the [Carts API](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api){:target="new-tab"}.
+in managing a consumer's cart is to create the cart using the [Carts API](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api).
 For example, this could be done when the consumer chooses to add their first product to the cart.
 
 To create the cart,
 execute a request to the [Create
-or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} or [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put){:target="new-tab"} endpoint.
+or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put) or [Create or Update a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put) endpoint.
 
 >**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, the Carts API returns an error response. See [Authorization](/doc/getting-started/using-nike-apis.html#authorization) for more information.
 
-Sample [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} PUT request URI:
+Sample [Create or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put) PUT request URI:
 ```
 https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
@@ -84,7 +84,7 @@ This allows the consumer to continue shopping and view the cart details again la
 #### Step 2a: Send a PUT to Cart Views
 
 Execute a PUT request
-to [Request Cart Views](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put){:target="new-tab"}
+to [Request Cart Views](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put)
 to initiate a job to generate a view of a cart.
 You will need to generate and send a unique `jobId` for each request.
 
@@ -138,7 +138,7 @@ Sample Request Body:
 
 >**TIPS**:
 > - All Carts Views PUT requests must include a `locale`, e.g. "en_US"
-> - See the [API Reference](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put){:target="new-tab"} for the latest endpoint details
+> - See the [API Reference](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put) for the latest endpoint details
 
 #### OPTIONAL: Show Total Shipping Price in a Cart Summary UX
 
@@ -221,7 +221,7 @@ The fulfillment type (e.g. "SHIP") is returned in response.items.`fulfillmentDet
 
 #### Step 2b: Retrieve the Cart Views Job
 
-Execute a GET request to the [Retrieve Cart Views Job](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-get){:target="new-tab"} endpoint
+Execute a GET request to the [Retrieve Cart Views Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-get) endpoint
 to get the actual cart details.
 The job expires in 60 seconds.
 
@@ -229,14 +229,14 @@ The job expires in 60 seconds.
 
 To add or remove products, services, and promotion codes from a cart,
 execute a request
-to the [Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch){:target="new-tab"}
-or [Modify a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch){:target="new-tab"} endpoint.
+to the [Modify a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch)
+or [Modify a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch) endpoint.
 
 >**TIP:** Prices and subtotals are recalculated and returned in the response to each request.
 
 To delete **all** the products in the cart,
-execute a request to [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete){:target="new-tab"}
-or [Delete All Items from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete){:target="new-tab"} endpoints.
+execute a request to [Delete All Items from a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete)
+or [Delete All Items from a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete) endpoints.
 
 The delete operation is optional, even if the cart is empty;
 member's carts will automatically purge from storage after 90 days of inactivity,
@@ -247,17 +247,17 @@ while guest carts will purge at 30 days.
 ## API Quick Reference
 
 **Carts V2**
-- [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"}
-- [Modify a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch){:target="new-tab"}
-- [Delete All Items from a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete){:target="new-tab"}
-- [Create or Update a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put){:target="new-tab"}
-- [Modify a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch){:target="new-tab"}
-- [Delete All Item from a Cart by Filter Criteria](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete){:target="new-tab"}
+- [Create or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put)
+- [Modify a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch)
+- [Delete All Items from a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete)
+- [Create or Update a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put)
+- [Modify a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch)
+- [Delete All Item from a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete)
 
 **Cart Views**
 
-- [Request Cart Views](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put){:target="new-tab"}
-- [Retrieve Cart Views Job](https://developer.niketech.com/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-get){:target="new-tab"}
+- [Request Cart Views](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put)
+- [Retrieve Cart Views Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-get)
 
 ## Troubleshooting
 
@@ -269,14 +269,14 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"} Slack channel for assistance.
+- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV) Slack channel for assistance.
 
 ## Contacting the Team
 
 Need to contact the Cart & Checkout team?
 
-|Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
-|Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070){:target="new-tab"}|
+|Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)|
+|Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070)|
 |Team Contacts|[Saket Shrivastava](mailto:Saket.Shrivastava@nike.com)|
 
 ## Document Change Log

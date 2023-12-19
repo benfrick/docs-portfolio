@@ -20,7 +20,7 @@ info:
     url: "Confluence site URL"
     email: "Team email address"
   externaldocs: "Provide links to supplemental documentation about the service on https://nde-devportal-docs.niketech.com/index.html, your team's documentation site, Confluence or wherever your documentation resides."
-  prerequisites: "Describe what integrators must do before calling this service such as getting an appId. Link to other APIs on https://developer.niketech.com/docs/projects/devportal?tab=api that integrators must call first."
+  prerequisites: "Describe what integrators must do before calling this service such as getting an appId. Link to other APIs on https://console.platforms.nike.com/developer/docs/projects/devportal?tab=api that integrators must call first."
 
 endpoint:
   /xxx/xxx/xxx/{id}:

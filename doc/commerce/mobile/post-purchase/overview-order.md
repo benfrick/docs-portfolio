@@ -29,10 +29,10 @@ Step through the use cases below to incorporate Mobile Order History into your m
 <h5 style="text-align:center;">APIs:</h5>
 <ul>
 <li markdown="1">
-[Post Purchase](https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
+[Post Purchase](https://console.platforms.nike.com/developer/docs/projects/Post%20Purchase%20API?tab=api)<span class="guide-details-li-text"></span>
 </li>
 <li markdown="1">
-[Pickup Points](https://developer.niketech.com/docs/projects/Pickup%20Points?tab=api){:target="new-tab"}<span class="guide-details-li-text"></span>
+[Pickup Points](https://console.platforms.nike.com/developer/docs/projects/Pickup%20Points?tab=api)<span class="guide-details-li-text"></span>
 </li>
 </ul>
 </aside>

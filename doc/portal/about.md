@@ -13,8 +13,8 @@ url: /doc/portal/about.html
 - **WHAT**: The Commerce Docs site contains overviews, use-case developer guides, tutorials and reference articles 
   for Commerce APIs and other Nike technology products.
 
-- **WHY**: Use the content on this site to augment the API reference docs on 
-  [developer.niketech.com](https://developer.niketech.com){:target="new-tab"}
+- **WHY**: Use the content on this site to augment the API reference docs on the 
+  [Developer Portal](https://console.platforms.nike.com/developer)
   to build commerce-related experiences and services at Nike.
 
 - **WHO**: Consumer & Marketplace teams use Nike’s Commerce APIs to help drive the SNKRS, NTC, NRC, and Nike apps, 

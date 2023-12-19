@@ -27,7 +27,7 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
     <h5 style="text-align:center;">APIs:</h5>
     <ul>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" target="new-tab">Product Feeds V2</a> <span class="guide-details-li-text"></span>
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api" >Product Feeds V2</a> <span class="guide-details-li-text"></span>
         </li>
     </ul>
 </aside>

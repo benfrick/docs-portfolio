@@ -31,11 +31,11 @@ Many factors can affect microservice performance and availability such as heavy 
 
 ### Use the Circuit Breaker Pattern
 
-Use the [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html){:target="new-tab"} when calling other services (either internal or external) to avoid waiting indefinitely for a response from a non-responsive service and to provide fallback behavior for a service failure. [Hystrix](https://github.com/Netflix/Hystrix){:target="new-tab"} and [FastBreak](https://github.com/Nike-Inc/fastbreak){:target="new-tab"} are examples of Circuit Breaker libraries currently used by Nike microservices.
+Use the [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html) when calling other services (either internal or external) to avoid waiting indefinitely for a response from a non-responsive service and to provide fallback behavior for a service failure. [Hystrix](https://github.com/Netflix/Hystrix) and [FastBreak](https://github.com/Nike-Inc/fastbreak) are examples of Circuit Breaker libraries currently used by Nike microservices.
 
 ### Use the Exponential Backoff Retry Pattern
 
-Unless otherwise noted, callers should follow the [Exponential Backoff Retry Pattern](https://dzone.com/articles/understanding-retry-pattern-with-exponential-back){:target="new-tab"} to determine how long to wait in between retries without modifying the request when the service returns a 429 or 5xx error. To use this pattern, a backoff increment value is used to calculate the wait time between retries. Wait time is calculated by wait time + backoff increment. For example, when the backoff increment is 100ms, the first four retry wait times are listed below.
+Unless otherwise noted, callers should follow the [Exponential Backoff Retry Pattern](https://dzone.com/articles/understanding-retry-pattern-with-exponential-back) to determine how long to wait in between retries without modifying the request when the service returns a 429 or 5xx error. To use this pattern, a backoff increment value is used to calculate the wait time between retries. Wait time is calculated by wait time + backoff increment. For example, when the backoff increment is 100ms, the first four retry wait times are listed below.
 
 - 1st retry: 100ms
 - 2nd retry: 200ms
@@ -44,17 +44,17 @@ Unless otherwise noted, callers should follow the [Exponential Backoff Retry Pat
 
 ### Use Jitter
 
-Clients should consider using [Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/){:target="new-tab"} to more randomly distribute retry calls to decrease load on the service.
+Clients should consider using [Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) to more randomly distribute retry calls to decrease load on the service.
 
-Visit [API Error Patterns](https://confluence.nike.com/display/DAHP/API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode){:target="new-tab"} for more information on retry recommendations.
+Visit [API Error Patterns](https://confluence.nike.com/display/DAHP/API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode) for more information on retry recommendations.
 
 ### Use Distributed Tracing
 
-Many of Nike's microservices make calls to other services, quickly fanning out processing control. This complexity can make it difficult to troubleshoot bottlenecks and debug problems. Distributed tracing can help this situation by stepping through the round trip of a request and illuminating problems. [Wingtips](https://github.com/Nike-Inc/wingtips){:target="new-tab"} is the recommended distributed tracing tool.
+Many of Nike's microservices make calls to other services, quickly fanning out processing control. This complexity can make it difficult to troubleshoot bottlenecks and debug problems. Distributed tracing can help this situation by stepping through the round trip of a request and illuminating problems. [Wingtips](https://github.com/Nike-Inc/wingtips) is the recommended distributed tracing tool.
 
 ### Be Aware of Bot Rules
 
-Bot rules are in place that block calls to these APIs by IP and upmid for a period of time when more than 300 calls per minute come through the public and edge routers. Service-to-service calls are not affected by these limits. For more information visit [Bot Monitoring and Mitigation](https://confluence.nike.com/pages/viewpage.action?pageId=154879250){:target="new-tab"}.
+Bot rules are in place that block calls to these APIs by IP and upmid for a period of time when more than 300 calls per minute come through the public and edge routers. Service-to-service calls are not affected by these limits. For more information visit [Bot Monitoring and Mitigation](https://confluence.nike.com/pages/viewpage.action?pageId=154879250).
 
 ## Buy Service
 

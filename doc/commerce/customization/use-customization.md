@@ -28,7 +28,7 @@ toc:
 ---
 ##### Last Updated: 06/01/2022
 
-The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3){:target="new-tab"}:
+The **Customization Experience Platform (CXP)** unlocks your ability to add premium product customization features to your experience, similar to [Nike By You](https://store.nike.com/us/en_us/pw/nikeid-air-max-shoes/oolZb8dZoi3):
 
 ![Depiction of Nike By You experience at Nike.com](/images/customization/nby-web-chrome.png){:class="border"}
 
@@ -49,7 +49,7 @@ Users of B16 have two adventure options:
 
 ### REST APIs
 
-In addition to the Builder, the Customization Domain offers a variety of [REST APIs](https://developer.niketech.com/?domains=Customization){:target="new-tab"} that can be used for specific steps along the user journey.
+In addition to the Builder, the Customization Domain offers a variety of [REST APIs](https://console.platforms.nike.com/developer/search?q=Customization) that can be used for specific steps along the user journey.
 
 ###### Table 1:  Customization APIs and What They Do
 
@@ -217,7 +217,7 @@ Load the Builder and interact with the API to help drive the product browsing ex
 
 ### Step 2: Show Customizable Products & Color Options
 
-Whether it's a [Nike By You](https://www.nike.com/us/en_us/c/nikeid){:target="new-tab"} web experience with it's product grid walls and Product Detail Pages (PDPs), or some other type of experience, you need to show the consumer which products, and in what colors, can be customized.
+Whether it's a [Nike By You](https://www.nike.com/us/en_us/c/nikeid) web experience with it's product grid walls and Product Detail Pages (PDPs), or some other type of experience, you need to show the consumer which products, and in what colors, can be customized.
 
 ![Nike By You grid wall on Nike.com](/images/customization/nby-gridwall.png){:class="border"}
 
@@ -254,7 +254,7 @@ Show the consumer a way to edit the design.
 
 **Display an 'Edit Design' CTA (call-to-action) button that launches the Builder UX**
 
-- Example button code using [NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss){:target="new-tab"}:
+- Example button code using [NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss):
     ```html
     <button class="ncss-btn-primary-dark">Edit Design</button>
     ```
@@ -292,7 +292,7 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 
 #### Sample JavaScript
 
-For a sample JavaScript class that shows how you might interact with the Builder, see [builderBridge.js](https://github.com/nike-internal/customization.web.builder-experience/blob/master/integration/builderBridge.js){:target="new-tab"}.
+For a sample JavaScript class that shows how you might interact with the Builder, see [builderBridge.js](https://github.com/nike-internal/customization.web.builder-experience/blob/master/integration/builderBridge.js).
 
 <!-- Can add when new Builder methods become available
 ## Share a Design
@@ -400,7 +400,7 @@ Show the consumer on the PDP whether the product can be purchased. If it can, sh
 
 To retrieve the availability and lead-time data, there are two options:
 
-**Call the [Customization Availability API](https://developer.niketech.com/docs/projects/Customization%20Availability?tab=api){:target="new-tab"}**
+**Call the [Customization Availability API](https://console.platforms.nike.com/developer/docs/projects/Customization%20Availability?tab=api)**
 
 - The API returns availability by size, lead-time in days, and message text, all for a particular style-color.
 - In the `pathName` query parameter, use the value in `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds API response, like `https://api.nike.com/customization/availability/v1/us/en_US?filter=pathName(af1LowChampsSU19)`.
@@ -461,7 +461,7 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 
 - Display an 'Add to Cart' CTA that adds the design to the cart.
 
-- Example button code using [NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss){:target="new-tab"}:
+- Example button code using [NCSS](https://tourguide.prod.commerce.nikecloud.com/ncss):
 
     ```html
     <button class="ncss-btn-primary-dark">Add to Bag</button>
@@ -480,8 +480,8 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 ## Contacting the Team
 
 |---|---|
-|Slack|[#nikeid-dev-systems](https://nikedigital.slack.com/archives/C0L8C4UM7){:target="new-tab"}|
-|Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home){:target="new-tab"}|
+|Slack|[#nikeid-dev-systems](https://nikedigital.slack.com/archives/C0L8C4UM7)|
+|Confluence Space|[NikeiD Systems Home](https://confluence.nike.com/display/NIDS/NikeiD+Systems+Home)|
 |Team Contacts|[Jason Mueller, Product Manager](mailto:jason.mueller@nike.com)|
 
 ## Document Change Log
