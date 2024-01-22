@@ -45,9 +45,9 @@ Retrieve a complete order history for your consumers.
 
 Adding consumer order history to your app can be as simple as this two-step process:
 
-**1.** Your application makes an [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} request to retrieve all, or a filtered [list of a member's orders](#step-1-list-a-members-orders).
+**1.** Your application makes an [User Order Summary API](https://console.platforms.nike.com/developer/docs/projects/User%20order%20summary?tab=api) request to retrieve all, or a filtered [list of a member's orders](#step-1-list-a-members-orders).
 
-**2.** Using an order ID from the [User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} response, your application makes a request to the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
+**2.** Using an order ID from the [User Order Summary](https://console.platforms.nike.com/developer/docs/projects/User%20order%20summary?tab=api) response, your application makes a request to the [User Order Details API](https://console.platforms.nike.com/developer/docs/projects/User%20order%20details?tab=api) to [list order details for a member or guest](#step-2-list-order-details-for-a-member-or-guest).
 
 ### What is an Order?
 
@@ -67,7 +67,7 @@ An order is created in the last step of [Checkout](/doc/commerce/checkout/use-ch
 
 In the two-step process described earlier, we utilized the User Order Summary and User Order Detail APIs. These APIs provide a subset of order history data to apps that communicate over the public internet, e.g. the Nike app or Nike.com.
 
-If your use case requires the superset of order history data, and your app communicates inside the Nike network, then there may be an additional option for you: the core [Order Summary](https://developer.niketech.com/docs/projects/Order%20Summary%20Service?tab=api){:target="new-tab"} and [Order Detail](https://developer.niketech.com/docs/projects/Order%20Detail%20Service?tab=api){:target="new-tab"} APIs. The core APIs provide data to apps in Nike Retail stores, and the Consumer Services Portal (CSP), for example.
+If your use case requires the superset of order history data, and your app communicates inside the Nike network, then there may be an additional option for you: the core [Order Summary](https://console.platforms.nike.com/developer/docs/projects/Order%20Summary%20Service?tab=api) and [Order Detail](https://console.platforms.nike.com/developer/docs/projects/Order%20Detail%20Service?tab=api) APIs. The core APIs provide data to apps in Nike Retail stores, and the Consumer Services Portal (CSP), for example.
 
 >**NOTE**: Because the core APIs are a superset of what the user APIs offer, much of the content in this document applies equally to both sets of APIs. Where there are important differences between the core and user APIs, they will be specifically mentioned.
 
@@ -96,7 +96,7 @@ Listed below are key terms for the Order History APIs.
 
 ## Step 1: List a Member's Orders
 
-Use the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} to get all, or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
+Use the [User Order Summary API](https://console.platforms.nike.com/developer/docs/projects/User%20order%20summary?tab=api) to get all, or a filtered list of orders for a Nike member. By making their past orders available to members as a self-service in your app, they can view their product and payment history without having to contact Consumer Services.
 
 >**TIPS**
 >- User Order Summary returns limited information about each order. For order pricing, tax, shipping, and detailed product information, or if you want to list the details of a guest's order, see [List Order Details for a Member or Guest](#step-2-list-order-details-for-a-member-or-guest).
@@ -157,13 +157,13 @@ curl -X GET \
 
 ### Parsing the Response
 
-The User Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [User Order Summary API](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"} for a full list of fields returned in the response.
+The User Order Summary JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [User Order Summary API](https://console.platforms.nike.com/developer/docs/projects/User%20order%20summary?tab=api) for a full list of fields returned in the response.
 
 ## Step 2: List Order Details for a Member or Guest
 
-Use the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information, or you want information on more than one order for either a member or employee, see [List a Member's Orders](#step-1-list-a-members-orders).
+Use the [User Order Details API](https://console.platforms.nike.com/developer/docs/projects/User%20order%20details?tab=api) to get order details for a member or guest. This API returns a complete picture of an order including product detail, tax information and line item details. If you are looking for higher level order information, or you want information on more than one order for either a member or employee, see [List a Member's Orders](#step-1-list-a-members-orders).
 
->**TIP**: The User Order Details API does not return image URLs, but you can call the [Merchandised Product API](/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color){:target="new-tab"} using the style-color returned from the User Order Details API to get a list of images for a styleColor and country.
+>**TIP**: The User Order Details API does not return image URLs, but you can call the [Merchandised Product API](/doc/commerce/product/use-merch-product.html#product-image-set-by-style-color) using the style-color returned from the User Order Details API to get a list of images for a styleColor and country.
 
 The User Order Details API requires that you pass certain headers in the request depending upon whether the consumer is a member, guest, or employee. For more information, see [Required Request Headers](#required-request-headers).
 
@@ -190,7 +190,7 @@ The table below lists the fields by which you can filter your User Order Details
 |`email`|Filter by customer email address|sample@gmail.com|
 |`phoneNumber`|Filter by customer phone number. Only numbers 0-9 allowed|7134567890|
 
-Let's take a look at some [User Order Details](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} scenarios.
+Let's take a look at some [User Order Details](https://console.platforms.nike.com/developer/docs/projects/User%20order%20details?tab=api) scenarios.
 
 ###### Table 5: Scenarios for User Order Details
 
@@ -221,7 +221,7 @@ curl -X GET \
 
 ### Parsing the Response
 
-The [User Order Details](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [User Order Details API](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"} for a full list of fields returned in the response.
+The [User Order Details](https://console.platforms.nike.com/developer/docs/projects/User%20order%20details?tab=api) JSON response contains several fields relating to status. See [Understanding Order Status](#understanding-order-status) for more detail about how status is determined, and the suggested order statuses to display in your experience. See the [User Order Details API](https://console.platforms.nike.com/developer/docs/projects/User%20order%20details?tab=api) for a full list of fields returned in the response.
 
 ## Understanding Order Status
 
@@ -519,10 +519,10 @@ Listed below are the order line statuses, status codes, and simple status:
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[User Order Summary](https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api){:target="new-tab"}|/order_mgmt/user_order_summary/v2|GET|
-|[User Order Details](https://developer.niketech.com/docs/projects/User%20order%20details?tab=api){:target="new-tab"}|/order_mgmt/user_order_detail/v2/{orderNumber}|GET|
-|[Order Summary](https://developer.niketech.com/docs/projects/Order%20Summary%20Service?tab=api){:target="new-tab"}|/order_mgmt/order_summary/v2|GET|
-|[Order Detail](https://developer.niketech.com/docs/projects/Order%20Detail%20Service?tab=api){:target="new-tab"}|/order_mgmt/order_detail/v2|GET|
+|[User Order Summary](https://console.platforms.nike.com/developer/docs/projects/User%20order%20summary?tab=api)|/order_mgmt/user_order_summary/v2|GET|
+|[User Order Details](https://console.platforms.nike.com/developer/docs/projects/User%20order%20details?tab=api)|/order_mgmt/user_order_detail/v2/{orderNumber}|GET|
+|[Order Summary](https://console.platforms.nike.com/developer/docs/projects/Order%20Summary%20Service?tab=api)|/order_mgmt/order_summary/v2|GET|
+|[Order Detail](https://console.platforms.nike.com/developer/docs/projects/Order%20Detail%20Service?tab=api)|/order_mgmt/order_detail/v2|GET|
 
 ## Best Practices
 
@@ -530,7 +530,7 @@ Listed below are some best practices for working with User Order Summary and Use
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
+For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors) on Confluence.
 
 ### Testing
 
@@ -550,7 +550,7 @@ When integrating for the first time, we can help ensure basic connectivity in th
 
 Teams should not introduce breaking changes in their contracts, so **mocking downstream dependencies** is often recommended to decouple development & testing between teams.
 
->**TIP**: Tools like [WireMock](https://wiremock.org){:target="new-tab"} allow you to mock out services for integration testing. Also, techniques like dark deployments & traffic shadowing can be used in Prod to validate new functionality.
+>**TIP**: Tools like [WireMock](https://wiremock.org) allow you to mock out services for integration testing. Also, techniques like dark deployments & traffic shadowing can be used in Prod to validate new functionality.
 
 **Q: Why is an order not showing up in the test environment?**
 
@@ -566,7 +566,7 @@ Here are some troubleshooting tips:
 
 - Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 - Use a Splunk query (requires access) to check for issues with your request.
-- Contact the Orders team on the [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"} Slack channel for assistance.
+- Contact the Orders team on the [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4) Slack channel for assistance.
 
 ## Terms of Service
 
@@ -578,7 +578,7 @@ Following are the terms of service for the Order History APIs.
 
 Calls to the User Order Summary and User Order Detail APIs require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user.
 
-Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
+Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) prior to calling the API which you ultimately want to reach.
 
 To find out more on how to call accounts.nike.com or Unite services to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
 
@@ -592,7 +592,7 @@ The Order APIs support 3 distinct user types:
 
 ### Required Request Headers
 
-Listed below are the required request headers, which vary based on user type. Since most User Order Summary and User Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} first to get an access token and passes that token in the request.
+Listed below are the required request headers, which vary based on user type. Since most User Order Summary and User Order Details requests come through the Nike Edge router, these header values will be set automatically, provided your app calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) first to get an access token and passes that token in the request.
 
 ###### Table 9: Required Order History Request Headers by User Type
 
@@ -605,7 +605,7 @@ Listed below are the required request headers, which vary based on user type. Si
 |**x-nike-visitid**|Integer identifying the guest's session. Applies only to User Order Details API.||X||
 |**appId**|Application making the API request e.g. com.nike.sport.running.ios|X|X|X|
 
->**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}, prefixed by `Bearer ` (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
+>**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation), prefixed by `Bearer ` (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
 
 See the User Types section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#user-types) guide for more information.
 
@@ -635,7 +635,7 @@ The following graphic describes how to select for various types of omnichannel o
 
 ![Graphic showing example queries for selecting 4 types of Nike omnichannel orders](/images/commerce/order/selecting-omni-orders.png)
 
->**TIP:** For v1 payloads, the store address will be present in `orderLines.shipTo.address`. For v2 payloads, call the [Store Views API](https://developer.niketech.com/docs/projects/Store%20Views%20V2?tab=api){:target="new-tab"} with the value from `orderLines.shipTo.location.id` to get the address.
+>**TIP:** For v1 payloads, the store address will be present in `orderLines.shipTo.address`. For v2 payloads, call the [Store Views API](https://console.platforms.nike.com/developer/docs/projects/Store%20Views%20V2?tab=api) with the value from `orderLines.shipTo.location.id` to get the address.
 
 **Q: How do we identify different types of cancelled or voided orders?**
 
@@ -657,7 +657,7 @@ Two key identifiers to understand the classification of an order are `orderClass
 |CSRORDER|Order created by consumer services from Internal L3 menu|
 |COD|Cash on Delivery order|
 
-Please see [List of Values included in the Order Classification Field](https://confluence.nike.com/display/MOM/List+of+Values+included+in+the+Order+Classification+Field){:target="new-tab"} for other order classifications:
+Please see [List of Values included in the Order Classification Field](https://confluence.nike.com/display/MOM/List+of+Values+included+in+the+Order+Classification+Field) for other order classifications:
 
 The values in `orderLines.orderLineType` describe the type of order line, e.g. "GC" for gift card. See below for an incomplete list of `orderLineType`.
 
@@ -680,7 +680,7 @@ Store information is at the order level for both v1 and v2:
 - store.customerZipCode
 - store.firstSalesPostingRequired
 
->**TIP**: `storeId` can also be used to call the [Store Views API](https://developer.niketech.com/docs/projects/Store%20Views%20V2?tab=api){:target="new-tab"}.
+>**TIP**: `storeId` can also be used to call the [Store Views API](https://console.platforms.nike.com/developer/docs/projects/Store%20Views%20V2?tab=api).
 
 **Q: How do we identify where the order was captured from (i.e. the origin of the order?)**
 
@@ -749,7 +749,7 @@ To retrieve Converse orders, call User Order Details with value "converseus" in 
 
 **Q: Can I call the two User Order APIs if my app is hosted in an Amazon Web Services VPC?**
 
-Yes. The User Order APIs are exposed publicly, so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4){:target="new-tab"} for help.
+Yes. The User Order APIs are exposed publicly, so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to Slack channel [#mp-athena](https://nikedigital.slack.com/messages/C1H7ZM7J4) for help.
 
 **Q: How do I get my appId on the allowed list?**
 
@@ -771,7 +771,7 @@ User Order Details does not purge data. This service has data from February 2012
 
 **Q: What are the major differences between the User Order Details v1 and v2 schemas?**
 
-User Order Details v2 responds with orders that match either the v1 or v2 (Source Aware) schema. To see the differences between the two payloads, please see [Analysis - Source Aware - Order Repo changes](https://confluence.nike.com/pages/viewpage.action?spaceKey=CE&title=Analysis+-+Source+Aware+-+Order+Repo+changes){:target="new-tab"}
+User Order Details v2 responds with orders that match either the v1 or v2 (Source Aware) schema. To see the differences between the two payloads, please see [Analysis - Source Aware - Order Repo changes](https://confluence.nike.com/pages/viewpage.action?spaceKey=CE&title=Analysis+-+Source+Aware+-+Order+Repo+changes)
 
 **Q: Where do I find the total price of an order?**
 
@@ -797,7 +797,7 @@ All times in Order History will be in UTC Zulu with no offset, e.g. 2021-03-20T0
 
 **Q: What events trigger the status of an order to be updated?**
 
-Order Management has series of life cycle events, and there are also modifications triggered by customers, CSP, and Track and Trace. See [Order Status Mapping for Consumers](https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers){:target="new-tab"} for more information regarding status.
+Order Management has series of life cycle events, and there are also modifications triggered by customers, CSP, and Track and Trace. See [Order Status Mapping for Consumers](https://confluence.nike.com/display/MOM/Order+Status+Mapping+for+Consumers) for more information regarding status.
 
 **Q: What are XPO orders?**
 
@@ -849,7 +849,7 @@ No, the promotion will still be applied, regardless of order status.
 
 **Q: How do I get invoice information?**
 
-Order Details has invoice identifiers in `chargeTransactionDetails.invoiceCollectionDetails.invoiceNumber`. With this value, a call can be made to the [Order Invoice API](https://developer.niketech.com/docs/projects/Order%20Invoice%20API?tab=api){:target="new-tab"}.
+Order Details has invoice identifiers in `chargeTransactionDetails.invoiceCollectionDetails.invoiceNumber`. With this value, a call can be made to the [Order Invoice API](https://console.platforms.nike.com/developer/docs/projects/Order%20Invoice%20API?tab=api).
 
 **Q: How do I identify EMEA fiscal fields?**
 
@@ -874,9 +874,9 @@ Need to contact the Orders team?
 
 |---|---|
 |Slack|[#mp-athena](slack://channel?team=T0G3T5X2B&id=C1H7ZM7J4)|
-|Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP){:target="new-tab"}|
+|Confluence Space|[Order Management](https://confluence.nike.com/display/CE/Order+Management#OrderManagement-CSP)|
 |Team Contacts|**Intake, new requirements, onboarding, troubleshooting**<br> Team Athena <Lst-CE.Athena@nike.com>|
-|Intake|Please fill out an [intake form](https://confluence.nike.com/display/CCommerceAPM/Intake+Form+for+Inventory+Management%2C+Order+Management+and+Digital+Fulfillment){:target="new-tab"}.|
+|Intake|Please fill out an [intake form](https://confluence.nike.com/display/CCommerceAPM/Intake+Form+for+Inventory+Management%2C+Order+Management+and+Digital+Fulfillment).|
 
 ## Document Change Log
 

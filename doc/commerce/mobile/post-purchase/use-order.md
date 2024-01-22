@@ -39,7 +39,7 @@ toc:
 ---
 ##### Last Updated: 01/04/2023
 
-Retrieve a complete order history for your mobile consumers with the added flexibility of self-service options such as "Start a Return" and "Track Shipment" using the [Post Purchase API]{:target="_blank"}.
+Retrieve a complete order history for your mobile consumers with the added flexibility of self-service options such as "Start a Return" and "Track Shipment" using the [Post Purchase API].
 
 >**TIP**: Before using this guide, we recommend reading [Adding Consumer Order History to Your Experience] to understand the basics of Order History.
 
@@ -51,19 +51,19 @@ The use-case flows for registered members/employees and guests are described bel
 
 Adding order history to your mobile app for a registered member is a three-step process:
 
-**1.** Your mobile app makes a [Member List Orders]{:target="new-tab"} request to retrieve all or a filtered [list a member's orders](#step-1-list-a-members-orders).
+**1.** Your mobile app makes a [Member List Orders] request to retrieve all or a filtered [list a member's orders](#step-1-list-a-members-orders).
 
-**2.** Using an order ID from the **Member List Orders** response, your mobile app makes a request to the [Member List Order Details by ID]{:target="new-tab"} to [list order details for a member](#step-2-list-a-members-order-details).
+**2.** Using an order ID from the **Member List Orders** response, your mobile app makes a request to the [Member List Order Details by ID] to [list order details for a member](#step-2-list-a-members-order-details).
 
-**3.** Your mobile app makes a call to [List Pickup Details]{:target="new-tab"} to get a [list of pickup points](#step-3-list-pickup-details) for the order based on where the consumer can pick up their items.
+**3.** Your mobile app makes a call to [List Pickup Details] to get a [list of pickup points](#step-3-list-pickup-details) for the order based on where the consumer can pick up their items.
 
 ### For Guests
 
 Adding order history to your mobile app for a guest consumer is a two-step process:
 
-**1.** Using an order ID provided by the guest, your mobile app makes a [Guest List Order Details by ID]{:target="new-tab"} request to [list order details for a guest](#step-1-list-a-guests-order-details).
+**1.** Using an order ID provided by the guest, your mobile app makes a [Guest List Order Details by ID] request to [list order details for a guest](#step-1-list-a-guests-order-details).
 
-**2.** Your mobile app makes a call to [List Pickup Details]{:target="new-tab"} to get a [list of pickup details](#step-3-list-pickup-details) for the order based where the consumer can pick up their items.
+**2.** Your mobile app makes a call to [List Pickup Details] to get a [list of pickup details](#step-3-list-pickup-details) for the order based where the consumer can pick up their items.
 
 ## Key Terms
 
@@ -114,11 +114,11 @@ Depending upon the status of an order, the response may also include one or more
       }
 ```
 
-See the [Post Purchase API]{:target="_blank"} for a full list of fields in each API's response.
+See the [Post Purchase API] for a full list of fields in each API's response.
 
 ## Step 2: List a Member's Order Details
 
-Use the [Member List Order Details by ID]{:target="new-tab"} endpoint to get details for a member's order by ID. This API returns a complete picture of an order including product detail, tax information, and line item details. If you are looking for higher level order information, or you want information on more than one order for a member, see [list a member's orders](#step-1-list-a-members-orders).
+Use the [Member List Order Details by ID] endpoint to get details for a member's order by ID. This API returns a complete picture of an order including product detail, tax information, and line item details. If you are looking for higher level order information, or you want information on more than one order for a member, see [list a member's orders](#step-1-list-a-members-orders).
 
 ### Required Request Parameters
 
@@ -149,7 +149,7 @@ See the [Common Response Considerations](#common-response-considerations) for in
 
 ## Step 3: List Pickup Details
 
-Use the [List Pickup Details](https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api){:target="new-tab"} endpoint to gather a list of pickup points that both guests and members can use to pick up their Nike order in person.
+Use the [List Pickup Details](https://console.platforms.nike.com/developer/docs/projects/Post%20Purchase%20API?tab=api) endpoint to gather a list of pickup points that both guests and members can use to pick up their Nike order in person.
 
 ### Required Request Parameters
 
@@ -175,7 +175,7 @@ The response contains the pickup details available to the consumer, including ad
 
 ## Step 1: List a Guest's Order Details
 
-Use the [Guest List Order Details by ID]{:target="new-tab"} endpoint to get details for a guest's order by ID. This API returns a complete picture of an order including product detail, tax information and line item details.
+Use the [Guest List Order Details by ID] endpoint to get details for a guest's order by ID. This API returns a complete picture of an order including product detail, tax information and line item details.
 
 ### Required Request Parameters
 
@@ -214,8 +214,8 @@ The Manufacturer's Suggested Retail Price (MSRP) in the both the Member List Ord
 
 The Post Purchase API:
 
-1. Gets the MSRP value from the [Product Feeds V2 API]{:target="new-tab"}. 
-2. Gets the line item quantity and retail price from the [User Order Details API]{:target="new-tab"}. 
+1. Gets the MSRP value from the [Product Feeds V2 API]. 
+2. Gets the line item quantity and retail price from the [User Order Details API]. 
 3. If MSRP is null, it calculates and compares two variables to determine MSRP, `possibleMSRP` and `lineItemChargedPrice`. 
 4. Based on the value of the two variables and other factors, it determines whether to include both MSRP and `lineItemChargedPrice` in the response, or just `lineItemChargedPrice`.
 
@@ -240,7 +240,7 @@ Listed below are the fields and variables involved in determining MSRP and if MS
 
 ### Step 2: Calculate lineItemChargedPrice
 
-`lineItemChargedPrice` comes from [User Order Details API]{:target="new-tab"} service's `linePriceInformation.retailPrice`. This price is for the entire quantity of the order line after applying all discounts.
+`lineItemChargedPrice` comes from [User Order Details API] service's `linePriceInformation.retailPrice`. This price is for the entire quantity of the order line after applying all discounts.
 
 ![Graphic showing how lineItemChargePrice is calcuated](/images/commerce/order/mobile/lineItemChargePrice.png)
 
@@ -253,10 +253,10 @@ Listed below are the fields and variables involved in determining MSRP and if MS
 
 |Endpoint Name|Path|HTTP Method|
 |---|---|---|
-|[Member List Orders]{:target="new-tab"}|/orders/history/v1|GET|
-|[Member List Order Details by ID]{:target="new-tab"}|/orders/history/v1/{order-id}|GET|
-|[Guest List Order Details by ID]{:target="new-tab"}|/orders/summary/v1/{order-id}|GET|
-|[List Pickup Details]{:target="new-tab"}|/buy/pickupcodes/v1|GET|
+|[Member List Orders]|/orders/history/v1|GET|
+|[Member List Order Details by ID]|/orders/history/v1/{order-id}|GET|
+|[Guest List Order Details by ID]|/orders/summary/v1/{order-id}|GET|
+|[List Pickup Details]|/buy/pickupcodes/v1|GET|
 
 ## Best Practices
 
@@ -264,7 +264,7 @@ Listed below are some best practices for working with the Post Purchase API.
 
 ### Conditions for Retries
 
-The general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
+The general rule is that HTTP 4XX error codes (except for 429) should not be retried, but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors) on Confluence.
 
 ### Testing
 
@@ -284,7 +284,7 @@ When integrating for the first time, we can help ensure basic connectivity in th
 
 Teams should not introduce breaking changes in their contracts, so **mocking downstream dependencies** is often recommended to decouple development & testing between teams.
 
->**TIP**: Tools like [WireMock](https://wiremock.org){:target="new-tab"} allow you to mock out services for integration testing. Also, techniques like dark deployments & traffic shadowing can be used in Prod to validate new functionality.
+>**TIP**: Tools like [WireMock](https://wiremock.org) allow you to mock out services for integration testing. Also, techniques like dark deployments & traffic shadowing can be used in Prod to validate new functionality.
 
 **Q: Why is an order not showing up in the test environment?**
 
@@ -292,7 +292,7 @@ There are not as many system resources dedicated to the test environment, causin
 
 ### Caching Data
 
-To minimize calls to [Product Feeds V2 API]{:target="new-tab"}, the Post Purchase API caches product data.
+To minimize calls to [Product Feeds V2 API], the Post Purchase API caches product data.
 
 ## Troubleshooting
 
@@ -300,7 +300,7 @@ Here are some troubleshooting tips:
 
 - Use the [General Troubleshooting](/doc/getting-started/using-nike-apis.html#troubleshooting) tips in the Using Nike APIs guide.
 - Use a Splunk query (requires access) to check for issues with your request.
-- Contact the Post Purchase team on the [#post-purchase]{:target="new-tab"} Slack channel for assistance.
+- Contact the Post Purchase team on the [#post-purchase] Slack channel for assistance.
 
 ## Terms of Service
 
@@ -312,9 +312,9 @@ Following are the terms of service for the Post Purchase APIs.
 
 Calls to the Member List Orders and Member List Order Details by ID endpoints require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the consumer.
 
-Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
+Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} to obtain access tokens, see the [Authorization](/doc/getting-started/using-nike-apis.html#authorization) section of the Using Nike APIs guide.
+To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) to obtain access tokens, see the [Authorization](/doc/getting-started/using-nike-apis.html#authorization) section of the Using Nike APIs guide.
 
 ### User Types
 
@@ -326,7 +326,7 @@ The Order APIs support 3 distinct user types:
 
 ### Required Request Headers
 
-Listed below are the required request headers, which vary based on user type. Since most Member List Orders, Member List Order Details by ID and Guest List Order Details by ID requests come through the Nike Edge router, these header values will be set automatically, provided your app calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} first to get an access token and passes that token in the request.
+Listed below are the required request headers, which vary based on user type. Since most Member List Orders, Member List Order Details by ID and Guest List Order Details by ID requests come through the Nike Edge router, these header values will be set automatically, provided your app calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) first to get an access token and passes that token in the request.
 
 ###### Table 3: Required Order History Request Headers by User Type
 
@@ -339,7 +339,7 @@ Listed below are the required request headers, which vary based on user type. Si
 |**x-nike-visitorid**|Unique identifier for the guest, validated by the Edge router and passed through to the service. Applies only to the Guest List Order Details by ID API.||X||
 |**x-nike-visitid**|Integer identifying the guest's session. Applies only to the Guest List Order Details by ID API.||X||
 
->**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"}, prefixed by `Bearer ` (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
+>**TIP:** For the Authorization header, use the token for the consumer's login session that you obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation), prefixed by `Bearer ` (note the single space after Bearer). This is necessary for Nike to verify that your app is authorized to perform the requested operation on behalf of the consumer.
 
 See the [User Types](/doc/getting-started/using-nike-apis.html#user-types) section of the Using Nike APIs guide for more information.
 
@@ -355,20 +355,20 @@ Refer to the [Common Questions](/doc/commerce/order/use-order.html#common-questi
 
 **Q: Can I call the Post Purchase API if my app is hosted in an Amazon Web Services VPC?**
 
-Yes. The Post Purchase API is exposed publicly, so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to the [#post-purchase]{:target="new-tab"} Slack channel for help.
+Yes. The Post Purchase API is exposed publicly, so it does not matter where you are calling from. If you are calling repeatedly from a small set of IP addresses, it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls. If you are having issues, reach out to the [#post-purchase] Slack channel for help.
 
 **Q: How do I get my appId on the allowed list?**
 
-Reach out to @post_purch_api_team in our [#post-purchase]{:target="new-tab"} Slack channel to get help with adding your appId to the allowed list.
+Reach out to @post_purch_api_team in our [#post-purchase] Slack channel to get help with adding your appId to the allowed list.
 
 ## Contacting the Team
 
 Need to contact the Post Purchase team?
 
 |---|---|
-|Slack|[#post-purchase]{:target="new-tab"}|
-|Confluence Space|[Post Purchase API Team](https://confluence.nike.com/display/POST/Post+Purchase+API?src=sidebar){:target="new-tab"}|
-|Team Contacts|Intake - [Lauren Formichella](mailto:lauren.formichella@nike.com){:target="new-tab"}|
+|Slack|[#post-purchase]|
+|Confluence Space|[Post Purchase API Team](https://confluence.nike.com/display/POST/Post+Purchase+API?src=sidebar)|
+|Team Contacts|Intake - [Lauren Formichella](mailto:lauren.formichella@nike.com)|
 
 ## Document Change Log
 
@@ -385,13 +385,13 @@ You've learned how to add Post Purchase to your experience. Here are some relate
 - [Glossary](/doc/commerce/reference/glossary.html)
 - [Adding Consumer Order History to Your Experience](/doc/commerce/order/use-order.html)
 
-[Post Purchase API]: https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api
-[User Order Details API]: https://developer.niketech.com/docs/projects/User%20order%20summary?tab=api
+[Post Purchase API]: https://console.platforms.nike.com/developer/docs/projects/Post%20Purchase%20API?tab=api
+[User Order Details API]: https://console.platforms.nike.com/developer/docs/projects/User%20order%20summary?tab=api
 [Adding Consumer Order History to Your Experience]: /doc/commerce/order/use-order.html
 [Understanding Order Status]: /doc/commerce/order/use-order.html#understanding-order-status
-[Product Feeds V2 API]: https://developer.niketech.com/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api
-[List Pickup Details]: https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api
-[Member List Orders]: https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api
-[Member List Order Details by ID]: https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api
-[Guest List Order Details by ID]: https://developer.niketech.com/docs/projects/Post%20Purchase%20API?tab=api
+[Product Feeds V2 API]: https://console.platforms.nike.com/developer/docs/projects/Product%20Feed%20Service%20API%20V2?tab=api
+[List Pickup Details]: https://console.platforms.nike.com/developer/docs/projects/Post%20Purchase%20API?tab=api
+[Member List Orders]: https://console.platforms.nike.com/developer/docs/projects/Post%20Purchase%20API?tab=api
+[Member List Order Details by ID]: https://console.platforms.nike.com/developer/docs/projects/Post%20Purchase%20API?tab=api
+[Guest List Order Details by ID]: https://console.platforms.nike.com/developer/docs/projects/Post%20Purchase%20API?tab=api
 [#post-purchase]: https://nikedigital.slack.com/archives/C02BRELVB7A

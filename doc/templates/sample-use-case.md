@@ -153,15 +153,15 @@ Describe how to do another step.
 
 {API Name}
 
-- [Endpoint Name]({url for API Reference}){:target="new-tab"}
-- [Endpoint Name]({url for API Reference}){:target="new-tab"}
-- [Endpoint Name]({url for API Reference}){:target="new-tab"}
+- [Endpoint Name]({url for API Reference})
+- [Endpoint Name]({url for API Reference})
+- [Endpoint Name]({url for API Reference})
 
 {API Name}
 
-- [Endpoint Name]({url for API Reference}){:target="new-tab"}
-- [Endpoint Name]({url for API Reference}){:target="new-tab"}
-- [Endpoint Name]({url for API Reference}){:target="new-tab"}
+- [Endpoint Name]({url for API Reference})
+- [Endpoint Name]({url for API Reference})
+- [Endpoint Name]({url for API Reference})
 
 ## Best Practices
 
@@ -169,7 +169,7 @@ Listed below are some best practices for working with {}.
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors){:target="new-tab"} on Confluence.
+For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors) on Confluence.
 
 ### Test Environment
 
@@ -189,7 +189,7 @@ Describe what is cached and for how long, or if caching is not supported.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the {} team on the [Slack-channel]({url for slack channel}){:target="new-tab"} Slack channel for assistance.
+- Contact the {} team on the [Slack-channel]({url for slack channel}) Slack channel for assistance.
 
 ## Terms of Service
 
@@ -199,9 +199,9 @@ Describe what is cached and for how long, or if caching is not supported.
 
 Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user.
 
-Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} prior to calling the API which you ultimately want to reach.
+Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) prior to calling the API which you ultimately want to reach.
 
-To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
+To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
 
 #### JSON Web Token
 
@@ -215,7 +215,7 @@ Sample requests included throughout this guide contain unique IDs and access tok
 
 #### Required Request Headers
 
-Listed below are the required request headers. Since most requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} first to get an access token and passes that token in the request.
+Listed below are the required request headers. Since most requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) first to get an access token and passes that token in the request.
 
 |Header Name|Description|
 |---|---|
@@ -234,8 +234,8 @@ Answer 1
 Need to contact the {} team?
 
 |---|---|
-|Slack|[](){:target="new-tab"}|
-|Confluence Space|[](){:target="new-tab"}|
+|Slack|[]()|
+|Confluence Space|[]()|
 |Team Contacts|Person1 (Person1 email)|
 
 ## Document Change Log

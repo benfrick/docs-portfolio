@@ -39,7 +39,7 @@ Nike's address tools provide valuable address management functionality.
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Ensure a billing address is valid**
 
-Validate a consumer-supplied address with the [Validate Address](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"} service. This endpoint can validate any type of address such as shipping and billing addresses.
+Validate a consumer-supplied address with the [Validate Address](https://console.platforms.nike.com/developer/docs/projects/AddressValidator?tab=api) service. This endpoint can validate any type of address such as shipping and billing addresses.
 
 This service calls a third party vendor to validate the address passed in the request against an address database. The service response contains a `verficationCode`, `score`, and an address. Based on the quality of the address match, the service returns either the original address or a corrected one. See the table below to understand how the `verificationCode` and `score` work together to determine what actions the consumer needs to take next.
 
@@ -53,7 +53,7 @@ This service calls a third party vendor to validate the address passed in the re
 
 >**TIP:** The third party address validation service has a 512 character limit restriction on each address field and a 1024 character limit for the entire address. The client should truncate characters in any address field exceeding the field limit or address limit before making the request.
 
-See the [Address Validation Service](https://confluence.nike.com/pages/viewpage.action?pageId=270586569){:target="new-tab"} page for more information on request and response field mappings between the Address Validator API and the third party.
+See the [Address Validation Service](https://confluence.nike.com/pages/viewpage.action?pageId=270586569) page for more information on request and response field mappings between the Address Validator API and the third party.
 
 Listed below is a sample **Address Valdidate** POST request URI. This is a synchronous endpoint and is not JWT-protected:
 
@@ -71,7 +71,7 @@ Need to call an API that requires the consumer's latitude and longitude location
 
 ### Get geographic coordinates from an address
 
-The [Geocoding API](https://developer.niketech.com/docs/projects/Geocoding?tab=api) allows you to exchange an address for latitude and longitude geo coordinates. This service is not JWT-protected.
+The [Geocoding API](https://console.platforms.nike.com/developer/docs/projects/Geocoding?tab=api) allows you to exchange an address for latitude and longitude geo coordinates. This service is not JWT-protected.
 
 ###### Table 2: Request Query Parameters for the Get Geocodes from Address Endpoint
 
@@ -88,7 +88,7 @@ The [Geocoding API](https://developer.niketech.com/docs/projects/Geocoding?tab=a
 
 >**Tip**: If address values contain spaces, enclose the value in quotes for example, `filter=address1("1 Bowerman Drive")`.
 
-Sample [Get Geocodes from Address](https://developer.niketech.com/docs/projects/Geocoding?tab=api){:target="new-tab"} cURL GET request:
+Sample [Get Geocodes from Address](https://console.platforms.nike.com/developer/docs/projects/Geocoding?tab=api) cURL GET request:
 ```
 curl -X GET "https://api.nike.com/buy/geocodes/v1?filter=country(US)&filter=address1("1 Bowerman Drive")&filter=city("Beaverton")&filter=state(OR)&filter=postalCode(97005)" -H  "accept: application/json; charset=UTF-8"
 ```
@@ -110,7 +110,7 @@ If you don't have the consumer's latitude and longitude coordinates, you can get
 
 Once you have the geo coordinates, call the **Get Address from Geocodes API** to retrieve the consumer's full address. Send `country`,`latitude` and `longitude` number values as query parameters in the GET request. All query parameters are required.
 
-Sample [Get Address from Geocodes](https://developer.niketech.com/docs/projects/Geocoding?tab=api){:target="new-tab"} cURL request:
+Sample [Get Address from Geocodes](https://console.platforms.nike.com/developer/docs/projects/Geocoding?tab=api) cURL request:
 ```
 curl -X GET "https://snkrs.prod.commerce.nikecloud.com/buy/reverse_geocodes/v1?filter=country(US)&filter=latitude(45.50696)&filter=longitude(-122.82701)" -H  "accept: application/json; charset=UTF-8"
 ```
@@ -121,16 +121,16 @@ A successful 200 response contains address information of the physical location 
 ## API Quick Reference
 
 **Address Validator**
-- [Validate Address](https://developer.niketech.com/docs/projects/AddressValidator?tab=api){:target="new-tab"}
+- [Validate Address](https://console.platforms.nike.com/developer/docs/projects/AddressValidator?tab=api)
 
 **Address Geocoding**
-- [Get Geocodes (coordinates) from Address](https://developer.niketech.com/docs/projects/Geocoding?tab=api){:target="new-tab"}
-<!-- [Get Address from Geocodes](https://developer.niketech.com/docs/projects/Geocoding?tab=api)-->
+- [Get Geocodes (coordinates) from Address](https://console.platforms.nike.com/developer/docs/projects/Geocoding?tab=api)
+<!-- [Get Address from Geocodes](https://console.platforms.nike.com/developer/docs/projects/Geocoding?tab=api)-->
 
 ## Contacting the Team
 
-|Slack|Address Verification: [#cic-payment](https://nikedigital.slack.com/archives/C0Z9P2E5Q){:target="new-tab"}<br>Address Geocoding: [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV){:target="new-tab"}|
-|Confluence Space|Address Verification: [Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook){:target="new-tab"}<br>Address Geocoding: [Buy](https://confluence.nike.com/display/BUY/Buy+Domain){:target="new-tab"}|
+|Slack|Address Verification: [#cic-payment](https://nikedigital.slack.com/archives/C0Z9P2E5Q)<br>Address Geocoding: [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)|
+|Confluence Space|Address Verification: [Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook)<br>Address Geocoding: [Buy](https://confluence.nike.com/display/BUY/Buy+Domain)|
 |Team Contacts|Address Verification: [Lori Brown](mailto:lori.brown@nike.com)<br>Address Geocoding: [Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
 
 ## Document Change Log

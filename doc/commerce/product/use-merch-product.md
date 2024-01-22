@@ -62,7 +62,7 @@ The **Merchandised Products API** gives you detailed product information in any 
 - Bulk download of all product data is not supported.
 - Nike Outfits are not supported.
 - No product data metrics are currently sent to Analytics (Business Intelligence).
-- The [Merchandised SKU](#using-merchandised-sku) API does not determine if a SKU is in stock. Call the [Availability API](https://developer.niketech.com/docs/projects/Availability%20V2?tab=api){:target="new-tab"} to determine if a SKU is available for purchase.
+- The [Merchandised SKU](#using-merchandised-sku) API does not determine if a SKU is in stock. Call the [Availability API](https://console.platforms.nike.com/developer/docs/projects/Availability%20V2?tab=api) to determine if a SKU is available for purchase.
 
 ### Consider Using Product Feeds Instead
 
@@ -90,7 +90,7 @@ See [Product Feeds](/doc/commerce/product/use-product-feeds.html) for use-cases 
 |**Image Set**|Set of product images stored in Scene 7 representing different views of the product. Build the URL to the product image using domain + company + view from the [Product Base Image URL by Style Color](#api-quick-reference) results call.|
 |**GTIN**|Global Trade Item Number. Nike leases a block of GTINs and recycles them seasonally. GTIN is commonly called UPC code, although the technical specification is slightly different for the two.|
 |**Master Product**|A Nike iD product that has SKUs and is purchasable.|
-|**Merch Group**|Merchandising Group representing a Nike geographical region. See a list of supported Merchandising Groups in the Enumerations section of the [Merchandised Product List](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-list){:target="new-tab"} service.|
+|**Merch Group**|Merchandising Group representing a Nike geographical region. See a list of supported Merchandising Groups in the Enumerations section of the [Merchandised Product List](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-list) service.|
 |**Prebuild Product**|A non-purchasable Nike iD product that has no SKUs. Each Prebuild product is associated to one Master product that is purchasable.|
 |**Prodigy**|System of record for all product data. All products are merchandised in this system and flow into the Merchandised Product database when they are published in Prodigy.|
 |**SLA**|Service Level Agreement. A commitment from the service to the caller regarding service response times and service availability.|
@@ -119,51 +119,51 @@ If you are retrieving products that are publicly available, no authentication or
 
 **Merchandised Product V3**
 
-- [Merchandised Product by productId](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-v3-merchandised-product-by-productid){:target="new-tab"}
-- [Merchandised Product by merchGroup and styleColor](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-v3-merchandised-product-by-merchgroup-and-stylecolor){:target="new-tab"}
-- [Merchandised Product List by merchGroup and style](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-v3-merchandised-product-list-by-merchgroup-and-style){:target="new-tab"}
+- [Merchandised Product by productId](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-v3-merchandised-product-by-productid)
+- [Merchandised Product by merchGroup and styleColor](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-v3-merchandised-product-by-merchgroup-and-stylecolor)
+- [Merchandised Product List by merchGroup and style](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-v3-merchandised-product-list-by-merchgroup-and-style)
 
 **Merchandised Product V2**
 
-- [Merchandised Product List - DEPRECATED use V3](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-list){:target="new-tab"}
-- [Merchandised Product by Id - DEPRECATED use V3](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-by-id){:target="new-tab"}
-- [Merchandised Product Create](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-create){:target="new-tab"}
-- [Merchandised Product Delete](https://developer.niketech.com/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-delete){:target="new-tab"}
+- [Merchandised Product List - DEPRECATED use V3](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-list)
+- [Merchandised Product by Id - DEPRECATED use V3](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-by-id)
+- [Merchandised Product Create](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-create)
+- [Merchandised Product Delete](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Products%20Service%20API?tab=api#merchandised-product-merchandised-product-delete)
 
 **Merchandised Sku V2**
 
-- [Merchandised Sku List](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-list){:target="new-tab"}
-- [Merchandised Sku by Id](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-by-id){:target="new-tab"}
-- [Merchandised Sku Create](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-create){:target="new-tab"}
-- [Merchandised Sku Delete](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-delete){:target="new-tab"}
-- [Merchandised Sku Batch Delete](https://developer.niketech.com/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-batch-delete){:target="new-tab"}
+- [Merchandised Sku List](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-list)
+- [Merchandised Sku by Id](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-by-id)
+- [Merchandised Sku Create](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-create)
+- [Merchandised Sku Delete](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-delete)
+- [Merchandised Sku Batch Delete](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20SKUs%20Service%20API?tab=api#sku-merchandised-sku-batch-delete)
 
 **Merchandised Product Price V2**
 
-- [Merchandised Prices List](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-list){:target="new-tab"}
-- [Merchandised Prices by Id](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-by-id){:target="new-tab"}
-- [Merchandised Prices Create](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-create){:target="new-tab"}
-- [Merchandised Prices Delete](https://developer.niketech.com/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-delete){:target="new-tab"}
+- [Merchandised Prices List](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-list)
+- [Merchandised Prices by Id](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-by-id)
+- [Merchandised Prices Create](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-create)
+- [Merchandised Prices Delete](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Prices%20Service%20API?tab=api#prices-merchandised-prices-delete)
 
 **Merchandised Value Added Services V1**
 
-- [Merchandised Value Added Services List](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-list){:target="new-tab"}
-- [Merchandised Value Added Services by Id](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-by-id){:target="new-tab"}
-- [Merchandised Value Added Services Create](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-create){:target="new-tab"}
-- [Merchandised Value Added Services Delete](https://developer.niketech.com/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-delete){:target="new-tab"}
+- [Merchandised Value Added Services List](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-list)
+- [Merchandised Value Added Services by Id](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-by-id)
+- [Merchandised Value Added Services Create](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-create)
+- [Merchandised Value Added Services Delete](https://console.platforms.nike.com/developer/docs/projects/Merchandised%20Value%20Added%20Services%20Service%20API?tab=api#value-added-services-merchandised-value-added-services-delete)
 
 **Product Content V1**
 
-- [Product Content by Style Color](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-by-style-color){:target="new-tab"}
-- [Product Content Item by Style Color](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-item-by-style-color){:target="new-tab"}
-- [Product Content By Style Color List](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-by-stylecolor-list){:target="new-tab"}
-- [Product Content Field By Style Color List](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-field-by-stylecolor-list){:target="new-tab"}
+- [Product Content by Style Color](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-by-style-color)
+- [Product Content Item by Style Color](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-item-by-style-color)
+- [Product Content By Style Color List](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-by-stylecolor-list)
+- [Product Content Field By Style Color List](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-content-product-content-field-by-stylecolor-list)
 
 
-- [Product Image Set by Style Color](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-image-set-by-style-color){:target="new-tab"}
-- [Product Image Set By Style Color List](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-image-set-by-stylecolor-list){:target="new-tab"}
-- [Product Base Image URL by Style Color List](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-base-image-url-by-style-color-list){:target="new-tab"}
-- [Product Base Image URL by Style Color](https://developer.niketech.com/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-base-image-url-by-style-color){:target="new-tab"}
+- [Product Image Set by Style Color](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-image-set-by-style-color)
+- [Product Image Set By Style Color List](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-image-set-by-stylecolor-list)
+- [Product Base Image URL by Style Color List](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-base-image-url-by-style-color-list)
+- [Product Base Image URL by Style Color](https://console.platforms.nike.com/developer/docs/projects/Product%20Content%20Service%20API?tab=api#public-product-images-product-base-image-url-by-style-color)
 
 ## Gathering a Product Data Set
 
@@ -222,7 +222,7 @@ Prodigy uses a first-in-first-out queue. However, an individual product update i
 
 ### Where Do I Get Inventory Information?
 
-Call the [Availability API](https://developer.niketech.com/docs/projects/Availability%20V2?tab=api){:target="new-tab"} to check if a product is saleable.
+Call the [Availability API](https://console.platforms.nike.com/developer/docs/projects/Availability%20V2?tab=api) to check if a product is saleable.
 
 ### How To Find a Current Product
 
@@ -603,7 +603,7 @@ Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-start
 
 Use a Splunk query (requires access) to check for issues with your request.
 
-Contact the Merchandised team on the [#pdm-merch-catalog](https://nikedigital.slack.com/archives/CANEN2FH9){:target="new-tab"} Slack channel for assistance.
+Contact the Merchandised team on the [#pdm-merch-catalog](https://nikedigital.slack.com/archives/CANEN2FH9) Slack channel for assistance.
 
 ### Common Questions
 
@@ -637,8 +637,8 @@ If none of these scenarios apply, [contact the Product Data Management team](#co
 Need to contact the Product Data Management team?
 
 |---|---|
-|Slack|[#pdm-merch-product](https://nikedigital.slack.com/archives/CANEN2FH9){:target="new-tab"}|
-|Confluence Space|[Product Data Management - Consumer Product Services](https://confluence.nike.com/display/PDM/Product+Data+Management+Home){:target="new-tab"}|
+|Slack|[#pdm-merch-product](https://nikedigital.slack.com/archives/CANEN2FH9)|
+|Confluence Space|[Product Data Management - Consumer Product Services](https://confluence.nike.com/display/PDM/Product+Data+Management+Home)|
 |<i id="product-owner">Product Owner</i>|[Debbie Meier](mailto:debbie.meier@nike.com)<br>[Saudamini Baru](mailto:Saudamini.Baru@nike.com)|
 
 ## Document Change Log

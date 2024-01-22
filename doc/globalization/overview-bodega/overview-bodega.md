@@ -16,7 +16,7 @@ With Bodega, you can:
 - Improve accuracy and relevancy for Nike's international users
 - Reduce the time-to-market for new global feature releases and new experiences
 
->**TIP**: Head over to the [Bodega Sharepoint Site](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Home.aspx){:target="new-tab"} for comprehensive documentation.
+>**TIP**: Head over to the [Bodega Sharepoint Site](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Home.aspx) for comprehensive documentation.
 
 ### Bodega Features
 
@@ -37,15 +37,15 @@ Here are some examples of folks who might use Bodega (note: this is a partial li
 
 ### Where Can I Find Out More?
 
-- [About Bodega](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/About.aspx){:target="new-tab"}
-- [Learning for Engineers & Designers](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Learn%20Engineering.aspx){:target="new-tab"}
-- [Learning for Operations](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Learn%20Ops.aspx){:target="new-tab"}
+- [About Bodega](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/About.aspx)
+- [Learning for Engineers & Designers](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Learn%20Engineering.aspx)
+- [Learning for Operations](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/Learn%20Ops.aspx)
 
 ### Contact the Globalization Team
 
-- [Slack](https://nikedigital.slack.com/archives/C0KB38Y5P){:target="new-tab"}
-- [Confluence Space](https://confluence.nike.com/display/G11N/Nike+Globalization){:target="new-tab"}
-- [Bodega Team Roster](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/About.aspx#team){:target="new-tab"}
+- [Slack](https://nikedigital.slack.com/archives/C0KB38Y5P)
+- [Confluence Space](https://confluence.nike.com/display/G11N/Nike+Globalization)
+- [Bodega Team Roster](https://nike.sharepoint.com/sites/ext5/lockerroom/bodega/SitePages/About.aspx#team)
 
 ### Connect to the Docs Team
 

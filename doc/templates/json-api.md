@@ -22,7 +22,7 @@ Provide links to supplemental documentation about the service on [Commerce Docs]
 
 ## Prerequisites
 
-Describe what integrators must do before calling this service such as getting an appId. Link to other APIs on the [Developer Portal](https://developer.niketech.com/docs/projects/devportal?tab=api) that integrators must call first.
+Describe what integrators must do before calling this service such as getting an appId. Link to other APIs on the [Developer Portal](https://console.platforms.nike.com/developer/docs/projects/devportal?tab=api) that integrators must call first.
 
 ## Error Codes
 

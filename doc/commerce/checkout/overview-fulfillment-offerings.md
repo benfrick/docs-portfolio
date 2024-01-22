@@ -34,10 +34,10 @@ Ready to get started? Step through the use cases below to learn how to add Fulfi
 <h5 style="text-align:center;">APIs</h5>
 <ul>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api" target="new-tab">Fulfillment Offerings</a> <span class="guide-details-li-text"></span>
+        <a href="https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api" >Fulfillment Offerings</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Fulfillment%20Types?tab=api" target="new-tab">Fulfillment Types</a> <span class="guide-details-li-text"></span>
+        <a href="https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Types?tab=api" >Fulfillment Types</a> <span class="guide-details-li-text"></span>
     </li>
 </ul>
 </aside>

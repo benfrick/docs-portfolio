@@ -56,34 +56,34 @@ The APIs required for the two fulfillment flows are listed below.
 <h5 style="text-align:center;">APIs</h5>
 <ul>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Carts%20V2?tab=api" target="new-tab">Carts</a> <span class="guide-details-li-text"></span>
+        <a href="https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api" >Carts</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Cart%20Views?tab=api" target="new-tab">Cart Views</a> <span class="guide-details-li-text"></span>
+        <a href="https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api" >Cart Views</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        Cart Reviews <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews?tab=api" target="new-tab">V1</a> and <a href="https://developer.niketech.com/docs/projects/Cart%20Reviews%20V2?tab=api" target="new-tab">V2</a><span class="guide-details-li-text"></span>
+        Cart Reviews <a href="https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews?tab=api" >V1</a> and <a href="https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api" >V2</a><span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Shipping%20Options?tab=api" target="new-tab">Shipping Options</a> <span class="guide-details-li-text"></span>
+        <a href="https://console.platforms.nike.com/developer/docs/projects/Shipping%20Options?tab=api" >Shipping Options</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/Fulfillment%20Offerings?tab=api" target="new-tab">Fulfillment Offerings</a> <span class="guide-details-li-text"></span>
+        <a href="https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api" >Fulfillment Offerings</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        <a href="https://developer.niketech.com/docs/projects/AddressValidator?tab=api" target="new-tab">Address Validation</a> <span class="guide-details-li-text"></span>
+        <a href="https://console.platforms.nike.com/developer/docs/projects/AddressValidator?tab=api" >Address Validation</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        Payment Options <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Payment%20Options%20v3%20(Source%20Aware)?tab=api" target="new-tab">V3</a><span class="guide-details-li-text"></span>
+        Payment Options <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Options?tab=api" >V2</a> and <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Options%20v3%20(Source%20Aware)?tab=api" >V3</a><span class="guide-details-li-text"></span>
     </li>
     <li>
-        Payment Preview <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Payment%20Preview%20V3%20(Source%20aware)?tab=api" target="new-tab">V3</a><span class="guide-details-li-text"></span>
+        Payment Preview <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Preview?tab=api" >V2</a> and <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Preview%20V3%20(Source%20aware)?tab=api" >V3</a><span class="guide-details-li-text"></span>
     </li>
     <li>
-        Checkout Previews <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Checkout%20Previews%20V3?tab=api" target="new-tab">V3</a> <span class="guide-details-li-text"></span>
+        Checkout Previews <a href="https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V2?tab=api" >V2</a> and <a href="https://console.platforms.nike.com/developer/docs/projects/Checkout%20Previews%20V3?tab=api" >V3</a> <span class="guide-details-li-text"></span>
     </li>
     <li>
-        Checkouts <a href="https://developer.niketech.com/docs/projects/Checkouts%20V2?tab=api" target="new-tab">V2</a> and <a href="https://developer.niketech.com/docs/projects/Checkouts%20V3?tab=api" target="new-tab">V3</a> <span class="guide-details-li-text"></span>
+        Checkouts <a href="https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V2?tab=api" >V2</a> and <a href="https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V3?tab=api" >V3</a> <span class="guide-details-li-text"></span>
     </li>
 </ul>
 </aside>

@@ -89,7 +89,7 @@ The Nike.com image below illustrates how Autocomplete and Search Preview can be 
 
 ![Screenshot of Nike.com search with autocomplete and search preview](/images/commerce/search/autocomplete-search-preview.png){:class="border"}
 
->**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav){:target="new-tab"}.
+>**TIP:** For information on how to integrate Search Bar with Search Preview in your experience, see the [Global Navigation Guide](https://tourguide.prod.commerce.nikecloud.com/global-nav).
 
 <!--
 
@@ -279,8 +279,8 @@ Need to reach out to the Search team?
 
 |Method|Contact|
 |---|---|
-|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB){:target="new-tab"}|
-|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud){:target="new-tab"}|
+|Slack|[#search-integration](https://nikedigital.slack.com/messages/C4MGZ8GDB)|
+|Confluence space|[Content Discovery Team](https://confluence.nike.com/display/SEARCH/Content+Discovery+in+the+Cloud)|
 |Email the Product Manager|[Jeremy Myrland](mailto:jeremy.myrland@nike.com) (Search)<br>[Patti Cousins](mailto:patrcia.cousins@nike.com) (Apollo Tool)|
 
 ## Document Change Log

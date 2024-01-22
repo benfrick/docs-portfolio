@@ -49,7 +49,7 @@ toc:
 
 This guide provides general information about using Nike APIs, including common standards, conventions, tips, and other helpful info that applies across multiple domains. Start here before diving into the Developer's guides.
 
->**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics){:target="new-tab"} course offered by Nike Architecture team.
+>**TIP:** Also check out the [API Basics](https://confluence.nike.com/display/DAHP/API+Training+-+Workshop%3A+API+Basics) course offered by Nike Architecture team.
 
 ## Industry Standards
 
@@ -57,7 +57,7 @@ Learn how Nike APIs were designed with industry standards in mind.
 
 ### REST Architecture
 
-Nike uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer){:target="new-tab"} (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicate with Nike APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it.
+Nike uses the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) (**RE**presentational **S**tate **T**ransfer) architectural style, which allows you to communicate with Nike APIs over the Web using standard commands and protocols such as HTTP requests and responses. REST is thoroughly explained on the web already, but here are a few reasons why we use it.
 
 **Stateless for Improved Performance**
 
@@ -69,7 +69,7 @@ REST is widely used in the industry because the syntax and protocols used (HTTP,
 
 ### JSON-formatted HTTP Requests and Responses
 
-The standard format for exchanging data with Nike APIs is [JSON](https://www.json.org/){:target="new-tab"} (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"} summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
+The standard format for exchanging data with Nike APIs is [JSON](https://www.json.org/) (**J**ava**S**cript **O**bject **N**otation). As such, all HTTP request and response payloads must be in JSON format. [Wikipedia](https://en.wikipedia.org/wiki/JSON) summarizes the benefits well: "JSON is a language-independent data format. It was derived from JavaScript, but as of 2017 many programming languages include code to generate and parse JSON-format data."
 
 Example of a JSON-formatted request body that was sent to a Nike API:
 
@@ -113,7 +113,7 @@ Example of a JSON-formatted request body that was sent to a Nike API:
 
 ### JSON Schema Helps Define API Contracts
 
-The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](https://json-schema.org/){:target="new-tab"}. Per [Wikipedia](https://en.wikipedia.org/wiki/JSON){:target="new-tab"}: "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, here is a living example of a [JSON request body schema](https://github.com/nike-internal/buy.service.carts/blob/master/src/main/resources/schema/cart-request-schema-full.json){:target="new-tab"}  for a Cart request.
+The structures of the request and response bodies for Nike APIs are defined in each contract (an API.md file, commonly) using [JSON Schema](https://json-schema.org/). Per [Wikipedia](https://en.wikipedia.org/wiki/JSON): "JSON Schema specifies a JSON-based format to define the structure of JSON data for validation, documentation, and interaction control. It provides a contract for the JSON data required by a given application, and how that data can be modified." Use the schema to understand the mandatory fields, expected data types, min/max values, and more in order to create requests and responses in accordance with the API contract. For example, here is a living example of a [JSON request body schema](https://github.com/nike-internal/buy.service.carts/blob/master/src/main/resources/schema/cart-request-schema-full.json)  for a Cart request.
 
 ### Idempotence Guarantee
 
@@ -125,15 +125,15 @@ The security and privacy of your consumer's data is Nike's #1 concern. Whether i
 
 ## Reference Docs
 
-In addition to the guides on the [Developer Portal](https://developer.niketech.com/){:target="new-tab"}, all Nike APIs have the following documents available at the root directory of the GitHub repository:
+In addition to the guides on the [Developer Portal](https://console.platforms.nike.com/developer/), all Nike APIs have the following documents available at the root directory of the GitHub repository:
 
-- Well-defined contract (API.md or API.yaml file) for each major version in [API Blueprint](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md){:target="new-tab"} format. Nike has a Springboot blueprint found [here](https://github.com/nike-internal/blueprint.service.java-springboot){:target="new-tab"}.
+- Well-defined contract (API.md or API.yaml file) for each major version in [API Blueprint](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md) format. Nike has a Springboot blueprint found [here](https://github.com/nike-internal/blueprint.service.java-springboot).
 
 - Request and response definitions in JSON Schema format within each API contract
 
 - SLA.json providing the expected response time in ms nd requests per second of each service endpoint
 
-- Consistency guarantee for mutating services within the API contract, e.g. [ACID](https://en.wikipedia.org/wiki/ACID){:target="new-tab"} or [Eventual](https://en.wikipedia.org/wiki/Eventual_consistency){:target="new-tab"}
+- Consistency guarantee for mutating services within the API contract, e.g. [ACID](https://en.wikipedia.org/wiki/ACID) or [Eventual](https://en.wikipedia.org/wiki/Eventual_consistency)
 
 - README.md file including:
 
@@ -187,23 +187,23 @@ Example header: `nike-api-caller-id: nike:dotcom:browse.wall.client:1.0`
 
 ### Consumer JWTs
 
-This section discusses how to authorize your app or experience to call an API going through the [Unified Edge Router](https://confluence.nike.com/display/EDGE/Unified+Edge+Router%3A+UER){:target="new-tab"} (UER) on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the UER and require consumer login or a visitor id for anonymous visitors.
+This section discusses how to authorize your app or experience to call an API going through the [Unified Edge Router](https://confluence.nike.com/display/EDGE/Unified+Edge+Router%3A+UER) (UER) on behalf of registered and anonymous Nike consumers. Calls to api.nike.com endpoints go through the UER and require consumer login or a visitor id for anonymous visitors.
 
 #### OpenID Connect (OIDC)
 
-Certain Nike dotcom experiences are migrating from the [Unite](https://confluence.nike.com/display/USER/Unite+Platform+-+Getting+Started){:target="new-tab"} platform for consumer login and registration to OIDC. In addition to providing standardized login and registration functionality, OIDC also offers account linking with partners and bot mitigation.
+Certain Nike dotcom experiences are migrating from the [Unite](https://confluence.nike.com/display/USER/Unite+Platform+-+Getting+Started) platform for consumer login and registration to OIDC. In addition to providing standardized login and registration functionality, OIDC also offers account linking with partners and bot mitigation.
 
 OIDC is an extension to OAuth 2.0. OIDC takes advantage of the authorization functionality OAuth provides and allows applications to receive the verifiable identity of a registered user.
 
-For more details on OIDC, see [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"}.
+For more details on OIDC, see [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/).
 
 #### OIDC or Unite?
 
-For a complete listing of experiences that are moving to OIDC, see the [NikeDotcom Unite to accounts.nike.com Mitigation Strategy](https://confluence.nike.com/display/CEXP/NikeDotcom+Unite+to+Accounts.nike.com+Migration+Strategy){:target="new-tab"}.
+For a complete listing of experiences that are moving to OIDC, see the [NikeDotcom Unite to accounts.nike.com Mitigation Strategy](https://confluence.nike.com/display/CEXP/NikeDotcom+Unite+to+Accounts.nike.com+Migration+Strategy).
 
 #### Using the Unite Platform for Profile Management
 
-Due to complexity issues or feasibility concerns, some Nike dotcom experiences will remain on the [Unite](https://confluence.nike.com/display/USER/Unite+Platform+-+Getting+Started){:target="new-tab"} platform. Unite offers unified profile management services such as login, registration, and session management across Nike consumer experiences. Use Unite consumer access tokens and visitor IDs to make requests on behalf of both registered Nike consumers and anonymous consumers.
+Due to complexity issues or feasibility concerns, some Nike dotcom experiences will remain on the [Unite](https://confluence.nike.com/display/USER/Unite+Platform+-+Getting+Started) platform. Unite offers unified profile management services such as login, registration, and session management across Nike consumer experiences. Use Unite consumer access tokens and visitor IDs to make requests on behalf of both registered Nike consumers and anonymous consumers.
 
 **Registered Nike Consumers**
 
@@ -228,15 +228,15 @@ In addition to supporting registered Nike consumers, an API may also support "Gu
 
 Unite SDKs:
 
-- [Web SDK](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation){:target="new-tab"}
-- [Android SDK](https://github.com/nike-internal/mpe.feature.unite-android){:target="new-tab"}
-- [iOS SDK](https://github.com/nike-internal/mpe.feature.unite-ios){:target="new-tab"}
+- [Web SDK](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation)
+- [Android SDK](https://github.com/nike-internal/mpe.feature.unite-android)
+- [iOS SDK](https://github.com/nike-internal/mpe.feature.unite-ios)
 
 
 For more information on Unite login and JWTs, see the links below.
-- [Nike Consumer Login Basics](https://confluence.nike.com/display/USER/Nike+Consumer+Login+Basics){:target="new-tab"}
-- [Consumer Access Token Basics](https://confluence.nike.com/display/PACE/Nike+NDE+Consumer+Access+Token){:target="new-tab"}
-- [AAA - Getting Started with JWTs](https://confluence.nike.com/display/SECDEV/AAA+-+Getting+Started+with+JWTs){:target="new-tab"}
+- [Nike Consumer Login Basics](https://confluence.nike.com/display/USER/Nike+Consumer+Login+Basics)
+- [Consumer Access Token Basics](https://confluence.nike.com/display/PACE/Nike+NDE+Consumer+Access+Token)
+- [AAA - Getting Started with JWTs](https://confluence.nike.com/display/SECDEV/AAA+-+Getting+Started+with+JWTs)
 
 ### Service-to-Service JWTs
 
@@ -258,9 +258,9 @@ JWTs are configured to be reusable within a certain time period, after which any
 >- Service to Service (S2S) calls do not go through the UER. For endpoints that require upmid, S2S calls should send the `upmid` header for logged in consumers. Do not send the `Authorization` header.
 
 The Nike Application Authentication and Authorization (AAA) library and the Shoestring key management tool are currently being phased out. All new applications should be using OSCAR for S2S authorization, the Chipotle library for OSCAR access token validation and the Burrito library for token generation. See these links for additional information:
-- [OSCAR: Server-to-server Auth Integration Guide](https://confluence.nike.com/display/PACE/OSCAR%3A+Server-to-Server+Auth+Integration+Guide){:target="new-tab"}
-- [FAQ: OSCAR/Chipotle](https://confluence.nike.com/pages/viewpage.action?pageId=357375938){:target="new-tab"}
-- [Authentication and Authorization at Nike](https://confluence.nike.com/display/PACE/Authentication+and+Authorization+at+Nike){:target="new-tab"}
+- [OSCAR: Server-to-server Auth Integration Guide](https://confluence.nike.com/display/PACE/OSCAR%3A+Server-to-Server+Auth+Integration+Guide)
+- [FAQ: OSCAR/Chipotle](https://confluence.nike.com/pages/viewpage.action?pageId=357375938)
+- [Authentication and Authorization at Nike](https://confluence.nike.com/display/PACE/Authentication+and+Authorization+at+Nike)
 
 ## URI Patterns
 
@@ -284,7 +284,7 @@ Query parameters can be added to the end of the URI to **allow you to be more sp
 - Multiple query parameters can be chained together with ampersands like `?marketplace=US&marketplace=EU`.
 - The available query parameters vary per Nike API. Check the Developer Guide for the API in question to confirm the query parameter requirements.
 
->**TIP:** See also [API Standards](https://github.com/nike-api-governance/ea-standards){:target="new-tab"} repository for more information on using query parameters with Nike APIs.
+>**TIP:** See also [API Standards](https://github.com/nike-api-governance/ea-standards) repository for more information on using query parameters with Nike APIs.
 
 #### Common Query Parameters
 
@@ -311,7 +311,7 @@ Read about the common components of HTTP requests sent to Nike APIs. Also see th
 
 ### URI (Universal Resource Identifier)
 
-By sending a request to a Nike API, you access a resource using a particular URI [Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier){:target="new-tab"} comprised of a string of characters.
+By sending a request to a Nike API, you access a resource using a particular URI [Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) comprised of a string of characters.
 
 >**TIP**: See the [URI Patterns](#uri-patterns) section for more.
 
@@ -513,7 +513,7 @@ For additional general error handling info, see the [Error Handling](#error-hand
 
 ## Using the API Reference
 
-This section describes how to use the Nike API Reference documents on the [Developer Portal](https://developer.niketech.com/){:target="new-tab"}.
+This section describes how to use the Nike API Reference documents on the [Developer Portal](https://console.platforms.nike.com/developer/).
 
 ### Overview
 
@@ -529,7 +529,7 @@ Each Nike API Reference document serves as the contract for using the API and ha
 
 The steps for accessing the API Reference on the Developer Portal are as follows:
 
-1. Navigate to the [Developer Portal](https://developer.niketech.com/){:target="new-tab"}
+1. Navigate to the [Developer Portal](https://console.platforms.nike.com/developer/)
 2. Use the Search bar to locate the API and click the API name
 3. Click the **API** tab to display the API Reference document
 4. Scroll to the endpoint you are interested in
@@ -540,23 +540,23 @@ The steps for accessing the API Reference on the Developer Portal are as follows
 
 >**TIPS**:
 >- For more on JSON Schema, see the [JSON Schema Helps Define API Contracts](#json-schema-helps-define-api-contracts) section of this doc.
->- For more on how to use the Developer Portal, see the [Developer Portal User Guide](https://developer.niketech.com/guide){:target="new-tab"}.
+>- For more on how to use the Developer Portal, see the [Developer Portal User Guide](https://console.platforms.nike.com/developer/guide).
 
 ## Making Your First Request
 
-For your first API request, send a request to the [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} endpoint of the Carts API to create your first cart.
+For your first API request, send a request to the [Create or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put) endpoint of the Carts API to create your first cart.
 
 ### 1. Gather Data Needed For The Request
 
 Our example endpoint, `Create or Update a Cart by Cart ID`, supports the HTTP PUT method. To create a cart, send a PUT request with (at minimum) the required request headers and the required parts of the request body.
 
-First, read the [API Reference](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"} to learn more about the required parts of this request. Assume that the consumer for whom you are creating the cart is a Nike member who has logged in. This determines which request headers are required for this particular request.
+First, read the [API Reference](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put) to learn more about the required parts of this request. Assume that the consumer for whom you are creating the cart is a Nike member who has logged in. This determines which request headers are required for this particular request.
 
 For the request headers, the following considerations apply (at minimum):
 
 - Always send `application/json` in both the `Accept` and `Content-Type` headers.
 
-- Send the consumer's access token as obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} in the `Authorization` header.
+- Send the consumer's access token as obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) in the `Authorization` header.
 
 ```
 Accept: application/json
@@ -665,7 +665,7 @@ Some values in the response are exactly what you sent in the request, but the va
 
 ### Another Example
 
-For your next request, send a GET request to the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="new-tab"} endpoint of the Carts API, using the cart `id` that you created in the previous step.
+For your next request, send a GET request to the [Get a Cart for a Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get) endpoint of the Carts API, using the cart `id` that you created in the previous step.
 
 For the request headers, use the same headers you used in the previous step.
 
@@ -682,17 +682,17 @@ curl -X GET \
   -H 'content-type: application/json'
 ```
 
-The response body from the [Get a Cart for a Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get){:target="new-tab"} endpoint is the same as [Create or Update a Cart by Cart ID](https://developer.niketech.com/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put){:target="new-tab"}, so the process of parsing it is also the same.
+The response body from the [Get a Cart for a Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-get-a-cart-by-cart-id-get) endpoint is the same as [Create or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put), so the process of parsing it is also the same.
 
 ## Versioning
 
-As Nike APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](https://semver.org/){:target="new-tab"} guidelines. Some high-level considerations:
+As Nike APIs are enhanced over time to add new features and fix bugs, the version numbers are incremented according to [Semantic Versioning](https://semver.org/) guidelines. Some high-level considerations:
 
-- For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URI does not change. If you are using the [Tolerant Reader Pattern](https://martinfowler.com/bliki/TolerantReader.html){:target="new-tab"}, you can continue to use the API without having to make changes to your app.
+- For minor version increments or patches, e.g. the addition of a new, optional field, the changes are non-breaking and the endpoint URI does not change. If you are using the [Tolerant Reader Pattern](https://martinfowler.com/bliki/TolerantReader.html), you can continue to use the API without having to make changes to your app.
 
 - When moving to a new, major version of an API (e.g. a change from synchronous to asynchronous operation), expect to make some changes to your app to ensure compatibility with the new version.
 
->**TIP:** For more details about the versioning of Nike APIs, see the [API Versioning Strategy](https://confluence.nike.com/display/AGS/API+Standards){:target="new-tab"} document.
+>**TIP:** For more details about the versioning of Nike APIs, see the [API Versioning Strategy](https://confluence.nike.com/display/AGS/API+Standards) document.
 
 ## Caching
 
@@ -706,7 +706,7 @@ Nike APIs take advantage of three layers of caching in order to keep service per
 
 ### Akamai Caching
 
-Nike uses the [Akamai Content Delivery Framework](https://www.akamai.com/our-thinking/cdn/what-is-a-cdn){:target="new-tab"} as the UER caching solution for public service requests. It is utilized when the client makes a request for a Nike public resource configured to go through Akamai's Edge server.
+Nike uses the [Akamai Content Delivery Framework](https://www.akamai.com/our-thinking/cdn/what-is-a-cdn) as the UER caching solution for public service requests. It is utilized when the client makes a request for a Nike public resource configured to go through Akamai's Edge server.
 
 Akamai caching and routing is managed though a set of configurations at Akamai. It is referred to as an Edge server because it is on the Edge of two networks, in this case the public internet and Nike's UER. Akamai operates on a set of configured rules that determine what resources can be cached, how long to cache the resource, and how to determine if the origin of the resource has an updated version (stale resource). Akamai retrieves a cached copy of the data that is as close to the caller as possible to ensure the quickest response time.
 
@@ -773,11 +773,11 @@ Caching can also be done on the Browser/Phone device itself. This type of cachin
 |`Cache-Control`|Used for enabling caching of resources and identifying what can be cached. used with Expires.|Cache-Control: private,max-age=0|
 |`Pragma`|Used to disable caching for a resource or let the client know this resource must not be cached. use `Cache-Control` instead.|Pragma: "no-cache"|
 
->**TIP:** See [Nike Caching Strategy](https://confluence.nike.com/display/DAHP/Caching+Strategy){:target="new-tab"} and [Akamai Technical Reference](https://confluence.nike.com/display/DAHP/Akamai){:target="new-tab"} for more info.
+>**TIP:** See [Nike Caching Strategy](https://confluence.nike.com/display/DAHP/Caching+Strategy) and [Akamai Technical Reference](https://confluence.nike.com/display/DAHP/Akamai) for more info.
 
 ## CORS
 
-Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error. One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. http://api.nike.com) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see [HTTP Access Control CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS){:target="new-tab"}.
+Client-side HTTP requests are subject to the same-origin policy, meaning the requested resource must be for the same domain, port, and protocol as the originator of the request. This restriction prevents unsafe requests that could compromise data integrity. For instance, a request from a script on api.nike.com for an image on images.nike.com violates the same origin policy and results in a security error. One way to relax this restriction is to make CORS requests. CORS (Cross-origin resource sharing) gets around this restriction through an exchange of headers between the browser making the request and the server of the requested resource. The browser sends an Origin header containing the origin making the request (e.g. http://api.nike.com) and the server sends a Access-Control-Allow-Origin header in the response that lists all origins allowed to access it. If the origin is in the list, the browser lets the request through. For a detailed explanation of CORS and implementation examples see [HTTP Access Control CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
 
 ### Implementation Recommendations
 
@@ -1026,7 +1026,7 @@ Notes: retry with a never-used ID in the request (if applicable).
 
 ### Which JSON Field Had The Error?
 
-Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901){:target="new-tab"} standard to indicate which field of the request JSON had the error.
+Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) standard to indicate which field of the request JSON had the error.
 
 For example, in the error response from the Carts API you can see the field indicated as `/request/items/0/contactInfo/email`:
 
@@ -1075,15 +1075,15 @@ Nike APIs support 3 distinct user types for commerce applications. In this guide
 
 #### Member
 
-Nike's members have previously registered a [Nike](https://www.nike.com/us/en_us/e/nike-plus-membership){:target="new-tab"} account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an _access token_ must be obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/){:target="new-tab"} or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation){:target="new-tab"} and included in the `Authorization` request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on Nike business rules.
+Nike's members have previously registered a [Nike](https://www.nike.com/us/en_us/e/nike-plus-membership) account and have logged in with their credentials from inside your app. Members get benefits like free shipping, free 30-day trials, and the ability to save shipping and payment information for faster checkout. For API calls involving members, an _access token_ must be obtained from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) and included in the `Authorization` request header after the user has logged in. Once Nike has validated the access token, the APIs will automatically adjust behavior as necessary based on the knowledge that the user is a member and based on Nike business rules.
 
 #### Guest
 
-The guest user has not logged in with their Nike account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would. For API calls involving guests, the `nike-visitor-id` and `appId` headers must be included with the request. The `nike-visitor-id` header value is a UUID that you get by calling Nike Unite's [getVisitData](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()){:target="new-tab"} function in their SDK. The `appId` header value is the identifier for your app.
+The guest user has not logged in with their Nike account credentials, effectively making them a new, anonymous user to Nike. When making a purchase, the guest user must input all of their information from scratch and does not receive the additional benefits that a member would. For API calls involving guests, the `nike-visitor-id` and `appId` headers must be included with the request. The `nike-visitor-id` header value is a UUID that you get by calling Nike Unite's [getVisitData](https://confluence.nike.com/display/USER/Unite+Web+SDK+-+Developer+Documentation#UniteWebSDK-DeveloperDocumentation-getVisitData()) function in their SDK. The `appId` header value is the identifier for your app.
 
 #### Employee
 
-The third type of user is an employee of Nike or one of it's subsidiaries (or an immediate family member of said employee) who has logged in with their [Swoosh](https://www.swoosh.com){:target="new-tab"} account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest. For API calls involving employees, the same `Authorization` request header is used like for members.
+The third type of user is an employee of Nike or one of it's subsidiaries (or an immediate family member of said employee) who has logged in with their [Swoosh](https://www.swoosh.com) account credentials. The employee user receives special pricing on most products and may be offered different shipping options than a member or guest. For API calls involving employees, the same `Authorization` request header is used like for members.
 
 ## Testing
 
@@ -1103,13 +1103,13 @@ When testing isolated API calls from your local machine, here are a few tips:
 
 - Use the Nike Developer Portal 'TRY IT NOW' feature to initiate calls from within a browser.
 
-- Use the [Postman](https://www.getpostman.com/){:target="new-tab"} REST client or a similar tool to test sending HTTP requests.
+- Use the [Postman](https://www.getpostman.com/) REST client or a similar tool to test sending HTTP requests.
 
 - Locate a small set of production skuId's to use. Reuse them whenever possible.
 
 - For Checkout API's, use the same set of line item 'id' values for all requests. They only need to be unique with a particular request.
 
-- Use an [online UUID generator](https://www.uuidgenerator.net/){:target="new-tab"} to quickly generate UUID's.
+- Use an [online UUID generator](https://www.uuidgenerator.net/) to quickly generate UUID's.
 
 - To save time, modify the sample requests in the API guide rather than building your own.
 
@@ -1123,7 +1123,7 @@ If you get unexpected or confusing responses from an API, use the Trace ID from 
 
 1. Find the `X-B3-TraceId` response header, which contains the Trace ID for the request, e.g. b2490b12cd639e7c. Copy the value to your clipboard.
 
-2. Navigate to [Splunk search page](https://nike.splunkcloud.com/en-US/app/nike_search/search){:target="new-tab"}.
+2. Navigate to [Splunk search page](https://nike.splunkcloud.com/en-US/app/nike_search/search).
 
 3. Paste in the Trace ID and execute the query. Once results start coming in, look for error messages or other clues as to what happened with your request.
 
@@ -1131,7 +1131,7 @@ After looking at Splunk, if you still need assistance with troubleshooting a par
 
 ### Inspect Browser Activity in a Live Experience
 
-Use your browser's built-in tools for inspecting the web service calls which occur for a live Nike experience like [SNKRS Web](https://www.nike.com/launch){:target="new-tab"}. Sometimes seeing what other experiences are doing might address your question or concern. For example, to follow the order of calls made when changing a shipping address during checkout:
+Use your browser's built-in tools for inspecting the web service calls which occur for a live Nike experience like [SNKRS Web](https://www.nike.com/launch). Sometimes seeing what other experiences are doing might address your question or concern. For example, to follow the order of calls made when changing a shipping address during checkout:
 
 1. Right-click anywhere in browser main window, select `Inspect`.
 
@@ -1163,6 +1163,6 @@ Be a good client by following these [Circuit Breaker Best Practices](/doc/commer
 |Added accounts.nike.com| 01/04/2023 |
 
 ## Related Links
-- [API Standards](https://cuddly-sniffle-c799ad24.pages.github.io/){:target="new-tab"}
+- [API Standards](https://cuddly-sniffle-c799ad24.pages.github.io/)
 - [Glossary](/doc/commerce/reference/glossary.html)
 - [Circuit Breaker Best Practices](/doc/commerce/reference/caller-best-practices.html)

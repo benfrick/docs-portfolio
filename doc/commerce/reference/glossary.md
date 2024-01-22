@@ -27,7 +27,7 @@ This guide provides a glossary of Nike terms.
 |**JWT**|JSON Web Tokens are credentials passed in the header of an API request that can be used to grant access to one or more of the API's resources|
 |**SEO**|Search Engine Optimization used to maximize site traffic by increasing the site's visibility across search engines|
 |**SLA**|Service Level Agreement detailing the response time and requests per second guarantees made by an API|
-|**[Splunk](https://www.splunk.com/){:target="new-tab"}**|Third party logging and monitoring tool used by Nike Cloud APIs for troubleshooting|
+|**[Splunk](https://www.splunk.com/)**|Third party logging and monitoring tool used by Nike Cloud APIs for troubleshooting|
 |**Trace ID**|A unique identifier passed from API to API to track the path of a request and response|
 |**URI**|Uniform Resource Identifier, a URL or resource name|
 |**URL**|Uniform Resource Locator, an address to an internet resource e.g. http://nike.com and is a subset of URIs|

@@ -60,49 +60,49 @@ Step through the Use Cases below to incorporate Payment capabilities into your e
     <h5 style="text-align:center;">APIs:</h5>
     <ul>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Options?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Options?tab=api" >
             Payment Options</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Stored%20Payments?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Stored%20Payments?tab=api" >
             Payment Stored Payments</a><span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Preview?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Preview?tab=api" >
             Payment Preview</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20ApplePay?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20ApplePay?tab=api" >
             Payment Apple Pay</a><span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Wallet?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Wallet?tab=api" >
             Payment Wallet</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Deferred%20Payment?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Deferred%20Payment?tab=api" >
             Payment Deferred Payment</a> <span class="guide-details-li-text"></span>
         </li>
      <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Korea?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Korea?tab=api" >
             Payment Korea Payment</a> <span class="guide-details-li-text"></span>
         </li>
      <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Credit%20Card%20Submit?tab=api" >
             Payment Credit Card Submit</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment3DS?tab=api" target="new-tab">Payment 3DS Service</a><span class="guide-details-li-text"></span>
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment3DS?tab=api" >Payment 3DS Service</a><span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/doc/commerce/payment/use-payment.html#payment-approval" target="new-tab">Payment Approval</a><span class="guide-details-li-text"></span>
+            <a href="https://console.platforms.nike.com/developer/doc/commerce/payment/use-payment.html#payment-approval" >Payment Approval</a><span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://developer.niketech.com/docs/projects/Payment%20Gateway?tab=api" target="new-tab">
+            <a href="https://console.platforms.nike.com/developer/docs/projects/Payment%20Gateway?tab=api" >
             Fulfillment Payment Notification</a> <span class="guide-details-li-text"></span>
         </li>
         <li>
-            <a href="https://github.com/nike-internal/payment.service.paymentnotification/blob/master/API.md" target="new-tab">
+            <a href="https://github.com/nike-internal/payment.service.paymentnotification/blob/master/API.md" >
             Third Party Payment Notification</a> <span class="guide-details-li-text"></span>
         </li>
     </ul>
