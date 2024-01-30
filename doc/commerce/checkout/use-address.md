@@ -21,7 +21,7 @@ toc:
 - h2: Next Steps
   url: /doc/commerce/checkout/use-address.html#next-steps
 ---
-##### Last Updated: 04/19/2021
+##### Last Updated: 01/30/2024
 
 Read this guide to learn how to use address tools in your experience.
 
@@ -131,13 +131,14 @@ A successful 200 response contains address information of the physical location 
 
 |Slack|Address Verification: [#cic-payment](https://nikedigital.slack.com/archives/C0Z9P2E5Q)<br>Address Geocoding: [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)|
 |Confluence Space|Address Verification: [Payment](https://confluence.nike.com/display/PHYLON/Payment+Team+Playbook)<br>Address Geocoding: [Buy](https://confluence.nike.com/display/BUY/Buy+Domain)|
-|Team Contacts|Address Verification: [Lori Brown](mailto:lori.brown@nike.com)<br>Address Geocoding: [Saket Shrivastava](mailto:saket.shrivastava@nike.com)|
+|Team Contacts|Address Verification: [Lori Brown](mailto:lori.brown@nike.com)<br>Address Geocoding: [Lalah Sencar](mailto:lalah.sencar@nike.com)|
 
 ## Document Change Log
 
-|Summary |Date |
-|---|---|
-|Initial publish|04/19/2021|
+| Summary               | Date       |
+|-----------------------|------------|
+| Initial publish       | 04/19/2021 |
+| Updated team contacts | 01/30/2024 |
 
 ## Next Steps
 

@@ -20,13 +20,15 @@ toc:
     url: /doc/commerce/checkout/use-carts.html#next-steps
 ---
 
-##### Last Updated: 07/20/2022
+##### Last Updated: 01/30/2024
 
 Read this guide to learn how to add Carts to your experience.
 
 >**TIPS**:
->- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
->- Use this guide as a supplement to the API Reference for detailed use cases. See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed here.
+>- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+   and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
+>- Use this guide as a supplement to the API Reference for detailed use cases.
+   See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed here.
 
 ## Introduction
 
@@ -43,7 +45,9 @@ At Nike, a cart contains the following:
 - Promotion codes
 - Totals
 
-See also [How Is a Wish List different From a Cart?](/doc/commerce/checkout/use-wishlists.html#how-is-a-wishlist-different-from-a-cart) and [What Is a Checkout?](/doc/commerce/checkout/use-checkout.html#what-is-a-checkout).
+See
+also [How Is a Wish List different From a Cart?](/doc/commerce/checkout/use-wishlists.html#how-is-a-wishlist-different-from-a-cart)
+and [What Is a Checkout?](/doc/commerce/checkout/use-checkout.html#what-is-a-checkout).
 
 ## Carts
 
@@ -56,16 +60,24 @@ Now that you know what a cart is, let's explore how to add it to your experience
 ### Step 1: Create the Cart
 
 The first step
-in managing a consumer's cart is to create the cart using the [Carts API](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api).
+in managing a consumer's cart is to create the cart using
+the [Carts API](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api).
 For example, this could be done when the consumer chooses to add their first product to the cart.
 
 To create the cart,
 execute a request to the [Create
-or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put) or [Create or Update a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put) endpoint.
+or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put)
+or [Create or Update a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put)
+endpoint.
 
->**TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated. If an attempt is made to manage a cart when no, or incorrect, authentication is provided, the Carts API returns an error response. See [Authorization](/doc/getting-started/using-nike-apis.html#authorization) for more information.
+> **TIP:** A cart is owned by one consumer (member, guest, or employee) who must be authenticated.
+> If an attempt is made
+> to manage a cart when no, or incorrect, authentication is provided, the Carts API returns an error response.
+> See [Authorization](/doc/getting-started/using-nike-apis.html#authorization) for more information.
 
-Sample [Create or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put) PUT request URI:
+Sample [Create or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put)
+PUT request URI:
+
 ```
 https://api.nike.com/buy/carts/v2/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
@@ -79,7 +91,10 @@ the response contains their recipient (contact) information and default shipping
 Now that the cart is created, you can display the cart to the consumer by calling the Cart Views API.
 This allows the consumer to continue shopping and view the cart details again later.
 
->**NOTE**: The Cart Views API operates asynchronously. This means that after you execute the initial request, you call another endpoint to get the result. See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
+> **NOTE**: The Cart Views API operates asynchronously.
+> This means that after you execute the initial request, you call
+> another endpoint to get the result.
+> See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
 
 #### Step 2a: Send a PUT to Cart Views
 
@@ -89,6 +104,7 @@ to initiate a job to generate a view of a cart.
 You will need to generate and send a unique `jobId` for each request.
 
 Sample PUT request URI:
+
 ```
 https://api.nike.com/buy/cart_views/v1/{jobId}
 ```
@@ -98,6 +114,7 @@ The request for cart views can be made in one of two ways:
 **1. Request by Country, Brand, and Channel**
 
 Sample Request Body:
+
 ```json
 {
   "request": {
@@ -113,8 +130,8 @@ Sample Request Body:
 
 **2. Request by Cart ID**
 
-
 Sample Request Body:
+
 ```json
 {
   "request": {
@@ -136,21 +153,24 @@ Sample Request Body:
 }
 ```
 
->**TIPS**:
+> **TIPS**:
 > - All Carts Views PUT requests must include a `locale`, e.g. "en_US"
-> - See the [API Reference](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put) for the latest endpoint details
+> - See
+    the [API Reference](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-put)
+    for the latest endpoint details
 
 #### OPTIONAL: Show Total Shipping Price in a Cart Summary UX
 
 If you are showing a Cart Summary UX,
 you may want to show a total shipping price separately from the total product price for the cart.
-Here the total shipping amount is a placeholder, used only for showing 
+Here the total shipping amount is a placeholder, used only for showing
 the consumer an estimated total order amount before they enter the checkout process.
 
 To do this, optionally include some of the consumer's shipping details
 (e.g. `postalCode` and `country`) in a `fulfillmentDetails` object in the request.
 
 Sample object:
+
 ```
    "fulfillmentDetails": {
       "type": "SHIP",
@@ -162,11 +182,12 @@ Sample object:
         }
 ```
 
-Pass in ship location details to get the cheapest shipping offering in the response.
-Or, if known, pass in the fulfillment details from the cart (e.g. shipping address, email info, or store number) and
+Send the ship location details to get the cheapest shipping offering in the response.
+Or, if known, pass in the fulfillment details from the cart (e.g., shipping address, email info, or store number) and
 the cheapest from a wider array of fulfillment offerings will be returned in the response.
 
 In any case, the total shipping price is returned in the response in totals.`fulfillment`:
+
 ```
     "totals": {
       "items": {
@@ -209,6 +230,7 @@ In any case, the total shipping price is returned in the response in totals.`ful
 ```
 
 The fulfillment type (e.g. "SHIP") is returned in response.items.`fulfillmentDetails`:
+
 ```
         "fulfillmentDetails": {
           "type": "SHIP"
@@ -217,11 +239,15 @@ The fulfillment type (e.g. "SHIP") is returned in response.items.`fulfillmentDet
 
 >**NOTES**:
 > - Fulfillment offerings are supported for carts containing digital gift cards
-> - Fulfillment Offerings are only added for countries on the global platform, e.g. US, CN, and Western Europe. [Contact the team](#contacting-the-team) for additional info. 
+> - Fulfillment Offerings are only added for countries on the global platform, e.g., US, CN, and Western
+    Europe. 
+    [Contact the team](#contacting-the-team) for additional info.
 
 #### Step 2b: Retrieve the Cart Views Job
 
-Execute a GET request to the [Retrieve Cart Views Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-get) endpoint
+Execute a GET request to
+the [Retrieve Cart Views Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Views?tab=api#cart-views-endpoints-get)
+endpoint
 to get the actual cart details.
 The job expires in 60 seconds.
 
@@ -229,30 +255,36 @@ The job expires in 60 seconds.
 
 To add or remove products, services, and promotion codes from a cart,
 execute a request
-to the [Modify a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch)
-or [Modify a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch) endpoint.
+to
+the [Modify a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch)
+or [Modify a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch)
+endpoint.
 
->**TIP:** Prices and subtotals are recalculated and returned in the response to each request.
+> **TIP:** Prices and subtotals are recalculated and returned in the response to each request.
 
 To delete **all** the products in the cart,
-execute a request to [Delete All Items from a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete)
-or [Delete All Items from a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete) endpoints.
+execute a request
+to [Delete All Items from a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete)
+or [Delete All Items from a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete)
+endpoints.
 
-The delete operation is optional, even if the cart is empty;
-member's carts will automatically purge from storage after 90 days of inactivity,
-while guest carts will purge at 30 days.
+The delete operation is optional, even if the cart is empty; 
+member carts will automatically purge from storage after 90 days of inactivity,
+while guest carts will purge after 30 days.
 
->**TIP:** For more info on how to use the `?filter` query parameter, see [Using Nike APIs](/doc/getting-started/using-nike-apis.html#query-parameters).
+> **TIP:** For more info on how to use the `?filter` query parameter,
+> see [Using Nike APIs](/doc/getting-started/using-nike-apis.html#query-parameters).
 
 ## API Quick Reference
 
 **Carts V2**
+
 - [Create or Update a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-cart-id-put)
 - [Modify a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-cart-id-patch)
 - [Delete All Items from a Cart by Cart ID](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-cart-id-delete)
 - [Create or Update a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-create-or-update-a-cart-by-filter-criteria-put)
 - [Modify a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-modify-a-cart-by-filter-criteria-patch)
-- [Delete All Item from a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete)
+- [Delete All Items from a Cart by Filter Criteria](https://console.platforms.nike.com/developer/docs/projects/Carts%20V2?tab=api#cart-operations-delete-all-items-from-a-cart-by-filter-criteria-delete)
 
 **Cart Views**
 
@@ -265,11 +297,13 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in
+  the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
-- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV) Slack channel for assistance.
+- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV) Slack channel
+  for assistance.
 
 ## Contacting the Team
 
@@ -277,7 +311,7 @@ Need to contact the Cart & Checkout team?
 
 |Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)|
 |Confluence Space|[CiC Order Capture](https://confluence.nike.com/pages/viewpage.action?pageId=163654070)|
-|Team Contacts|[Saket Shrivastava](mailto:Saket.Shrivastava@nike.com)|
+|Team Contacts|[Lalah Sencar](mailto:lalah.sencar@nike.com)|
 
 ## Document Change Log
 
@@ -286,6 +320,7 @@ Need to contact the Cart & Checkout team?
 | Converted to stand alone guide, formerly in Cart & Checkout guide                                                        | 04/23/2020 |
 | Changed cart 'get' operations to use Cart Views instead of Carts v2, moved Cart Reviews content to Cart & Checkout guide | 05/09/2022 |
 | Add discussion of Fulfillment Details with Cart Views                                                                    | 07/20/2022 |
+| Updated team contacts                                                                                                    | 01/30/2024 |
 
 ## Next Steps
 
