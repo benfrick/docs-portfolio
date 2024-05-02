@@ -1,5 +1,5 @@
 ---
-title: Commerce Docs Home
+title: Docs Portfolio Home
 url: /index.html
 ---
 {% include landing.html %}

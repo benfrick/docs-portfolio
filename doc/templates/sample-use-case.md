@@ -31,15 +31,16 @@ toc:
     url: /doc/templates/sample-use-case.html#next-steps
 ---
 
-# {{ page.title }} <i style="float: right;" class="g72-swoosh"></i>
-###### Last Updated: 01/04/2023
+# {{ page.title }}
+###### Last Updated: 05/01/2024
 ###### Tags: {{ page.tag }}
 
 ---
 
 {} does some stuff and some things.
 
->**TIP**: Before using this guide you should have already completed [Some other guide]({{ "/doc/templates/sample-overview.html" | absolute_url }}).
+>**TIP**: Before using this guide, you should have already completed 
+> [Some other guide]({{ "/doc/templates/sample-overview.html" | absolute_url }}).
 
 ## Introduction
 
@@ -47,7 +48,7 @@ In this guide, we will discuss how to use {} to...
 
 ### What is {}?
 
-Describe the thing, use a picture if possible.
+Describe the thing. Use a picture if possible.
 
 #### Another Nested Topic
 
@@ -67,20 +68,21 @@ Here are some key terms used in this document.
 
 ###### Table 1: Key Terms
 
-<!-- Use table labels only on larger tables where significant data is presented. Link to the label as necessary from elsewhere using the anchor name.-->
+<!-- Use table labels only on larger tables where significant data is presented. 
+Link to the label as necessary from elsewhere using the anchor name.-->
 
-|Term|Definition|
-|---|---|
-|Term|Define and describe how this term applies to the API|
+| Term | Definition                                           |
+|------|------------------------------------------------------|
+| Term | Define and describe how this term applies to the API |
 
 ## Quick Start
 
-Outline steps to quickly get up and running. Include cut-and-paste code snippets and complete cURLs if possible/applicable.
+Outline steps to quickly get up and running. Include cut-and-paste code snippets 
+and complete cURLs if possible/applicable.
 
 ## Use Case 1
 
 <i class="g72-check"></i>&nbsp;&nbsp;**Do things and stuff**
-{% include steps.html %}
 
 ### Step 1: Do a Thing
 
@@ -92,33 +94,40 @@ You control what is returned in your result set and how it is sorted through URL
 
 **Filtering**
 
-The table below lists the fields by which you can filter your {} results. If no filter is applied, {this happens}. While some filters only allow one value, you can send multiple filters in the same request. For instance, {example}. Note that filter parameter names and values are case sensitive.
+The table below lists the fields by which you can filter your {} results.
+If no filter is applied, {this happens}.
+While some filters only allow one value, you can send multiple filters in the same request.
+For instance, {example}.
+Note that filter parameter names and values are case-sensitive.
 
 ###### Table 2: Filters
 
-|Field Name|Description|Sample Value|
-|---|---|
-|**Field1**|||
+| Field Name | Description | Sample Value |
+|------------|-------------|--------------|
+| **Field1** |             |              |
 
 **Sorting**
 
-You can sort {this thing} in several ways using the `sort` query parameter. You can sort by one or more order fields, separated by a comma. If the field name you want to sort by is nested, refer to it with dot notation. For sort parameter syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
+You can sort {this thing} in several ways using the `sort` query parameter. 
+You can sort by one or more order fields, separated by a comma.
+If the field name you want to sort by is nested, refer to it with dot notation.
 
 **Other Query Parameters**
 
-{} also supports the {} query parameters to restrict the results {in this way}. For more information on syntax, see the [Query Parameters](/doc/getting-started/using-nike-apis.html#query-parameters) section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html).
+{} also supports the {} query parameters to restrict the results {in this way}. 
 
 Let's take a look at some scenarios.
 
 ###### Table 3: Scenarios
 
-|I want to...|Sample Query|
-|---|---|
-|Do this thing|`url to do this thing`|
+| I want to...  | Sample Query           |
+|---------------|------------------------|
+| Do this thing | `URL to do this thing` |
 
 ### Executing the Request
 
 Listed below is {} POST request URL. This endpoint is not JWT-restricted.
+
 ```
 {CURL goes here}
 ```
@@ -128,7 +137,7 @@ Listed below is {} POST request URL. This endpoint is not JWT-restricted.
 {Some hints/callouts about the data in the response and how it could be handled}
 
 >**TIPS:**
->- {Helpful tip user needs to know in order to complete this step}
+>- {Helpful tip that a user might need to know to complete this step}
 >- {Another tip}
 
 ### Step 2: Do Another Longer Thing
@@ -169,15 +178,10 @@ Listed below are some best practices for working with {}.
 
 ### Conditions for Retries
 
-For all Nike Cloud APIs, the general rule is that HTTP 4XX error codes (except for 429) should not be retried but HTTP 5XX errors can be retried. For general information on Nike error retry practices, see [API Error Patterns](https://confluence.nike.com/display/AGS/API+Standards#APIStandards-Errors) on Confluence.
-
-### Test Environment
-
-It is recommended to test all endpoints in the production environment as opposed to the test environment. Using the test environment can have unpredictable results due to the many downstream services which these endpoints are reliant upon in order to provide typical 'production-like' responses.
-
-There are boundaries for testing in production:
-
-- Performance tests at high volumes should never be done in production. All performance tests should be done in test.
+As a general rule, HTTP 4XX error codes (except for 429) should not be retried, 
+but HTTP 5XX errors can be retried.
+For general information on error retry practices,
+see [Some Other Reference]().
 
 ### Caching Data
 
@@ -197,29 +201,31 @@ Describe what is cached and for how long, or if caching is not supported.
 
 #### Access Tokens
 
-Most calls through the Nike API gateway (api.nike.com) require an access token be sent in the request header. This allows Nike to verify that your app is authorized to perform the action on behalf of the user.
+Most calls through the gateway require an access token to be sent in the request header.
+This verifies that your app is authorized to perform the action on behalf of the user.
 
-Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) prior to calling the API which you ultimately want to reach.
-
-To find out more on how to call [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) to obtain access tokens, see the Authorization section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization) guide.
+Access tokens are obtained by calling [Identity Provider 1]() or [Identity Provider 2]() prior to calling this API.
 
 #### JSON Web Token
 
 {Does this thing require JWT?}
 
-For more, see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization).
+For more, see the JWT section of [Using APIs](/doc/getting-started/using-apis.html#authorization).
 
 ### Sample Requests
 
-Sample requests included throughout this guide contain unique IDs and access tokens that are spent/expired in the Production environment, so you will not be able use them as-is for testing purposes. Reuse what you can and replace with valid IDs/access tokens when necessary.
+Sample requests included throughout this guide contain unique IDs and access tokens that are 
+spent/expired in the Production environment, and will not work as-is for testing purposes.
+Replace with valid IDs/access tokens as necessary.
 
 #### Required Request Headers
 
-Listed below are the required request headers. Since most requests come through the Nike Edge router, these header values will be set automatically, provided your app experience calls [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/) or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) first to get an access token and passes that token in the request.
+Listed below are the required request headers.
+Header values may be set automatically, depending on your specific integration pattern.
 
-|Header Name|Description|
-|---|---|
-|**Header1**||
+| Header Name | Description |
+|-------------|-------------|
+| **Header1** |             |
 
 >**TIP:** Super helpful tip here.
 
@@ -233,16 +239,15 @@ Answer 1
 
 Need to contact the {} team?
 
-|---|---|
-|Slack|[]()|
-|Confluence Space|[]()|
-|Team Contacts|Person1 (Person1 email)|
+- [Slack]()
+- [Confluence]()
+- [Email]()
 
 ## Document Change Log
 
-|Summary |Date |
-|---|---|---|
-|Initial publish|MM/DD/YYYY|
+| Summary         | Date       |
+|-----------------|------------|
+| Initial publish | MM/DD/YYYY |
 
 ## Next Steps
 

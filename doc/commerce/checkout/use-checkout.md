@@ -1,6 +1,5 @@
 ---
 id: use-checkout
-tags: pdf
 category: b-use-case
 position: 8
 title: Checkout
@@ -38,12 +37,12 @@ toc:
     url: /doc/commerce/checkout/use-checkout.html#next-steps
 ---
 
-##### Last Updated: 01/30/2024
+##### Last Updated: 05/01/2024
 
 Manage the Checkout process for the consumer.
 
 > **TIPS**:
->- Before using this guide, read [Using Nike APIs](/doc/getting-started/using-nike-apis.html) and
+>- Before using this guide, read [Using APIs](/doc/getting-started/using-apis.html) and
    [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
 >- Use this Developer's Guide to supplement the API Reference with detailed use cases.
    See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
@@ -52,14 +51,14 @@ Manage the Checkout process for the consumer.
 
 ## Introduction
 
-In this guide, you'll learn how to add Nike checkout to your experience.
+In this guide, you'll learn how to add checkout to your experience.
 
 ### What is a Checkout?
 
 A checkout represents a consumer's intent to complete a purchase
 and includes information necessary for the fulfillment of an order.
 
-At Nike, a checkout includes **all the information from a cart, plus the following**:
+A checkout includes **all the information from a cart, plus the following**:
 
 - Shipping addresses
 - Fulfillment details including type, cost, and "get by" dates **(Checkout V3 only)**
@@ -69,7 +68,7 @@ At Nike, a checkout includes **all the information from a cart, plus the followi
 
 ### Which Version of Checkout Should I Use?
 
-The Nike shopping experience involves several APIs.
+The shopping experience involves several APIs.
 To support the latest features, sometimes certain API versions must be used together.
 See [Which API Version Should I Use](/doc/commerce/checkout/overview-checkout.html#which-api-version-should-i-use)
 in the **Cart & Checkout Overview** for more information on the Checkout version you need.
@@ -82,13 +81,13 @@ Listed below are some terms important to understanding checkout.
 
 | Term                                                          | Definition                                                                                                                                                    |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Cart**                                                      | The virtual shopping cart used by Nike consumers to collect and compare items for purchase                                                                    |
+| **Cart**                                                      | The virtual shopping cart used by consumers to collect and compare items for purchase                                                                         |
 | **Checkout**                                                  | A collection of data, including cart data, describing what may become a consumer order                                                                        |
 | **Fapiao**                                                    | Tax-related invoice offered to China consumers only                                                                                                           |
 | <a id="legacy-def"></a>**Legacy fulfillment flow**            | Checkout flow supporting ship to consumer address and digital delivery only                                                                                   |
 | <a id="omni-channel-def"></a>**Omnichannel fulfillment flow** | Checkout flow supporting ship to consumer address, digital delivery, Buy-Online-Pickup-in-Store (BOPIS), pickup at third party location, and Instant Checkout |
 | **SMS**                                                       | Short Message Service used to send text messages to mobile phones                                                                                             |
-| **Source-aware**                                              | Using consumer location and other factors to offer the best options of when, where, and how to receive Nike product                                           |
+| **Source-aware**                                              | Using consumer location and other factors to offer the best options of when, where, and how to receive products                                               |
 | **VAS (Value-Added Service)**                                 | Additional services that can be applied to items like gift wrap and/or gift messages                                                                          |
 
 ## Cart Reviews
@@ -107,7 +106,7 @@ Buy-Online-Pickup-In-Store (BOPIS).
 
 Execute a PUT request
 to
-the [Create a Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-put)
+the [Create a Job]()
 endpoint with a complete cart,
 passing the **country**, **currency**,
 and **fulfillmentDetails**
@@ -118,20 +117,20 @@ The `id` path parameter is a client-generated UUID.
 > **NOTE**: Cart Reviews V2 operates asynchronously.
 > This means that after you execute the initial request, you call
 > another endpoint to get the result.
-> See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
+> See [Using APIs](/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
 
-Sample [Create a Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-put)
+Sample [Create a Job]()
 PUT request URI:
 
 ```
-https://api.nike.com/buy/cart_reviews/v2/52bc115b-16e5-43b5-bcaf-dd6168c543g9
+https://api.domain.com/buy/cart_reviews/v2/52bc115b-16e5-43b5-bcaf-dd6168c543g9
 ```
 
 After
-calling [Create a Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-put)
+calling [Create a Job]()
 and receiving an HTTP 202 response,
 execute a GET request
-to [Retrieve a Job Result](https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-get)
+to [Retrieve a Job Result]()
 using the same Cart Reviews ID to check the status of your job.
 
 To know if the job is done, check the value of the status field in the response body as follows:
@@ -144,11 +143,11 @@ To know if the job is done, check the value of the status field in the response 
 
 Once you receive a job status of `COMPLETED`, get the results of your job by parsing the data in the response object.
 
-Sample [Retrieve a Job Result](https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-get)
+Sample [Retrieve a Job Result]()
 GET request:
 
 ```
-https://api.nike.com/buy/cart_reviews/v2/52bc115b-16e5-43b5-bcaf-dd6168c543g9
+https://api.domain.com/buy/cart_reviews/v2/52bc115b-16e5-43b5-bcaf-dd6168c543g9
 ```
 
 A successful 200 response in the `COMPLETED` state contains `currency`, `locale` and `fulfillmentGroups` information.
@@ -159,11 +158,11 @@ A successful 200 response in the `COMPLETED` state contains `currency`, `locale`
 
 > **TIP:** Fulfillment Offerings is for the [omnichannel](#omni-channel-def) fulfillment flow only
 
-The [Fulfillment Offerings API](https://console.platforms.nike.com/developer/docs/projects/Fulfillment%20Offerings?tab=api)
+The [Fulfillment Offerings API]()
 provides consumers more flexibility in choosing how, when,
-and where to get Nike products based on consumer location, availability, and several other factors.
+and where to get products based on consumer location, availability, and several other factors.
 They may be able to choose to have their items digitally delivered,
-shipped to an address of their choice, pick up at a Nike store, or pick up at a third-party location.
+shipped to an address of their choice, pick up at a retail store, or pick up at a third-party location.
 A user experience
 driven by the Fulfillment Offerings API helps the consumer make those decisions by providing the cost of each offering
 and "get by"
@@ -196,7 +195,7 @@ These APIs allow you to:
 To add a gift wrap VAS instruction to a `skuId` in a checkout, follow these steps:
 
 1. Execute a request to
-   the [Gift Wrap PUT endpoint](https://console.platforms.nike.com/developer/docs/projects/Gift%20Wrap?tab=api#add-gift-wrap-as-vas-gift-wrap-operations-put)
+   the [Gift Wrap PUT endpoint]()
    with a `valueAddedServiceId` (always `cffd7c09-f634-b6ed-339e-081089c2b2b8`),`skuId`,
    and `country` to create the VAS instruction.
 
@@ -205,7 +204,7 @@ To add a gift wrap VAS instruction to a `skuId` in a checkout, follow these step
 2. If the API successfully creates the gift wrap VAS instruction for that `skuId`, it returns a 201 response.
 
 3. (Optional) Get a gift wrap VAS instruction by its ID from
-   the [Gift Wrap GET endpoint](https://console.platforms.nike.com/developer/docs/projects/Gift%20Wrap?tab=api#add-gift-wrap-as-vas-gift-wrap-operations-get).
+   the [Gift Wrap GET endpoint]().
 
 4. Include the VAS instructions when you submit the checkout.
    This ensures that all necessary fees and taxes are added to the checkout,
@@ -217,7 +216,7 @@ To add a gift message VAS instruction to a `skuId` in a checkout, follow these s
 
 1. Execute a request to
    the [Gift Message
-   PUT endpoint](https://console.platforms.nike.com/developer/docs/projects/Gift%20Messages?tab=api#add-gift-message-as-vas-gift-message-operations-put)
+   PUT endpoint]()
    with a `valueAddedServiceId` (always `d6046ee3-ab06-46d0-a38d-e71e7710dcd9`),`skuId`,
    and the `giftMessage` (string entered by the consumer) to create the VAS instruction.
 
@@ -228,7 +227,7 @@ To add a gift message VAS instruction to a `skuId` in a checkout, follow these s
 2. If the API successfully creates the gift message VAS instruction for that `skuId`, it returns a 201 response.
 
 3. (Optional) Get a gift message VAS instruction by its ID from
-   the [Gift Message GET endpoint](https://console.platforms.nike.com/developer/docs/projects/Gift%20Messages?tab=api#add-gift-message-as-vas-gift-message-operations-get).
+   the [Gift Message GET endpoint]().
 
 4. Include the VAS instructions when you submit the checkout.
    This ensures that all necessary fees and taxes are added to the checkout,
@@ -243,7 +242,7 @@ Next, let's make sure that the checkout details are accurate and that the proces
 ### Can I Skip This?
 
 It is not required
-to [Request a Checkout Preview](https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V2?tab=api#checkout-preview-request-checkout-preview-put)
+to [Request a Checkout Preview]()
 in order for the consumer to complete their purchase.
 However,
 calling the endpoint
@@ -258,38 +257,38 @@ including Buy-Online-Pickup-In-Store (BOPIS) and SMS (China only).
 > **NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously.
 > This means that after you
 > execute the initial request, you call another endpoint to get the result.
-> See [Using Nike APIs](/doc/getting-started/using-nike-apis.html#asynchronous-operation) for more details.
+> See [Using APIs](/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
 
 ### Step 1: Request Checkout Preview
 
 Execute a PUT request to
-the [Request Checkout Preview](https://console.platforms.nike.com/developer/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put)
+the [Request Checkout Preview]()
 endpoint,
 passing the complete cart
 and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
 for each item.
 
-The API ensures that the products and fulfillment details for each item are valid based on Nike pricing,
+The API ensures that the products and fulfillment details for each item are valid based on pricing,
 availability, and other factors.
 You can also get product pricing, sales tax, fulfillment fees and tax,
 "get by" dates, and checkout subtotals in the response.
 
 #### SMS Checkout Preview (China Only)
 
-SMS Checkout Preview allows both Nike members and guests
-to purchase Nike products using a mobile phone number instead of an email address.
+SMS Checkout Preview allows both members and guests
+to purchase products using a mobile phone number instead of an email address.
 If the consumer is purchasing with an email address, you can skip this section.
 
 > **Note**: SMS checkout is currently available in China only
 
-**Nike Member SMS Checkout Preview Requests**
+**Member SMS Checkout Preview Requests**
 
 In addition to the usual Checkout Preview request values, these are SMS-specific:
 
 - Send the value '**SMS_ACCOUNT**' in `phoneNumber.type`
 - Send the SMS phone number from the consumer's profile in`phoneNumber.subscriberNumber`, 1–13 digits
 - Send the country code in`phoneNumber.countryCode`, 1–3 digits
-- Send the Nike member's profile ID in `phoneNumber.accountId`
+- Send the member's profile ID in `phoneNumber.accountId`
 - Do not send `email`
 
 **Guest SMS Checkout Preview Requests**
@@ -299,7 +298,7 @@ Checkout Preview for guest SMS consumers requires a few extra steps to check tha
 1. Send consumer a verification code to the SMS phone number they provide
 
    After capturing the guest consumer's phone number in your app or experience,
-   call the [Identity Initiation](https://console.platforms.nike.com/developer/docs/projects/IdnVerify?tab=api) endpoint
+   call the [Identity Initiation]() endpoint
    at /identity/verify/contact_channel/initiation/v1.
    Send the guest consumer's SMS phone number in `contactChannel`.
    A successful 204 response sends the identity-generated verification code to the consumer at the SMS phone number
@@ -312,7 +311,7 @@ Checkout Preview for guest SMS consumers requires a few extra steps to check tha
 3. Get the validation token
 
    Once your UI captures the verification code,
-   call the [Identity Completion](https://console.platforms.nike.com/developer/docs/projects/IdnVerify?tab=api) endpoint
+   call the [Identity Completion]() endpoint
    at /identity/verify/contact_channel/completion/v1,
    sending:
 
@@ -334,11 +333,11 @@ Checkout Preview for guest SMS consumers requires a few extra steps to check tha
 > **Note**: Checkout Preview requests with both a `phoneNumber.subscriberNumber` and `email` will be rejected.
 
 Sample
-V3 [Request Checkout Preview](https://console.platforms.nike.com/developer/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put)
+V3 [Request Checkout Preview]()
 PUT request URI:
 
 ```
-https://api.nike.com//buy/checkout_previews/v3/89rc115b-16e5-43b5-bcaf-dd6168c543u4
+https://api.domain.com//buy/checkout_previews/v3/89rc115b-16e5-43b5-bcaf-dd6168c543u4
 ```
 
 ### Step 2: Retrieve Checkout Preview Job
@@ -356,11 +355,11 @@ To know if the job is done, check the value of the **status** field in the respo
 Once you receive a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
 Sample
-V3 [Retrieve Checkout Preview Job](https://console.platforms.nike.com/developer/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-retrieve-checkout-preview-job-get)
+V3 [Retrieve Checkout Preview Job]()
 request URI:
 
 ```
-https://api.nike.com/buy/checkout_previews_jobs/v3/89rc115b-16e5-43b5-bcaf-dd6168c543u4
+https://api.domain.com/buy/checkout_previews_jobs/v3/89rc115b-16e5-43b5-bcaf-dd6168c543u4
 ```
 
 ## Checkout Submit
@@ -382,8 +381,8 @@ for each item.
 
 **SMS Checkout Submit (China Only)**
 
-SMS Checkout Submit allows both Nike members and guests
-to purchase Nike products using a mobile phone number instead of an email address.
+SMS Checkout Submit allows both members and guests
+to purchase products using a mobile phone number instead of an email address.
 If the consumer is purchasing with an email address, you can skip this section.
 
 > **Note**: SMS checkout is currently available in China only
@@ -391,11 +390,11 @@ If the consumer is purchasing with an email address, you can skip this section.
 Follow the steps in [SMS Checkout Preview (China Only)](#sms-checkout-preview-china-only) to implement SMS Checkout
 Submit in your app or experience.
 
-Sample [Request Checkout Submit](https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V3?tab=api#checkout-request-a-checkout-submit-put)
+Sample [Request Checkout Submit]()
 PUT request URI:
 
 ```
-https://api.nike.com/buy/checkouts/v3/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+https://api.domain.com/buy/checkouts/v3/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
 
 > **TIPS:**
@@ -428,11 +427,11 @@ for [Retrieve Checkout Preview Job](#step-2-retrieve-checkout-preview-job).
 Once you observe a job status of COMPLETED, get the results of your job by parsing the data in the **response** object.
 
 Sample
-V3 [Retrieve Checkout Submit Job](https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V3?tab=api#checkout-retrieve-checkout-submit-job-get)
+V3 [Retrieve Checkout Submit Job]()
 GET request URI:
 
 ```
-https://api.nike.com/buy/checkouts/v3/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
+https://api.domain.com/buy/checkouts/v3/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 ```
 
 ## API Quick Reference
@@ -441,45 +440,39 @@ https://api.nike.com/buy/checkouts/v3/jobs/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 
 V2:
 
-- [Create a Job](https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-put)
-- [Retrieve a Job Result](https://console.platforms.nike.com/developer/docs/projects/Cart%20Reviews%20V2?tab=api#cart-reviews-v2-endpoints-cart-reviews-v2-jobs-endpoint-get)
+- [Create a Job]()
+- [Retrieve a Job Result]()
 
 **Checkouts**
 
 - Request Checkout
-  Preview [V3](https://console.platforms.nike.com/developer/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-request-checkout-preview-put)
+  Preview [V3]()
 - Retrieve Checkout Preview
-  Job [V3](https://console.platforms.nike.com/developer/docs/projects/Checkout%20Previews%20V3?tab=api#checkout-preview-retrieve-checkout-preview-job-get)
+  Job [V3]()
 - Request Checkout
-  Submit [V3](https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V3?tab=api#checkout-request-a-checkout-submit-put)
+  Submit [V3]()
 - Retrieve Checkout Submit
-  Job [V3](https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V3?tab=api#checkout-retrieve-checkout-submit-job-get)
+  Job [V3]()
 - Request Checkout Submit (
-  Launch) [V2](https://console.platforms.nike.com/developer/docs/projects/Checkouts%20V2?tab=api#launch-checkout-request-a-checkout-submit-put)
+  Launch) [V2]()
 
 ## Best Practices
 
-Here are some best practices. We'll start with an example sequence of API calls to execute an entire checkout:
-
-### Example Implementation Diagram
-
-![Web sequence diagram showing example API calls to cart and checkout endpoints](/images/commerce/buy/checkout_seq_dgm.png){:
-class="border"}
+Here are some practices to consider adopting.
 
 ### User Types
 
 The Checkout API supports three distinct user types:
 
-- Member: user has logged in with their Nike account credentials
+- Member: user has logged in with their account credentials
 - Guest: user has not logged in (anonymous user)
-- Employee: user is an employee of Nike or a subsidiary and has logged in with swoosh.com credentials (also known as
-  Swoosh user type)
+- Employee: user is an employee and has logged in with employee credentials
 
 Depending on user type, certain aspects of the calls that you make to the Checkout API might need to be modified.
 Also, consider that not all user types might apply to your app.
 For example, your app might only support Members.
 
-See the User Types section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#user-types) guide for more
+See the User Types section of the [Using APIs](/doc/getting-started/using-apis.html#user-types) guide for more
 information.
 
 ### Request Headers
@@ -488,25 +481,19 @@ The following request headers are common to all the Cart & Checkout APIs:
 
 ###### Table 4: Common Request Headers for Checkout APIs
 
-| Header Name          | Description                                                                                                            | Member | Guest | Employee |
-|----------------------|------------------------------------------------------------------------------------------------------------------------|--------|-------|----------|
-| **Accept**           | Content type you will accept in response, application/json is only value allowed                                       | X      | X     | X        |
-| **Content-Type**     | Content type of the request, application/json is only value allowed                                                    | X      | X     | X        |
-| **Authorization**    | Your access token in the format of `Bearer {token}` indicating the consumer is logged in                               | X      |       | X        |
-| **x-nike-visitorid** | Identifier for the guest (i.e. not logged-in) consumer, validated by the Edge router and passed through to the service |        | X     |          |
+| Header Name       | Description                                                                                                    | Member | Guest | Employee |
+|-------------------|----------------------------------------------------------------------------------------------------------------|--------|-------|----------|
+| **Accept**        | Content type you will accept in response, application/json is only value allowed                               | X      | X     | X        |
+| **Content-Type**  | Content type of the request, application/json is only value allowed                                            | X      | X     | X        |
+| **Authorization** | Your access token in the format of `Bearer {token}` indicating the consumer is logged in                       | X      |       | X        |
+| **x-visitorid**   | ID for the guest (i.e. not logged-in) consumer, validated by the Edge router and passed through to the service |        | X     |          |
 
 > **TIP:** For the Authorization header, use the token for the consumer's login session that you obtained
-> from [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/)
-> or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation), prefixed
+> from [accounts.domain.com]()
+> or [Unite/Identity](), prefixed
 > by **Bearer ** (note the single space after Bearer).
-> This is necessary for Nike to verify that you are authorized to
+> This is necessary to verify that you are authorized to
 > perform the requested operation on behalf of the consumer.
-
-### Supported Countries & Currencies
-
-For the list of country code and currency code combinations supported by Cart & Checkout,
-see [Supported Countries](/doc/commerce/reference/global.html).
-
 ### Idempotence
 
 [Idempotence](https://restcookbook.com/HTTP%20Methods/idempotency/) means that the result of a
@@ -526,20 +513,19 @@ There are four possible scenarios:
 | UUID is new, Entity previously submitted under another UUID | Client receives HTTP 202 response, request processed as new job                                |
 
 > **TIP:** For more, see the Idempotence Guarantee section of
-> the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#idempotence-guarantee) guide.
+> the [Using APIs](/doc/getting-started/using-apis.html#idempotence-guarantee) guide.
 
 ### Conditions for Retries
 
 For retry information by Checkout endpoint,
-visit [Retry Patterns for Checkout Clients](https://confluence.nike.com/display/DAHP/DRAFT+-+Retry+Pattern+for+Checkout+Service+Clients)
+visit [Retry Patterns for Checkout Clients]()
 in Confluence.
 
 For all Checkout APIs,
 the general rule is that HTTP 4XX error codes (except for 429) should not be retried,
 but HTTP 5XX errors can be retried.
-For general information on Nike error retry practices,
-see [API Error Patterns](https://confluence.nike.com/pages/viewpage.action?spaceKey=DAHP&title=API+-+Error+Patterns#API-ErrorPatterns-RetrylogicbasedonHTTPstatuscode)
-on Confluence.
+For general information on error retry practices,
+see [API Error Patterns]().
 
 ### Honor the ETAs for Best Performance
 
@@ -567,11 +553,11 @@ Here is an example list of test scenarios for a consumer experience that is inte
 - Mixed Products (customizable & non-customizable) - Multiple Payment (Credit Card & Gift Card)
 
 > **TIPS:**
->- While inspecting browser activity on www.nike.com/launch, you can change your shopping country with the flag icon at
+>- While inspecting browser activity, you can change your shopping country with the flag icon at
    the upper right of the homepage.
 >- You can place an order to observe all the checkout calls.
    Orders can be canceled via self-service within 30 minutes
-   of submission, otherwise contact Nike Consumer Services.
+   of submission, otherwise contact Consumer Services.
 
 ### Test Environment
 
@@ -582,7 +568,7 @@ to simulate typical 'production-like' responses.
 Keep in mind the following:
 
 - Performance tests at high volumes should never be done in production
-- Calling **Request a Checkout Submit** in production can result in actual Nike orders being sent for fulfillment, and
+- Calling **Request a Checkout Submit** in production can result in actual orders being sent for fulfillment, and
   actual payment methods being authorized and/or charged.
   Proceed with caution
 
@@ -593,7 +579,7 @@ None of the endpoints described in this document support caching.
 ### Error Handling: Which JSON Field Had The Error?
 
 In error responses from APIs,
-Nike uses the [JSON Pointer](https://tools.ietf.org/html/rfc6901) standard to indicate which field of the request
+we use the [JSON Pointer](https://tools.ietf.org/html/rfc6901) standard to indicate which field of the request
 JSON had the error.
 
 Sample Carts error message using the JSON Pointer standard:
@@ -616,9 +602,9 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 ### Tools
 
 - Use the general troubleshooting tips in
-  the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#troubleshooting) guide.
+  the [Using APIs](/doc/getting-started/using-apis.html#troubleshooting) guide.
 - Use a Splunk query (requires access) to check for issues with your request.
-- Contact the Buy team on the [#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV) Slack channel
+- Contact the Buy team on the [#order-integration]() Slack channel
   for assistance.
 
 ### Common Questions
@@ -628,7 +614,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 Yes.
 The APIs are exposed publicly, so it should not matter where you are calling from.
 If you are calling repeatedly from a small set of IP addresses,
-it might be possible that Nike's bot-mitigation tools could interfere with your ability to make calls.
+it might be possible that bot-mitigation tools could interfere with your ability to make calls.
 If you are having issues, reach out to us for help.
 
 **Why does my Checkout Submit job sometimes take a long time to complete?**
@@ -644,61 +630,45 @@ If the job times out, you will get a 'completed with error' job status.
 
 It is recommended
 that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.
-See the Registration section of the [Using Nike APIs](/doc/getting-started/using-nike-apis.html#registration) guide
+See the Registration section of the [Using APIs](/doc/getting-started/using-apis.html#registration) guide
 on how to create and register your caller ID.
 
 ### Authentication
 
 #### Access Tokens
 
-Most calls through the Nike API gateway (api.nike.com) require an access token to be sent in the request header.
-This allows Nike to verify that your app is authorized to perform the action on behalf of the consumer.
-Access tokens are obtained by calling [accounts.nike.com](https://miniature-couscous-57c7acad.pages.github.io/)
-or [Nike Unite/Identity](https://confluence.nike.com/display/USER/Unite+Platform+-+Product+Documentation) prior to
+Most calls through the API gateway (api.domain.com) require an access token to be sent in the request header.
+This allows us to verify that your app is authorized to perform the action on behalf of the consumer.
+Access tokens are obtained by calling [accounts.domain.com]()
+or [Unite/Identity]() prior to
 calling the API which you ultimately want to reach.
 
-See [Authorization](/doc/getting-started/using-nike-apis.html#authorization) for more information
-on how to call accounts.nike.com and Nike Unite/Identity services.
+See [Authorization](/doc/getting-started/using-apis.html#authorization) for more information
+on how to call accounts.domain.com and Unite/Identity services.
 
 #### JSON Web Token
 
 Only one Buy API endpoint requires the additional authorization of a JSON Web Token (JWT), **Checkout Submit (Launch)**.
 For more information,
-see the JWT section of [Using Nike APIs](/doc/getting-started/using-nike-apis.html#authorization).
+see the JWT section of [Using APIs](/doc/getting-started/using-apis.html#authorization).
 
 ## Contacting the Team
 
 Need to contact the Buy team?
 
-|Slack|[#cic-order-integration](https://nikedigital.slack.com/messages/C38BE20SV)|
-|Confluence Space|[Buy Domain](https://confluence.nike.com/pages/viewpage.action?pageId=163654070)|
-|Team Contacts|[Lalah Sencar](mailto:lalah.sencar@nike.com)|
+|Slack|[#order-integration]()|
+|Confluence|[Buy Domain]()|
 
 ## Document Change Log
 
-| Summary                                                                                                            | Date       |
-|--------------------------------------------------------------------------------------------------------------------|------------|
-| Initial publish                                                                                                    | 10/02/2018 |
-| Added Key Terms                                                                                                    | 08/01/2019 |
-| Added Address Validation                                                                                           | 09/30/2019 |
-| Moved Cart and Wishlist to separate docs, added Checkout Preview V3 and Checkout Submit V3 content                 | 04/30/2020 |
-| Added Address Geocoding                                                                                            | 04/12/2021 |
-| Moved Address Geocoding and Address Validation into [Address Tools](/doc/commerce/checkout/use-address.html) guide | 04/19/2021 |
-| Added SMS                                                                                                          | 08/04/2021 |
-| Added Cart Reviews v1/v2 content from Carts guide                                                                  | 05/09/2022 |
-| Added accounts.nike.com                                                                                            | 01/04/2023 |
-| Added VAS section with Gift Wrap and Gift Messages APIs                                                            | 04/10/2023 |
-| Removed mention of Shipping Options, Cart Reviews V2, Checkout Previews V2, Checkouts V2. Updated team contacts    | 01/30/2024 |
+| Summary            | Date       |
+|--------------------|------------|
+| Initial publish    | 05/01/2024 |
 
 ## Next Steps
 
 You've learned how to add Checkout to your experience. Here are some related topics.
 
-- [Wishlist](/doc/commerce/checkout/use-wishlists.html)
-- [Carts](/doc/commerce/checkout/use-carts.html)
-- [Address Tools](/doc/commerce/checkout/use-address.html)
 - [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
-- [Payment](/doc/commerce/payment/use-payment.html)
-- [Using Nike APIs](/doc/getting-started/using-nike-apis.html)
+- [Using APIs](/doc/getting-started/using-apis.html)
 - [Glossary](/doc/commerce/reference/glossary.html)
-- [Supported Countries](/doc/commerce/reference/global.html)

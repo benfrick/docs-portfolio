@@ -11,6 +11,4 @@ Choose a template and get started writing!
 - [Use Case Guide]({{ "/doc/templates/sample-use-case.html" | absolute_url }})
 - [Team Info]({{ "/doc/templates/team-info.html" | absolute_url }})  
 
->**TIPS**:
-> - See the [Knowledge Base Demo Site](https://effective-guide-170af2f4.pages.github.io/) for more templates.
-> - Template links are also found in the navigation sidebar.
+>**TIP**: Template links are also found in the navigation sidebar.

@@ -387,13 +387,13 @@ i {
 }
 .tile {
     padding: 5px;
-    height: 200px;
-    width: 250px;
+    height: 210px;
+    width: 210px;
     margin: 5px;
     border-radius: 10px;
     border: 1px solid #ffcc00;
     i {
-        padding: 10px 0px 10px 0px;
+        padding: 15px 0px 10px 0px;
     }
     li {
       list-style: none;
@@ -449,23 +449,6 @@ th, td, p {
 }
 section ul li {
     margin-left: 20px;
-}
-.steps-hide {
-    margin-right: 5px;
-    @media (max-width: 600px) {
-      display: none;
-    }
-}
-.steps {
-    padding: 5px;
-    max-width: 300px;
-    margin: 5px 5px 10px 0;
-    margin-left: 0px;
-    border-radius: 8px;
-    border: 2px solid #ffcc00;
-    i {
-        padding: 15px 0px 15px 0px;
-    }
 }
 aside {
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

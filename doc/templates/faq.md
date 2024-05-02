@@ -15,8 +15,8 @@ toc:
   url: /doc/templates/faq.html#next-steps
 ---
 
-# {{ page.title }} <i style="float: right;" class="g72-swoosh"></i>
-###### Last Updated: 03/05/2021
+# {{ page.title }}
+###### Last Updated: 05/01/2024
 ###### Tags: {{ page.tag }}
 
 ---

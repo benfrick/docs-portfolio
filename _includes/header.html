@@ -2,32 +2,23 @@
 
 <div class="ncss-container" id="overview-header" xmlns="http://www.w3.org/1999/html">
     <nav>
-    <ul>
-        <li class="header-title"><h3><a href="{{ 'index.html' | relative_url }}" >Commerce Docs</a></h3></li>
-        <li class="search">
-            {% include search-lunr.html %}
-        </li>
-        <li class="slack">
-            <a class="guide-button body-2" href="{{ 'contributing.html' | relative_url }}">Contribute&nbsp;&nbsp;</a>
-        </li>
-        <li class="slack">
-            <a class="guide-button body-2" href="https://console.platforms.nike.com/developer">Dev Portal&nbsp;&nbsp;</a>
-        </li>
-        <li class="slack">
-            <a class="guide-button body-2" href="slack://channel?team=T0G3T5X2B&id=C6A18NT7W">Slack&nbsp;&nbsp;</a>
-        </li>
-    </ul>
+        <ul>
+            <li class="header-title"><h3><a href="{{ 'index.html' | relative_url }}">Docs Portfolio</a></h3></li>
+            <li class="search">
+                {% include search-lunr.html %}
+            </li>
+        </ul>
     </nav>
 </div>
 
 {%- if page.category contains 'a-overview' -%}
-    {%- include overview-header.html -%}
-    <hr/>
+{%- include overview-header.html -%}
+<hr/>
 {%- elsif page.category contains 'b-use-case' -%}
-     {%- include dev-header.html -%}
-     <hr/>
+{%- include dev-header.html -%}
+<hr/>
 {%- elsif page.category contains 'd-reference' or page.category contains '0-get-started' -%}
-    {%- include ref-header.html -%}
-    <hr/>
+{%- include ref-header.html -%}
+<hr/>
 {%- else -%}
 {%- endif -%}
