@@ -1370,7 +1370,7 @@ For example, to follow the order of calls made when changing a shipping address 
 ## Circuit Breaker Best Practices
 
 Be a good client
-by following these [Circuit Breaker Best Practices](/doc/commerce/reference/caller-best-practices.html)
+by following these [Circuit Breaker Best Practices](/docs-portfolio/doc/commerce/reference/caller-best-practices.html)
 when calling APIs.
 
 ## Document Change Log
@@ -1381,5 +1381,5 @@ when calling APIs.
 
 ## Related Links
 - [API Standards]()
-- [Glossary](/doc/commerce/reference/glossary.html)
-- [Circuit Breaker Best Practices](/doc/commerce/reference/caller-best-practices.html)
+- [Glossary](/docs-portfolio/doc/commerce/reference/glossary.html)
+- [Circuit Breaker Best Practices](/docs-portfolio/doc/commerce/reference/caller-best-practices.html)

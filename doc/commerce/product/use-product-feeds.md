@@ -3,30 +3,30 @@ id: use-product-feeds
 category: b-use-case
 position: 1
 title: Product Feeds
-url: /doc/commerce/product/use-product-feeds.html
+url: /docs-portfolio/doc/commerce/product/use-product-feeds.html
 toc:
   - h2: Introduction
-    url: /doc/commerce/product/use-product-feeds.html#introduction
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#introduction
   - h2: V2/V3 Differences
-    url: /doc/commerce/product/use-product-feeds.html#v2v3-differences
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#v2v3-differences
   - h2: Get a List of Product Threads
-    url: /doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads
   - h2: Get a Product Thread by ID
-    url: /doc/commerce/product/use-product-feeds.html#get-a-product-thread-by-id
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#get-a-product-thread-by-id
   - h2: API Quick Reference
-    url: /doc/commerce/product/use-product-feeds.html#api-quick-reference
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#api-quick-reference
   - h2: Best Practices
-    url: /doc/commerce/product/use-product-feeds.html#best-practices
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#best-practices
   - h2: Troubleshooting
-    url: /doc/commerce/product/use-product-feeds.html#troubleshooting
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#troubleshooting
   - h2: Terms of Service
-    url: /doc/commerce/product/use-product-feeds.html#terms-of-service
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#terms-of-service
   - h2: Contacting the Team
-    url: /doc/commerce/product/use-product-feeds.html#contacting-the-team
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#contacting-the-team
   - h2: Document Change Log
-    url: /doc/commerce/product/use-product-feeds.html#document-change-log
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#document-change-log
   - h2: Next Steps
-    url: /doc/commerce/product/use-product-feeds.html#next-steps
+    url: /docs-portfolio/doc/commerce/product/use-product-feeds.html#next-steps
 ---
 ##### Last Updated: 05/01/2024
 
@@ -34,8 +34,8 @@ toc:
 including details about the products with images, videos, and more**.
 
 >**TIP:** Before using this guide, you should have completed 
-> [Using APIs](/doc/getting-started/using-apis.html) and 
-> [Product Feeds Overview](/doc/commerce/product/overview-product-feeds.html).
+> [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html) and 
+> [Product Feeds Overview](/docs-portfolio/doc/commerce/product/overview-product-feeds.html).
 
 ## Introduction
 
@@ -171,7 +171,7 @@ it's strongly recommended that you use the [Rollup Threads API]().
 Rollup Threads can be used in conjunction with Smart Search rules
 to influence the search results based on your specific use case.
 
-See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads) and [Understanding Search Results](/doc/commerce/search/use-search.html) for more.
+See [Adding Rollup Threads to Your Experience](/docs-portfolio/doc/commerce/product/use-rollup-threads.html#get-a-list-of-rollup-threads) and [Understanding Search Results](/docs-portfolio/doc/commerce/search/use-search.html) for more.
 
 ### Terminology Differences Between CMS and Product Feeds
 
@@ -253,7 +253,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 ### Use Troubleshooting Tools
 
-- Use the general troubleshooting tips in the [Using APIs](/doc/getting-started/using-apis.html#troubleshooting) guide.
+- Use the general troubleshooting tips in the [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#troubleshooting) guide.
 
 - Use a Splunk report (requires access) found [here]() to check for issues with your request.
 
@@ -313,7 +313,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 
 It is highly recommended
 that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.
-See the Registration section of the [Using APIs](/doc/getting-started/using-apis.html#registration) guide
+See the Registration section of the [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#registration) guide
 on how to create and register your caller ID.
 
 ### Authentication
@@ -338,5 +338,5 @@ Need to contact the Product Feeds team?
 
 Now that you've learned about Product Feeds, here are some related topics.
 
-- [Using APIs](/doc/getting-started/using-apis.html)
-- [Glossary](/doc/commerce/reference/glossary.html)
+- [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html)
+- [Glossary](/docs-portfolio/doc/commerce/reference/glossary.html)

@@ -4,21 +4,21 @@ tags: pdf
 category: b-use-case
 position: 9
 title: Fulfillment Offerings
-url: /doc/commerce/checkout/use-fulfillment-offerings.html
-dev-guide: /doc/commerce/checkout/use-fulfillment-offerings.html
+url: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html
+dev-guide: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html
 toc:
   - h2: Introduction
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#introduction
+    url: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html#introduction
   - h2: Which Version Should I Use?
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#which-version-should-i-use
+    url: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html#which-version-should-i-use
   - h2: Key Concepts and Terms
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#key-concepts-and-terms
+    url: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html#key-concepts-and-terms
   - h2: Quick Start
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#quick-start
+    url: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html#quick-start
   - h2: Fulfillment Offerings GET
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-offerings-get
+    url: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-offerings-get
   - h2: Fulfillment Offerings Jobs PUT
-    url: /doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-offerings-jobs-put
+    url: /docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-offerings-jobs-put
   - h2: Fulfillment Types
     url: /doc/commerce/checkout/use-fulfillment-offerings.html#fulfillment-types
   - h2: API Quick Reference
@@ -41,12 +41,12 @@ Use [Fulfillment Offerings](#fulfillment-offerings) in a checkout experience to 
 getting their purchases, wherever they are.
 
 > **TIPS:**
->- Before using this guide, read [Using APIs](/doc/getting-started/using-apis.html)
-   and [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
+>- Before using this guide, read [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html)
+   and [Cart & Checkout Overview](/docs-portfolio/doc/commerce/checkout/overview-checkout.html).
 >- Use this guide as a supplement to the API Reference for detailed use cases.
    See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed here.
 >- The steps involving **Payment** are covered
-   in [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html).
+   in [Adding Payment to Your Experience](/docs-portfolio/doc/commerce/payment/use-payment.html).
 
 ## Introduction
 
@@ -335,7 +335,7 @@ Send a request to the PUT endpoint with the following headers:
 > **NOTE**: This endpoint operates asynchronously.
 > This means that after you execute the initial request, you call
 > another endpoint to get the result.
-> See [Using APIs](/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
+> See [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
 
 ###### Table 2.3 Fulfillment Offerings Jobs API Request Headers
 
@@ -367,7 +367,7 @@ V1:
 V2:
 `https://api.domain.com/buy/fulfillment_offerings_jobs/v2/2c1db6b9-7fd7-401c-acc9-73f926681cb9`
 
-> **TIP**: See the [Address Geocoding API](/doc/commerce/checkout/use-address.html#address-geocoding) section of the
+> **TIP**: See the [Address Geocoding API](/docs-portfolio/doc/commerce/checkout/use-address.html#address-geocoding) section of the
 > Address Tools guide for information on how to get coordinates from an address.
 
 **Sample Fulfillment Offerings Jobs PUT Request Body**
@@ -645,7 +645,7 @@ The `filter` query parameter must be included. The field/value requirements are 
 | `productId`     | **Required** | `filter=productId(8e799c64-dd8e-4861-9d38-9592f35e7aa5)` | UUID of style-color                                                                                                                                                             |
 | `offeringTypes` | **Required** | `filter=offeringTypes(SHIP,PICKUP,INSTORE)`              | List of offering types to include in the response, `SHIP`,`PICKUP`,`INSTORE` are supported                                                                                      |                                                                                                                                                                                              |
 | `postalCode`    | Optional     | `filter=postalCode(97005)`                               | 5-digit postal code number                                                                                                                                                      |
-| `userType`      | Optional     | `filter=userType(employee)`                              | Type of consumer. 'guest`, `member`, `employee` are supported. Defaults to `guest`. See [User Types](/doc/getting-started/using-apis.html#data-reference) for more information. |
+| `userType`      | Optional     | `filter=userType(employee)`                              | Type of consumer. 'guest`, `member`, `employee` are supported. Defaults to `guest`. See [User Types](/docs-portfolio/doc/getting-started/using-apis.html#data-reference) for more information. |
 | `locationId`    | Optional     | `filter=locationId(339EF669C22F4B2EE05336680C0A6639)`    | Location ID, UUID storeId or locationId                                                                                                                                 |
 | `locationType`  | Optional     | `filter=locationType(ship/pickup_points)`                | Type of location. Required if filtering by `locationId`. `store/store_views`, `ship/pickup_points` are supported.                                                               |
 | `locale`        | Optional     | `filter=locale(en-US)`                                   | Locale code, following BCP 47 or POSIX standard                                                                                                                                 |
@@ -683,7 +683,7 @@ What if you want to get additional offerings to show the consumer, for example,
 based on their GPS coordinates?
 What if you already know the consumer's intended fulfillment type for some items, but not all items?
 
-> **TIP**: See the [Address Geocoding API](/doc/commerce/checkout/use-address.html#address-geocoding) section of the
+> **TIP**: See the [Address Geocoding API](/docs-portfolio/doc/commerce/checkout/use-address.html#address-geocoding) section of the
 > Address Tools guide for information on how to get coordinates from an address.
 
 In this case, you can *optionally* send any of the following to Fulfillment Offerings endpoint:
@@ -767,9 +767,9 @@ Once the consumer has chosen how they want all items in their cart fulfilled, an
 **Fulfillment Offerings Jobs PUT** one last time to get an updated list of fulfillment offerings with price offers,
 you can proceed with the checkout process.
 This process includes the optional step
-of [Checkout Preview](/doc/commerce/checkout/use-checkout.html#checkout-preview),
-[Payment Preview](/doc/commerce/payment/use-payment.html),
-and [Submitting a Checkout](/doc/commerce/checkout/use-checkout.html#checkout-submit).
+of [Checkout Preview](/docs-portfolio/doc/commerce/checkout/use-checkout.html#checkout-preview),
+[Payment Preview](/docs-portfolio/doc/commerce/payment/use-payment.html),
+and [Submitting a Checkout](/docs-portfolio/doc/commerce/checkout/use-checkout.html#checkout-submit).
 
 #### Step 4a: Call Checkout Preview (Optional)
 
@@ -948,7 +948,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 ### Use Troubleshooting Tools
 
 - Use the general troubleshooting tips in
-  the [Using APIs](/doc/getting-started/using-apis.html#troubleshooting) guide.
+  the [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#troubleshooting) guide.
 
 - Use a Splunk query (requires access) to check for issues with your request.
 
@@ -990,9 +990,9 @@ Need to contact the Buy team?
 
 You've learned how to add Fulfillment Offerings to your experience. Here are some related topics.
 
-- [Wishlist](/doc/commerce/checkout/use-wishlists.html)
-- [Cart & Cart Review](/doc/commerce/checkout/use-carts.html)
-- [Address Tools](/doc/commerce/checkout/use-address.html)
-- [Checkout](/doc/commerce/checkout/use-checkout.html)
-- [Using APIs](/doc/getting-started/using-apis.html)
-- [Glossary](/doc/commerce/reference/glossary.html)
+- [Wishlist](/docs-portfolio/doc/commerce/checkout/use-wishlists.html)
+- [Cart & Cart Review](/docs-portfolio/doc/commerce/checkout/use-carts.html)
+- [Address Tools](/docs-portfolio/doc/commerce/checkout/use-address.html)
+- [Checkout](/docs-portfolio/doc/commerce/checkout/use-checkout.html)
+- [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html)
+- [Glossary](/docs-portfolio/doc/commerce/reference/glossary.html)

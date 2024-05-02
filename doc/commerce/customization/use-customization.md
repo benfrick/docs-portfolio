@@ -2,7 +2,7 @@
 category: b-use-case
 position: 3
 title: Customization
-url: /doc/commerce/customization/use-customization.html
+url: /docs-portfolio/doc/commerce/customization/use-customization.html
 toc:
   - h2: Introduction
     url: /doc/commerce/customization/use-customization.html#introduction
@@ -31,7 +31,7 @@ The **Customization Experience Platform (CXP)**
 unlocks your ability to add premium product customization features to your experience.
 
 >**TIP**: Before using this guide, you should have already completed 
-> [Customization Overview](/doc/commerce/customization/overview-customization.html).
+> [Customization Overview](/docs-portfolio/doc/commerce/customization/overview-customization.html).
 
 ## Introduction
 
@@ -122,7 +122,7 @@ In your app's source, create an HTML template and follow these steps:
     >- The argument for the `rootElement` parameter can be populated with a method like 
     >  `document.getElementbyId('element-id-where-builder-renders')`.
     >- The argument for the `config` parameter must contain at minimum the `api-caller-id` and `pathName` properties.
-    >- See [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for details about the Builder.
+    >- See [Customization Builder Reference](/docs-portfolio/doc/commerce/customization/builder-reference.html) for details about the Builder.
 
 4. **Navigate to Your Local Host to View the Builder Experience**
     
@@ -171,7 +171,7 @@ In your app's source, create an HTML template and follow these steps:
     </html>
     ```
 
-    >**TIP**: See more at [Customization Builder Reference](/doc/commerce/customization/builder-reference.html), 
+    >**TIP**: See more at [Customization Builder Reference](/docs-portfolio/doc/commerce/customization/builder-reference.html), 
     > which is the single source of truth for Builder functionality. 
 
 ## Show Customizable Products
@@ -188,7 +188,7 @@ Later, you can [Show a Design Experience](#show-a-design-experience) and [Enable
 - In the `pathName` property of the `config` argument, use the value in 
 - `objects.productInfo.customizedPreBuild.legacy.pathName` from the Product Feeds response `pathName: 'af1LowChampsSU19'`.
 
-- Use [`bridge`](/doc/commerce/customization/builder-reference.html#bridge-properties), a property of the `config` parameter, to listen for events coming back from the Builder.
+- Use [`bridge`](/docs-portfolio/doc/commerce/customization/builder-reference.html#bridge-properties), a property of the `config` parameter, to listen for events coming back from the Builder.
     
     **Example (loads the Builder and logs a few things):**
         
@@ -221,7 +221,7 @@ Later, you can [Show a Design Experience](#show-a-design-experience) and [Enable
     ```
 
     >**TIP**: See [Quick-Start: Load the Builder](#quick-start-load-the-builder) and 
-    > [Customization Builder Reference](/doc/commerce/customization/builder-reference.html) for more details about the Builder.
+    > [Customization Builder Reference](/docs-portfolio/doc/commerce/customization/builder-reference.html) for more details about the Builder.
 
 ### Step 2: Show Customizable Products & Color Options
 
@@ -231,7 +231,7 @@ and in what colors, can be customized.
 
 **Get a list of customizable products, along with relevant content.**
 
-- Call either the [Product Feeds API](/doc/commerce/product/use-product-feeds.html) or the [Rollup Threads API](/doc/commerce/product/use-rollup-threads.html) 
+- Call either the [Product Feeds API](/docs-portfolio/doc/commerce/product/use-product-feeds.html) or the [Rollup Threads API](/docs-portfolio/doc/commerce/product/use-rollup-threads.html) 
 - To select only customizable products, use the `filter=attributeIds()` query parameter like:
 
     https://api.domain.com/product_feed/threads/v2?filter=channelId(d9a5bc42-4b9c-4976-858a-f159cf99c647)&filter=marketplace(US)&filter=language(en)&filter=attributeIds(92be6a0f-24dd-4e2e-87d0-5ce4ade3a923.
@@ -239,8 +239,8 @@ and in what colors, can be customized.
 **Use the response data to drive the experience of browsing customizable products (grid wall, feed, etc.).**
 
 >**TIPS**:
->- [Rollup Threads](/doc/commerce/product/use-rollup-threads.html) is best for displaying a grid wall, where alternate colors are shown with each product in the grid.
->- See [Adding Rollup Threads to Your Experience](/doc/commerce/product/use-rollup-threads.html) and [Adding Product Feeds to Your Experience](/doc/commerce/product/use-product-feeds.html) for more integration info.
+>- [Rollup Threads](/docs-portfolio/doc/commerce/product/use-rollup-threads.html) is best for displaying a grid wall, where alternate colors are shown with each product in the grid.
+>- See [Adding Rollup Threads to Your Experience](/docs-portfolio/doc/commerce/product/use-rollup-threads.html) and [Adding Product Feeds to Your Experience](/docs-portfolio/doc/commerce/product/use-product-feeds.html) for more integration info.
 
 ### Step 3: Show a PDP for a Customizable Product
 
@@ -250,9 +250,9 @@ Next, we'll discuss some components that you can include in a PDP.
 
 #### Step 3a: Show Product Content and Info
 
-Show the product images, pricing, and other info from [Product Feeds](/doc/commerce/product/use-product-feeds.html) on the PDP.
+Show the product images, pricing, and other info from [Product Feeds](/docs-portfolio/doc/commerce/product/use-product-feeds.html) on the PDP.
 
-- Call the [Product Feeds API](/doc/commerce/product/use-product-feeds.html) with the thread id to retrieve content and info for the product.
+- Call the [Product Feeds API](/docs-portfolio/doc/commerce/product/use-product-feeds.html) with the thread id to retrieve content and info for the product.
 
 #### Step 3b: Show 'Edit Design' CTA
 
@@ -285,15 +285,15 @@ The consumer has selected to edit the design via the 'Edit Design' CTA, so it's 
 
 | Scenario                                                                     | Interaction                                                                                                                                                                                                        |
 |------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Load a new build, either to "reset" the builder or to switch between builds. | Invoke the [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) method, for example by prebuild ID or metric ID.                                                                              |
+| Load a new build, either to "reset" the builder or to switch between builds. | Invoke the [`setBuild`](/docs-portfolio/doc/commerce/customization/builder-reference.html#setbuild) method, for example by prebuild ID or metric ID.                                                                              |
 | Display price changes (when customization options are changed).              | Listen to the `onPriceUpdate(priceData)` bridge callback and show updated price in UX.                                                                                                                             |
-| Consumer selects the 'Done' button.                                          | Listen to the `onDone(buildData)` bridge callback, then call [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) and update UX.                                                          |
-| Save a build.                                                                | Invoke the [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) method, which returns a metric ID for the build.                                                                          |
-| Edit a design that is already in the cart.                                   | Invoke [`setBuild`](/doc/commerce/customization/builder-reference.html#setbuild) with the metric ID you previously got from calling [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign). | 
+| Consumer selects the 'Done' button.                                          | Listen to the `onDone(buildData)` bridge callback, then call [`saveDesign`](/docs-portfolio/doc/commerce/customization/builder-reference.html#savedesign) and update UX.                                                          |
+| Save a build.                                                                | Invoke the [`saveDesign`](/docs-portfolio/doc/commerce/customization/builder-reference.html#savedesign) method, which returns a metric ID for the build.                                                                          |
+| Edit a design that is already in the cart.                                   | Invoke [`setBuild`](/docs-portfolio/doc/commerce/customization/builder-reference.html#setbuild) with the metric ID you previously got from calling [`saveDesign`](/docs-portfolio/doc/commerce/customization/builder-reference.html#savedesign). | 
 | A consumer triggers an analytics event.                                      | Listen to the `onAnalyticsEvent(type, payload)` bridge callback, then trigger an action.                                                                                                                           |
 | An error occurs in the Builder.                                              | Listen to the `onError(error)` bridge callback, handle the error and update UX.                                                                                                                                    |
 
->**TIP**: See [Bridge Properties](/doc/commerce/customization/builder-reference.html#bridge-properties) for more.
+>**TIP**: See [Bridge Properties](/docs-portfolio/doc/commerce/customization/builder-reference.html#bridge-properties) for more.
 
 #### Sample JavaScript
 
@@ -330,12 +330,12 @@ The consumer may wish to save one or more of their designs for later in My Desig
 
     Call any of the following Builder or bridge methods:
 
-    - [setAnswer](/doc/commerce/customization/builder-reference.html#setanswer)
-    - [setSizeType](/doc/commerce/customization/builder-reference.html#setsizetype)
-    - [setSizeAnswer](/doc/commerce/customization/builder-reference.html#setsizeanswer)
-    - [OnProductLoad](/doc/commerce/customization/builder-reference.html#onproductloadbuilddata)
-    - [OnDone](/doc/commerce/customization/builder-reference.html#ondonebuilddata)
-    - [getMyDesigns](/doc/commerce/customization/builder-reference.html#getmydesigns)
+    - [setAnswer](/docs-portfolio/doc/commerce/customization/builder-reference.html#setanswer)
+    - [setSizeType](/docs-portfolio/doc/commerce/customization/builder-reference.html#setsizetype)
+    - [setSizeAnswer](/docs-portfolio/doc/commerce/customization/builder-reference.html#setsizeanswer)
+    - [OnProductLoad](/docs-portfolio/doc/commerce/customization/builder-reference.html#onproductloadbuilddata)
+    - [OnDone](/docs-portfolio/doc/commerce/customization/builder-reference.html#ondonebuilddata)
+    - [getMyDesigns](/docs-portfolio/doc/commerce/customization/builder-reference.html#getmydesigns)
 
     In all cases, the build data
     returned to your application includes a list of the myDesigns that have been stored for the current `pathName`,
@@ -404,9 +404,9 @@ OR
 
 **Read the Build Data**
 
-- Availability: From the returned [Build Data](/doc/commerce/customization/builder-reference.html#build-data), if `sizingData.displayName` is "Size", then 
+- Availability: From the returned [Build Data](/docs-portfolio/doc/commerce/customization/builder-reference.html#build-data), if `sizingData.displayName` is "Size", then 
   loop through `sizingData.answers` and evaluate whether `isAvailable` is true or false for all sizes
-- Lead Time: Call the [getLeadTimeMessage](/doc/commerce/customization/builder-reference.html#getleadtimemessage) method of the Builder API to get the 
+- Lead Time: Call the [getLeadTimeMessage](/docs-portfolio/doc/commerce/customization/builder-reference.html#getleadtimemessage) method of the Builder API to get the 
   message text and lead time in days for the product
 
 >**TIP**: Remember, by initializing and interacting with the Builder API prior to showing the Builder UX, 
@@ -421,10 +421,10 @@ Allow the consumer to make their gender and size selections.
 
 **Show gender options (if applicable), and confirm consumer's selection**
 
-- Use the info from the `sizingData` object (in the [Build Data](/doc/commerce/customization/builder-reference.html#build-data)) to display the available genders, 
+- Use the info from the `sizingData` object (in the [Build Data](/docs-portfolio/doc/commerce/customization/builder-reference.html#build-data)) to display the available genders, 
   making note of the respective `questionId` and `answerId` values.
 - Using the `questionId` and `answerId` values for the gender selected by the consumer, 
-  call the [`setAnswer`](/doc/commerce/customization/builder-reference.html#setanswer) method of the Builder API:
+  call the [`setAnswer`](/docs-portfolio/doc/commerce/customization/builder-reference.html#setanswer) method of the Builder API:
 
     ```javascript
     builderApi.setAnswer('ER2teamSP19_barca:LTITEM8538:LTITEM8112','LTITEM8011','')`
@@ -436,7 +436,7 @@ Allow the consumer to make their gender and size selections.
 **Show size and width options (if applicable), and confirm consumer's selection**
 
 - Use the info from `sizingData` to display the available sizes, making note of the respective `questionId` and `answerId` values.
-- Using the `questionId` and `answerId` values for the size selected by the consumer, call the [`setSizeAnswer`](/doc/commerce/customization/builder-reference.html#setsizeanswer) method:
+- Using the `questionId` and `answerId` values for the size selected by the consumer, call the [`setSizeAnswer`](/docs-portfolio/doc/commerce/customization/builder-reference.html#setsizeanswer) method:
     
     ```javascript
     builderApi.setSizeAnswer('FUTUREELITEFA18:LTITEM8538:LTITEM8112:LTITEM8010:LTITEM403108','LTITEM8132','us-mens'))
@@ -449,7 +449,7 @@ Allow the consumer to make their gender and size selections.
 
 **Save the Build**
 
-- Call the [`saveDesign`](/doc/commerce/customization/builder-reference.html#savedesign) method like:
+- Call the [`saveDesign`](/docs-portfolio/doc/commerce/customization/builder-reference.html#savedesign) method like:
 
     ```javascript
     builderApi.saveDesign()
@@ -476,10 +476,10 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 
 - Once active, the specific behavior of this CTA can vary depending on your requirements, but here is an example:
 
-    - Call the [Carts API](/doc/commerce/checkout/use-carts.html#carts) with the metric ID for the build to add the product to a cart.
+    - Call the [Carts API](/docs-portfolio/doc/commerce/checkout/use-carts.html#carts) with the metric ID for the build to add the product to a cart.
     - Show an updated cart item count on the PDP and/or navigate the consumer to a cart page/view.
 
-    >**TIP**: For more see [Adding Cart and Checkout to your Experience](/doc/commerce/checkout/use-checkout.html).
+    >**TIP**: For more see [Adding Cart and Checkout to your Experience](/docs-portfolio/doc/commerce/checkout/use-checkout.html).
 
 ## Contacting the Team
 
@@ -497,6 +497,6 @@ Once you have a metric ID for the build, the consumer should be able to add thei
 
 You've learned how to add Customization to your experience. Here are some next steps.
 
-- [Adding Cart & Checkout To Your Experience](/doc/commerce/checkout/use-checkout.html)
-- [Using APIs](/doc/getting-started/using-apis.html)
-- [Glossary](/doc/commerce/reference/glossary.html)
+- [Adding Cart & Checkout To Your Experience](/docs-portfolio/doc/commerce/checkout/use-checkout.html)
+- [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html)
+- [Glossary](/docs-portfolio/doc/commerce/reference/glossary.html)

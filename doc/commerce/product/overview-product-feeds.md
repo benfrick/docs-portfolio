@@ -4,13 +4,13 @@ tags: pdf
 category: a-overview
 position: 1
 title: Product Feeds
-url: /doc/commerce/product/overview-product-feeds.html
+url: /docs-portfolio/doc/commerce/product/overview-product-feeds.html
 h1: Product Feeds Overview
-dev-guide: /doc/commerce/product/use-product-feeds.html
+dev-guide: /docs-portfolio/doc/commerce/product/use-product-feeds.html
 ---
 Great experiences showcase products and make them available for purchase.
 But how is all that visual content pulled together?
-It's done with [Product Feeds](/doc/commerce/product/use-product-feeds.html) and you can use it, too.
+It's done with [Product Feeds](/docs-portfolio/doc/commerce/product/use-product-feeds.html) and you can use it, too.
 
 #### Use Product Feeds to tell amazing stories with digital product data and authored content.
 
@@ -21,8 +21,8 @@ Product Feeds is simple and easy to use: it does all the heavy lifting of gather
 Step through the Use Cases below to incorporate Product Feeds capabilities into your experience.
 
 |---|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get all product threads for a channel, SEO slug, style-color, size, gender, athlete, keyword, and more](/doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads)|
-|<i class="g72-check"></i>&nbsp;&nbsp;[Get a specific thread by its ID](/doc/commerce/product/use-product-feeds.html#get-a-product-thread-by-id)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get all product threads for a channel, SEO slug, style-color, size, gender, athlete, keyword, and more](/docs-portfolio/doc/commerce/product/use-product-feeds.html#get-a-list-of-product-threads)|
+|<i class="g72-check"></i>&nbsp;&nbsp;[Get a specific thread by its ID](/docs-portfolio/doc/commerce/product/use-product-feeds.html#get-a-product-thread-by-id)|
 
 <h4>Related Information</h4>
 <aside class="note">
@@ -34,8 +34,8 @@ Step through the Use Cases below to incorporate Product Feeds capabilities into 
     </ul>
 </aside>
 
-* [Working with Circuit Breakers:](/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
-* [Glossary:](/doc/commerce/reference/glossary.html) Common terms explained.
+* [Working with Circuit Breakers:](/docs-portfolio/doc/commerce/reference/caller-best-practices.html) Learn how to be a good client by following these best practices.
+* [Glossary:](/docs-portfolio/doc/commerce/reference/glossary.html) Common terms explained.
 
 #### Connect to the Docs Team
 

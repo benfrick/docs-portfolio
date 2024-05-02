@@ -5,7 +5,7 @@ title: Docs Portfolio
 description:
 permalink: none
 #url:
-#baseurl:
+baseurl: /docs-portfolio
 # -----
 # Build
 
@@ -30,4 +30,4 @@ kramdown:
 destination: ./_site/
 
 # only convert changed files
-incremental: true
+incremental: false

@@ -3,7 +3,7 @@ id: faq
 category: b-templates
 position: 5
 title: Frequently Asked Questions
-url: /doc/templates/faq.html
+url: /docs-portfolio/doc/templates/faq.html
 status: active
 tag: help, faq, templates
 toc:

@@ -3,38 +3,38 @@ id: use-checkout
 category: b-use-case
 position: 8
 title: Checkout
-url: /doc/commerce/checkout/use-checkout-backup.html
+url: /docs-portfolio/doc/commerce/checkout/use-checkout-backup.html
 toc:
   - h2: Introduction
-    url: /doc/commerce/checkout/use-checkout.html#introduction
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#introduction
   - h2: Key Terms
-    url: /doc/commerce/checkout/use-checkout.html#key-terms
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#key-terms
   - h2: Cart Reviews
-    url: /doc/commerce/checkout/use-checkout.html#cart-reviews
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#cart-reviews
   - h2: Fulfillment Offerings
-    url: /doc/commerce/checkout/use-checkout.html#fulfillment-offerings
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#fulfillment-offerings
   - h2: Shipping Address Validation
-    url: /doc/commerce/checkout/use-checkout.html#shipping-address-validation
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#shipping-address-validation
   - h2: Value-Added Services
-    url: /doc/commerce/checkout/use-checkout.html#value-added-services
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#value-added-services
   - h2: Checkout Preview
-    url: /doc/commerce/checkout/use-checkout.html#checkout-preview
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#checkout-preview
   - h2: Checkout Submit
-    url: /doc/commerce/checkout/use-checkout.html#checkout-submit
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#checkout-submit
   - h2: API Quick Reference
-    url: /doc/commerce/checkout/use-checkout.html#api-quick-reference
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#api-quick-reference
   - h2: Best Practices
-    url: /doc/commerce/checkout/use-checkout.html#best-practices
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#best-practices
   - h2: Troubleshooting
-    url: /doc/commerce/checkout/use-checkout.html#troubleshooting
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#troubleshooting
   - h2: Terms of Service
-    url: /doc/commerce/checkout/use-checkout.html#terms-of-service
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#terms-of-service
   - h2: Contacting the Team
-    url: /doc/commerce/checkout/use-checkout.html#contacting-the-team
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#contacting-the-team
   - h2: Document Change Log
-    url: /doc/commerce/checkout/use-checkout.html#document-change-log
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#document-change-log
   - h2: Next Steps
-    url: /doc/commerce/checkout/use-checkout.html#next-steps
+    url: /docs-portfolio/doc/commerce/checkout/use-checkout.html#next-steps
 ---
 
 ##### Last Updated: 05/01/2024
@@ -42,12 +42,12 @@ toc:
 Manage the Checkout process for the consumer.
 
 > **TIPS**:
->- Before using this guide, read [Using APIs](/doc/getting-started/using-apis.html) and
-   [Cart & Checkout Overview](/doc/commerce/checkout/overview-checkout.html).
+>- Before using this guide, read [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html) and
+   [Cart & Checkout Overview](/docs-portfolio/doc/commerce/checkout/overview-checkout.html).
 >- Use this Developer's Guide to supplement the API Reference with detailed use cases.
    See [API Quick Reference](#api-quick-reference) for links to all the API Reference docs discussed in this guide.
 >- The steps involving **Payment** are covered in
-   [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
+   [Adding Payment to Your Experience](/docs-portfolio/doc/commerce/payment/use-payment.html)
 
 ## Introduction
 
@@ -70,7 +70,7 @@ A checkout includes **all the information from a cart, plus the following**:
 
 The shopping experience involves several APIs.
 To support the latest features, sometimes certain API versions must be used together.
-See [Which API Version Should I Use](/doc/commerce/checkout/overview-checkout.html#which-api-version-should-i-use)
+See [Which API Version Should I Use](/docs-portfolio/doc/commerce/checkout/overview-checkout.html#which-api-version-should-i-use)
 in the **Cart & Checkout Overview** for more information on the Checkout version you need.
 
 ## Key Terms
@@ -98,8 +98,8 @@ or alternatively, as an intermediate step between cart and checkout.
 The cart summary includes updated subtotals of all cart items, taxes, estimated delivery/pick-up dates and costs.
 
 Cart Reviews V2 is used in
-the [omnichannel](/doc/commerce/checkout/overview-checkout.html#which-api-version-should-i-use) shopping flow.
-It supports [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html), including
+the [omnichannel](/docs-portfolio/doc/commerce/checkout/overview-checkout.html#which-api-version-should-i-use) shopping flow.
+It supports [fulfillment offerings](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html), including
 Buy-Online-Pickup-In-Store (BOPIS).
 
 ### Step 1: Request a Cart Review
@@ -110,14 +110,14 @@ the [Create a Job]()
 endpoint with a complete cart,
 passing the **country**, **currency**,
 and **fulfillmentDetails**
-for each item returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
+for each item returned from [fulfillment offerings](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html)
 associated with the consumer.
 The `id` path parameter is a client-generated UUID.
 
 > **NOTE**: Cart Reviews V2 operates asynchronously.
 > This means that after you execute the initial request, you call
 > another endpoint to get the result.
-> See [Using APIs](/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
+> See [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
 
 Sample [Create a Job]()
 PUT request URI:
@@ -168,7 +168,7 @@ driven by the Fulfillment Offerings API helps the consumer make those decisions 
 and "get by"
 dates that predict when the consumer can get the product.
 
-See [Adding Fulfillment Offerings To Your Experience](/doc/commerce/checkout/use-fulfillment-offerings.html) for more
+See [Adding Fulfillment Offerings To Your Experience](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html) for more
 information.
 
 ## Shipping Address Validation
@@ -176,7 +176,7 @@ information.
 After the consumer selects
 or provides a personal shipping address through either the Shipping Options or Fulfillment Offerings,
 validate the address with the Address Validation API.
-See the [Address Validation](/doc/commerce/checkout/use-address.html#address-validation) section of the **Address Tools
+See the [Address Validation](/docs-portfolio/doc/commerce/checkout/use-address.html#address-validation) section of the **Address Tools
 ** guide for more information.
 
 ## Value-Added Services
@@ -257,7 +257,7 @@ including Buy-Online-Pickup-In-Store (BOPIS) and SMS (China only).
 > **NOTE**: Checkout Preview (and Checkout Submit in the next steps) operates asynchronously.
 > This means that after you
 > execute the initial request, you call another endpoint to get the result.
-> See [Using APIs](/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
+> See [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#asynchronous-operation) for more details.
 
 ### Step 1: Request Checkout Preview
 
@@ -265,7 +265,7 @@ Execute a PUT request to
 the [Request Checkout Preview]()
 endpoint,
 passing the complete cart
-and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
+and `fulfillmentDetails` returned from [fulfillment offerings](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html)
 for each item.
 
 The API ensures that the products and fulfillment details for each item are valid based on pricing,
@@ -376,7 +376,7 @@ Buy-Online-Pickup-In-Store (BOPIS).
 
 Execute a PUT request to the **Request a Checkout Submit** endpoint,
 passing the complete cart
-and `fulfillmentDetails` returned from [fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
+and `fulfillmentDetails` returned from [fulfillment offerings](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html)
 for each item.
 
 **SMS Checkout Submit (China Only)**
@@ -400,7 +400,7 @@ https://api.domain.com/buy/checkouts/v3/61bc115b-16e5-43b5-bcaf-dd6168c543f8
 > **TIPS:**
 >- You must have previously called the Payment Preview API to collect the required payment information, most notably the
    mandatory Payment Preview **id**.
-   See the [Adding Payment to Your Experience](/doc/commerce/payment/use-payment.html)
+   See the [Adding Payment to Your Experience](/docs-portfolio/doc/commerce/payment/use-payment.html)
    for more info.
 >- Optionally, for Japan only, send `GIFT_RECEIPT` in the **invoiceInfo** block, which prevents prices from being
    printed on the packing slip that is included with the product shipment.
@@ -472,7 +472,7 @@ Depending on user type, certain aspects of the calls that you make to the Checko
 Also, consider that not all user types might apply to your app.
 For example, your app might only support Members.
 
-See the User Types section of the [Using APIs](/doc/getting-started/using-apis.html#user-types) guide for more
+See the User Types section of the [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#user-types) guide for more
 information.
 
 ### Request Headers
@@ -513,7 +513,7 @@ There are four possible scenarios:
 | UUID is new, Entity previously submitted under another UUID | Client receives HTTP 202 response, request processed as new job                                |
 
 > **TIP:** For more, see the Idempotence Guarantee section of
-> the [Using APIs](/doc/getting-started/using-apis.html#idempotence-guarantee) guide.
+> the [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#idempotence-guarantee) guide.
 
 ### Conditions for Retries
 
@@ -602,7 +602,7 @@ Listed below are ways to troubleshoot unexpected responses using this API.
 ### Tools
 
 - Use the general troubleshooting tips in
-  the [Using APIs](/doc/getting-started/using-apis.html#troubleshooting) guide.
+  the [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#troubleshooting) guide.
 - Use a Splunk query (requires access) to check for issues with your request.
 - Contact the Buy team on the [#order-integration]() Slack channel
   for assistance.
@@ -630,7 +630,7 @@ If the job times out, you will get a 'completed with error' job status.
 
 It is recommended
 that you send a caller ID header in every request to this API to help troubleshoot unexpected responses.
-See the Registration section of the [Using APIs](/doc/getting-started/using-apis.html#registration) guide
+See the Registration section of the [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#registration) guide
 on how to create and register your caller ID.
 
 ### Authentication
@@ -643,14 +643,14 @@ Access tokens are obtained by calling [accounts.domain.com]()
 or [Unite/Identity]() prior to
 calling the API which you ultimately want to reach.
 
-See [Authorization](/doc/getting-started/using-apis.html#authorization) for more information
+See [Authorization](/docs-portfolio/doc/getting-started/using-apis.html#authorization) for more information
 on how to call accounts.domain.com and Unite/Identity services.
 
 #### JSON Web Token
 
 Only one Buy API endpoint requires the additional authorization of a JSON Web Token (JWT), **Checkout Submit (Launch)**.
 For more information,
-see the JWT section of [Using APIs](/doc/getting-started/using-apis.html#authorization).
+see the JWT section of [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#authorization).
 
 ## Contacting the Team
 
@@ -669,6 +669,6 @@ Need to contact the Buy team?
 
 You've learned how to add Checkout to your experience. Here are some related topics.
 
-- [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
-- [Using APIs](/doc/getting-started/using-apis.html)
-- [Glossary](/doc/commerce/reference/glossary.html)
+- [Fulfillment Offerings](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html)
+- [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html)
+- [Glossary](/docs-portfolio/doc/commerce/reference/glossary.html)

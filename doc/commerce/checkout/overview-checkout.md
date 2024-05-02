@@ -3,9 +3,9 @@ id: overview-checkout
 category: a-overview
 position: 6
 title: Cart & Checkout
-url: /doc/commerce/checkout/overview-checkout.html
+url: /docs-portfolio/doc/commerce/checkout/overview-checkout.html
 h1: Cart & Checkout Overview
-dev-guide: /doc/commerce/checkout/use-checkout.html
+dev-guide: /docs-portfolio/doc/commerce/checkout/use-checkout.html
 ---
 
 Learn how to use Cart, Checkout, and Payment to enable the purchase of products and services in your app.
@@ -22,15 +22,15 @@ The consumer finds a product that they love in your app.
 What happens next?
 Step through the checklist below to incorporate Cart, Checkout, and Payment capabilities into your experience.
 
-- [Manage a consumer's shopping cart and get product pricing](/doc/commerce/checkout/use-carts.html#carts)
-- [Manage a consumer's wishlist (member/employee only) of products and services](/doc/commerce/checkout/use-wishlists.html)
-- [Review a consumer's cart for checkout](/doc/commerce/checkout/use-carts.html#step-2-get-a-cart)
-- [Get available fulfillment offerings](/doc/commerce/checkout/use-fulfillment-offerings.html)
-- [Validate a shipping address](/doc/commerce/checkout/use-checkout.html#shipping-address-validation)
-- [Validate a checkout for fulfillment](/doc/commerce/checkout/use-checkout.html#checkout-preview)
-- [Get available payment methods](/doc/commerce/payment/use-payment.html#listing-and-validating-payment-options)
-- [Validate payment](/doc/commerce/payment/use-payment.html#payment-preview)
-- [Submit a checkout for fulfillment](/doc/commerce/checkout/use-checkout.html#checkout-submit)
+- [Manage a consumer's shopping cart and get product pricing](/docs-portfolio/doc/commerce/checkout/use-carts.html#carts)
+- [Manage a consumer's wishlist (member/employee only) of products and services](/docs-portfolio/doc/commerce/checkout/use-wishlists.html)
+- [Review a consumer's cart for checkout](/docs-portfolio/doc/commerce/checkout/use-carts.html#step-2-get-a-cart)
+- [Get available fulfillment offerings](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html)
+- [Validate a shipping address](/docs-portfolio/doc/commerce/checkout/use-checkout.html#shipping-address-validation)
+- [Validate a checkout for fulfillment](/docs-portfolio/doc/commerce/checkout/use-checkout.html#checkout-preview)
+- [Get available payment methods](/docs-portfolio/doc/commerce/payment/use-payment.html#listing-and-validating-payment-options)
+- [Validate payment](/docs-portfolio/doc/commerce/payment/use-payment.html#payment-preview)
+- [Submit a checkout for fulfillment](/docs-portfolio/doc/commerce/checkout/use-checkout.html#checkout-submit)
 
 #### Which API Version Should I Use?
 
@@ -91,15 +91,15 @@ The APIs required for the two fulfillment flows are listed below.
 </ul>
 </aside>
 
-- [Wishlist](/doc/commerce/checkout/use-wishlists.html): Learn how to add Wishlist to your shopping experience.
-- [Carts](/doc/commerce/checkout/use-carts.html): Learn how to manage a Cart as part of your checkout flow.
-- [Fulfillment Offerings](/doc/commerce/checkout/use-fulfillment-offerings.html): Enable your consumers to choose how
+- [Wishlist](/docs-portfolio/doc/commerce/checkout/use-wishlists.html): Learn how to add Wishlist to your shopping experience.
+- [Carts](/docs-portfolio/doc/commerce/checkout/use-carts.html): Learn how to manage a Cart as part of your checkout flow.
+- [Fulfillment Offerings](/docs-portfolio/doc/commerce/checkout/use-fulfillment-offerings.html): Enable your consumers to choose how
   and when to get products.
-- [Checkout](/doc/commerce/checkout/use-checkout.html): Learn how to manage a Checkout as part of your shopping flow.
-- [Payment](/doc/commerce/payment/use-payment.html): Learn how to collect payment as part of your checkout flow.
-- [Working with Circuit Breakers](/doc/commerce/reference/caller-best-practices.html): Learn how to be a good client by
+- [Checkout](/docs-portfolio/doc/commerce/checkout/use-checkout.html): Learn how to manage a Checkout as part of your shopping flow.
+- [Payment](/docs-portfolio/doc/commerce/payment/use-payment.html): Learn how to collect payment as part of your checkout flow.
+- [Working with Circuit Breakers](/docs-portfolio/doc/commerce/reference/caller-best-practices.html): Learn how to be a good client by
   following these best practices.
-- [Glossary](/doc/commerce/reference/glossary.html): Common terms explained.
+- [Glossary](/docs-portfolio/doc/commerce/reference/glossary.html): Common terms explained.
 
 #### Connect to the Docs Team
 

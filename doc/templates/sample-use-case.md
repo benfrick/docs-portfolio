@@ -210,7 +210,7 @@ Access tokens are obtained by calling [Identity Provider 1]() or [Identity Provi
 
 {Does this thing require JWT?}
 
-For more, see the JWT section of [Using APIs](/doc/getting-started/using-apis.html#authorization).
+For more, see the JWT section of [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html#authorization).
 
 ### Sample Requests
 

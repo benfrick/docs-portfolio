@@ -6,19 +6,19 @@ title: Circuit Breaker Best Practices
 url: /commerce/reference/caller-best-practices.html
 toc:
   - h2: Service Call Best Practices
-    url: /doc/commerce/reference/caller-best-practices.html#service-call-best-practices
+    url: /docs-portfolio/doc/commerce/reference/caller-best-practices.html#service-call-best-practices
   - h2: Buy Service
-    url: /doc/commerce/reference/caller-best-practices.html#buy-service
+    url: /docs-portfolio/doc/commerce/reference/caller-best-practices.html#buy-service
   - h2: Availability
-    url: /doc/commerce/reference/caller-best-practices.html#availability
+    url: /docs-portfolio/doc/commerce/reference/caller-best-practices.html#availability
   - h2: Launch Service
-    url: /doc/commerce/reference/caller-best-practices.html#launch-service
+    url: /docs-portfolio/doc/commerce/reference/caller-best-practices.html#launch-service
   - h2: Merchandised Product Service
-    url: /doc/commerce/reference/caller-best-practices.html#merchandised-product-service
+    url: /docs-portfolio/doc/commerce/reference/caller-best-practices.html#merchandised-product-service
   - h2: Payment Service
-    url: /doc/commerce/reference/caller-best-practices.html#payment-service
+    url: /docs-portfolio/doc/commerce/reference/caller-best-practices.html#payment-service
   - h2: Product Feeds Service
-    url: /doc/commerce/reference/caller-best-practices.html#product-feeds-service
+    url: /docs-portfolio/doc/commerce/reference/caller-best-practices.html#product-feeds-service
 ---
 ##### Last Updated: 05/01/2024
 
@@ -459,5 +459,5 @@ Listed below are the best practices for calling each Product Feeds Service.
 
 ## Related Links
 
-- [Using APIs](/doc/getting-started/using-apis.html)
-- [Glossary](/doc/commerce/reference/glossary.html)
+- [Using APIs](/docs-portfolio/doc/getting-started/using-apis.html)
+- [Glossary](/docs-portfolio/doc/commerce/reference/glossary.html)
