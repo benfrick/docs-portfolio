@@ -10,6 +10,9 @@ group :jekyll_plugins do
   gem 'jekyll-minifier'
 end
 
-gem "webrick", "~> 1.7"
+# added to address vuln
+gem "rexml", "~> 3.2.7"
+gem "nokogiri", "~> 1.16.5"
 
-gem 'html-proofer'
+# updated to address vuln
+gem "webrick", "~> 1.8.2"
