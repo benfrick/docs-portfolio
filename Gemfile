@@ -11,7 +11,7 @@ group :jekyll_plugins do
 end
 
 # added to address vuln
-gem "rexml", "~> 3.2.7"
+gem "rexml", "~> 3.3.2"
 gem "nokogiri", "~> 1.16.5"
 
 # updated to address vuln
